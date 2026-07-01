@@ -57,3 +57,19 @@ a {
 .nav__link:hover {
   color: var(--purple-color);
 }
+
+.section {
+  display: none;
+}
+
+.section.active-section {
+  display: block;
+}
+
+.nav__link.section.active-link {
+  color: var(--purple-color);
+}
+
+.temp-description {
+  text-align: center;
+}

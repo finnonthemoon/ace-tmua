@@ -9,17 +9,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/app.js"></script>
   </head>
   <body>
     <h1>Ace TMUA</h1>
-    <!-- <nav>
-      <ul>
-        <li><a href="pages/index.html">Learn</a></li>
-        <li><a href="pages/questions.html">Questions</a></li>
-        <li><a href="pages/leaderboard.html">Leaderboard</a></li>
-        <li><a href="pages/profile.html">Profile</a></li>
-      </ul>
-    </nav> -->
     <nav class="nav">
       <ul class="nav__list">
         <li>
@@ -29,7 +22,7 @@
         </li>
 
         <li>
-          <a href="#Learn" class="nav__link">
+          <a href="#learn" class="nav__link">
             <i class="ri-mind-map"></i>
           </a>
         </li>
@@ -49,20 +42,24 @@
     </nav>
 
     <main class="container">
-      <section class="section" id="home">
-        <h1>HOME</h1>
+      <section class="section" id="leaderboard">
+        <h1>Leaderboard</h1>
       </section>
 
-      <section class="section" id="about">
-        <h1>ABOUT</h1>
+      <section class="section active-section" id="learn">
+        <h1>Learn</h1>
+        <p class="temp-description">
+          This is where students will choose their topic
+        </p>
       </section>
 
-      <section class="section" id="projects">
-        <h1>PROJECTS</h1>
+      <section class="section" id="questions">
+        <h1>Questions</h1>
+        <p class="temp-description">Sets of practice questions will go here</p>
       </section>
 
-      <section class="section" id="contact">
-        <h1>CONTACT</h1>
+      <section class="section" id="profile">
+        <h1>Profile</h1>
       </section>
     </main>
   </body>
