@@ -1,16 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const jsonUrl = 'data.json'; 
+document.addEventListener('DOMContentLoaded', async () => {
+    const jsonURL = 'data/leaderboard.json'; 
     const tableBody = document.getElementById('leaderboard-data');
 
-    fetch(jsonUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); 
-        })
-        .then(data => {
-            data.users.forEach(user => {
+
+    try {
+        const response = await fetch(jsonURL)
+        if (!response.ok) {
+            throw new Error('Network response was not ok')
+        }
+        
+        const data = await response.json()
+
+        data.users.forEach(user => {
                 const row = document.createElement('tr');
 
                 row.innerHTML = `
@@ -21,11 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 tableBody.appendChild(row);
             });
-        })
-        .catch(error => {
-            console.error('There was a problem fetching the data:', error);
-            tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:red;">Failed to load leaderboard.</td></tr>`;
-        });
+    }
+    catch (error) {
+        console.error('There was a problem fetching the data: ', error);
+        tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:red;">Failed to load leaderboard.</td></tr>`;
+    }
 
     const navLinks = document.querySelectorAll('.nav__link');
     const sections = document.querySelectorAll('.section');

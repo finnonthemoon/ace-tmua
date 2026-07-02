@@ -1,8 +1,0 @@
-{
-    "users":[
-        {"name": "John Smith", "targetUni": "Warwick", "weeklyScore": "1900"},
-        {"name": "Sarah Doe", "targetUni": "Oxford", "weeklyScore": "1850"},
-        {"name": "Huang Hee-Chan", "targetUni": "Cambridge", "weeklyScore": "1790"},
-        {"name": "Matt Rayner", "targetUni": "Imperial", "weeklyScore": "1781"}
-    ]
-}
