@@ -1,6 +1,15 @@
 :root {
   --purple-color: #5b35f5;
   --offwhite-color: #fdfaf5;
+
+  --pastel-red: #ff6767;
+  --pastel-orange: #ffb962;
+  --pastel-yellow: #ffe679;
+  --pastel-green: #79ff7d;
+  --pastel-light-blue: #8fd5db;
+  --pastel-blue: #a0c4ff;
+  --pastel-indigo: #9886ff;
+  --pastel-pink: #ffa0ff;
 }
 
 * {
@@ -54,6 +63,10 @@ a {
   transition: color 0.4s;
 }
 
+.nav__link.topic-link {
+  font-size: 17px;
+}
+
 .nav__link:hover {
   color: var(--purple-color);
 }
@@ -80,7 +93,8 @@ table {
   width: 100%;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -88,4 +102,29 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.topics-container {
+  margin-top: 40px;
+}
+
+.topic-box {
+  color: white;
+  display: flex;
+  padding: 50px 100px;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+#box-1 {
+  background-color: var(--pastel-red);
+}
+#box-2 {
+  background-color: var(--pastel-orange);
+}
+#box-3 {
+  background-color: var(--pastel-indigo);
+}
+#box-4 {
+  background-color: var(--pastel-light-blue);
 }
