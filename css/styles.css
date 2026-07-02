@@ -111,7 +111,7 @@ tr:nth-child(even) {
   padding: 50px 100px;
   border-radius: 25px;
   margin: 20px;
-  filter: drop-shadow(black 2px 2px 2px)
+  filter: drop-shadow(black 2px 2px 2px);
 }
 
 #box-1 {
@@ -125,4 +125,40 @@ tr:nth-child(even) {
 }
 #box-4 {
   background-color: var(--pastel-light-blue);
+}
+
+.ri-arrow-left-circle-fill {
+  font-size: 30pt;
+}
+
+.progression-path {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin-block: 2rem;
+}
+
+.topic-link i {
+  font-size: 5rem;
+  color: #5b35f5;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.topic-link i:active {
+  transform: scale(0.7);
+  transition: 0.5s;
+}
+
+#circle-1 {
+  transform: translate(0);
+}
+
+#circle-2 {
+  transform: translate(-35px);
+}
+
+#circle-3 {
+  transform: translate(35px);
 }
