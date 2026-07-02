@@ -19,12 +19,13 @@
 
 body {
   overscroll-behavior: none;
-  max-width: 390px;
+  max-width: 100%;
   background-color: var(--offwhite-color);
 }
 
 h1 {
   text-align: center;
+  margin-top: 30px;
 }
 
 ul {
@@ -61,10 +62,6 @@ a {
   color: hsl(225, 8%, 65%);
   font-size: 1.5rem;
   transition: color 0.4s;
-}
-
-.nav__link.topic-link {
-  font-size: 17px;
 }
 
 .nav__link:hover {
@@ -114,6 +111,7 @@ tr:nth-child(even) {
   padding: 50px 100px;
   border-radius: 25px;
   margin: 20px;
+  filter: drop-shadow(black 2px 2px 2px)
 }
 
 #box-1 {

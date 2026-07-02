@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const navLinks = document.querySelectorAll('.nav__link');
     const sections = document.querySelectorAll('.section');
+    const topicLinks = document.querySelectorAll('.topic-link');
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -45,6 +46,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (targetSection) {
             targetSection.classList.add('active-section');
         }
+        });
+    });
+
+    topicLinks.forEach(topic => {
+        topic.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            sections.forEach(s => s.classList.remove('active-section'));
+
+            const targetId = topic.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active-section');
+            }
+
         });
     });
 });
