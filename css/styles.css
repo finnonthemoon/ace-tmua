@@ -162,3 +162,93 @@ tr:nth-child(even) {
 #circle-3 {
   transform: translate(35px);
 }
+/* ============================================================
+   Profile card + stats
+   ============================================================ */
+
+.profile__card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #4f46e5;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.profile__name {
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem;
+}
+
+.profile__target {
+  font-size: 0.9rem;
+  color: #7a7a85;
+  margin: 0;
+}
+
+.profile__stat-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.profile__stat-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  text-align: center;
+}
+
+.profile__stat-label {
+  font-size: 0.8rem;
+  color: #7a7a85;
+  margin: 0 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.profile__stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ============================================================
+   Load test data button
+   ============================================================ */
+
+.load-seed {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.load-seed:hover {
+  border-color: #4f46e5;
+  color: #4f46e5;
+}

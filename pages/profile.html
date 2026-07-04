@@ -1,11 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button class="load-seed" onclick="loadSeedData()">
+        <i class="ri-refresh-line"></i> Load test data
+      </button>
+      <div id="profile-root"></div>
+    </div>
+
+    <script src="../js/userData.js"></script>
+    <script>
+      function initials(name) {
+        return name
+          .split(" ")
+          .map((p) => p[0])
+          .join("")
+          .slice(0, 2)
+          .toUpperCase();
+      }
+
+      function renderProfile() {
+        const user = userData.get();
+        const root = document.getElementById("profile-root");
+
+        root.innerHTML = `
+          <div class="profile__card">
+            <div class="profile__avatar">${initials(user.name)}</div>
+            <div>
+              <h2 class="profile__name">${user.name}</h2>
+              <p class="profile__target">
+                Target: ${user.targetUni} &middot; Goal score ${user.targetScore}%
+              </p>
+            </div>
+          </div>
+
+          <div class="profile__stat-row">
+            <div class="profile__stat-card">
+              <p class="profile__stat-label"><i class="ri-fire-line"></i> Streak</p>
+              <p class="profile__stat-value">${user.streak} wks</p>
+            </div>
+            <div class="profile__stat-card">
+              <p class="profile__stat-label"><i class="ri-flag-line"></i> Target score</p>
+              <p class="profile__stat-value">${user.targetScore}%</p>
+            </div>
+          </div>
+        `;
+      }
+
+      renderProfile();
+    </script>
+  </body>
 </html>
