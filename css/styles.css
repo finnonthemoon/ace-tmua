@@ -5,7 +5,7 @@
   --pastel-red: #ff6767;
   --pastel-orange: #ffb962;
   --pastel-yellow: #ffe679;
-  --pastel-green: #79ff7d;
+  --pastel-green: #68cf6b;
   --pastel-light-blue: #8fd5db;
   --pastel-blue: #a0c4ff;
   --pastel-indigo: #9886ff;
@@ -22,6 +22,7 @@ body {
   max-width: 100%;
   background-color: var(--offwhite-color);
 }
+
 
 h1 {
   text-align: center;
@@ -102,16 +103,35 @@ tr:nth-child(even) {
 }
 
 .topics-container {
-  margin-top: 40px;
+    margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-inline: 15px;
+}
+
+.topic-link {
+  width: 47%;
+  text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .topic-box {
   color: white;
   display: flex;
-  padding: 50px 100px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
   border-radius: 25px;
+  padding: 30px 15px;
+  height: 120px;
   margin: 20px;
   filter: drop-shadow(black 2px 2px 2px);
+}
+
+.topic-box {
+  margin: 0;
 }
 
 #box-1 {
@@ -126,7 +146,16 @@ tr:nth-child(even) {
 #box-4 {
   background-color: var(--pastel-light-blue);
 }
-
+#box-5 {
+  background-color: var(--pastel-green);
+}
+#box-6 {
+  background-color: var(--pastel-pink);
+}
+#box-7 {
+  background-color: var(--pastel-blue);
+  margin-bottom: 110px;
+}
 .ri-arrow-left-circle-fill {
   font-size: 30pt;
 }
@@ -137,6 +166,10 @@ tr:nth-child(even) {
   align-items: center;
   gap: 2.5rem;
   margin-block: 2rem;
+}
+
+.topic-link {
+  text-align: center;
 }
 
 .topic-link i {
