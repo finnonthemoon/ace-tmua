@@ -4,7 +4,7 @@
 
   --pastel-red: #ff6767;
   --pastel-orange: #ffb962;
-  --pastel-yellow: #ffe679;
+  --pastel-yellow: #f2d415;
   --pastel-green: #68cf6b;
   --pastel-light-blue: #8fd5db;
   --pastel-blue: #a0c4ff;
@@ -22,7 +22,6 @@ body {
   max-width: 100%;
   background-color: var(--offwhite-color);
 }
-
 
 h1 {
   text-align: center;
@@ -103,7 +102,7 @@ tr:nth-child(even) {
 }
 
 .topics-container {
-    margin-top: 50px;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -154,7 +153,9 @@ tr:nth-child(even) {
 }
 #box-7 {
   background-color: var(--pastel-blue);
-  margin-bottom: 110px;
+}
+#box-8 {
+  background-color: var(--pastel-yellow);
 }
 .ri-arrow-left-circle-fill {
   font-size: 30pt;
@@ -164,40 +165,77 @@ tr:nth-child(even) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
   margin-block: 2rem;
+  width: 100%;
 }
 
-.topic-link {
-  text-align: center;
+.path-link {
+  width: auto !important;
+  margin-bottom: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.topic-link i {
+.path-link i {
   font-size: 5rem;
-  color: #5b35f5;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
-.topic-link i:active {
+.path-link i:active {
   transform: scale(0.7);
+  color: #4b2cc8;
   transition: 0.5s;
 }
 
-#circle-1 {
-  transform: translate(0);
+#topic-1 .path-link i {
+  color: var(--pastel-red);
+}
+#topic-2 .path-link i {
+  color: var(--pastel-orange);
+}
+#topic-3 .path-link i {
+  color: var(--pastel-indigo);
+}
+#topic-4 .path-link i {
+  color: var(--pastel-light-blue);
+}
+#topic-5 .path-link i {
+  color: var(--pastel-green);
+}
+#topic-6 .path-link i {
+  color: var(--pastel-pink);
+}
+#topic-7 .path-link i {
+  color: var(--pastel-blue);
+}
+#topic-8 .path-link i {
+  color: var(--pastel-yellow);
 }
 
-#circle-2 {
-  transform: translate(-35px);
+.path-link p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  color: black;
+  font-weight: 700;
+  text-align: center;
 }
 
-#circle-3 {
-  transform: translate(35px);
+#node-1 {
+  transform: translateX(30px);
 }
-/* ============================================================
-   Profile card + stats
-   ============================================================ */
+#node-2 {
+  transform: translateX(-65px);
+}
+#node-3 {
+  transform: translateX(65px);
+}
+#node-4 {
+  transform: translateX(-30px);
+}
 
 .profile__card {
   background: #fff;
@@ -264,10 +302,6 @@ tr:nth-child(even) {
   font-weight: 700;
   margin: 0;
 }
-
-/* ============================================================
-   Load test data button
-   ============================================================ */
 
 .load-seed {
   margin-bottom: 1rem;
