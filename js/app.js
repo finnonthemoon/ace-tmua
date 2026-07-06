@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const jsonURL = 'data/leaderboard.json'; 
+    const jsonURL = 'data/leaderboard.json';
     const tableBody = document.getElementById('leaderboard-data');
 
 
@@ -8,20 +8,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!response.ok) {
             throw new Error('Network response was not ok')
         }
-        
+
         const data = await response.json()
 
         data.users.forEach(user => {
-                const row = document.createElement('tr');
+            const row = document.createElement('tr');
 
-                row.innerHTML = `
+            row.innerHTML = `
                     <td>${user.name}</td>
                     <td>${user.targetUni}</td>
                     <td>${user.weeklyScore}</td>
                 `;
 
-                tableBody.appendChild(row);
-            });
+            tableBody.appendChild(row);
+        });
     }
     catch (error) {
         console.error('There was a problem fetching the data: ', error);
@@ -34,18 +34,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-        e.preventDefault(); 
+            e.preventDefault();
 
-        navLinks.forEach(l => l.classList.remove('active-link'));
-        sections.forEach(s => s.classList.remove('active-section'));
+            navLinks.forEach(l => l.classList.remove('active-link'));
+            sections.forEach(s => s.classList.remove('active-section'));
 
-        link.classList.add('active-link');
+            link.classList.add('active-link');
 
-        const targetId = link.getAttribute('href'); 
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-            targetSection.classList.add('active-section');
-        }
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active-section');
+            }
         });
     });
 
@@ -63,4 +63,30 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         });
     });
+    function getInitials(name) {
+        return name
+            .split(" ")
+            .map((part) => part[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase();
+    }
+
+    function renderHomeUser() {
+        const user = userData.get();
+
+        const greeting = document.getElementById("home-greeting");
+        const avatar = document.getElementById("home-avatar");
+
+        if (greeting) {
+            const firstName = user.name.split(" ")[0];
+            greeting.textContent = `Good morning, ${firstName}!`;
+        }
+
+        if (avatar) {
+            avatar.textContent = getInitials(user.name);
+        }
+    }
+
+    renderHomeUser();
 });
