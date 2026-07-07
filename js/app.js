@@ -28,41 +28,59 @@ document.addEventListener('DOMContentLoaded', async () => {
         tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:red;">Failed to load leaderboard.</td></tr>`;
     }
 
-    const navLinks = document.querySelectorAll('.nav__link');
-    const sections = document.querySelectorAll('.section');
-    const topicLinks = document.querySelectorAll('.topic-link');
+    const navLinks = document.querySelectorAll(".nav__link");
+    const topicLinks = document.querySelectorAll(".topic-link");
+    const backLinks = document.querySelectorAll(".back-link");
+    const sections = document.querySelectorAll(".section");
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
+    function showSection(targetId) {
+        const targetSection = document.querySelector(targetId);
 
-            navLinks.forEach(l => l.classList.remove('active-link'));
-            sections.forEach(s => s.classList.remove('active-section'));
+        if (!targetSection) {
+            return;
+        }
 
-            link.classList.add('active-link');
-
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                targetSection.classList.add('active-section');
-            }
+        sections.forEach((section) => {
+            section.classList.remove("active-section");
         });
-    });
 
-    topicLinks.forEach(topic => {
-        topic.addEventListener('click', (e) => {
-            e.preventDefault();
+        targetSection.classList.add("active-section");
 
-            sections.forEach(s => s.classList.remove('active-section'));
+        const mainPages = [
+            "#home",
+            "#learn",
+            "#leaderboard",
+            "#questions",
+            "#profile",
+        ];
 
-            const targetId = topic.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                targetSection.classList.add('active-section');
-            }
+        if (mainPages.includes(targetId)) {
+            navLinks.forEach((link) => {
+                const isCurrentPage = link.getAttribute("href") === targetId;
+                link.classList.toggle("active-link", isCurrentPage);
+            });
+        }
 
+        window.scrollTo(0, 0);
+    }
+
+    function addNavigation(links) {
+        links.forEach((link) => {
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                const targetId = link.getAttribute("href");
+
+                if (targetId && targetId.startsWith("#")) {
+                    showSection(targetId);
+                }
+            });
         });
-    });
+    }
+
+    addNavigation(navLinks);
+    addNavigation(topicLinks);
+    addNavigation(backLinks);
     function getInitials(name) {
         return name
             .split(" ")
