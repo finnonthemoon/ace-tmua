@@ -1,570 +1,578 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AceTMUA</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/app.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AceTMUA</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <script src="js/app.js"></script>
-</head>
+  <body>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li>
+          <a href="#home" class="nav__link active-link" aria-label="Home">
+            <i class="ri-home-5-line"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#learn" class="nav__link">
+            <i class="ri-mind-map"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#leaderboard" class="nav__link">
+            <i class="ri-medal-line"></i>
+          </a>
+        </li>
 
-<body>
-  <nav class="nav">
-    <ul class="nav__list">
-      <li>
-        <a href="#home" class="nav__link active-link" aria-label="Home">
-          <i class="ri-home-5-line"></i>
-        </a>
-      </li>
-      <li>
+        <li>
+          <a href="#questions" class="nav__link">
+            <i class="ri-questionnaire-line"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="#profile" class="nav__link">
+            <i class="ri-user-line"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <section class="section active-section" id="home">
+        <div class="home__header">
+          <div>
+            <p class="home__eyebrow">ACE TMUA</p>
+            <h1 id="home-greeting">Good morning!</h1>
+            <p class="home__subtext">
+              A little practice today goes a long way.
+            </p>
+          </div>
+
+          <div
+            class="home__avatar"
+            id="home-avatar"
+            aria-label="Profile avatar"
+          ></div>
+        </div>
+
+        <article class="streak-card">
+          <div class="streak-card__icon">
+            <i class="ri-fire-fill"></i>
+          </div>
+
+          <div class="streak-card__content">
+            <p class="streak-card__label">Current streak</p>
+            <p class="streak-card__number">7 <span>days</span></p>
+            <p class="streak-card__message">Keep it going — practise today!</p>
+          </div>
+
+          <div class="streak-card__days" aria-label="Weekly streak">
+            <span class="streak-day active">M</span>
+            <span class="streak-day active">T</span>
+            <span class="streak-day active">W</span>
+            <span class="streak-day active">T</span>
+            <span class="streak-day active">F</span>
+            <span class="streak-day active">S</span>
+            <span class="streak-day">S</span>
+          </div>
+        </article>
+
+        <article class="home__next-card">
+          <div>
+            <p class="home__eyebrow">CONTINUE LEARNING</p>
+            <h2>Algebra and Functions</h2>
+            <p>Next up: Quadratics &amp; Inequalities</p>
+          </div>
+
+          <a class="home__continue-button" href="#learn">
+            Continue
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </article>
+      </section>
+      <section class="section" id="learn">
+        <h1>Learn</h1>
+
+        <div class="topics-container">
+          <a href="#topic-1" class="topic-link">
+            <div class="topic-box" id="box-1">Algebra and Functions</div>
+          </a>
+          <a href="#topic-2" class="topic-link">
+            <div class="topic-box" id="box-2">Sequences and Series</div>
+          </a>
+          <a href="#topic-3" class="topic-link">
+            <div class="topic-box" id="box-3">Coordinate Geometry</div>
+          </a>
+          <a href="#topic-4" class="topic-link">
+            <div class="topic-box" id="box-4">Trigonometry</div>
+          </a>
+          <a href="#topic-5" class="topic-link">
+            <div class="topic-box" id="box-5">Exponentials and Logarithms</div>
+          </a>
+          <a href="#topic-6" class="topic-link">
+            <div class="topic-box" id="box-6">Calculus</div>
+          </a>
+          <a href="#topic-7" class="topic-link">
+            <div class="topic-box" id="box-7">Geometry and Data</div>
+          </a>
+          <a href="#topic-8" class="topic-link">
+            <div class="topic-box" id="box-8">Logic and Proof</div>
+          </a>
+        </div>
+      </section>
+      <!--ALGEBRA AND FUNCTIONS-->
+      <section class="section" id="topic-1">
         <a href="#learn" class="nav__link">
-          <i class="ri-mind-map"></i>
+          <i class="ri-arrow-left-circle-fill"></i>
         </a>
-      </li>
-      <li>
-        <a href="#leaderboard" class="nav__link">
-          <i class="ri-medal-line"></i>
+        <h1>Algebra and Functions</h1>
+        <div class="progression-path">
+          <a href="#topic-1-1" class="topic-link path-link" id="node-1">
+            <i class="ri-record-circle-fill"></i>
+            <p>Indices, Surds, Polynomials</p>
+          </a>
+          <a href="#topic-1-2" class="topic-link path-link" id="node-2">
+            <i class="ri-record-circle-fill"></i>
+            <p>Quadratics & Inequalities</p>
+          </a>
+          <a href="#topic-1-3" class="topic-link path-link" id="node-3">
+            <i class="ri-record-circle-fill"></i>
+            <p>Functions & Simultaneous <br />Systems</p>
+          </a>
+          <a href="#topic-1-4" class="topic-link path-link" id="node-4">
+            <i class="ri-record-circle-fill"></i>
+            <p>Exam style questions</p>
+          </a>
+        </div>
+      </section>
+      <section class="section" id="topic-1-1">
+        <a href="#topic-1" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
         </a>
-      </li>
+        <h1>Indices, Surds, Polynomials</h1>
+        <p>The laws of indices:</p>
+        <img src="assets/indice-laws.png" height="350px" />
+      </section>
+      <section class="section" id="topic-1-2">
+        <a href="#topic-1" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Quadratics & Inequalities</h1>
+      </section>
+      <section class="section" id="topic-1-3">
+        <a href="#topic-1" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Functions & Simultaneous Systems</h1>
+      </section>
+      <section class="section" id="topic-1-4">
+        <a href="topic-1" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exam Style Questions</h1>
+      </section>
 
-      <li>
-        <a href="#questions" class="nav__link">
-          <i class="ri-questionnaire-line"></i>
+      <!-- SEQUENCES AND SERIES -->
+      <section class="section" id="topic-2">
+        <a href="#learn" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
         </a>
-      </li>
-
-      <li>
-        <a href="#profile" class="nav__link">
-          <i class="ri-user-line"></i>
+        <h1>Sequences and Series</h1>
+        <div class="progression-path">
+          <a href="#topic-2-1" class="topic-link path-link" id="node-1">
+            <i class="ri-record-circle-fill"></i>
+            <p>Arithmetic & Geometric Progressions</p>
+          </a>
+          <a href="#topic-2-2" class="topic-link path-link" id="node-2">
+            <i class="ri-record-circle-fill"></i>
+            <p>Binomial expansion & Factorials</p>
+          </a>
+          <a href="#topic-2-3" class="topic-link path-link" id="node-3">
+            <i class="ri-record-circle-fill"></i>
+            <p>Advanced Series Logic</p>
+          </a>
+          <a href="#topic-2-4" class="topic-link path-link" id="node-4">
+            <i class="ri-record-circle-fill"></i>
+            <p>Exam Style Questions</p>
+          </a>
+        </div>
+      </section>
+      <section class="section" id="topic-2-1">
+        <a href="#topic-2" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
         </a>
-      </li>
-    </ul>
-  </nav>
+        <h1>Arithmetic & Geometric Progressions</h1>
+      </section>
+      <section class="section" id="topic-2-2">
+        <a href="#topic-2" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Binomial expansion & Factorials</h1>
+      </section>
+      <section class="section" id="topic-2-3">
+        <a href="#topic-2" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Advanced Series Logic</h1>
+      </section>
+      <section class="section" id="topic-2-4">
+        <a href="topic-2" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exam Style Questions</h1>
+      </section>
 
-  <main class="container">
-    <section class="section active-section" id="home">
-      <div class="home__header">
-        <div>
-          <p class="home__eyebrow">ACE TMUA</p>
-          <h1 id="home-greeting">Good morning!</h1>
-          <p class="home__subtext">A little practice today goes a long way.</p>
+      <!-- COORDINATE GEOMETRY -->
+      <section class="section" id="topic-3">
+        <a href="#learn" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Coordinare Geometry</h1>
+        <!-- PATH -->
+        <div class="progression-path">
+          <a href="#topic-3-1" class="topic-link path-link" id="node-1">
+            <i class="ri-record-circle-fill"></i>
+            <p>Lines & Gradients</p>
+          </a>
+          <a href="#topic-3-2" class="topic-link path-link" id="node-2">
+            <i class="ri-record-circle-fill"></i>
+            <p>Circle Equations & Intersections</p>
+          </a>
+          <a href="#topic-3-3" class="topic-link path-link" id="node-3">
+            <i class="ri-record-circle-fill"></i>
+            <p>Circle Theorems on Axes</p>
+          </a>
+          <a href="#topic-3-4" class="topic-link path-link" id="node-4">
+            <i class="ri-record-circle-fill"></i>
+            <p>Exam Style Questions</p>
+          </a>
+        </div>
+      </section>
+      <!-- CONTENT -->
+      <section class="section" id="topic-3-1">
+        <a href="#topic-3" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Lines & Gradients</h1>
+      </section>
+      <section class="section" id="topic-3-2">
+        <a href="#topic-3" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Circle Equations & Intersections</h1>
+      </section>
+      <section class="section" id="topic-3-3">
+        <a href="#topic-3" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Circle Theorems on Axes</h1>
+      </section>
+      <section class="section" id="topic-4-4">
+        <a href="topic-3" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exam Style Questions</h1>
+      </section>
+      <!-- TRIGONOMETRY -->
+      <section class="section" id="topic-4">
+        <a href="#learn" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Trigonometry</h1>
+        <div class="progression-path">
+          <a href="#topic-4-1" class="topic-link path-link" id="node-1">
+            <i class="ri-record-circle-fill"></i>
+            <p>Triangles & Radians</p>
+          </a>
+          <a href="#topic-4-2" class="topic-link path-link" id="node-2">
+            <i class="ri-record-circle-fill"></i>
+            <p>Values, Graphs & Identities</p>
+          </a>
+          <a href="#topic-4-3" class="topic-link path-link" id="node-3">
+            <i class="ri-record-circle-fill"></i>
+            <p>Solving Equations</p>
+          </a>
+          <a href="#topic-4-4" class="topic-link path-link" id="node-4">
+            <i class="ri-record-circle-fill"></i>
+            <p>Exam Style Questions</p>
+          </a>
+        </div>
+      </section>
+      <!-- CONTENT -->
+      <section class="section" id="topic-4-1">
+        <a href="#topic-4" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Triangles & Radians</h1>
+      </section>
+      <section class="section" id="topic-4-2">
+        <a href="#topic-4" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Values, Graphs & Identities</h1>
+      </section>
+      <section class="section" id="topic-4-3">
+        <a href="#topic-4" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Solving Equations</h1>
+      </section>
+      <section class="section" id="topic-4-4">
+        <a href="topic-4" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exam Style Questions</h1>
+      </section>
+      <!-- EXPONENTIALS AND LOGARITHMS -->
+      <section class="section" id="topic-5">
+        <a href="#learn" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exponentials and Logarithms</h1>
+        <div class="progression-path">
+          <a href="#topic-5-1" class="topic-link path-link" id="node-1">
+            <i class="ri-record-circle-fill"></i>
+            <p>Log Laws & Exponential Graphs</p>
+          </a>
+          <a href="#topic-5-2" class="topic-link path-link" id="node-2">
+            <i class="ri-record-circle-fill"></i>
+            <p>Solving Exponential<br />& Log Equations</p>
+          </a>
+          <a href="#topic-5-3" class="topic-link path-link" id="node-3">
+            <i class="ri-record-circle-fill"></i>
+            <p>Advanced Log Reasoning</p>
+          </a>
+          <a href="#topic-5-4" class="topic-link path-link" id="node-4">
+            <i class="ri-record-circle-fill"></i>
+            <p>Exam Style Questions</p>
+          </a>
+        </div>
+      </section>
+      <!-- CONTENT -->
+      <section class="section" id="topic-5-1">
+        <a href="#topic-5" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Log Laws & Exponential Graphs</h1>
+      </section>
+      <section class="section" id="topic-5-2">
+        <a href="#topic-5" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Solving Exponential & Log Equations</h1>
+      </section>
+      <section class="section" id="topic-5-3">
+        <a href="#topic-5" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Advanced Log Reasoning</h1>
+      </section>
+      <section class="section" id="topic-5-4">
+        <a href="topic-5" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exam Style Questions</h1>
+      </section>
+      <!-- CALCULUS -->
+      <section class="section" id="topic-6">
+        <a href="#learn" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Calculus</h1>
+        <div class="progression-path">
+          <a href="#topic-6-1" class="topic-link path-link" id="node-1">
+            <i class="ri-record-circle-fill"></i>
+            <p>Differentiation & Turning Points</p>
+          </a>
+          <a href="#topic-6-2" class="topic-link path-link" id="node-2">
+            <i class="ri-record-circle-fill"></i>
+            <p>Integration & Area</p>
+          </a>
+          <a href="#topic-6-3" class="topic-link path-link" id="node-3">
+            <i class="ri-record-circle-fill"></i>
+            <p>Trapezium Rule<br />& Integration Logic</p>
+          </a>
+          <a href="#topic-6-4" class="topic-link path-link" id="node-4">
+            <i class="ri-record-circle-fill"></i>
+            <p>Exam Style Questions</p>
+          </a>
+        </div>
+      </section>
+      <!-- CONTENT -->
+      <section class="section" id="topic-6-1">
+        <a href="#topic-6" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Differentiation & Turning Points</h1>
+      </section>
+      <section class="section" id="topic-6-2">
+        <a href="#topic-6" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Integration & Area</h1>
+      </section>
+      <section class="section" id="topic-6-3">
+        <a href="#topic-6" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Trapezium Rule & Integration Logic</h1>
+      </section>
+      <section class="section" id="topic-6-4">
+        <a href="topic-6" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exam Style Questions</h1>
+      </section>
+      <!-- GEOMETRY AND DATA -->
+      <section class="section" id="topic-7">
+        <a href="#learn" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Geometry, Data, & Graph</h1>
+        <div class="progression-path">
+          <a href="#topic-7-1" class="topic-link path-link" id="node-1">
+            <i class="ri-record-circle-fill"></i>
+            <p>Graph Transformations</p>
+          </a>
+          <a href="#topic-7-2" class="topic-link path-link" id="node-2">
+            <i class="ri-record-circle-fill"></i>
+            <p>Geometry & Proportion</p>
+          </a>
+          <a href="#topic-7-3" class="topic-link path-link" id="node-3">
+            <i class="ri-record-circle-fill"></i>
+            <p>Statistics & Probability</p>
+          </a>
+          <a href="#topic-7-4" class="topic-link path-link" id="node-4">
+            <i class="ri-record-circle-fill"></i>
+            <p>Exam Style Questions</p>
+          </a>
+        </div>
+      </section>
+      <!-- CONTENT -->
+      <section class="section" id="topic-7-1">
+        <a href="#topic-7" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Graph Transformations</h1>
+      </section>
+      <section class="section" id="topic-7-2">
+        <a href="#topic-7" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Geometry & Proportion</h1>
+      </section>
+      <section class="section" id="topic-7-3">
+        <a href="#topic-7" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Statistics & Probability</h1>
+      </section>
+      <section class="section" id="topic-7-4">
+        <a href="topic-7" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exam Style Questions</h1>
+      </section>
+      <!-- LOGIC AND PROOF -->
+      <section class="section" id="topic-8">
+        <a href="#learn" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Logic and Proof</h1>
+        <div class="progression-path">
+          <a href="#topic-8-1" class="topic-link path-link" id="node-1">
+            <i class="ri-record-circle-fill"></i>
+            <p>Logic of Arguments</p>
+          </a>
+          <a href="#topic-8-2" class="topic-link path-link" id="node-2">
+            <i class="ri-record-circle-fill"></i>
+            <p>Methods of Proof & Quantifiers</p>
+          </a>
+          <a href="#topic-8-3" class="topic-link path-link" id="node-3">
+            <i class="ri-record-circle-fill"></i>
+            <p>Disproving proofs</p>
+          </a>
+          <a href="#topic-8-4" class="topic-link path-link" id="node-4">
+            <i class="ri-record-circle-fill"></i>
+            <p>Exam Style Questions</p>
+          </a>
+        </div>
+      </section>
+      <!-- CONTENT -->
+      <section class="section" id="topic-8-1">
+        <a href="#topic-8" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1></h1>
+      </section>
+      <section class="section" id="topic-8-2">
+        <a href="#topic-8" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1></h1>
+      </section>
+      <section class="section" id="topic-8-3">
+        <a href="#topic-8" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1></h1>
+      </section>
+      <section class="section" id="topic-8-4">
+        <a href="topic-8" class="nav__link active-link">
+          <i class="ri-arrow-left-circle-fill"></i>
+        </a>
+        <h1>Exam Style Questions</h1>
+      </section>
+      <section class="section" id="leaderboard">
+        <h1>Leaderboard</h1>
+        <table class="sortable">
+          <thead>
+            <th>Name</th>
+            <th>Target uni</th>
+            <th>Weekly score</th>
+          </thead>
+
+          <tbody id="leaderboard-data"></tbody>
+        </table>
+      </section>
+
+      <section class="section" id="questions">
+        <h1>Questions</h1>
+        <p class="temp-description">Sets of practice questions will go here</p>
+      </section>
+
+      <section class="section" id="profile">
+        <div class="container">
+          <button class="load-seed" onclick="loadSeedData()">
+            <i class="ri-refresh-line"></i> Load test data
+          </button>
+          <div id="profile-root"></div>
         </div>
 
-        <div class="home__avatar" id="home-avatar" aria-label="Profile avatar"></div>
-      </div>
+        <script src="../js/userData.js"></script>
+        <script>
+          function initials(name) {
+            return name
+              .split(" ")
+              .map((p) => p[0])
+              .join("")
+              .slice(0, 2)
+              .toUpperCase();
+          }
 
-      <article class="streak-card">
-        <div class="streak-card__icon">
-          <i class="ri-fire-fill"></i>
-        </div>
+          function renderProfile() {
+            const user = userData.get();
+            const root = document.getElementById("profile-root");
 
-        <div class="streak-card__content">
-          <p class="streak-card__label">Current streak</p>
-          <p class="streak-card__number">7 <span>days</span></p>
-          <p class="streak-card__message">Keep it going — practise today!</p>
-        </div>
-
-        <div class="streak-card__days" aria-label="Weekly streak">
-          <span class="streak-day active">M</span>
-          <span class="streak-day active">T</span>
-          <span class="streak-day active">W</span>
-          <span class="streak-day active">T</span>
-          <span class="streak-day active">F</span>
-          <span class="streak-day active">S</span>
-          <span class="streak-day">S</span>
-        </div>
-      </article>
-
-      <article class="home__next-card">
-        <div>
-          <p class="home__eyebrow">CONTINUE LEARNING</p>
-          <h2>Algebra and Functions</h2>
-          <p>Next up: Quadratics &amp; Inequalities</p>
-        </div>
-
-        <a class="home__continue-button" href="#learn">
-          Continue
-          <i class="ri-arrow-right-line"></i>
-        </a>
-      </article>
-    </section>
-    <section class="section" id="learn">
-      <h1>Learn</h1>
-
-      <div class="topics-container">
-        <a href="#topic-1" class="topic-link">
-          <div class="topic-box" id="box-1">Algebra and Functions</div>
-        </a>
-        <a href="#topic-2" class="topic-link">
-          <div class="topic-box" id="box-2">Sequences and Series</div>
-        </a>
-        <a href="#topic-3" class="topic-link">
-          <div class="topic-box" id="box-3">Coordinate Geometry</div>
-        </a>
-        <a href="#topic-4" class="topic-link">
-          <div class="topic-box" id="box-4">Trigonometry</div>
-        </a>
-        <a href="#topic-5" class="topic-link">
-          <div class="topic-box" id="box-5">Exponentials and Logarithms</div>
-        </a>
-        <a href="#topic-6" class="topic-link">
-          <div class="topic-box" id="box-6">Calculus</div>
-        </a>
-        <a href="#topic-7" class="topic-link">
-          <div class="topic-box" id="box-7">Geometry and Data</div>
-        </a>
-        <a href="#topic-8" class="topic-link">
-          <div class="topic-box" id="box-8">Logic and Proof</div>
-        </a>
-      </div>
-    </section>
-    <!--ALGEBRA AND FUNCTIONS-->
-    <section class="section" id="topic-1">
-      <a href="#learn" class="nav__link>
-        <i class=" ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Algebra and Functions</h1>
-      <div class="progression-path">
-        <a href="#topic-1-1" class="topic-link path-link" id="node-1">
-          <i class="ri-record-circle-fill"></i>
-          <p>Indices, Surds, Polynomials</p>
-        </a>
-        <a href="#topic-1-2" class="topic-link path-link" id="node-2">
-          <i class="ri-record-circle-fill"></i>
-          <p>Quadratics & Inequalities</p>
-        </a>
-        <a href="#topic-1-3" class="topic-link path-link" id="node-3">
-          <i class="ri-record-circle-fill"></i>
-          <p>Functions & Simultaneous <br />Systems</p>
-        </a>
-        <a href="#topic-1-4" class="topic-link path-link" id="node-4">
-          <i class="ri-record-circle-fill"></i>
-          <p>Exam style questions</p>
-        </a>
-      </div>
-    </section>
-    <section class="section" id="topic-1-1">
-      <a href="#topic-1" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Indices, Surds, Polynomials</h1>
-      <p>The laws of indices:</p>
-      <img src="assets/indice-laws.png" height="350px">
-    </section>
-    <section class="section" id="topic-1-2">
-      <a href="#topic-1" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Quadratics & Inequalities</h1>
-    </section>
-    <section class="section" id="topic-1-3">
-      <a href="#topic-1" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Functions & Simultaneous Systems</h1>
-    </section>
-    <section class="section" id="topic-1-4">
-      <a href="topic-1" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exam Style Questions</h1>
-    </section>
-
-    <!-- SEQUENCES AND SERIES -->
-    <section class="section" id="topic-2">
-      <a href="#learn" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Sequences and Series</h1>
-      <div class="progression-path">
-        <a href="#topic-2-1" class="topic-link path-link" id="node-1">
-          <i class="ri-record-circle-fill"></i>
-          <p>Arithmetic & Geometric Progressions</p>
-        </a>
-        <a href="#topic-2-2" class="topic-link path-link" id="node-2">
-          <i class="ri-record-circle-fill"></i>
-          <p>Binomial expansion & Factorials</p>
-        </a>
-        <a href="#topic-2-3" class="topic-link path-link" id="node-3">
-          <i class="ri-record-circle-fill"></i>
-          <p>Advanced Series Logic</p>
-        </a>
-        <a href="#topic-2-4" class="topic-link path-link" id="node-4">
-          <i class="ri-record-circle-fill"></i>
-          <p>Exam Style Questions</p>
-        </a>
-      </div>
-    </section>
-    <section class="section" id="topic-2-1">
-      <a href="#topic-2" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Arithmetic & Geometric Progressions</h1>
-    </section>
-    <section class="section" id="topic-2-2">
-      <a href="#topic-2" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Binomial expansion & Factorials</h1>
-    </section>
-    <section class="section" id="topic-2-3">
-      <a href="#topic-2" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Advanced Series Logic</h1>
-    </section>
-    <section class="section" id="topic-2-4">
-      <a href="topic-2" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exam Style Questions</h1>
-    </section>
-
-    <!-- COORDINATE GEOMETRY -->
-    <section class="section" id="topic-3">
-      <a href="#learn" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Coordinare Geometry</h1>
-      <!-- PATH -->
-      <div class="progression-path">
-        <a href="#topic-3-1" class="topic-link path-link" id="node-1">
-          <i class="ri-record-circle-fill"></i>
-          <p>Lines & Gradients</p>
-        </a>
-        <a href="#topic-3-2" class="topic-link path-link" id="node-2">
-          <i class="ri-record-circle-fill"></i>
-          <p>Circle Equations & Intersections</p>
-        </a>
-        <a href="#topic-3-3" class="topic-link path-link" id="node-3">
-          <i class="ri-record-circle-fill"></i>
-          <p>Circle Theorems on Axes</p>
-        </a>
-        <a href="#topic-3-4" class="topic-link path-link" id="node-4">
-          <i class="ri-record-circle-fill"></i>
-          <p>Exam Style Questions</p>
-        </a>
-      </div>
-    </section>
-    <!-- CONTENT -->
-    <section class="section" id="topic-3-1">
-      <a href="#topic-3" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Lines & Gradients</h1>
-    </section>
-    <section class="section" id="topic-3-2">
-      <a href="#topic-3" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Circle Equations & Intersections</h1>
-    </section>
-    <section class="section" id="topic-3-3">
-      <a href="#topic-3" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Circle Theorems on Axes</h1>
-    </section>
-    <section class="section" id="topic-4-4">
-      <a href="topic-3" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exam Style Questions</h1>
-    </section>
-    <!-- TRIGONOMETRY -->
-    <section class="section" id="topic-4">
-      <a href="#learn" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Trigonometry</h1>
-      <div class="progression-path">
-        <a href="#topic-4-1" class="topic-link path-link" id="node-1">
-          <i class="ri-record-circle-fill"></i>
-          <p>Triangles & Radians</p>
-        </a>
-        <a href="#topic-4-2" class="topic-link path-link" id="node-2">
-          <i class="ri-record-circle-fill"></i>
-          <p>Values, Graphs & Identities</p>
-        </a>
-        <a href="#topic-4-3" class="topic-link path-link" id="node-3">
-          <i class="ri-record-circle-fill"></i>
-          <p>Solving Equations</p>
-        </a>
-        <a href="#topic-4-4" class="topic-link path-link" id="node-4">
-          <i class="ri-record-circle-fill"></i>
-          <p>Exam Style Questions</p>
-        </a>
-      </div>
-    </section>
-    <!-- CONTENT -->
-    <section class="section" id="topic-4-1">
-      <a href="#topic-4" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Triangles & Radians</h1>
-    </section>
-    <section class="section" id="topic-4-2">
-      <a href="#topic-4" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Values, Graphs & Identities</h1>
-    </section>
-    <section class="section" id="topic-4-3">
-      <a href="#topic-4" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Solving Equations</h1>
-    </section>
-    <section class="section" id="topic-4-4">
-      <a href="topic-4" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exam Style Questions</h1>
-    </section>
-    <!-- EXPONENTIALS AND LOGARITHMS -->
-    <section class="section" id="topic-5">
-      <a href="#learn" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exponentials and Logarithms</h1>
-      <div class="progression-path">
-        <a href="#topic-5-1" class="topic-link path-link" id="node-1">
-          <i class="ri-record-circle-fill"></i>
-          <p>Log Laws & Exponential Graphs</p>
-        </a>
-        <a href="#topic-5-2" class="topic-link path-link" id="node-2">
-          <i class="ri-record-circle-fill"></i>
-          <p>Solving Exponential<br />& Log Equations</p>
-        </a>
-        <a href="#topic-5-3" class="topic-link path-link" id="node-3">
-          <i class="ri-record-circle-fill"></i>
-          <p>Advanced Log Reasoning</p>
-        </a>
-        <a href="#topic-5-4" class="topic-link path-link" id="node-4">
-          <i class="ri-record-circle-fill"></i>
-          <p>Exam Style Questions</p>
-        </a>
-      </div>
-    </section>
-    <!-- CONTENT -->
-    <section class="section" id="topic-5-1">
-      <a href="#topic-5" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Log Laws & Exponential Graphs</h1>
-    </section>
-    <section class="section" id="topic-5-2">
-      <a href="#topic-5" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Solving Exponential & Log Equations</h1>
-    </section>
-    <section class="section" id="topic-5-3">
-      <a href="#topic-5" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Advanced Log Reasoning</h1>
-    </section>
-    <section class="section" id="topic-5-4">
-      <a href="topic-5" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exam Style Questions</h1>
-    </section>
-    <!-- CALCULUS -->
-    <section class="section" id="topic-6">
-      <a href="#learn" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Calculus</h1>
-      <div class="progression-path">
-        <a href="#topic-6-1" class="topic-link path-link" id="node-1">
-          <i class="ri-record-circle-fill"></i>
-          <p>Differentiation & Turning Points</p>
-        </a>
-        <a href="#topic-6-2" class="topic-link path-link" id="node-2">
-          <i class="ri-record-circle-fill"></i>
-          <p>Integration & Area</p>
-        </a>
-        <a href="#topic-6-3" class="topic-link path-link" id="node-3">
-          <i class="ri-record-circle-fill"></i>
-          <p>Trapezium Rule<br />& Integration Logic</p>
-        </a>
-        <a href="#topic-6-4" class="topic-link path-link" id="node-4">
-          <i class="ri-record-circle-fill"></i>
-          <p>Exam Style Questions</p>
-        </a>
-      </div>
-    </section>
-    <!-- CONTENT -->
-    <section class="section" id="topic-6-1">
-      <a href="#topic-6" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Differentiation & Turning Points</h1>
-    </section>
-    <section class="section" id="topic-6-2">
-      <a href="#topic-6" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Integration & Area</h1>
-    </section>
-    <section class="section" id="topic-6-3">
-      <a href="#topic-6" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Trapezium Rule & Integration Logic</h1>
-    </section>
-    <section class="section" id="topic-6-4">
-      <a href="topic-6" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exam Style Questions</h1>
-    </section>
-    <!-- GEOMETRY AND DATA -->
-    <section class="section" id="topic-7">
-      <a href="#learn" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Geometry, Data, & Graph</h1>
-      <div class="progression-path">
-        <a href="#topic-7-1" class="topic-link path-link" id="node-1">
-          <i class="ri-record-circle-fill"></i>
-          <p>Graph Transformations</p>
-        </a>
-        <a href="#topic-7-2" class="topic-link path-link" id="node-2">
-          <i class="ri-record-circle-fill"></i>
-          <p>Geometry & Proportion</p>
-        </a>
-        <a href="#topic-7-3" class="topic-link path-link" id="node-3">
-          <i class="ri-record-circle-fill"></i>
-          <p>Statistics & Probability</p>
-        </a>
-        <a href="#topic-7-4" class="topic-link path-link" id="node-4">
-          <i class="ri-record-circle-fill"></i>
-          <p>Exam Style Questions</p>
-        </a>
-      </div>
-    </section>
-    <!-- CONTENT -->
-    <section class="section" id="topic-7-1">
-      <a href="#topic-7" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Graph Transformations</h1>
-    </section>
-    <section class="section" id="topic-7-2">
-      <a href="#topic-7" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Geometry & Proportion</h1>
-    </section>
-    <section class="section" id="topic-7-3">
-      <a href="#topic-7" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Statistics & Probability</h1>
-    </section>
-    <section class="section" id="topic-7-4">
-      <a href="topic-7" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exam Style Questions</h1>
-    </section>
-    <!-- LOGIC AND PROOF -->
-    <section class="section" id="topic-8">
-      <a href="#learn" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Logic and Proof</h1>
-      <div class="progression-path">
-        <a href="#topic-8-1" class="topic-link path-link" id="node-1">
-          <i class="ri-record-circle-fill"></i>
-          <p>Logic of Arguments</p>
-        </a>
-        <a href="#topic-8-2" class="topic-link path-link" id="node-2">
-          <i class="ri-record-circle-fill"></i>
-          <p>Methods of Proof & Quantifiers</p>
-        </a>
-        <a href="#topic-8-3" class="topic-link path-link" id="node-3">
-          <i class="ri-record-circle-fill"></i>
-          <p>Disproving proofs</p>
-        </a>
-        <a href="#topic-8-4" class="topic-link path-link" id="node-4">
-          <i class="ri-record-circle-fill"></i>
-          <p>Exam Style Questions</p>
-        </a>
-      </div>
-    </section>
-    <!-- CONTENT -->
-    <section class="section" id="topic-8-1">
-      <a href="#topic-8" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1></h1>
-    </section>
-    <section class="section" id="topic-8-2">
-      <a href="#topic-8" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1></h1>
-    </section>
-    <section class="section" id="topic-8-3">
-      <a href="#topic-8" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1></h1>
-    </section>
-    <section class="section" id="topic-8-4">
-      <a href="topic-8" class="nav__link active-link">
-        <i class="ri-arrow-left-circle-fill"></i>
-      </a>
-      <h1>Exam Style Questions</h1>
-    </section>
-    <section class="section" id="leaderboard">
-      <h1>Leaderboard</h1>
-      <table class="sortable">
-        <thead>
-          <th>Name</th>
-          <th>Target uni</th>
-          <th>Weekly score</th>
-        </thead>
-
-        <tbody id="leaderboard-data"></tbody>
-      </table>
-    </section>
-
-    <section class="section" id="questions">
-      <h1>Questions</h1>
-      <p class="temp-description">Sets of practice questions will go here</p>
-    </section>
-
-    <section class="section" id="profile">
-      <div class="container">
-        <button class="load-seed" onclick="loadSeedData()">
-          <i class="ri-refresh-line"></i> Load test data
-        </button>
-        <div id="profile-root"></div>
-      </div>
-
-      <script src="../js/userData.js"></script>
-      <script>
-        function initials(name) {
-          return name
-            .split(" ")
-            .map((p) => p[0])
-            .join("")
-            .slice(0, 2)
-            .toUpperCase();
-        }
-
-        function renderProfile() {
-          const user = userData.get();
-          const root = document.getElementById("profile-root");
-
-          root.innerHTML = `
+            root.innerHTML = `
           <div class="profile__card">
             <div class="profile__avatar">${initials(user.name)}</div>
             <div>
@@ -586,12 +594,11 @@
             </div>
           </div>
         `;
-        }
+          }
 
-        renderProfile();
-      </script>
-    </section>
-  </main>
-</body>
-
+          renderProfile();
+        </script>
+      </section>
+    </main>
+  </body>
 </html>
