@@ -34,7 +34,11 @@ body {
   color: var(--ink);
   overscroll-behavior: none;
   background:
-    radial-gradient(circle at top right, rgba(255, 206, 104, 0.3), transparent 28rem),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 206, 104, 0.3),
+      transparent 28rem
+    ),
     var(--cream);
 }
 
@@ -102,7 +106,10 @@ a {
   color: #9b8d81;
   font-size: 1.35rem;
   border-radius: 50%;
-  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .nav__link:hover,
@@ -195,7 +202,9 @@ tr:nth-child(even) {
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: var(--radius-lg);
   box-shadow: 0 8px 18px rgba(87, 54, 25, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .topic-box:hover {
@@ -247,10 +256,11 @@ tr:nth-child(even) {
 
 .progression-path {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  margin-block: 2rem;
+  margin-block: 2.5rem;
   align-items: center;
-  gap: 1.25rem;
+  gap: 2.5rem;
 }
 
 .path-link {
@@ -271,7 +281,9 @@ tr:nth-child(even) {
   border: 1px solid var(--line);
   border-radius: 50%;
   box-shadow: 0 8px 18px rgba(111, 70, 25, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .path-link i:active {
@@ -534,7 +546,7 @@ tr:nth-child(even) {
   box-shadow: 0 7px 15px rgba(117, 57, 12, 0.18);
 }
 
-.profile__card>div:last-child {
+.profile__card > div:last-child {
   position: relative;
   z-index: 1;
 }
@@ -614,7 +626,10 @@ tr:nth-child(even) {
   border-radius: 14px;
   box-shadow: 0 5px 12px rgba(111, 70, 25, 0.06);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .load-seed:hover {
