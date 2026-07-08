@@ -1,54 +1,69 @@
 {
-    "lessons": [
+  "lessons": [
+    {
+      "id": "indices-surds-polynomials-1",
+      "topicId": "topic-1",
+      "title": "Indices, Surds and Polynomials",
+      "screens": [
         {
-            "id": "indices-surds-polynomials-1",
-            "topicId": "topic-1",
-            "title": "Indices, Surds and Polynomials",
-            "screens": [
-                {
-                    "type": "concept",
-                    "eyebrow": "ALGEBRA · 1 OF 4",
-                    "title": "Indices are shorthand for repeated multiplication",
-                    "body": "For example, x³ means x × x × x. The index tells you how many times the base is multiplied by itself.",
-                    "keyPoint": "When multiplying powers with the same base, add the indices.",
-                    "buttonText": "Continue"
-                },
-                {
-                    "type": "reveal",
-                    "eyebrow": "ALGEBRA · 2 OF 4",
-                    "title": "Use the index laws in order",
-                    "steps": [
-                        {
-                            "title": "Look for matching bases",
-                            "body": "Index laws only combine powers when their bases are the same."
-                        },
-                        {
-                            "title": "Multiply: add indices",
-                            "body": "x² × x⁵ = x⁷."
-                        },
-                        {
-                            "title": "Divide: subtract indices",
-                            "body": "x⁷ ÷ x² = x⁵."
-                        }
-                    ],
-                    "buttonText": "Continue"
-                },
-                {
-                    "type": "trueFalse",
-                    "eyebrow": "QUICK CHECK · 3 OF 4",
-                    "question": "When multiplying powers with the same base, you add the indices.",
-                    "answer": true,
-                    "correctFeedback": "Exactly. x² × x⁵ becomes x⁷.",
-                    "incorrectFeedback": "For multiplication with the same base, add the indices: x² × x⁵ = x⁷."
-                },
-                {
-                    "type": "milestone",
-                    "eyebrow": "NICE WORK · 4 OF 4",
-                    "title": "You have the first index law down.",
-                    "body": "That is one of the core tools you will use throughout algebra. Next, you will see what changes when you divide powers.",
-                    "buttonText": "Finish lesson"
-                }
-            ]
+          "type": "concept",
+          "eyebrow": "ALGEBRA · 1 OF 4",
+          "title": "Indices are shorthand for repeated multiplication",
+          "body": "For example, x³ means x × x × x. The index tells you how many times the base is multiplied by itself.",
+          "keyPoint": "When multiplying powers with the same base, add the indices.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "ALGEBRA · 2 OF 4",
+          "title": "Use the index laws in order",
+          "steps": [
+            {
+              "title": "Look for matching bases",
+              "body": "Index laws only combine powers when their bases are the same."
+            },
+            {
+              "title": "Multiply: add indices",
+              "body": "x² × x⁵ = x⁷."
+            },
+            {
+              "title": "Divide: subtract indices",
+              "body": "x⁷ ÷ x² = x⁵."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "trueFalse",
+          "eyebrow": "QUICK CHECK · 3 OF 4",
+          "question": "When multiplying powers with the same base, you add the indices.",
+          "answer": true,
+          "correctFeedback": "Exactly. x² × x⁵ becomes x⁷.",
+          "incorrectFeedback": "For multiplication with the same base, add the indices: x² × x⁵ = x⁷."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 4 OF 4",
+          "title": "You have the first index law down.",
+          "body": "That is one of the core tools you will use throughout algebra. Next, you will see what changes when you divide powers.",
+          "buttonText": "Finish lesson"
         }
-    ]
+      ]
+    },
+
+    {
+      "id": "quadratics-and-inequalities",
+      "topicId": "topic-1",
+      "title": "Quadratics and Inequalities",
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "QUADRATICS · 1 OF 4",
+          "title": "The discriminant tells us about the roots.",
+          "body": "The expression b² − 4ac determines how many real roots a quadratic has.",
+          "buttonText": "Continue"
+        }
+      ]
+    }
+  ]
 }
