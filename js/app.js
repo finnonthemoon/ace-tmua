@@ -1,110 +1,108 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    const jsonURL = 'data/leaderboard.json';
-    const tableBody = document.getElementById('leaderboard-data');
+document.addEventListener("DOMContentLoaded", async () => {
+  const jsonURL = "data/leaderboard.json";
+  const tableBody = document.getElementById("leaderboard-data");
 
+  try {
+    const response = await fetch(jsonURL);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
 
-    try {
-        const response = await fetch(jsonURL)
-        if (!response.ok) {
-            throw new Error('Network response was not ok')
-        }
+    const data = await response.json();
 
-        const data = await response.json()
+    data.users.forEach((user) => {
+      const row = document.createElement("tr");
 
-        data.users.forEach(user => {
-            const row = document.createElement('tr');
-
-            row.innerHTML = `
+      row.innerHTML = `
                     <td>${user.name}</td>
                     <td>${user.targetUni}</td>
                     <td>${user.weeklyScore}</td>
                 `;
 
-            tableBody.appendChild(row);
-        });
+      tableBody.appendChild(row);
+    });
+  } catch (error) {
+    console.error("There was a problem fetching the data: ", error);
+    tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:red;">Failed to load leaderboard.</td></tr>`;
+  }
+
+  const navLinks = document.querySelectorAll(".nav__link");
+  const topicLinks = document.querySelectorAll(".topic-link, .roadmap__item");
+  const backLinks = document.querySelectorAll(".back-link");
+  const sections = document.querySelectorAll(".section");
+
+  function showSection(targetId) {
+    const targetSection = document.querySelector(targetId);
+
+    if (!targetSection) {
+      return;
     }
-    catch (error) {
-        console.error('There was a problem fetching the data: ', error);
-        tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:red;">Failed to load leaderboard.</td></tr>`;
+
+    sections.forEach((section) => {
+      section.classList.remove("active-section");
+    });
+
+    targetSection.classList.add("active-section");
+
+    const mainPages = [
+      "#home",
+      "#learn",
+      "#leaderboard",
+      "#questions",
+      "#profile",
+    ];
+
+    if (mainPages.includes(targetId)) {
+      navLinks.forEach((link) => {
+        const isCurrentPage = link.getAttribute("href") === targetId;
+        link.classList.toggle("active-link", isCurrentPage);
+      });
     }
 
-    const navLinks = document.querySelectorAll(".nav__link");
-    const topicLinks = document.querySelectorAll(".topic-link");
-    const backLinks = document.querySelectorAll(".back-link");
-    const sections = document.querySelectorAll(".section");
+    window.scrollTo(0, 0);
+  }
 
-    function showSection(targetId) {
-        const targetSection = document.querySelector(targetId);
+  function addNavigation(links) {
+    links.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
 
-        if (!targetSection) {
-            return;
+        const targetId = link.getAttribute("href");
+
+        if (targetId && targetId.startsWith("#")) {
+          showSection(targetId);
         }
+      });
+    });
+  }
 
-        sections.forEach((section) => {
-            section.classList.remove("active-section");
-        });
+  addNavigation(navLinks);
+  addNavigation(topicLinks);
+  addNavigation(backLinks);
+  function getInitials(name) {
+    return name
+      .split(" ")
+      .map((part) => part[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase();
+  }
 
-        targetSection.classList.add("active-section");
+  function renderHomeUser() {
+    const user = userData.get();
 
-        const mainPages = [
-            "#home",
-            "#learn",
-            "#leaderboard",
-            "#questions",
-            "#profile",
-        ];
+    const greeting = document.getElementById("home-greeting");
+    const avatar = document.getElementById("home-avatar");
 
-        if (mainPages.includes(targetId)) {
-            navLinks.forEach((link) => {
-                const isCurrentPage = link.getAttribute("href") === targetId;
-                link.classList.toggle("active-link", isCurrentPage);
-            });
-        }
-
-        window.scrollTo(0, 0);
+    if (greeting) {
+      const firstName = user.name.split(" ")[0];
+      greeting.textContent = `Good morning, ${firstName}!`;
     }
 
-    function addNavigation(links) {
-        links.forEach((link) => {
-            link.addEventListener("click", (event) => {
-                event.preventDefault();
-
-                const targetId = link.getAttribute("href");
-
-                if (targetId && targetId.startsWith("#")) {
-                    showSection(targetId);
-                }
-            });
-        });
+    if (avatar) {
+      avatar.textContent = getInitials(user.name);
     }
+  }
 
-    addNavigation(navLinks);
-    addNavigation(topicLinks);
-    addNavigation(backLinks);
-    function getInitials(name) {
-        return name
-            .split(" ")
-            .map((part) => part[0])
-            .join("")
-            .slice(0, 2)
-            .toUpperCase();
-    }
-
-    function renderHomeUser() {
-        const user = userData.get();
-
-        const greeting = document.getElementById("home-greeting");
-        const avatar = document.getElementById("home-avatar");
-
-        if (greeting) {
-            const firstName = user.name.split(" ")[0];
-            greeting.textContent = `Good morning, ${firstName}!`;
-        }
-
-        if (avatar) {
-            avatar.textContent = getInitials(user.name);
-        }
-    }
-
-    renderHomeUser();
+  renderHomeUser();
 });
