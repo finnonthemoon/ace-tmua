@@ -1,59 +1,59 @@
 class LessonRepository {
-    constructor(url) {
-        this.url = url;
-        this.lessons = [];
+  constructor(url) {
+    this.url = url;
+    this.lessons = [];
+  }
+
+  async load() {
+    const response = await fetch(this.url);
+
+    if (!response.ok) {
+      throw new Error("Could not load lessons.json");
     }
 
-    async load() {
-        const response = await fetch(this.url);
+    const data = await response.json();
+    this.lessons = data.lessons;
+  }
 
-        if (!response.ok) {
-            throw new Error("Could not load lessons.json");
-        }
-
-        const data = await response.json();
-        this.lessons = data.lessons;
-    }
-
-    getLesson(lessonId) {
-        return this.lessons.find((lesson) => lesson.id === lessonId);
-    }
+  getLesson(lessonId) {
+    return this.lessons.find((lesson) => lesson.id === lessonId);
+  }
 }
 
 class LessonRunner {
-    constructor(repository, root) {
-        this.repository = repository;
-        this.root = root;
-        this.lesson = null;
-        this.screenIndex = 0;
-        this.revealIndex = 0;
+  constructor(repository, root) {
+    this.repository = repository;
+    this.root = root;
+    this.lesson = null;
+    this.screenIndex = 0;
+    this.revealIndex = 0;
+  }
+
+  start(lessonId) {
+    document.body.classList.add("lesson-mode");
+
+    this.lesson = this.repository.getLesson(lessonId);
+    this.screenIndex = 0;
+    this.revealIndex = 0;
+
+    if (!this.lesson) {
+      this.root.innerHTML = "<p>Lesson not found.</p>";
+      return;
     }
 
-    start(lessonId) {
-        document.body.classList.add("lesson-mode");
+    this.render();
+  }
 
-        this.lesson = this.repository.getLesson(lessonId);
-        this.screenIndex = 0;
-        this.revealIndex = 0;
-
-        if (!this.lesson) {
-            this.root.innerHTML = "<p>Lesson not found.</p>";
-            return;
-        }
-
-        this.render();
+  getProgressPercent() {
+    if (!this.lesson || !this.lesson.screens.length) {
+      return 0;
     }
 
-    getProgressPercent() {
-        if (!this.lesson || !this.lesson.screens.length) {
-            return 0;
-        }
+    return ((this.screenIndex + 1) / this.lesson.screens.length) * 100;
+  }
 
-        return ((this.screenIndex + 1) / this.lesson.screens.length) * 100;
-    }
-
-    getTopBar() {
-        return `
+  getTopBar() {
+    return `
       <div class="lesson-screen__top">
         <button class="lesson-exit" type="button" aria-label="Exit lesson">
           <i class="ri-close-line"></i>
@@ -69,47 +69,47 @@ class LessonRunner {
         <span></span>
       </div>
     `;
+  }
+
+  addExitListener() {
+    const exitButton = this.root.querySelector(".lesson-exit");
+
+    if (exitButton) {
+      exitButton.addEventListener("click", () => {
+        this.exit();
+      });
+    }
+  }
+
+  render() {
+    const screen = this.lesson.screens[this.screenIndex];
+
+    if (!screen) {
+      this.finish();
+      return;
     }
 
-    addExitListener() {
-        const exitButton = this.root.querySelector(".lesson-exit");
-
-        if (exitButton) {
-            exitButton.addEventListener("click", () => {
-                this.exit();
-            });
-        }
+    if (screen.type === "concept") {
+      this.renderConcept(screen);
+      return;
     }
 
-    render() {
-        const screen = this.lesson.screens[this.screenIndex];
+    if (screen.type === "reveal") {
+      this.renderReveal(screen);
+      return;
+    }
 
-        if (!screen) {
-            this.finish();
-            return;
-        }
+    if (screen.type === "trueFalse") {
+      this.renderTrueFalse(screen);
+      return;
+    }
 
-        if (screen.type === "concept") {
-            this.renderConcept(screen);
-            return;
-        }
+    if (screen.type === "milestone") {
+      this.renderMilestone(screen);
+      return;
+    }
 
-        if (screen.type === "reveal") {
-            this.renderReveal(screen);
-            return;
-        }
-
-        if (screen.type === "trueFalse") {
-            this.renderTrueFalse(screen);
-            return;
-        }
-
-        if (screen.type === "milestone") {
-            this.renderMilestone(screen);
-            return;
-        }
-
-        this.root.innerHTML = `
+    this.root.innerHTML = `
       <article class="lesson-screen">
         ${this.getTopBar()}
 
@@ -120,11 +120,11 @@ class LessonRunner {
       </article>
     `;
 
-        this.addExitListener();
-    }
+    this.addExitListener();
+  }
 
-    renderConcept(screen) {
-        this.root.innerHTML = `
+  renderConcept(screen) {
+    this.root.innerHTML = `
       <article class="lesson-screen">
         ${this.getTopBar()}
 
@@ -140,15 +140,16 @@ class LessonRunner {
           <h1>${screen.title}</h1>
           <p>${screen.body}</p>
 
-          ${screen.keyPoint
-                ? `
+          ${
+            screen.keyPoint
+              ? `
                 <div class="lesson-key-point">
                   <strong>Key idea</strong>
                   <p>${screen.keyPoint}</p>
                 </div>
               `
-                : ""
-            }
+              : ""
+          }
         </div>
 
         <button class="lesson-primary-button" id="lesson-next" type="button">
@@ -158,18 +159,18 @@ class LessonRunner {
       </article>
     `;
 
-        this.root.querySelector("#lesson-next").addEventListener("click", () => {
-            this.next();
-        });
+    this.root.querySelector("#lesson-next").addEventListener("click", () => {
+      this.next();
+    });
 
-        this.addExitListener();
-    }
+    this.addExitListener();
+  }
 
-    renderReveal(screen) {
-        const steps = screen.steps.slice(0, this.revealIndex + 1);
-        const isLastReveal = this.revealIndex === screen.steps.length - 1;
+  renderReveal(screen) {
+    const steps = screen.steps.slice(0, this.revealIndex + 1);
+    const isLastReveal = this.revealIndex === screen.steps.length - 1;
 
-        this.root.innerHTML = `
+    this.root.innerHTML = `
       <article class="lesson-screen">
         ${this.getTopBar()}
 
@@ -182,8 +183,8 @@ class LessonRunner {
 
           <div class="reveal-steps">
             ${steps
-                .map(
-                    (step, index) => `
+              .map(
+                (step, index) => `
                   <div class="reveal-step">
                     <span>${index + 1}</span>
 
@@ -192,9 +193,9 @@ class LessonRunner {
                       <p>${step.body}</p>
                     </div>
                   </div>
-                `
-                )
-                .join("")}
+                `,
+              )
+              .join("")}
           </div>
         </div>
 
@@ -205,20 +206,20 @@ class LessonRunner {
       </article>
     `;
 
-        this.root.querySelector("#lesson-next").addEventListener("click", () => {
-            if (isLastReveal) {
-                this.next();
-            } else {
-                this.revealIndex += 1;
-                this.render();
-            }
-        });
+    this.root.querySelector("#lesson-next").addEventListener("click", () => {
+      if (isLastReveal) {
+        this.next();
+      } else {
+        this.revealIndex += 1;
+        this.render();
+      }
+    });
 
-        this.addExitListener();
-    }
+    this.addExitListener();
+  }
 
-    renderTrueFalse(screen) {
-        this.root.innerHTML = `
+  renderTrueFalse(screen) {
+    this.root.innerHTML = `
       <article class="lesson-screen">
         ${this.getTopBar()}
 
@@ -246,28 +247,26 @@ class LessonRunner {
       </article>
     `;
 
-        this.root.querySelectorAll(".true-false-option").forEach((button) => {
-            button.addEventListener("click", () => {
-                const chosenAnswer = button.dataset.answer === "true";
-                const isCorrect = chosenAnswer === screen.answer;
-                const feedback = this.root.querySelector("#answer-feedback");
+    this.root.querySelectorAll(".true-false-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        const chosenAnswer = button.dataset.answer === "true";
+        const isCorrect = chosenAnswer === screen.answer;
+        const feedback = this.root.querySelector("#answer-feedback");
 
-                this.root.querySelectorAll(".true-false-option").forEach((option) => {
-                    option.disabled = true;
-                });
+        this.root.querySelectorAll(".true-false-option").forEach((option) => {
+          option.disabled = true;
+        });
 
-                button.classList.add(isCorrect ? "is-correct" : "is-wrong");
+        button.classList.add(isCorrect ? "is-correct" : "is-wrong");
 
-                feedback.innerHTML = `
-          <div class="answer-feedback__card ${isCorrect ? "is-correct" : "is-wrong"
-                    }">
+        feedback.innerHTML = `
+          <div class="answer-feedback__card ${
+            isCorrect ? "is-correct" : "is-wrong"
+          }">
             <strong>${isCorrect ? "Correct." : "Not quite."}</strong>
 
             <p>
-              ${isCorrect
-                        ? screen.correctFeedback
-                        : screen.incorrectFeedback
-                    }
+              ${isCorrect ? screen.correctFeedback : screen.incorrectFeedback}
             </p>
 
             <button class="lesson-primary-button" id="lesson-next" type="button">
@@ -277,19 +276,19 @@ class LessonRunner {
           </div>
         `;
 
-                this.root
-                    .querySelector("#lesson-next")
-                    .addEventListener("click", () => {
-                        this.next();
-                    });
-            });
-        });
+        this.root
+          .querySelector("#lesson-next")
+          .addEventListener("click", () => {
+            this.next();
+          });
+      });
+    });
 
-        this.addExitListener();
-    }
+    this.addExitListener();
+  }
 
-    renderMilestone(screen) {
-        this.root.innerHTML = `
+  renderMilestone(screen) {
+    this.root.innerHTML = `
       <article class="lesson-screen lesson-screen--milestone">
         ${this.getTopBar()}
 
@@ -317,38 +316,38 @@ class LessonRunner {
       </article>
     `;
 
-        this.root.querySelector("#lesson-next").addEventListener("click", () => {
-            this.next();
-        });
+    this.root.querySelector("#lesson-next").addEventListener("click", () => {
+      this.next();
+    });
 
-        this.addExitListener();
+    this.addExitListener();
+  }
+
+  next() {
+    this.screenIndex += 1;
+    this.revealIndex = 0;
+    this.render();
+  }
+
+  finish() {
+    const progressKey = "tmuaTopicProgress";
+    const progress = JSON.parse(localStorage.getItem(progressKey) || "{}");
+
+    if (!progress[this.lesson.topicId]) {
+      progress[this.lesson.topicId] = {
+        completedLessons: [],
+      };
     }
 
-    next() {
-        this.screenIndex += 1;
-        this.revealIndex = 0;
-        this.render();
+    const completedLessons = progress[this.lesson.topicId].completedLessons;
+
+    if (!completedLessons.includes(this.lesson.id)) {
+      completedLessons.push(this.lesson.id);
     }
 
-    finish() {
-        const progressKey = "tmuaTopicProgress";
-        const progress = JSON.parse(localStorage.getItem(progressKey) || "{}");
+    localStorage.setItem(progressKey, JSON.stringify(progress));
 
-        if (!progress[this.lesson.topicId]) {
-            progress[this.lesson.topicId] = {
-                completedLessons: [],
-            };
-        }
-
-        const completedLessons = progress[this.lesson.topicId].completedLessons;
-
-        if (!completedLessons.includes(this.lesson.id)) {
-            completedLessons.push(this.lesson.id);
-        }
-
-        localStorage.setItem(progressKey, JSON.stringify(progress));
-
-        this.root.innerHTML = `
+    this.root.innerHTML = `
     <article class="lesson-screen lesson-complete">
       ${this.getTopBar()}
 
@@ -372,24 +371,24 @@ class LessonRunner {
     </article>
   `;
 
-        this.root
-            .querySelector("#lesson-exit-button")
-            .addEventListener("click", () => {
-                this.exit();
-            });
+    this.root
+      .querySelector("#lesson-exit-button")
+      .addEventListener("click", () => {
+        this.exit();
+      });
 
-        this.addExitListener();
-    }
+    this.addExitListener();
+  }
 
-    exit() {
-        document.body.classList.remove("lesson-mode");
+  exit() {
+    document.body.classList.remove("lesson-mode");
 
-        document.querySelectorAll(".section").forEach((section) => {
-            section.classList.remove("active-section");
-        });
+    document.querySelectorAll(".section").forEach((section) => {
+      section.classList.remove("active-section");
+    });
 
-        document.querySelector("#topic-1")?.classList.add("active-section");
+    document.querySelector("#topic-1")?.classList.add("active-section");
 
-        window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
+  }
 }
