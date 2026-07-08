@@ -1158,7 +1158,7 @@ tr:nth-child(even) {
 
 .roadmap__item--current .roadmap__card {
   border-color: var(--topic-color);
-  box-shadow: 0 5px 20px hsl(var(--topic-hue) 40 30) ;
+  box-shadow: 0 5px 20px hsl(var(--topic-hue) 40 30);
 }
 
 .roadmap__item--locked {
