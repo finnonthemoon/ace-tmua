@@ -331,29 +331,46 @@ class LessonRunner {
     }
 
     finish() {
+        const progressKey = "tmuaTopicProgress";
+        const progress = JSON.parse(localStorage.getItem(progressKey) || "{}");
+
+        if (!progress[this.lesson.topicId]) {
+            progress[this.lesson.topicId] = {
+                completedLessons: [],
+            };
+        }
+
+        const completedLessons = progress[this.lesson.topicId].completedLessons;
+
+        if (!completedLessons.includes(this.lesson.id)) {
+            completedLessons.push(this.lesson.id);
+        }
+
+        localStorage.setItem(progressKey, JSON.stringify(progress));
+
         this.root.innerHTML = `
-      <article class="lesson-screen lesson-complete">
-        ${this.getTopBar()}
+    <article class="lesson-screen lesson-complete">
+      ${this.getTopBar()}
 
-        <div class="lesson-screen__content">
-          <span class="lesson-screen__icon">
-            <i class="ri-checkbox-circle-fill"></i>
-          </span>
+      <div class="lesson-screen__content">
+        <span class="lesson-screen__icon">
+          <i class="ri-checkbox-circle-fill"></i>
+        </span>
 
-          <p class="topic-page__eyebrow">LESSON COMPLETE</p>
-          <h1>Nice work.</h1>
-          <p>You completed ${this.lesson.title}.</p>
-        </div>
+        <p class="topic-page__eyebrow">LESSON COMPLETE</p>
+        <h1>Nice work.</h1>
+        <p>You completed ${this.lesson.title}.</p>
+      </div>
 
-        <button
-          class="lesson-primary-button"
-          id="lesson-exit-button"
-          type="button"
-        >
-          Back to Algebra
-        </button>
-      </article>
-    `;
+      <button
+        class="lesson-primary-button"
+        id="lesson-exit-button"
+        type="button"
+      >
+        Back to roadmap
+      </button>
+    </article>
+  `;
 
         this.root
             .querySelector("#lesson-exit-button")

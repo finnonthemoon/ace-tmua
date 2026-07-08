@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 );
             });
         }
-
+        document.dispatchEvent(new CustomEvent("lessonProgressUpdated"));
         window.scrollTo(0, 0);
     }
 
@@ -187,7 +187,28 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!lessonLink) {
             return;
         }
+        document.addEventListener("click", (event) => {
+            const lessonLink = event.target.closest("[data-lesson-id]");
 
+            if (!lessonLink) {
+                return;
+            }
+
+            if (lessonLink.classList.contains("roadmap__item--locked")) {
+                event.preventDefault();
+                return;
+            }
+
+            event.preventDefault();
+
+            if (!lessonRunner) {
+                console.error("Lesson runner is not ready yet.");
+                return;
+            }
+
+            showSection("#lesson");
+            lessonRunner.start(lessonLink.dataset.lessonId);
+        });
         event.preventDefault();
 
         if (!lessonRunner) {
@@ -197,5 +218,80 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         showSection("#lesson");
         lessonRunner.start(lessonLink.dataset.lessonId);
+        function getTopicProgress() {
+            return JSON.parse(localStorage.getItem("tmuaTopicProgress") || "{}");
+        }
+
+        function updateRoadmapProgress() {
+
+            const progress = getTopicProgress();
+
+            document.querySelectorAll(".roadmap").forEach((roadmap) => {
+                const topicSection = roadmap.closest(".section");
+                const topicId = topicSection?.id;
+
+                if (!topicId) return;
+
+                const roadmapItems = [
+                    ...roadmap.querySelectorAll("[data-lesson-id]"),
+                ];
+
+                const completedLessons =
+                    progress[topicId]?.completedLessons || [];
+
+                roadmapItems.forEach((item, index) => {
+                    const lessonId = item.dataset.lessonId;
+                    const isComplete = completedLessons.includes(lessonId);
+                    const previousLesson = roadmapItems[index - 1];
+                    const previousComplete =
+                        index === 0 ||
+                        completedLessons.includes(previousLesson.dataset.lessonId);
+
+                    item.classList.remove(
+                        "roadmap__item--complete",
+                        "roadmap__item--current",
+                        "roadmap__item--locked"
+                    );
+
+                    if (isComplete) {
+                        item.classList.add("roadmap__item--complete");
+                        return;
+                    }
+
+                    if (previousComplete) {
+                        item.classList.add("roadmap__item--current");
+                        return;
+                    }
+
+                    item.classList.add("roadmap__item--locked");
+                });
+
+                const completedCount = completedLessons.length;
+                const totalLessons = roadmapItems.length;
+                const percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round((completedCount / totalLessons) * 100);
+
+                const progressText = topicSection.querySelector(
+                    "[data-topic-progress-text]"
+                );
+
+                if (progressText) {
+                    progressText.textContent = `${percent}% complete · ${completedCount} / ${totalLessons} lessons`;
+                }
+
+                const progressFill = topicSection.querySelector(
+                    "[data-topic-progress-fill]"
+                );
+
+                if (progressFill) {
+                    progressFill.style.width = `${percent}%`;
+                }
+            });
+        }
+
+        updateRoadmapProgress();
+        document.addEventListener("lessonProgressUpdated", updateRoadmapProgress);
     });
 });

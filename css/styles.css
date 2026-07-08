@@ -1493,3 +1493,43 @@ body.lesson-mode .nav {
 .lesson-screen--milestone .lesson-primary-button {
   margin-bottom: 0.3rem;
 }
+
+.topic-progress {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.topic-progress__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.topic-progress__top strong {
+  color: var(--primary);
+  font-size: 0.74rem;
+}
+
+.topic-progress__track {
+  height: 0.55rem;
+  margin-top: 0.75rem;
+  overflow: hidden;
+  background: #f1e6d6;
+  border-radius: 999px;
+}
+
+.topic-progress__track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ff9a4d, var(--primary));
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}

@@ -2,11 +2,12 @@
     "lessons": [
         {
             "id": "indices-surds-polynomials-1",
+            "topicId": "topic-1",
             "title": "Indices, Surds and Polynomials",
             "screens": [
                 {
                     "type": "concept",
-                    "eyebrow": "ALGEBRA · 1 OF 2",
+                    "eyebrow": "ALGEBRA · 1 OF 4",
                     "title": "Indices are shorthand for repeated multiplication",
                     "body": "For example, x³ means x × x × x. The index tells you how many times the base is multiplied by itself.",
                     "keyPoint": "When multiplying powers with the same base, add the indices.",
@@ -14,7 +15,7 @@
                 },
                 {
                     "type": "reveal",
-                    "eyebrow": "ALGEBRA · 2 OF 2",
+                    "eyebrow": "ALGEBRA · 2 OF 4",
                     "title": "Use the index laws in order",
                     "steps": [
                         {
@@ -30,11 +31,11 @@
                             "body": "x⁷ ÷ x² = x⁵."
                         }
                     ],
-                    "buttonText": "Finish lesson"
+                    "buttonText": "Continue"
                 },
                 {
                     "type": "trueFalse",
-                    "eyebrow": "QUICK CHECK",
+                    "eyebrow": "QUICK CHECK · 3 OF 4",
                     "question": "When multiplying powers with the same base, you add the indices.",
                     "answer": true,
                     "correctFeedback": "Exactly. x² × x⁵ becomes x⁷.",
@@ -42,10 +43,10 @@
                 },
                 {
                     "type": "milestone",
-                    "eyebrow": "NICE WORK",
+                    "eyebrow": "NICE WORK · 4 OF 4",
                     "title": "You have the first index law down.",
                     "body": "That is one of the core tools you will use throughout algebra. Next, you will see what changes when you divide powers.",
-                    "buttonText": "Keep going"
+                    "buttonText": "Finish lesson"
                 }
             ]
         }
