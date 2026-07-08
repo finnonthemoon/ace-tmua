@@ -7,7 +7,6 @@
   <title>AceTMUA</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
   <link rel="stylesheet" href="css/styles.css" />
-  <script src="js/app.js"></script>
 </head>
 
 <body>
@@ -191,7 +190,7 @@
         practice.
       </p>
       <div class="roadmap">
-        <a href="#topic-1-1" class="roadmap__item roadmap__item--current">
+        <a href="#lesson" class="roadmap__item roadmap__item--current" data-lesson-id="indices-surds-polynomials-1">
           <span class="roadmap__line"></span>
           <span class="roadmap__node"><i class="ri-play-fill"></i></span>
           <span class="roadmap__card">
@@ -900,7 +899,10 @@
         Apply everything from this topic under TMUA-style conditions.
       </p>
     </section>
-
+    <!-- ======================== LESSON RUNNER ======================== -->
+    <section class="section" id="lesson">
+      <div id="lesson-root"></div>
+    </section>
     <!-- ======================== LEADERBOARD ======================== -->
     <section class="section" id="leaderboard">
       <h1>Leaderboard</h1>
@@ -970,6 +972,9 @@
 
         renderProfile();
       </script>
+      <script src="./js/user-data.js"></script>
+      <script src="./js/lesson-runner.js"></script>
+      <script src="./js/app.js"></script>
     </section>
   </main>
 </body>
