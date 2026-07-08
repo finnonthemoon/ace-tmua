@@ -99,9 +99,20 @@ class LessonRunner {
             return;
         }
 
+        if (screen.type === "trueFalse") {
+            this.renderTrueFalse(screen);
+            return;
+        }
+
+        if (screen.type === "milestone") {
+            this.renderMilestone(screen);
+            return;
+        }
+
         this.root.innerHTML = `
       <article class="lesson-screen">
         ${this.getTopBar()}
+
         <div class="lesson-screen__content">
           <h1>Screen type not built yet</h1>
           <p>Unknown screen type: ${screen.type}</p>
@@ -122,7 +133,9 @@ class LessonRunner {
             <i class="ri-lightbulb-line"></i>
           </span>
 
-          <p class="topic-page__eyebrow">${screen.eyebrow || "TMUA LESSON"}</p>
+          <p class="topic-page__eyebrow">
+            ${screen.eyebrow || "TMUA LESSON"}
+          </p>
 
           <h1>${screen.title}</h1>
           <p>${screen.body}</p>
@@ -161,7 +174,9 @@ class LessonRunner {
         ${this.getTopBar()}
 
         <div class="lesson-screen__content">
-          <p class="topic-page__eyebrow">${screen.eyebrow || "TMUA LESSON"}</p>
+          <p class="topic-page__eyebrow">
+            ${screen.eyebrow || "TMUA LESSON"}
+          </p>
 
           <h1>${screen.title}</h1>
 
@@ -171,6 +186,7 @@ class LessonRunner {
                     (step, index) => `
                   <div class="reveal-step">
                     <span>${index + 1}</span>
+
                     <div>
                       <strong>${step.title}</strong>
                       <p>${step.body}</p>
@@ -201,6 +217,113 @@ class LessonRunner {
         this.addExitListener();
     }
 
+    renderTrueFalse(screen) {
+        this.root.innerHTML = `
+      <article class="lesson-screen">
+        ${this.getTopBar()}
+
+        <div class="lesson-screen__content">
+          <p class="topic-page__eyebrow">
+            ${screen.eyebrow || "QUICK CHECK"}
+          </p>
+
+          <h1>${screen.question}</h1>
+
+          <div class="true-false-options">
+            <button class="true-false-option" data-answer="true" type="button">
+              <i class="ri-check-line"></i>
+              True
+            </button>
+
+            <button class="true-false-option" data-answer="false" type="button">
+              <i class="ri-close-line"></i>
+              False
+            </button>
+          </div>
+
+          <div class="answer-feedback" id="answer-feedback"></div>
+        </div>
+      </article>
+    `;
+
+        this.root.querySelectorAll(".true-false-option").forEach((button) => {
+            button.addEventListener("click", () => {
+                const chosenAnswer = button.dataset.answer === "true";
+                const isCorrect = chosenAnswer === screen.answer;
+                const feedback = this.root.querySelector("#answer-feedback");
+
+                this.root.querySelectorAll(".true-false-option").forEach((option) => {
+                    option.disabled = true;
+                });
+
+                button.classList.add(isCorrect ? "is-correct" : "is-wrong");
+
+                feedback.innerHTML = `
+          <div class="answer-feedback__card ${isCorrect ? "is-correct" : "is-wrong"
+                    }">
+            <strong>${isCorrect ? "Correct." : "Not quite."}</strong>
+
+            <p>
+              ${isCorrect
+                        ? screen.correctFeedback
+                        : screen.incorrectFeedback
+                    }
+            </p>
+
+            <button class="lesson-primary-button" id="lesson-next" type="button">
+              Continue
+              <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+        `;
+
+                this.root
+                    .querySelector("#lesson-next")
+                    .addEventListener("click", () => {
+                        this.next();
+                    });
+            });
+        });
+
+        this.addExitListener();
+    }
+
+    renderMilestone(screen) {
+        this.root.innerHTML = `
+      <article class="lesson-screen lesson-screen--milestone">
+        ${this.getTopBar()}
+
+        <div class="lesson-screen__content lesson-milestone">
+          <div class="lesson-milestone__glow"></div>
+
+          <img
+            class="lesson-milestone__mascot"
+            src="./assets/excited robot.png"
+            alt="TMUA study robot celebrating"
+          />
+
+          <p class="topic-page__eyebrow">
+            ${screen.eyebrow || "KEEP GOING"}
+          </p>
+
+          <h1>${screen.title}</h1>
+          <p>${screen.body}</p>
+        </div>
+
+        <button class="lesson-primary-button" id="lesson-next" type="button">
+          ${screen.buttonText || "Continue"}
+          <i class="ri-arrow-right-line"></i>
+        </button>
+      </article>
+    `;
+
+        this.root.querySelector("#lesson-next").addEventListener("click", () => {
+            this.next();
+        });
+
+        this.addExitListener();
+    }
+
     next() {
         this.screenIndex += 1;
         this.revealIndex = 0;
@@ -208,8 +331,6 @@ class LessonRunner {
     }
 
     finish() {
-        document.body.classList.add("lesson-mode");
-
         this.root.innerHTML = `
       <article class="lesson-screen lesson-complete">
         ${this.getTopBar()}
@@ -224,7 +345,11 @@ class LessonRunner {
           <p>You completed ${this.lesson.title}.</p>
         </div>
 
-        <button class="lesson-primary-button" id="lesson-exit-button" type="button">
+        <button
+          class="lesson-primary-button"
+          id="lesson-exit-button"
+          type="button"
+        >
           Back to Algebra
         </button>
       </article>

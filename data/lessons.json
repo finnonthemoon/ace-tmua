@@ -31,6 +31,21 @@
                         }
                     ],
                     "buttonText": "Finish lesson"
+                },
+                {
+                    "type": "trueFalse",
+                    "eyebrow": "QUICK CHECK",
+                    "question": "When multiplying powers with the same base, you add the indices.",
+                    "answer": true,
+                    "correctFeedback": "Exactly. x² × x⁵ becomes x⁷.",
+                    "incorrectFeedback": "For multiplication with the same base, add the indices: x² × x⁵ = x⁷."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK",
+                    "title": "You have the first index law down.",
+                    "body": "That is one of the core tools you will use throughout algebra. Next, you will see what changes when you divide powers.",
+                    "buttonText": "Keep going"
                 }
             ]
         }
