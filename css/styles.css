@@ -793,8 +793,7 @@ tr:nth-child(even) {
   border-color: white;
 }
 
-/* Study robot illustration */
-.home__robot-card {
+.home__study-card {
   width: 100%;
   height: 340px;
   margin-top: 0.9rem;
@@ -805,7 +804,7 @@ tr:nth-child(even) {
   box-shadow: var(--shadow);
 }
 
-.home__robot-image {
+.home__study-image {
   display: block;
   width: 100%;
   height: 100%;
@@ -1028,7 +1027,7 @@ tr:nth-child(even) {
   font-weight: 700;
 }
 
-.lesson-card>i {
+.lesson-card > i {
   color: var(--primary);
   font-size: 1.4rem;
 }
