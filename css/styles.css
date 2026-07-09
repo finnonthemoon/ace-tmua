@@ -1466,7 +1466,7 @@ body.lesson-mode .nav {
   border-radius: 14px;
 }
 
-.worked-example-option span {
+.worked-example-option>span {
   display: grid;
   width: 1.8rem;
   height: 1.8rem;
@@ -1491,7 +1491,7 @@ body.lesson-mode .nav {
   border-color: #75c88d;
 }
 
-.worked-example-option.is-correct span {
+.worked-example-option.is-correct>span {
   color: white;
   background: #1d7d46;
 }
