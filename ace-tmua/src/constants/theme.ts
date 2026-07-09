@@ -22,6 +22,26 @@ export const Colors = {
     backgroundSelected: '#2E3135',
     textSecondary: '#B0B4BA',
   },
+  primary: '#ff6f1a',
+  warmOrange: '#ffb347',
+  cream: '#fff7e6',
+  surface: '#ffffff',
+  ink: '#2d241f',
+  muted: '#7d6d62',
+  line: '#f1dfbd',
+  
+  // Topic specific colours
+  topics: {
+    1: '#ff6f1a', 
+    2: '#f3a82c', 
+    3: '#9b7be6', 
+    4: '#62ace4', 
+    5: '#55c59a', 
+    6: '#ed7d92', 
+    7: '#4f91d4', 
+    8: '#e9b738', 
+  },
+  
 } as const;
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
