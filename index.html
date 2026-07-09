@@ -1,88 +1,82 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AceTMUA</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
 
-  <body>
-    <nav class="nav">
-      <ul class="nav__list">
-        <li>
-          <a href="#home" class="nav__link active-link" aria-label="Home">
-            <i class="ri-home-5-line"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#learn" class="nav__link">
-            <i class="ri-mind-map"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#leaderboard" class="nav__link">
-            <i class="ri-medal-line"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#questions" class="nav__link">
-            <i class="ri-questionnaire-line"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#profile" class="nav__link">
-            <i class="ri-user-line"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AceTMUA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 
-    <main class="container">
-      <section class="section active-section" id="home">
-        <div class="home__header">
-          <div>
-            <p class="home__eyebrow">ACE TMUA</p>
-            <h1 id="home-greeting">Good morning!</h1>
-            <p class="home__subtext">
-              A little practice today goes a long way.
-            </p>
-          </div>
-          <div
-            class="home__avatar"
-            id="home-avatar"
-            aria-label="Profile avatar"
-          ></div>
+<body>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li>
+        <a href="#home" class="nav__link active-link" aria-label="Home">
+          <i class="ri-home-5-line"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#learn" class="nav__link">
+          <i class="ri-mind-map"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#leaderboard" class="nav__link">
+          <i class="ri-medal-line"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#questions" class="nav__link">
+          <i class="ri-questionnaire-line"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#profile" class="nav__link">
+          <i class="ri-user-line"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="section active-section" id="home">
+      <div class="home__header">
+        <div>
+          <p class="home__eyebrow">ACE TMUA</p>
+          <h1 id="home-greeting">Good morning!</h1>
+          <p class="home__subtext">
+            A little practice today goes a long way!
+          </p>
         </div>
+        <div class="home__avatar" id="home-avatar" aria-label="Profile avatar"></div>
+      </div>
 
-        <article class="streak-card">
-          <div class="streak-card__icon">
-            <i class="ri-fire-fill"></i>
-          </div>
-          <div class="streak-card__content">
-            <p class="streak-card__label">Current streak</p>
-            <p class="streak-card__number">
-              <span id="home-streak">7</span>
-              <span>days</span>
-            </p>
-            <p class="streak-card__message">Keep it going — practise today!</p>
-          </div>
-          <div class="streak-card__days" aria-label="Weekly streak">
-            <span class="streak-day active">M</span>
-            <span class="streak-day active">T</span>
-            <span class="streak-day active">W</span>
-            <span class="streak-day active">T</span>
-            <span class="streak-day active">F</span>
-            <span class="streak-day active">S</span>
-            <span class="streak-day">S</span>
-          </div>
-        </article>
+      <article class="streak-card">
+        <div class="streak-card__icon">
+          <i class="ri-fire-fill"></i>
+        </div>
+        <div class="streak-card__content">
+          <p class="streak-card__label">Current streak</p>
+          <p class="streak-card__number">
+            <span id="home-streak">7</span>
+            <span>days</span>
+          </p>
+          <p class="streak-card__message">Keep it going — practise today!</p>
+        </div>
+        <div class="streak-card__days" aria-label="Weekly streak">
+          <span class="streak-day active">M</span>
+          <span class="streak-day active">T</span>
+          <span class="streak-day active">W</span>
+          <span class="streak-day active">T</span>
+          <span class="streak-day active">F</span>
+          <span class="streak-day active">S</span>
+          <span class="streak-day">S</span>
+        </div>
+      </article>
 
-        <!-- <article class="home__study-card">
+      <!-- <article class="home__study-card">
           <img
             class="home__study-image"
             src="./assets/study.jpg"
@@ -90,1078 +84,880 @@
           />
         </article> -->
 
-        <article class="today-card">
-          <div class="today-card__top">
-            <div>
-              <p class="home__eyebrow">TODAY'S PRACTICE</p>
-              <h2>Quadratics: mixed practice</h2>
-            </div>
-            <div class="today-card__time">
-              <i class="ri-time-line"></i>
-              12 min
-            </div>
-          </div>
-          <div class="today-card__progress">
-            <div class="today-card__progress-label">
-              <span>Daily goal</span>
-              <span>0 / 10 questions</span>
-            </div>
-            <div class="today-card__bar">
-              <span></span>
-            </div>
-          </div>
-          <a class="today-card__button" href="#questions">
-            Start practice
-            <i class="ri-arrow-right-line"></i>
-          </a>
-        </article>
-
-        <article class="home__next-card">
+      <article class="today-card">
+        <div class="today-card__top">
           <div>
-            <p class="home__eyebrow">CONTINUE LEARNING</p>
-            <h2>Algebra and Functions</h2>
-            <p>Next up: Quadratics and Inequalities</p>
+            <p class="home__eyebrow">TODAY'S PRACTICE</p>
+            <h2>Quadratics: mixed practice</h2>
           </div>
-          <a class="home__continue-button" href="#learn">
-            Continue
-            <i class="ri-arrow-right-line"></i>
-          </a>
-        </article>
-      </section>
-
-      <!-- ======================== LEARN ======================== -->
-      <section class="section" id="learn">
-        <h1>Learn</h1>
-        <div class="topics-container">
-          <a href="#topic-1" class="topic-link">
-            <div class="topic-box" id="box-1">
-              <span>Algebra and<br />Functions</span>
-              <small>0% complete</small>
-            </div>
-          </a>
-          <a href="#topic-2" class="topic-link">
-            <div class="topic-box" id="box-2">
-              <span>Sequences and<br />Series</span>
-              <small>0% complete</small>
-            </div>
-          </a>
-          <a href="#topic-3" class="topic-link">
-            <div class="topic-box" id="box-3">
-              <span>Coordinate<br />Geometry</span>
-              <small>0% complete</small>
-            </div>
-          </a>
-          <a href="#topic-4" class="topic-link">
-            <div class="topic-box" id="box-4">
-              <span>Trigonometry</span>
-              <small>0% complete</small>
-            </div>
-          </a>
-          <a href="#topic-5" class="topic-link">
-            <div class="topic-box" id="box-5">
-              <span>Exponentials and<br />Logarithms</span>
-              <small>0% complete</small>
-            </div>
-          </a>
-          <a href="#topic-6" class="topic-link">
-            <div class="topic-box" id="box-6">
-              <span>Calculus</span>
-              <small>0% complete</small>
-            </div>
-          </a>
-          <a href="#topic-7" class="topic-link">
-            <div class="topic-box" id="box-7">
-              <span>Geometry and<br />Data</span>
-              <small>0% complete</small>
-            </div>
-          </a>
-          <a href="#topic-8" class="topic-link">
-            <div class="topic-box" id="box-8">
-              <span>Logic and Proof</span>
-              <small>0% complete</small>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ======================== ALGEBRA AND FUNCTIONS ======================== -->
-      <section class="section" id="topic-1">
-        <a href="#learn" class="back-link" aria-label="Back to Learn">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
-        <h1>Algebra and Functions</h1>
-        <p class="topic-page__intro">
-          Work through the core skills in order, then finish with exam-style
-          practice.
-        </p>
-        <div class="topic-progress">
-          <div class="topic-progress__top">
-            <span>Topic progress</span>
-            <strong data-topic-progress-text
-              >0% complete · 0 / 4 lessons</strong
-            >
-          </div>
-
-          <div class="topic-progress__track">
-            <span data-topic-progress-fill></span>
+          <div class="today-card__time">
+            <i class="ri-time-line"></i>
+            12 min
           </div>
         </div>
-        <div class="roadmap">
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--current"
-            data-lesson-id="indices-surds-polynomials-1"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-play-fill"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 1 · START HERE</span>
-              <strong>Indices, Surds and Polynomials</strong>
-              <small>Core algebra rules and manipulation</small>
-              <span class="roadmap__action"
-                >Start lesson <i class="ri-arrow-right-line"></i
-              ></span>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="quadratics-and-inequalities"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 2</span>
-              <strong>Quadratics and Inequalities</strong>
-              <small>Graphs, roots and regions</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="functions-simultaneous-systems"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 3</span>
-              <strong>Functions and Simultaneous Systems</strong>
-              <small>Mappings and linked equations</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="algebra-exam-style-questions"
-          >
-            <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">FINAL STEP</span>
-              <strong>Exam-style Questions</strong>
-              <small>Bring the whole topic together</small>
-            </span>
-          </a>
+        <div class="today-card__progress">
+          <div class="today-card__progress-label">
+            <span>Daily goal</span>
+            <span>0 / 10 questions</span>
+          </div>
+          <div class="today-card__bar">
+            <span></span>
+          </div>
         </div>
-      </section>
-
-      <section class="section lesson-page" id="topic-1-1">
-        <a href="#topic-1" class="back-link" aria-label="Back to Algebra">
-          <i class="ri-arrow-left-line"></i>
+        <a class="today-card__button" href="#questions">
+          Start practice
+          <i class="ri-arrow-right-line"></i>
         </a>
-        <p class="topic-page__eyebrow">ALGEBRA · LESSON 1</p>
-        <h1>Indices, Surds and Polynomials</h1>
-        <p class="topic-page__intro">
-          Start with the core rules, then practise applying them.
-        </p>
-        <img
-          src="assets/indice-laws.png"
-          height="350px"
-          alt="Laws of indices"
-        />
-      </section>
+      </article>
 
-      <section class="section lesson-page" id="topic-1-2">
-        <a href="#topic-1" class="back-link" aria-label="Back to Algebra">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">ALGEBRA · LESSON 2</p>
-        <h1>Quadratics and Inequalities</h1>
-        <p class="topic-page__intro">
-          Solve, sketch and reason about quadratic expressions.
-        </p>
-      </section>
-
-      <section class="section lesson-page" id="topic-1-3">
-        <a href="#topic-1" class="back-link" aria-label="Back to Algebra">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">ALGEBRA · LESSON 3</p>
-        <h1>Functions and Simultaneous Systems</h1>
-        <p class="topic-page__intro">
-          Use function notation and solve linked equations accurately.
-        </p>
-      </section>
-
-      <section class="section lesson-page" id="topic-1-4">
-        <a href="#topic-1" class="back-link" aria-label="Back to Algebra">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">ALGEBRA · PRACTICE</p>
-        <h1>Exam-style Questions</h1>
-        <p class="topic-page__intro">
-          Apply everything from this topic under TMUA-style conditions.
-        </p>
-      </section>
-
-      <!-- ======================== SEQUENCES AND SERIES ======================== -->
-      <section class="section" id="topic-2">
-        <a href="#learn" class="back-link" aria-label="Back to Learn">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
-        <h1>Sequences and Series</h1>
-        <p class="topic-page__intro">
-          Arithmetic progressions, geometric series and binomial expansion.
-        </p>
-        <div class="roadmap">
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="arithmetic-geometric-progressions"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-play-fill"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 1 · START HERE</span>
-              <strong>Arithmetic &amp; Geometric Progressions</strong>
-              <small>Sequences, sums and common ratios</small>
-              <span class="roadmap__action"
-                >Start lesson <i class="ri-arrow-right-line"></i
-              ></span>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="binomial-expansion-factorials"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 2</span>
-              <strong>Binomial Expansion &amp; Factorials</strong>
-              <small>Expanding and counting</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="advanced-series-logic"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 3</span>
-              <strong>Advanced Series Logic</strong>
-              <small>Convergence and harder reasoning</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="sequences-series-exam-style-questions"
-          >
-            <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">FINAL STEP</span>
-              <strong>Exam-style Questions</strong>
-              <small>Bring the whole topic together</small>
-            </span>
-          </a>
+      <article class="home__next-card">
+        <div>
+          <p class="home__eyebrow">CONTINUE LEARNING</p>
+          <h2>Algebra and Functions</h2>
+          <p>Next up: Quadratics and Inequalities</p>
         </div>
-      </section>
-
-      <section class="section lesson-page" id="topic-2-1">
-        <a href="#topic-2" class="back-link" aria-label="Back to Sequences">
-          <i class="ri-arrow-left-line"></i>
+        <a class="home__continue-button" href="#learn">
+          Continue
+          <i class="ri-arrow-right-line"></i>
         </a>
-        <p class="topic-page__eyebrow">SEQUENCES · LESSON 1</p>
-        <h1>Arithmetic &amp; Geometric Progressions</h1>
-        <p class="topic-page__intro">Sequences, sums and common ratios.</p>
-      </section>
+      </article>
+    </section>
 
-      <section class="section lesson-page" id="topic-2-2">
-        <a href="#topic-2" class="back-link" aria-label="Back to Sequences">
-          <i class="ri-arrow-left-line"></i>
+    <!-- ======================== LEARN ======================== -->
+    <section class="section" id="learn">
+      <h1>Learn</h1>
+      <div class="topics-container">
+        <a href="#topic-1" class="topic-link">
+          <div class="topic-box" id="box-1">
+            <span>Algebra and<br />Functions</span>
+            <small>0% complete</small>
+          </div>
         </a>
-        <p class="topic-page__eyebrow">SEQUENCES · LESSON 2</p>
-        <h1>Binomial Expansion &amp; Factorials</h1>
-        <p class="topic-page__intro">Expanding and counting.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-2-3">
-        <a href="#topic-2" class="back-link" aria-label="Back to Sequences">
-          <i class="ri-arrow-left-line"></i>
+        <a href="#topic-2" class="topic-link">
+          <div class="topic-box" id="box-2">
+            <span>Sequences and<br />Series</span>
+            <small>0% complete</small>
+          </div>
         </a>
-        <p class="topic-page__eyebrow">SEQUENCES · LESSON 3</p>
-        <h1>Advanced Series Logic</h1>
-        <p class="topic-page__intro">Convergence and harder reasoning.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-2-4">
-        <a href="#topic-2" class="back-link" aria-label="Back to Sequences">
-          <i class="ri-arrow-left-line"></i>
+        <a href="#topic-3" class="topic-link">
+          <div class="topic-box" id="box-3">
+            <span>Coordinate<br />Geometry</span>
+            <small>0% complete</small>
+          </div>
         </a>
-        <p class="topic-page__eyebrow">SEQUENCES · PRACTICE</p>
-        <h1>Exam-style Questions</h1>
-        <p class="topic-page__intro">
-          Apply everything from this topic under TMUA-style conditions.
-        </p>
-      </section>
-
-      <!-- ======================== COORDINATE GEOMETRY ======================== -->
-      <section class="section" id="topic-3">
-        <a href="#learn" class="back-link" aria-label="Back to Learn">
-          <i class="ri-arrow-left-line"></i>
+        <a href="#topic-4" class="topic-link">
+          <div class="topic-box" id="box-4">
+            <span>Trigonometry</span>
+            <small>0% complete</small>
+          </div>
         </a>
-        <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
-        <h1>Coordinate Geometry</h1>
-        <p class="topic-page__intro">
-          Lines, circles, gradients and intersections.
-        </p>
-        <div class="roadmap">
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="lines-gradients"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-play-fill"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 1 · START HERE</span>
-              <strong>Lines &amp; Gradients</strong>
-              <small>Equations of lines and perpendicularity</small>
-              <span class="roadmap__action"
-                >Start lesson <i class="ri-arrow-right-line"></i
-              ></span>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="circle-equations-intersections"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 2</span>
-              <strong>Circle Equations &amp; Intersections</strong>
-              <small>Standard form and chord geometry</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="circle-theorems-axes"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 3</span>
-              <strong>Circle Theorems on Axes</strong>
-              <small>Tangents, normals and proofs</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="coordinate-geometry-exam-style-questions"
-          >
-            <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">FINAL STEP</span>
-              <strong>Exam-style Questions</strong>
-              <small>Bring the whole topic together</small>
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <section class="section lesson-page" id="topic-3-1">
-        <a
-          href="#topic-3"
-          class="back-link"
-          aria-label="Back to Coordinate Geometry"
-        >
-          <i class="ri-arrow-left-line"></i>
+        <a href="#topic-5" class="topic-link">
+          <div class="topic-box" id="box-5">
+            <span>Exponentials and<br />Logarithms</span>
+            <small>0% complete</small>
+          </div>
         </a>
-        <p class="topic-page__eyebrow">COORDINATE GEOMETRY · LESSON 1</p>
-        <h1>Lines &amp; Gradients</h1>
-        <p class="topic-page__intro">
-          Equations of lines and perpendicularity.
-        </p>
-      </section>
-
-      <section class="section lesson-page" id="topic-3-2">
-        <a
-          href="#topic-3"
-          class="back-link"
-          aria-label="Back to Coordinate Geometry"
-        >
-          <i class="ri-arrow-left-line"></i>
+        <a href="#topic-6" class="topic-link">
+          <div class="topic-box" id="box-6">
+            <span>Calculus</span>
+            <small>0% complete</small>
+          </div>
         </a>
-        <p class="topic-page__eyebrow">COORDINATE GEOMETRY · LESSON 2</p>
-        <h1>Circle Equations &amp; Intersections</h1>
-        <p class="topic-page__intro">Standard form and chord geometry.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-3-3">
-        <a
-          href="#topic-3"
-          class="back-link"
-          aria-label="Back to Coordinate Geometry"
-        >
-          <i class="ri-arrow-left-line"></i>
+        <a href="#topic-7" class="topic-link">
+          <div class="topic-box" id="box-7">
+            <span>Geometry and<br />Data</span>
+            <small>0% complete</small>
+          </div>
         </a>
-        <p class="topic-page__eyebrow">COORDINATE GEOMETRY · LESSON 3</p>
-        <h1>Circle Theorems on Axes</h1>
-        <p class="topic-page__intro">Tangents, normals and proofs.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-3-4">
-        <a
-          href="#topic-3"
-          class="back-link"
-          aria-label="Back to Coordinate Geometry"
-        >
-          <i class="ri-arrow-left-line"></i>
+        <a href="#topic-8" class="topic-link">
+          <div class="topic-box" id="box-8">
+            <span>Logic and Proof</span>
+            <small>0% complete</small>
+          </div>
         </a>
-        <p class="topic-page__eyebrow">COORDINATE GEOMETRY · PRACTICE</p>
-        <h1>Exam-style Questions</h1>
-        <p class="topic-page__intro">
-          Apply everything from this topic under TMUA-style conditions.
-        </p>
-      </section>
+      </div>
+    </section>
 
-      <!-- ======================== TRIGONOMETRY ======================== -->
-      <section class="section" id="topic-4">
-        <a href="#learn" class="back-link" aria-label="Back to Learn">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
-        <h1>Trigonometry</h1>
-        <p class="topic-page__intro">
-          Radians, identities, graphs and equations.
-        </p>
-        <div class="roadmap">
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="triangles-radians"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-play-fill"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 1 · START HERE</span>
-              <strong>Triangles &amp; Radians</strong>
-              <small>SOHCAHTOA, sine rule and radian measure</small>
-              <span class="roadmap__action"
-                >Start lesson <i class="ri-arrow-right-line"></i
-              ></span>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="values-graphs-identities"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 2</span>
-              <strong>Values, Graphs &amp; Identities</strong>
-              <small>Exact values and trig identities</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="solving-equations"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 3</span>
-              <strong>Solving Equations</strong>
-              <small>Finding solutions in given ranges</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="trigonometry-exam-style-questions"
-          >
-            <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">FINAL STEP</span>
-              <strong>Exam-style Questions</strong>
-              <small>Bring the whole topic together</small>
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <section class="section lesson-page" id="topic-4-1">
-        <a href="#topic-4" class="back-link" aria-label="Back to Trigonometry">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TRIGONOMETRY · LESSON 1</p>
-        <h1>Triangles &amp; Radians</h1>
-        <p class="topic-page__intro">
-          SOHCAHTOA, sine rule and radian measure.
-        </p>
-      </section>
-
-      <section class="section lesson-page" id="topic-4-2">
-        <a href="#topic-4" class="back-link" aria-label="Back to Trigonometry">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TRIGONOMETRY · LESSON 2</p>
-        <h1>Values, Graphs &amp; Identities</h1>
-        <p class="topic-page__intro">Exact values and trig identities.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-4-3">
-        <a href="#topic-4" class="back-link" aria-label="Back to Trigonometry">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TRIGONOMETRY · LESSON 3</p>
-        <h1>Solving Equations</h1>
-        <p class="topic-page__intro">Finding solutions in given ranges.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-4-4">
-        <a href="#topic-4" class="back-link" aria-label="Back to Trigonometry">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TRIGONOMETRY · PRACTICE</p>
-        <h1>Exam-style Questions</h1>
-        <p class="topic-page__intro">
-          Apply everything from this topic under TMUA-style conditions.
-        </p>
-      </section>
-
-      <!-- ======================== EXPONENTIALS AND LOGARITHMS ======================== -->
-      <section class="section" id="topic-5">
-        <a href="#learn" class="back-link" aria-label="Back to Learn">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
-        <h1>Exponentials and Logarithms</h1>
-        <p class="topic-page__intro">
-          Log laws, exponential models and equation solving.
-        </p>
-        <div class="roadmap">
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="log-laws-exponential-graphs"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-play-fill"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 1 · START HERE</span>
-              <strong>Log Laws &amp; Exponential Graphs</strong>
-              <small>The rules and how they look</small>
-              <span class="roadmap__action"
-                >Start lesson <i class="ri-arrow-right-line"></i
-              ></span>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="solving-exponential-log-equations"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 2</span>
-              <strong>Solving Exponential &amp; Log Equations</strong>
-              <small>Algebraic techniques for logs</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="advanced-log-reasoning"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 3</span>
-              <strong>Advanced Log Reasoning</strong>
-              <small>Harder problem-solving with logs</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="exponentials-logarithms-exam-style-questions"
-          >
-            <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">FINAL STEP</span>
-              <strong>Exam-style Questions</strong>
-              <small>Bring the whole topic together</small>
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <section class="section lesson-page" id="topic-5-1">
-        <a href="#topic-5" class="back-link" aria-label="Back to Exponentials">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">EXPONENTIALS · LESSON 1</p>
-        <h1>Log Laws &amp; Exponential Graphs</h1>
-        <p class="topic-page__intro">The rules and how they look.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-5-2">
-        <a href="#topic-5" class="back-link" aria-label="Back to Exponentials">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">EXPONENTIALS · LESSON 2</p>
-        <h1>Solving Exponential &amp; Log Equations</h1>
-        <p class="topic-page__intro">Algebraic techniques for logs.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-5-3">
-        <a href="#topic-5" class="back-link" aria-label="Back to Exponentials">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">EXPONENTIALS · LESSON 3</p>
-        <h1>Advanced Log Reasoning</h1>
-        <p class="topic-page__intro">Harder problem-solving with logs.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-5-4">
-        <a href="#topic-5" class="back-link" aria-label="Back to Exponentials">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">EXPONENTIALS · PRACTICE</p>
-        <h1>Exam-style Questions</h1>
-        <p class="topic-page__intro">
-          Apply everything from this topic under TMUA-style conditions.
-        </p>
-      </section>
-
-      <!-- ======================== CALCULUS ======================== -->
-      <section class="section" id="topic-6">
-        <a href="#learn" class="back-link" aria-label="Back to Learn">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
-        <h1>Calculus</h1>
-        <p class="topic-page__intro">
-          Differentiation, integration and applications.
-        </p>
-        <div class="roadmap">
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="differentiation-turning-points"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-play-fill"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 1 · START HERE</span>
-              <strong>Differentiation &amp; Turning Points</strong>
-              <small>Derivatives and stationary points</small>
-              <span class="roadmap__action"
-                >Start lesson <i class="ri-arrow-right-line"></i
-              ></span>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="integration-area"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 2</span>
-              <strong>Integration &amp; Area</strong>
-              <small>Indefinite and definite integrals</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="trapezium-rule-integration-logic"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 3</span>
-              <strong>Trapezium Rule &amp; Integration Logic</strong>
-              <small>Numerical methods and reasoning</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="calculus-exam-style-questions"
-          >
-            <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">FINAL STEP</span>
-              <strong>Exam-style Questions</strong>
-              <small>Bring the whole topic together</small>
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <section class="section lesson-page" id="topic-6-1">
-        <a href="#topic-6" class="back-link" aria-label="Back to Calculus">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">CALCULUS · LESSON 1</p>
-        <h1>Differentiation &amp; Turning Points</h1>
-        <p class="topic-page__intro">Derivatives and stationary points.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-6-2">
-        <a href="#topic-6" class="back-link" aria-label="Back to Calculus">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">CALCULUS · LESSON 2</p>
-        <h1>Integration &amp; Area</h1>
-        <p class="topic-page__intro">Indefinite and definite integrals.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-6-3">
-        <a href="#topic-6" class="back-link" aria-label="Back to Calculus">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">CALCULUS · LESSON 3</p>
-        <h1>Trapezium Rule &amp; Integration Logic</h1>
-        <p class="topic-page__intro">Numerical methods and reasoning.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-6-4">
-        <a href="#topic-6" class="back-link" aria-label="Back to Calculus">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">CALCULUS · PRACTICE</p>
-        <h1>Exam-style Questions</h1>
-        <p class="topic-page__intro">
-          Apply everything from this topic under TMUA-style conditions.
-        </p>
-      </section>
-
-      <!-- ======================== GEOMETRY AND DATA ======================== -->
-      <section class="section" id="topic-7">
-        <a href="#learn" class="back-link" aria-label="Back to Learn">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
-        <h1>Geometry and Data</h1>
-        <p class="topic-page__intro">
-          Transformations, proportion, statistics and probability.
-        </p>
-        <div class="roadmap">
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="graph-transformations"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-play-fill"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 1 · START HERE</span>
-              <strong>Graph Transformations</strong>
-              <small>Translations, stretches and reflections</small>
-              <span class="roadmap__action"
-                >Start lesson <i class="ri-arrow-right-line"></i
-              ></span>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="geometry-proportion"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 2</span>
-              <strong>Geometry &amp; Proportion</strong>
-              <small>Similar shapes and ratio reasoning</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="statistic-probability"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 3</span>
-              <strong>Statistics &amp; Probability</strong>
-              <small>Data interpretation and probability rules</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="geometry-data-exam-style-questions"
-          >
-            <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">FINAL STEP</span>
-              <strong>Exam-style Questions</strong>
-              <small>Bring the whole topic together</small>
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <section class="section lesson-page" id="topic-7-1">
-        <a
-          href="#topic-7"
-          class="back-link"
-          aria-label="Back to Geometry and Data"
-        >
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">GEOMETRY &amp; DATA · LESSON 1</p>
-        <h1>Graph Transformations</h1>
-        <p class="topic-page__intro">
-          Translations, stretches and reflections.
-        </p>
-      </section>
-
-      <section class="section lesson-page" id="topic-7-2">
-        <a
-          href="#topic-7"
-          class="back-link"
-          aria-label="Back to Geometry and Data"
-        >
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">GEOMETRY &amp; DATA · LESSON 2</p>
-        <h1>Geometry &amp; Proportion</h1>
-        <p class="topic-page__intro">Similar shapes and ratio reasoning.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-7-3">
-        <a
-          href="#topic-7"
-          class="back-link"
-          aria-label="Back to Geometry and Data"
-        >
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">GEOMETRY &amp; DATA · LESSON 3</p>
-        <h1>Statistics &amp; Probability</h1>
-        <p class="topic-page__intro">
-          Data interpretation and probability rules.
-        </p>
-      </section>
-
-      <section class="section lesson-page" id="topic-7-4">
-        <a
-          href="#topic-7"
-          class="back-link"
-          aria-label="Back to Geometry and Data"
-        >
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">GEOMETRY &amp; DATA · PRACTICE</p>
-        <h1>Exam-style Questions</h1>
-        <p class="topic-page__intro">
-          Apply everything from this topic under TMUA-style conditions.
-        </p>
-      </section>
-
-      <!-- ======================== LOGIC AND PROOF ======================== -->
-      <section class="section" id="topic-8">
-        <a href="#learn" class="back-link" aria-label="Back to Learn">
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
-        <h1>Logic and Proof</h1>
-        <p class="topic-page__intro">
-          Arguments, quantifiers and proof methods.
-        </p>
-        <div class="roadmap">
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="logic-of-arguments"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-play-fill"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 1 · START HERE</span>
-              <strong>Logic of Arguments</strong>
-              <small>Implications, negations and truth tables</small>
-              <span class="roadmap__action"
-                >Start lesson <i class="ri-arrow-right-line"></i
-              ></span>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="methods-of-proof-quantifiers"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 2</span>
-              <strong>Methods of Proof &amp; Quantifiers</strong>
-              <small>Direct, contradiction and induction</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="disproving-statements"
-          >
-            <span class="roadmap__line"></span>
-            <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">STEP 3</span>
-              <strong>Disproving Statements</strong>
-              <small>Counterexamples and logical errors</small>
-            </span>
-          </a>
-          <a
-            href="#lesson"
-            class="roadmap__item roadmap__item--locked"
-            data-lesson-id="logic-proof-exam-style-questions"
-          >
-            <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
-            <span class="roadmap__card">
-              <span class="roadmap__meta">FINAL STEP</span>
-              <strong>Exam-style Questions</strong>
-              <small>Bring the whole topic together</small>
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <section class="section lesson-page" id="topic-8-1">
-        <a
-          href="#topic-8"
-          class="back-link"
-          aria-label="Back to Logic and Proof"
-        >
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">LOGIC &amp; PROOF · LESSON 1</p>
-        <h1>Logic of Arguments</h1>
-        <p class="topic-page__intro">
-          Implications, negations and truth tables.
-        </p>
-      </section>
-
-      <section class="section lesson-page" id="topic-8-2">
-        <a
-          href="#topic-8"
-          class="back-link"
-          aria-label="Back to Logic and Proof"
-        >
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">LOGIC &amp; PROOF · LESSON 2</p>
-        <h1>Methods of Proof &amp; Quantifiers</h1>
-        <p class="topic-page__intro">Direct, contradiction and induction.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-8-3">
-        <a
-          href="#topic-8"
-          class="back-link"
-          aria-label="Back to Logic and Proof"
-        >
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">LOGIC &amp; PROOF · LESSON 3</p>
-        <h1>Disproving Statements</h1>
-        <p class="topic-page__intro">Counterexamples and logical errors.</p>
-      </section>
-
-      <section class="section lesson-page" id="topic-8-4">
-        <a
-          href="#topic-8"
-          class="back-link"
-          aria-label="Back to Logic and Proof"
-        >
-          <i class="ri-arrow-left-line"></i>
-        </a>
-        <p class="topic-page__eyebrow">LOGIC &amp; PROOF · PRACTICE</p>
-        <h1>Exam-style Questions</h1>
-        <p class="topic-page__intro">
-          Apply everything from this topic under TMUA-style conditions.
-        </p>
-      </section>
-      <!-- ======================== LESSON RUNNER ======================== -->
-      <section class="section" id="lesson">
-        <div id="lesson-root"></div>
-      </section>
-      <!-- ======================== LEADERBOARD ======================== -->
-      <section class="section" id="leaderboard">
-        <h1>Leaderboard</h1>
-        <table class="sortable">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Target uni</th>
-              <th>Weekly score</th>
-            </tr>
-          </thead>
-          <tbody id="leaderboard-data"></tbody>
-        </table>
-      </section>
-
-      <!-- ======================== QUESTIONS ======================== -->
-      <section class="section" id="questions">
-        <h1>Questions</h1>
-        <p class="temp-description">Sets of practice questions will go here</p>
-      </section>
-
-      <!-- ======================== PROFILE ======================== -->
-      <section class="section" id="profile">
-        <div class="container">
-          <button class="load-seed" onclick="loadSeedData()">
-            <i class="ri-refresh-line"></i> Load test data
-          </button>
-          <div id="profile-root"></div>
+    <!-- ======================== ALGEBRA AND FUNCTIONS ======================== -->
+    <section class="section" id="topic-1">
+      <a href="#learn" class="back-link" aria-label="Back to Learn">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
+      <h1>Algebra and Functions</h1>
+      <p class="topic-page__intro">
+        Work through the core skills in order, then finish with exam-style
+        practice.
+      </p>
+      <div class="topic-progress">
+        <div class="topic-progress__top">
+          <span>Topic progress</span>
+          <strong data-topic-progress-text>0% complete · 0 / 4 lessons</strong>
         </div>
 
-        <script src="js/userData.js"></script>
-        <script>
-          function initials(name) {
-            return name
-              .split(" ")
-              .map((p) => p[0])
-              .join("")
-              .slice(0, 2)
-              .toUpperCase();
-          }
+        <div class="topic-progress__track">
+          <span data-topic-progress-fill></span>
+        </div>
+      </div>
+      <div class="roadmap">
+        <a href="#lesson" class="roadmap__item roadmap__item--current" data-lesson-id="indices-surds-polynomials-1">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-play-fill"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 1 · START HERE</span>
+            <strong>Indices, Surds and Polynomials</strong>
+            <small>Core algebra rules and manipulation</small>
+            <span class="roadmap__action">Start lesson <i class="ri-arrow-right-line"></i></span>
+          </span>
+        </a>
+        <a href="#topic-1-2" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 2</span>
+            <strong>Quadratics and Inequalities</strong>
+            <small>Graphs, roots and regions</small>
+          </span>
+        </a>
+        <a href="#topic-1-3" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 3</span>
+            <strong>Functions and Simultaneous Systems</strong>
+            <small>Mappings and linked equations</small>
+          </span>
+        </a>
+        <a href="#topic-1-4" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">FINAL STEP</span>
+            <strong>Exam-style Questions</strong>
+            <small>Bring the whole topic together</small>
+          </span>
+        </a>
+      </div>
+    </section>
 
-          function renderProfile() {
-            const user = userData.get();
-            const root = document.getElementById("profile-root");
-            root.innerHTML = `
+    <section class="section lesson-page" id="topic-1-1">
+      <a href="#topic-1" class="back-link" aria-label="Back to Algebra">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">ALGEBRA · LESSON 1</p>
+      <h1>Indices, Surds and Polynomials</h1>
+      <p class="topic-page__intro">
+        Start with the core rules, then practise applying them.
+      </p>
+      <img src="assets/indice-laws.png" height="350px" alt="Laws of indices" />
+    </section>
+
+    <section class="section lesson-page" id="topic-1-2">
+      <a href="#topic-1" class="back-link" aria-label="Back to Algebra">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">ALGEBRA · LESSON 2</p>
+      <h1>Quadratics and Inequalities</h1>
+      <p class="topic-page__intro">
+        Solve, sketch and reason about quadratic expressions.
+      </p>
+    </section>
+
+    <section class="section lesson-page" id="topic-1-3">
+      <a href="#topic-1" class="back-link" aria-label="Back to Algebra">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">ALGEBRA · LESSON 3</p>
+      <h1>Functions and Simultaneous Systems</h1>
+      <p class="topic-page__intro">
+        Use function notation and solve linked equations accurately.
+      </p>
+    </section>
+
+    <section class="section lesson-page" id="topic-1-4">
+      <a href="#topic-1" class="back-link" aria-label="Back to Algebra">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">ALGEBRA · PRACTICE</p>
+      <h1>Exam-style Questions</h1>
+      <p class="topic-page__intro">
+        Apply everything from this topic under TMUA-style conditions.
+      </p>
+    </section>
+
+    <!-- ======================== SEQUENCES AND SERIES ======================== -->
+    <section class="section" id="topic-2">
+      <a href="#learn" class="back-link" aria-label="Back to Learn">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
+      <h1>Sequences and Series</h1>
+      <p class="topic-page__intro">
+        Arithmetic progressions, geometric series and binomial expansion.
+      </p>
+      <div class="roadmap">
+        <a href="#topic-2-1" class="roadmap__item roadmap__item--current">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-play-fill"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 1 · START HERE</span>
+            <strong>Arithmetic &amp; Geometric Progressions</strong>
+            <small>Sequences, sums and common ratios</small>
+            <span class="roadmap__action">Start lesson <i class="ri-arrow-right-line"></i></span>
+          </span>
+        </a>
+        <a href="#topic-2-2" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 2</span>
+            <strong>Binomial Expansion &amp; Factorials</strong>
+            <small>Expanding and counting</small>
+          </span>
+        </a>
+        <a href="#topic-2-3" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 3</span>
+            <strong>Advanced Series Logic</strong>
+            <small>Convergence and harder reasoning</small>
+          </span>
+        </a>
+        <a href="#topic-2-4" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">FINAL STEP</span>
+            <strong>Exam-style Questions</strong>
+            <small>Bring the whole topic together</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section lesson-page" id="topic-2-1">
+      <a href="#topic-2" class="back-link" aria-label="Back to Sequences">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">SEQUENCES · LESSON 1</p>
+      <h1>Arithmetic &amp; Geometric Progressions</h1>
+      <p class="topic-page__intro">Sequences, sums and common ratios.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-2-2">
+      <a href="#topic-2" class="back-link" aria-label="Back to Sequences">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">SEQUENCES · LESSON 2</p>
+      <h1>Binomial Expansion &amp; Factorials</h1>
+      <p class="topic-page__intro">Expanding and counting.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-2-3">
+      <a href="#topic-2" class="back-link" aria-label="Back to Sequences">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">SEQUENCES · LESSON 3</p>
+      <h1>Advanced Series Logic</h1>
+      <p class="topic-page__intro">Convergence and harder reasoning.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-2-4">
+      <a href="#topic-2" class="back-link" aria-label="Back to Sequences">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">SEQUENCES · PRACTICE</p>
+      <h1>Exam-style Questions</h1>
+      <p class="topic-page__intro">
+        Apply everything from this topic under TMUA-style conditions.
+      </p>
+    </section>
+
+    <!-- ======================== COORDINATE GEOMETRY ======================== -->
+    <section class="section" id="topic-3">
+      <a href="#learn" class="back-link" aria-label="Back to Learn">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
+      <h1>Coordinate Geometry</h1>
+      <p class="topic-page__intro">
+        Lines, circles, gradients and intersections.
+      </p>
+      <div class="roadmap">
+        <a href="#topic-3-1" class="roadmap__item roadmap__item--current">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-play-fill"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 1 · START HERE</span>
+            <strong>Lines &amp; Gradients</strong>
+            <small>Equations of lines and perpendicularity</small>
+            <span class="roadmap__action">Start lesson <i class="ri-arrow-right-line"></i></span>
+          </span>
+        </a>
+        <a href="#topic-3-2" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 2</span>
+            <strong>Circle Equations &amp; Intersections</strong>
+            <small>Standard form and chord geometry</small>
+          </span>
+        </a>
+        <a href="#topic-3-3" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 3</span>
+            <strong>Circle Theorems on Axes</strong>
+            <small>Tangents, normals and proofs</small>
+          </span>
+        </a>
+        <a href="#topic-3-4" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">FINAL STEP</span>
+            <strong>Exam-style Questions</strong>
+            <small>Bring the whole topic together</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section lesson-page" id="topic-3-1">
+      <a href="#topic-3" class="back-link" aria-label="Back to Coordinate Geometry">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">COORDINATE GEOMETRY · LESSON 1</p>
+      <h1>Lines &amp; Gradients</h1>
+      <p class="topic-page__intro">
+        Equations of lines and perpendicularity.
+      </p>
+    </section>
+
+    <section class="section lesson-page" id="topic-3-2">
+      <a href="#topic-3" class="back-link" aria-label="Back to Coordinate Geometry">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">COORDINATE GEOMETRY · LESSON 2</p>
+      <h1>Circle Equations &amp; Intersections</h1>
+      <p class="topic-page__intro">Standard form and chord geometry.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-3-3">
+      <a href="#topic-3" class="back-link" aria-label="Back to Coordinate Geometry">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">COORDINATE GEOMETRY · LESSON 3</p>
+      <h1>Circle Theorems on Axes</h1>
+      <p class="topic-page__intro">Tangents, normals and proofs.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-3-4">
+      <a href="#topic-3" class="back-link" aria-label="Back to Coordinate Geometry">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">COORDINATE GEOMETRY · PRACTICE</p>
+      <h1>Exam-style Questions</h1>
+      <p class="topic-page__intro">
+        Apply everything from this topic under TMUA-style conditions.
+      </p>
+    </section>
+
+    <!-- ======================== TRIGONOMETRY ======================== -->
+    <section class="section" id="topic-4">
+      <a href="#learn" class="back-link" aria-label="Back to Learn">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
+      <h1>Trigonometry</h1>
+      <p class="topic-page__intro">
+        Radians, identities, graphs and equations.
+      </p>
+      <div class="roadmap">
+        <a href="#topic-4-1" class="roadmap__item roadmap__item--current">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-play-fill"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 1 · START HERE</span>
+            <strong>Triangles &amp; Radians</strong>
+            <small>SOHCAHTOA, sine rule and radian measure</small>
+            <span class="roadmap__action">Start lesson <i class="ri-arrow-right-line"></i></span>
+          </span>
+        </a>
+        <a href="#topic-4-2" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 2</span>
+            <strong>Values, Graphs &amp; Identities</strong>
+            <small>Exact values and trig identities</small>
+          </span>
+        </a>
+        <a href="#topic-4-3" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 3</span>
+            <strong>Solving Equations</strong>
+            <small>Finding solutions in given ranges</small>
+          </span>
+        </a>
+        <a href="#topic-4-4" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">FINAL STEP</span>
+            <strong>Exam-style Questions</strong>
+            <small>Bring the whole topic together</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section lesson-page" id="topic-4-1">
+      <a href="#topic-4" class="back-link" aria-label="Back to Trigonometry">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TRIGONOMETRY · LESSON 1</p>
+      <h1>Triangles &amp; Radians</h1>
+      <p class="topic-page__intro">
+        SOHCAHTOA, sine rule and radian measure.
+      </p>
+    </section>
+
+    <section class="section lesson-page" id="topic-4-2">
+      <a href="#topic-4" class="back-link" aria-label="Back to Trigonometry">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TRIGONOMETRY · LESSON 2</p>
+      <h1>Values, Graphs &amp; Identities</h1>
+      <p class="topic-page__intro">Exact values and trig identities.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-4-3">
+      <a href="#topic-4" class="back-link" aria-label="Back to Trigonometry">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TRIGONOMETRY · LESSON 3</p>
+      <h1>Solving Equations</h1>
+      <p class="topic-page__intro">Finding solutions in given ranges.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-4-4">
+      <a href="#topic-4" class="back-link" aria-label="Back to Trigonometry">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TRIGONOMETRY · PRACTICE</p>
+      <h1>Exam-style Questions</h1>
+      <p class="topic-page__intro">
+        Apply everything from this topic under TMUA-style conditions.
+      </p>
+    </section>
+
+    <!-- ======================== EXPONENTIALS AND LOGARITHMS ======================== -->
+    <section class="section" id="topic-5">
+      <a href="#learn" class="back-link" aria-label="Back to Learn">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
+      <h1>Exponentials and Logarithms</h1>
+      <p class="topic-page__intro">
+        Log laws, exponential models and equation solving.
+      </p>
+      <div class="roadmap">
+        <a href="#topic-5-1" class="roadmap__item roadmap__item--current">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-play-fill"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 1 · START HERE</span>
+            <strong>Log Laws &amp; Exponential Graphs</strong>
+            <small>The rules and how they look</small>
+            <span class="roadmap__action">Start lesson <i class="ri-arrow-right-line"></i></span>
+          </span>
+        </a>
+        <a href="#topic-5-2" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 2</span>
+            <strong>Solving Exponential &amp; Log Equations</strong>
+            <small>Algebraic techniques for logs</small>
+          </span>
+        </a>
+        <a href="#topic-5-3" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 3</span>
+            <strong>Advanced Log Reasoning</strong>
+            <small>Harder problem-solving with logs</small>
+          </span>
+        </a>
+        <a href="#topic-5-4" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">FINAL STEP</span>
+            <strong>Exam-style Questions</strong>
+            <small>Bring the whole topic together</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section lesson-page" id="topic-5-1">
+      <a href="#topic-5" class="back-link" aria-label="Back to Exponentials">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">EXPONENTIALS · LESSON 1</p>
+      <h1>Log Laws &amp; Exponential Graphs</h1>
+      <p class="topic-page__intro">The rules and how they look.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-5-2">
+      <a href="#topic-5" class="back-link" aria-label="Back to Exponentials">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">EXPONENTIALS · LESSON 2</p>
+      <h1>Solving Exponential &amp; Log Equations</h1>
+      <p class="topic-page__intro">Algebraic techniques for logs.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-5-3">
+      <a href="#topic-5" class="back-link" aria-label="Back to Exponentials">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">EXPONENTIALS · LESSON 3</p>
+      <h1>Advanced Log Reasoning</h1>
+      <p class="topic-page__intro">Harder problem-solving with logs.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-5-4">
+      <a href="#topic-5" class="back-link" aria-label="Back to Exponentials">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">EXPONENTIALS · PRACTICE</p>
+      <h1>Exam-style Questions</h1>
+      <p class="topic-page__intro">
+        Apply everything from this topic under TMUA-style conditions.
+      </p>
+    </section>
+
+    <!-- ======================== CALCULUS ======================== -->
+    <section class="section" id="topic-6">
+      <a href="#learn" class="back-link" aria-label="Back to Learn">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
+      <h1>Calculus</h1>
+      <p class="topic-page__intro">
+        Differentiation, integration and applications.
+      </p>
+      <div class="roadmap">
+        <a href="#topic-6-1" class="roadmap__item roadmap__item--current">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-play-fill"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 1 · START HERE</span>
+            <strong>Differentiation &amp; Turning Points</strong>
+            <small>Derivatives and stationary points</small>
+            <span class="roadmap__action">Start lesson <i class="ri-arrow-right-line"></i></span>
+          </span>
+        </a>
+        <a href="#topic-6-2" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 2</span>
+            <strong>Integration &amp; Area</strong>
+            <small>Indefinite and definite integrals</small>
+          </span>
+        </a>
+        <a href="#topic-6-3" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 3</span>
+            <strong>Trapezium Rule &amp; Integration Logic</strong>
+            <small>Numerical methods and reasoning</small>
+          </span>
+        </a>
+        <a href="#topic-6-4" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">FINAL STEP</span>
+            <strong>Exam-style Questions</strong>
+            <small>Bring the whole topic together</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section lesson-page" id="topic-6-1">
+      <a href="#topic-6" class="back-link" aria-label="Back to Calculus">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">CALCULUS · LESSON 1</p>
+      <h1>Differentiation &amp; Turning Points</h1>
+      <p class="topic-page__intro">Derivatives and stationary points.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-6-2">
+      <a href="#topic-6" class="back-link" aria-label="Back to Calculus">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">CALCULUS · LESSON 2</p>
+      <h1>Integration &amp; Area</h1>
+      <p class="topic-page__intro">Indefinite and definite integrals.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-6-3">
+      <a href="#topic-6" class="back-link" aria-label="Back to Calculus">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">CALCULUS · LESSON 3</p>
+      <h1>Trapezium Rule &amp; Integration Logic</h1>
+      <p class="topic-page__intro">Numerical methods and reasoning.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-6-4">
+      <a href="#topic-6" class="back-link" aria-label="Back to Calculus">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">CALCULUS · PRACTICE</p>
+      <h1>Exam-style Questions</h1>
+      <p class="topic-page__intro">
+        Apply everything from this topic under TMUA-style conditions.
+      </p>
+    </section>
+
+    <!-- ======================== GEOMETRY AND DATA ======================== -->
+    <section class="section" id="topic-7">
+      <a href="#learn" class="back-link" aria-label="Back to Learn">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
+      <h1>Geometry and Data</h1>
+      <p class="topic-page__intro">
+        Transformations, proportion, statistics and probability.
+      </p>
+      <div class="roadmap">
+        <a href="#topic-7-1" class="roadmap__item roadmap__item--current">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-play-fill"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 1 · START HERE</span>
+            <strong>Graph Transformations</strong>
+            <small>Translations, stretches and reflections</small>
+            <span class="roadmap__action">Start lesson <i class="ri-arrow-right-line"></i></span>
+          </span>
+        </a>
+        <a href="#topic-7-2" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 2</span>
+            <strong>Geometry &amp; Proportion</strong>
+            <small>Similar shapes and ratio reasoning</small>
+          </span>
+        </a>
+        <a href="#topic-7-3" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 3</span>
+            <strong>Statistics &amp; Probability</strong>
+            <small>Data interpretation and probability rules</small>
+          </span>
+        </a>
+        <a href="#topic-7-4" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">FINAL STEP</span>
+            <strong>Exam-style Questions</strong>
+            <small>Bring the whole topic together</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section lesson-page" id="topic-7-1">
+      <a href="#topic-7" class="back-link" aria-label="Back to Geometry and Data">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">GEOMETRY &amp; DATA · LESSON 1</p>
+      <h1>Graph Transformations</h1>
+      <p class="topic-page__intro">
+        Translations, stretches and reflections.
+      </p>
+    </section>
+
+    <section class="section lesson-page" id="topic-7-2">
+      <a href="#topic-7" class="back-link" aria-label="Back to Geometry and Data">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">GEOMETRY &amp; DATA · LESSON 2</p>
+      <h1>Geometry &amp; Proportion</h1>
+      <p class="topic-page__intro">Similar shapes and ratio reasoning.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-7-3">
+      <a href="#topic-7" class="back-link" aria-label="Back to Geometry and Data">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">GEOMETRY &amp; DATA · LESSON 3</p>
+      <h1>Statistics &amp; Probability</h1>
+      <p class="topic-page__intro">
+        Data interpretation and probability rules.
+      </p>
+    </section>
+
+    <section class="section lesson-page" id="topic-7-4">
+      <a href="#topic-7" class="back-link" aria-label="Back to Geometry and Data">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">GEOMETRY &amp; DATA · PRACTICE</p>
+      <h1>Exam-style Questions</h1>
+      <p class="topic-page__intro">
+        Apply everything from this topic under TMUA-style conditions.
+      </p>
+    </section>
+
+    <!-- ======================== LOGIC AND PROOF ======================== -->
+    <section class="section" id="topic-8">
+      <a href="#learn" class="back-link" aria-label="Back to Learn">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">TMUA FOUNDATION</p>
+      <h1>Logic and Proof</h1>
+      <p class="topic-page__intro">
+        Arguments, quantifiers and proof methods.
+      </p>
+      <div class="roadmap">
+        <a href="#topic-8-1" class="roadmap__item roadmap__item--current">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-play-fill"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 1 · START HERE</span>
+            <strong>Logic of Arguments</strong>
+            <small>Implications, negations and truth tables</small>
+            <span class="roadmap__action">Start lesson <i class="ri-arrow-right-line"></i></span>
+          </span>
+        </a>
+        <a href="#topic-8-2" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 2</span>
+            <strong>Methods of Proof &amp; Quantifiers</strong>
+            <small>Direct, contradiction and induction</small>
+          </span>
+        </a>
+        <a href="#topic-8-3" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__line"></span>
+          <span class="roadmap__node"><i class="ri-lock-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">STEP 3</span>
+            <strong>Disproving Statements</strong>
+            <small>Counterexamples and logical errors</small>
+          </span>
+        </a>
+        <a href="#topic-8-4" class="roadmap__item roadmap__item--locked">
+          <span class="roadmap__node"><i class="ri-flag-2-line"></i></span>
+          <span class="roadmap__card">
+            <span class="roadmap__meta">FINAL STEP</span>
+            <strong>Exam-style Questions</strong>
+            <small>Bring the whole topic together</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section lesson-page" id="topic-8-1">
+      <a href="#topic-8" class="back-link" aria-label="Back to Logic and Proof">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">LOGIC &amp; PROOF · LESSON 1</p>
+      <h1>Logic of Arguments</h1>
+      <p class="topic-page__intro">
+        Implications, negations and truth tables.
+      </p>
+    </section>
+
+    <section class="section lesson-page" id="topic-8-2">
+      <a href="#topic-8" class="back-link" aria-label="Back to Logic and Proof">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">LOGIC &amp; PROOF · LESSON 2</p>
+      <h1>Methods of Proof &amp; Quantifiers</h1>
+      <p class="topic-page__intro">Direct, contradiction and induction.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-8-3">
+      <a href="#topic-8" class="back-link" aria-label="Back to Logic and Proof">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">LOGIC &amp; PROOF · LESSON 3</p>
+      <h1>Disproving Statements</h1>
+      <p class="topic-page__intro">Counterexamples and logical errors.</p>
+    </section>
+
+    <section class="section lesson-page" id="topic-8-4">
+      <a href="#topic-8" class="back-link" aria-label="Back to Logic and Proof">
+        <i class="ri-arrow-left-line"></i>
+      </a>
+      <p class="topic-page__eyebrow">LOGIC &amp; PROOF · PRACTICE</p>
+      <h1>Exam-style Questions</h1>
+      <p class="topic-page__intro">
+        Apply everything from this topic under TMUA-style conditions.
+      </p>
+    </section>
+    <!-- ======================== LESSON RUNNER ======================== -->
+    <section class="section" id="lesson">
+      <div id="lesson-root"></div>
+    </section>
+    <!-- ======================== LEADERBOARD ======================== -->
+    <section class="section" id="leaderboard">
+      <h1>Leaderboard</h1>
+      <table class="sortable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Target uni</th>
+            <th>Weekly score</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-data"></tbody>
+      </table>
+    </section>
+
+    <!-- ======================== QUESTIONS ======================== -->
+    <section class="section" id="questions">
+      <h1>Questions</h1>
+      <p class="temp-description">Sets of practice questions will go here</p>
+    </section>
+
+    <!-- ======================== PROFILE ======================== -->
+    <section class="section" id="profile">
+      <div class="container">
+        <button class="load-seed" onclick="loadSeedData()">
+          <i class="ri-refresh-line"></i> Load test data
+        </button>
+        <div id="profile-root"></div>
+      </div>
+
+      <script src="js/userData.js"></script>
+      <script>
+        function initials(name) {
+          return name
+            .split(" ")
+            .map((p) => p[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase();
+        }
+
+        function renderProfile() {
+          const user = userData.get();
+          const root = document.getElementById("profile-root");
+          root.innerHTML = `
               <div class="profile__card">
                 <div class="profile__avatar">${initials(user.name)}</div>
                 <div>
@@ -1182,14 +978,15 @@
                 </div>
               </div>
             `;
-          }
+        }
 
-          renderProfile();
-        </script>
-        <script src="./js/user-data.js"></script>
-        <script src="./js/lesson-runner.js"></script>
-        <script src="./js/app.js"></script>
-      </section>
-    </main>
-  </body>
+        renderProfile();
+      </script>
+      <script src="./js/user-data.js"></script>
+      <script src="./js/lesson-runner.js"></script>
+      <script src="./js/app.js"></script>
+    </section>
+  </main>
+</body>
+
 </html>

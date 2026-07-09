@@ -1,265 +1,69 @@
 {
-  "lessons": [
-    {
-      "id": "indices-surds-polynomials-1",
-      "topicId": "topic-1",
-      "title": "Indices, Surds and Polynomials",
-      "screens": [
+    "lessons": [
         {
-          "type": "concept",
-          "eyebrow": "ALGEBRA · 1 OF 4",
-          "title": "Indices are shorthand for repeated multiplication",
-          "body": "For example, x³ means x × x × x. The index tells you how many times the base is multiplied by itself.",
-          "keyPoint": "When multiplying powers with the same base, add the indices.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "ALGEBRA · 2 OF 4",
-          "title": "Use the index laws in order",
-          "steps": [
-            {
-              "title": "Look for matching bases",
-              "body": "Index laws only combine powers when their bases are the same."
-            },
-            {
-              "title": "Multiply: add indices",
-              "body": "x² × x⁵ = x⁷."
-            },
-            {
-              "title": "Divide: subtract indices",
-              "body": "x⁷ ÷ x² = x⁵."
-            }
-          ],
-          "buttonText": "Continue"
-        },
-        {
-          "type": "trueFalse",
-          "eyebrow": "QUICK CHECK · 3 OF 4",
-          "question": "When multiplying powers with the same base, you add the indices.",
-          "answer": true,
-          "correctFeedback": "Exactly. x² × x⁵ becomes x⁷.",
-          "incorrectFeedback": "For multiplication with the same base, add the indices: x² × x⁵ = x⁷."
-        },
-        {
-          "type": "milestone",
-          "eyebrow": "NICE WORK · 4 OF 4",
-          "title": "You have the first index law down.",
-          "body": "That is one of the core tools you will use throughout algebra. Next, you will see what changes when you divide powers.",
-          "buttonText": "Finish lesson"
+            "id": "indices-surds-polynomials-1",
+            "topicId": "topic-1",
+            "title": "Indices, Surds and Polynomials",
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "ALGEBRA · 1 OF 4",
+                    "title": "Indices are shorthand for repeated multiplication",
+                    "body": "For example, x³ means x × x × x. The index tells you how many times the base is multiplied by itself.",
+                    "keyPoint": "When multiplying powers with the same base, add the indices.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "ALGEBRA · 2 OF 4",
+                    "title": "Use the index laws in order",
+                    "steps": [
+                        {
+                            "title": "Look for matching bases",
+                            "body": "Index laws only combine powers when their bases are the same."
+                        },
+                        {
+                            "title": "Multiply: add indices",
+                            "body": "x² × x⁵ = x⁷."
+                        },
+                        {
+                            "title": "Divide: subtract indices",
+                            "body": "x⁷ ÷ x² = x⁵."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "trueFalse",
+                    "eyebrow": "QUICK CHECK · 3 OF 4",
+                    "question": "When multiplying powers with the same base, you add the indices.",
+                    "answer": true,
+                    "correctFeedback": "Exactly. x² × x⁵ becomes x⁷.",
+                    "incorrectFeedback": "For multiplication with the same base, add the indices: x² × x⁵ = x⁷."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "QUICK CHECK",
+                    "question": "If f(x) = 2x + 3, what is f(4)?",
+                    "prompt": "Choose the correct value.",
+                    "options": [
+                        "8",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Exactly. Substitute x = 4, so f(4) = 2(4) + 3 = 11.",
+                    "incorrectFeedback": "Remember to substitute 4 into the whole expression: f(4) = 2(4) + 3 = 11."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 4 OF 4",
+                    "title": "You have the first index law down.",
+                    "body": "That is one of the core tools you will use throughout algebra. Next, you will see what changes when you divide powers.",
+                    "buttonText": "Finish lesson"
+                }
+            ]
         }
-      ]
-    },
-
-    {
-      "id": "quadratic-and-inequalities",
-      "topicId": "topic-1",
-      "title": "Quadratics and Inequalities",
-      "screens": [
-        {
-          "type": "concept",
-          "eyebrow": "QUADRATICS · 1 OF 4",
-          "title": "The discriminant tells us about the roots.",
-          "body": "The expression b² − 4ac determines how many real roots a quadratic has.",
-          "buttonText": "Continue"
-        }
-      ]
-    },
-    {
-      "id": "functions-simultaneous-systems",
-      "topicId": "topic-1",
-      "title": "Functions and Simultaneous Systems",
-      "screens": []
-    },
-    {
-      "id": "algebra-exam-style-questions",
-      "topicId": "topic-1",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "arithmetic-geometric-progressions",
-      "topicId": "topic-2",
-      "title": "Arithmetic & Geometric Progressions",
-      "screens": []
-    },
-    {
-      "id": "binomial-expansion-factorials",
-      "topicId": "topic-2",
-      "title": "Binomial Expansion & Factorials",
-      "screens": []
-    },
-    {
-      "id": "advanced-series-logic",
-      "topicId": "topic-2",
-      "title": "Advanced Series Logic",
-      "screens": []
-    },
-    {
-      "id": "sequences-series-exam-style-questions",
-      "topicId": "topic-2",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "lines-gradients",
-      "topicId": "topic-3",
-      "title": "Lines & Gradients",
-      "screens": []
-    },
-    {
-      "id": "circle-equations-intersections",
-      "topicId": "topic-3",
-      "title": "Circle Equations & Intersections",
-      "screens": []
-    },
-    {
-      "id": "circle-theorems-axes",
-      "topicId": "topic-3",
-      "title": "Circle Theorems on Axes",
-      "screens": []
-    },
-    {
-      "id": "coordinate-geometry-exam-style-questions",
-      "topicId": "topic-3",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "triangles-radians",
-      "topicId": "topic-4",
-      "title": "Triangles & Radians",
-      "screens": []
-    },
-    {
-      "id": "values-graphs-identities",
-      "topicId": "topic-4",
-      "title": "Values, Graphs, & Identities",
-      "screens": []
-    },
-    {
-      "id": "solving-equations",
-      "topicId": "topic-4",
-      "title": "Solving Equations",
-      "screens": []
-    },
-    {
-      "id": "trigonometry-exam-style-questions",
-      "topicId": "topic-4",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "log-laws-exponential-graphs",
-      "topicId": "topic-5",
-      "title": "Log Laws & Exponential Graphs",
-      "screens": [
-        {
-          "type": "trueFalse",
-          "eyebrow": "LOG LAWS · 1 OF 4",
-          "question": "Adding Log(A) and Log(B) gives Log(AB)",
-          "answer": true,
-          "correctFeedback": "Exactly. Log(A) + Log(B) = Log(AB)",
-          "incorrectFeedback": "When adding two logarithms of the same base, you can simply take the logarithm of the product"
-        }
-      ]
-    },
-    {
-      "id": "solving-exponential-log-equations",
-      "topicId": "topic-5",
-      "title": "Solving Exponential & Log Equations",
-      "screens": []
-    },
-    {
-      "id": "advanced-log-reasoning",
-      "topicId": "topic-5",
-      "title": "Advanced Log Reasoning",
-      "screens": []
-    },
-    {
-      "id": "exponentials-logarithms-exam-style-questions",
-      "topicId": "topic-5",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "differentiation-turning-points",
-      "topicId": "topic-6",
-      "title": "Differentiation & Turning Points",
-      "screens": []
-    },
-    {
-      "id": "integration-area",
-      "topicId": "topic-6",
-      "title": "Integration & Area",
-      "screens": []
-    },
-    {
-      "id": "trapezium-rule-integration-logic",
-      "topicId": "topic-6",
-      "title": "Trapezium Rule & Integration Logic",
-      "screens": []
-    },
-    {
-      "id": "calculus-exam-style-questions",
-      "topicId": "topic-6",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "graph-transformations",
-      "topicId": "topic-7",
-      "title": "Graph Transformations",
-      "screens": []
-    },
-    {
-      "id": "geometry-proportion",
-      "topicId": "topic-7",
-      "title": "Geometry and Proportion",
-      "screens": []
-    },
-    {
-      "id": "statistic-probability",
-      "topicId": "topic-7",
-      "title": "Statistics & Probability",
-      "screens": []
-    },
-    {
-      "id": "geometry-data-exam-style-questions",
-      "topicId": "topic-7",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "logic-of-arguments",
-      "topicId": "topic-8",
-      "title": "Logic of Arguments",
-      "screens": []
-    },
-    {
-      "id": "methods-of-proof-quantifiers",
-      "topicId": "topic-8",
-      "title": "Methods of Proof & Quantifiers",
-      "screens": []
-    },
-    {
-      "id": "disproving-statements",
-      "topicId": "topic-8",
-      "title": "Disproving Statements",
-      "screens": []
-    },
-    {
-      "id": "logic-proof-exam-style-questions",
-      "topicId": "topic-8",
-      "title": "Exam-style Questions",
-      "screens": []
-    }
-  ]
+    ]
 }
