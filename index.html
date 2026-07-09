@@ -121,6 +121,94 @@
           <i class="ri-arrow-right-line"></i>
         </a>
       </article>
+      <!-- WEEKLY MOMENTUM -->
+      <article class="home-insight-card home-insight-card--week">
+        <div class="home-insight-card__heading">
+          <div>
+            <p class="home__eyebrow">THIS WEEK</p>
+            <h2>Your momentum</h2>
+          </div>
+
+          <span class="home-insight-card__badge">
+            <i class="ri-time-line"></i>
+            <span id="weekly-minutes">42</span> min
+          </span>
+        </div>
+
+        <div class="weekly-chart" id="weekly-chart-bars" aria-label="Minutes practised this week"></div>
+
+        <div class="home-insight-card__footer">
+          <span><strong id="weekly-sessions">3 / 5</strong> sessions</span>
+          <span>Goal: <strong id="weekly-goal-minutes">90</strong> min</span>
+        </div>
+      </article>
+
+      <!-- TMUA REVISION FORECAST -->
+      <article class="home-insight-card home-insight-card--forecast">
+        <div class="home-insight-card__heading">
+          <div>
+            <p class="home__eyebrow">YOUR TRAJECTORY</p>
+            <h2>Keep this pace</h2>
+          </div>
+
+          <span class="forecast-icon">
+            <i class="ri-line-chart-line"></i>
+          </span>
+        </div>
+
+        <p class="forecast-message" id="forecast-message">
+          Your revision forecast is loading.
+        </p>
+
+        <div class="forecast-chart" aria-label="Illustrative learning trajectory">
+          <div class="forecast-chart" aria-label="Illustrative learning trajectory">
+            <div class="forecast-chart__labels">
+              <span>Now</span>
+              <span>TMUA</span>
+            </div>
+
+            <svg class="forecast-line-graph" viewBox="0 0 300 115" role="img"
+              aria-label="Your projected revision trajectory rises towards TMUA">
+              <defs>
+                <linearGradient id="forecast-line-gradient" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#f6a44d"></stop>
+                  <stop offset="100%" stop-color="#ffd783"></stop>
+                </linearGradient>
+              </defs>
+
+              <line class="forecast-grid-line" x1="12" y1="88" x2="288" y2="88"></line>
+              <line class="forecast-grid-line" x1="12" y1="58" x2="288" y2="58"></line>
+              <line class="forecast-grid-line" x1="12" y1="28" x2="288" y2="28"></line>
+
+              <path class="forecast-area"
+                d="M 14 92 C 62 88, 82 78, 112 73 S 170 57, 204 43 S 255 25, 286 16 L 286 102 L 14 102 Z"></path>
+
+              <path class="forecast-line" d="M 14 92 C 62 88, 82 78, 112 73 S 170 57, 204 43 S 255 25, 286 16"></path>
+
+              <circle class="forecast-point forecast-point--start" cx="14" cy="92" r="5"></circle>
+              <circle class="forecast-point forecast-point--end" cx="286" cy="16" r="5"></circle>
+
+              <text class="forecast-graph-label" x="14" y="112">Today</text>
+              <text class="forecast-graph-label forecast-graph-label--end" x="286" y="112">Exam</text>
+            </svg>
+
+            <div class="forecast-chart__milestones">
+              <span>Foundations</span>
+              <span>Mixed practice</span>
+              <span>Exam-ready</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="forecast-summary">
+          <div>
+            <strong id="forecast-sessions">--</strong>
+            <span>possible sessions before TMUA</span>
+          </div>
+
+          <p id="forecast-lessons">Build your first learning streak</p>
+        </div>
+      </article>
     </section>
 
     <!-- ======================== LEARN ======================== -->
