@@ -7,45 +7,161 @@
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "ALGEBRA · 1 OF 4",
-          "title": "Indices are shorthand for repeated multiplication",
-          "body": "For example, x³ means x × x × x. The index tells you how many times the base is multiplied by itself.",
-          "keyPoint": "When multiplying powers with the same base, add the indices.",
+          "eyebrow": "INDICES · 1 OF 11",
+          "title": "TMUA index questions are rarely just index questions",
+          "body": "In the TMUA, index laws often appear inside a larger problem. You may need to rewrite roots, split fractions, or simplify powers before you can differentiate, compare values, or spot a structure.",
+          "keyPoint": "Useful rewrites: √x = x<sup>1/2</sup>, x√x = x<sup>3/2</sup>, and <span class='math-frac'><span>1</span><span>x<sup>n</sup></span></span> = x<sup>-n</sup>.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "ALGEBRA · 2 OF 4",
-          "title": "Use the index laws in order",
+          "eyebrow": "INDICES · 2 OF 11",
+          "title": "Rewrite before you manipulate",
           "steps": [
             {
-              "title": "Look for matching bases",
-              "body": "Index laws only combine powers when their bases are the same."
+              "title": "Start with the denominator",
+              "body": "If you see x√x, rewrite it as x × x<sup>1/2</sup> = x<sup>3/2</sup>."
             },
             {
-              "title": "Multiply: add indices",
-              "body": "x² × x⁵ = x⁷."
+              "title": "Split the fraction",
+              "body": "<span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span> becomes <span class='math-frac'><span>x<sup>2</sup></span><span>x<sup>3/2</sup></span></span> - <span class='math-frac'><span>4</span><span>x<sup>3/2</sup></span></span>."
             },
             {
-              "title": "Divide: subtract indices",
-              "body": "x⁷ ÷ x² = x⁵."
+              "title": "Subtract powers when dividing",
+              "body": "x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
+            },
+            {
+              "title": "Final simplified form",
+              "body": "So <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>."
             }
           ],
           "buttonText": "Continue"
         },
         {
-          "type": "trueFalse",
-          "eyebrow": "QUICK CHECK · 3 OF 4",
-          "question": "When multiplying powers with the same base, you add the indices.",
-          "answer": true,
-          "correctFeedback": "Exactly. x² × x⁵ becomes x⁷.",
-          "incorrectFeedback": "For multiplication with the same base, add the indices: x² × x⁵ = x⁷."
+          "type": "multipleChoice",
+          "eyebrow": "INDICES CHECK · 3 OF 11",
+          "question": "For x &gt; 0, which expression is equal to <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span>?",
+          "prompt": "Rewrite the denominator as a single power of x.",
+          "options": [
+            "x<sup>1/2</sup> - 4x<sup>-3/2</sup>",
+            "x<sup>1/2</sup> - 4x<sup>3/2</sup>",
+            "x<sup>3/2</sup> - 4x<sup>-1/2</sup>",
+            "x<sup>2</sup> - 4x<sup>-3/2</sup>"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. x√x = x<sup>3/2</sup>, so the expression becomes x<sup>2-3/2</sup> - 4x<sup>-3/2</sup> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>.",
+          "incorrectFeedback": "Not quite. First rewrite x√x as x<sup>3/2</sup>. Then split the fraction: x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
         },
         {
           "type": "milestone",
-          "eyebrow": "NICE WORK · 4 OF 4",
-          "title": "You have the first index law down.",
-          "body": "That is one of the core tools you will use throughout algebra. Next, you will see what changes when you divide powers.",
+          "eyebrow": "NICE WORK · 4 OF 11",
+          "title": "Indices handled.",
+          "body": "You have taken a messy expression, rewritten it with powers, and simplified it term by term. Next up: surds.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SURDS · 5 OF 11",
+          "title": "Surds are exact values, not decimals",
+          "body": "In TMUA questions, surds are often used because they keep values exact. You should be comfortable simplifying surds, combining like surds, and rationalising denominators without reaching for a calculator.",
+          "keyPoint": "A common move is taking out square factors: √72 = √(36 × 2) = 6√2. You can only combine like surds, so 3√2 + 5√2 = 8√2, but √2 + √3 cannot be simplified.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "SURDS · 6 OF 11",
+          "title": "Rationalising the denominator",
+          "steps": [
+            {
+              "title": "The aim",
+              "body": "Rationalising means rewriting a fraction so there is no surd left in the denominator."
+            },
+            {
+              "title": "Simple case",
+              "body": "For <span class='math-frac'><span>5</span><span>√3</span></span>, multiply the top and bottom by √3."
+            },
+            {
+              "title": "Do the multiplication",
+              "body": "<span class='math-frac'><span>5</span><span>√3</span></span> × <span class='math-frac'><span>√3</span><span>√3</span></span> = <span class='math-frac'><span>5√3</span><span>3</span></span>."
+            },
+            {
+              "title": "Harder case",
+              "body": "If the denominator has two terms, like 2 + √3, multiply by the conjugate 2 - √3."
+            },
+            {
+              "title": "Why the conjugate works",
+              "body": "(2 + √3)(2 - √3) = 2<sup>2</sup> - (√3)<sup>2</sup> = 4 - 3 = 1."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SURDS CHECK · 7 OF 11",
+          "question": "Which of the following is equal to <span class='math-frac'><span>6</span><span>2 + √3</span></span>?",
+          "prompt": "Use the conjugate of the denominator.",
+          "options": ["12 - 6√3", "12 + 6√3", "6√3 - 12", "2 - √3"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Multiply by 2 - √3. The denominator becomes (2 + √3)(2 - √3) = 1, so the expression becomes 6(2 - √3) = 12 - 6√3.",
+          "incorrectFeedback": "Not quite. The conjugate of 2 + √3 is 2 - √3. The denominator becomes 4 - 3 = 1, so the result is 6(2 - √3) = 12 - 6√3."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 8 OF 11",
+          "title": "Surds done.",
+          "body": "You have practised exact surd manipulation and rationalising denominators. Next up, and finally for this section: polynomials.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "POLYNOMIALS · 9 OF 11",
+          "title": "Polynomials are about structure",
+          "body": "For TMUA algebra, polynomials often appear with hidden information: a known factor, a remainder, an unknown constant, or a root. The key is knowing what substitution tells you.",
+          "keyPoint": "If a polynomial f(x) is divided by x - a, the remainder is f(a). If f(a) = 0, then x - a is a factor.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "POLYNOMIALS · 10 OF 11",
+          "title": "Remainder theorem and factor theorem",
+          "steps": [
+            {
+              "title": "Start with the divisor",
+              "body": "If a polynomial is divided by x - a, substitute x = a into the polynomial."
+            },
+            {
+              "title": "Remainder theorem",
+              "body": "The remainder when f(x) is divided by x - a is f(a). For example, if dividing by x - 2, the remainder is f(2)."
+            },
+            {
+              "title": "Factor theorem",
+              "body": "The factor theorem is a specific case of the remainder theorem. If f(a) = 0, the remainder is zero, so x - a is a factor."
+            },
+            {
+              "title": "Unknown constants",
+              "body": "If a question says the remainder is 7, set f(a) = 7. If it says x - a is a factor, set f(a) = 0."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 11 OF 11",
+          "title": "Indices, Surds and Polynomials: key points",
+          "keyPoints": [
+            "Rewrite roots and denominators using powers when it makes algebra easier.",
+            "Split algebraic fractions before simplifying term by term.",
+            "Surds are exact values and should often be simplified rather than decimalised.",
+            "To rationalise a denominator with two terms, multiply by the conjugate.",
+            "The remainder when f(x) is divided by x - a is f(a).",
+            "The factor theorem is the zero-remainder case of the remainder theorem."
+          ],
+          "reviewItems": [
+            "Practise simplifying expressions involving x√x and negative powers.",
+            "Practise rationalising denominators with conjugates.",
+            "Practise using f(a) to handle polynomial remainders and factors.",
+            "Next lesson: exponential equations and hidden quadratics."
+          ],
           "buttonText": "Finish lesson"
         }
       ]
