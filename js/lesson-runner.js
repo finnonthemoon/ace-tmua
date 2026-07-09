@@ -88,7 +88,10 @@ class LessonRunner {
       this.finish();
       return;
     }
-
+    if (screen.type === "multipleChoice") {
+      this.renderMultipleChoice(screen);
+      return;
+    }
     if (screen.type === "concept") {
       this.renderConcept(screen);
       return;
@@ -140,16 +143,15 @@ class LessonRunner {
           <h1>${screen.title}</h1>
           <p>${screen.body}</p>
 
-          ${
-            screen.keyPoint
-              ? `
+          ${screen.keyPoint
+        ? `
                 <div class="lesson-key-point">
                   <strong>Key idea</strong>
                   <p>${screen.keyPoint}</p>
                 </div>
               `
-              : ""
-          }
+        : ""
+      }
         </div>
 
         <button class="lesson-primary-button" id="lesson-next" type="button">
@@ -183,8 +185,8 @@ class LessonRunner {
 
           <div class="reveal-steps">
             ${steps
-              .map(
-                (step, index) => `
+        .map(
+          (step, index) => `
                   <div class="reveal-step">
                     <span>${index + 1}</span>
 
@@ -194,8 +196,8 @@ class LessonRunner {
                     </div>
                   </div>
                 `,
-              )
-              .join("")}
+        )
+        .join("")}
           </div>
         </div>
 
@@ -260,8 +262,7 @@ class LessonRunner {
         button.classList.add(isCorrect ? "is-correct" : "is-wrong");
 
         feedback.innerHTML = `
-          <div class="answer-feedback__card ${
-            isCorrect ? "is-correct" : "is-wrong"
+          <div class="answer-feedback__card ${isCorrect ? "is-correct" : "is-wrong"
           }">
             <strong>${isCorrect ? "Correct." : "Not quite."}</strong>
 
@@ -286,7 +287,97 @@ class LessonRunner {
 
     this.addExitListener();
   }
+  renderMultipleChoice(screen) {
+    this.root.innerHTML = `
+    <article class="lesson-screen">
+      ${this.getTopBar()}
 
+      <div class="lesson-screen__content">
+        <p class="topic-page__eyebrow">
+          ${screen.eyebrow || "QUICK CHECK"}
+        </p>
+
+        <h1>${screen.question}</h1>
+
+        ${screen.prompt
+        ? `<p class="multiple-choice__prompt">${screen.prompt}</p>`
+        : ""
+      }
+
+        <div class="multiple-choice-options">
+          ${screen.options
+        .map(
+          (option, index) => `
+                <button
+                  class="multiple-choice-option"
+                  data-index="${index}"
+                  type="button"
+                >
+                  <span class="multiple-choice-option__letter">
+                    ${String.fromCharCode(65 + index)}
+                  </span>
+
+                  <span>${option}</span>
+                </button>
+              `,
+        )
+        .join("")}
+        </div>
+
+        <div class="answer-feedback" id="answer-feedback"></div>
+      </div>
+    </article>
+  `;
+
+    this.root.querySelectorAll(".multiple-choice-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        const chosenIndex = Number(button.dataset.index);
+        const isCorrect = chosenIndex === screen.answerIndex;
+        const feedback = this.root.querySelector("#answer-feedback");
+
+        this.root
+          .querySelectorAll(".multiple-choice-option")
+          .forEach((option) => {
+            option.disabled = true;
+
+            const optionIndex = Number(option.dataset.index);
+
+            if (optionIndex === screen.answerIndex) {
+              option.classList.add("is-correct");
+            }
+
+            if (optionIndex === chosenIndex && !isCorrect) {
+              option.classList.add("is-wrong");
+            }
+          });
+
+        feedback.innerHTML = `
+        <div class="answer-feedback__card ${isCorrect ? "is-correct" : "is-wrong"
+          }">
+          <strong>${isCorrect ? "Correct." : "Not quite."}</strong>
+
+          <p>
+            ${isCorrect
+            ? screen.correctFeedback
+            : screen.incorrectFeedback
+          }
+          </p>
+
+          <button class="lesson-primary-button" id="lesson-next" type="button">
+            Continue
+            <i class="ri-arrow-right-line"></i>
+          </button>
+        </div>
+      `;
+
+        this.root.querySelector("#lesson-next").addEventListener("click", () => {
+          this.next();
+        });
+      });
+    });
+
+    this.addExitListener();
+  }
   renderMilestone(screen) {
     this.root.innerHTML = `
       <article class="lesson-screen lesson-screen--milestone">

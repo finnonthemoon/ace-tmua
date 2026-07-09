@@ -42,6 +42,21 @@
                     "incorrectFeedback": "For multiplication with the same base, add the indices: x² × x⁵ = x⁷."
                 },
                 {
+                    "type": "multipleChoice",
+                    "eyebrow": "QUICK CHECK",
+                    "question": "If f(x) = 2x + 3, what is f(4)?",
+                    "prompt": "Choose the correct value.",
+                    "options": [
+                        "8",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Exactly. Substitute x = 4, so f(4) = 2(4) + 3 = 11.",
+                    "incorrectFeedback": "Remember to substitute 4 into the whole expression: f(4) = 2(4) + 3 = 11."
+                },
+                {
                     "type": "milestone",
                     "eyebrow": "NICE WORK · 4 OF 4",
                     "title": "You have the first index law down.",
