@@ -106,7 +106,10 @@ class LessonRunner {
       this.renderTrueFalse(screen);
       return;
     }
-
+    if (screen.type === "workedExample") {
+      this.renderWorkedExample(screen);
+      return;
+    }
     if (screen.type === "milestone") {
       this.renderMilestone(screen);
       return;
@@ -374,6 +377,103 @@ class LessonRunner {
           this.next();
         });
       });
+    });
+
+    this.addExitListener();
+  } renderWorkedExample(screen) {
+    const steps = screen.steps.slice(0, this.revealIndex);
+    const hasStarted = this.revealIndex > 0;
+    const isFinished = this.revealIndex >= screen.steps.length;
+
+    this.root.innerHTML = `
+    <article class="lesson-screen">
+      ${this.getTopBar()}
+
+      <div class="lesson-screen__content">
+        <p class="topic-page__eyebrow">
+          ${screen.eyebrow || "WORKED EXAMPLE"}
+        </p>
+
+        <h1>${screen.title}</h1>
+
+        <div class="worked-example-question">
+          <p>${screen.question}</p>
+
+          ${screen.options
+        ? `
+                <div class="worked-example-options">
+                  ${screen.options
+          .map(
+            (option, index) => `
+                        <div class="worked-example-option ${isFinished && index === screen.answerIndex
+                ? "is-correct"
+                : ""
+              }">
+                          <span>${String.fromCharCode(65 + index)}</span>
+                          <p>${option}</p>
+                        </div>
+                      `,
+          )
+          .join("")}
+                </div>
+              `
+        : ""
+      }
+        </div>
+
+        ${hasStarted
+        ? `
+              <div class="worked-example-steps">
+                ${steps
+          .map(
+            (step, index) => `
+                      <div class="worked-example-step">
+                        <span>${index + 1}</span>
+
+                        <div>
+                          <strong>${step.title}</strong>
+                          <p>${step.body}</p>
+                        </div>
+                      </div>
+                    `,
+          )
+          .join("")}
+              </div>
+            `
+        : ""
+      }
+
+        ${isFinished
+        ? `
+              <div class="worked-example-answer">
+                <strong>Answer: ${String.fromCharCode(65 + screen.answerIndex)}</strong>
+                <p>${screen.finalAnswer}</p>
+              </div>
+            `
+        : ""
+      }
+      </div>
+
+      <button class="lesson-primary-button" id="lesson-next" type="button">
+        ${isFinished
+        ? screen.buttonText || "Continue"
+        : hasStarted
+          ? "Show next step"
+          : "Show reasoning"
+      }
+        <i class="ri-arrow-right-line"></i>
+      </button>
+    </article>
+  `;
+
+    this.root.querySelector("#lesson-next").addEventListener("click", () => {
+      if (isFinished) {
+        this.next();
+        return;
+      }
+
+      this.revealIndex += 1;
+      this.render();
     });
 
     this.addExitListener();

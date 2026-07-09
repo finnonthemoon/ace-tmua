@@ -43,22 +43,55 @@
                 },
                 {
                     "type": "multipleChoice",
-                    "eyebrow": "QUICK CHECK",
-                    "question": "If f(x) = 2x + 3, what is f(4)?",
-                    "prompt": "Choose the correct value.",
+                    "eyebrow": "INDICES CHECK · 4 OF 5",
+                    "question": "Choose the correct simplified form of <span class='math-frac'><span>x<sup>3</sup> × x<sup>6</sup></span><span>x<sup>4</sup></span></span>.",
+                    "prompt": "Use the index laws: add powers when multiplying, subtract powers when dividing.",
                     "options": [
-                        "8",
-                        "10",
-                        "11",
-                        "12"
+                        "x³",
+                        "x⁵",
+                        "x⁹",
+                        "x¹³"
                     ],
-                    "answerIndex": 2,
-                    "correctFeedback": "Exactly. Substitute x = 4, so f(4) = 2(4) + 3 = 11.",
-                    "incorrectFeedback": "Remember to substitute 4 into the whole expression: f(4) = 2(4) + 3 = 11."
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. x³ × x⁶ = x⁹, then x⁹ ÷ x⁴ = x⁵.",
+                    "incorrectFeedback": "Not quite. When multiplying powers with the same base, add the indices: 3 + 6 = 9. Then when dividing, subtract: 9 - 4 = 5. So the answer is x⁵."
+                },
+                {
+                    "type": "workedExample",
+                    "eyebrow": "WORKED EXAMPLE · 5 OF 6",
+                    "title": "TMUA-style index problem",
+                    "question": "Which of the following is equal to <span class='math-frac'><span>x<sup>3</sup> × x<sup>6</sup></span><span>x<sup>4</sup></span></span>, for x ≠ 0?",
+                    "options": [
+                        "x³",
+                        "x⁵",
+                        "x⁹",
+                        "x¹³"
+                    ],
+                    "answerIndex": 1,
+                    "steps": [
+                        {
+                            "title": "Start with the numerator",
+                            "body": "The numerator is x³ × x⁶. Since the bases are the same, add the powers: 3 + 6 = 9."
+                        },
+                        {
+                            "title": "Rewrite the fraction",
+                            "body": "The expression becomes x⁹ ÷ x⁴."
+                        },
+                        {
+                            "title": "Use the division law",
+                            "body": "When dividing powers with the same base, subtract the powers: 9 - 4 = 5."
+                        },
+                        {
+                            "title": "Choose the matching option",
+                            "body": "The simplified expression is x⁵, which is option B."
+                        }
+                    ],
+                    "finalAnswer": "The answer is x⁵ because x³ × x⁶ = x⁹, and x⁹ ÷ x⁴ = x⁵.",
+                    "buttonText": "Continue"
                 },
                 {
                     "type": "milestone",
-                    "eyebrow": "NICE WORK · 4 OF 4",
+                    "eyebrow": "NICE WORK · 5 OF 5",
                     "title": "You have the first index law down.",
                     "body": "That is one of the core tools you will use throughout algebra. Next, you will see what changes when you divide powers.",
                     "buttonText": "Finish lesson"
