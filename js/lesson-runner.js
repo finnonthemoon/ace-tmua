@@ -27,6 +27,8 @@ class LessonRunner {
     this.lesson = null;
     this.screenIndex = 0;
     this.revealIndex = 0;
+    this.correctAnswers = 0;
+    this.totalAnswers = 0;
   }
 
   start(lessonId) {
@@ -35,6 +37,8 @@ class LessonRunner {
     this.lesson = this.repository.getLesson(lessonId);
     this.screenIndex = 0;
     this.revealIndex = 0;
+    this.correctAnswers = 0;
+    this.totalAnswers = 0;
 
     if (!this.lesson) {
       this.root.innerHTML = "<p>Lesson not found.</p>";
@@ -104,8 +108,23 @@ class LessonRunner {
       return;
     }
 
+    if (screen.type === "multipleChoice") {
+      this.renderMultipleChoice(screen);
+      return;
+    }
+
+    if (screen.type === "workedExample") {
+      this.renderWorkedExample(screen);
+      return;
+    }
+
     if (screen.type === "milestone") {
       this.renderMilestone(screen);
+      return;
+    }
+
+    if (screen.type === "lessonSummary") {
+      this.renderLessonSummary(screen);
       return;
     }
 
@@ -140,16 +159,15 @@ class LessonRunner {
           <h1>${screen.title}</h1>
           <p>${screen.body}</p>
 
-          ${
-            screen.keyPoint
-              ? `
+          ${screen.keyPoint
+        ? `
                 <div class="lesson-key-point">
                   <strong>Key idea</strong>
                   <p>${screen.keyPoint}</p>
                 </div>
               `
-              : ""
-          }
+        : ""
+      }
         </div>
 
         <button class="lesson-primary-button" id="lesson-next" type="button">
@@ -183,8 +201,8 @@ class LessonRunner {
 
           <div class="reveal-steps">
             ${steps
-              .map(
-                (step, index) => `
+        .map(
+          (step, index) => `
                   <div class="reveal-step">
                     <span>${index + 1}</span>
 
@@ -194,8 +212,8 @@ class LessonRunner {
                     </div>
                   </div>
                 `,
-              )
-              .join("")}
+        )
+        .join("")}
           </div>
         </div>
 
@@ -251,6 +269,9 @@ class LessonRunner {
       button.addEventListener("click", () => {
         const chosenAnswer = button.dataset.answer === "true";
         const isCorrect = chosenAnswer === screen.answer;
+
+        this.recordAnswer(isCorrect);
+
         const feedback = this.root.querySelector("#answer-feedback");
 
         this.root.querySelectorAll(".true-false-option").forEach((option) => {
@@ -260,8 +281,7 @@ class LessonRunner {
         button.classList.add(isCorrect ? "is-correct" : "is-wrong");
 
         feedback.innerHTML = `
-          <div class="answer-feedback__card ${
-            isCorrect ? "is-correct" : "is-wrong"
+          <div class="answer-feedback__card ${isCorrect ? "is-correct" : "is-wrong"
           }">
             <strong>${isCorrect ? "Correct." : "Not quite."}</strong>
 
@@ -276,12 +296,201 @@ class LessonRunner {
           </div>
         `;
 
-        this.root
-          .querySelector("#lesson-next")
-          .addEventListener("click", () => {
-            this.next();
-          });
+        this.root.querySelector("#lesson-next").addEventListener("click", () => {
+          this.next();
+        });
       });
+    });
+
+    this.addExitListener();
+  }
+
+  renderMultipleChoice(screen) {
+    this.root.innerHTML = `
+      <article class="lesson-screen">
+        ${this.getTopBar()}
+
+        <div class="lesson-screen__content">
+          <p class="topic-page__eyebrow">
+            ${screen.eyebrow || "QUICK CHECK"}
+          </p>
+
+          <h1>${screen.question}</h1>
+
+          ${screen.prompt
+        ? `<p class="multiple-choice__prompt">${screen.prompt}</p>`
+        : ""
+      }
+
+          <div class="multiple-choice-options">
+            ${screen.options
+        .map(
+          (option, index) => `
+                  <button
+                    class="multiple-choice-option"
+                    data-index="${index}"
+                    type="button"
+                  >
+                    <span class="multiple-choice-option__letter">
+                      ${String.fromCharCode(65 + index)}
+                    </span>
+
+                    <span>${option}</span>
+                  </button>
+                `,
+        )
+        .join("")}
+          </div>
+
+          <div class="answer-feedback" id="answer-feedback"></div>
+        </div>
+      </article>
+    `;
+
+    this.root.querySelectorAll(".multiple-choice-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        const chosenIndex = Number(button.dataset.index);
+        const isCorrect = chosenIndex === screen.answerIndex;
+
+        this.recordAnswer(isCorrect);
+
+        const feedback = this.root.querySelector("#answer-feedback");
+
+        this.root.querySelectorAll(".multiple-choice-option").forEach((option) => {
+          option.disabled = true;
+
+          const optionIndex = Number(option.dataset.index);
+
+          if (optionIndex === screen.answerIndex) {
+            option.classList.add("is-correct");
+          }
+
+          if (optionIndex === chosenIndex && !isCorrect) {
+            option.classList.add("is-wrong");
+          }
+        });
+
+        feedback.innerHTML = `
+          <div class="answer-feedback__card ${isCorrect ? "is-correct" : "is-wrong"
+          }">
+            <strong>${isCorrect ? "Correct." : "Not quite."}</strong>
+
+            <p>
+              ${isCorrect ? screen.correctFeedback : screen.incorrectFeedback}
+            </p>
+
+            <button class="lesson-primary-button" id="lesson-next" type="button">
+              Continue
+              <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+        `;
+
+        this.root.querySelector("#lesson-next").addEventListener("click", () => {
+          this.next();
+        });
+      });
+    });
+
+    this.addExitListener();
+  }
+
+  renderWorkedExample(screen) {
+    const steps = screen.steps.slice(0, this.revealIndex);
+    const hasStarted = this.revealIndex > 0;
+    const isFinished = this.revealIndex >= screen.steps.length;
+
+    this.root.innerHTML = `
+      <article class="lesson-screen">
+        ${this.getTopBar()}
+
+        <div class="lesson-screen__content">
+          <p class="topic-page__eyebrow">
+            ${screen.eyebrow || "WORKED EXAMPLE"}
+          </p>
+
+          <h1>${screen.title}</h1>
+
+          <div class="worked-example-question">
+            <p>${screen.question}</p>
+
+            ${screen.options
+        ? `
+                  <div class="worked-example-options">
+                    ${screen.options
+          .map(
+            (option, index) => `
+                          <div class="worked-example-option ${isFinished && index === screen.answerIndex
+                ? "is-correct"
+                : ""
+              }">
+                            <span>${String.fromCharCode(65 + index)}</span>
+                            <p>${option}</p>
+                          </div>
+                        `,
+          )
+          .join("")}
+                  </div>
+                `
+        : ""
+      }
+          </div>
+
+          ${hasStarted
+        ? `
+                <div class="worked-example-steps">
+                  ${steps
+          .map(
+            (step, index) => `
+                        <div class="worked-example-step">
+                          <span>${index + 1}</span>
+
+                          <div>
+                            <strong>${step.title}</strong>
+                            <p>${step.body}</p>
+                          </div>
+                        </div>
+                      `,
+          )
+          .join("")}
+                </div>
+              `
+        : ""
+      }
+
+          ${isFinished
+        ? `
+                <div class="worked-example-answer">
+                  <strong>Answer: ${String.fromCharCode(
+          65 + screen.answerIndex,
+        )}</strong>
+                  <p>${screen.finalAnswer}</p>
+                </div>
+              `
+        : ""
+      }
+        </div>
+
+        <button class="lesson-primary-button" id="lesson-next" type="button">
+          ${isFinished
+        ? screen.buttonText || "Continue"
+        : hasStarted
+          ? "Show next step"
+          : "Show reasoning"
+      }
+          <i class="ri-arrow-right-line"></i>
+        </button>
+      </article>
+    `;
+
+    this.root.querySelector("#lesson-next").addEventListener("click", () => {
+      if (isFinished) {
+        this.next();
+        return;
+      }
+
+      this.revealIndex += 1;
+      this.render();
     });
 
     this.addExitListener();
@@ -323,6 +532,115 @@ class LessonRunner {
     this.addExitListener();
   }
 
+  renderLessonSummary(screen) {
+    const accuracy = this.getAccuracyPercent();
+    const keyPoints = screen.keyPoints || [];
+    const reviewItems = screen.reviewItems || [];
+
+    this.root.innerHTML = `
+      <article class="lesson-screen lesson-screen--summary">
+        ${this.getTopBar()}
+
+        <div class="lesson-screen__content">
+          <p class="topic-page__eyebrow">
+            ${screen.eyebrow || "LESSON SUMMARY"}
+          </p>
+
+          <h1>${screen.title || "Lesson summary"}</h1>
+
+          <div class="lesson-summary__stats">
+            <div class="lesson-summary__stat">
+              <span>${accuracy === null ? "—" : `${accuracy}%`}</span>
+              <p>Accuracy</p>
+            </div>
+
+            <div class="lesson-summary__stat">
+              <span>${this.correctAnswers}/${this.totalAnswers}</span>
+              <p>Correct</p>
+            </div>
+          </div>
+
+          ${keyPoints.length
+        ? `
+                <div class="lesson-summary__card">
+                  <strong>Key points</strong>
+
+                  <ul class="lesson-summary__list">
+                    ${keyPoints
+          .map(
+            (point) => `
+                          <li>
+                            <i class="ri-checkbox-circle-line"></i>
+                            <span>${point}</span>
+                          </li>
+                        `,
+          )
+          .join("")}
+                  </ul>
+                </div>
+              `
+        : ""
+      }
+
+          ${reviewItems.length
+        ? `
+                <div class="lesson-summary__card lesson-summary__card--review">
+                  <strong>Review next</strong>
+
+                  <ul class="lesson-summary__list">
+                    ${reviewItems
+          .map(
+            (item) => `
+                          <li>
+                            <i class="ri-refresh-line"></i>
+                            <span>${item}</span>
+                          </li>
+                        `,
+          )
+          .join("")}
+                  </ul>
+                </div>
+              `
+        : ""
+      }
+        </div>
+
+        <button
+          class="lesson-primary-button"
+          id="lesson-summary-next"
+          type="button"
+        >
+          ${screen.buttonText || "Finish lesson"}
+          <i class="ri-arrow-right-line"></i>
+        </button>
+      </article>
+    `;
+
+    this.root
+      .querySelector("#lesson-summary-next")
+      .addEventListener("click", () => {
+        this.next();
+      });
+
+    this.addExitListener();
+  }
+
+  recordAnswer(isCorrect) {
+    this.totalAnswers += 1;
+
+    if (isCorrect) {
+      this.correctAnswers += 1;
+    }
+  }
+
+  getAccuracyPercent() {
+    if (this.totalAnswers === 0) {
+      return null;
+    }
+
+    return Math.round((this.correctAnswers / this.totalAnswers) * 100);
+  }
+
   next() {
     this.screenIndex += 1;
     this.revealIndex = 0;
@@ -347,29 +665,31 @@ class LessonRunner {
 
     localStorage.setItem(progressKey, JSON.stringify(progress));
 
+    document.dispatchEvent(new CustomEvent("lessonProgressUpdated"));
+
     this.root.innerHTML = `
-    <article class="lesson-screen lesson-complete">
-      ${this.getTopBar()}
+      <article class="lesson-screen lesson-complete">
+        ${this.getTopBar()}
 
-      <div class="lesson-screen__content">
-        <span class="lesson-screen__icon">
-          <i class="ri-checkbox-circle-fill"></i>
-        </span>
+        <div class="lesson-screen__content">
+          <span class="lesson-screen__icon">
+            <i class="ri-checkbox-circle-fill"></i>
+          </span>
 
-        <p class="topic-page__eyebrow">LESSON COMPLETE</p>
-        <h1>Nice work.</h1>
-        <p>You completed ${this.lesson.title}.</p>
-      </div>
+          <p class="topic-page__eyebrow">LESSON COMPLETE</p>
+          <h1>Nice work.</h1>
+          <p>You completed ${this.lesson.title}.</p>
+        </div>
 
-      <button
-        class="lesson-primary-button"
-        id="lesson-exit-button"
-        type="button"
-      >
-        Back to roadmap
-      </button>
-    </article>
-  `;
+        <button
+          class="lesson-primary-button"
+          id="lesson-exit-button"
+          type="button"
+        >
+          Back to roadmap
+        </button>
+      </article>
+    `;
 
     this.root
       .querySelector("#lesson-exit-button")
@@ -387,7 +707,11 @@ class LessonRunner {
       section.classList.remove("active-section");
     });
 
-    document.querySelector("#topic-1")?.classList.add("active-section");
+    const returnSection = this.lesson?.topicId
+      ? `#${this.lesson.topicId}`
+      : "#topic-1";
+
+    document.querySelector(returnSection)?.classList.add("active-section");
 
     window.scrollTo(0, 0);
   }
