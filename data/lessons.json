@@ -1015,7 +1015,320 @@
             "id": "arithmetic-geometric-progressions",
             "topicId": "topic-2",
             "title": "Arithmetic & Geometric Progressions",
-            "screens": []
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "SEQUENCES · 1 OF 20",
+                    "title": "Two ways to define a sequence",
+                    "body": "A sequence is an ordered list of numbers. It can be defined directly by a formula for its nth term, or generated one term at a time using a recurrence relation.<br><br>For example, <span class='math-nowrap'>u<sub>n</sub> = 3n - 1</span> defines every term directly. Substituting n = 1, 2, 3, ... gives 2, 5, 8, 11, ...<br><br>A recurrence relation instead uses an earlier term to generate the next term.",
+                    "keyPoint": "A recurrence relation normally needs both a rule and a starting value. For example, u<sub>1</sub> = 2 and u<sub>n+1</sub> = 2u<sub>n</sub> - 1 generate the sequence 2, 3, 5, 9, ...",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "SEQUENCES · 2 OF 20",
+                    "title": "Generate terms from a recurrence relation",
+                    "steps": [
+                        {
+                            "title": "Start with the given first term",
+                            "body": "Suppose u<sub>1</sub> = 4 and u<sub>n+1</sub> = 3u<sub>n</sub> - 2. We begin with u<sub>1</sub> = 4."
+                        },
+                        {
+                            "title": "Find the second term",
+                            "body": "u<sub>2</sub> = 3u<sub>1</sub> - 2 = 3(4) - 2 = 10."
+                        },
+                        {
+                            "title": "Find the third term",
+                            "body": "u<sub>3</sub> = 3u<sub>2</sub> - 2 = 3(10) - 2 = 28."
+                        },
+                        {
+                            "title": "Find the fourth term",
+                            "body": "u<sub>4</sub> = 3u<sub>3</sub> - 2 = 3(28) - 2 = 82."
+                        },
+                        {
+                            "title": "State the answer",
+                            "body": "Therefore u<sub>4</sub> = 82. Each new term must be found using the term immediately before it."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "SEQUENCE CHECK · 3 OF 20",
+                    "question": "The sequence (x<sub>n</sub>) is defined by<span class='question-equation'>x<sub>1</sub> = 3, &nbsp; x<sub>n+1</sub> = 2x<sub>n</sub> + 1.</span>What is x<sub>4</sub>?",
+                    "prompt": "Apply the recurrence relation one term at a time.",
+                    "options": [
+                        "15",
+                        "23",
+                        "31",
+                        "39",
+                        "47"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Start with x<sub>1</sub> = 3.<br><br>x<sub>2</sub> = 2(3) + 1 = 7,<br>x<sub>3</sub> = 2(7) + 1 = 15,<br>x<sub>4</sub> = 2(15) + 1 = 31.<br><br>Therefore x<sub>4</sub> = 31.",
+                    "incorrectFeedback": "Apply the recurrence repeatedly, beginning with x<sub>1</sub> = 3.<br><br>x<sub>2</sub> = 7, x<sub>3</sub> = 15 and x<sub>4</sub> = 31.<br><br>The answer is 31."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 4 OF 20",
+                    "title": "Sequence rules understood.",
+                    "body": "You can now generate terms from both an nth-term formula and a simple recurrence relation.<br><br>Next, we will study sequences whose terms change by a constant difference.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "ARITHMETIC PROGRESSIONS · 5 OF 20",
+                    "title": "Arithmetic progressions have a constant difference",
+                    "body": "An arithmetic progression is a sequence in which the difference between consecutive terms is constant.<br><br>For example, 7, 11, 15, 19, ... has common difference d = 4.",
+                    "keyPoint": "If the first term is a and the common difference is d, then the nth term is u<sub>n</sub> = a + (n - 1)d. The n - 1 appears because no difference has been added at the first term.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "ARITHMETIC PROGRESSIONS · 6 OF 20",
+                    "title": "Find the position of a term",
+                    "steps": [
+                        {
+                            "title": "Identify the first term and difference",
+                            "body": "Consider the arithmetic progression 8, 13, 18, 23, ... Here a = 8 and d = 5."
+                        },
+                        {
+                            "title": "Write the nth term",
+                            "body": "u<sub>n</sub> = a + (n - 1)d, so u<sub>n</sub> = 8 + 5(n - 1)."
+                        },
+                        {
+                            "title": "Set the nth term equal to 103",
+                            "body": "8 + 5(n - 1) = 103."
+                        },
+                        {
+                            "title": "Solve for n",
+                            "body": "5(n - 1) = 95, so n - 1 = 19 and n = 20."
+                        },
+                        {
+                            "title": "Interpret the result",
+                            "body": "Therefore 103 is the 20th term of the progression."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ARITHMETIC CHECK · 7 OF 20",
+                    "question": "An arithmetic progression has third term 11 and eighth term 31.<br><br>What is its first term?",
+                    "prompt": "Write an equation for each of the two given terms.",
+                    "options": [
+                        "-1",
+                        "1",
+                        "3",
+                        "5",
+                        "7"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Using u<sub>n</sub> = a + (n - 1)d:<br><br>The third term gives a + 2d = 11.<br>The eighth term gives a + 7d = 31.<br><br>Subtracting the equations gives 5d = 20, so d = 4.<br><br>Substitute into a + 2d = 11:<br>a + 8 = 11, so a = 3.",
+                    "incorrectFeedback": "The third and eighth terms give:<br><br>a + 2d = 11<br>a + 7d = 31.<br><br>Subtracting gives 5d = 20, so d = 4. Substituting back gives a = 3."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 8 OF 20",
+                    "title": "Arithmetic terms mastered.",
+                    "body": "You can now identify a common difference, find an nth term and recover unknown information from given terms.<br><br>Next, we will add the terms of an arithmetic progression.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "ARITHMETIC SERIES · 9 OF 20",
+                    "title": "A series is the sum of sequence terms",
+                    "body": "A sequence lists terms, while a series adds them.<br><br>For an arithmetic progression with first term a, common difference d and n terms, the sum is<span class='question-equation'>S<sub>n</sub> = <span class='math-frac'><span>n</span><span>2</span></span>(2a + (n - 1)d).</span>If the final term l is known, the equivalent form is<span class='question-equation'>S<sub>n</sub> = <span class='math-frac'><span>n</span><span>2</span></span>(a + l).</span>",
+                    "keyPoint": "For the natural numbers, 1 + 2 + ... + n = n(n + 1)/2.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "ARITHMETIC SERIES · 10 OF 20",
+                    "title": "Find an arithmetic-series sum",
+                    "steps": [
+                        {
+                            "title": "Identify the progression",
+                            "body": "Find 7 + 12 + 17 + ... + 102. The first term is 7 and the common difference is 5."
+                        },
+                        {
+                            "title": "Find the number of terms",
+                            "body": "The nth term is 7 + 5(n - 1). Set this equal to 102."
+                        },
+                        {
+                            "title": "Solve for n",
+                            "body": "7 + 5(n - 1) = 102 gives 5(n - 1) = 95, so n = 20."
+                        },
+                        {
+                            "title": "Use the first and final terms",
+                            "body": "S<sub>20</sub> = <span class='math-frac'><span>20</span><span>2</span></span>(7 + 102)."
+                        },
+                        {
+                            "title": "Calculate the sum",
+                            "body": "S<sub>20</sub> = 10(109) = 1090."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "SERIES CHECK · 11 OF 20",
+                    "question": "The sum of the first n natural numbers is 210.<br><br>What is n?",
+                    "prompt": "Use the formula for 1 + 2 + ... + n.",
+                    "options": [
+                        "14",
+                        "15",
+                        "20",
+                        "21",
+                        "28"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Use<span class='question-equation'><span class='math-frac'><span>n(n + 1)</span><span>2</span></span> = 210.</span>Therefore n(n + 1) = 420.<br><br>Since 20 × 21 = 420, we obtain n = 20.",
+                    "incorrectFeedback": "Use n(n + 1)/2 = 210. Multiplying by 2 gives n(n + 1) = 420.<br><br>The consecutive numbers 20 and 21 have product 420, so n = 20."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 12 OF 20",
+                    "title": "Arithmetic sums complete.",
+                    "body": "You can now sum finite arithmetic series and use the formula for the sum of the first n natural numbers.<br><br>Next, we will study sequences that change by multiplication rather than addition.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "GEOMETRIC PROGRESSIONS · 13 OF 20",
+                    "title": "Geometric progressions have a constant ratio",
+                    "body": "A geometric progression is a sequence in which each term is obtained by multiplying the previous term by a constant ratio r.<br><br>For example, 5, 15, 45, 135, ... has common ratio r = 3.",
+                    "keyPoint": "If the first term is a and the common ratio is r, then u<sub>n</sub> = ar<sup>n-1</sup>. A negative ratio creates an alternating sequence, such as 4, -8, 16, -32, ...",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "GEOMETRIC PROGRESSIONS · 14 OF 20",
+                    "title": "Use two terms to find a geometric progression",
+                    "steps": [
+                        {
+                            "title": "Write the two given terms",
+                            "body": "A geometric progression has second term 12 and fifth term 324. Therefore ar = 12 and ar<sup>4</sup> = 324."
+                        },
+                        {
+                            "title": "Divide the equations",
+                            "body": "<span class='math-frac'><span>ar<sup>4</sup></span><span>ar</span></span> = <span class='math-frac'><span>324</span><span>12</span></span>, so r<sup>3</sup> = 27."
+                        },
+                        {
+                            "title": "Find the positive ratio",
+                            "body": "The question states that the ratio is positive, so r = 3."
+                        },
+                        {
+                            "title": "Find the first term",
+                            "body": "Since ar = 12, we have 3a = 12, so a = 4."
+                        },
+                        {
+                            "title": "State the result",
+                            "body": "The progression begins 4, 12, 36, 108, 324, ..."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "GEOMETRIC CHECK · 15 OF 20",
+                    "question": "The first three terms of a geometric progression are<span class='question-equation'>x, &nbsp; 12, &nbsp; 18,</span>where x &gt; 0. What is x?",
+                    "prompt": "The ratio between each pair of consecutive terms must be equal.",
+                    "options": [
+                        "4",
+                        "6",
+                        "8",
+                        "9",
+                        "10"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. The common ratio from 12 to 18 is<span class='question-equation'>r = <span class='math-frac'><span>18</span><span>12</span></span> = <span class='math-frac'><span>3</span><span>2</span></span>.</span>Therefore 12 = x(3/2). Multiplying by 2/3 gives x = 8.",
+                    "incorrectFeedback": "First find the common ratio: 18/12 = 3/2.<br><br>Since the second term is obtained by multiplying x by 3/2, we have 12 = 3x/2. Therefore x = 8."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 16 OF 20",
+                    "title": "Geometric terms mastered.",
+                    "body": "You can now recognise geometric progressions, work with negative ratios and find unknown terms using u<sub>n</sub> = ar<sup>n-1</sup>.<br><br>The final block covers the sum of a finite geometric series.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "FINITE GEOMETRIC SERIES · 17 OF 20",
+                    "title": "Summing a finite geometric series",
+                    "body": "For a geometric progression with first term a, common ratio r and n terms, the finite sum is<span class='question-equation'>S<sub>n</sub> = <span class='math-frac'><span>a(1 - r<sup>n</sup>)</span><span>1 - r</span></span>, &nbsp; r ≠ 1.</span>An equivalent form is<span class='question-equation'>S<sub>n</sub> = <span class='math-frac'><span>a(r<sup>n</sup> - 1)</span><span>r - 1</span></span>.</span>",
+                    "keyPoint": "Both formulas are equivalent. Choose the version that makes the signs easiest to manage. This lesson only considers a finite number of terms; sum to infinity comes later.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "FINITE GEOMETRIC SERIES · 18 OF 20",
+                    "title": "Sum a finite geometric series",
+                    "steps": [
+                        {
+                            "title": "Identify the first term and ratio",
+                            "body": "Find 3 + 6 + 12 + ... + 1536. Here a = 3 and r = 2."
+                        },
+                        {
+                            "title": "Find the number of terms",
+                            "body": "The nth term is 3(2<sup>n-1</sup>). Set 3(2<sup>n-1</sup>) = 1536."
+                        },
+                        {
+                            "title": "Solve for n",
+                            "body": "2<sup>n-1</sup> = 512 = 2<sup>9</sup>, so n - 1 = 9 and n = 10."
+                        },
+                        {
+                            "title": "Use the finite-sum formula",
+                            "body": "S<sub>10</sub> = <span class='math-frac'><span>3(2<sup>10</sup> - 1)</span><span>2 - 1</span></span>."
+                        },
+                        {
+                            "title": "Calculate the result",
+                            "body": "S<sub>10</sub> = 3(1024 - 1) = 3(1023) = 3069."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "FINITE SERIES CHECK · 19 OF 20",
+                    "question": "A finite geometric series has first term 5, common ratio 2 and sum 635.<br><br>How many terms does it contain?",
+                    "prompt": "Substitute the given values into the finite geometric-series formula.",
+                    "options": [
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Using the finite geometric-series formula:<br><br>S<sub>n</sub> = 5(2<sup>n</sup> - 1), because r - 1 = 1.<br><br>Therefore 5(2<sup>n</sup> - 1) = 635.<br><br>Divide by 5:<br>2<sup>n</sup> - 1 = 127.<br><br>Hence 2<sup>n</sup> = 128 = 2<sup>7</sup>, so n = 7.",
+                    "incorrectFeedback": "Use S<sub>n</sub> = 5(2<sup>n</sup> - 1).<br><br>Setting this equal to 635 gives 2<sup>n</sup> - 1 = 127, so 2<sup>n</sup> = 128.<br><br>Since 128 = 2<sup>7</sup>, the series contains 7 terms."
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "LESSON SUMMARY · 20 OF 20",
+                    "title": "Arithmetic and Geometric Progressions: key points",
+                    "keyPoints": [
+                        "A sequence may be defined by an nth-term formula or generated using a recurrence relation.",
+                        "A recurrence relation needs a starting value as well as a rule.",
+                        "For an arithmetic progression, u<sub>n</sub> = a + (n - 1)d.",
+                        "For an arithmetic series, S<sub>n</sub> = n(2a + (n - 1)d)/2.",
+                        "The sum of the first n natural numbers is n(n + 1)/2.",
+                        "For a geometric progression, u<sub>n</sub> = ar<sup>n-1</sup>.",
+                        "For a finite geometric series, S<sub>n</sub> = a(1 - r<sup>n</sup>)/(1 - r).",
+                        "A negative common ratio creates an alternating geometric progression."
+                    ],
+                    "reviewItems": [
+                        "Practise generating terms from recurrence relations.",
+                        "Practise finding unknown arithmetic terms from two given terms.",
+                        "Practise deciding which arithmetic-series formula is most convenient.",
+                        "Practise finding the first term and ratio of a geometric progression.",
+                        "Practise finding the number of terms before calculating a finite sum.",
+                        "Next lesson: Binomial Expansion and Factorials."
+                    ],
+                    "buttonText": "Finish lesson"
+                }
+            ]
         },
         {
             "id": "binomial-expansion-factorials",
