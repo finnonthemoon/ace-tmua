@@ -1253,6 +1253,35 @@ body.lesson-mode .nav {
   text-align: left;
 }
 
+/* Longer multiple-choice exam questions */
+.lesson-screen__content .multiple-choice__question {
+  font-size: clamp(1.35rem, 5.5vw, 1.8rem);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+}
+
+/* Keeps short mathematical expressions together */
+.math-nowrap {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Places important equations neatly on their own line */
+.question-equation {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0.45rem 0;
+  white-space: nowrap;
+  line-height: 1.35;
+}
+
+/* Makes powers sit more neatly inside question equations */
+.question-equation sup {
+  font-size: 0.62em;
+  line-height: 0;
+}
+
 .lesson-screen__content>p {
   margin: 0;
   color: var(--muted);

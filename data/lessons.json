@@ -444,10 +444,572 @@
             ]
         },
         {
+            "id": "algebra-modulus-functions",
+            "topicId": "topic-1",
+            "title": "Modulus Functions",
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "MODULUS MEANING · 1 OF 16",
+                    "title": "Modulus represents distance",
+                    "body": "The modulus of a number is its distance from zero. Since distance cannot be negative, |x| is always greater than or equal to zero.",
+                    "keyPoint": "|x| = x when x ≥ 0, but |x| = -x when x &lt; 0. For example, |5| = 5 and |-5| = 5.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "MODULUS MEANING · 2 OF 16",
+                    "title": "Remove modulus signs by checking the sign",
+                    "steps": [
+                        {
+                            "title": "Look inside the modulus",
+                            "body": "The sign of the expression inside the modulus determines whether it stays the same or changes sign."
+                        },
+                        {
+                            "title": "When the expression is non-negative",
+                            "body": "If x - 3 ≥ 0, then x ≥ 3 and |x - 3| = x - 3."
+                        },
+                        {
+                            "title": "When the expression is negative",
+                            "body": "If x - 3 &lt; 0, then x &lt; 3 and |x - 3| = -(x - 3) = 3 - x."
+                        },
+                        {
+                            "title": "Piecewise form",
+                            "body": "Therefore |x - 3| = x - 3 when x ≥ 3, and |x - 3| = 3 - x when x &lt; 3."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "MODULUS CHECK · 3 OF 16",
+                    "question": "Given that x &lt; -2, which expression is equal to<span class='question-equation'>|x + 2| + |x - 1|?</span>",
+                    "prompt": "Decide whether each expression inside the modulus is positive or negative.",
+                    "options": [
+                        "2x + 1",
+                        "-2x - 1",
+                        "3",
+                        "-3",
+                        "2x - 1"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. Since x &lt; -2, both x + 2 and x - 1 are negative.<br><br>Therefore |x + 2| = -(x + 2) = -x - 2, and |x - 1| = -(x - 1) = -x + 1.<br><br>Adding gives (-x - 2) + (-x + 1) = -2x - 1.",
+                    "incorrectFeedback": "Since x &lt; -2, both expressions inside the modulus signs are negative. Therefore |x + 2| = -x - 2 and |x - 1| = -x + 1.<br><br>Their sum is -2x - 1."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 4 OF 16",
+                    "title": "The meaning of modulus is clear.",
+                    "body": "You can now use the sign of an expression to remove its modulus signs. Next, we will see what modulus does to a graph.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "MODULUS GRAPHS · 5 OF 16",
+                    "title": "The graph of y = |f(x)| cannot go below the x-axis",
+                    "body": "Taking the modulus of a function changes every negative output into its positive counterpart. Positive parts of the original graph stay where they are, while negative parts are reflected in the x-axis.",
+                    "keyPoint": "For y = |f(x)|, keep the parts where f(x) ≥ 0 and reflect the parts where f(x) &lt; 0 upwards.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "MODULUS GRAPHS · 6 OF 16",
+                    "title": "Sketch y = |x² - 4| from y = x² - 4",
+                    "steps": [
+                        {
+                            "title": "Find the roots",
+                            "body": "x<sup>2</sup> - 4 = 0 gives x = -2 or x = 2."
+                        },
+                        {
+                            "title": "Identify the negative section",
+                            "body": "The graph of y = x<sup>2</sup> - 4 lies below the x-axis between -2 and 2."
+                        },
+                        {
+                            "title": "Keep the positive sections",
+                            "body": "For x ≤ -2 and x ≥ 2, the original graph is already non-negative, so these sections stay unchanged."
+                        },
+                        {
+                            "title": "Reflect the negative section",
+                            "body": "Between -2 and 2, replace x<sup>2</sup> - 4 with -(x<sup>2</sup> - 4) = 4 - x<sup>2</sup>."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "GRAPH CHECK · 7 OF 16",
+                    "question": "Which statement correctly describes the graph of<span class='question-equation'>y = |x<sup>2</sup> - 4|?</span>",
+                    "options": [
+                        "It is y = x² - 4 for every value of x",
+                        "It is y = 4 - x² for every value of x",
+                        "It is y = 4 - x² when -2 &lt; x &lt; 2 and y = x² - 4 otherwise",
+                        "It is y = x² + 4 when -2 &lt; x &lt; 2",
+                        "The whole graph is reflected in the x-axis"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. The expression x<sup>2</sup> - 4 is negative between its roots -2 and 2, so this section is reflected upwards and becomes 4 - x<sup>2</sup>.<br><br>Outside that interval, x<sup>2</sup> - 4 is non-negative and remains unchanged.",
+                    "incorrectFeedback": "Find where x<sup>2</sup> - 4 is negative. Its roots are -2 and 2, and the quadratic is negative between them.<br><br>Therefore the middle section becomes 4 - x<sup>2</sup>, while the sections outside remain x<sup>2</sup> - 4."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 8 OF 16",
+                    "title": "Modulus graphs handled.",
+                    "body": "You can now construct y = |f(x)| by reflecting only the negative outputs. Next, we will solve modulus equations.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "MODULUS EQUATIONS · 9 OF 16",
+                    "title": "A modulus equation usually creates two cases",
+                    "body": "If |A| = k and k is positive, then A may equal k or -k. This is because both k and -k are the same distance from zero.",
+                    "keyPoint": "|A| = k gives A = k or A = -k when k ≥ 0. If k is negative, the equation has no solutions.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "MODULUS EQUATIONS · 10 OF 16",
+                    "title": "Solve |2x - 3| = 5",
+                    "steps": [
+                        {
+                            "title": "Create the positive case",
+                            "body": "The expression inside the modulus may equal 5, so 2x - 3 = 5."
+                        },
+                        {
+                            "title": "Solve the positive case",
+                            "body": "2x = 8, giving x = 4."
+                        },
+                        {
+                            "title": "Create the negative case",
+                            "body": "The expression may instead equal -5, so 2x - 3 = -5."
+                        },
+                        {
+                            "title": "Solve the negative case",
+                            "body": "2x = -2, giving x = -1."
+                        },
+                        {
+                            "title": "State both solutions",
+                            "body": "Therefore x = 4 or x = -1."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "EQUATION CHECK · 11 OF 16",
+                    "question": "What is the complete set of solutions of<span class='question-equation'>|3x + 1| = 7?</span>",
+                    "options": [
+                        "{2}",
+                        "{-<span class='math-frac'><span>8</span><span>3</span></span>}",
+                        "{2, -<span class='math-frac'><span>8</span><span>3</span></span>}",
+                        "{-2, <span class='math-frac'><span>8</span><span>3</span></span>}",
+                        "{-2, 2}"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Split the equation into two cases.<br><br>First, 3x + 1 = 7, giving 3x = 6 and x = 2.<br><br>Second, 3x + 1 = -7, giving 3x = -8 and x = -<span class='math-frac'><span>8</span><span>3</span></span>.<br><br>Both values satisfy the original equation.",
+                    "incorrectFeedback": "A positive modulus equation creates two cases:<br><br>3x + 1 = 7 or 3x + 1 = -7.<br><br>These give x = 2 and x = -<span class='math-frac'><span>8</span><span>3</span></span>."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 12 OF 16",
+                    "title": "Modulus equations solved.",
+                    "body": "You can now split a modulus equation into its positive and negative cases. The final step is applying the same distance idea to inequalities.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "MODULUS INEQUALITIES · 13 OF 16",
+                    "title": "Modulus inequalities describe distances",
+                    "body": "The inequality |x - a| &lt; r means that the distance between x and a is less than r. This produces an interval centred at a.",
+                    "keyPoint": "|x - a| &lt; r means a - r &lt; x &lt; a + r. In contrast, |x - a| &gt; r means x &lt; a - r or x &gt; a + r.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "MODULUS INEQUALITIES · 14 OF 16",
+                    "title": "Solve |2x - 1| ≤ 5",
+                    "steps": [
+                        {
+                            "title": "Write a compound inequality",
+                            "body": "|2x - 1| ≤ 5 means -5 ≤ 2x - 1 ≤ 5."
+                        },
+                        {
+                            "title": "Add one throughout",
+                            "body": "Adding 1 to all three parts gives -4 ≤ 2x ≤ 6."
+                        },
+                        {
+                            "title": "Divide throughout",
+                            "body": "Dividing all three parts by 2 gives -2 ≤ x ≤ 3."
+                        },
+                        {
+                            "title": "Interpret the result",
+                            "body": "The solutions form the closed interval from -2 to 3 because equality is allowed."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "INEQUALITY CHECK · 15 OF 16",
+                    "question": "Which set of values satisfies<span class='question-equation'>|3x + 2| &gt; 4?</span>",
+                    "options": [
+                        "-2 &lt; x &lt; <span class='math-frac'><span>2</span><span>3</span></span>",
+                        "x &lt; -2 or x &gt; <span class='math-frac'><span>2</span><span>3</span></span>",
+                        "x ≤ -2 or x ≥ <span class='math-frac'><span>2</span><span>3</span></span>",
+                        "x &gt; -2",
+                        "x &lt; <span class='math-frac'><span>2</span><span>3</span></span>"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. For |3x + 2| &gt; 4, the expression must lie outside the interval from -4 to 4.<br><br>Therefore 3x + 2 &gt; 4 or 3x + 2 &lt; -4.<br><br>The first gives x &gt; <span class='math-frac'><span>2</span><span>3</span></span>. The second gives x &lt; -2.<br><br>Hence x &lt; -2 or x &gt; <span class='math-frac'><span>2</span><span>3</span></span>.",
+                    "incorrectFeedback": "Because the modulus is greater than 4, split into two outside cases:<br><br>3x + 2 &gt; 4 or 3x + 2 &lt; -4.<br><br>These simplify to x &gt; <span class='math-frac'><span>2</span><span>3</span></span> or x &lt; -2."
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "LESSON SUMMARY · 16 OF 16",
+                    "title": "Modulus Functions: key points",
+                    "keyPoints": [
+                        "Modulus represents distance, so its value is never negative.",
+                        "Remove modulus signs by considering whether the expression inside is positive or negative.",
+                        "For y = |f(x)|, reflect negative parts of y = f(x) in the x-axis.",
+                        "An equation |A| = k usually creates the two cases A = k and A = -k.",
+                        "An inequality |x - a| &lt; r describes values inside an interval centred at a.",
+                        "An inequality |x - a| &gt; r describes values outside that interval."
+                    ],
+                    "reviewItems": [
+                        "Practise writing modulus expressions in piecewise form.",
+                        "Practise reflecting the negative sections of function graphs.",
+                        "Practise checking both cases in modulus equations.",
+                        "Practise distinguishing inside and outside modulus inequalities.",
+                        "Next lesson: Algebra exam-style questions."
+                    ],
+                    "buttonText": "Finish lesson"
+                }
+            ]
+        },
+        {
             "id": "algebra-exam-style-questions",
             "topicId": "topic-1",
             "title": "Exam-style Questions",
-            "screens": []
+            "screens": [
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 1 OF 20",
+                    "question": "Let <span class='math-nowrap'>a &gt; 0</span> and suppose that<span class='question-equation'>a<sup>1/3</sup> + a<sup>-1/3</sup> = 3.</span>Find the value of<span class='question-equation'>a + <span class='math-frac'><span>1</span><span>a</span></span></span>",
+                    "options": [
+                        "9",
+                        "12",
+                        "18",
+                        "21",
+                        "24"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Let u = a<sup>1/3</sup>. Then u + <span class='math-frac'><span>1</span><span>u</span></span> = 3. Cubing gives (u + <span class='math-frac'><span>1</span><span>u</span></span>)<sup>3</sup> = u<sup>3</sup> + <span class='math-frac'><span>1</span><span>u<sup>3</sup></span></span> + 3(u + <span class='math-frac'><span>1</span><span>u</span></span>). Therefore 27 = a + <span class='math-frac'><span>1</span><span>a</span></span> + 9, so a + <span class='math-frac'><span>1</span><span>a</span></span> = 18.",
+                    "incorrectFeedback": "Let u = a<sup>1/3</sup>, so u + <span class='math-frac'><span>1</span><span>u</span></span> = 3. Use the identity (u + <span class='math-frac'><span>1</span><span>u</span></span>)<sup>3</sup> = u<sup>3</sup> + <span class='math-frac'><span>1</span><span>u<sup>3</sup></span></span> + 3(u + <span class='math-frac'><span>1</span><span>u</span></span>). This gives 27 = a + <span class='math-frac'><span>1</span><span>a</span></span> + 9, so the answer is 18."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 2 OF 20",
+                    "question": "Simplify <span class='math-bracket'>(</span><span class='math-frac'><span>√5 + √3</span><span>√5 - √3</span></span><span class='math-bracket'>)</span><sup>2</sup>.",
+                    "options": [
+                        "31 - 8√15",
+                        "16 + 4√15",
+                        "31 + 8√15",
+                        "8 + 2√15",
+                        "4 + √15"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Rationalising first gives <span class='math-frac'><span>√5 + √3</span><span>√5 - √3</span></span> = <span class='math-frac'><span>(√5 + √3)<sup>2</sup></span><span>5 - 3</span></span> = <span class='math-frac'><span>8 + 2√15</span><span>2</span></span> = 4 + √15. Squaring gives (4 + √15)<sup>2</sup> = 16 + 8√15 + 15 = 31 + 8√15.",
+                    "incorrectFeedback": "First rationalise the fraction by multiplying the numerator and denominator by √5 + √3. The fraction simplifies to 4 + √15. You must then square this result: (4 + √15)<sup>2</sup> = 31 + 8√15."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 3 OF 20",
+                    "question": "For which values of k does the equation x<sup>2</sup> - 2kx + k + 2 = 0 have two distinct positive real roots?",
+                    "options": [
+                        "k &lt; -1",
+                        "-1 &lt; k &lt; 0",
+                        "k &gt; 0",
+                        "k &gt; 2",
+                        "k &lt; -1 or k &gt; 2"
+                    ],
+                    "answerIndex": 3,
+                    "correctFeedback": "Correct. The quadratic formula gives x = k ± √(k<sup>2</sup> - k - 2). For two distinct real roots, k<sup>2</sup> - k - 2 &gt; 0, so (k - 2)(k + 1) &gt; 0. Therefore k &lt; -1 or k &gt; 2. If k &lt; -1, the root k - √(k<sup>2</sup> - k - 2) is negative. If k &gt; 2, both roots are positive because k &gt; √(k<sup>2</sup> - k - 2). Therefore k &gt; 2.",
+                    "incorrectFeedback": "Use the quadratic formula: x = k ± √(k<sup>2</sup> - k - 2). The discriminant condition gives k &lt; -1 or k &gt; 2. However, k &lt; -1 produces negative roots. When k &gt; 2, even the smaller root k - √(k<sup>2</sup> - k - 2) is positive. Therefore the answer is k &gt; 2."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 4 OF 20",
+                    "question": "The polynomial p(x) = x<sup>3</sup> + ax<sup>2</sup> + bx + 6 is divisible by both x - 1 and x + 2. What is the remainder when p(x) is divided by x - 3?",
+                    "options": [
+                        "-12",
+                        "-6",
+                        "0",
+                        "6",
+                        "12"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Since x - 1 is a factor, p(1) = 0, giving a + b = -7. Since x + 2 is a factor, p(-2) = 0, giving 2a - b = 1. Solving these equations gives a = -2 and b = -5. The remainder after division by x - 3 is p(3) = 27 - 18 - 15 + 6 = 0.",
+                    "incorrectFeedback": "Use the factor theorem twice. From p(1) = 0, obtain a + b = -7. From p(-2) = 0, obtain 2a - b = 1. This gives a = -2 and b = -5. The required remainder is p(3), which equals 0."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 5 OF 20",
+                    "question": "Let f(x) = |x - 2| + |x + 1|. What is the minimum value of f(x)?",
+                    "options": [
+                        "0, attained when x = 2",
+                        "1, attained when x = -<span class='math-frac'><span>1</span><span>2</span></span>",
+                        "3, attained only when x = <span class='math-frac'><span>1</span><span>2</span></span>",
+                        "3, attained for every x such that -1 ≤ x ≤ 2",
+                        "4, attained for every x such that -1 ≤ x ≤ 2"
+                    ],
+                    "answerIndex": 3,
+                    "correctFeedback": "Correct. For -1 ≤ x ≤ 2, we have |x - 2| = 2 - x and |x + 1| = x + 1. Therefore f(x) = (2 - x) + (x + 1) = 3 throughout the whole interval. Outside this interval, the total is greater than 3.",
+                    "incorrectFeedback": "Consider the interval between the two critical values, -1 and 2. For -1 ≤ x ≤ 2, |x - 2| = 2 - x and |x + 1| = x + 1. Their sum is always 3, so the minimum is attained throughout -1 ≤ x ≤ 2."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 6 OF 20",
+                    "question": "The graphs<span class='question-equation'>y = x<sup>2</sup> - 4x + 5</span>and<span class='question-equation'>y = mx + 1</span>meet at exactly one point. What are the possible values of m?",
+                    "options": [
+                        "m = -8 only",
+                        "m = 0 only",
+                        "m = -8 or m = 0",
+                        "m = -4 or m = 4",
+                        "Every real value of m"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. At an intersection, the two expressions for y are equal, so x<sup>2</sup> - 4x + 5 = mx + 1. Rearranging gives x<sup>2</sup> - (m + 4)x + 4 = 0.<br><br>The graphs meet at exactly one point only when this quadratic has one repeated root, so its discriminant is zero:<br>(m + 4)<sup>2</sup> - 4(1)(4) = 0.<br><br>Therefore (m + 4)<sup>2</sup> = 16, so m + 4 = ±4. Hence m = 0 or m = -8.",
+                    "incorrectFeedback": "Set the two expressions for y equal:<br>x<sup>2</sup> - 4x + 5 = mx + 1.<br><br>This rearranges to x<sup>2</sup> - (m + 4)x + 4 = 0. Exactly one intersection means this quadratic must have a repeated root, so its discriminant equals zero:<br>(m + 4)<sup>2</sup> - 16 = 0.<br><br>Thus m + 4 = ±4, giving m = 0 or m = -8."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 7 OF 20",
+                    "question": "A polynomial p(x) leaves remainders 4, 6 and 9 when divided by x - 1, x + 1 and x - 2 respectively. What is the remainder when p(x) is divided by<span class='question-equation'>(x - 1)(x + 1)(x - 2)?</span>",
+                    "options": [
+                        "2x<sup>2</sup> - x + 3",
+                        "2x<sup>2</sup> + x + 1",
+                        "x<sup>2</sup> - 2x + 5",
+                        "2x<sup>2</sup> - x - 3",
+                        "x<sup>2</sup> + x + 2"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. The divisor has degree 3, so the remainder must have degree less than 3. Write it as R(x) = ax<sup>2</sup> + bx + c.<br><br>The remainder theorem gives:<br>R(1) = a + b + c = 4,<br>R(-1) = a - b + c = 6,<br>R(2) = 4a + 2b + c = 9.<br><br>Subtracting the first two equations gives 2b = -2, so b = -1. Then a + c = 5. Using R(2) = 9 gives 4a + c = 11. Subtracting a + c = 5 gives 3a = 6, so a = 2 and c = 3.<br><br>Therefore the remainder is 2x<sup>2</sup> - x + 3.",
+                    "incorrectFeedback": "Because the divisor has degree 3, the remainder has the form R(x) = ax<sup>2</sup> + bx + c.<br><br>Use the given remainders:<br>a + b + c = 4,<br>a - b + c = 6,<br>4a + 2b + c = 9.<br><br>The first two equations give b = -1. They also give a + c = 5. Substituting b = -1 into the third equation gives 4a + c = 11. Hence a = 2 and c = 3, so R(x) = 2x<sup>2</sup> - x + 3."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 8 OF 20",
+                    "question": "The function f is defined by<span class='question-equation'>f(x) = <span class='math-frac'><span>x + 3</span><span>x - 1</span></span>, &nbsp; x ≠ 1.</span>What is f(f(x))?",
+                    "options": [
+                        "x",
+                        "-x",
+                        "<span class='math-frac'><span>1</span><span>x</span></span>",
+                        "<span class='math-frac'><span>x - 1</span><span>x + 3</span></span>",
+                        "It is undefined for every x"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. The rule f takes any input t and returns <span class='math-frac'><span>t + 3</span><span>t - 1</span></span>. Therefore, when the input is f(x),<br><br>f(f(x)) = <span class='math-frac'><span>f(x) + 3</span><span>f(x) - 1</span></span>.<br><br>Now simplify the top and bottom separately:<br>f(x) + 3 = <span class='math-frac'><span>x + 3</span><span>x - 1</span></span> + 3 = <span class='math-frac'><span>4x</span><span>x - 1</span></span>,<br><br>f(x) - 1 = <span class='math-frac'><span>x + 3</span><span>x - 1</span></span> - 1 = <span class='math-frac'><span>4</span><span>x - 1</span></span>.<br><br>So f(f(x)) = <span class='math-frac'><span>4x</span><span>x - 1</span></span> ÷ <span class='math-frac'><span>4</span><span>x - 1</span></span> = x. Applying f twice returns the original input.",
+                    "incorrectFeedback": "Remember that f(f(x)) means putting the whole expression f(x) back into the function.<br><br>The rule is f(t) = <span class='math-frac'><span>t + 3</span><span>t - 1</span></span>, so<br>f(f(x)) = <span class='math-frac'><span>f(x) + 3</span><span>f(x) - 1</span></span>.<br><br>Here, f(x) + 3 = <span class='math-frac'><span>4x</span><span>x - 1</span></span> and f(x) - 1 = <span class='math-frac'><span>4</span><span>x - 1</span></span>. Dividing these expressions gives x."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 9 OF 20",
+                    "question": "The equation<span class='question-equation'>√(x + 5) - √(x - 1) = 2</span>has one real solution. What is its value?",
+                    "options": [
+                        "1",
+                        "<span class='math-frac'><span>5</span><span>4</span></span>",
+                        "<span class='math-frac'><span>3</span><span>2</span></span>",
+                        "2",
+                        "<span class='math-frac'><span>9</span><span>4</span></span>"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. First rearrange so one square root is isolated:<br>√(x + 5) = 2 + √(x - 1).<br><br>Square both sides:<br>x + 5 = 4 + 4√(x - 1) + x - 1.<br><br>This simplifies to 2 = 4√(x - 1), so √(x - 1) = <span class='math-frac'><span>1</span><span>2</span></span>. Squaring again gives x - 1 = <span class='math-frac'><span>1</span><span>4</span></span>, so x = <span class='math-frac'><span>5</span><span>4</span></span>.<br><br>Checking: √(<span class='math-frac'><span>25</span><span>4</span></span>) - √(<span class='math-frac'><span>1</span><span>4</span></span>) = <span class='math-frac'><span>5</span><span>2</span></span> - <span class='math-frac'><span>1</span><span>2</span></span> = 2.",
+                    "incorrectFeedback": "Isolate one square root first:<br>√(x + 5) = 2 + √(x - 1).<br><br>Squaring gives x + 5 = x + 3 + 4√(x - 1). Therefore 2 = 4√(x - 1), so √(x - 1) = <span class='math-frac'><span>1</span><span>2</span></span>.<br><br>Hence x - 1 = <span class='math-frac'><span>1</span><span>4</span></span>, giving x = <span class='math-frac'><span>5</span><span>4</span></span>."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 10 OF 20",
+                    "question": "How many distinct real solutions does the equation<span class='question-equation'>|x<sup>2</sup> - 4| = x</span>have?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Since |x<sup>2</sup> - 4| is non-negative, any solution must satisfy x ≥ 0.<br><br>Case 1: x<sup>2</sup> - 4 ≥ 0. Then x<sup>2</sup> - 4 = x, so x<sup>2</sup> - x - 4 = 0. Its roots are <span class='math-frac'><span>1 ± √17</span><span>2</span></span>. Only the positive root is valid, and it is greater than 2, so this case gives one solution.<br><br>Case 2: x<sup>2</sup> - 4 &lt; 0. Then 4 - x<sup>2</sup> = x, so x<sup>2</sup> + x - 4 = 0. Its roots are <span class='math-frac'><span>-1 ± √17</span><span>2</span></span>. Only the positive root is valid, and it lies between 0 and 2, so this case gives one more solution.<br><br>Therefore there are 2 distinct real solutions.",
+                    "incorrectFeedback": "The right-hand side must be non-negative, so x ≥ 0. Now split the modulus into two cases.<br><br>If x<sup>2</sup> - 4 ≥ 0, solve x<sup>2</sup> - x - 4 = 0. Exactly one root satisfies x ≥ 2.<br><br>If x<sup>2</sup> - 4 &lt; 0, solve x<sup>2</sup> + x - 4 = 0. Exactly one root satisfies 0 ≤ x &lt; 2.<br><br>That gives 2 valid solutions in total."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 11 OF 20",
+                    "question": "The positive numbers x and y satisfy<span class='question-equation'>log<sub>2</sub>x + log<sub>2</sub>y = 6</span>and<span class='question-equation'>log<sub>x</sub>y = <span class='math-frac'><span>1</span><span>2</span></span>.</span>What is the value of x - y?",
+                    "options": [
+                        "4",
+                        "8",
+                        "12",
+                        "16",
+                        "20"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Use the addition law for logarithms:<br><br>log<sub>2</sub>x + log<sub>2</sub>y = log<sub>2</sub>(xy) = 6.<br><br>Therefore xy = 2<sup>6</sup> = 64.<br><br>The second equation, log<sub>x</sub>y = <span class='math-frac'><span>1</span><span>2</span></span>, means y = x<sup>1/2</sup> = √x.<br><br>Substituting y = √x into xy = 64 gives x√x = 64, so x<sup>3/2</sup> = 64. Raising both sides to the power <span class='math-frac'><span>2</span><span>3</span></span> gives x = 16. Therefore y = √16 = 4, and x - y = 16 - 4 = 12.",
+                    "incorrectFeedback": "First combine the logarithms:<br><br>log<sub>2</sub>x + log<sub>2</sub>y = log<sub>2</sub>(xy) = 6,<br><br>so xy = 64. Also, log<sub>x</sub>y = <span class='math-frac'><span>1</span><span>2</span></span> means y = √x. Substituting gives x√x = 64, or x<sup>3/2</sup> = 64. Hence x = 16 and y = 4, so x - y = 12."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 12 OF 20",
+                    "question": "Which set contains all the real solutions of<span class='question-equation'>3<sup>x+1</sup> + 3<sup>1-x</sup> = 10?</span>",
+                    "options": [
+                        "{-1}",
+                        "{1}",
+                        "{-1, 1}",
+                        "{0, 1}",
+                        "{0, 2}"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Let t = 3<sup>x</sup>. Since 3<sup>x</sup> is positive, t &gt; 0.<br><br>Then 3<sup>x+1</sup> = 3t and 3<sup>1-x</sup> = <span class='math-frac'><span>3</span><span>t</span></span>. The equation becomes:<br><br>3t + <span class='math-frac'><span>3</span><span>t</span></span> = 10.<br><br>Multiplying by t gives 3t<sup>2</sup> - 10t + 3 = 0. Factorising gives (3t - 1)(t - 3) = 0, so t = <span class='math-frac'><span>1</span><span>3</span></span> or t = 3.<br><br>Therefore 3<sup>x</sup> = 3<sup>-1</sup> or 3<sup>x</sup> = 3<sup>1</sup>, giving x = -1 or x = 1.",
+                    "incorrectFeedback": "Use the substitution t = 3<sup>x</sup>. Then 3<sup>x+1</sup> = 3t and 3<sup>1-x</sup> = <span class='math-frac'><span>3</span><span>t</span></span>.<br><br>The equation becomes 3t + <span class='math-frac'><span>3</span><span>t</span></span> = 10. Multiplying through by t and factorising gives (3t - 1)(t - 3) = 0. Hence t = <span class='math-frac'><span>1</span><span>3</span></span> or t = 3, so x = -1 or x = 1."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 13 OF 20",
+                    "question": "The set S is the complete set of values of x satisfying both inequalities<span class='question-equation'>x<sup>2</sup> - 9x + 14 &lt; 0</span>and<span class='question-equation'>3x + 1 &gt; 13.</span>Which single inequality also represents S?",
+                    "options": [
+                        "(x<sup>2</sup> - 9x + 14)(3x + 1) &lt; 0",
+                        "(x<sup>2</sup> - 9x + 14)(3x + 1) &gt; 0",
+                        "x<sup>2</sup> - 11x + 28 &lt; 0",
+                        "x<sup>2</sup> - 11x + 28 &gt; 0",
+                        "x<sup>2</sup> - 6x + 8 &lt; 0"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Factorise the first inequality:<br><br>x<sup>2</sup> - 9x + 14 = (x - 2)(x - 7).<br><br>The quadratic is negative between its roots, so the first inequality gives 2 &lt; x &lt; 7.<br><br>The second inequality gives 3x + 1 &gt; 13, so 3x &gt; 12 and therefore x &gt; 4.<br><br>Both conditions must hold, so S is 4 &lt; x &lt; 7. The quadratic with roots 4 and 7 is (x - 4)(x - 7). It is negative between its roots, so S can be written as (x - 4)(x - 7) &lt; 0. Expanding gives x<sup>2</sup> - 11x + 28 &lt; 0.",
+                    "incorrectFeedback": "Solve the two inequalities separately. The first factorises to (x - 2)(x - 7) &lt; 0, giving 2 &lt; x &lt; 7. The second gives x &gt; 4.<br><br>The intersection is therefore 4 &lt; x &lt; 7. A positive quadratic is negative between its roots, so use (x - 4)(x - 7) &lt; 0. Expanding gives x<sup>2</sup> - 11x + 28 &lt; 0."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 14 OF 20",
+                    "question": "The function f is defined by<span class='question-equation'>f(x) = x<sup>2</sup> - 6x + 11, &nbsp; x ≥ 3.</span>Which expression gives f<sup>-1</sup>(x)?",
+                    "options": [
+                        "3 + √(x - 2)",
+                        "3 - √(x - 2)",
+                        "√(x + 2) - 3",
+                        "√(x - 2) - 3",
+                        "6 + √(x - 11)"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. First complete the square:<br><br>f(x) = x<sup>2</sup> - 6x + 11 = (x - 3)<sup>2</sup> + 2.<br><br>Write y = (x - 3)<sup>2</sup> + 2. Rearranging gives (x - 3)<sup>2</sup> = y - 2.<br><br>Because the original domain is x ≥ 3, we know x - 3 ≥ 0. We must therefore take the positive square root:<br><br>x - 3 = √(y - 2).<br><br>Hence x = 3 + √(y - 2). Replacing y with x gives f<sup>-1</sup>(x) = 3 + √(x - 2).",
+                    "incorrectFeedback": "Complete the square first:<br><br>f(x) = (x - 3)<sup>2</sup> + 2.<br><br>Set y = (x - 3)<sup>2</sup> + 2 and rearrange to obtain x - 3 = ±√(y - 2). The original restriction x ≥ 3 means x - 3 must be non-negative, so take the positive square root. Therefore f<sup>-1</sup>(x) = 3 + √(x - 2)."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 15 OF 20",
+                    "question": "The polynomial<span class='question-equation'>p(x) = x<sup>3</sup> + ax<sup>2</sup> + bx + 4</span>is divisible by (x - 1)<sup>2</sup>. What is the value of p(-1)?",
+                    "options": [
+                        "-12",
+                        "-4",
+                        "0",
+                        "4",
+                        "12"
+                    ],
+                    "answerIndex": 4,
+                    "correctFeedback": "Correct. Since p(x) is a monic cubic and is divisible by (x - 1)<sup>2</sup>, it must have the form:<br><br>p(x) = (x - 1)<sup>2</sup>(x + c)<br><br>for some constant c. From the original expression, p(0) = 4. From the factorised expression, p(0) = (-1)<sup>2</sup>c = c. Therefore c = 4.<br><br>So p(x) = (x - 1)<sup>2</sup>(x + 4). Substituting x = -1 gives p(-1) = (-2)<sup>2</sup>(3) = 4 × 3 = 12.",
+                    "incorrectFeedback": "Because the cubic is monic and contains the repeated factor (x - 1)<sup>2</sup>, write p(x) = (x - 1)<sup>2</sup>(x + c).<br><br>The constant term is p(0) = c, but the question tells us the constant term is 4. Therefore c = 4. Now substitute x = -1 into (x - 1)<sup>2</sup>(x + 4), giving (-2)<sup>2</sup>(3) = 12."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 16 OF 20",
+                    "question": "For which values of k is<span class='question-equation'>x<sup>2</sup> + 2kx + k + 3 &gt; 0</span>for every real value of x?",
+                    "options": [
+                        "k &lt; <span class='math-frac'><span>1 - √13</span><span>2</span></span>",
+                        "<span class='math-frac'><span>1 - √13</span><span>2</span></span> &lt; k &lt; <span class='math-frac'><span>1 + √13</span><span>2</span></span>",
+                        "k &gt; <span class='math-frac'><span>1 + √13</span><span>2</span></span>",
+                        "k &lt; <span class='math-frac'><span>1 - √13</span><span>2</span></span> or k &gt; <span class='math-frac'><span>1 + √13</span><span>2</span></span>",
+                        "Every real value of k"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. The coefficient of x<sup>2</sup> is positive, so the graph opens upwards. For the expression to be strictly positive for every real x, the graph must never touch or cross the x-axis. Its discriminant must therefore be negative.<br><br>(2k)<sup>2</sup> - 4(1)(k + 3) &lt; 0.<br><br>This simplifies to 4k<sup>2</sup> - 4k - 12 &lt; 0, and hence k<sup>2</sup> - k - 3 &lt; 0.<br><br>The boundary values are found from k<sup>2</sup> - k - 3 = 0, giving k = <span class='math-frac'><span>1 ± √13</span><span>2</span></span>. Since the quadratic in k opens upwards, it is negative between its roots. Therefore <span class='math-frac'><span>1 - √13</span><span>2</span></span> &lt; k &lt; <span class='math-frac'><span>1 + √13</span><span>2</span></span>.",
+                    "incorrectFeedback": "The graph opens upwards because the coefficient of x<sup>2</sup> is positive. To be strictly above the x-axis for every x, it must have no real roots, so the discriminant must be negative.<br><br>This gives (2k)<sup>2</sup> - 4(k + 3) &lt; 0, which simplifies to k<sup>2</sup> - k - 3 &lt; 0. The roots are <span class='math-frac'><span>1 ± √13</span><span>2</span></span>, and the expression is negative between them."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 17 OF 20",
+                    "question": "Evaluate<span class='question-equation'>(√(5 + 2√6) - √(5 - 2√6))<sup>2</sup>.</span>",
+                    "options": [
+                        "2",
+                        "4",
+                        "6",
+                        "8",
+                        "10"
+                    ],
+                    "answerIndex": 3,
+                    "correctFeedback": "Correct. Use (a - b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab.<br><br>The expression becomes:<br><br>(5 + 2√6) + (5 - 2√6) - 2√((5 + 2√6)(5 - 2√6)).<br><br>The first two terms add to 10. The product inside the square root is a difference of squares:<br><br>(5 + 2√6)(5 - 2√6) = 25 - (2√6)<sup>2</sup> = 25 - 24 = 1.<br><br>Therefore the value is 10 - 2√1 = 10 - 2 = 8.",
+                    "incorrectFeedback": "Expand using (a - b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab. The two squared terms add to 10.<br><br>For the product, use the conjugates: (5 + 2√6)(5 - 2√6) = 25 - 24 = 1. Therefore the full expression is 10 - 2√1 = 8."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 18 OF 20",
+                    "question": "How many real solutions does the equation<span class='question-equation'><span class='math-frac'><span>x + 1</span><span>x - 2</span></span> + <span class='math-frac'><span>x - 2</span><span>x + 1</span></span> = 2</span>have?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. First note that x ≠ 2 and x ≠ -1. Multiply the equation by (x - 2)(x + 1):<br><br>(x + 1)<sup>2</sup> + (x - 2)<sup>2</sup> = 2(x - 2)(x + 1).<br><br>Expanding the left-hand side gives 2x<sup>2</sup> - 2x + 5. Expanding the right-hand side gives 2x<sup>2</sup> - 2x - 4.<br><br>The equation would therefore require 2x<sup>2</sup> - 2x + 5 = 2x<sup>2</sup> - 2x - 4, which simplifies to 5 = -4. This is impossible, so there are no real solutions.",
+                    "incorrectFeedback": "Multiply both sides by (x - 2)(x + 1). This gives (x + 1)<sup>2</sup> + (x - 2)<sup>2</sup> = 2(x - 2)(x + 1).<br><br>After expanding, the left-hand side is 2x<sup>2</sup> - 2x + 5, while the right-hand side is 2x<sup>2</sup> - 2x - 4. This would imply 5 = -4, so the equation has 0 real solutions."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 19 OF 20",
+                    "question": "The functions f and g are defined by<span class='question-equation'>f(x) = √(2x - 1)</span>and<span class='question-equation'>g(x) = <span class='math-frac'><span>1</span><span>x - 3</span></span>.</span>What is the domain of f(g(x))?",
+                    "options": [
+                        "x &lt; 3",
+                        "3 &lt; x &lt; 5",
+                        "3 &lt; x ≤ 5",
+                        "x ≥ 5",
+                        "x ≠ 3"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Substituting g(x) into f gives:<br><br>f(g(x)) = √(<span class='math-frac'><span>2</span><span>x - 3</span></span> - 1).<br><br>The expression inside the square root must be non-negative:<br><br><span class='math-frac'><span>2</span><span>x - 3</span></span> - 1 ≥ 0.<br><br>Combining the terms gives <span class='math-frac'><span>5 - x</span><span>x - 3</span></span> ≥ 0. The critical values are x = 3 and x = 5.<br><br>x = 3 must be excluded because it makes the denominator zero. A sign check shows the fraction is positive between 3 and 5, while x = 5 is included because it makes the fraction zero. Therefore the domain is 3 &lt; x ≤ 5.",
+                    "incorrectFeedback": "Form the composite function first:<br><br>f(g(x)) = √(<span class='math-frac'><span>2</span><span>x - 3</span></span> - 1).<br><br>The quantity inside the square root must be at least zero. This gives <span class='math-frac'><span>5 - x</span><span>x - 3</span></span> ≥ 0. The fraction is non-negative for 3 &lt; x ≤ 5. The value x = 3 is excluded because the denominator would be zero, but x = 5 is included."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 20 OF 20",
+                    "question": "A number x satisfies<span class='question-equation'>x<sup>2</sup> - 5x + 3 = 0.</span>Let<span class='question-equation'>t = x<sup>2</sup>.</span>Which equation must t satisfy?",
+                    "options": [
+                        "t<sup>2</sup> - 19t + 9 = 0",
+                        "t<sup>2</sup> - 25t + 9 = 0",
+                        "t<sup>2</sup> - 19t + 3 = 0",
+                        "t<sup>2</sup> - 10t + 9 = 0",
+                        "t<sup>2</sup> - 19t - 9 = 0"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. Since t = x<sup>2</sup>, the original equation becomes:<br><br>t - 5x + 3 = 0.<br><br>Rearranging gives 5x = t + 3, so x = <span class='math-frac'><span>t + 3</span><span>5</span></span>.<br><br>But t = x<sup>2</sup>, so substitute this expression for x:<br><br>t = (<span class='math-frac'><span>t + 3</span><span>5</span></span>)<sup>2</sup>.<br><br>Multiplying by 25 gives 25t = (t + 3)<sup>2</sup>. Expanding gives 25t = t<sup>2</sup> + 6t + 9. Moving everything to one side gives t<sup>2</sup> - 19t + 9 = 0.",
+                    "incorrectFeedback": "Use only substitution. Since t = x<sup>2</sup>, rewrite the original equation as t - 5x + 3 = 0. Therefore x = <span class='math-frac'><span>t + 3</span><span>5</span></span>.<br><br>Now use t = x<sup>2</sup>:<br><br>t = (<span class='math-frac'><span>t + 3</span><span>5</span></span>)<sup>2</sup>.<br><br>Multiplying out gives 25t = t<sup>2</sup> + 6t + 9, so t<sup>2</sup> - 19t + 9 = 0."
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · COMPLETE",
+                    "title": "Algebra and Functions: exam practice complete",
+                    "keyPoints": [
+                        "Index expressions can often be simplified by introducing a substitution.",
+                        "When rationalising a two-term denominator, multiply by its conjugate.",
+                        "For parameterised quadratics, check both the number and signs of the roots.",
+                        "The factor theorem can create simultaneous equations for unknown coefficients.",
+                        "A sum of distances represented by modulus expressions may be constant across an interval."
+                    ],
+                    "reviewItems": [
+                        "Review Question 1 if the cubic identity was difficult to spot.",
+                        "Review Question 3 if you found the parameter conditions difficult.",
+                        "Review the difference between the factor theorem and remainder theorem.",
+                        "Try the questions again without reading the solutions."
+                    ],
+                    "buttonText": "Finish questions"
+                }
+            ]
         },
         {
             "id": "arithmetic-geometric-progressions",
