@@ -17,7 +17,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
@@ -49,11 +48,6 @@ function getGreeting(): string {
   if (h < 12) return "Good morning";
   if (h < 18) return "Good afternoon";
   return "Good evening";
-}
-
-function daysUntilExam(): number {
-  const exam = new Date("2026-10-15T09:00:00");
-  return Math.max(0, Math.ceil((exam.getTime() - Date.now()) / 86_400_000));
 }
 
 // ─── Hardcoded seed data (mirrors localTestStorage.json / userData defaults) ──
@@ -111,7 +105,7 @@ function StreakCard() {
     <View style={styles.streakCard}>
       {/* .streak-card__icon */}
       <View style={styles.streakIcon}>
-        <Text style={styles.streakIconEmoji}>🔥</Text>
+        <Ionicons name="flame" size={29} color={Colors.primary} />
       </View>
 
       {/* .streak-card__content */}
@@ -157,7 +151,7 @@ function TodayCard({ onPress }: { onPress: () => void }) {
       {/* .today-card__top */}
       <View style={styles.todayTop}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.eyebrow}>TODAY'S PRACTICE</Text>
+          <Text style={styles.eyebrow}>{"TODAY'S PRACTICE"}</Text>
           <Text style={styles.todayTitle}>Quadratics: mixed practice</Text>
         </View>
         {/* .today-card__time */}
@@ -544,7 +538,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
   },
-  streakIconEmoji: { fontSize: 26 },
   streakContent: { marginBottom: 12 },
   streakLabel: {
     color: "rgba(255,255,255,0.86)",
