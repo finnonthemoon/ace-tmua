@@ -12,16 +12,16 @@ The app is built with:
 
 You do not need to install the old global `expo-cli` package. This project runs Expo through `npx`, which uses the correct project version.
 
-## 1. Before your friend starts: the owner must publish the React Native work
+## 1. Before you starts: the owner must publish the React Native work
 
 The current working React Native port is on the `react-porting` Git branch and has local, uncommitted changes. A GitHub clone only contains committed and pushed files.
 
-Before your friend clones the project, the project owner should:
+Before you clones the project, the project owner should:
 
 1. Check the app still runs.
 2. Commit all intended React Native files, including the new lesson components and assets.
 3. Push the `react-porting` branch to GitHub.
-4. Tell the friend whether to use `react-porting` or whether it has been merged into `main`.
+4. Tell you whether to use `react-porting` or whether it has been merged into `master`.
 
 The owner can check the current state from the outer repository folder:
 
@@ -308,7 +308,7 @@ If these report errors immediately after cloning, first confirm that:
 - You are on the correct branch.
 - The owner's latest changes were committed and pushed.
 - You ran `npm install` in the inner Expo folder.
-- Your friend pulled the latest commit.
+- You pulled the latest commit.
 
 ## 12. Start the Expo development server
 
