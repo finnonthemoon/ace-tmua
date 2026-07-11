@@ -57,10 +57,110 @@ export default function LeaderboardScreen() {
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.eyebrow}>THIS WEEK</Text>
-        <Text style={styles.title}>Leaderboard</Text>
+        <Text style={styles.eyebrow}>PLAY</Text>
+
+        <Text style={styles.title}>
+          Ranked
+        </Text>
+
         <Text style={styles.subtitle}>
-          See how this week&apos;s TMUA practice scores compare.
+          Compete against other TMUA students and climb the rankings.
+        </Text>
+
+        <View style={styles.rankedCard}>
+
+          <View style={styles.rankedTop}>
+
+            <View>
+
+              <Text style={styles.ratingLabel}>
+                YOUR TMUA RATING
+              </Text>
+
+              <Text style={styles.rating}>
+                1826
+              </Text>
+
+              <View style={styles.rankBadge}>
+                <Text style={styles.rankBadgeText}>
+                  Gold II
+                </Text>
+              </View>
+
+            </View>
+
+            <View style={styles.rankSide}>
+
+              <Text style={styles.rankPercent}>
+                Top
+              </Text>
+
+              <Text style={styles.rankBig}>
+                8%
+              </Text>
+
+              <Text style={styles.rankPercent}>
+                Global
+              </Text>
+
+            </View>
+
+          </View>
+
+          <View style={styles.statsRow}>
+
+            <View style={styles.stat}>
+              <Text style={styles.statNumber}>7</Text>
+              <Text style={styles.statLabel}>Win streak</Text>
+            </View>
+
+            <View style={styles.stat}>
+              <Text style={styles.statNumber}>1894</Text>
+              <Text style={styles.statLabel}>Best</Text>
+            </View>
+
+            <View style={styles.stat}>
+              <Text style={styles.statNumber}>24</Text>
+              <Text style={styles.statLabel}>Games</Text>
+            </View>
+
+            <View style={styles.stat}>
+              <Text style={styles.statNumber}>8m</Text>
+              <Text style={styles.statLabel}>Avg</Text>
+            </View>
+
+          </View>
+
+          <TouchableOpacity style={styles.playButton}>
+
+            <Ionicons
+              name="play"
+              size={18}
+              color="white"
+            />
+
+            <Text style={styles.playButtonText}>
+              PLAY RANKED
+            </Text>
+
+          </TouchableOpacity>
+
+          <View style={styles.infoRow}>
+
+            <Text>12 Questions</Text>
+
+            <Text>8–10 mins</Text>
+
+            <Text>~6s Queue</Text>
+
+            <Text>+18 / -16</Text>
+
+          </View>
+
+        </View>
+
+        <Text style={styles.leaderboardHeading}>
+          This Week's Leaderboard
         </Text>
 
         <View style={styles.table}>
@@ -308,4 +408,111 @@ const styles = StyleSheet.create({
     lineHeight: 19,
   },
   bottomSpacing: { height: 110 },
+  rankedCard: {
+    backgroundColor: Colors.surface,
+    borderRadius: 24,
+    padding: 22,
+    marginBottom: 26,
+    borderWidth: 1,
+    borderColor: Colors.line,
+  },
+
+  rankedTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  ratingLabel: {
+    color: Colors.primary,
+    fontWeight: "900",
+    fontSize: 11,
+    letterSpacing: 1,
+  },
+
+  rating: {
+    fontSize: 54,
+    fontWeight: "900",
+    color: Colors.ink,
+  },
+
+  rankBadge: {
+    marginTop: 8,
+    backgroundColor: "#FFF3E7",
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: 999,
+    alignSelf: "flex-start",
+  },
+
+  rankBadgeText: {
+    color: Colors.primary,
+    fontWeight: "800",
+  },
+
+  rankSide: {
+    alignItems: "center",
+  },
+
+  rankPercent: {
+    color: Colors.muted,
+    fontWeight: "700",
+  },
+
+  rankBig: {
+    fontSize: 42,
+    color: Colors.primary,
+    fontWeight: "900",
+  },
+
+  statsRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 24,
+    marginBottom: 22,
+  },
+
+  stat: {
+    alignItems: "center",
+  },
+
+  statNumber: {
+    fontSize: 20,
+    fontWeight: "900",
+    color: Colors.ink,
+  },
+
+  statLabel: {
+    color: Colors.muted,
+    fontSize: 11,
+  },
+
+  playButton: {
+    backgroundColor: Colors.primary,
+    borderRadius: 18,
+    paddingVertical: 16,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 8,
+  },
+
+  playButtonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "900",
+  },
+
+  infoRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 16,
+  },
+
+  leaderboardHeading: {
+    fontSize: 22,
+    fontWeight: "900",
+    color: Colors.ink,
+    marginBottom: 14,
+  },
 });
