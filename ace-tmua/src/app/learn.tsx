@@ -1,0 +1,450 @@
+import { useMemo, useState } from "react";
+import { useRouter } from "expo-router";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons } from "@expo/vector-icons";
+
+import lessonsData from "../data/lessons.json";
+import type { Lesson } from "../components/lesson/types";
+
+type IconName = React.ComponentProps<typeof Ionicons>["name"];
+
+interface Topic {
+  id: string;
+  lessonTopicId: string;
+  title: string;
+  displayTitle: string;
+  intro: string;
+  color: string;
+  softColor: string;
+  icon: IconName;
+}
+
+const TOPICS: Topic[] = [
+  {
+    id: "algebra",
+    lessonTopicId: "topic-1",
+    title: "Algebra and Functions",
+    displayTitle: "Algebra and\nFunctions",
+    intro: "Work through the core skills in order, then finish with exam-style practice.",
+    color: "#FF6F1A",
+    softColor: "#FFF0D3",
+    icon: "calculator-outline",
+  },
+  {
+    id: "sequences",
+    lessonTopicId: "topic-2",
+    title: "Sequences and Series",
+    displayTitle: "Sequences and\nSeries",
+    intro: "Arithmetic progressions, geometric series and binomial expansion.",
+    color: "#F3A82C",
+    softColor: "#FFF2D5",
+    icon: "list-outline",
+  },
+  {
+    id: "coordinate",
+    lessonTopicId: "topic-3",
+    title: "Coordinate Geometry",
+    displayTitle: "Coordinate\nGeometry",
+    intro: "Lines, circles, intersections and coordinate proofs.",
+    color: "#9B7BE6",
+    softColor: "#F0EAFF",
+    icon: "git-network-outline",
+  },
+  {
+    id: "trigonometry",
+    lessonTopicId: "topic-4",
+    title: "Trigonometry",
+    displayTitle: "Trigonometry",
+    intro: "Triangles, radians, exact values and trigonometric equations.",
+    color: "#62ACE4",
+    softColor: "#E7F5FF",
+    icon: "shapes-outline",
+  },
+  {
+    id: "logs",
+    lessonTopicId: "topic-5",
+    title: "Exponentials and Logarithms",
+    displayTitle: "Exponentials and\nLogarithms",
+    intro: "Log laws, exponential graphs and equation solving.",
+    color: "#55C59A",
+    softColor: "#E7F9F1",
+    icon: "trending-up-outline",
+  },
+  {
+    id: "calculus",
+    lessonTopicId: "topic-6",
+    title: "Calculus",
+    displayTitle: "Calculus",
+    intro: "Differentiation, integration and numerical reasoning.",
+    color: "#ED7D92",
+    softColor: "#FDECF0",
+    icon: "code-working-outline",
+  },
+  {
+    id: "geometry",
+    lessonTopicId: "topic-7",
+    title: "Geometry and Data",
+    displayTitle: "Geometry and\nData",
+    intro: "Geometry, transformations, probability and data interpretation.",
+    color: "#4F91D4",
+    softColor: "#E9F3FD",
+    icon: "pie-chart-outline",
+  },
+  {
+    id: "logic",
+    lessonTopicId: "topic-8",
+    title: "Logic and Proof",
+    displayTitle: "Logic and Proof",
+    intro: "Statements, proof methods, counterexamples and logical reasoning.",
+    color: "#E9B738",
+    softColor: "#FFF6D7",
+    icon: "checkmark-circle-outline",
+  },
+];
+
+const LESSON_SUBTITLES: Record<string, string> = {
+  "indices-surds-polynomials-1": "Core algebra rules and manipulation",
+  "quadratic-and-inequalities": "Graphs, roots and regions",
+  "functions-simultaneous-systems": "Mappings and linked equations",
+  "algebra-exam-style-questions": "Bring the whole topic together",
+  "arithmetic-geometric-progressions": "Sequences, sums and common ratios",
+  "binomial-expansion-factorials": "Expanding and counting",
+  "advanced-series-logic": "Convergence and harder reasoning",
+  "sequences-series-exam-style-questions": "Bring the whole topic together",
+};
+
+const LESSONS = lessonsData.lessons as Lesson[];
+
+export default function LearnScreen() {
+  const router = useRouter();
+  const [activeTopic, setActiveTopic] = useState<Topic | null>(null);
+
+  const topicLessons = useMemo(
+    () =>
+      activeTopic
+        ? LESSONS.filter((lesson) => lesson.topicId === activeTopic.lessonTopicId)
+        : [],
+    [activeTopic],
+  );
+
+  function openLesson(lesson: Lesson) {
+    router.push({
+      pathname: "/lesson/[lessonId]",
+      params: { lessonId: lesson.id },
+    });
+  }
+
+  if (activeTopic) {
+    return (
+      <SafeAreaView style={styles.safeArea} edges={["top"]}>
+        <ScrollView
+          contentContainerStyle={styles.topicContainer}
+          showsVerticalScrollIndicator={false}
+        >
+          <TouchableOpacity
+            onPress={() => setActiveTopic(null)}
+            style={styles.backButton}
+            activeOpacity={0.75}
+            accessibilityRole="button"
+            accessibilityLabel="Back to Learn"
+          >
+            <Ionicons name="arrow-back" size={25} color={activeTopic.color} />
+          </TouchableOpacity>
+
+          <Text style={[styles.topicEyebrow, { color: activeTopic.color }]}>
+            TMUA FOUNDATION
+          </Text>
+          <Text style={styles.topicTitle}>{activeTopic.title}</Text>
+          <Text style={styles.topicIntro}>{activeTopic.intro}</Text>
+
+          <View style={styles.roadmap}>
+            {topicLessons.map((lesson, index) => {
+              const isFirst = index === 0;
+              const isLast = index === topicLessons.length - 1;
+              const isLocked = !isFirst;
+              const subtitle =
+                LESSON_SUBTITLES[lesson.id] ??
+                (isLast ? "Bring the whole topic together" : "Lesson coming soon");
+
+              return (
+                <View
+                  key={lesson.id}
+                  style={[styles.roadmapItem, isLocked && styles.lockedItem]}
+                >
+                  <View style={styles.nodeColumn}>
+                    {!isLast && <View style={styles.roadmapLine} />}
+                    <View
+                      style={[
+                        styles.roadmapNode,
+                        {
+                          borderColor: isFirst ? activeTopic.color : "#EADCC8",
+                          backgroundColor: isFirst
+                            ? activeTopic.softColor
+                            : "#FFFAF0",
+                        },
+                      ]}
+                    >
+                      <Ionicons
+                        name={isFirst ? "play" : isLast ? "flag-outline" : "lock-closed-outline"}
+                        size={21}
+                        color={isFirst ? activeTopic.color : "#A89788"}
+                      />
+                    </View>
+                  </View>
+
+                  <TouchableOpacity
+                    style={[
+                      styles.roadmapCard,
+                      { borderColor: activeTopic.color },
+                      isFirst && styles.currentCard,
+                    ]}
+                    onPress={() => openLesson(lesson)}
+                    disabled={isLocked}
+                    activeOpacity={0.82}
+                    accessibilityRole="button"
+                    accessibilityState={{ disabled: isLocked }}
+                  >
+                    <Text style={[styles.roadmapMeta, { color: activeTopic.color }]}>
+                      {isLast
+                        ? "FINAL STEP"
+                        : isFirst
+                          ? "STEP 1 · START HERE"
+                          : `STEP ${index + 1}`}
+                    </Text>
+                    <Text style={styles.roadmapTitle}>{lesson.title}</Text>
+                    <Text style={styles.roadmapSubtitle}>{subtitle}</Text>
+
+                    {isFirst && (
+                      <View style={styles.startRow}>
+                        <Text style={[styles.startText, { color: activeTopic.color }]}>
+                          Start lesson
+                        </Text>
+                        <Ionicons name="arrow-forward" size={17} color={activeTopic.color} />
+                      </View>
+                    )}
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
+          </View>
+
+          <View style={styles.topicBottomSpacing} />
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  return (
+    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+      <ScrollView
+        contentContainerStyle={styles.learnContainer}
+        showsVerticalScrollIndicator={false}
+      >
+        <Text style={styles.learnTitle}>Learn</Text>
+        <Text style={styles.learnSubtitle}>
+          Choose a topic and work through its lessons.
+        </Text>
+
+        <View style={styles.grid}>
+          {TOPICS.map((topic) => (
+            <TouchableOpacity
+              key={topic.id}
+              style={[styles.topicCard, { backgroundColor: topic.color }]}
+              onPress={() => setActiveTopic(topic)}
+              activeOpacity={0.84}
+              accessibilityRole="button"
+              accessibilityLabel={`Open ${topic.title}`}
+            >
+              <View style={styles.topicIcon}>
+                <Ionicons name={topic.icon} size={27} color="#FFFFFF" />
+              </View>
+              <Text style={styles.topicCardTitle}>{topic.displayTitle}</Text>
+              <Text style={styles.topicProgress}>0% complete</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+        <View style={styles.learnBottomSpacing} />
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safeArea: { flex: 1, backgroundColor: "#FFF7E6" },
+  learnContainer: { paddingHorizontal: 16, paddingTop: 18 },
+  learnTitle: {
+    color: "#2D241F",
+    fontSize: 34,
+    fontWeight: "900",
+    letterSpacing: -1,
+    textAlign: "center",
+  },
+  learnSubtitle: {
+    marginTop: 7,
+    marginBottom: 24,
+    color: "#7D6D62",
+    fontSize: 14,
+    fontWeight: "700",
+    textAlign: "center",
+  },
+  grid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  topicCard: {
+    width: "48%",
+    minHeight: 158,
+    marginBottom: 16,
+    padding: 16,
+    borderRadius: 22,
+    justifyContent: "space-between",
+    shadowColor: "#6F4619",
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 0.15,
+    shadowRadius: 13,
+    elevation: 5,
+  },
+  topicIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 15,
+    backgroundColor: "rgba(255,255,255,0.2)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  topicCardTitle: {
+    marginTop: 14,
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "900",
+    lineHeight: 21,
+  },
+  topicProgress: {
+    marginTop: 10,
+    color: "rgba(255,255,255,0.88)",
+    fontSize: 11,
+    fontWeight: "800",
+  },
+  learnBottomSpacing: { height: 110 },
+  topicContainer: { paddingHorizontal: 20, paddingTop: 8 },
+  backButton: {
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    backgroundColor: "#FFF7E6",
+    borderWidth: 1,
+    borderColor: "#F1DFBD",
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#6F4619",
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 2,
+  },
+  topicEyebrow: {
+    marginTop: 26,
+    fontSize: 12,
+    fontWeight: "900",
+    letterSpacing: 1.3,
+  },
+  topicTitle: {
+    marginTop: 28,
+    color: "#2D241F",
+    fontSize: 34,
+    fontWeight: "900",
+    lineHeight: 38,
+    letterSpacing: -1.2,
+    textAlign: "center",
+  },
+  topicIntro: {
+    marginTop: 22,
+    color: "#7D6D62",
+    fontSize: 16,
+    fontWeight: "700",
+    lineHeight: 24,
+  },
+  roadmap: { marginTop: 28 },
+  roadmapItem: {
+    minHeight: 144,
+    flexDirection: "row",
+    gap: 14,
+  },
+  lockedItem: { opacity: 0.72 },
+  nodeColumn: { width: 58, alignItems: "center" },
+  roadmapLine: {
+    position: "absolute",
+    top: 52,
+    bottom: -4,
+    width: 3,
+    backgroundColor: "#F1DFBD",
+  },
+  roadmapNode: {
+    zIndex: 1,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    borderWidth: 2,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#6F4619",
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 2,
+  },
+  roadmapCard: {
+    flex: 1,
+    minHeight: 112,
+    marginBottom: 24,
+    paddingVertical: 17,
+    paddingHorizontal: 18,
+    backgroundColor: "#FFFDF9",
+    borderWidth: 1,
+    borderRadius: 20,
+    justifyContent: "center",
+  },
+  currentCard: {
+    backgroundColor: "#FFFFFF",
+    shadowColor: "#6F4619",
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 0.2,
+    shadowRadius: 16,
+    elevation: 6,
+  },
+  roadmapMeta: {
+    fontSize: 11,
+    fontWeight: "900",
+    letterSpacing: 1,
+  },
+  roadmapTitle: {
+    marginTop: 7,
+    color: "#2D241F",
+    fontSize: 16,
+    fontWeight: "900",
+    lineHeight: 21,
+  },
+  roadmapSubtitle: {
+    marginTop: 5,
+    color: "#7D6D62",
+    fontSize: 13,
+    fontWeight: "700",
+    lineHeight: 18,
+  },
+  startRow: {
+    marginTop: 13,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 7,
+  },
+  startText: { fontSize: 13, fontWeight: "900" },
+  topicBottomSpacing: { height: 110 },
+});

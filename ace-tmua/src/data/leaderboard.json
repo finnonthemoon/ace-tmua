@@ -1,0 +1,79 @@
+{
+  "users": [
+    {
+      "name": "John Smith",
+      "targetUni": "Warwick",
+      "weeklyScore": "1900"
+    },
+    {
+      "name": "Sarah Doe",
+      "targetUni": "Oxford",
+      "weeklyScore": "1850"
+    },
+    {
+      "name": "Amara Okafor",
+      "targetUni": "LSE",
+      "weeklyScore": "1825"
+    },
+    {
+      "name": "Huang Hee-Chan",
+      "targetUni": "Cambridge",
+      "weeklyScore": "1790"
+    },
+    {
+      "name": "Matt Rayner",
+      "targetUni": "Imperial",
+      "weeklyScore": "1781"
+    },
+    {
+      "name": "Chloe Bennett",
+      "targetUni": "Durham",
+      "weeklyScore": "1750"
+    },
+    {
+      "name": "Liam Davies",
+      "targetUni": "UCL",
+      "weeklyScore": "1720"
+    },
+    {
+      "name": "Elena Rostova",
+      "targetUni": "Oxford",
+      "weeklyScore": "1695"
+    },
+    {
+      "name": "Arjun Patel",
+      "targetUni": "Cambridge",
+      "weeklyScore": "1680"
+    },
+    {
+      "name": "Sophie Dubois",
+      "targetUni": "LSE",
+      "weeklyScore": "1645"
+    },
+    {
+      "name": "Marcus Vance",
+      "targetUni": "Imperial",
+      "weeklyScore": "1610"
+    },
+    {
+      "name": "Yuki Tanaka",
+      "targetUni": "Warwick",
+      "weeklyScore": "1590"
+    },
+    {
+      "name": "Finlay McDonald",
+      "targetUni": "Durham",
+      "weeklyScore": "1550"
+    },
+    {
+      "name": "Zara Ahmed",
+      "targetUni": "UCL",
+      "weeklyScore": "1525"
+    },
+    {
+      "name": "Lucas Silva",
+      "targetUni": "Imperial",
+      "weeklyScore": "1480"
+    }
+  ]
+}
