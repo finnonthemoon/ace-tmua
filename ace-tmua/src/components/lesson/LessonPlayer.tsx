@@ -209,8 +209,10 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
       return (
         <LessonSummaryScreenView
           key={screenKey}
-          {...commonProps}
           screen={screen}
+          progressPercent={progressPercent}
+          onNext={finish}
+          onExit={onExit}
           correctAnswers={correctAnswers}
           totalAnswers={totalAnswers}
         />

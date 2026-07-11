@@ -111,8 +111,9 @@ const TOPICS: Topic[] = [
 
 const LESSON_SUBTITLES: Record<string, string> = {
   "indices-surds-polynomials-1": "Core algebra rules and manipulation",
-  "quadratic-and-inequalities": "Graphs, roots and regions",
+  "quadratics-inequalities-1": "Forms, hidden quadratics and regions",
   "functions-simultaneous-systems": "Mappings and linked equations",
+  "algebra-modulus-functions": "Graphs, equations and inequalities",
   "algebra-exam-style-questions": "Bring the whole topic together",
   "arithmetic-geometric-progressions": "Sequences, sums and common ratios",
   "binomial-expansion-factorials": "Expanding and counting",
@@ -168,7 +169,8 @@ export default function LearnScreen() {
             {topicLessons.map((lesson, index) => {
               const isFirst = index === 0;
               const isLast = index === topicLessons.length - 1;
-              const isLocked = !isFirst;
+              const isAvailable = lesson.screens.length > 0;
+              const isLocked = !isAvailable;
               const subtitle =
                 LESSON_SUBTITLES[lesson.id] ??
                 (isLast ? "Bring the whole topic together" : "Lesson coming soon");
@@ -184,17 +186,23 @@ export default function LearnScreen() {
                       style={[
                         styles.roadmapNode,
                         {
-                          borderColor: isFirst ? activeTopic.color : "#EADCC8",
-                          backgroundColor: isFirst
+                          borderColor: isAvailable ? activeTopic.color : "#EADCC8",
+                          backgroundColor: isAvailable
                             ? activeTopic.softColor
                             : "#FFFAF0",
                         },
                       ]}
                     >
                       <Ionicons
-                        name={isFirst ? "play" : isLast ? "flag-outline" : "lock-closed-outline"}
+                        name={
+                          isLast
+                            ? "flag-outline"
+                            : isAvailable
+                              ? "play"
+                              : "lock-closed-outline"
+                        }
                         size={21}
-                        color={isFirst ? activeTopic.color : "#A89788"}
+                        color={isAvailable ? activeTopic.color : "#A89788"}
                       />
                     </View>
                   </View>
@@ -221,10 +229,10 @@ export default function LearnScreen() {
                     <Text style={styles.roadmapTitle}>{lesson.title}</Text>
                     <Text style={styles.roadmapSubtitle}>{subtitle}</Text>
 
-                    {isFirst && (
+                    {isAvailable && (
                       <View style={styles.startRow}>
                         <Text style={[styles.startText, { color: activeTopic.color }]}>
-                          Start lesson
+                          {isFirst ? "Start lesson" : "Open lesson"}
                         </Text>
                         <Ionicons name="arrow-forward" size={17} color={activeTopic.color} />
                       </View>
