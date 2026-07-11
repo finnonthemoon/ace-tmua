@@ -1,20 +1,32 @@
-# ACE TMUA React Native: Windows Setup Guide
+# ACE TMUA: Windows + iPhone Development Setup
 
-This guide explains how to download, run, and contribute to the ACE TMUA React Native app on Windows. It assumes Git is already installed and the GitHub account being used has access to the repository.
+This guide gets the ACE TMUA React Native project running on a Windows computer and an iPhone so development can begin.
 
-The app uses Expo SDK 57, React Native, Expo Router, TypeScript, and npm. Do not install the old global `expo-cli` package; use the project's Expo version through `npx` or the npm scripts below.
+It assumes the following are already installed and working:
+
+- Git
+- A GitHub account with access to the repository
+- Visual Studio Code
+
+The only additional software needed for the basic setup is:
+
+- Node.js and npm on Windows
+- Expo Go on the iPhone
+
+React, React Native, Expo, Expo Router, TypeScript, and the other project libraries are installed automatically from the repository. They do not need to be installed separately or globally.
 
 ## 1. Install Node.js and npm
 
-Node.js runs Expo's development tools. npm is installed with Node.js.
+Node.js runs the JavaScript and Expo development tools. npm downloads the packages used by the project.
 
-1. Visit https://nodejs.org/en/download.
-2. Download the Windows installer for the current **LTS** release.
-3. Open the `.msi` installer.
-4. Keep the default components, including npm and the option to add Node.js to PATH.
-5. Finish the installation.
-6. Close every PowerShell, Command Prompt, and Windows Terminal window.
-7. Open a new PowerShell window.
+1. Open https://nodejs.org/en/download.
+2. Download the Windows installer for the current **LTS** version.
+3. Open the downloaded `.msi` file.
+4. Keep the default installation options.
+5. Make sure npm and the option to add Node.js to PATH remain enabled.
+6. Finish the installation.
+7. Close every PowerShell, Command Prompt, Windows Terminal, and Visual Studio Code window.
+8. Open a new PowerShell window.
 
 Check the installation:
 
@@ -23,31 +35,29 @@ node --version
 npm --version
 ```
 
-Both commands should print version numbers. If either command is not recognised, restart the terminal or Windows. If it remains unavailable, reinstall Node.js and ensure the PATH option is enabled.
+Both commands should print version numbers.
 
-## 2. Install Visual Studio Code
+If either command is not recognised:
 
-Download Visual Studio Code from https://code.visualstudio.com.
+1. Close and reopen PowerShell.
+2. Restart Windows if necessary.
+3. If it still does not work, reinstall the Node.js LTS version and ensure the PATH option is enabled.
 
-Useful installer options include:
+Do not install the old global `expo-cli` package. This project uses its own Expo version through `npx` and npm scripts.
 
-- Add “Open with Code” to Windows Explorer.
-- Add Visual Studio Code to PATH.
-- Register Visual Studio Code as an editor for supported file types.
+## 2. Install Expo Go on the iPhone
 
-Recommended extensions:
+1. Open the App Store on the iPhone.
+2. Search for **Expo Go**.
+3. Check that the publisher is Expo.
+4. Install the app.
+5. Allow local-network access if iOS asks for permission when the project is opened later.
 
-- ESLint
-- Prettier (optional)
-- GitHub Pull Requests and Issues (optional)
-
-Visual Studio Code is the editor; it does not replace Node.js, npm, or Git.
+Expo Go runs the development version of the app without needing Xcode or a Mac.
 
 ## 3. Clone the repository
 
-Avoid keeping the project inside OneDrive if possible because cloud synchronisation can interfere with file watching and dependency folders.
-
-Create a project directory:
+Open PowerShell and choose a development folder. For example:
 
 ```powershell
 cd $HOME\Documents
@@ -55,56 +65,86 @@ mkdir Projects -ErrorAction SilentlyContinue
 cd Projects
 ```
 
-Clone the repository over HTTPS:
+Clone the repository:
 
 ```powershell
 git clone https://github.com/finnonthemoon/ace-tmua.git
 cd ace-tmua
 ```
 
-Complete the GitHub browser sign-in prompt if requested. If Git reports “repository not found,” confirm that the GitHub account has repository access and that any invitation has been accepted.
+Complete the GitHub sign-in prompt if one appears.
 
-## 4. Select the React Native branch
+If Git reports “repository not found,” check that:
 
-The React Native work currently uses the `react-porting` branch:
+- The GitHub account has been added to the repository.
+- Any repository invitation has been accepted.
+- Git is signed in with the correct GitHub account.
+
+## 4. Switch to the React Native branch
+
+The React Native version currently uses the `react-porting` branch.
+
+Run:
 
 ```powershell
 git fetch origin
 git switch react-porting
+```
+
+Confirm the branch:
+
+```powershell
 git branch --show-current
 ```
 
-The final command should print:
+It should print:
 
 ```text
 react-porting
 ```
 
-If this work is later merged into `main`, use `git switch main` followed by `git pull` instead.
+If the React Native work has been merged into `main` by the time this guide is used, switch to `main` instead:
+
+```powershell
+git switch main
+git pull
+```
 
 ## 5. Enter the Expo project folder
 
-The repository contains an outer repository folder and an inner Expo app folder. Enter the inner folder:
+The repository has an outer folder and a second `ace-tmua` folder containing the React Native app.
+
+Enter the inner app folder:
 
 ```powershell
 cd ace-tmua
 ```
 
-The path should resemble:
+The path should now look similar to:
 
 ```text
 C:\Users\YourName\Documents\Projects\ace-tmua\ace-tmua
 ```
 
-Check its contents:
+Check the folder:
 
 ```powershell
 dir
 ```
 
-The folder should contain `package.json`, `package-lock.json`, `app.json`, `src`, and `assets`. All npm, Expo, TypeScript, and lint commands must run from this inner folder.
+It should contain:
 
-## 6. Install dependencies
+```text
+app.json
+package.json
+package-lock.json
+src
+assets
+```
+
+All npm and Expo commands must be run from this inner folder. If npm says it cannot find `package.json`, the terminal is in the wrong folder.
+
+## 6. Install React, Expo, and the project dependencies
 
 Run:
 
@@ -112,141 +152,167 @@ Run:
 npm install
 ```
 
-This downloads the packages declared in `package.json` and creates `node_modules`.
+This command reads `package.json` and installs everything the app needs, including:
 
-Important rules:
+- React
+- React Native
+- Expo
+- Expo Router
+- TypeScript
+- React Navigation
+- Icons
+- Safe-area support
+- SVG and HTML rendering packages
 
+The packages are placed in a generated `node_modules` folder.
+
+Important:
+
+- Do not install React or Expo separately.
+- Do not run `npm install -g expo-cli`.
 - Do not copy `node_modules` from another computer.
 - Do not commit `node_modules` to Git.
-- Do not install Expo globally.
-- Do commit intentional `package-lock.json` changes when dependencies change.
+- Keep `package-lock.json` because it helps both developers use compatible package versions.
 
-For a clean lockfile-controlled reinstall, use `npm ci`. This removes the existing `node_modules` folder before reinstalling exact locked versions.
+The first installation may take several minutes.
 
 ## 7. Verify the project
 
-Run all three checks:
+Run the TypeScript check:
 
 ```powershell
 npx tsc --noEmit
+```
+
+No output normally means it passed.
+
+Run the code-quality check:
+
+```powershell
 npm run lint
+```
+
+Optionally run Expo's diagnostic check:
+
+```powershell
 npx expo-doctor
 ```
 
-No TypeScript output normally means it passed. If checks fail immediately after cloning, confirm the branch, pull again, and reinstall dependencies:
+If TypeScript or lint reports errors immediately after cloning:
 
 ```powershell
-git branch --show-current
 git pull
 npm install
+npx tsc --noEmit
+npm run lint
 ```
 
-## 8. Install Expo Go on a phone
+Also confirm that the correct Git branch is selected.
 
-The easiest first run is on a physical phone.
+## 8. Start the app
 
-1. Install **Expo Go** from Google Play or the Apple App Store.
-2. Connect the phone and Windows computer to the same Wi-Fi network.
-3. On Android, scan the development QR code inside Expo Go.
-4. On iPhone, scan it with the normal Camera app.
-
-## 9. Start the app
-
-From the inner Expo folder, run:
+Run:
 
 ```powershell
 npm start
 ```
 
-This is equivalent to `npx expo start`. Keep the terminal open while developing.
-
-Common shortcuts:
-
-- `w` opens the web version.
-- `a` opens an installed Android emulator.
-- `r` reloads the app.
-- `j` opens debugging tools when supported.
-- `Ctrl+C` stops Expo.
-
-To run directly in a browser:
+This starts the Expo development server. It is equivalent to:
 
 ```powershell
-npm run web
+npx expo start
 ```
 
-The browser is useful for quick checks, but important changes should also be tested on a phone because safe areas, touch input, scrolling, and native controls may differ.
+Keep the PowerShell window open while developing. The terminal will show a QR code.
 
-## 10. Connect a physical phone
+Useful keyboard shortcuts in the Expo terminal:
 
-1. Start Expo with `npm start`.
-2. Scan the QR code.
-3. Allow Expo Go to open the project.
-4. Wait for the JavaScript bundle to build.
+- `w` opens the web version.
+- `r` reloads the app.
+- `j` opens debugging tools when available.
+- `Ctrl+C` stops the server.
 
-If Windows Firewall asks whether Node.js may communicate on the network, allow private-network access.
+Windows cannot run the iOS Simulator, but the physical iPhone can run the project through Expo Go.
 
-If the phone cannot connect:
+## 9. Open the app on the iPhone
 
-- Confirm both devices use the same Wi-Fi.
-- Disable VPN software temporarily.
-- Avoid isolated guest Wi-Fi.
-- Check Node.js permissions in Windows Firewall.
-- Restart with `npx expo start --clear`.
-- If necessary, try `npx expo start --tunnel`.
+1. Connect the Windows computer and iPhone to the same Wi-Fi network.
+2. Make sure Expo is running with `npm start`.
+3. Open the normal Camera app on the iPhone.
+4. Point it at the QR code in PowerShell.
+5. Tap the notification that appears.
+6. Allow the link to open in Expo Go.
+7. Allow local-network access if iOS requests it.
+8. Wait for the project to build and load.
 
-Tunnel mode may be slower and may request an additional package installation.
+The first load can take longer because Expo has to create the JavaScript bundle.
 
-## 11. Optional Android emulator
+## 10. If the iPhone cannot connect
 
-Follow the official guide at https://docs.expo.dev/workflow/android-studio-emulator/.
+Try these steps in order:
 
-General process:
+1. Confirm the computer and iPhone are on the same Wi-Fi network.
+2. Avoid guest Wi-Fi, which may prevent devices from communicating.
+3. Disable VPN software on both devices temporarily.
+4. When Windows Firewall asks about Node.js, allow access on private networks.
+5. Stop Expo with `Ctrl+C` and restart it with a cleared cache:
 
-1. Install Android Studio from https://developer.android.com/studio.
-2. Include the Android SDK, Android SDK Platform, and Android Virtual Device.
-3. Open Android Studio and complete its first-run downloads.
-4. Open Device Manager.
-5. Create a recent Pixel virtual device.
-6. Download a recommended Android system image.
-7. Start the virtual device.
-8. From the project folder, run `npm run android` or start Expo and press `a`.
+```powershell
+npx expo start --clear
+```
 
-If Expo cannot locate the SDK, follow the official guide to configure `ANDROID_HOME` and add Android platform tools to PATH.
+6. If the network still blocks the connection, try tunnel mode:
 
-Windows cannot run Apple's iOS Simulator. A physical iPhone can still use Expo Go.
+```powershell
+npx expo start --tunnel
+```
 
-## 12. Open the project in Visual Studio Code
+Tunnel mode may be slower and may ask to install an additional package.
 
-From the inner project folder:
+If Expo Go reports that the SDK is unsupported, update Expo Go from the App Store. The project currently uses Expo SDK 57.
+
+## 11. Open the code in Visual Studio Code
+
+From the inner Expo project folder, run:
 
 ```powershell
 code .
 ```
 
-If `code` is not recognised, open Visual Studio Code, select **File → Open Folder**, and choose the inner `ace-tmua` folder containing `package.json`.
+If `code` is not recognised:
 
-Important locations:
+1. Open Visual Studio Code normally.
+2. Select **File → Open Folder**.
+3. Open the inner `ace-tmua` folder containing `package.json`.
+
+Recommended Visual Studio Code extension:
+
+- ESLint
+
+Prettier is optional. Avoid enabling automatic formatting across the whole project unless both developers agree on the formatting setup.
+
+## 12. Understand the main project folders
 
 ```text
 src/app/                 Expo Router pages
 src/app/_layout.tsx      Bottom navigation
 src/app/index.tsx        Home page
-src/app/learn.tsx        Learn page and roadmaps
+src/app/learn.tsx        Learn page and topic roadmaps
 src/app/leaderboard.tsx  Leaderboard page
 src/app/questions.tsx    Exam-practice placeholder
 src/app/profile.tsx      Profile page
 src/app/lesson/          Dynamic lesson route
-src/components/lesson/   Reusable lesson screens
+src/components/lesson/   Reusable lesson components
 src/data/                Lessons, leaderboard, questions, and profile data
 src/constants/theme.ts   Shared colours and theme values
-assets/                  Images and icons
+assets/                  Images and app icons
 ```
 
-Expo Router uses file-based routing. Files inside `src/app` become routes or route layouts. Reusable components should normally be placed in `src/components`.
+Expo Router uses file-based routing. Files inside `src/app` become pages or layouts. Reusable components should normally go in `src/components`.
 
-## 13. Everyday workflow
+## 13. Normal development routine
 
-Open PowerShell and enter the inner project folder:
+At the start of a session, open PowerShell and enter the project:
 
 ```powershell
 cd $HOME\Documents\Projects\ace-tmua\ace-tmua
@@ -260,23 +326,31 @@ git pull
 npm install
 ```
 
-Create a branch for new work:
+Create a branch for the new work:
 
 ```powershell
-git switch -c your-name/short-description
+git switch -c leo/short-description
 ```
 
-Example branch names:
+Examples:
 
 ```text
 leo/profile-editing
-leo/leaderboard-filter
+leo/lesson-progress
 leo/question-screen
 ```
 
-Start development with `npm start`.
+Start Expo:
 
-Before committing, run:
+```powershell
+npm start
+```
+
+Edit files in Visual Studio Code. Expo should automatically reload the app after a file is saved. Press `r` in the Expo terminal if a manual reload is needed.
+
+## 14. Check and share changes
+
+Before committing:
 
 ```powershell
 npx tsc --noEmit
@@ -291,18 +365,31 @@ Stage only intended files:
 git add path\to\file
 ```
 
-Commit and push:
+Commit:
 
 ```powershell
 git commit -m "Describe the change clearly"
-git push -u origin your-name/short-description
 ```
 
-Open a pull request on GitHub for review before merging.
+Push the feature branch:
 
-## 14. Pull newly merged work
+```powershell
+git push -u origin leo/short-description
+```
 
-After changes are merged:
+Open a pull request on GitHub so the changes can be reviewed before they are merged.
+
+Do not commit:
+
+- `node_modules`
+- Passwords
+- API keys
+- Private `.env` values
+- Generated build files
+
+## 15. Pull newly merged work
+
+After changes have been merged into the shared branch:
 
 ```powershell
 git switch react-porting
@@ -312,41 +399,41 @@ npx tsc --noEmit
 npm run lint
 ```
 
-If Expo was already running, restart it with:
+Restart Expo if it was already running:
 
 ```powershell
 npx expo start --clear
 ```
 
-## 15. Git safety
+## 16. Common setup problems
 
-- Run `git status` frequently.
-- Pull before beginning new work.
-- Use focused feature branches and pull requests.
-- Avoid simultaneous large edits to the same file.
-- Never commit `node_modules`, API keys, passwords, or secrets.
-- Commit intentional lockfile changes when dependencies change.
-- Do not force-push shared branches.
-- Do not run `git reset --hard` unless discarding local work is intentional and understood.
+### `npm` is not recognised
 
-## 16. Common problems
-
-### npm is not recognised
-
-Install Node.js LTS, close all terminals, open a new PowerShell window, and retry `node --version` and `npm --version`.
+Node.js is missing or Windows has not refreshed PATH. Reinstall Node.js LTS, close all terminals, and open PowerShell again.
 
 ### npm cannot find `package.json`
 
-The terminal is in the wrong folder. Enter the inner app folder with `cd ace-tmua`, then use `dir` to confirm `package.json` exists.
+The terminal is in the outer repository folder. Run:
 
-### Cannot find a module
+```powershell
+cd ace-tmua
+dir
+```
+
+Confirm that `package.json` appears.
+
+### `Cannot find module ...`
+
+Run:
 
 ```powershell
 npm install
 npx expo start --clear
 ```
 
-### Expo shows an old version
+### Expo displays an old version
+
+Run:
 
 ```powershell
 git pull
@@ -354,38 +441,21 @@ npm install
 npx expo start --clear
 ```
 
-Also confirm the branch with `git branch --show-current`.
+### Saved changes do not appear
 
-### Expo Go reports an unsupported SDK
-
-Update Expo Go from the phone's app store. The project currently uses Expo SDK 57 (`~57.0.4` in `package.json`).
+Save the file, press `r` in the Expo terminal, or restart Expo with `npx expo start --clear`.
 
 ### A port is already in use
 
-Accept Expo's alternative port or stop the other server with `Ctrl+C`.
-
-### Saved changes do not appear
-
-Save the file, press `r` in the Expo terminal, or restart with `npx expo start --clear`.
+Accept the alternative port offered by Expo or stop the other development server with `Ctrl+C`.
 
 ### Git reports a merge conflict
 
-Open each conflicted file, decide which changes should remain, remove the conflict markers, run TypeScript and lint, then commit the resolution. Do not automatically delete both versions.
+Open each conflicted file in Visual Studio Code, decide which changes should remain, remove the conflict markers, run TypeScript and lint, and then commit the resolution. Do not automatically delete both versions.
 
-## 17. Current data limitations
+## Quick-start commands
 
-The app currently reads bundled JSON files:
-
-- `src/data/lessons.json`
-- `src/data/leaderboard.json`
-- `src/data/localTestStorage.json`
-- `src/data/questions.json`
-
-These are not a live database. Editing them changes bundled app data, but user changes are not automatically synchronised or permanently stored. Device storage can later handle local progress; a backend will be needed for accounts and a shared live leaderboard.
-
-## 18. Quick start
-
-After installing Node.js, open PowerShell and run:
+After Node.js and Expo Go are installed:
 
 ```powershell
 cd $HOME\Documents
@@ -402,14 +472,11 @@ npm run lint
 npm start
 ```
 
-Scan the QR code with Expo Go or press `w` for the browser.
+Then scan the QR code with the iPhone Camera app and open it in Expo Go.
 
 ## Official references
 
-- Node.js: https://nodejs.org/en/download
-- Visual Studio Code: https://code.visualstudio.com
-- Expo setup: https://docs.expo.dev/get-started/set-up-your-environment/
-- Starting Expo: https://docs.expo.dev/get-started/start-developing/
+- Node.js LTS: https://nodejs.org/en/download
 - Expo Go: https://expo.dev/go
-- Android emulator: https://docs.expo.dev/workflow/android-studio-emulator/
-- Android Studio: https://developer.android.com/studio
+- Expo environment setup: https://docs.expo.dev/get-started/set-up-your-environment/
+- Start developing with Expo: https://docs.expo.dev/get-started/start-developing/
