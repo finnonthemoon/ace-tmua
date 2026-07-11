@@ -55,40 +55,19 @@ Do not install the old global `expo-cli` package. This project uses its own Expo
 
 Expo Go runs the development version of the app without needing Xcode or a Mac.
 
-## 3. Clone the repository
+## 3. Open and update the existing project
 
-Open PowerShell and choose a development folder. For example:
+The repository has already been cloned. Open PowerShell and enter the outer repository folder. Replace the example path with the location where the project was cloned:
 
 ```powershell
-cd $HOME\Documents
-mkdir Projects -ErrorAction SilentlyContinue
-cd Projects
+cd C:\path\to\ace-tmua
 ```
 
-Clone the repository:
+Make sure the shared `master` branch is selected and download the latest work:
 
 ```powershell
-git clone https://github.com/finnonthemoon/ace-tmua.git
-cd ace-tmua
-```
-
-Complete the GitHub sign-in prompt if one appears.
-
-If Git reports “repository not found,” check that:
-
-- The GitHub account has been added to the repository.
-- Any repository invitation has been accepted.
-- Git is signed in with the correct GitHub account.
-
-## 4. Switch to the React Native branch
-
-The React Native version currently uses the `react-porting` branch.
-
-Run:
-
-```powershell
-git fetch origin
-git switch react-porting
+git switch master
+git pull
 ```
 
 Confirm the branch:
@@ -97,20 +76,9 @@ Confirm the branch:
 git branch --show-current
 ```
 
-It should print:
+It should print `master`.
 
-```text
-react-porting
-```
-
-If the React Native work has been merged into `main` by the time this guide is used, switch to `main` instead:
-
-```powershell
-git switch main
-git pull
-```
-
-## 5. Enter the Expo project folder
+## 4. Enter the Expo project folder
 
 The repository has an outer folder and a second `ace-tmua` folder containing the React Native app.
 
@@ -144,7 +112,7 @@ assets
 
 All npm and Expo commands must be run from this inner folder. If npm says it cannot find `package.json`, the terminal is in the wrong folder.
 
-## 6. Install React, Expo, and the project dependencies
+## 5. Install React, Expo, and the project dependencies
 
 Run:
 
@@ -176,7 +144,7 @@ Important:
 
 The first installation may take several minutes.
 
-## 7. Verify the project
+## 6. Verify the project
 
 Run the TypeScript check:
 
@@ -207,9 +175,9 @@ npx tsc --noEmit
 npm run lint
 ```
 
-Also confirm that the correct Git branch is selected.
+Also confirm that the `master` branch is selected.
 
-## 8. Start the app
+## 7. Start the app
 
 Run:
 
@@ -234,7 +202,7 @@ Useful keyboard shortcuts in the Expo terminal:
 
 Windows cannot run the iOS Simulator, but the physical iPhone can run the project through Expo Go.
 
-## 9. Open the app on the iPhone
+## 8. Open the app on the iPhone
 
 1. Connect the Windows computer and iPhone to the same Wi-Fi network.
 2. Make sure Expo is running with `npm start`.
@@ -247,7 +215,7 @@ Windows cannot run the iOS Simulator, but the physical iPhone can run the projec
 
 The first load can take longer because Expo has to create the JavaScript bundle.
 
-## 10. If the iPhone cannot connect
+## 9. If the iPhone cannot connect
 
 Try these steps in order:
 
@@ -271,7 +239,7 @@ Tunnel mode may be slower and may ask to install an additional package.
 
 If Expo Go reports that the SDK is unsupported, update Expo Go from the App Store. The project currently uses Expo SDK 57.
 
-## 11. Open the code in Visual Studio Code
+## 10. Open the code in Visual Studio Code
 
 From the inner Expo project folder, run:
 
@@ -291,7 +259,7 @@ Recommended Visual Studio Code extension:
 
 Prettier is optional. Avoid enabling automatic formatting across the whole project unless both developers agree on the formatting setup.
 
-## 12. Understand the main project folders
+## 11. Understand the main project folders
 
 ```text
 src/app/                 Expo Router pages
@@ -310,7 +278,7 @@ assets/                  Images and app icons
 
 Expo Router uses file-based routing. Files inside `src/app` become pages or layouts. Reusable components should normally go in `src/components`.
 
-## 13. Normal development routine
+## 12. Normal development routine
 
 At the start of a session, open PowerShell and enter the project:
 
@@ -321,7 +289,7 @@ cd $HOME\Documents\Projects\ace-tmua\ace-tmua
 Update the shared branch:
 
 ```powershell
-git switch react-porting
+git switch master
 git pull
 npm install
 ```
@@ -348,7 +316,7 @@ npm start
 
 Edit files in Visual Studio Code. Expo should automatically reload the app after a file is saved. Press `r` in the Expo terminal if a manual reload is needed.
 
-## 14. Check and share changes
+## 13. Check and share changes
 
 Before committing:
 
@@ -387,12 +355,12 @@ Do not commit:
 - Private `.env` values
 - Generated build files
 
-## 15. Pull newly merged work
+## 14. Pull newly merged work
 
 After changes have been merged into the shared branch:
 
 ```powershell
-git switch react-porting
+git switch master
 git pull
 npm install
 npx tsc --noEmit
@@ -405,7 +373,7 @@ Restart Expo if it was already running:
 npx expo start --clear
 ```
 
-## 16. Common setup problems
+## 15. Common setup problems
 
 ### `npm` is not recognised
 
@@ -455,16 +423,12 @@ Open each conflicted file in Visual Studio Code, decide which changes should rem
 
 ## Quick-start commands
 
-After Node.js and Expo Go are installed:
+After Node.js and Expo Go are installed, open PowerShell and replace the example path with the existing clone location:
 
 ```powershell
-cd $HOME\Documents
-mkdir Projects -ErrorAction SilentlyContinue
-cd Projects
-git clone https://github.com/finnonthemoon/ace-tmua.git
-cd ace-tmua
-git fetch origin
-git switch react-porting
+cd C:\path\to\ace-tmua
+git switch master
+git pull
 cd ace-tmua
 npm install
 npx tsc --noEmit
