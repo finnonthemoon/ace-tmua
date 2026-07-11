@@ -10,7 +10,7 @@
           "eyebrow": "INDICES · 1 OF 11",
           "title": "TMUA index questions are rarely just index questions",
           "body": "In the TMUA, index laws often appear inside a larger problem. You may need to rewrite roots, split fractions, or simplify powers before you can differentiate, compare values, or spot a structure.",
-          "keyPoint": "Useful rewrites: √x = x<sup>1/2</sup>, x√x = x<sup>3/2</sup>, and <span class='math-frac'><span>1</span><span>x<sup>n</sup></span></span> = x<sup>-n</sup>.",
+          "keyPoint": "Useful rewrites: [[\\sqrt{x} = x^{1/2}]], [[x\\sqrt{x} = x^{3/2}]], and [[\\frac{1}{x^n} = x^{-n}]].",
           "buttonText": "Continue"
         },
         {
@@ -20,19 +20,19 @@
           "steps": [
             {
               "title": "Start with the denominator",
-              "body": "If you see x√x, rewrite it as x × x<sup>1/2</sup> = x<sup>3/2</sup>."
+              "body": "If you see [[x\\sqrt{x}]], rewrite it as [[x \\times x^{1/2} = x^{3/2}]]."
             },
             {
               "title": "Split the fraction",
-              "body": "<span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span> becomes <span class='math-frac'><span>x<sup>2</sup></span><span>x<sup>3/2</sup></span></span> - <span class='math-frac'><span>4</span><span>x<sup>3/2</sup></span></span>."
+              "body": "[[\\frac{x^2 - 4}{x\\sqrt{x}}]] becomes [[\\frac{x^2}{x^{3/2}} - \\frac{4}{x^{3/2}}]]."
             },
             {
               "title": "Subtract powers when dividing",
-              "body": "x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
+              "body": "[[x^2 \\div x^{3/2} = x^{1/2}]], and [[4 \\div x^{3/2} = 4x^{-3/2}]]."
             },
             {
               "title": "Final simplified form",
-              "body": "So <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>."
+              "body": "So [[\\frac{x^2 - 4}{x\\sqrt{x}} = x^{1/2} - 4x^{-3/2}]]."
             }
           ],
           "buttonText": "Continue"
@@ -40,17 +40,17 @@
         {
           "type": "multipleChoice",
           "eyebrow": "INDICES CHECK · 3 OF 11",
-          "question": "For x &gt; 0, which expression is equal to <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span>?",
+          "question": "For [[x > 0]], which expression is equal to [[\\frac{x^2 - 4}{x\\sqrt{x}}]]?",
           "prompt": "Rewrite the denominator as a single power of x.",
           "options": [
-            "x<sup>1/2</sup> - 4x<sup>-3/2</sup>",
-            "x<sup>1/2</sup> - 4x<sup>3/2</sup>",
-            "x<sup>3/2</sup> - 4x<sup>-1/2</sup>",
-            "x<sup>2</sup> - 4x<sup>-3/2</sup>"
+            "[[x^{1/2} - 4x^{-3/2}]]",
+            "[[x^{1/2} - 4x^{3/2}]]",
+            "[[x^{3/2} - 4x^{-1/2}]]",
+            "[[x^2 - 4x^{-3/2}]]"
           ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. x√x = x<sup>3/2</sup>, so the expression becomes x<sup>2-3/2</sup> - 4x<sup>-3/2</sup> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>.",
-          "incorrectFeedback": "Not quite. First rewrite x√x as x<sup>3/2</sup>. Then split the fraction: x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
+          "correctFeedback": "Correct. [[x\\sqrt{x} = x^{3/2}]], so the expression becomes [[x^{2-3/2} - 4x^{-3/2} = x^{1/2} - 4x^{-3/2}]].",
+          "incorrectFeedback": "Not quite. First rewrite [[x\\sqrt{x}]] as [[x^{3/2}]]. Then split the fraction: [[x^2 \\div x^{3/2} = x^{1/2}]], and [[4 \\div x^{3/2} = 4x^{-3/2}]]."
         },
         {
           "type": "milestone",
