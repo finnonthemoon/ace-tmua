@@ -11,7 +11,6 @@
           "title": "TMUA index questions are rarely just index questions",
           "body": "In the TMUA, index laws often appear inside a larger problem. You may need to rewrite roots, split fractions, or simplify powers before you can differentiate, compare values, or spot a structure.",
           "keyPoint": "Useful rewrites: √x = x<sup>1/2</sup>, x√x = x<sup>3/2</sup>, and <span class='math-frac'><span>1</span><span>x<sup>n</sup></span></span> = x<sup>-n</sup>.",
-          "buttonText": "Continue"
         },
         {
           "type": "reveal",
@@ -100,7 +99,12 @@
           "eyebrow": "SURDS CHECK · 7 OF 11",
           "question": "Which of the following is equal to <span class='math-frac'><span>6</span><span>2 + √3</span></span>?",
           "prompt": "Use the conjugate of the denominator.",
-          "options": ["12 - 6√3", "12 + 6√3", "6√3 - 12", "2 - √3"],
+          "options": [
+            "12 - 6√3",
+            "12 + 6√3",
+            "6√3 - 12",
+            "2 - √3"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. Multiply by 2 - √3. The denominator becomes (2 + √3)(2 - √3) = 1, so the expression becomes 6(2 - √3) = 12 - 6√3.",
           "incorrectFeedback": "Not quite. The conjugate of 2 + √3 is 2 - √3. The denominator becomes 4 - 3 = 1, so the result is 6(2 - √3) = 12 - 6√3."
@@ -166,7 +170,6 @@
         }
       ]
     },
-
     {
       "id": "quadratic-and-inequalities",
       "topicId": "topic-1",
@@ -193,7 +196,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "arithmetic-geometric-progressions",
       "topicId": "topic-2",
@@ -218,7 +220,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "lines-gradients",
       "topicId": "topic-3",
@@ -243,7 +244,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "triangles-radians",
       "topicId": "topic-4",
@@ -268,7 +268,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "log-laws-exponential-graphs",
       "topicId": "topic-5",
@@ -302,7 +301,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "differentiation-turning-points",
       "topicId": "topic-6",
@@ -327,7 +325,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "graph-transformations",
       "topicId": "topic-7",
@@ -352,7 +349,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "logic-of-arguments",
       "topicId": "topic-8",
