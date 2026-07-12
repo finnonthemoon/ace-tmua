@@ -164,7 +164,7 @@
             "Practise simplifying expressions involving x√x and negative powers.",
             "Practise rationalising denominators with conjugates.",
             "Practise using f(a) to handle polynomial remainders and factors.",
-            "Next lesson: quadratics and inequalities."
+            "Next lesson: Quadratics and Inequalities."
           ],
           "buttonText": "Finish lesson"
         }
@@ -177,10 +177,189 @@
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "QUADRATICS · 1 OF 4",
-          "title": "The discriminant tells us about the roots.",
-          "body": "The expression b² − 4ac determines how many real roots a quadratic has.",
+          "eyebrow": "QUADRATICS · 1 OF 11",
+          "title": "Quadratics can be read in different ways",
+          "body": "In TMUA questions, a quadratic is often useful because different forms reveal different information. Expanded form shows coefficients, factorised form shows roots, and completed-square form shows the turning point.",
+          "keyPoint": "For example, x<sup>2</sup> - 6x + 5 = (x - 1)(x - 5) = (x - 3)<sup>2</sup> - 4. Each form tells you something different.",
           "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "QUADRATICS · 2 OF 11",
+          "title": "Read information from the useful form",
+          "steps": [
+            {
+              "title": "Start with the quadratic",
+              "body": "Let f(x) = x<sup>2</sup> - 6x + 5."
+            },
+            {
+              "title": "Factorise to find the roots",
+              "body": "x<sup>2</sup> - 6x + 5 = (x - 1)(x - 5), so the roots are x = 1 and x = 5."
+            },
+            {
+              "title": "Complete the square",
+              "body": "x<sup>2</sup> - 6x + 5 = (x - 3)<sup>2</sup> - 4."
+            },
+            {
+              "title": "Read the turning point",
+              "body": "From (x - 3)<sup>2</sup> - 4, the turning point is (3, -4). Since the coefficient of x<sup>2</sup> is positive, this is a minimum."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "QUICK CHECK · 3 OF 11",
+          "question": "What is the minimum value of f(x) = 2x<sup>2</sup> - 8x + 3?",
+          "prompt": "Complete the square, remembering to factor out 2 first.",
+          "options": [
+            "-5",
+            "-1",
+            "3",
+            "5"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. 2x<sup>2</sup> - 8x + 3 = 2(x - 2)<sup>2</sup> - 5. Since the squared term cannot be negative, the minimum value is -5.",
+          "incorrectFeedback": "Not quite. Factor out 2 from the first two terms: 2(x<sup>2</sup> - 4x) + 3. Then complete the square to get 2(x - 2)<sup>2</sup> - 5."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 4 OF 11",
+          "title": "You can now read a quadratic.",
+          "body": "You have used different forms of the same quadratic to find roots, turning points, and graph behaviour. Next up: hidden quadratics.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "HIDDEN QUADRATICS · 5 OF 11",
+          "title": "Some equations are quadratic in disguise",
+          "body": "A hidden quadratic appears when an equation is not written directly as ax<sup>2</sup> + bx + c = 0, but can become a quadratic after a substitution. A common example is replacing x<sup>2</sup> with u.",
+          "keyPoint": "If you see x<sup>4</sup>, x<sup>2</sup>, and a constant, try u = x<sup>2</sup>. Then x<sup>4</sup> becomes u<sup>2</sup>.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 6 OF 11",
+          "title": "Use substitution to reveal the quadratic",
+          "question": "Solve x<sup>4</sup> - 5x<sup>2</sup> + 4 = 0.",
+          "options": [
+            "x = -2, -1, 1, 2",
+            "x = -4, -1, 1, 4",
+            "x = -2, 2 only",
+            "x = 1, 2 only"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Spot the repeated structure",
+              "body": "The equation contains x<sup>4</sup> and x<sup>2</sup>. Since x<sup>4</sup> = (x<sup>2</sup>)<sup>2</sup>, use the substitution u = x<sup>2</sup>."
+            },
+            {
+              "title": "Rewrite as a quadratic",
+              "body": "x<sup>4</sup> - 5x<sup>2</sup> + 4 = 0 becomes u<sup>2</sup> - 5u + 4 = 0."
+            },
+            {
+              "title": "Factorise",
+              "body": "u<sup>2</sup> - 5u + 4 = (u - 1)(u - 4), so u = 1 or u = 4."
+            },
+            {
+              "title": "Substitute back",
+              "body": "Since u = x<sup>2</sup>, we get x<sup>2</sup> = 1 or x<sup>2</sup> = 4."
+            },
+            {
+              "title": "Find all real solutions",
+              "body": "x<sup>2</sup> = 1 gives x = ±1. x<sup>2</sup> = 4 gives x = ±2."
+            }
+          ],
+          "finalAnswer": "The solutions are x = -2, -1, 1, 2, so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "HIDDEN CHECK · 7 OF 11",
+          "question": "How many real solutions does x<sup>4</sup> - 13x<sup>2</sup> + 36 = 0 have?",
+          "prompt": "Use u = x², then remember to convert back to x.",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "0"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let u = x<sup>2</sup>. Then u<sup>2</sup> - 13u + 36 = 0, so (u - 4)(u - 9) = 0. Therefore x<sup>2</sup> = 4 or x<sup>2</sup> = 9, giving x = ±2 or ±3. That is 4 real solutions.",
+          "incorrectFeedback": "Not quite. Let u = x<sup>2</sup>. Then u<sup>2</sup> - 13u + 36 = 0, so u = 4 or u = 9. That gives x = ±2 and x = ±3, so there are 4 real solutions."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 8 OF 11",
+          "title": "Hidden quadratics unlocked.",
+          "body": "You have seen how a fourth-degree equation can secretly become a normal quadratic. Finally, let’s use quadratics to solve inequalities.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "INEQUALITIES · 9 OF 11",
+          "title": "Quadratic inequalities are about regions",
+          "body": "Solving a quadratic equation gives boundary points. Solving a quadratic inequality asks which regions are above or below zero. The roots split the number line into intervals.",
+          "keyPoint": "If (x - 2)(x - 5) > 0, the expression is positive outside the roots: x < 2 or x > 5.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 10 OF 11",
+          "title": "Compare a quadratic and a line",
+          "question": "For which values of x is x² - 4x + 3 > 2x - 5?",
+          "options": [
+            "x < 2 or x > 4",
+            "2 < x < 4",
+            "x < -2 or x > 4",
+            "-2 < x < 4"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Move everything to one side",
+              "body": "x<sup>2</sup> - 4x + 3 > 2x - 5 becomes x<sup>2</sup> - 6x + 8 > 0."
+            },
+            {
+              "title": "Factorise",
+              "body": "x<sup>2</sup> - 6x + 8 = (x - 2)(x - 4)."
+            },
+            {
+              "title": "Find the boundary points",
+              "body": "The expression is zero at x = 2 and x = 4. These split the number line into regions."
+            },
+            {
+              "title": "Choose the correct regions",
+              "body": "Since the quadratic opens upwards, it is positive outside the roots."
+            },
+            {
+              "title": "Write the solution",
+              "body": "Therefore x < 2 or x > 4."
+            }
+          ],
+          "finalAnswer": "The correct answer is A: x < 2 or x > 4.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 11 OF 11",
+          "title": "Quadratics and Inequalities: key points",
+          "keyPoints": [
+            "Different forms of a quadratic reveal different information.",
+            "Factorised form shows roots.",
+            "Completed-square form shows the turning point.",
+            "Hidden quadratics can often be solved using a substitution such as u = x<sup>2</sup>.",
+            "After solving for u, always substitute back to find the actual x-values.",
+            "Quadratic inequalities are solved by finding boundary points and choosing regions."
+          ],
+          "reviewItems": [
+            "Practise switching between factorised and completed-square form.",
+            "Review hidden quadratic substitutions like u = x<sup>2</sup>.",
+            "Practise solving inequalities by using the shape of the graph.",
+            "Next lesson: Functions and Simultaneous Systems."
+          ],
+          "buttonText": "Finish lesson"
         }
       ]
     },
