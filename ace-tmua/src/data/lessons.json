@@ -78,15 +78,15 @@
             },
             {
               "title": "Simple case",
-              "body": "For <span class='math-frac'><span>5</span><span>√3</span></span>, multiply the top and bottom by √3."
+              "body": "For <span class='math-frac'><span>5</span><span>√3</span></span>, multiply the numerator and denominator by √3."
             },
             {
-              "title": "Do the multiplication",
-              "body": "<span class='math-frac'><span>5</span><span>√3</span></span> × <span class='math-frac'><span>√3</span><span>√3</span></span> = <span class='math-frac'><span>5√3</span><span>3</span></span>."
+              "title": "Complete the multiplication",
+              "body": "<span class='math-frac'><span>5</span><span>√3</span></span> × <span class='math-frac'><span>√3</span><span>√3</span></span> = <span class='math-frac'><span>5√3</span><span>3</span></span>, because √3 × √3 = 3."
             },
             {
-              "title": "Harder case",
-              "body": "If the denominator has two terms, like 2 + √3, multiply by the conjugate 2 - √3."
+              "title": "Two-term denominator",
+              "body": "If the denominator has two terms, such as 2 + √3, multiply by its conjugate, 2 - √3."
             },
             {
               "title": "Why the conjugate works",
@@ -98,12 +98,17 @@
         {
           "type": "multipleChoice",
           "eyebrow": "SURDS CHECK · 7 OF 11",
-          "question": "Which of the following is equal to <span class='math-frac'><span>6</span><span>2 + √3</span></span>?",
-          "prompt": "Use the conjugate of the denominator.",
-          "options": ["12 - 6√3", "12 + 6√3", "6√3 - 12", "2 - √3"],
+          "question": "Which expression is equal to <span class='math-frac'><span>6</span><span>2 + √3</span></span>?",
+          "prompt": "Multiply the numerator and denominator by the conjugate 2 - √3.",
+          "options": [
+            "12 - 6√3",
+            "12 + 6√3",
+            "6√3 - 12",
+            "2 - √3"
+          ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. Multiply by 2 - √3. The denominator becomes (2 + √3)(2 - √3) = 1, so the expression becomes 6(2 - √3) = 12 - 6√3.",
-          "incorrectFeedback": "Not quite. The conjugate of 2 + √3 is 2 - √3. The denominator becomes 4 - 3 = 1, so the result is 6(2 - √3) = 12 - 6√3."
+          "correctFeedback": "Correct. Multiplying by <span class='math-frac'><span>2 - √3</span><span>2 - √3</span></span> gives denominator (2 + √3)(2 - √3) = 1, while the numerator becomes 6(2 - √3) = 12 - 6√3.",
+          "incorrectFeedback": "The conjugate of 2 + √3 is 2 - √3. The denominator becomes 4 - 3 = 1, while the numerator becomes 6(2 - √3) = 12 - 6√3."
         },
         {
           "type": "milestone",
@@ -166,7 +171,6 @@
         }
       ]
     },
-
     {
       "id": "quadratic-and-inequalities",
       "topicId": "topic-1",
@@ -193,13 +197,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
-    {
-      "id": "arithmetic-geometric-progressions",
-      "topicId": "topic-2",
-      "title": "Arithmetic & Geometric Progressions",
-      "screens": []
-    },
     {
       "id": "binomial-expansion-factorials",
       "topicId": "topic-2",
@@ -218,7 +215,233 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
+    {
+      "id": "arithmetic-geometric-progressions",
+      "topicId": "topic-2",
+      "title": "Arithmetic & Geometric Progressions",
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "SEQUENCES · 1 OF 14",
+          "title": "Sequences can be described in different ways",
+          "body": "A sequence is an ordered list of terms. It may be defined by a formula for its nth term, or generated one term at a time using a recurrence relation.",
+          "keyPoint": "A sequence lists terms, such as 3, 7, 11, 15, ... A series is formed when those terms are added: 3 + 7 + 11 + 15 + ...",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "SEQUENCE RULES · 2 OF 14",
+          "title": "Nth-term formulae and recurrence relations",
+          "steps": [
+            {
+              "title": "Using an nth-term formula",
+              "body": "If u<sub>n</sub> = 4n - 1, substitute the term number directly. For example, u<sub>10</sub> = 4(10) - 1 = 39."
+            },
+            {
+              "title": "Using a recurrence relation",
+              "body": "A recurrence relation builds each term from a previous term. It must include a starting value."
+            },
+            {
+              "title": "Start with the given term",
+              "body": "If x<sub>1</sub> = 2 and x<sub>n+1</sub> = 3x<sub>n</sub> - 1, then x<sub>2</sub> = 3(2) - 1 = 5."
+            },
+            {
+              "title": "Continue one term at a time",
+              "body": "The next terms are x<sub>3</sub> = 3(5) - 1 = 14 and x<sub>4</sub> = 3(14) - 1 = 41."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES CHECK · 3 OF 14",
+          "question": "A sequence is defined by x<sub>1</sub> = 2 and x<sub>n+1</sub> = 3x<sub>n</sub> - 1. What is x<sub>4</sub>?",
+          "prompt": "Use each new term to calculate the next one.",
+          "options": [
+            "38",
+            "40",
+            "41",
+            "42"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The sequence begins 2, 5, 14, 41, so x<sub>4</sub> = 41.",
+          "incorrectFeedback": "Work forwards carefully: x<sub>2</sub> = 5, x<sub>3</sub> = 14 and x<sub>4</sub> = 3(14) - 1 = 41."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ARITHMETIC PROGRESSIONS · 4 OF 14",
+          "title": "Arithmetic progressions have a constant difference",
+          "body": "In an arithmetic progression, the same value is added to move from one term to the next. This value is called the common difference and is written as d.",
+          "keyPoint": "If the first term is a and the common difference is d, then u<sub>n</sub> = a + (n - 1)d.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "ARITHMETIC TERMS · 5 OF 14",
+          "title": "Find a term in an arithmetic progression",
+          "steps": [
+            {
+              "title": "Identify the first term",
+              "body": "For 12, 7, 2, -3, ... the first term is a = 12."
+            },
+            {
+              "title": "Find the common difference",
+              "body": "Each term is 5 less than the previous term, so d = -5."
+            },
+            {
+              "title": "Use the nth-term formula",
+              "body": "u<sub>n</sub> = 12 + (n - 1)(-5)."
+            },
+            {
+              "title": "Find the fifteenth term",
+              "body": "u<sub>15</sub> = 12 + 14(-5) = 12 - 70 = -58."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ARITHMETIC CHECK · 6 OF 14",
+          "question": "The sequence 12, 7, 2, -3, ... is arithmetic. What is its fifteenth term?",
+          "prompt": "There are 14 common differences between the first and fifteenth terms.",
+          "options": [
+            "-53",
+            "-55",
+            "-58",
+            "-63"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. u<sub>15</sub> = 12 + 14(-5) = -58.",
+          "incorrectFeedback": "Use u<sub>n</sub> = a + (n - 1)d with a = 12, n = 15 and d = -5. This gives -58."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ARITHMETIC SERIES · 7 OF 14",
+          "title": "Arithmetic series add the terms of an arithmetic progression",
+          "body": "The sum of the first n terms is written as S<sub>n</sub>. It can be calculated using the first term and common difference, or using the first and last terms.",
+          "keyPoint": "S<sub>n</sub> = <span class='math-frac'><span>n</span><span>2</span></span>[2a + (n - 1)d] = <span class='math-frac'><span>n</span><span>2</span></span>(a + l), where l is the final term.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "ARITHMETIC SUMS · 8 OF 14",
+          "title": "The sum of the first n natural numbers",
+          "steps": [
+            {
+              "title": "Recognise the arithmetic series",
+              "body": "The series 1 + 2 + 3 + ... + n has first term 1 and final term n."
+            },
+            {
+              "title": "Use the first-and-last-term formula",
+              "body": "S<sub>n</sub> = <span class='math-frac'><span>n</span><span>2</span></span>(1 + n)."
+            },
+            {
+              "title": "Write the standard result",
+              "body": "Therefore 1 + 2 + 3 + ... + n = <span class='math-frac'><span>n(n + 1)</span><span>2</span></span>."
+            },
+            {
+              "title": "Example",
+              "body": "The sum of the first 20 natural numbers is <span class='math-frac'><span>20 × 21</span><span>2</span></span> = 210."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ARITHMETIC SUM CHECK · 9 OF 14",
+          "question": "Find the sum of the first 12 terms of 5, 8, 11, 14, ...",
+          "prompt": "Here a = 5, d = 3 and n = 12.",
+          "options": [
+            "246",
+            "252",
+            "258",
+            "264"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. S<sub>12</sub> = 12/2[2(5) + 11(3)] = 6(43) = 258.",
+          "incorrectFeedback": "Use S<sub>n</sub> = n/2[2a + (n - 1)d]. This gives 12/2[10 + 33] = 258."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "GEOMETRIC PROGRESSIONS · 10 OF 14",
+          "title": "Geometric progressions have a constant ratio",
+          "body": "In a geometric progression, each term is multiplied by the same value to obtain the next term. This value is called the common ratio and is written as r.",
+          "keyPoint": "If the first term is a and the common ratio is r, then u<sub>n</sub> = ar<sup>n-1</sup>.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebROW": "GEOMETRIC TERMS · 11 OF 14",
+          "title": "Find the common ratio and nth term",
+          "steps": [
+            {
+              "title": "Divide consecutive terms",
+              "body": "For 81, -27, 9, -3, ... divide -27 by 81 to obtain r = -1/3."
+            },
+            {
+              "title": "Write the nth term",
+              "body": "Since a = 81, the nth term is u<sub>n</sub> = 81(-1/3)<sup>n-1</sup>."
+            },
+            {
+              "title": "Interpret the negative ratio",
+              "body": "A negative common ratio makes the signs alternate between positive and negative."
+            },
+            {
+              "title": "Interpret its magnitude",
+              "body": "Because |r| is less than 1, the magnitude of the terms becomes smaller."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "FINITE GEOMETRIC SERIES · 12 OF 14",
+          "title": "A finite geometric series has a fixed number of terms",
+          "body": "The first n terms of a geometric progression can be added using the finite geometric-series formula. This lesson only considers finite sums; sums to infinity will be covered later.",
+          "keyPoint": "For r ≠ 1, S<sub>n</sub> = <span class='math-frac'><span>a(1 - r<sup>n</sup>)</span><span>1 - r</span></span>. For example, 3 + 6 + 12 + 24 + 48 = 3(1 - 2<sup>5</sup>)/(1 - 2) = 93.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "GEOMETRIC SERIES CHECK · 13 OF 14",
+          "question": "Find the sum 2 + 6 + 18 + 54 + 162.",
+          "prompt": "Identify a, r and n before using the finite geometric-series formula.",
+          "options": [
+            "240",
+            "242",
+            "244",
+            "486"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Here a = 2, r = 3 and n = 5, so S<sub>5</sub> = 2(1 - 3<sup>5</sup>)/(1 - 3) = 242.",
+          "incorrectFeedback": "Here a = 2, r = 3 and n = 5. Substituting into the finite geometric-series formula gives 242."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Arithmetic and geometric progressions: key points",
+          "keyPoints": [
+            "An nth-term formula lets you calculate any term directly.",
+            "A recurrence relation requires a starting value and builds each term from a previous term.",
+            "An arithmetic progression has a constant difference.",
+            "For an arithmetic progression, u<sub>n</sub> = a + (n - 1)d.",
+            "For an arithmetic series, S<sub>n</sub> = n/2[2a + (n - 1)d].",
+            "The sum of the first n natural numbers is n(n + 1)/2.",
+            "A geometric progression has a constant ratio.",
+            "For a geometric progression, u<sub>n</sub> = ar<sup>n-1</sup>.",
+            "For a finite geometric series, S<sub>n</sub> = a(1 - r<sup>n</sup>)/(1 - r).",
+            "Sums to infinity are not included in this lesson."
+          ],
+          "reviewItems": [
+            "Practise generating terms from nth-term formulae and recurrence relations.",
+            "Check whether consecutive terms have a constant difference or constant ratio.",
+            "Use the correct formula for arithmetic and finite geometric sums.",
+            "Next lesson: binomial expansion and factorials."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
+    },
     {
       "id": "lines-gradients",
       "topicId": "topic-3",
@@ -243,7 +466,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "triangles-radians",
       "topicId": "topic-4",
@@ -268,7 +490,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "log-laws-exponential-graphs",
       "topicId": "topic-5",
@@ -302,7 +523,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "differentiation-turning-points",
       "topicId": "topic-6",
@@ -327,7 +547,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "graph-transformations",
       "topicId": "topic-7",
@@ -352,7 +571,6 @@
       "title": "Exam-style Questions",
       "screens": []
     },
-
     {
       "id": "logic-of-arguments",
       "topicId": "topic-8",
