@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { useRouter } from "expo-router";
+import { useCallback, useMemo, useState } from "react";
+import { useFocusEffect, useRouter } from "expo-router";
 import {
   ScrollView,
   StyleSheet,
@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import lessonsData from "../data/lessons.json";
 import type { Lesson } from "../components/lesson/types";
@@ -121,10 +122,48 @@ const LESSON_SUBTITLES: Record<string, string> = {
 };
 
 const LESSONS = lessonsData.lessons as Lesson[];
+const COMPLETED_LESSONS_KEY = "completedLessonIds";
 
 export default function LearnScreen() {
   const router = useRouter();
   const [activeTopic, setActiveTopic] = useState<Topic | null>(null);
+  const [completedLessonIds, setCompletedLessonIds] = useState<string[]>([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      let isActive = true;
+
+      async function loadCompletedLessons() {
+        try {
+          const storedValue = await AsyncStorage.getItem(
+            COMPLETED_LESSONS_KEY
+          );
+
+          const parsedValue = storedValue
+            ? JSON.parse(storedValue)
+            : [];
+
+          if (isActive) {
+            setCompletedLessonIds(
+              Array.isArray(parsedValue) ? parsedValue : []
+            );
+          }
+        } catch (error) {
+          console.error("Could not load lesson progress:", error);
+
+          if (isActive) {
+            setCompletedLessonIds([]);
+          }
+        }
+      }
+
+      void loadCompletedLessons();
+
+      return () => {
+        isActive = false;
+      };
+    }, [])
+  );
 
   const topicLessons = useMemo(
     () =>
@@ -168,33 +207,64 @@ export default function LearnScreen() {
             {topicLessons.map((lesson, index) => {
               const isFirst = index === 0;
               const isLast = index === topicLessons.length - 1;
-              const isLocked = !isFirst;
+              const isCompleted = completedLessonIds.includes(lesson.id);
+
+              const previousLesson =
+                index > 0 ? topicLessons[index - 1] : null;
+
+              const isLocked =
+                !isFirst &&
+                (!previousLesson ||
+                  !completedLessonIds.includes(previousLesson.id));
+
+              const isCurrent = !isLocked && !isCompleted;
+
               const subtitle =
                 LESSON_SUBTITLES[lesson.id] ??
-                (isLast ? "Bring the whole topic together" : "Lesson coming soon");
+                (isLast
+                  ? "Bring the whole topic together"
+                  : "Lesson coming soon");
 
               return (
                 <View
                   key={lesson.id}
-                  style={[styles.roadmapItem, isLocked && styles.lockedItem]}
+                  style={[
+                    styles.roadmapItem,
+                    isLocked && styles.lockedItem,
+                  ]}
                 >
                   <View style={styles.nodeColumn}>
                     {!isLast && <View style={styles.roadmapLine} />}
+
                     <View
                       style={[
                         styles.roadmapNode,
                         {
-                          borderColor: isFirst ? activeTopic.color : "#EADCC8",
-                          backgroundColor: isFirst
-                            ? activeTopic.softColor
-                            : "#FFFAF0",
+                          borderColor: isLocked
+                            ? "#EADCC8"
+                            : activeTopic.color,
+                          backgroundColor: isLocked
+                            ? "#FFFAF0"
+                            : activeTopic.softColor,
                         },
                       ]}
                     >
                       <Ionicons
-                        name={isFirst ? "play" : isLast ? "flag-outline" : "lock-closed-outline"}
+                        name={
+                          isCompleted
+                            ? "checkmark"
+                            : isLocked
+                              ? "lock-closed-outline"
+                              : isLast
+                                ? "flag-outline"
+                                : "play"
+                        }
                         size={21}
-                        color={isFirst ? activeTopic.color : "#A89788"}
+                        color={
+                          isLocked
+                            ? "#A89788"
+                            : activeTopic.color
+                        }
                       />
                     </View>
                   </View>
@@ -203,7 +273,7 @@ export default function LearnScreen() {
                     style={[
                       styles.roadmapCard,
                       { borderColor: activeTopic.color },
-                      isFirst && styles.currentCard,
+                      isCurrent && styles.currentCard,
                     ]}
                     onPress={() => openLesson(lesson)}
                     disabled={isLocked}
@@ -211,22 +281,45 @@ export default function LearnScreen() {
                     accessibilityRole="button"
                     accessibilityState={{ disabled: isLocked }}
                   >
-                    <Text style={[styles.roadmapMeta, { color: activeTopic.color }]}>
-                      {isLast
-                        ? "FINAL STEP"
-                        : isFirst
-                          ? "STEP 1 · START HERE"
-                          : `STEP ${index + 1}`}
+                    <Text
+                      style={[
+                        styles.roadmapMeta,
+                        { color: activeTopic.color },
+                      ]}
+                    >
+                      {isCompleted
+                        ? `STEP ${index + 1} · COMPLETE`
+                        : isLast
+                          ? "FINAL STEP"
+                          : isCurrent
+                            ? `STEP ${index + 1} · START HERE`
+                            : `STEP ${index + 1}`}
                     </Text>
-                    <Text style={styles.roadmapTitle}>{lesson.title}</Text>
-                    <Text style={styles.roadmapSubtitle}>{subtitle}</Text>
 
-                    {isFirst && (
+                    <Text style={styles.roadmapTitle}>
+                      {lesson.title}
+                    </Text>
+
+                    <Text style={styles.roadmapSubtitle}>
+                      {subtitle}
+                    </Text>
+
+                    {isCurrent && (
                       <View style={styles.startRow}>
-                        <Text style={[styles.startText, { color: activeTopic.color }]}>
+                        <Text
+                          style={[
+                            styles.startText,
+                            { color: activeTopic.color },
+                          ]}
+                        >
                           Start lesson
                         </Text>
-                        <Ionicons name="arrow-forward" size={17} color={activeTopic.color} />
+
+                        <Ionicons
+                          name="arrow-forward"
+                          size={17}
+                          color={activeTopic.color}
+                        />
                       </View>
                     )}
                   </TouchableOpacity>
@@ -234,10 +327,9 @@ export default function LearnScreen() {
               );
             })}
           </View>
-
           <View style={styles.topicBottomSpacing} />
         </ScrollView>
-      </SafeAreaView>
+      </SafeAreaView >
     );
   }
 

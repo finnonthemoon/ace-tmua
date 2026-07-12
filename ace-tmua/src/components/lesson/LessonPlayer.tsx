@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import ConceptScreenView from "./ConceptScreen";
 import LessonSummaryScreenView from "./LessonSummaryScreen";
@@ -25,7 +26,7 @@ interface Props {
   onExit: () => void;
   onComplete?: (lesson: Lesson) => void | Promise<void>;
 }
-
+const COMPLETED_LESSONS_KEY = "completedLessonIds";
 export default function LessonPlayer(props: Props) {
   return <LessonPlayerSession key={props.lesson.id} {...props} />;
 }
@@ -75,14 +76,42 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
     setRevealIndex(0);
   }
 
+  async function saveLessonCompletion() {
+    try {
+      const storedValue = await AsyncStorage.getItem(
+        COMPLETED_LESSONS_KEY
+      );
+
+      const parsedValue = storedValue
+        ? JSON.parse(storedValue)
+        : [];
+
+      const completedLessonIds: string[] = Array.isArray(parsedValue)
+        ? parsedValue
+        : [];
+
+      if (!completedLessonIds.includes(lesson.id)) {
+        await AsyncStorage.setItem(
+          COMPLETED_LESSONS_KEY,
+          JSON.stringify([...completedLessonIds, lesson.id])
+        );
+      }
+
+      await onComplete?.(lesson);
+    } catch (error) {
+      console.error("Could not save lesson completion:", error);
+    }
+  }
+
   function finish() {
     if (!completionRecorded.current) {
       completionRecorded.current = true;
-      void onComplete?.(lesson);
+      void saveLessonCompletion();
     }
 
     setIsComplete(true);
   }
+
 
   if (lesson.screens.length === 0) {
     return (

@@ -10,7 +10,7 @@
           "eyebrow": "INDICES · 1 OF 11",
           "title": "TMUA index questions are rarely just index questions",
           "body": "In the TMUA, index laws often appear inside a larger problem. You may need to rewrite roots, split fractions, or simplify powers before you can differentiate, compare values, or spot a structure.",
-          "keyPoint": "Useful rewrites: √x = x<sup>1/2</sup>, x√x = x<sup>3/2</sup>, and <span class='math-frac'><span>1</span><span>x<sup>n</sup></span></span> = x<sup>-n</sup>.",
+          "keyPoint": "Useful rewrites: √x = x<sup>1/2</sup>, x√x = x<sup>3/2</sup>, and <span class='math-frac'><span>1</span><span>x<sup>n</sup></span></span> = x<sup>-n</sup>."
         },
         {
           "type": "reveal",
@@ -39,17 +39,17 @@
         {
           "type": "multipleChoice",
           "eyebrow": "INDICES CHECK · 3 OF 11",
-          "question": "For x &gt; 0, which expression is equal to <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span>?",
-          "prompt": "Rewrite the denominator as a single power of x.",
+          "question": "For x &gt; 0, which expression is equal to (x<sup>1/2</sup> + x<sup>-1/2</sup>)<sup>2</sup>?",
+          "prompt": "Expand the bracket, then simplify each power.",
           "options": [
-            "x<sup>1/2</sup> - 4x<sup>-3/2</sup>",
-            "x<sup>1/2</sup> - 4x<sup>3/2</sup>",
-            "x<sup>3/2</sup> - 4x<sup>-1/2</sup>",
-            "x<sup>2</sup> - 4x<sup>-3/2</sup>"
+            "x + 2 + x<sup>-1</sup>",
+            "x + x<sup>-1</sup>",
+            "x + 2x<sup>-1</sup> + 1",
+            "x<sup>1/2</sup> + 2 + x<sup>-1/2</sup>"
           ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. x√x = x<sup>3/2</sup>, so the expression becomes x<sup>2-3/2</sup> - 4x<sup>-3/2</sup> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>.",
-          "incorrectFeedback": "Not quite. First rewrite x√x as x<sup>3/2</sup>. Then split the fraction: x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
+          "correctFeedback": "Correct. Squaring gives x<sup>1</sup> + 2x<sup>1/2</sup>x<sup>-1/2</sup> + x<sup>-1</sup>. The middle product is 2x<sup>0</sup> = 2, so the result is x + 2 + x<sup>-1</sup>.",
+          "incorrectFeedback": "Not quite. Use (a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup>. Here, x<sup>1/2</sup>x<sup>-1/2</sup> = x<sup>0</sup> = 1, so the middle term becomes 2."
         },
         {
           "type": "milestone",
@@ -164,7 +164,7 @@
             "Practise simplifying expressions involving x√x and negative powers.",
             "Practise rationalising denominators with conjugates.",
             "Practise using f(a) to handle polynomial remainders and factors.",
-            "Next lesson: exponential equations and hidden quadratics."
+            "Next lesson: quadratics and inequalities."
           ],
           "buttonText": "Finish lesson"
         }
