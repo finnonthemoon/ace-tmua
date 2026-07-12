@@ -63,6 +63,19 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
   function revealNext() {
     setRevealIndex((current) => current + 1);
   }
+  function resetLessonSession() {
+    setScreenIndex(0);
+    setRevealIndex(0);
+    setCorrectAnswers(0);
+    setTotalAnswers(0);
+    setIsComplete(false);
+    completionRecorded.current = false;
+  }
+
+  function leaveCompletedLesson() {
+    resetLessonSession();
+    onExit();
+  }
 
   function next() {
     const nextIndex = screenIndex + 1;
@@ -154,7 +167,7 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
 
           <TouchableOpacity
             style={shared.primaryButton}
-            onPress={onExit}
+            onPress={leaveCompletedLesson}
             activeOpacity={0.85}
           >
             <Text style={shared.primaryButtonText}>Back to roadmap</Text>
