@@ -114,6 +114,7 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "indices-surds-polynomials-1": "Core algebra rules and manipulation",
   "quadratic-and-inequalities": "Graphs, roots and regions",
   "functions-simultaneous-systems": "Mappings and linked equations",
+  "algebra-modulus-functions": "Graphs, equations and inequalities",
   "algebra-exam-style-questions": "Bring the whole topic together",
   "arithmetic-geometric-progressions": "Sequences, sums and common ratios",
   "binomial-expansion-factorials": "Expanding and counting",
