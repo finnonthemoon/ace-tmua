@@ -1890,7 +1890,308 @@
       "id": "sequences-series-exam-style-questions",
       "topicId": "topic-2",
       "title": "Exam-style Questions",
-      "screens": []
+      "screens": [
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 1 OF 20",
+          "question": "An arithmetic progression has fifth term 14 and twelfth term 42. What is the sum of its first 20 terms?",
+          "options": [
+            "640",
+            "680",
+            "720",
+            "760",
+            "800"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The difference between the twelfth and fifth terms is 7d = 28, so d = 4. Then a + 4d = 14 gives a = -2.<br><br>S₂₀ = <span class='math-frac'><span>20</span><span>2</span></span>(2a + 19d) = 10(-4 + 76) = 720.",
+          "incorrectFeedback": "From u₁₂ - u₅ = 7d = 28, we get d = 4. Since u₅ = a + 4d = 14, a = -2.<br><br>Therefore S₂₀ = 10(2(-2) + 19(4)) = 720."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 2 OF 20",
+          "question": "The sum of the first n terms of the arithmetic progression 4, 7, 10, ... is equal to the sum of the first 2n positive integers.<br><br>What is n?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The arithmetic sum is <span class='math-frac'><span>n</span><span>2</span></span>(8 + 3(n - 1)) = <span class='math-frac'><span>n(3n + 5)</span><span>2</span></span>.<br><br>The sum of the first 2n positive integers is <span class='math-frac'><span>2n(2n + 1)</span><span>2</span></span> = n(2n + 1).<br><br>Equating the sums gives <span class='math-frac'><span>n(3n + 5)</span><span>2</span></span> = n(2n + 1). Since n > 0, divide both sides by n:<br><br><span class='math-frac'><span>3n + 5</span><span>2</span></span> = 2n + 1.<br><br>Therefore 3n + 5 = 4n + 2, so n = 3.",
+          "incorrectFeedback": "The arithmetic progression has a = 4 and d = 3, so its first n terms sum to <span class='math-frac'><span>n(3n + 5)</span><span>2</span></span>.<br><br>The first 2n positive integers sum to <span class='math-frac'><span>2n(2n + 1)</span><span>2</span></span> = n(2n + 1).<br><br>Equate the sums:<br><br><span class='math-frac'><span>n(3n + 5)</span><span>2</span></span> = n(2n + 1).<br><br>Since n > 0, divide both sides by n to get <span class='math-frac'><span>3n + 5</span><span>2</span></span> = 2n + 1. Hence n = 3."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 3 OF 20",
+          "question": "For a geometric progression, the sum of the first 12 terms is 9 times the sum of the first 6 terms. The thirteenth term is 320.<br><br>What is the first term?",
+          "options": [
+            "5/2",
+            "4",
+            "5",
+            "8",
+            "10"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Splitting the first 12 terms into two blocks gives S₁₂ = S₆(1 + r<sup>6</sup>). Hence 1 + r<sup>6</sup> = 9, so r<sup>6</sup> = 8 and r<sup>12</sup> = 64.<br><br>The thirteenth term is ar<sup>12</sup> = 320, so a = 320/64 = 5.",
+          "incorrectFeedback": "Use S₁₂ = S₆(1 + r<sup>6</sup>). This gives r<sup>6</sup> = 8 and therefore r<sup>12</sup> = 64.<br><br>Since the thirteenth term is ar<sup>12</sup> = 320, the first term is 5."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 4 OF 20",
+          "question": "A convergent geometric progression has sum to infinity 12 and second term -9.<br><br>What is the sum of all terms in odd-numbered positions?",
+          "options": [
+            "-24",
+            "12",
+            "18",
+            "24",
+            "36"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Since a/(1 - r) = 12, a = 12(1 - r). Also ar = -9, so 12r(1 - r) = -9.<br><br>This gives r = -1/2 or r = 3/2. Convergence requires |r| < 1, so r = -1/2 and a = 18.<br><br>The odd-positioned terms form a GP with first term 18 and ratio r<sup>2</sup> = 1/4, so their sum is 18/(1 - 1/4) = 24.",
+          "incorrectFeedback": "Solve a = 12(1 - r) together with ar = -9. The convergent solution is r = -1/2, giving a = 18.<br><br>The odd-positioned terms have ratio r<sup>2</sup> = 1/4, so their sum is 18/(3/4) = 24."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 5 OF 20",
+          "question": "The sum to infinity of a geometric progression is 6. The sum to infinity of the squares of its terms is 12.<br><br>What is the sum to infinity of the cubes of its terms?",
+          "options": [
+            "24",
+            "27",
+            "30",
+            "<span class='math-frac'><span>216</span><span>7</span></span>",
+            "36"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Let the first term be a and the common ratio be r.<br><br>The original progression has sum <span class='math-frac'><span>a</span><span>1 - r</span></span> = 6, so a = 6(1 - r).<br><br>The squares form another GP, with first term a<sup>2</sup> and ratio r<sup>2</sup>. Therefore <span class='math-frac'><span>a<sup>2</sup></span><span>1 - r<sup>2</sup></span></span> = 12.<br><br>Substitute a = 6(1 - r):<br><br><span class='math-frac'><span>36(1 - r)<sup>2</sup></span><span>(1 - r)(1 + r)</span></span> = 12.<br><br>Cancel one factor of 1 - r to get <span class='math-frac'><span>36(1 - r)</span><span>1 + r</span></span> = 12. Hence 3(1 - r) = 1 + r, so r = 1/2.<br><br>Then a = 6(1 - 1/2) = 3. The cubes form a GP with first term 27 and ratio 1/8, so their sum is <span class='math-frac'><span>27</span><span>1 - 1/8</span></span> = <span class='math-frac'><span>216</span><span>7</span></span>.",
+          "incorrectFeedback": "Let the first term be a and the ratio be r. From the original sum, a = 6(1 - r).<br><br>The squares have sum <span class='math-frac'><span>a<sup>2</sup></span><span>1 - r<sup>2</sup></span></span> = 12. Substituting a = 6(1 - r) and using 1 - r<sup>2</sup> = (1 - r)(1 + r) gives:<br><br><span class='math-frac'><span>36(1 - r)</span><span>1 + r</span></span> = 12.<br><br>Therefore r = 1/2 and a = 3. The cubes have first term 27 and ratio 1/8, so their sum is <span class='math-frac'><span>216</span><span>7</span></span>."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 6 OF 20",
+          "question": "A sequence is defined by x₁ = 7<sup>16</sup> and xₙ₊₁ = √xₙ.<br><br>What is x₆?",
+          "options": [
+            "7<sup>8</sup>",
+            "7<sup>4</sup>",
+            "7<sup>2</sup>",
+            "7",
+            "7<sup>1/2</sup>"
+          ],
+          "answerIndex": 4,
+          "correctFeedback": "Correct. Taking a square root halves the exponent each time:<br><br>x₂ = 7<sup>8</sup>, x₃ = 7<sup>4</sup>, x₄ = 7<sup>2</sup>, x₅ = 7 and x₆ = 7<sup>1/2</sup>.",
+          "incorrectFeedback": "Taking a square root halves the exponent. Starting from exponent 16, the exponents are 16, 8, 4, 2, 1 and 1/2.<br><br>Therefore x₆ = 7<sup>1/2</sup>."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 7 OF 20",
+          "question": "A sequence satisfies xₙ₊₁ = <span class='math-frac'><span>xₙ + p</span><span>xₙ + q</span></span>, where p and q are real numbers.<br><br>Given x₁ = 2, x₂ = 4 and x₃ = 14/5, what is x₄?",
+          "options": [
+            "14/5",
+            "3",
+            "<span class='math-frac'><span>64</span><span>19</span></span>",
+            "18/5",
+            "4"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. From x₂ = 4, 4(2 + q) = 2 + p, so p = 6 + 4q.<br><br>Using x₃ = 14/5 gives (14/5)(4 + q) = 4 + p. Substitution gives q = 1 and p = 10.<br><br>Therefore x₄ = <span class='math-frac'><span>14/5 + 10</span><span>14/5 + 1</span></span> = <span class='math-frac'><span>64</span><span>19</span></span>.",
+          "incorrectFeedback": "Use the first two recurrence steps to find p and q. They give p = 10 and q = 1.<br><br>Then x₄ = (14/5 + 10)/(14/5 + 1) = 64/19."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 8 OF 20",
+          "question": "A geometric progression has positive-integer first term a and positive-integer common ratio r, where r > 1. Its partial sums satisfy S₂₄ - S₁₆ = kS₈ for some positive integer k.<br><br>What is the smallest possible value of k?",
+          "options": [
+            "2<sup>8</sup>",
+            "2<sup>12</sup>",
+            "2<sup>16</sup>",
+            "2<sup>24</sup>",
+            "2<sup>32</sup>"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The terms from 17 to 24 are r<sup>16</sup> times the first eight terms, so S₂₄ - S₁₆ = r<sup>16</sup>S₈.<br><br>Thus k = r<sup>16</sup>. The smallest integer ratio greater than 1 is r = 2, giving k = 2<sup>16</sup>.",
+          "incorrectFeedback": "The block of terms from 17 to 24 is obtained by multiplying each of the first eight terms by r<sup>16</sup>. Therefore k = r<sup>16</sup>.<br><br>The smallest allowed ratio is 2, so k = 2<sup>16</sup>."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 9 OF 20",
+          "question": "Evaluate the infinite series whose term for n = 0, 1, 2, ... is <span class='math-frac'><span>sin(nπ + π/6)</span><span>3<sup>n</sup></span></span>.",
+          "options": [
+            "-3/8",
+            "1/4",
+            "1/3",
+            "3/8",
+            "1/2"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Since sin(nπ + π/6) = (-1)<sup>n</sup>/2, the series is geometric with first term 1/2 and ratio -1/3.<br><br>Its sum is <span class='math-frac'><span>1/2</span><span>1 + 1/3</span></span> = 3/8.",
+          "incorrectFeedback": "The sine values alternate between 1/2 and -1/2. Hence the series has first term 1/2 and ratio -1/3.<br><br>The sum is (1/2)/(1 + 1/3) = 3/8."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 10 OF 20",
+          "question": "What is the coefficient of x<sup>4</sup> in the expansion of (2 - x)<sup>6</sup>?",
+          "options": [
+            "-120",
+            "-60",
+            "30",
+            "60",
+            "120"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The x<sup>4</sup> term uses r = 4:<br><br>⁶C₄(2)<sup>2</sup>(-x)<sup>4</sup>.<br><br>Since ⁶C₄ = 15 and (-x)<sup>4</sup> = x<sup>4</sup>, the coefficient is 15 × 4 = 60.",
+          "incorrectFeedback": "Use the r = 4 term:<br><br>⁶C₄(2)<sup>6-4</sup>(-x)<sup>4</sup>.<br><br>The power of -x is even, so the coefficient is positive. Since ⁶C₄ = 15, the coefficient is 15 × 2<sup>2</sup> = 60."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 11 OF 20",
+          "question": "In the expansion of (a + bx)<sup>6</sup>, the coefficient of x<sup>5</sup> is 30 times the coefficient of x<sup>3</sup>.<br><br>Given that a and b are positive integers, what is the smallest possible value of a + b?",
+          "options": [
+            "6",
+            "7",
+            "10",
+            "11",
+            "12"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The x<sup>5</sup> coefficient is ⁶C₅ab<sup>5</sup> = 6ab<sup>5</sup>. The x<sup>3</sup> coefficient is ⁶C₃a<sup>3</sup>b<sup>3</sup> = 20a<sup>3</sup>b<sup>3</sup>.<br><br>Thus 6ab<sup>5</sup> = 30(20a<sup>3</sup>b<sup>3</sup>), so b<sup>2</sup> = 100a<sup>2</sup>. Hence b = 10a, and the smallest choice is a = 1, b = 10, giving 11.",
+          "incorrectFeedback": "Set the two coefficients in the stated ratio:<br><br>6ab<sup>5</sup> = 30 × 20a<sup>3</sup>b<sup>3</sup>.<br><br>This simplifies to b = 10a. The smallest positive integers are a = 1 and b = 10, so a + b = 11."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 12 OF 20",
+          "question": "Consider the expansion of (a + bx)<sup>n</sup>.<br><br>The third term in ascending powers of x is 252x<sup>2</sup>.<br><br>The fifth term in ascending powers of x is 280x<sup>4</sup>, and this is also the fifth term in descending powers of x.<br><br>Find (a/b)<sup>2</sup>.",
+          "options": [
+            "4/9",
+            "2/3",
+            "1",
+            "3/2",
+            "9/4"
+          ],
+          "answerIndex": 4,
+          "correctFeedback": "Correct. The fifth term has power x<sup>4</sup> in both orders, so n - 4 = 4 and n = 8.<br><br>The third term gives 28a<sup>6</sup>b<sup>2</sup> = 252, so a<sup>6</sup>b<sup>2</sup> = 9. The fifth term gives 70a<sup>4</sup>b<sup>4</sup> = 280, so a<sup>4</sup>b<sup>4</sup> = 4.<br><br>Dividing gives b<sup>2</sup>/a<sup>2</sup> = 4/9, hence (a/b)<sup>2</sup> = 9/4.",
+          "incorrectFeedback": "The fifth term descending has power x<sup>n-4</sup>. Since it is x<sup>4</sup>, n = 8.<br><br>Now use ⁸C₂ = 28 and ⁸C₄ = 70. Dividing the resulting coefficient equations gives b<sup>2</sup>/a<sup>2</sup> = 4/9, so (a/b)<sup>2</sup> = 9/4."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 13 OF 20",
+          "question": "In the simplified expansion of (2 + 3x)<sup>14</sup>, how many terms have a coefficient divisible by 24?",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "12",
+            "13"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The coefficient of x<sup>r</sup> is ¹⁴Cᵣ2<sup>14-r</sup>3<sup>r</sup>.<br><br>For r = 1 to 11, the factor 3<sup>r</sup> supplies a 3 and 2<sup>14-r</sup> supplies at least 2<sup>3</sup>, so every one is divisible by 24.<br><br>The r = 0 term has no factor 3, while r = 12, 13 and 14 do not contain enough factors of 2. Therefore there are 11 such terms.",
+          "incorrectFeedback": "Check the general coefficient ¹⁴Cᵣ2<sup>14-r</sup>3<sup>r</sup>. Every term from r = 1 through r = 11 is divisible by 2<sup>3</sup> × 3 = 24.<br><br>The constant term and the final three terms fail, leaving 11 terms."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 14 OF 20",
+          "question": "For an integer n ≥ 3, suppose ⁿC₃ = 5(ⁿC₂). What is n?",
+          "options": [
+            "12",
+            "14",
+            "15",
+            "17",
+            "18"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The ratio is <span class='math-frac'><span>ⁿC₃</span><span>ⁿC₂</span></span> = <span class='math-frac'><span>n - 2</span><span>3</span></span>.<br><br>Therefore (n - 2)/3 = 5, so n = 17.",
+          "incorrectFeedback": "Cancel the factorial expressions to obtain ⁿC₃/ⁿC₂ = (n - 2)/3. Set this equal to 5, giving n - 2 = 15 and n = 17."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 15 OF 20",
+          "question": "The first three terms of a convergent geometric progression are also the first, fourth and fifth terms, respectively, of an arithmetic progression.<br><br>The sum to infinity of the geometric progression is 15. What is its first term?",
+          "options": [
+            "5",
+            "8",
+            "9",
+            "10",
+            "12"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Let the GP have first term a and ratio r, and the AP have difference d.<br><br>a + 3d = ar and a + 4d = ar<sup>2</sup>. Eliminating d gives 3r<sup>2</sup> - 4r + 1 = 0, so r = 1 or r = 1/3.<br><br>Convergence rules out r = 1. Hence 15 = a/(1 - 1/3) = 3a/2, so a = 10.",
+          "incorrectFeedback": "Use a + 3d = ar and a + 4d = ar<sup>2</sup>. These produce r = 1 or r = 1/3.<br><br>The convergent ratio is 1/3. Therefore 15 = a/(2/3), giving a = 10."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 16 OF 20",
+          "question": "A convergent geometric series has positive common ratio, sum to infinity 27 and sum of its first four terms 80/3.<br><br>What is its sixth term?",
+          "options": [
+            "1/27",
+            "2/27",
+            "1/9",
+            "2/9",
+            "1/3"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The infinite tail after four terms is 27 - 80/3 = 1/3.<br><br>For a GP, this tail is S∞r<sup>4</sup>, so 27r<sup>4</sup> = 1/3. Since r > 0, r = 1/3.<br><br>Then a = 27(1 - 1/3) = 18, and the sixth term is ar<sup>5</sup> = 18/243 = 2/27.",
+          "incorrectFeedback": "The tail after four terms is 1/3, so 27r<sup>4</sup> = 1/3 and r = 1/3.<br><br>The first term is 18, hence the sixth term is 18(1/3)<sup>5</sup> = 2/27."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 17 OF 20",
+          "question": "An arithmetic progression and a convergent geometric progression both have first term 2.<br><br>The sum of their second terms is 2, and the sum of their third terms is 9/2.<br><br>What is the sum to infinity of the geometric progression?",
+          "options": [
+            "-4",
+            "-4/3",
+            "2/3",
+            "4/3",
+            "4"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Let the AP difference be d and the GP ratio be r.<br><br>From the second terms, (2 + d) + 2r = 2, so d = -2r.<br><br>Using the third terms gives (2 + 2d) + 2r<sup>2</sup> = 9/2. Substitution produces 4r<sup>2</sup> - 8r - 5 = 0, so r = -1/2 or 5/2.<br><br>Convergence gives r = -1/2, and S∞ = 2/(1 + 1/2) = 4/3.",
+          "incorrectFeedback": "The second-term condition gives d = -2r. Substitute this into the third-term condition to obtain r = -1/2 or r = 5/2.<br><br>Only -1/2 is convergent, so the geometric sum is 2/(1 - (-1/2)) = 4/3."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 18 OF 20",
+          "question": "A sequence is defined by x₁ = 1 and xₙ₊₁ = <span class='math-frac'><span>xₙ</span><span>1 + 2xₙ</span></span>.<br><br>What is x₁₀₀?",
+          "options": [
+            "1/99",
+            "1/100",
+            "1/198",
+            "1/199",
+            "1/200"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The recurrence contains xₙ in both the numerator and denominator, so taking reciprocals simplifies it.<br><br>Let yₙ = <span class='math-frac'><span>1</span><span>xₙ</span></span>. Then:<br><br>yₙ₊₁ = <span class='math-frac'><span>1</span><span>xₙ₊₁</span></span> = <span class='math-frac'><span>1 + 2xₙ</span><span>xₙ</span></span> = <span class='math-frac'><span>1</span><span>xₙ</span></span> + 2 = yₙ + 2.<br><br>Therefore yₙ is an arithmetic progression with first term y₁ = 1 and common difference 2.<br><br>So y₁₀₀ = 1 + 99 × 2 = 199. Since y₁₀₀ = 1/x₁₀₀, we get x₁₀₀ = 1/199.",
+          "incorrectFeedback": "Define yₙ = 1/xₙ. Taking the reciprocal of the recurrence gives:<br><br>yₙ₊₁ = yₙ + 2.<br><br>Since y₁ = 1, this is an arithmetic progression with nth term yₙ = 1 + 2(n - 1) = 2n - 1.<br><br>Hence y₁₀₀ = 199. Since y₁₀₀ = 1/x₁₀₀, the answer is x₁₀₀ = 1/199."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 19 OF 20",
+          "question": "A convergent geometric progression has first term 15 and sum to infinity 10.<br><br>What is the sum of all terms in even-numbered positions?",
+          "options": [
+            "-15",
+            "-10",
+            "-5",
+            "5",
+            "10"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. From 15/(1 - r) = 10, we get r = -1/2.<br><br>The even-positioned terms begin with ar = -15/2 and have common ratio r<sup>2</sup> = 1/4.<br><br>Their sum is (-15/2)/(1 - 1/4) = -10.",
+          "incorrectFeedback": "First find r from 15/(1 - r) = 10, giving r = -1/2.<br><br>The even-positioned terms form a GP with first term -15/2 and ratio 1/4, so their sum is -10."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 20 OF 20",
+          "question": "In the expansion of (a + bx<sup>3</sup>)<sup>8</sup>, the coefficient of x<sup>18</sup> is 32 times the coefficient of x<sup>9</sup>.<br><br>Given that a and b are positive integers, what is the smallest possible value of a + b?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "8",
+            "9"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The x<sup>18</sup> term uses r = 6, so its coefficient is ⁸C₆a<sup>2</sup>b<sup>6</sup> = 28a<sup>2</sup>b<sup>6</sup>.<br><br>The x<sup>9</sup> term uses r = 3, so its coefficient is ⁸C₃a<sup>5</sup>b<sup>3</sup> = 56a<sup>5</sup>b<sup>3</sup>.<br><br>Hence 28a<sup>2</sup>b<sup>6</sup> = 32(56a<sup>5</sup>b<sup>3</sup>), giving b<sup>3</sup> = 64a<sup>3</sup>. Thus b = 4a, and the smallest value of a + b is 1 + 4 = 5.",
+          "incorrectFeedback": "Match x<sup>18</sup> with r = 6 and x<sup>9</sup> with r = 3.<br><br>The coefficient equation simplifies to b<sup>3</sup> = 64a<sup>3</sup>, so b = 4a. The smallest positive integers are a = 1 and b = 4, giving a + b = 5."
+        }
+      ]
     },
     {
       "id": "lines-gradients",
