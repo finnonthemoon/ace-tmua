@@ -33,6 +33,8 @@ const LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
 export default function MultipleChoiceScreenView({ screen, progressPercent, onNext, onExit, onAnswer }: Props) {
   const [chosen, setChosen] = useState<number | null>(null);
+  const questionLength = screen.question.replace(/<[^>]*>|\[\[|\]\]/g, '').length;
+  const questionFontSize = questionLength > 140 ? 20 : questionLength > 90 ? 22 : 24;
 
   function handleAnswer(index: number) {
     if (chosen !== null) return;
@@ -75,7 +77,14 @@ export default function MultipleChoiceScreenView({ screen, progressPercent, onNe
           {/* Question (may contain HTML like math-frac) */}
           <PlainOrHtml
             html={screen.question}
-            style={{ color: C.ink, fontSize: 24, fontWeight: '900', letterSpacing: -0.5, lineHeight: 30, marginBottom: 8 }}
+            style={{
+              color: C.ink,
+              fontSize: questionFontSize,
+              fontWeight: '900',
+              letterSpacing: -0.5,
+              lineHeight: questionFontSize + 7,
+              marginBottom: 8,
+            }}
           />
 
           {/* .multiple-choice__prompt */}

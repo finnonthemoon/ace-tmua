@@ -315,7 +315,7 @@ class LessonRunner {
             ${screen.eyebrow || "QUICK CHECK"}
           </p>
 
-          <h1>${screen.question}</h1>
+          <h1 class="multiple-choice__question">${screen.question}</h1>
 
           ${screen.prompt
         ? `<p class="multiple-choice__prompt">${screen.prompt}</p>`
@@ -619,7 +619,7 @@ class LessonRunner {
     this.root
       .querySelector("#lesson-summary-next")
       .addEventListener("click", () => {
-        this.next();
+        this.finish();
       });
 
     this.addExitListener();

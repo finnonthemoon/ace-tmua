@@ -1,381 +1,1698 @@
 {
-  "lessons": [
-    {
-      "id": "indices-surds-polynomials-1",
-      "topicId": "topic-1",
-      "title": "Indices, Surds and Polynomials",
-      "screens": [
+    "lessons": [
         {
-          "type": "concept",
-          "eyebrow": "INDICES · 1 OF 11",
-          "title": "TMUA index questions are rarely just index questions",
-          "body": "In the TMUA, index laws often appear inside a larger problem. You may need to rewrite roots, split fractions, or simplify powers before you can differentiate, compare values, or spot a structure.",
-          "keyPoint": "Useful rewrites: √x = x<sup>1/2</sup>, x√x = x<sup>3/2</sup>, and <span class='math-frac'><span>1</span><span>x<sup>n</sup></span></span> = x<sup>-n</sup>.",
-          "buttonText": "Continue"
+            "id": "indices-surds-polynomials-1",
+            "topicId": "topic-1",
+            "title": "Indices, Surds and Polynomials",
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "INDICES · 1 OF 11",
+                    "title": "TMUA index questions are rarely just index questions",
+                    "body": "In the TMUA, index laws often appear inside a larger problem. You may need to rewrite roots, split fractions, or simplify powers before you can differentiate, compare values, or spot a structure.",
+                    "keyPoint": "Useful rewrites: √x = x<sup>1/2</sup>, x√x = x<sup>3/2</sup>, and <span class='math-frac'><span>1</span><span>x<sup>n</sup></span></span> = x<sup>-n</sup>.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "INDICES · 2 OF 11",
+                    "title": "Rewrite before you manipulate",
+                    "steps": [
+                        {
+                            "title": "Start with the denominator",
+                            "body": "If you see x√x, rewrite it as x × x<sup>1/2</sup> = x<sup>3/2</sup>."
+                        },
+                        {
+                            "title": "Split the fraction",
+                            "body": "<span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span> becomes <span class='math-frac'><span>x<sup>2</sup></span><span>x<sup>3/2</sup></span></span> - <span class='math-frac'><span>4</span><span>x<sup>3/2</sup></span></span>."
+                        },
+                        {
+                            "title": "Subtract powers when dividing",
+                            "body": "x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
+                        },
+                        {
+                            "title": "Final simplified form",
+                            "body": "So <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "INDICES CHECK · 3 OF 11",
+                    "question": "For x &gt; 0, which expression is equal to <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span>?",
+                    "prompt": "Rewrite the denominator as a single power of x.",
+                    "options": [
+                        "x<sup>1/2</sup> - 4x<sup>-3/2</sup>",
+                        "x<sup>1/2</sup> - 4x<sup>3/2</sup>",
+                        "x<sup>3/2</sup> - 4x<sup>-1/2</sup>",
+                        "x<sup>2</sup> - 4x<sup>-3/2</sup>"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. x√x = x<sup>3/2</sup>, so the expression becomes x<sup>2-3/2</sup> - 4x<sup>-3/2</sup> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>.",
+                    "incorrectFeedback": "Not quite. First rewrite x√x as x<sup>3/2</sup>. Then split the fraction: x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 4 OF 11",
+                    "title": "Indices handled.",
+                    "body": "You have taken a messy expression, rewritten it with powers, and simplified it term by term. Next up: surds.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "SURDS · 5 OF 11",
+                    "title": "Surds are exact values, not decimals",
+                    "body": "In TMUA questions, surds are often used because they keep values exact. You should be comfortable simplifying surds, combining like surds, and rationalising denominators without reaching for a calculator.",
+                    "keyPoint": "A common move is taking out square factors: √72 = √(36 × 2) = 6√2. You can only combine like surds, so 3√2 + 5√2 = 8√2, but √2 + √3 cannot be simplified.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "SURDS · 6 OF 11",
+                    "title": "Rationalising the denominator",
+                    "steps": [
+                        {
+                            "title": "The aim",
+                            "body": "Rationalising means rewriting a fraction so there is no surd left in the denominator."
+                        },
+                        {
+                            "title": "Simple case",
+                            "body": "For <span class='math-frac'><span>5</span><span>√3</span></span>, multiply the top and bottom by √3."
+                        },
+                        {
+                            "title": "Do the multiplication",
+                            "body": "<span class='math-frac'><span>5</span><span>√3</span></span> × <span class='math-frac'><span>√3</span><span>√3</span></span> = <span class='math-frac'><span>5√3</span><span>3</span></span>."
+                        },
+                        {
+                            "title": "Harder case",
+                            "body": "If the denominator has two terms, like 2 + √3, multiply by the conjugate 2 - √3."
+                        },
+                        {
+                            "title": "Why the conjugate works",
+                            "body": "(2 + √3)(2 - √3) = 2<sup>2</sup> - (√3)<sup>2</sup> = 4 - 3 = 1."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "SURDS CHECK · 7 OF 11",
+                    "question": "Which of the following is equal to <span class='math-frac'><span>6</span><span>2 + √3</span></span>?",
+                    "prompt": "Use the conjugate of the denominator.",
+                    "options": [
+                        "12 - 6√3",
+                        "12 + 6√3",
+                        "6√3 - 12",
+                        "2 - √3"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. Multiply by 2 - √3. The denominator becomes (2 + √3)(2 - √3) = 1, so the expression becomes 6(2 - √3) = 12 - 6√3.",
+                    "incorrectFeedback": "Not quite. The conjugate of 2 + √3 is 2 - √3. The denominator becomes 4 - 3 = 1, so the result is 6(2 - √3) = 12 - 6√3."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 8 OF 11",
+                    "title": "Surds done.",
+                    "body": "You have practised exact surd manipulation and rationalising denominators. Next up, and finally for this section: polynomials.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "POLYNOMIALS · 9 OF 11",
+                    "title": "Polynomials are about structure",
+                    "body": "For TMUA algebra, polynomials often appear with hidden information: a known factor, a remainder, an unknown constant, or a root. The key is knowing what substitution tells you.",
+                    "keyPoint": "If a polynomial f(x) is divided by x - a, the remainder is f(a). If f(a) = 0, then x - a is a factor.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "POLYNOMIALS · 10 OF 11",
+                    "title": "Remainder theorem and factor theorem",
+                    "steps": [
+                        {
+                            "title": "Start with the divisor",
+                            "body": "If a polynomial is divided by x - a, substitute x = a into the polynomial."
+                        },
+                        {
+                            "title": "Remainder theorem",
+                            "body": "The remainder when f(x) is divided by x - a is f(a). For example, if dividing by x - 2, the remainder is f(2)."
+                        },
+                        {
+                            "title": "Factor theorem",
+                            "body": "The factor theorem is a specific case of the remainder theorem. If f(a) = 0, the remainder is zero, so x - a is a factor."
+                        },
+                        {
+                            "title": "Unknown constants",
+                            "body": "If a question says the remainder is 7, set f(a) = 7. If it says x - a is a factor, set f(a) = 0."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "LESSON SUMMARY · 11 OF 11",
+                    "title": "Indices, Surds and Polynomials: key points",
+                    "keyPoints": [
+                        "Rewrite roots and denominators using powers when it makes algebra easier.",
+                        "Split algebraic fractions before simplifying term by term.",
+                        "Surds are exact values and should often be simplified rather than decimalised.",
+                        "To rationalise a denominator with two terms, multiply by the conjugate.",
+                        "The remainder when f(x) is divided by x - a is f(a).",
+                        "The factor theorem is the zero-remainder case of the remainder theorem."
+                    ],
+                    "reviewItems": [
+                        "Practise simplifying expressions involving x√x and negative powers.",
+                        "Practise rationalising denominators with conjugates.",
+                        "Practise using f(a) to handle polynomial remainders and factors.",
+                        "Next lesson: exponential equations and hidden quadratics."
+                    ],
+                    "buttonText": "Finish lesson"
+                }
+            ]
         },
         {
-          "type": "reveal",
-          "eyebrow": "INDICES · 2 OF 11",
-          "title": "Rewrite before you manipulate",
-          "steps": [
-            {
-              "title": "Start with the denominator",
-              "body": "If you see x√x, rewrite it as x × x<sup>1/2</sup> = x<sup>3/2</sup>."
-            },
-            {
-              "title": "Split the fraction",
-              "body": "<span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span> becomes <span class='math-frac'><span>x<sup>2</sup></span><span>x<sup>3/2</sup></span></span> - <span class='math-frac'><span>4</span><span>x<sup>3/2</sup></span></span>."
-            },
-            {
-              "title": "Subtract powers when dividing",
-              "body": "x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
-            },
-            {
-              "title": "Final simplified form",
-              "body": "So <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>."
-            }
-          ],
-          "buttonText": "Continue"
+            "id": "quadratic-and-inequalities",
+            "topicId": "topic-1",
+            "title": "Quadratics and Inequalities",
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "QUADRATICS · 1 OF 4",
+                    "title": "The discriminant tells us about the roots.",
+                    "body": "The expression b² − 4ac determines how many real roots a quadratic has.",
+                    "buttonText": "Continue"
+                }
+            ]
         },
         {
-          "type": "multipleChoice",
-          "eyebrow": "INDICES CHECK · 3 OF 11",
-          "question": "For x &gt; 0, which expression is equal to <span class='math-frac'><span>x<sup>2</sup> - 4</span><span>x√x</span></span>?",
-          "prompt": "Rewrite the denominator as a single power of x.",
-          "options": [
-            "x<sup>1/2</sup> - 4x<sup>-3/2</sup>",
-            "x<sup>1/2</sup> - 4x<sup>3/2</sup>",
-            "x<sup>3/2</sup> - 4x<sup>-1/2</sup>",
-            "x<sup>2</sup> - 4x<sup>-3/2</sup>"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. x√x = x<sup>3/2</sup>, so the expression becomes x<sup>2-3/2</sup> - 4x<sup>-3/2</sup> = x<sup>1/2</sup> - 4x<sup>-3/2</sup>.",
-          "incorrectFeedback": "Not quite. First rewrite x√x as x<sup>3/2</sup>. Then split the fraction: x<sup>2</sup> ÷ x<sup>3/2</sup> = x<sup>1/2</sup>, and 4 ÷ x<sup>3/2</sup> = 4x<sup>-3/2</sup>."
+            "id": "functions-simultaneous-systems",
+            "topicId": "topic-1",
+            "title": "Functions and Simultaneous Equations",
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "COMPOSITE FUNCTIONS · 1 OF 13",
+                    "title": "Composite functions are substitution in order",
+                    "body": "Composite functions are useful because they train the same skill needed for harder simultaneous equations: replacing one expression with another. In f(g(x)), the inside function happens first.",
+                    "keyPoint": "f(g(x)) means put the whole expression g(x) into f. The order matters: f(g(x)) and g(f(x)) are usually different.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "COMPOSITE FUNCTIONS · 2 OF 13",
+                    "title": "Work from the inside out",
+                    "steps": [
+                        {
+                            "title": "Start with the functions",
+                            "body": "Let f(x) = x<sup>2</sup> - 1 and g(x) = 2x + 3."
+                        },
+                        {
+                            "title": "Identify the inside function",
+                            "body": "f(g(x)) means g happens first."
+                        },
+                        {
+                            "title": "Substitute into f",
+                            "body": "Since f(x) = x<sup>2</sup> - 1, replace x with the whole expression 2x + 3."
+                        },
+                        {
+                            "title": "Simplify",
+                            "body": "f(g(x)) = (2x + 3)<sup>2</sup> - 1 = 4x<sup>2</sup> + 12x + 8."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "COMPOSITE CHECK · 3 OF 13",
+                    "question": "Let f(x) = x<sup>2</sup> - 1 and g(x) = 2x + 3. What is g(f(x))?",
+                    "prompt": "Be careful: this is the opposite order to f(g(x)).",
+                    "options": [
+                        "4x<sup>2</sup> + 12x + 8",
+                        "2x<sup>2</sup> + 1",
+                        "2x<sup>2</sup> - 2",
+                        "x<sup>2</sup> + 2"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. g(f(x)) means put f(x) into g. Since g(x) = 2x + 3, we get g(f(x)) = 2(x<sup>2</sup> - 1) + 3 = 2x<sup>2</sup> + 1.",
+                    "incorrectFeedback": "Not quite. g(f(x)) means put f(x) into g, not the other way round. So g(f(x)) = 2(x<sup>2</sup> - 1) + 3 = 2x<sup>2</sup> + 1."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 4 OF 13",
+                    "title": "Composite functions handled.",
+                    "body": "You have practised substituting whole expressions into other rules. That same idea now appears in simultaneous equations.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "SIMULTANEOUS EQUATIONS · 5 OF 13",
+                    "title": "Substitution turns two equations into one",
+                    "body": "The TMUA specification includes solving simultaneous equations analytically by substitution. A common case is one linear equation and one quadratic equation.",
+                    "keyPoint": "Use the linear equation to replace one variable in the quadratic equation. This usually creates a quadratic equation in one variable.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "LINEAR + QUADRATIC · 6 OF 13",
+                    "title": "Start with a linear and quadratic system",
+                    "steps": [
+                        {
+                            "title": "Start with the equations",
+                            "body": "Suppose y = x + 3 and y = x<sup>2</sup> - 2x - 1."
+                        },
+                        {
+                            "title": "Set the expressions equal",
+                            "body": "Both expressions equal y, so at an intersection we have x + 3 = x<sup>2</sup> - 2x - 1."
+                        },
+                        {
+                            "title": "Move everything to one side",
+                            "body": "x + 3 = x<sup>2</sup> - 2x - 1 becomes x<sup>2</sup> - 3x - 4 = 0."
+                        },
+                        {
+                            "title": "Factorise",
+                            "body": "x<sup>2</sup> - 3x - 4 = (x - 4)(x + 1), so x = 4 or x = -1."
+                        },
+                        {
+                            "title": "Substitute back",
+                            "body": "Using y = x + 3: if x = 4, y = 7. If x = -1, y = 2."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "SUBSTITUTION CHECK · 7 OF 13",
+                    "question": "The equations y = x + 3 and y = x<sup>2</sup> - 2x - 1 have two solutions. What are they?",
+                    "prompt": "Set the two expressions for y equal to each other.",
+                    "options": [
+                        "(-1, 2) and (4, 7)",
+                        "(1, 4) and (-4, -1)",
+                        "(-1, -2) and (4, -7)",
+                        "(2, -1) and (7, 4)"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. Setting the expressions equal gives x<sup>2</sup> - 3x - 4 = 0, so x = -1 or x = 4. Substituting into y = x + 3 gives (-1, 2) and (4, 7).",
+                    "incorrectFeedback": "Not quite. Set x + 3 = x<sup>2</sup> - 2x - 1. This gives x<sup>2</sup> - 3x - 4 = 0, so x = -1 or x = 4. Then substitute back into y = x + 3."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 8 OF 13",
+                    "title": "Basic substitution done.",
+                    "body": "That was the standard linear/quadratic case. TMUA questions often make the same idea harder by hiding the variables inside powers or logarithms.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "HARDER SYSTEMS · 9 OF 13",
+                    "title": "Look for a hidden substitution",
+                    "body": "Some simultaneous equations look difficult because the variables appear inside powers or logarithms. The trick is to replace repeated expressions with simpler letters.",
+                    "keyPoint": "If you see 2<sup>x</sup> and 2<sup>y</sup> repeatedly, try X = 2<sup>x</sup> and Y = 2<sup>y</sup>. Then the system may become ordinary algebra.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "workedExample",
+                    "eyebrow": "POWERS SYSTEM · 10 OF 13",
+                    "title": "Use substitution with powers",
+                    "question": "The simultaneous equations are 2<sup>x</sup> + 2 × 2<sup>y</sup> = 10 and 2<sup>2x</sup> - 4 × 2<sup>2y</sup> = 20. The solution is x = p, y = q. Find p - q.",
+                    "options": [
+                        "log<sub>2</sub>3",
+                        "log<sub>2</sub>5",
+                        "log<sub>2</sub>6",
+                        "3"
+                    ],
+                    "answerIndex": 0,
+                    "steps": [
+                        {
+                            "title": "Create substitutions",
+                            "body": "Let X = 2<sup>x</sup> and Y = 2<sup>y</sup>."
+                        },
+                        {
+                            "title": "Rewrite the first equation",
+                            "body": "2<sup>x</sup> + 2 × 2<sup>y</sup> = 10 becomes X + 2Y = 10."
+                        },
+                        {
+                            "title": "Rewrite the second equation",
+                            "body": "2<sup>2x</sup> - 4 × 2<sup>2y</sup> = 20 becomes X<sup>2</sup> - 4Y<sup>2</sup> = 20."
+                        },
+                        {
+                            "title": "Use difference of squares",
+                            "body": "X<sup>2</sup> - 4Y<sup>2</sup> = (X - 2Y)(X + 2Y)."
+                        },
+                        {
+                            "title": "Use the first equation",
+                            "body": "Since X + 2Y = 10, the second equation becomes (X - 2Y)(10) = 20, so X - 2Y = 2."
+                        },
+                        {
+                            "title": "Solve the simple system",
+                            "body": "Now solve X + 2Y = 10 and X - 2Y = 2. Adding gives 2X = 12, so X = 6. Then Y = 2."
+                        },
+                        {
+                            "title": "Convert back",
+                            "body": "2<sup>x</sup> = 6, so x = log<sub>2</sub>6. Also 2<sup>y</sup> = 2, so y = 1."
+                        },
+                        {
+                            "title": "Find p - q",
+                            "body": "p - q = log<sub>2</sub>6 - 1 = log<sub>2</sub>6 - log<sub>2</sub>2 = log<sub>2</sub>3."
+                        }
+                    ],
+                    "finalAnswer": "The correct answer is A: log<sub>2</sub>3.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "LOG SYSTEMS · 11 OF 13",
+                    "title": "Logs can hide simultaneous equations too",
+                    "steps": [
+                        {
+                            "title": "Start with the system",
+                            "body": "Suppose log<sub>10</sub>2 + log<sub>10</sub>(y - 3) = 2log<sub>10</sub>x and log<sub>10</sub>(y + 2 - 3x) = 0."
+                        },
+                        {
+                            "title": "Combine the logs",
+                            "body": "log<sub>10</sub>2 + log<sub>10</sub>(y - 3) = log<sub>10</sub>(2(y - 3))."
+                        },
+                        {
+                            "title": "Use the power rule",
+                            "body": "2log<sub>10</sub>x = log<sub>10</sub>(x<sup>2</sup>)."
+                        },
+                        {
+                            "title": "Equate the inside values",
+                            "body": "So 2(y - 3) = x<sup>2</sup>."
+                        },
+                        {
+                            "title": "Use the second equation",
+                            "body": "log<sub>10</sub>(y + 2 - 3x) = 0 means y + 2 - 3x = 1."
+                        },
+                        {
+                            "title": "Rearrange",
+                            "body": "y + 2 - 3x = 1 gives y = 3x - 1."
+                        },
+                        {
+                            "title": "Substitute",
+                            "body": "Substitute y = 3x - 1 into 2(y - 3) = x<sup>2</sup>. This gives 2(3x - 4) = x<sup>2</sup>."
+                        },
+                        {
+                            "title": "Solve the quadratic",
+                            "body": "x<sup>2</sup> - 6x + 8 = 0, so (x - 2)(x - 4) = 0. Therefore x = 2 or x = 4."
+                        },
+                        {
+                            "title": "Find y",
+                            "body": "Using y = 3x - 1: if x = 2, y = 5. If x = 4, y = 11."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "LOG CHECK · 12 OF 13",
+                    "question": "Given log<sub>10</sub>2 + log<sub>10</sub>(y - 3) = 2log<sub>10</sub>x and log<sub>10</sub>(y + 2 - 3x) = 0, what are the values of y?",
+                    "prompt": "Use log laws first, then solve the resulting simultaneous equations.",
+                    "options": [
+                        "5 and 11",
+                        "3 and 9",
+                        "2 and 8",
+                        "1 and 13"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. The first equation becomes 2(y - 3) = x<sup>2</sup>. The second gives y = 3x - 1. Substituting gives x<sup>2</sup> - 6x + 8 = 0, so x = 2 or x = 4. Therefore y = 5 or y = 11.",
+                    "incorrectFeedback": "Not quite. First use log laws. The first equation becomes 2(y - 3) = x<sup>2</sup>. The second gives y = 3x - 1. Substituting gives x<sup>2</sup> - 6x + 8 = 0."
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "LESSON SUMMARY · 13 OF 13",
+                    "title": "Functions and Simultaneous Equations: key points",
+                    "keyPoints": [
+                        "Composite functions are substitutions done in a specific order.",
+                        "f(g(x)) and g(f(x)) are usually different.",
+                        "A linear/quadratic simultaneous system can be solved by substitution.",
+                        "When powers repeat, use substitutions like X = 2<sup>x</sup> and Y = 2<sup>y</sup>.",
+                        "Difference of squares can appear after power substitutions.",
+                        "Use log laws to turn logarithmic simultaneous equations into algebraic equations.",
+                        "log<sub>10</sub>(A) = 0 means A = 1.",
+                        "Always substitute back to find the actual variable values."
+                    ],
+                    "reviewItems": [
+                        "Practise composite functions in both orders.",
+                        "Practise linear/quadratic simultaneous equations.",
+                        "Practise substitutions such as X = 2<sup>x</sup> and Y = 2<sup>y</sup>.",
+                        "Practise turning log equations into algebraic equations using log laws.",
+                        "Next lesson: Algebra exam-style questions."
+                    ],
+                    "buttonText": "Finish lesson"
+                }
+            ]
         },
         {
-          "type": "milestone",
-          "eyebrow": "NICE WORK · 4 OF 11",
-          "title": "Indices handled.",
-          "body": "You have taken a messy expression, rewritten it with powers, and simplified it term by term. Next up: surds.",
-          "buttonText": "Continue"
+            "id": "algebra-modulus-functions",
+            "topicId": "topic-1",
+            "title": "Modulus Functions",
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "MODULUS MEANING · 1 OF 16",
+                    "title": "Modulus represents distance",
+                    "body": "The modulus of a number is its distance from zero. Since distance cannot be negative, |x| is always greater than or equal to zero.",
+                    "keyPoint": "|x| = x when x ≥ 0, but |x| = -x when x &lt; 0. For example, |5| = 5 and |-5| = 5.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "MODULUS MEANING · 2 OF 16",
+                    "title": "Remove modulus signs by checking the sign",
+                    "steps": [
+                        {
+                            "title": "Look inside the modulus",
+                            "body": "The sign of the expression inside the modulus determines whether it stays the same or changes sign."
+                        },
+                        {
+                            "title": "When the expression is non-negative",
+                            "body": "If x - 3 ≥ 0, then x ≥ 3 and |x - 3| = x - 3."
+                        },
+                        {
+                            "title": "When the expression is negative",
+                            "body": "If x - 3 &lt; 0, then x &lt; 3 and |x - 3| = -(x - 3) = 3 - x."
+                        },
+                        {
+                            "title": "Piecewise form",
+                            "body": "Therefore |x - 3| = x - 3 when x ≥ 3, and |x - 3| = 3 - x when x &lt; 3."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "MODULUS CHECK · 3 OF 16",
+                    "question": "Given that x &lt; -2, which expression is equal to<span class='question-equation'>|x + 2| + |x - 1|?</span>",
+                    "prompt": "Decide whether each expression inside the modulus is positive or negative.",
+                    "options": [
+                        "2x + 1",
+                        "-2x - 1",
+                        "3",
+                        "-3",
+                        "2x - 1"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. Since x &lt; -2, both x + 2 and x - 1 are negative.<br><br>Therefore |x + 2| = -(x + 2) = -x - 2, and |x - 1| = -(x - 1) = -x + 1.<br><br>Adding gives (-x - 2) + (-x + 1) = -2x - 1.",
+                    "incorrectFeedback": "Since x &lt; -2, both expressions inside the modulus signs are negative. Therefore |x + 2| = -x - 2 and |x - 1| = -x + 1.<br><br>Their sum is -2x - 1."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 4 OF 16",
+                    "title": "The meaning of modulus is clear.",
+                    "body": "You can now use the sign of an expression to remove its modulus signs. Next, we will see what modulus does to a graph.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "MODULUS GRAPHS · 5 OF 16",
+                    "title": "The graph of y = |f(x)| cannot go below the x-axis",
+                    "body": "Taking the modulus of a function changes every negative output into its positive counterpart. Positive parts of the original graph stay where they are, while negative parts are reflected in the x-axis.",
+                    "keyPoint": "For y = |f(x)|, keep the parts where f(x) ≥ 0 and reflect the parts where f(x) &lt; 0 upwards.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "MODULUS GRAPHS · 6 OF 16",
+                    "title": "Sketch y = |x² - 4| from y = x² - 4",
+                    "steps": [
+                        {
+                            "title": "Find the roots",
+                            "body": "x<sup>2</sup> - 4 = 0 gives x = -2 or x = 2."
+                        },
+                        {
+                            "title": "Identify the negative section",
+                            "body": "The graph of y = x<sup>2</sup> - 4 lies below the x-axis between -2 and 2."
+                        },
+                        {
+                            "title": "Keep the positive sections",
+                            "body": "For x ≤ -2 and x ≥ 2, the original graph is already non-negative, so these sections stay unchanged."
+                        },
+                        {
+                            "title": "Reflect the negative section",
+                            "body": "Between -2 and 2, replace x<sup>2</sup> - 4 with -(x<sup>2</sup> - 4) = 4 - x<sup>2</sup>."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "GRAPH CHECK · 7 OF 16",
+                    "question": "Which statement correctly describes the graph of<span class='question-equation'>y = |x<sup>2</sup> - 4|?</span>",
+                    "options": [
+                        "It is y = x² - 4 for every value of x",
+                        "It is y = 4 - x² for every value of x",
+                        "It is y = 4 - x² when -2 &lt; x &lt; 2 and y = x² - 4 otherwise",
+                        "It is y = x² + 4 when -2 &lt; x &lt; 2",
+                        "The whole graph is reflected in the x-axis"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. The expression x<sup>2</sup> - 4 is negative between its roots -2 and 2, so this section is reflected upwards and becomes 4 - x<sup>2</sup>.<br><br>Outside that interval, x<sup>2</sup> - 4 is non-negative and remains unchanged.",
+                    "incorrectFeedback": "Find where x<sup>2</sup> - 4 is negative. Its roots are -2 and 2, and the quadratic is negative between them.<br><br>Therefore the middle section becomes 4 - x<sup>2</sup>, while the sections outside remain x<sup>2</sup> - 4."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 8 OF 16",
+                    "title": "Modulus graphs handled.",
+                    "body": "You can now construct y = |f(x)| by reflecting only the negative outputs. Next, we will solve modulus equations.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "MODULUS EQUATIONS · 9 OF 16",
+                    "title": "A modulus equation usually creates two cases",
+                    "body": "If |A| = k and k is positive, then A may equal k or -k. This is because both k and -k are the same distance from zero.",
+                    "keyPoint": "|A| = k gives A = k or A = -k when k ≥ 0. If k is negative, the equation has no solutions.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "MODULUS EQUATIONS · 10 OF 16",
+                    "title": "Solve |2x - 3| = 5",
+                    "steps": [
+                        {
+                            "title": "Create the positive case",
+                            "body": "The expression inside the modulus may equal 5, so 2x - 3 = 5."
+                        },
+                        {
+                            "title": "Solve the positive case",
+                            "body": "2x = 8, giving x = 4."
+                        },
+                        {
+                            "title": "Create the negative case",
+                            "body": "The expression may instead equal -5, so 2x - 3 = -5."
+                        },
+                        {
+                            "title": "Solve the negative case",
+                            "body": "2x = -2, giving x = -1."
+                        },
+                        {
+                            "title": "State both solutions",
+                            "body": "Therefore x = 4 or x = -1."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "EQUATION CHECK · 11 OF 16",
+                    "question": "What is the complete set of solutions of<span class='question-equation'>|3x + 1| = 7?</span>",
+                    "options": [
+                        "{2}",
+                        "{-<span class='math-frac'><span>8</span><span>3</span></span>}",
+                        "{2, -<span class='math-frac'><span>8</span><span>3</span></span>}",
+                        "{-2, <span class='math-frac'><span>8</span><span>3</span></span>}",
+                        "{-2, 2}"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Split the equation into two cases.<br><br>First, 3x + 1 = 7, giving 3x = 6 and x = 2.<br><br>Second, 3x + 1 = -7, giving 3x = -8 and x = -<span class='math-frac'><span>8</span><span>3</span></span>.<br><br>Both values satisfy the original equation.",
+                    "incorrectFeedback": "A positive modulus equation creates two cases:<br><br>3x + 1 = 7 or 3x + 1 = -7.<br><br>These give x = 2 and x = -<span class='math-frac'><span>8</span><span>3</span></span>."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 12 OF 16",
+                    "title": "Modulus equations solved.",
+                    "body": "You can now split a modulus equation into its positive and negative cases. The final step is applying the same distance idea to inequalities.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "MODULUS INEQUALITIES · 13 OF 16",
+                    "title": "Modulus inequalities describe distances",
+                    "body": "The inequality |x - a| &lt; r means that the distance between x and a is less than r. This produces an interval centred at a.",
+                    "keyPoint": "|x - a| &lt; r means a - r &lt; x &lt; a + r. In contrast, |x - a| &gt; r means x &lt; a - r or x &gt; a + r.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "MODULUS INEQUALITIES · 14 OF 16",
+                    "title": "Solve |2x - 1| ≤ 5",
+                    "steps": [
+                        {
+                            "title": "Write a compound inequality",
+                            "body": "|2x - 1| ≤ 5 means -5 ≤ 2x - 1 ≤ 5."
+                        },
+                        {
+                            "title": "Add one throughout",
+                            "body": "Adding 1 to all three parts gives -4 ≤ 2x ≤ 6."
+                        },
+                        {
+                            "title": "Divide throughout",
+                            "body": "Dividing all three parts by 2 gives -2 ≤ x ≤ 3."
+                        },
+                        {
+                            "title": "Interpret the result",
+                            "body": "The solutions form the closed interval from -2 to 3 because equality is allowed."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "INEQUALITY CHECK · 15 OF 16",
+                    "question": "Which set of values satisfies<span class='question-equation'>|3x + 2| &gt; 4?</span>",
+                    "options": [
+                        "-2 &lt; x &lt; <span class='math-frac'><span>2</span><span>3</span></span>",
+                        "x &lt; -2 or x &gt; <span class='math-frac'><span>2</span><span>3</span></span>",
+                        "x ≤ -2 or x ≥ <span class='math-frac'><span>2</span><span>3</span></span>",
+                        "x &gt; -2",
+                        "x &lt; <span class='math-frac'><span>2</span><span>3</span></span>"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. For |3x + 2| &gt; 4, the expression must lie outside the interval from -4 to 4.<br><br>Therefore 3x + 2 &gt; 4 or 3x + 2 &lt; -4.<br><br>The first gives x &gt; <span class='math-frac'><span>2</span><span>3</span></span>. The second gives x &lt; -2.<br><br>Hence x &lt; -2 or x &gt; <span class='math-frac'><span>2</span><span>3</span></span>.",
+                    "incorrectFeedback": "Because the modulus is greater than 4, split into two outside cases:<br><br>3x + 2 &gt; 4 or 3x + 2 &lt; -4.<br><br>These simplify to x &gt; <span class='math-frac'><span>2</span><span>3</span></span> or x &lt; -2."
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "LESSON SUMMARY · 16 OF 16",
+                    "title": "Modulus Functions: key points",
+                    "keyPoints": [
+                        "Modulus represents distance, so its value is never negative.",
+                        "Remove modulus signs by considering whether the expression inside is positive or negative.",
+                        "For y = |f(x)|, reflect negative parts of y = f(x) in the x-axis.",
+                        "An equation |A| = k usually creates the two cases A = k and A = -k.",
+                        "An inequality |x - a| &lt; r describes values inside an interval centred at a.",
+                        "An inequality |x - a| &gt; r describes values outside that interval."
+                    ],
+                    "reviewItems": [
+                        "Practise writing modulus expressions in piecewise form.",
+                        "Practise reflecting the negative sections of function graphs.",
+                        "Practise checking both cases in modulus equations.",
+                        "Practise distinguishing inside and outside modulus inequalities.",
+                        "Next lesson: Algebra exam-style questions."
+                    ],
+                    "buttonText": "Finish lesson"
+                }
+            ]
         },
         {
-          "type": "concept",
-          "eyebrow": "SURDS · 5 OF 11",
-          "title": "Surds are exact values, not decimals",
-          "body": "In TMUA questions, surds are often used because they keep values exact. You should be comfortable simplifying surds, combining like surds, and rationalising denominators without reaching for a calculator.",
-          "keyPoint": "A common move is taking out square factors: √72 = √(36 × 2) = 6√2. You can only combine like surds, so 3√2 + 5√2 = 8√2, but √2 + √3 cannot be simplified.",
-          "buttonText": "Continue"
+            "id": "algebra-exam-style-questions",
+            "topicId": "topic-1",
+            "title": "Exam-style Questions",
+            "screens": [
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 1 OF 20",
+                    "question": "Let <span class='math-nowrap'>a &gt; 0</span> and suppose that<span class='question-equation'>a<sup>1/3</sup> + a<sup>-1/3</sup> = 3.</span>Find the value of<span class='question-equation'>a + <span class='math-frac'><span>1</span><span>a</span></span></span>",
+                    "options": [
+                        "9",
+                        "12",
+                        "18",
+                        "21",
+                        "24"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Let u = a<sup>1/3</sup>. Then u + <span class='math-frac'><span>1</span><span>u</span></span> = 3. Cubing gives (u + <span class='math-frac'><span>1</span><span>u</span></span>)<sup>3</sup> = u<sup>3</sup> + <span class='math-frac'><span>1</span><span>u<sup>3</sup></span></span> + 3(u + <span class='math-frac'><span>1</span><span>u</span></span>). Therefore 27 = a + <span class='math-frac'><span>1</span><span>a</span></span> + 9, so a + <span class='math-frac'><span>1</span><span>a</span></span> = 18.",
+                    "incorrectFeedback": "Let u = a<sup>1/3</sup>, so u + <span class='math-frac'><span>1</span><span>u</span></span> = 3. Use the identity (u + <span class='math-frac'><span>1</span><span>u</span></span>)<sup>3</sup> = u<sup>3</sup> + <span class='math-frac'><span>1</span><span>u<sup>3</sup></span></span> + 3(u + <span class='math-frac'><span>1</span><span>u</span></span>). This gives 27 = a + <span class='math-frac'><span>1</span><span>a</span></span> + 9, so the answer is 18."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 2 OF 20",
+                    "question": "Simplify <span class='math-bracket'>(</span><span class='math-frac'><span>√5 + √3</span><span>√5 - √3</span></span><span class='math-bracket'>)</span><sup>2</sup>.",
+                    "options": [
+                        "31 - 8√15",
+                        "16 + 4√15",
+                        "31 + 8√15",
+                        "8 + 2√15",
+                        "4 + √15"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Rationalising first gives <span class='math-frac'><span>√5 + √3</span><span>√5 - √3</span></span> = <span class='math-frac'><span>(√5 + √3)<sup>2</sup></span><span>5 - 3</span></span> = <span class='math-frac'><span>8 + 2√15</span><span>2</span></span> = 4 + √15. Squaring gives (4 + √15)<sup>2</sup> = 16 + 8√15 + 15 = 31 + 8√15.",
+                    "incorrectFeedback": "First rationalise the fraction by multiplying the numerator and denominator by √5 + √3. The fraction simplifies to 4 + √15. You must then square this result: (4 + √15)<sup>2</sup> = 31 + 8√15."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 3 OF 20",
+                    "question": "For which values of k does the equation x<sup>2</sup> - 2kx + k + 2 = 0 have two distinct positive real roots?",
+                    "options": [
+                        "k &lt; -1",
+                        "-1 &lt; k &lt; 0",
+                        "k &gt; 0",
+                        "k &gt; 2",
+                        "k &lt; -1 or k &gt; 2"
+                    ],
+                    "answerIndex": 3,
+                    "correctFeedback": "Correct. The quadratic formula gives x = k ± √(k<sup>2</sup> - k - 2). For two distinct real roots, k<sup>2</sup> - k - 2 &gt; 0, so (k - 2)(k + 1) &gt; 0. Therefore k &lt; -1 or k &gt; 2. If k &lt; -1, the root k - √(k<sup>2</sup> - k - 2) is negative. If k &gt; 2, both roots are positive because k &gt; √(k<sup>2</sup> - k - 2). Therefore k &gt; 2.",
+                    "incorrectFeedback": "Use the quadratic formula: x = k ± √(k<sup>2</sup> - k - 2). The discriminant condition gives k &lt; -1 or k &gt; 2. However, k &lt; -1 produces negative roots. When k &gt; 2, even the smaller root k - √(k<sup>2</sup> - k - 2) is positive. Therefore the answer is k &gt; 2."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 4 OF 20",
+                    "question": "The polynomial p(x) = x<sup>3</sup> + ax<sup>2</sup> + bx + 6 is divisible by both x - 1 and x + 2. What is the remainder when p(x) is divided by x - 3?",
+                    "options": [
+                        "-12",
+                        "-6",
+                        "0",
+                        "6",
+                        "12"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Since x - 1 is a factor, p(1) = 0, giving a + b = -7. Since x + 2 is a factor, p(-2) = 0, giving 2a - b = 1. Solving these equations gives a = -2 and b = -5. The remainder after division by x - 3 is p(3) = 27 - 18 - 15 + 6 = 0.",
+                    "incorrectFeedback": "Use the factor theorem twice. From p(1) = 0, obtain a + b = -7. From p(-2) = 0, obtain 2a - b = 1. This gives a = -2 and b = -5. The required remainder is p(3), which equals 0."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 5 OF 20",
+                    "question": "Let f(x) = |x - 2| + |x + 1|. What is the minimum value of f(x)?",
+                    "options": [
+                        "0, attained when x = 2",
+                        "1, attained when x = -<span class='math-frac'><span>1</span><span>2</span></span>",
+                        "3, attained only when x = <span class='math-frac'><span>1</span><span>2</span></span>",
+                        "3, attained for every x such that -1 ≤ x ≤ 2",
+                        "4, attained for every x such that -1 ≤ x ≤ 2"
+                    ],
+                    "answerIndex": 3,
+                    "correctFeedback": "Correct. For -1 ≤ x ≤ 2, we have |x - 2| = 2 - x and |x + 1| = x + 1. Therefore f(x) = (2 - x) + (x + 1) = 3 throughout the whole interval. Outside this interval, the total is greater than 3.",
+                    "incorrectFeedback": "Consider the interval between the two critical values, -1 and 2. For -1 ≤ x ≤ 2, |x - 2| = 2 - x and |x + 1| = x + 1. Their sum is always 3, so the minimum is attained throughout -1 ≤ x ≤ 2."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 6 OF 20",
+                    "question": "The graphs<span class='question-equation'>y = x<sup>2</sup> - 4x + 5</span>and<span class='question-equation'>y = mx + 1</span>meet at exactly one point. What are the possible values of m?",
+                    "options": [
+                        "m = -8 only",
+                        "m = 0 only",
+                        "m = -8 or m = 0",
+                        "m = -4 or m = 4",
+                        "Every real value of m"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. At an intersection, the two expressions for y are equal, so x<sup>2</sup> - 4x + 5 = mx + 1. Rearranging gives x<sup>2</sup> - (m + 4)x + 4 = 0.<br><br>The graphs meet at exactly one point only when this quadratic has one repeated root, so its discriminant is zero:<br>(m + 4)<sup>2</sup> - 4(1)(4) = 0.<br><br>Therefore (m + 4)<sup>2</sup> = 16, so m + 4 = ±4. Hence m = 0 or m = -8.",
+                    "incorrectFeedback": "Set the two expressions for y equal:<br>x<sup>2</sup> - 4x + 5 = mx + 1.<br><br>This rearranges to x<sup>2</sup> - (m + 4)x + 4 = 0. Exactly one intersection means this quadratic must have a repeated root, so its discriminant equals zero:<br>(m + 4)<sup>2</sup> - 16 = 0.<br><br>Thus m + 4 = ±4, giving m = 0 or m = -8."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 7 OF 20",
+                    "question": "A polynomial p(x) leaves remainders 4, 6 and 9 when divided by x - 1, x + 1 and x - 2 respectively. What is the remainder when p(x) is divided by<span class='question-equation'>(x - 1)(x + 1)(x - 2)?</span>",
+                    "options": [
+                        "2x<sup>2</sup> - x + 3",
+                        "2x<sup>2</sup> + x + 1",
+                        "x<sup>2</sup> - 2x + 5",
+                        "2x<sup>2</sup> - x - 3",
+                        "x<sup>2</sup> + x + 2"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. The divisor has degree 3, so the remainder must have degree less than 3. Write it as R(x) = ax<sup>2</sup> + bx + c.<br><br>The remainder theorem gives:<br>R(1) = a + b + c = 4,<br>R(-1) = a - b + c = 6,<br>R(2) = 4a + 2b + c = 9.<br><br>Subtracting the first two equations gives 2b = -2, so b = -1. Then a + c = 5. Using R(2) = 9 gives 4a + c = 11. Subtracting a + c = 5 gives 3a = 6, so a = 2 and c = 3.<br><br>Therefore the remainder is 2x<sup>2</sup> - x + 3.",
+                    "incorrectFeedback": "Because the divisor has degree 3, the remainder has the form R(x) = ax<sup>2</sup> + bx + c.<br><br>Use the given remainders:<br>a + b + c = 4,<br>a - b + c = 6,<br>4a + 2b + c = 9.<br><br>The first two equations give b = -1. They also give a + c = 5. Substituting b = -1 into the third equation gives 4a + c = 11. Hence a = 2 and c = 3, so R(x) = 2x<sup>2</sup> - x + 3."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 8 OF 20",
+                    "question": "The function f is defined by<span class='question-equation'>f(x) = <span class='math-frac'><span>x + 3</span><span>x - 1</span></span>, &nbsp; x ≠ 1.</span>What is f(f(x))?",
+                    "options": [
+                        "x",
+                        "-x",
+                        "<span class='math-frac'><span>1</span><span>x</span></span>",
+                        "<span class='math-frac'><span>x - 1</span><span>x + 3</span></span>",
+                        "It is undefined for every x"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. The rule f takes any input t and returns <span class='math-frac'><span>t + 3</span><span>t - 1</span></span>. Therefore, when the input is f(x),<br><br>f(f(x)) = <span class='math-frac'><span>f(x) + 3</span><span>f(x) - 1</span></span>.<br><br>Now simplify the top and bottom separately:<br>f(x) + 3 = <span class='math-frac'><span>x + 3</span><span>x - 1</span></span> + 3 = <span class='math-frac'><span>4x</span><span>x - 1</span></span>,<br><br>f(x) - 1 = <span class='math-frac'><span>x + 3</span><span>x - 1</span></span> - 1 = <span class='math-frac'><span>4</span><span>x - 1</span></span>.<br><br>So f(f(x)) = <span class='math-frac'><span>4x</span><span>x - 1</span></span> ÷ <span class='math-frac'><span>4</span><span>x - 1</span></span> = x. Applying f twice returns the original input.",
+                    "incorrectFeedback": "Remember that f(f(x)) means putting the whole expression f(x) back into the function.<br><br>The rule is f(t) = <span class='math-frac'><span>t + 3</span><span>t - 1</span></span>, so<br>f(f(x)) = <span class='math-frac'><span>f(x) + 3</span><span>f(x) - 1</span></span>.<br><br>Here, f(x) + 3 = <span class='math-frac'><span>4x</span><span>x - 1</span></span> and f(x) - 1 = <span class='math-frac'><span>4</span><span>x - 1</span></span>. Dividing these expressions gives x."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 9 OF 20",
+                    "question": "The equation<span class='question-equation'>√(x + 5) - √(x - 1) = 2</span>has one real solution. What is its value?",
+                    "options": [
+                        "1",
+                        "<span class='math-frac'><span>5</span><span>4</span></span>",
+                        "<span class='math-frac'><span>3</span><span>2</span></span>",
+                        "2",
+                        "<span class='math-frac'><span>9</span><span>4</span></span>"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. First rearrange so one square root is isolated:<br>√(x + 5) = 2 + √(x - 1).<br><br>Square both sides:<br>x + 5 = 4 + 4√(x - 1) + x - 1.<br><br>This simplifies to 2 = 4√(x - 1), so √(x - 1) = <span class='math-frac'><span>1</span><span>2</span></span>. Squaring again gives x - 1 = <span class='math-frac'><span>1</span><span>4</span></span>, so x = <span class='math-frac'><span>5</span><span>4</span></span>.<br><br>Checking: √(<span class='math-frac'><span>25</span><span>4</span></span>) - √(<span class='math-frac'><span>1</span><span>4</span></span>) = <span class='math-frac'><span>5</span><span>2</span></span> - <span class='math-frac'><span>1</span><span>2</span></span> = 2.",
+                    "incorrectFeedback": "Isolate one square root first:<br>√(x + 5) = 2 + √(x - 1).<br><br>Squaring gives x + 5 = x + 3 + 4√(x - 1). Therefore 2 = 4√(x - 1), so √(x - 1) = <span class='math-frac'><span>1</span><span>2</span></span>.<br><br>Hence x - 1 = <span class='math-frac'><span>1</span><span>4</span></span>, giving x = <span class='math-frac'><span>5</span><span>4</span></span>."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 10 OF 20",
+                    "question": "How many distinct real solutions does the equation<span class='question-equation'>|x<sup>2</sup> - 4| = x</span>have?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Since |x<sup>2</sup> - 4| is non-negative, any solution must satisfy x ≥ 0.<br><br>Case 1: x<sup>2</sup> - 4 ≥ 0. Then x<sup>2</sup> - 4 = x, so x<sup>2</sup> - x - 4 = 0. Its roots are <span class='math-frac'><span>1 ± √17</span><span>2</span></span>. Only the positive root is valid, and it is greater than 2, so this case gives one solution.<br><br>Case 2: x<sup>2</sup> - 4 &lt; 0. Then 4 - x<sup>2</sup> = x, so x<sup>2</sup> + x - 4 = 0. Its roots are <span class='math-frac'><span>-1 ± √17</span><span>2</span></span>. Only the positive root is valid, and it lies between 0 and 2, so this case gives one more solution.<br><br>Therefore there are 2 distinct real solutions.",
+                    "incorrectFeedback": "The right-hand side must be non-negative, so x ≥ 0. Now split the modulus into two cases.<br><br>If x<sup>2</sup> - 4 ≥ 0, solve x<sup>2</sup> - x - 4 = 0. Exactly one root satisfies x ≥ 2.<br><br>If x<sup>2</sup> - 4 &lt; 0, solve x<sup>2</sup> + x - 4 = 0. Exactly one root satisfies 0 ≤ x &lt; 2.<br><br>That gives 2 valid solutions in total."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 11 OF 20",
+                    "question": "The positive numbers x and y satisfy<span class='question-equation'>log<sub>2</sub>x + log<sub>2</sub>y = 6</span>and<span class='question-equation'>log<sub>x</sub>y = <span class='math-frac'><span>1</span><span>2</span></span>.</span>What is the value of x - y?",
+                    "options": [
+                        "4",
+                        "8",
+                        "12",
+                        "16",
+                        "20"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Use the addition law for logarithms:<br><br>log<sub>2</sub>x + log<sub>2</sub>y = log<sub>2</sub>(xy) = 6.<br><br>Therefore xy = 2<sup>6</sup> = 64.<br><br>The second equation, log<sub>x</sub>y = <span class='math-frac'><span>1</span><span>2</span></span>, means y = x<sup>1/2</sup> = √x.<br><br>Substituting y = √x into xy = 64 gives x√x = 64, so x<sup>3/2</sup> = 64. Raising both sides to the power <span class='math-frac'><span>2</span><span>3</span></span> gives x = 16. Therefore y = √16 = 4, and x - y = 16 - 4 = 12.",
+                    "incorrectFeedback": "First combine the logarithms:<br><br>log<sub>2</sub>x + log<sub>2</sub>y = log<sub>2</sub>(xy) = 6,<br><br>so xy = 64. Also, log<sub>x</sub>y = <span class='math-frac'><span>1</span><span>2</span></span> means y = √x. Substituting gives x√x = 64, or x<sup>3/2</sup> = 64. Hence x = 16 and y = 4, so x - y = 12."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 12 OF 20",
+                    "question": "Which set contains all the real solutions of<span class='question-equation'>3<sup>x+1</sup> + 3<sup>1-x</sup> = 10?</span>",
+                    "options": [
+                        "{-1}",
+                        "{1}",
+                        "{-1, 1}",
+                        "{0, 1}",
+                        "{0, 2}"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Let t = 3<sup>x</sup>. Since 3<sup>x</sup> is positive, t &gt; 0.<br><br>Then 3<sup>x+1</sup> = 3t and 3<sup>1-x</sup> = <span class='math-frac'><span>3</span><span>t</span></span>. The equation becomes:<br><br>3t + <span class='math-frac'><span>3</span><span>t</span></span> = 10.<br><br>Multiplying by t gives 3t<sup>2</sup> - 10t + 3 = 0. Factorising gives (3t - 1)(t - 3) = 0, so t = <span class='math-frac'><span>1</span><span>3</span></span> or t = 3.<br><br>Therefore 3<sup>x</sup> = 3<sup>-1</sup> or 3<sup>x</sup> = 3<sup>1</sup>, giving x = -1 or x = 1.",
+                    "incorrectFeedback": "Use the substitution t = 3<sup>x</sup>. Then 3<sup>x+1</sup> = 3t and 3<sup>1-x</sup> = <span class='math-frac'><span>3</span><span>t</span></span>.<br><br>The equation becomes 3t + <span class='math-frac'><span>3</span><span>t</span></span> = 10. Multiplying through by t and factorising gives (3t - 1)(t - 3) = 0. Hence t = <span class='math-frac'><span>1</span><span>3</span></span> or t = 3, so x = -1 or x = 1."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 13 OF 20",
+                    "question": "The set S is the complete set of values of x satisfying both inequalities<span class='question-equation'>x<sup>2</sup> - 9x + 14 &lt; 0</span>and<span class='question-equation'>3x + 1 &gt; 13.</span>Which single inequality also represents S?",
+                    "options": [
+                        "(x<sup>2</sup> - 9x + 14)(3x + 1) &lt; 0",
+                        "(x<sup>2</sup> - 9x + 14)(3x + 1) &gt; 0",
+                        "x<sup>2</sup> - 11x + 28 &lt; 0",
+                        "x<sup>2</sup> - 11x + 28 &gt; 0",
+                        "x<sup>2</sup> - 6x + 8 &lt; 0"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Factorise the first inequality:<br><br>x<sup>2</sup> - 9x + 14 = (x - 2)(x - 7).<br><br>The quadratic is negative between its roots, so the first inequality gives 2 &lt; x &lt; 7.<br><br>The second inequality gives 3x + 1 &gt; 13, so 3x &gt; 12 and therefore x &gt; 4.<br><br>Both conditions must hold, so S is 4 &lt; x &lt; 7. The quadratic with roots 4 and 7 is (x - 4)(x - 7). It is negative between its roots, so S can be written as (x - 4)(x - 7) &lt; 0. Expanding gives x<sup>2</sup> - 11x + 28 &lt; 0.",
+                    "incorrectFeedback": "Solve the two inequalities separately. The first factorises to (x - 2)(x - 7) &lt; 0, giving 2 &lt; x &lt; 7. The second gives x &gt; 4.<br><br>The intersection is therefore 4 &lt; x &lt; 7. A positive quadratic is negative between its roots, so use (x - 4)(x - 7) &lt; 0. Expanding gives x<sup>2</sup> - 11x + 28 &lt; 0."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 14 OF 20",
+                    "question": "The function f is defined by<span class='question-equation'>f(x) = x<sup>2</sup> - 6x + 11, &nbsp; x ≥ 3.</span>Which expression gives f<sup>-1</sup>(x)?",
+                    "options": [
+                        "3 + √(x - 2)",
+                        "3 - √(x - 2)",
+                        "√(x + 2) - 3",
+                        "√(x - 2) - 3",
+                        "6 + √(x - 11)"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. First complete the square:<br><br>f(x) = x<sup>2</sup> - 6x + 11 = (x - 3)<sup>2</sup> + 2.<br><br>Write y = (x - 3)<sup>2</sup> + 2. Rearranging gives (x - 3)<sup>2</sup> = y - 2.<br><br>Because the original domain is x ≥ 3, we know x - 3 ≥ 0. We must therefore take the positive square root:<br><br>x - 3 = √(y - 2).<br><br>Hence x = 3 + √(y - 2). Replacing y with x gives f<sup>-1</sup>(x) = 3 + √(x - 2).",
+                    "incorrectFeedback": "Complete the square first:<br><br>f(x) = (x - 3)<sup>2</sup> + 2.<br><br>Set y = (x - 3)<sup>2</sup> + 2 and rearrange to obtain x - 3 = ±√(y - 2). The original restriction x ≥ 3 means x - 3 must be non-negative, so take the positive square root. Therefore f<sup>-1</sup>(x) = 3 + √(x - 2)."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 15 OF 20",
+                    "question": "The polynomial<span class='question-equation'>p(x) = x<sup>3</sup> + ax<sup>2</sup> + bx + 4</span>is divisible by (x - 1)<sup>2</sup>. What is the value of p(-1)?",
+                    "options": [
+                        "-12",
+                        "-4",
+                        "0",
+                        "4",
+                        "12"
+                    ],
+                    "answerIndex": 4,
+                    "correctFeedback": "Correct. Since p(x) is a monic cubic and is divisible by (x - 1)<sup>2</sup>, it must have the form:<br><br>p(x) = (x - 1)<sup>2</sup>(x + c)<br><br>for some constant c. From the original expression, p(0) = 4. From the factorised expression, p(0) = (-1)<sup>2</sup>c = c. Therefore c = 4.<br><br>So p(x) = (x - 1)<sup>2</sup>(x + 4). Substituting x = -1 gives p(-1) = (-2)<sup>2</sup>(3) = 4 × 3 = 12.",
+                    "incorrectFeedback": "Because the cubic is monic and contains the repeated factor (x - 1)<sup>2</sup>, write p(x) = (x - 1)<sup>2</sup>(x + c).<br><br>The constant term is p(0) = c, but the question tells us the constant term is 4. Therefore c = 4. Now substitute x = -1 into (x - 1)<sup>2</sup>(x + 4), giving (-2)<sup>2</sup>(3) = 12."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 16 OF 20",
+                    "question": "For which values of k is<span class='question-equation'>x<sup>2</sup> + 2kx + k + 3 &gt; 0</span>for every real value of x?",
+                    "options": [
+                        "k &lt; <span class='math-frac'><span>1 - √13</span><span>2</span></span>",
+                        "<span class='math-frac'><span>1 - √13</span><span>2</span></span> &lt; k &lt; <span class='math-frac'><span>1 + √13</span><span>2</span></span>",
+                        "k &gt; <span class='math-frac'><span>1 + √13</span><span>2</span></span>",
+                        "k &lt; <span class='math-frac'><span>1 - √13</span><span>2</span></span> or k &gt; <span class='math-frac'><span>1 + √13</span><span>2</span></span>",
+                        "Every real value of k"
+                    ],
+                    "answerIndex": 1,
+                    "correctFeedback": "Correct. The coefficient of x<sup>2</sup> is positive, so the graph opens upwards. For the expression to be strictly positive for every real x, the graph must never touch or cross the x-axis. Its discriminant must therefore be negative.<br><br>(2k)<sup>2</sup> - 4(1)(k + 3) &lt; 0.<br><br>This simplifies to 4k<sup>2</sup> - 4k - 12 &lt; 0, and hence k<sup>2</sup> - k - 3 &lt; 0.<br><br>The boundary values are found from k<sup>2</sup> - k - 3 = 0, giving k = <span class='math-frac'><span>1 ± √13</span><span>2</span></span>. Since the quadratic in k opens upwards, it is negative between its roots. Therefore <span class='math-frac'><span>1 - √13</span><span>2</span></span> &lt; k &lt; <span class='math-frac'><span>1 + √13</span><span>2</span></span>.",
+                    "incorrectFeedback": "The graph opens upwards because the coefficient of x<sup>2</sup> is positive. To be strictly above the x-axis for every x, it must have no real roots, so the discriminant must be negative.<br><br>This gives (2k)<sup>2</sup> - 4(k + 3) &lt; 0, which simplifies to k<sup>2</sup> - k - 3 &lt; 0. The roots are <span class='math-frac'><span>1 ± √13</span><span>2</span></span>, and the expression is negative between them."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 17 OF 20",
+                    "question": "Evaluate<span class='question-equation'>(√(5 + 2√6) - √(5 - 2√6))<sup>2</sup>.</span>",
+                    "options": [
+                        "2",
+                        "4",
+                        "6",
+                        "8",
+                        "10"
+                    ],
+                    "answerIndex": 3,
+                    "correctFeedback": "Correct. Use (a - b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab.<br><br>The expression becomes:<br><br>(5 + 2√6) + (5 - 2√6) - 2√((5 + 2√6)(5 - 2√6)).<br><br>The first two terms add to 10. The product inside the square root is a difference of squares:<br><br>(5 + 2√6)(5 - 2√6) = 25 - (2√6)<sup>2</sup> = 25 - 24 = 1.<br><br>Therefore the value is 10 - 2√1 = 10 - 2 = 8.",
+                    "incorrectFeedback": "Expand using (a - b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab. The two squared terms add to 10.<br><br>For the product, use the conjugates: (5 + 2√6)(5 - 2√6) = 25 - 24 = 1. Therefore the full expression is 10 - 2√1 = 8."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 18 OF 20",
+                    "question": "How many real solutions does the equation<span class='question-equation'><span class='math-frac'><span>x + 1</span><span>x - 2</span></span> + <span class='math-frac'><span>x - 2</span><span>x + 1</span></span> = 2</span>have?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. First note that x ≠ 2 and x ≠ -1. Multiply the equation by (x - 2)(x + 1):<br><br>(x + 1)<sup>2</sup> + (x - 2)<sup>2</sup> = 2(x - 2)(x + 1).<br><br>Expanding the left-hand side gives 2x<sup>2</sup> - 2x + 5. Expanding the right-hand side gives 2x<sup>2</sup> - 2x - 4.<br><br>The equation would therefore require 2x<sup>2</sup> - 2x + 5 = 2x<sup>2</sup> - 2x - 4, which simplifies to 5 = -4. This is impossible, so there are no real solutions.",
+                    "incorrectFeedback": "Multiply both sides by (x - 2)(x + 1). This gives (x + 1)<sup>2</sup> + (x - 2)<sup>2</sup> = 2(x - 2)(x + 1).<br><br>After expanding, the left-hand side is 2x<sup>2</sup> - 2x + 5, while the right-hand side is 2x<sup>2</sup> - 2x - 4. This would imply 5 = -4, so the equation has 0 real solutions."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 19 OF 20",
+                    "question": "The functions f and g are defined by<span class='question-equation'>f(x) = √(2x - 1)</span>and<span class='question-equation'>g(x) = <span class='math-frac'><span>1</span><span>x - 3</span></span>.</span>What is the domain of f(g(x))?",
+                    "options": [
+                        "x &lt; 3",
+                        "3 &lt; x &lt; 5",
+                        "3 &lt; x ≤ 5",
+                        "x ≥ 5",
+                        "x ≠ 3"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Substituting g(x) into f gives:<br><br>f(g(x)) = √(<span class='math-frac'><span>2</span><span>x - 3</span></span> - 1).<br><br>The expression inside the square root must be non-negative:<br><br><span class='math-frac'><span>2</span><span>x - 3</span></span> - 1 ≥ 0.<br><br>Combining the terms gives <span class='math-frac'><span>5 - x</span><span>x - 3</span></span> ≥ 0. The critical values are x = 3 and x = 5.<br><br>x = 3 must be excluded because it makes the denominator zero. A sign check shows the fraction is positive between 3 and 5, while x = 5 is included because it makes the fraction zero. Therefore the domain is 3 &lt; x ≤ 5.",
+                    "incorrectFeedback": "Form the composite function first:<br><br>f(g(x)) = √(<span class='math-frac'><span>2</span><span>x - 3</span></span> - 1).<br><br>The quantity inside the square root must be at least zero. This gives <span class='math-frac'><span>5 - x</span><span>x - 3</span></span> ≥ 0. The fraction is non-negative for 3 &lt; x ≤ 5. The value x = 3 is excluded because the denominator would be zero, but x = 5 is included."
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · 20 OF 20",
+                    "question": "A number x satisfies<span class='question-equation'>x<sup>2</sup> - 5x + 3 = 0.</span>Let<span class='question-equation'>t = x<sup>2</sup>.</span>Which equation must t satisfy?",
+                    "options": [
+                        "t<sup>2</sup> - 19t + 9 = 0",
+                        "t<sup>2</sup> - 25t + 9 = 0",
+                        "t<sup>2</sup> - 19t + 3 = 0",
+                        "t<sup>2</sup> - 10t + 9 = 0",
+                        "t<sup>2</sup> - 19t - 9 = 0"
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. Since t = x<sup>2</sup>, the original equation becomes:<br><br>t - 5x + 3 = 0.<br><br>Rearranging gives 5x = t + 3, so x = <span class='math-frac'><span>t + 3</span><span>5</span></span>.<br><br>But t = x<sup>2</sup>, so substitute this expression for x:<br><br>t = (<span class='math-frac'><span>t + 3</span><span>5</span></span>)<sup>2</sup>.<br><br>Multiplying by 25 gives 25t = (t + 3)<sup>2</sup>. Expanding gives 25t = t<sup>2</sup> + 6t + 9. Moving everything to one side gives t<sup>2</sup> - 19t + 9 = 0.",
+                    "incorrectFeedback": "Use only substitution. Since t = x<sup>2</sup>, rewrite the original equation as t - 5x + 3 = 0. Therefore x = <span class='math-frac'><span>t + 3</span><span>5</span></span>.<br><br>Now use t = x<sup>2</sup>:<br><br>t = (<span class='math-frac'><span>t + 3</span><span>5</span></span>)<sup>2</sup>.<br><br>Multiplying out gives 25t = t<sup>2</sup> + 6t + 9, so t<sup>2</sup> - 19t + 9 = 0."
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "ALGEBRA EXAM PRACTICE · COMPLETE",
+                    "title": "Algebra and Functions: exam practice complete",
+                    "keyPoints": [
+                        "Index expressions can often be simplified by introducing a substitution.",
+                        "When rationalising a two-term denominator, multiply by its conjugate.",
+                        "For parameterised quadratics, check both the number and signs of the roots.",
+                        "The factor theorem can create simultaneous equations for unknown coefficients.",
+                        "A sum of distances represented by modulus expressions may be constant across an interval."
+                    ],
+                    "reviewItems": [
+                        "Review Question 1 if the cubic identity was difficult to spot.",
+                        "Review Question 3 if you found the parameter conditions difficult.",
+                        "Review the difference between the factor theorem and remainder theorem.",
+                        "Try the questions again without reading the solutions."
+                    ],
+                    "buttonText": "Finish questions"
+                }
+            ]
         },
         {
-          "type": "reveal",
-          "eyebrow": "SURDS · 6 OF 11",
-          "title": "Rationalising the denominator",
-          "steps": [
-            {
-              "title": "The aim",
-              "body": "Rationalising means rewriting a fraction so there is no surd left in the denominator."
-            },
-            {
-              "title": "Simple case",
-              "body": "For <span class='math-frac'><span>5</span><span>√3</span></span>, multiply the top and bottom by √3."
-            },
-            {
-              "title": "Do the multiplication",
-              "body": "<span class='math-frac'><span>5</span><span>√3</span></span> × <span class='math-frac'><span>√3</span><span>√3</span></span> = <span class='math-frac'><span>5√3</span><span>3</span></span>."
-            },
-            {
-              "title": "Harder case",
-              "body": "If the denominator has two terms, like 2 + √3, multiply by the conjugate 2 - √3."
-            },
-            {
-              "title": "Why the conjugate works",
-              "body": "(2 + √3)(2 - √3) = 2<sup>2</sup> - (√3)<sup>2</sup> = 4 - 3 = 1."
-            }
-          ],
-          "buttonText": "Continue"
+            "id": "arithmetic-geometric-progressions",
+            "topicId": "topic-2",
+            "title": "Arithmetic & Geometric Progressions",
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "SEQUENCES · 1 OF 20",
+                    "title": "Two ways to define a sequence",
+                    "body": "A sequence is an ordered list of numbers. It can be defined directly by a formula for its nth term, or generated one term at a time using a recurrence relation.<br><br>For example, <span class='math-nowrap'>u<sub>n</sub> = 3n - 1</span> defines every term directly. Substituting n = 1, 2, 3, ... gives 2, 5, 8, 11, ...<br><br>A recurrence relation instead uses an earlier term to generate the next term.",
+                    "keyPoint": "A recurrence relation normally needs both a rule and a starting value. For example, u<sub>1</sub> = 2 and u<sub>n+1</sub> = 2u<sub>n</sub> - 1 generate the sequence 2, 3, 5, 9, ...",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "SEQUENCES · 2 OF 20",
+                    "title": "Generate terms from a recurrence relation",
+                    "steps": [
+                        {
+                            "title": "Start with the given first term",
+                            "body": "Suppose u<sub>1</sub> = 4 and u<sub>n+1</sub> = 3u<sub>n</sub> - 2. We begin with u<sub>1</sub> = 4."
+                        },
+                        {
+                            "title": "Find the second term",
+                            "body": "u<sub>2</sub> = 3u<sub>1</sub> - 2 = 3(4) - 2 = 10."
+                        },
+                        {
+                            "title": "Find the third term",
+                            "body": "u<sub>3</sub> = 3u<sub>2</sub> - 2 = 3(10) - 2 = 28."
+                        },
+                        {
+                            "title": "Find the fourth term",
+                            "body": "u<sub>4</sub> = 3u<sub>3</sub> - 2 = 3(28) - 2 = 82."
+                        },
+                        {
+                            "title": "State the answer",
+                            "body": "Therefore u<sub>4</sub> = 82. Each new term must be found using the term immediately before it."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "SEQUENCE CHECK · 3 OF 20",
+                    "question": "The sequence (x<sub>n</sub>) is defined by<span class='question-equation'>x<sub>1</sub> = 3, &nbsp; x<sub>n+1</sub> = 2x<sub>n</sub> + 1.</span>What is x<sub>4</sub>?",
+                    "prompt": "Apply the recurrence relation one term at a time.",
+                    "options": [
+                        "15",
+                        "23",
+                        "31",
+                        "39",
+                        "47"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Start with x<sub>1</sub> = 3.<br><br>x<sub>2</sub> = 2(3) + 1 = 7,<br>x<sub>3</sub> = 2(7) + 1 = 15,<br>x<sub>4</sub> = 2(15) + 1 = 31.<br><br>Therefore x<sub>4</sub> = 31.",
+                    "incorrectFeedback": "Apply the recurrence repeatedly, beginning with x<sub>1</sub> = 3.<br><br>x<sub>2</sub> = 7, x<sub>3</sub> = 15 and x<sub>4</sub> = 31.<br><br>The answer is 31."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 4 OF 20",
+                    "title": "Sequence rules understood.",
+                    "body": "You can now generate terms from both an nth-term formula and a simple recurrence relation.<br><br>Next, we will study sequences whose terms change by a constant difference.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "ARITHMETIC PROGRESSIONS · 5 OF 20",
+                    "title": "Arithmetic progressions have a constant difference",
+                    "body": "An arithmetic progression is a sequence in which the difference between consecutive terms is constant.<br><br>For example, 7, 11, 15, 19, ... has common difference d = 4.",
+                    "keyPoint": "If the first term is a and the common difference is d, then the nth term is u<sub>n</sub> = a + (n - 1)d. The n - 1 appears because no difference has been added at the first term.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "ARITHMETIC PROGRESSIONS · 6 OF 20",
+                    "title": "Find the position of a term",
+                    "steps": [
+                        {
+                            "title": "Identify the first term and difference",
+                            "body": "Consider the arithmetic progression 8, 13, 18, 23, ... Here a = 8 and d = 5."
+                        },
+                        {
+                            "title": "Write the nth term",
+                            "body": "u<sub>n</sub> = a + (n - 1)d, so u<sub>n</sub> = 8 + 5(n - 1)."
+                        },
+                        {
+                            "title": "Set the nth term equal to 103",
+                            "body": "8 + 5(n - 1) = 103."
+                        },
+                        {
+                            "title": "Solve for n",
+                            "body": "5(n - 1) = 95, so n - 1 = 19 and n = 20."
+                        },
+                        {
+                            "title": "Interpret the result",
+                            "body": "Therefore 103 is the 20th term of the progression."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "ARITHMETIC CHECK · 7 OF 20",
+                    "question": "An arithmetic progression has third term 11 and eighth term 31.<br><br>What is its first term?",
+                    "prompt": "Write an equation for each of the two given terms.",
+                    "options": [
+                        "-1",
+                        "1",
+                        "3",
+                        "5",
+                        "7"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Using u<sub>n</sub> = a + (n - 1)d:<br><br>The third term gives a + 2d = 11.<br>The eighth term gives a + 7d = 31.<br><br>Subtracting the equations gives 5d = 20, so d = 4.<br><br>Substitute into a + 2d = 11:<br>a + 8 = 11, so a = 3.",
+                    "incorrectFeedback": "The third and eighth terms give:<br><br>a + 2d = 11<br>a + 7d = 31.<br><br>Subtracting gives 5d = 20, so d = 4. Substituting back gives a = 3."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 8 OF 20",
+                    "title": "Arithmetic terms mastered.",
+                    "body": "You can now identify a common difference, find an nth term and recover unknown information from given terms.<br><br>Next, we will add the terms of an arithmetic progression.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "ARITHMETIC SERIES · 9 OF 20",
+                    "title": "A series is the sum of sequence terms",
+                    "body": "A sequence lists terms, while a series adds them.<br><br>For an arithmetic progression with first term a, common difference d and n terms, the sum is<span class='question-equation'>S<sub>n</sub> = <span class='math-frac'><span>n</span><span>2</span></span>(2a + (n - 1)d).</span>If the final term l is known, the equivalent form is<span class='question-equation'>S<sub>n</sub> = <span class='math-frac'><span>n</span><span>2</span></span>(a + l).</span>",
+                    "keyPoint": "For the natural numbers, 1 + 2 + ... + n = n(n + 1)/2.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "ARITHMETIC SERIES · 10 OF 20",
+                    "title": "Find an arithmetic-series sum",
+                    "steps": [
+                        {
+                            "title": "Identify the progression",
+                            "body": "Find 7 + 12 + 17 + ... + 102. The first term is 7 and the common difference is 5."
+                        },
+                        {
+                            "title": "Find the number of terms",
+                            "body": "The nth term is 7 + 5(n - 1). Set this equal to 102."
+                        },
+                        {
+                            "title": "Solve for n",
+                            "body": "7 + 5(n - 1) = 102 gives 5(n - 1) = 95, so n = 20."
+                        },
+                        {
+                            "title": "Use the first and final terms",
+                            "body": "S<sub>20</sub> = <span class='math-frac'><span>20</span><span>2</span></span>(7 + 102)."
+                        },
+                        {
+                            "title": "Calculate the sum",
+                            "body": "S<sub>20</sub> = 10(109) = 1090."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "SERIES CHECK · 11 OF 20",
+                    "question": "The sum of the first n natural numbers is 210.<br><br>What is n?",
+                    "prompt": "Use the formula for 1 + 2 + ... + n.",
+                    "options": [
+                        "14",
+                        "15",
+                        "20",
+                        "21",
+                        "28"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Use<span class='question-equation'><span class='math-frac'><span>n(n + 1)</span><span>2</span></span> = 210.</span>Therefore n(n + 1) = 420.<br><br>Since 20 × 21 = 420, we obtain n = 20.",
+                    "incorrectFeedback": "Use n(n + 1)/2 = 210. Multiplying by 2 gives n(n + 1) = 420.<br><br>The consecutive numbers 20 and 21 have product 420, so n = 20."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 12 OF 20",
+                    "title": "Arithmetic sums complete.",
+                    "body": "You can now sum finite arithmetic series and use the formula for the sum of the first n natural numbers.<br><br>Next, we will study sequences that change by multiplication rather than addition.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "GEOMETRIC PROGRESSIONS · 13 OF 20",
+                    "title": "Geometric progressions have a constant ratio",
+                    "body": "A geometric progression is a sequence in which each term is obtained by multiplying the previous term by a constant ratio r.<br><br>For example, 5, 15, 45, 135, ... has common ratio r = 3.",
+                    "keyPoint": "If the first term is a and the common ratio is r, then u<sub>n</sub> = ar<sup>n-1</sup>. A negative ratio creates an alternating sequence, such as 4, -8, 16, -32, ...",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "GEOMETRIC PROGRESSIONS · 14 OF 20",
+                    "title": "Use two terms to find a geometric progression",
+                    "steps": [
+                        {
+                            "title": "Write the two given terms",
+                            "body": "A geometric progression has second term 12 and fifth term 324. Therefore ar = 12 and ar<sup>4</sup> = 324."
+                        },
+                        {
+                            "title": "Divide the equations",
+                            "body": "<span class='math-frac'><span>ar<sup>4</sup></span><span>ar</span></span> = <span class='math-frac'><span>324</span><span>12</span></span>, so r<sup>3</sup> = 27."
+                        },
+                        {
+                            "title": "Find the positive ratio",
+                            "body": "The question states that the ratio is positive, so r = 3."
+                        },
+                        {
+                            "title": "Find the first term",
+                            "body": "Since ar = 12, we have 3a = 12, so a = 4."
+                        },
+                        {
+                            "title": "State the result",
+                            "body": "The progression begins 4, 12, 36, 108, 324, ..."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "GEOMETRIC CHECK · 15 OF 20",
+                    "question": "The first three terms of a geometric progression are<span class='question-equation'>x, &nbsp; 12, &nbsp; 18,</span>where x &gt; 0. What is x?",
+                    "prompt": "The ratio between each pair of consecutive terms must be equal.",
+                    "options": [
+                        "4",
+                        "6",
+                        "8",
+                        "9",
+                        "10"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. The common ratio from 12 to 18 is<span class='question-equation'>r = <span class='math-frac'><span>18</span><span>12</span></span> = <span class='math-frac'><span>3</span><span>2</span></span>.</span>Therefore 12 = x(3/2). Multiplying by 2/3 gives x = 8.",
+                    "incorrectFeedback": "First find the common ratio: 18/12 = 3/2.<br><br>Since the second term is obtained by multiplying x by 3/2, we have 12 = 3x/2. Therefore x = 8."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 16 OF 20",
+                    "title": "Geometric terms mastered.",
+                    "body": "You can now recognise geometric progressions, work with negative ratios and find unknown terms using u<sub>n</sub> = ar<sup>n-1</sup>.<br><br>The final block covers the sum of a finite geometric series.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "FINITE GEOMETRIC SERIES · 17 OF 20",
+                    "title": "Summing a finite geometric series",
+                    "body": "For a geometric progression with first term a, common ratio r and n terms, the finite sum is<span class='question-equation'>S<sub>n</sub> = <span class='math-frac'><span>a(1 - r<sup>n</sup>)</span><span>1 - r</span></span>, &nbsp; r ≠ 1.</span>An equivalent form is<span class='question-equation'>S<sub>n</sub> = <span class='math-frac'><span>a(r<sup>n</sup> - 1)</span><span>r - 1</span></span>.</span>",
+                    "keyPoint": "Both formulas are equivalent. Choose the version that makes the signs easiest to manage. This lesson only considers a finite number of terms; sum to infinity comes later.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "FINITE GEOMETRIC SERIES · 18 OF 20",
+                    "title": "Sum a finite geometric series",
+                    "steps": [
+                        {
+                            "title": "Identify the first term and ratio",
+                            "body": "Find 3 + 6 + 12 + ... + 1536. Here a = 3 and r = 2."
+                        },
+                        {
+                            "title": "Find the number of terms",
+                            "body": "The nth term is 3(2<sup>n-1</sup>). Set 3(2<sup>n-1</sup>) = 1536."
+                        },
+                        {
+                            "title": "Solve for n",
+                            "body": "2<sup>n-1</sup> = 512 = 2<sup>9</sup>, so n - 1 = 9 and n = 10."
+                        },
+                        {
+                            "title": "Use the finite-sum formula",
+                            "body": "S<sub>10</sub> = <span class='math-frac'><span>3(2<sup>10</sup> - 1)</span><span>2 - 1</span></span>."
+                        },
+                        {
+                            "title": "Calculate the result",
+                            "body": "S<sub>10</sub> = 3(1024 - 1) = 3(1023) = 3069."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "FINITE SERIES CHECK · 19 OF 20",
+                    "question": "A finite geometric series has first term 5, common ratio 2 and sum 635.<br><br>How many terms does it contain?",
+                    "prompt": "Substitute the given values into the finite geometric-series formula.",
+                    "options": [
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Using the finite geometric-series formula:<br><br>S<sub>n</sub> = 5(2<sup>n</sup> - 1), because r - 1 = 1.<br><br>Therefore 5(2<sup>n</sup> - 1) = 635.<br><br>Divide by 5:<br>2<sup>n</sup> - 1 = 127.<br><br>Hence 2<sup>n</sup> = 128 = 2<sup>7</sup>, so n = 7.",
+                    "incorrectFeedback": "Use S<sub>n</sub> = 5(2<sup>n</sup> - 1).<br><br>Setting this equal to 635 gives 2<sup>n</sup> - 1 = 127, so 2<sup>n</sup> = 128.<br><br>Since 128 = 2<sup>7</sup>, the series contains 7 terms."
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "LESSON SUMMARY · 20 OF 20",
+                    "title": "Arithmetic and Geometric Progressions: key points",
+                    "keyPoints": [
+                        "A sequence may be defined by an nth-term formula or generated using a recurrence relation.",
+                        "A recurrence relation needs a starting value as well as a rule.",
+                        "For an arithmetic progression, u<sub>n</sub> = a + (n - 1)d.",
+                        "For an arithmetic series, S<sub>n</sub> = n(2a + (n - 1)d)/2.",
+                        "The sum of the first n natural numbers is n(n + 1)/2.",
+                        "For a geometric progression, u<sub>n</sub> = ar<sup>n-1</sup>.",
+                        "For a finite geometric series, S<sub>n</sub> = a(1 - r<sup>n</sup>)/(1 - r).",
+                        "A negative common ratio creates an alternating geometric progression."
+                    ],
+                    "reviewItems": [
+                        "Practise generating terms from recurrence relations.",
+                        "Practise finding unknown arithmetic terms from two given terms.",
+                        "Practise deciding which arithmetic-series formula is most convenient.",
+                        "Practise finding the first term and ratio of a geometric progression.",
+                        "Practise finding the number of terms before calculating a finite sum.",
+                        "Next lesson: Binomial Expansion and Factorials."
+                    ],
+                    "buttonText": "Finish lesson"
+                }
+            ]
         },
         {
-          "type": "multipleChoice",
-          "eyebrow": "SURDS CHECK · 7 OF 11",
-          "question": "Which of the following is equal to <span class='math-frac'><span>6</span><span>2 + √3</span></span>?",
-          "prompt": "Use the conjugate of the denominator.",
-          "options": ["12 - 6√3", "12 + 6√3", "6√3 - 12", "2 - √3"],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. Multiply by 2 - √3. The denominator becomes (2 + √3)(2 - √3) = 1, so the expression becomes 6(2 - √3) = 12 - 6√3.",
-          "incorrectFeedback": "Not quite. The conjugate of 2 + √3 is 2 - √3. The denominator becomes 4 - 3 = 1, so the result is 6(2 - √3) = 12 - 6√3."
+            "id": "binomial-expansion-factorials",
+            "topicId": "topic-2",
+            "title": "Binomial Expansion & Factorials",
+            "screens": []
         },
         {
-          "type": "milestone",
-          "eyebrow": "NICE WORK · 8 OF 11",
-          "title": "Surds done.",
-          "body": "You have practised exact surd manipulation and rationalising denominators. Next up, and finally for this section: polynomials.",
-          "buttonText": "Continue"
+            "id": "advanced-series-logic",
+            "topicId": "topic-2",
+            "title": "Advanced Series Logic",
+            "screens": []
         },
         {
-          "type": "concept",
-          "eyebrow": "POLYNOMIALS · 9 OF 11",
-          "title": "Polynomials are about structure",
-          "body": "For TMUA algebra, polynomials often appear with hidden information: a known factor, a remainder, an unknown constant, or a root. The key is knowing what substitution tells you.",
-          "keyPoint": "If a polynomial f(x) is divided by x - a, the remainder is f(a). If f(a) = 0, then x - a is a factor.",
-          "buttonText": "Continue"
+            "id": "sequences-series-exam-style-questions",
+            "topicId": "topic-2",
+            "title": "Exam-style Questions",
+            "screens": []
         },
         {
-          "type": "reveal",
-          "eyebrow": "POLYNOMIALS · 10 OF 11",
-          "title": "Remainder theorem and factor theorem",
-          "steps": [
-            {
-              "title": "Start with the divisor",
-              "body": "If a polynomial is divided by x - a, substitute x = a into the polynomial."
-            },
-            {
-              "title": "Remainder theorem",
-              "body": "The remainder when f(x) is divided by x - a is f(a). For example, if dividing by x - 2, the remainder is f(2)."
-            },
-            {
-              "title": "Factor theorem",
-              "body": "The factor theorem is a specific case of the remainder theorem. If f(a) = 0, the remainder is zero, so x - a is a factor."
-            },
-            {
-              "title": "Unknown constants",
-              "body": "If a question says the remainder is 7, set f(a) = 7. If it says x - a is a factor, set f(a) = 0."
-            }
-          ],
-          "buttonText": "Continue"
+            "id": "lines-gradients",
+            "topicId": "topic-3",
+            "title": "Lines & Gradients",
+            "screens": []
         },
         {
-          "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 11 OF 11",
-          "title": "Indices, Surds and Polynomials: key points",
-          "keyPoints": [
-            "Rewrite roots and denominators using powers when it makes algebra easier.",
-            "Split algebraic fractions before simplifying term by term.",
-            "Surds are exact values and should often be simplified rather than decimalised.",
-            "To rationalise a denominator with two terms, multiply by the conjugate.",
-            "The remainder when f(x) is divided by x - a is f(a).",
-            "The factor theorem is the zero-remainder case of the remainder theorem."
-          ],
-          "reviewItems": [
-            "Practise simplifying expressions involving x√x and negative powers.",
-            "Practise rationalising denominators with conjugates.",
-            "Practise using f(a) to handle polynomial remainders and factors.",
-            "Next lesson: exponential equations and hidden quadratics."
-          ],
-          "buttonText": "Finish lesson"
+            "id": "circle-equations-intersections",
+            "topicId": "topic-3",
+            "title": "Circle Equations & Intersections",
+            "screens": []
+        },
+        {
+            "id": "circle-theorems-axes",
+            "topicId": "topic-3",
+            "title": "Circle Theorems on Axes",
+            "screens": []
+        },
+        {
+            "id": "coordinate-geometry-exam-style-questions",
+            "topicId": "topic-3",
+            "title": "Exam-style Questions",
+            "screens": []
+        },
+        {
+            "id": "triangles-radians",
+            "topicId": "topic-4",
+            "title": "Triangles & Radians",
+            "screens": []
+        },
+        {
+            "id": "values-graphs-identities",
+            "topicId": "topic-4",
+            "title": "Values, Graphs, & Identities",
+            "screens": []
+        },
+        {
+            "id": "solving-equations",
+            "topicId": "topic-4",
+            "title": "Solving Equations",
+            "screens": []
+        },
+        {
+            "id": "trigonometry-exam-style-questions",
+            "topicId": "topic-4",
+            "title": "Exam-style Questions",
+            "screens": []
+        },
+        {
+            "id": "log-laws-exponential-graphs",
+            "topicId": "topic-5",
+            "title": "Log Laws & Exponential Graphs",
+            "screens": [
+                {
+                    "type": "trueFalse",
+                    "eyebrow": "LOG LAWS · 1 OF 4",
+                    "question": "Adding Log(A) and Log(B) gives Log(AB)",
+                    "answer": true,
+                    "correctFeedback": "Exactly. Log(A) + Log(B) = Log(AB)",
+                    "incorrectFeedback": "When adding two logarithms of the same base, you can simply take the logarithm of the product"
+                }
+            ]
+        },
+        {
+            "id": "solving-exponential-log-equations",
+            "topicId": "topic-5",
+            "title": "Solving Exponential & Log Equations",
+            "screens": []
+        },
+        {
+            "id": "advanced-log-reasoning",
+            "topicId": "topic-5",
+            "title": "Advanced Log Reasoning",
+            "screens": []
+        },
+        {
+            "id": "exponentials-logarithms-exam-style-questions",
+            "topicId": "topic-5",
+            "title": "Exam-style Questions",
+            "screens": []
+        },
+        {
+            "id": "differentiation-turning-points",
+            "topicId": "topic-6",
+            "title": "Differentiation & Turning Points",
+            "screens": []
+        },
+        {
+            "id": "integration-area",
+            "topicId": "topic-6",
+            "title": "Integration & Area",
+            "screens": []
+        },
+        {
+            "id": "trapezium-rule-integration-logic",
+            "topicId": "topic-6",
+            "title": "Trapezium Rule & Integration Logic",
+            "screens": []
+        },
+        {
+            "id": "calculus-exam-style-questions",
+            "topicId": "topic-6",
+            "title": "Exam-style Questions",
+            "screens": []
+        },
+        {
+            "id": "graph-transformations",
+            "topicId": "topic-7",
+            "title": "Graph Transformations",
+            "screens": []
+        },
+        {
+            "id": "geometry-proportion",
+            "topicId": "topic-7",
+            "title": "Geometry and Proportion",
+            "screens": []
+        },
+        {
+            "id": "statistic-probability",
+            "topicId": "topic-7",
+            "title": "Statistics & Probability",
+            "screens": []
+        },
+        {
+            "id": "geometry-data-exam-style-questions",
+            "topicId": "topic-7",
+            "title": "Exam-style Questions",
+            "screens": []
+        },
+        {
+            "id": "logic-of-arguments",
+            "topicId": "topic-8",
+            "title": "Logic of Arguments",
+            "screens": []
+        },
+        {
+            "id": "methods-of-proof-quantifiers",
+            "topicId": "topic-8",
+            "title": "Methods of Proof & Quantifiers",
+            "screens": []
+        },
+        {
+            "id": "disproving-statements",
+            "topicId": "topic-8",
+            "title": "Disproving Statements",
+            "screens": []
+        },
+        {
+            "id": "logic-proof-exam-style-questions",
+            "topicId": "topic-8",
+            "title": "Exam-style Questions",
+            "screens": []
+        },
+        {
+            "id": "quadratics-inequalities-1",
+            "topicId": "topic-1",
+            "title": "Quadratics and Inequalities",
+            "screens": [
+                {
+                    "type": "concept",
+                    "eyebrow": "QUADRATICS · 1 OF 11",
+                    "title": "Quadratics can be read in different ways",
+                    "body": "In TMUA questions, a quadratic is often useful because different forms reveal different information. Expanded form shows coefficients, factorised form shows roots, and completed-square form shows the turning point.",
+                    "keyPoint": "For example, x<sup>2</sup> - 6x + 5 = (x - 1)(x - 5) = (x - 3)<sup>2</sup> - 4. Each form tells you something different.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "reveal",
+                    "eyebrow": "QUADRATICS · 2 OF 11",
+                    "title": "Read information from the useful form",
+                    "steps": [
+                        {
+                            "title": "Start with the quadratic",
+                            "body": "Let f(x) = x<sup>2</sup> - 6x + 5."
+                        },
+                        {
+                            "title": "Factorise to find the roots",
+                            "body": "x<sup>2</sup> - 6x + 5 = (x - 1)(x - 5), so the roots are x = 1 and x = 5."
+                        },
+                        {
+                            "title": "Complete the square",
+                            "body": "x<sup>2</sup> - 6x + 5 = (x - 3)<sup>2</sup> - 4."
+                        },
+                        {
+                            "title": "Read the turning point",
+                            "body": "From (x - 3)<sup>2</sup> - 4, the turning point is (3, -4). Since the coefficient of x<sup>2</sup> is positive, this is a minimum."
+                        }
+                    ],
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "QUICK CHECK · 3 OF 11",
+                    "question": "For f(x) = x<sup>2</sup> - 6x + 5, which statement is true?",
+                    "prompt": "Use both the factorised form and the completed-square form.",
+                    "options": [
+                        "The roots are x = 1 and x = 5, and the minimum value is -4.",
+                        "The roots are x = -1 and x = -5, and the minimum value is 4.",
+                        "The roots are x = 1 and x = 5, and the maximum value is -4.",
+                        "The turning point is (6, 5)."
+                    ],
+                    "answerIndex": 0,
+                    "correctFeedback": "Correct. x<sup>2</sup> - 6x + 5 = (x - 1)(x - 5), so the roots are 1 and 5. Also, x<sup>2</sup> - 6x + 5 = (x - 3)<sup>2</sup> - 4, so the minimum value is -4.",
+                    "incorrectFeedback": "Not quite. Factorising gives roots x = 1 and x = 5. Completing the square gives (x - 3)<sup>2</sup> - 4, so the minimum value is -4."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 4 OF 11",
+                    "title": "You can now read a quadratic.",
+                    "body": "You have used different forms of the same quadratic to find roots, turning points, and graph behaviour. Next up: hidden quadratics.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "HIDDEN QUADRATICS · 5 OF 11",
+                    "title": "Some equations are quadratic in disguise",
+                    "body": "A hidden quadratic appears when an equation is not written directly as ax<sup>2</sup> + bx + c = 0, but can become a quadratic after a substitution. A common example is replacing x<sup>2</sup> with u.",
+                    "keyPoint": "If you see x<sup>4</sup>, x<sup>2</sup>, and a constant, try u = x<sup>2</sup>. Then x<sup>4</sup> becomes u<sup>2</sup>.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "workedExample",
+                    "eyebrow": "WORKED EXAMPLE · 6 OF 11",
+                    "title": "Use substitution to reveal the quadratic",
+                    "question": "Solve x<sup>4</sup> - 5x<sup>2</sup> + 4 = 0.",
+                    "options": [
+                        "x = -2, -1, 1, 2",
+                        "x = -4, -1, 1, 4",
+                        "x = -2, 2 only",
+                        "x = 1, 2 only"
+                    ],
+                    "answerIndex": 0,
+                    "steps": [
+                        {
+                            "title": "Spot the repeated structure",
+                            "body": "The equation contains x<sup>4</sup> and x<sup>2</sup>. Since x<sup>4</sup> = (x<sup>2</sup>)<sup>2</sup>, use the substitution u = x<sup>2</sup>."
+                        },
+                        {
+                            "title": "Rewrite as a quadratic",
+                            "body": "x<sup>4</sup> - 5x<sup>2</sup> + 4 = 0 becomes u<sup>2</sup> - 5u + 4 = 0."
+                        },
+                        {
+                            "title": "Factorise",
+                            "body": "u<sup>2</sup> - 5u + 4 = (u - 1)(u - 4), so u = 1 or u = 4."
+                        },
+                        {
+                            "title": "Substitute back",
+                            "body": "Since u = x<sup>2</sup>, we get x<sup>2</sup> = 1 or x<sup>2</sup> = 4."
+                        },
+                        {
+                            "title": "Find all real solutions",
+                            "body": "x<sup>2</sup> = 1 gives x = ±1. x<sup>2</sup> = 4 gives x = ±2."
+                        }
+                    ],
+                    "finalAnswer": "The solutions are x = -2, -1, 1, 2, so the correct option is A.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "multipleChoice",
+                    "eyebrow": "HIDDEN CHECK · 7 OF 11",
+                    "question": "How many real solutions does x<sup>4</sup> - 13x<sup>2</sup> + 36 = 0 have?",
+                    "prompt": "Use u = x<sup>2</sup>, then remember to convert back to x.",
+                    "options": [
+                        "2",
+                        "3",
+                        "4",
+                        "0"
+                    ],
+                    "answerIndex": 2,
+                    "correctFeedback": "Correct. Let u = x<sup>2</sup>. Then u<sup>2</sup> - 13u + 36 = 0, so (u - 4)(u - 9) = 0. Therefore x<sup>2</sup> = 4 or x<sup>2</sup> = 9, giving x = ±2 or ±3. That is 4 real solutions.",
+                    "incorrectFeedback": "Not quite. Let u = x<sup>2</sup>. Then u<sup>2</sup> - 13u + 36 = 0, so u = 4 or u = 9. That gives x = ±2 and x = ±3, so there are 4 real solutions."
+                },
+                {
+                    "type": "milestone",
+                    "eyebrow": "NICE WORK · 8 OF 11",
+                    "title": "Hidden quadratics unlocked.",
+                    "body": "You have seen how a fourth-degree equation can secretly become a normal quadratic. Finally, let’s use quadratics to solve inequalities.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "concept",
+                    "eyebrow": "INEQUALITIES · 9 OF 11",
+                    "title": "Quadratic inequalities are about regions",
+                    "body": "Solving a quadratic equation gives boundary points. Solving a quadratic inequality asks which regions are above or below zero. The roots split the number line into intervals.",
+                    "keyPoint": "If (x - 2)(x - 5) &gt; 0, the expression is positive outside the roots: x &lt; 2 or x &gt; 5.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "workedExample",
+                    "eyebrow": "WORKED EXAMPLE · 10 OF 11",
+                    "title": "Compare a quadratic and a line",
+                    "question": "For which values of x is x<sup>2</sup> - 4x + 3 &gt; 2x - 5?",
+                    "options": [
+                        "x &lt; 2 or x &gt; 4",
+                        "2 &lt; x &lt; 4",
+                        "x &lt; -2 or x &gt; 4",
+                        "-2 &lt; x &lt; 4"
+                    ],
+                    "answerIndex": 0,
+                    "steps": [
+                        {
+                            "title": "Move everything to one side",
+                            "body": "x<sup>2</sup> - 4x + 3 &gt; 2x - 5 becomes x<sup>2</sup> - 6x + 8 &gt; 0."
+                        },
+                        {
+                            "title": "Factorise",
+                            "body": "x<sup>2</sup> - 6x + 8 = (x - 2)(x - 4)."
+                        },
+                        {
+                            "title": "Find the boundary points",
+                            "body": "The expression is zero at x = 2 and x = 4. These split the number line into regions."
+                        },
+                        {
+                            "title": "Choose the correct regions",
+                            "body": "Since the quadratic opens upwards, it is positive outside the roots."
+                        },
+                        {
+                            "title": "Write the solution",
+                            "body": "Therefore x &lt; 2 or x &gt; 4."
+                        }
+                    ],
+                    "finalAnswer": "The correct answer is A: x &lt; 2 or x &gt; 4.",
+                    "buttonText": "Continue"
+                },
+                {
+                    "type": "lessonSummary",
+                    "eyebrow": "LESSON SUMMARY · 11 OF 11",
+                    "title": "Quadratics and Inequalities: key points",
+                    "keyPoints": [
+                        "Different forms of a quadratic reveal different information.",
+                        "Factorised form shows roots.",
+                        "Completed-square form shows the turning point.",
+                        "Hidden quadratics can often be solved using a substitution such as u = x<sup>2</sup>.",
+                        "After solving for u, always substitute back to find the actual x-values.",
+                        "Quadratic inequalities are solved by finding boundary points and choosing regions."
+                    ],
+                    "reviewItems": [
+                        "Practise switching between factorised and completed-square form.",
+                        "Review hidden quadratic substitutions like u = x<sup>2</sup>.",
+                        "Practise solving inequalities by using the shape of the graph.",
+                        "Next lesson: Functions and Simultaneous Systems."
+                    ],
+                    "buttonText": "Finish lesson"
+                }
+            ]
         }
-      ]
-    },
-
-    {
-      "id": "quadratic-and-inequalities",
-      "topicId": "topic-1",
-      "title": "Quadratics and Inequalities",
-      "screens": [
-        {
-          "type": "concept",
-          "eyebrow": "QUADRATICS · 1 OF 4",
-          "title": "The discriminant tells us about the roots.",
-          "body": "The expression b² − 4ac determines how many real roots a quadratic has.",
-          "buttonText": "Continue"
-        }
-      ]
-    },
-    {
-      "id": "functions-simultaneous-systems",
-      "topicId": "topic-1",
-      "title": "Functions and Simultaneous Systems",
-      "screens": []
-    },
-    {
-      "id": "algebra-exam-style-questions",
-      "topicId": "topic-1",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "arithmetic-geometric-progressions",
-      "topicId": "topic-2",
-      "title": "Arithmetic & Geometric Progressions",
-      "screens": []
-    },
-    {
-      "id": "binomial-expansion-factorials",
-      "topicId": "topic-2",
-      "title": "Binomial Expansion & Factorials",
-      "screens": []
-    },
-    {
-      "id": "advanced-series-logic",
-      "topicId": "topic-2",
-      "title": "Advanced Series Logic",
-      "screens": []
-    },
-    {
-      "id": "sequences-series-exam-style-questions",
-      "topicId": "topic-2",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "lines-gradients",
-      "topicId": "topic-3",
-      "title": "Lines & Gradients",
-      "screens": []
-    },
-    {
-      "id": "circle-equations-intersections",
-      "topicId": "topic-3",
-      "title": "Circle Equations & Intersections",
-      "screens": []
-    },
-    {
-      "id": "circle-theorems-axes",
-      "topicId": "topic-3",
-      "title": "Circle Theorems on Axes",
-      "screens": []
-    },
-    {
-      "id": "coordinate-geometry-exam-style-questions",
-      "topicId": "topic-3",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "triangles-radians",
-      "topicId": "topic-4",
-      "title": "Triangles & Radians",
-      "screens": []
-    },
-    {
-      "id": "values-graphs-identities",
-      "topicId": "topic-4",
-      "title": "Values, Graphs, & Identities",
-      "screens": []
-    },
-    {
-      "id": "solving-equations",
-      "topicId": "topic-4",
-      "title": "Solving Equations",
-      "screens": []
-    },
-    {
-      "id": "trigonometry-exam-style-questions",
-      "topicId": "topic-4",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "log-laws-exponential-graphs",
-      "topicId": "topic-5",
-      "title": "Log Laws & Exponential Graphs",
-      "screens": [
-        {
-          "type": "trueFalse",
-          "eyebrow": "LOG LAWS · 1 OF 4",
-          "question": "Adding Log(A) and Log(B) gives Log(AB)",
-          "answer": true,
-          "correctFeedback": "Exactly. Log(A) + Log(B) = Log(AB)",
-          "incorrectFeedback": "When adding two logarithms of the same base, you can simply take the logarithm of the product"
-        }
-      ]
-    },
-    {
-      "id": "solving-exponential-log-equations",
-      "topicId": "topic-5",
-      "title": "Solving Exponential & Log Equations",
-      "screens": []
-    },
-    {
-      "id": "advanced-log-reasoning",
-      "topicId": "topic-5",
-      "title": "Advanced Log Reasoning",
-      "screens": []
-    },
-    {
-      "id": "exponentials-logarithms-exam-style-questions",
-      "topicId": "topic-5",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "differentiation-turning-points",
-      "topicId": "topic-6",
-      "title": "Differentiation & Turning Points",
-      "screens": []
-    },
-    {
-      "id": "integration-area",
-      "topicId": "topic-6",
-      "title": "Integration & Area",
-      "screens": []
-    },
-    {
-      "id": "trapezium-rule-integration-logic",
-      "topicId": "topic-6",
-      "title": "Trapezium Rule & Integration Logic",
-      "screens": []
-    },
-    {
-      "id": "calculus-exam-style-questions",
-      "topicId": "topic-6",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "graph-transformations",
-      "topicId": "topic-7",
-      "title": "Graph Transformations",
-      "screens": []
-    },
-    {
-      "id": "geometry-proportion",
-      "topicId": "topic-7",
-      "title": "Geometry and Proportion",
-      "screens": []
-    },
-    {
-      "id": "statistic-probability",
-      "topicId": "topic-7",
-      "title": "Statistics & Probability",
-      "screens": []
-    },
-    {
-      "id": "geometry-data-exam-style-questions",
-      "topicId": "topic-7",
-      "title": "Exam-style Questions",
-      "screens": []
-    },
-
-    {
-      "id": "logic-of-arguments",
-      "topicId": "topic-8",
-      "title": "Logic of Arguments",
-      "screens": []
-    },
-    {
-      "id": "methods-of-proof-quantifiers",
-      "topicId": "topic-8",
-      "title": "Methods of Proof & Quantifiers",
-      "screens": []
-    },
-    {
-      "id": "disproving-statements",
-      "topicId": "topic-8",
-      "title": "Disproving Statements",
-      "screens": []
-    },
-    {
-      "id": "logic-proof-exam-style-questions",
-      "topicId": "topic-8",
-      "title": "Exam-style Questions",
-      "screens": []
-    }
-  ]
+    ]
 }

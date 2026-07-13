@@ -179,8 +179,8 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
   }
 
   const screen = lesson.screens[screenIndex];
+  const screenKey = `${lesson.id}-${screenIndex}`;
   const commonProps = {
-    key: `${lesson.id}-${screenIndex}`,
     progressPercent,
     onNext: next,
     onExit,
@@ -188,11 +188,18 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
 
   switch (screen.type) {
     case "concept":
-      return <ConceptScreenView {...commonProps} screen={screen} />;
+      return (
+        <ConceptScreenView
+          key={screenKey}
+          {...commonProps}
+          screen={screen}
+        />
+      );
 
     case "reveal":
       return (
         <RevealScreenView
+          key={screenKey}
           {...commonProps}
           screen={screen}
           revealIndex={revealIndex}
@@ -203,6 +210,7 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
     case "trueFalse":
       return (
         <TrueFalseScreenView
+          key={screenKey}
           {...commonProps}
           screen={screen}
           onAnswer={recordAnswer}
@@ -212,6 +220,7 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
     case "multipleChoice":
       return (
         <MultipleChoiceScreenView
+          key={screenKey}
           {...commonProps}
           screen={screen}
           onAnswer={recordAnswer}
@@ -221,6 +230,7 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
     case "workedExample":
       return (
         <WorkedExampleScreenView
+          key={screenKey}
           {...commonProps}
           screen={screen}
           revealIndex={revealIndex}
@@ -229,13 +239,22 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
       );
 
     case "milestone":
-      return <MilestoneScreenView {...commonProps} screen={screen} />;
+      return (
+        <MilestoneScreenView
+          key={screenKey}
+          {...commonProps}
+          screen={screen}
+        />
+      );
 
     case "lessonSummary":
       return (
         <LessonSummaryScreenView
-          {...commonProps}
+          key={screenKey}
           screen={screen}
+          progressPercent={progressPercent}
+          onNext={finish}
+          onExit={onExit}
           correctAnswers={correctAnswers}
           totalAnswers={totalAnswers}
         />

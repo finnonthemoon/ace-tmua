@@ -2,16 +2,27 @@ import { type ReactNode } from "react";
 import {
   StyleSheet,
   Text,
+  type StyleProp,
+  type TextStyle,
   View,
   useWindowDimensions,
 } from "react-native";
 import RenderHtml, {
+  type MixedStyleDeclaration,
   type MixedStyleRecord,
 } from "react-native-render-html";
+import { MathJaxSvg } from "react-native-mathjax-html-to-svg";
 
 interface Props {
   html: string;
-  style?: any;
+  style?: StyleProp<TextStyle>;
+}
+
+/** Convert author-friendly [[LaTeX]] markers into MathJax inline delimiters. */
+export function toMathJaxMarkup(value: string) {
+  return value.replace(/\[\[([\s\S]*?)\]\]/g, (_, latex: string) => {
+    return `\\(${latex.trim()}\\)`;
+  });
 }
 
 /**
@@ -388,8 +399,42 @@ function renderHtmlWithFractions(
 
 export function PlainOrHtml({ html, style }: Props) {
   const { width } = useWindowDimensions();
+  const flattenedStyle = StyleSheet.flatten(style) ?? {};
+  const hasLatex = /\[\[[\s\S]*?\]\]/.test(html);
 
   const preparedHtml = keepPowersTogether(html);
+
+  if (hasLatex) {
+    const fontSize =
+      typeof flattenedStyle.fontSize === "number"
+        ? flattenedStyle.fontSize
+        : 16;
+    const color =
+      typeof flattenedStyle.color === "string"
+        ? flattenedStyle.color
+        : "#2D241F";
+
+    return (
+      <MathJaxSvg
+        fontSize={fontSize}
+        color={color}
+        fontCache
+        textStyle={flattenedStyle}
+        style={{
+          flex:
+            typeof flattenedStyle.flex === "number"
+              ? flattenedStyle.flex
+              : undefined,
+          marginTop: flattenedStyle.marginTop,
+          marginBottom: flattenedStyle.marginBottom,
+          marginLeft: flattenedStyle.marginLeft,
+          marginRight: flattenedStyle.marginRight,
+        }}
+      >
+        {toMathJaxMarkup(html)}
+      </MathJaxSvg>
+    );
+  }
 
   if (
     preparedHtml.includes("math-frac") ||
@@ -414,7 +459,7 @@ export function PlainOrHtml({ html, style }: Props) {
     <RenderHtml
       contentWidth={width}
       source={{ html: preparedHtml }}
-      baseStyle={style}
+      baseStyle={flattenedStyle as MixedStyleDeclaration}
       tagsStyles={tagsStyles}
     />
   );

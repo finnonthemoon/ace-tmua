@@ -112,7 +112,7 @@ const TOPICS: Topic[] = [
 
 const LESSON_SUBTITLES: Record<string, string> = {
   "indices-surds-polynomials-1": "Core algebra rules and manipulation",
-  "quadratic-and-inequalities": "Graphs, roots and regions",
+  "quadratics-inequalities-1": "Forms, hidden quadratics and regions",
   "functions-simultaneous-systems": "Mappings and linked equations",
   "algebra-modulus-functions": "Graphs, equations and inequalities",
   "algebra-exam-style-questions": "Bring the whole topic together",
@@ -208,18 +208,19 @@ export default function LearnScreen() {
             {topicLessons.map((lesson, index) => {
               const isFirst = index === 0;
               const isLast = index === topicLessons.length - 1;
+              const isAvailable = lesson.screens.length > 0;
               const isCompleted = completedLessonIds.includes(lesson.id);
 
               const previousLesson =
                 index > 0 ? topicLessons[index - 1] : null;
 
               const isLocked =
-                !isFirst &&
-                (!previousLesson ||
-                  !completedLessonIds.includes(previousLesson.id));
+                !isAvailable ||
+                (!isFirst &&
+                  (!previousLesson ||
+                    !completedLessonIds.includes(previousLesson.id)));
 
               const isCurrent = !isLocked && !isCompleted;
-
               const subtitle =
                 LESSON_SUBTITLES[lesson.id] ??
                 (isLast
@@ -305,7 +306,7 @@ export default function LearnScreen() {
                       {subtitle}
                     </Text>
 
-                    {isCurrent && (
+                    {!isLocked && (
                       <View style={styles.startRow}>
                         <Text
                           style={[
@@ -313,7 +314,7 @@ export default function LearnScreen() {
                             { color: activeTopic.color },
                           ]}
                         >
-                          Start lesson
+                          {isCompleted ? "Review lesson" : "Start lesson"}
                         </Text>
 
                         <Ionicons
@@ -330,7 +331,7 @@ export default function LearnScreen() {
           </View>
           <View style={styles.topicBottomSpacing} />
         </ScrollView>
-      </SafeAreaView >
+      </SafeAreaView>
     );
   }
 
