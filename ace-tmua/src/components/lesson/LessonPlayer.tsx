@@ -27,6 +27,7 @@ interface Props {
   onComplete?: (lesson: Lesson) => void | Promise<void>;
 }
 const COMPLETED_LESSONS_KEY = "completedLessonIds";
+
 export default function LessonPlayer(props: Props) {
   return <LessonPlayerSession key={props.lesson.id} {...props} />;
 }
@@ -178,7 +179,6 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
   }
 
   const screen = lesson.screens[screenIndex];
-
   const commonProps = {
     key: `${lesson.id}-${screenIndex}`,
     progressPercent,

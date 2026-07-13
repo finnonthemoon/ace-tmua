@@ -581,7 +581,7 @@
             "4 and 8"
           ],
           "answerIndex": 0,
-"correctFeedback": "Correct. The first equation becomes 4(y - 1) = x<sup>2</sup>. The second equation gives y + 3 - 2x = 1, so y = 2x - 2. Substituting gives 4(2x - 3) = x<sup>2</sup>, so x<sup>2</sup> - 8x + 12 = 0. Therefore (x - 2)(x - 6) = 0, giving x = 2 or x = 6.",
+          "correctFeedback": "Correct. The first equation becomes 4(y - 1) = x<sup>2</sup>. The second equation gives y + 3 - 2x = 1, so y = 2x - 2. Substituting gives 4(2x - 3) = x<sup>2</sup>, so x<sup>2</sup> - 8x + 12 = 0. Therefore (x - 2)(x - 6) = 0, giving x = 2 or x = 6.",
           "incorrectFeedback": "Not quite. Combine the logarithms in the first equation to get 4(y - 1) = x<sup>2</sup>. The second equation gives y = 2x - 2. Substitute this into the first equation and solve the resulting quadratic."
         },
         {
@@ -855,13 +855,646 @@
       "id": "algebra-exam-style-questions",
       "topicId": "topic-1",
       "title": "Exam-style Questions",
-      "screens": []
+      "screens": [
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 1 OF 20",
+          "question": "Let  a > 0  and suppose that a<sup>1/3</sup> + a<sup>-1/3</sup> = 3. Find the value of a + <span class=\"math-frac\"><span>1</span><span>a</span></span> ",
+          "options": [
+            "9",
+            "12",
+            "18",
+            "21",
+            "24"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let u = a<sup>1/3</sup>. Then u + <span class=\"math-frac\"><span>1</span><span>u</span></span> = 3. Cubing gives (u + <span class=\"math-frac\"><span>1</span><span>u</span></span>)<sup>3</sup> = u<sup>3</sup> + <span class=\"math-frac\"><span>1</span><span>u<sup>3</sup></span></span> + 3(u + <span class=\"math-frac\"><span>1</span><span>u</span></span>). Therefore 27 = a + <span class=\"math-frac\"><span>1</span><span>a</span></span> + 9, so a + <span class=\"math-frac\"><span>1</span><span>a</span></span> = 18.",
+          "incorrectFeedback": "Let u = a<sup>1/3</sup>, so u + <span class=\"math-frac\"><span>1</span><span>u</span></span> = 3. Use the identity (u + <span class=\"math-frac\"><span>1</span><span>u</span></span>)<sup>3</sup> = u<sup>3</sup> + <span class=\"math-frac\"><span>1</span><span>u<sup>3</sup></span></span> + 3(u + <span class=\"math-frac\"><span>1</span><span>u</span></span>). This gives 27 = a + <span class=\"math-frac\"><span>1</span><span>a</span></span> + 9, so the answer is 18."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 2 OF 20",
+          "question": "Simplify <span class=\"math-bracket\">(</span><span class=\"math-frac\"><span>√5 + √3</span><span>√5 - √3</span></span><span class=\"math-bracket\">)</span><sup>2</sup>.",
+          "options": [
+            "31 - 8√15",
+            "16 + 4√15",
+            "31 + 8√15",
+            "8 + 2√15",
+            "4 + √15"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Rationalising first gives <span class=\"math-frac\"><span>√5 + √3</span><span>√5 - √3</span></span> = <span class=\"math-frac\"><span>(√5 + √3)<sup>2</sup></span><span>5 - 3</span></span> = <span class=\"math-frac\"><span>8 + 2√15</span><span>2</span></span> = 4 + √15. Squaring gives (4 + √15)<sup>2</sup> = 16 + 8√15 + 15 = 31 + 8√15.",
+          "incorrectFeedback": "First rationalise the fraction by multiplying the numerator and denominator by √5 + √3. The fraction simplifies to 4 + √15. You must then square this result: (4 + √15)<sup>2</sup> = 31 + 8√15."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 3 OF 20",
+          "question": "For which values of k does the equation x<sup>2</sup> - 2kx + k + 2 = 0 have two distinct positive real roots?",
+          "options": [
+            "k < -1",
+            "-1 < k < 0",
+            "k > 0",
+            "k > 2",
+            "k < -1 or k > 2"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The quadratic formula gives x = k ± √(k<sup>2</sup> - k - 2). For two distinct real roots, k<sup>2</sup> - k - 2 > 0, so (k - 2)(k + 1) > 0. Therefore k < -1 or k > 2. If k < -1, the root k - √(k<sup>2</sup> - k - 2) is negative. If k > 2, both roots are positive because k > √(k<sup>2</sup> - k - 2). Therefore k > 2.",
+          "incorrectFeedback": "Use the quadratic formula: x = k ± √(k<sup>2</sup> - k - 2). The discriminant condition gives k < -1 or k > 2. However, k < -1 produces negative roots. When k > 2, even the smaller root k - √(k<sup>2</sup> - k - 2) is positive. Therefore the answer is k > 2."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 4 OF 20",
+          "question": "The polynomial p(x) = x<sup>3</sup> + ax<sup>2</sup> + bx + 6 is divisible by both x - 1 and x + 2. What is the remainder when p(x) is divided by x - 3?",
+          "options": [
+            "-12",
+            "-6",
+            "0",
+            "6",
+            "12"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Since x - 1 is a factor, p(1) = 0, giving a + b = -7. Since x + 2 is a factor, p(-2) = 0, giving 2a - b = 1. Solving these equations gives a = -2 and b = -5. The remainder after division by x - 3 is p(3) = 27 - 18 - 15 + 6 = 0.",
+          "incorrectFeedback": "Use the factor theorem twice. From p(1) = 0, obtain a + b = -7. From p(-2) = 0, obtain 2a - b = 1. This gives a = -2 and b = -5. The required remainder is p(3), which equals 0."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 5 OF 20",
+          "question": "Let f(x) = |x - 2| + |x + 1|. What is the minimum value of f(x)?",
+          "options": [
+            "0, attained when x = 2",
+            "1, attained when x = -<span class=\"math-frac\"><span>1</span><span>2</span></span>",
+            "3, attained only when x = <span class=\"math-frac\"><span>1</span><span>2</span></span>",
+            "3, attained for every x such that -1 ≤ x ≤ 2",
+            "4, attained for every x such that -1 ≤ x ≤ 2"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. For -1 ≤ x ≤ 2, we have |x - 2| = 2 - x and |x + 1| = x + 1. Therefore f(x) = (2 - x) + (x + 1) = 3 throughout the whole interval. Outside this interval, the total is greater than 3.",
+          "incorrectFeedback": "Consider the interval between the two critical values, -1 and 2. For -1 ≤ x ≤ 2, |x - 2| = 2 - x and |x + 1| = x + 1. Their sum is always 3, so the minimum is attained throughout -1 ≤ x ≤ 2."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 6 OF 20",
+          "question": "The graphs y = x<sup>2</sup> - 4x + 5 and y = mx + 1 meet at exactly one point. What are the possible values of m?",
+          "options": [
+            "m = -8 only",
+            "m = 0 only",
+            "m = -8 or m = 0",
+            "m = -4 or m = 4",
+            "Every real value of m"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. At an intersection, the two expressions for y are equal, so x<sup>2</sup> - 4x + 5 = mx + 1. Rearranging gives x<sup>2</sup> - (m + 4)x + 4 = 0.<br/><br/>The graphs meet at exactly one point only when this quadratic has one repeated root, so its discriminant is zero:<br/>(m + 4)<sup>2</sup> - 4(1)(4) = 0.<br/><br/>Therefore (m + 4)<sup>2</sup> = 16, so m + 4 = ±4. Hence m = 0 or m = -8.",
+          "incorrectFeedback": "Set the two expressions for y equal:<br/>x<sup>2</sup> - 4x + 5 = mx + 1.<br/><br/>This rearranges to x<sup>2</sup> - (m + 4)x + 4 = 0. Exactly one intersection means this quadratic must have a repeated root, so its discriminant equals zero:<br/>(m + 4)<sup>2</sup> - 16 = 0.<br/><br/>Thus m + 4 = ±4, giving m = 0 or m = -8."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 7 OF 20",
+          "question": "A polynomial p(x) leaves remainders 4, 6 and 9 when divided by x - 1, x + 1 and x - 2 respectively. What is the remainder when p(x) is divided by (x - 1)(x + 1)(x - 2)? ",
+          "options": [
+            "2x<sup>2</sup> - x + 3",
+            "2x<sup>2</sup> + x + 1",
+            "x<sup>2</sup> - 2x + 5",
+            "2x<sup>2</sup> - x - 3",
+            "x<sup>2</sup> + x + 2"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The divisor has degree 3, so the remainder must have degree less than 3. Write it as R(x) = ax<sup>2</sup> + bx + c.<br/><br/>The remainder theorem gives:<br/>R(1) = a + b + c = 4,<br/>R(-1) = a - b + c = 6,<br/>R(2) = 4a + 2b + c = 9.<br/><br/>Subtracting the first two equations gives 2b = -2, so b = -1. Then a + c = 5. Using R(2) = 9 gives 4a + c = 11. Subtracting a + c = 5 gives 3a = 6, so a = 2 and c = 3.<br/><br/>Therefore the remainder is 2x<sup>2</sup> - x + 3.",
+          "incorrectFeedback": "Because the divisor has degree 3, the remainder has the form R(x) = ax<sup>2</sup> + bx + c.<br/><br/>Use the given remainders:<br/>a + b + c = 4,<br/>a - b + c = 6,<br/>4a + 2b + c = 9.<br/><br/>The first two equations give b = -1. They also give a + c = 5. Substituting b = -1 into the third equation gives 4a + c = 11. Hence a = 2 and c = 3, so R(x) = 2x<sup>2</sup> - x + 3."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 8 OF 20",
+          "question": "The function f is defined by f(x) = <span class=\"math-frac\"><span>x + 3</span><span>x - 1</span></span>,   x ≠ 1. What is f(f(x))?",
+          "options": [
+            "x",
+            "-x",
+            "<span class=\"math-frac\"><span>1</span><span>x</span></span>",
+            "<span class=\"math-frac\"><span>x - 1</span><span>x + 3</span></span>",
+            "It is undefined for every x"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The rule f takes any input t and returns <span class=\"math-frac\"><span>t + 3</span><span>t - 1</span></span>. Therefore, when the input is f(x),<br/><br/>f(f(x)) = <span class=\"math-frac\"><span>f(x) + 3</span><span>f(x) - 1</span></span>.<br/><br/>Now simplify the top and bottom separately:<br/>f(x) + 3 = <span class=\"math-frac\"><span>x + 3</span><span>x - 1</span></span> + 3 = <span class=\"math-frac\"><span>4x</span><span>x - 1</span></span>,<br/><br/>f(x) - 1 = <span class=\"math-frac\"><span>x + 3</span><span>x - 1</span></span> - 1 = <span class=\"math-frac\"><span>4</span><span>x - 1</span></span>.<br/><br/>So f(f(x)) = <span class=\"math-frac\"><span>4x</span><span>x - 1</span></span> ÷ <span class=\"math-frac\"><span>4</span><span>x - 1</span></span> = x. Applying f twice returns the original input.",
+          "incorrectFeedback": "Remember that f(f(x)) means putting the whole expression f(x) back into the function.<br/><br/>The rule is f(t) = <span class=\"math-frac\"><span>t + 3</span><span>t - 1</span></span>, so<br/>f(f(x)) = <span class=\"math-frac\"><span>f(x) + 3</span><span>f(x) - 1</span></span>.<br/><br/>Here, f(x) + 3 = <span class=\"math-frac\"><span>4x</span><span>x - 1</span></span> and f(x) - 1 = <span class=\"math-frac\"><span>4</span><span>x - 1</span></span>. Dividing these expressions gives x."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 9 OF 20",
+          "question": "The equation √(x + 5) - √(x - 1) = 2 has one real solution. What is its value?",
+          "options": [
+            "1",
+            "<span class=\"math-frac\"><span>5</span><span>4</span></span>",
+            "<span class=\"math-frac\"><span>3</span><span>2</span></span>",
+            "2",
+            "<span class=\"math-frac\"><span>9</span><span>4</span></span>"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. First rearrange so one square root is isolated:<br/>√(x + 5) = 2 + √(x - 1).<br/><br/>Square both sides:<br/>x + 5 = 4 + 4√(x - 1) + x - 1.<br/><br/>This simplifies to 2 = 4√(x - 1), so √(x - 1) = <span class=\"math-frac\"><span>1</span><span>2</span></span>. Squaring again gives x - 1 = <span class=\"math-frac\"><span>1</span><span>4</span></span>, so x = <span class=\"math-frac\"><span>5</span><span>4</span></span>.<br/><br/>Checking: √(<span class=\"math-frac\"><span>25</span><span>4</span></span>) - √(<span class=\"math-frac\"><span>1</span><span>4</span></span>) = <span class=\"math-frac\"><span>5</span><span>2</span></span> - <span class=\"math-frac\"><span>1</span><span>2</span></span> = 2.",
+          "incorrectFeedback": "Isolate one square root first:<br/>√(x + 5) = 2 + √(x - 1).<br/><br/>Squaring gives x + 5 = x + 3 + 4√(x - 1). Therefore 2 = 4√(x - 1), so √(x - 1) = <span class=\"math-frac\"><span>1</span><span>2</span></span>.<br/><br/>Hence x - 1 = <span class=\"math-frac\"><span>1</span><span>4</span></span>, giving x = <span class=\"math-frac\"><span>5</span><span>4</span></span>."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 10 OF 20",
+          "question": "How many distinct real solutions does the equation |x<sup>2</sup> - 4| = x have?",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Since |x<sup>2</sup> - 4| is non-negative, any solution must satisfy x ≥ 0.<br/><br/>Case 1: x<sup>2</sup> - 4 ≥ 0. Then x<sup>2</sup> - 4 = x, so x<sup>2</sup> - x - 4 = 0. Its roots are <span class=\"math-frac\"><span>1 ± √17</span><span>2</span></span>. Only the positive root is valid, and it is greater than 2, so this case gives one solution.<br/><br/>Case 2: x<sup>2</sup> - 4 < 0. Then 4 - x<sup>2</sup> = x, so x<sup>2</sup> + x - 4 = 0. Its roots are <span class=\"math-frac\"><span>-1 ± √17</span><span>2</span></span>. Only the positive root is valid, and it lies between 0 and 2, so this case gives one more solution.<br/><br/>Therefore there are 2 distinct real solutions.",
+          "incorrectFeedback": "The right-hand side must be non-negative, so x ≥ 0. Now split the modulus into two cases.<br/><br/>If x<sup>2</sup> - 4 ≥ 0, solve x<sup>2</sup> - x - 4 = 0. Exactly one root satisfies x ≥ 2.<br/><br/>If x<sup>2</sup> - 4 < 0, solve x<sup>2</sup> + x - 4 = 0. Exactly one root satisfies 0 ≤ x < 2.<br/><br/>That gives 2 valid solutions in total."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 11 OF 20",
+          "question": "The positive numbers x and y satisfy log<sub>2</sub>x + log<sub>2</sub>y = 6 and log<sub>x</sub>y = <span class=\"math-frac\"><span>1</span><span>2</span></span>. What is the value of x - y?",
+          "options": [
+            "4",
+            "8",
+            "12",
+            "16",
+            "20"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Use the addition law for logarithms:<br/><br/>log<sub>2</sub>x + log<sub>2</sub>y = log<sub>2</sub>(xy) = 6.<br/><br/>Therefore xy = 2<sup>6</sup> = 64.<br/><br/>The second equation, log<sub>x</sub>y = <span class=\"math-frac\"><span>1</span><span>2</span></span>, means y = x<sup>1/2</sup> = √x.<br/><br/>Substituting y = √x into xy = 64 gives x√x = 64, so x<sup>3/2</sup> = 64. Raising both sides to the power <span class=\"math-frac\"><span>2</span><span>3</span></span> gives x = 16. Therefore y = √16 = 4, and x - y = 16 - 4 = 12.",
+          "incorrectFeedback": "First combine the logarithms:<br/><br/>log<sub>2</sub>x + log<sub>2</sub>y = log<sub>2</sub>(xy) = 6,<br/><br/>so xy = 64. Also, log<sub>x</sub>y = <span class=\"math-frac\"><span>1</span><span>2</span></span> means y = √x. Substituting gives x√x = 64, or x<sup>3/2</sup> = 64. Hence x = 16 and y = 4, so x - y = 12."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 12 OF 20",
+          "question": "Which set contains all the real solutions of 3<sup>x+1</sup> + 3<sup>1-x</sup> = 10? ",
+          "options": [
+            "{-1}",
+            "{1}",
+            "{-1, 1}",
+            "{0, 1}",
+            "{0, 2}"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let t = 3<sup>x</sup>. Since 3<sup>x</sup> is positive, t > 0.<br/><br/>Then 3<sup>x+1</sup> = 3t and 3<sup>1-x</sup> = <span class=\"math-frac\"><span>3</span><span>t</span></span>. The equation becomes:<br/><br/>3t + <span class=\"math-frac\"><span>3</span><span>t</span></span> = 10.<br/><br/>Multiplying by t gives 3t<sup>2</sup> - 10t + 3 = 0. Factorising gives (3t - 1)(t - 3) = 0, so t = <span class=\"math-frac\"><span>1</span><span>3</span></span> or t = 3.<br/><br/>Therefore 3<sup>x</sup> = 3<sup>-1</sup> or 3<sup>x</sup> = 3<sup>1</sup>, giving x = -1 or x = 1.",
+          "incorrectFeedback": "Use the substitution t = 3<sup>x</sup>. Then 3<sup>x+1</sup> = 3t and 3<sup>1-x</sup> = <span class=\"math-frac\"><span>3</span><span>t</span></span>.<br/><br/>The equation becomes 3t + <span class=\"math-frac\"><span>3</span><span>t</span></span> = 10. Multiplying through by t and factorising gives (3t - 1)(t - 3) = 0. Hence t = <span class=\"math-frac\"><span>1</span><span>3</span></span> or t = 3, so x = -1 or x = 1."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 13 OF 20",
+          "question": "The set S is the complete set of values of x satisfying both inequalities x<sup>2</sup> - 9x + 14 < 0 and 3x + 1 > 13. Which single inequality also represents S?",
+          "options": [
+            "(x<sup>2</sup> - 9x + 14)(3x + 1) < 0",
+            "(x<sup>2</sup> - 9x + 14)(3x + 1) > 0",
+            "x<sup>2</sup> - 11x + 28 < 0",
+            "x<sup>2</sup> - 11x + 28 > 0",
+            "x<sup>2</sup> - 6x + 8 < 0"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Factorise the first inequality:<br/><br/>x<sup>2</sup> - 9x + 14 = (x - 2)(x - 7).<br/><br/>The quadratic is negative between its roots, so the first inequality gives 2 < x < 7.<br/><br/>The second inequality gives 3x + 1 > 13, so 3x > 12 and therefore x > 4.<br/><br/>Both conditions must hold, so S is 4 < x < 7. The quadratic with roots 4 and 7 is (x - 4)(x - 7). It is negative between its roots, so S can be written as (x - 4)(x - 7) < 0. Expanding gives x<sup>2</sup> - 11x + 28 < 0.",
+          "incorrectFeedback": "Solve the two inequalities separately. The first factorises to (x - 2)(x - 7) < 0, giving 2 < x < 7. The second gives x > 4.<br/><br/>The intersection is therefore 4 < x < 7. A positive quadratic is negative between its roots, so use (x - 4)(x - 7) < 0. Expanding gives x<sup>2</sup> - 11x + 28 < 0."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 14 OF 20",
+          "question": "The function f is defined by f(x) = x<sup>2</sup> - 6x + 11,   x ≥ 3. Which expression gives f<sup>-1</sup>(x)?",
+          "options": [
+            "3 + √(x - 2)",
+            "3 - √(x - 2)",
+            "√(x + 2) - 3",
+            "√(x - 2) - 3",
+            "6 + √(x - 11)"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. First complete the square:<br/><br/>f(x) = x<sup>2</sup> - 6x + 11 = (x - 3)<sup>2</sup> + 2.<br/><br/>Write y = (x - 3)<sup>2</sup> + 2. Rearranging gives (x - 3)<sup>2</sup> = y - 2.<br/><br/>Because the original domain is x ≥ 3, we know x - 3 ≥ 0. We must therefore take the positive square root:<br/><br/>x - 3 = √(y - 2).<br/><br/>Hence x = 3 + √(y - 2). Replacing y with x gives f<sup>-1</sup>(x) = 3 + √(x - 2).",
+          "incorrectFeedback": "Complete the square first:<br/><br/>f(x) = (x - 3)<sup>2</sup> + 2.<br/><br/>Set y = (x - 3)<sup>2</sup> + 2 and rearrange to obtain x - 3 = ±√(y - 2). The original restriction x ≥ 3 means x - 3 must be non-negative, so take the positive square root. Therefore f<sup>-1</sup>(x) = 3 + √(x - 2)."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 15 OF 20",
+          "question": "The polynomial p(x) = x<sup>3</sup> + ax<sup>2</sup> + bx + 4 is divisible by (x - 1)<sup>2</sup>. What is the value of p(-1)?",
+          "options": [
+            "-12",
+            "-4",
+            "0",
+            "4",
+            "12"
+          ],
+          "answerIndex": 4,
+          "correctFeedback": "Correct. Since p(x) is a monic cubic and is divisible by (x - 1)<sup>2</sup>, it must have the form:<br/><br/>p(x) = (x - 1)<sup>2</sup>(x + c)<br/><br/>for some constant c. From the original expression, p(0) = 4. From the factorised expression, p(0) = (-1)<sup>2</sup>c = c. Therefore c = 4.<br/><br/>So p(x) = (x - 1)<sup>2</sup>(x + 4). Substituting x = -1 gives p(-1) = (-2)<sup>2</sup>(3) = 4 × 3 = 12.",
+          "incorrectFeedback": "Because the cubic is monic and contains the repeated factor (x - 1)<sup>2</sup>, write p(x) = (x - 1)<sup>2</sup>(x + c).<br/><br/>The constant term is p(0) = c, but the question tells us the constant term is 4. Therefore c = 4. Now substitute x = -1 into (x - 1)<sup>2</sup>(x + 4), giving (-2)<sup>2</sup>(3) = 12."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 16 OF 20",
+          "question": "For which values of k is x<sup>2</sup> + 2kx + k + 3 > 0 for every real value of x?",
+          "options": [
+            "k < <span class=\"math-frac\"><span>1 - √13</span><span>2</span></span>",
+            "<span class=\"math-frac\"><span>1 - √13</span><span>2</span></span> < k < <span class=\"math-frac\"><span>1 + √13</span><span>2</span></span>",
+            "k > <span class=\"math-frac\"><span>1 + √13</span><span>2</span></span>",
+            "k < <span class=\"math-frac\"><span>1 - √13</span><span>2</span></span> or k > <span class=\"math-frac\"><span>1 + √13</span><span>2</span></span>",
+            "Every real value of k"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The coefficient of x<sup>2</sup> is positive, so the graph opens upwards. For the expression to be strictly positive for every real x, the graph must never touch or cross the x-axis. Its discriminant must therefore be negative.<br/><br/>(2k)<sup>2</sup> - 4(1)(k + 3) < 0.<br/><br/>This simplifies to 4k<sup>2</sup> - 4k - 12 < 0, and hence k<sup>2</sup> - k - 3 < 0.<br/><br/>The boundary values are found from k<sup>2</sup> - k - 3 = 0, giving k = <span class=\"math-frac\"><span>1 ± √13</span><span>2</span></span>. Since the quadratic in k opens upwards, it is negative between its roots. Therefore <span class=\"math-frac\"><span>1 - √13</span><span>2</span></span> < k < <span class=\"math-frac\"><span>1 + √13</span><span>2</span></span>.",
+          "incorrectFeedback": "The graph opens upwards because the coefficient of x<sup>2</sup> is positive. To be strictly above the x-axis for every x, it must have no real roots, so the discriminant must be negative.<br/><br/>This gives (2k)<sup>2</sup> - 4(k + 3) < 0, which simplifies to k<sup>2</sup> - k - 3 < 0. The roots are <span class=\"math-frac\"><span>1 ± √13</span><span>2</span></span>, and the expression is negative between them."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 17 OF 20",
+          "question": "Evaluate (√(5 + 2√6) - √(5 - 2√6))<sup>2</sup>. ",
+          "options": [
+            "2",
+            "4",
+            "6",
+            "8",
+            "10"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Use (a - b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab.<br/><br/>The expression becomes:<br/><br/>(5 + 2√6) + (5 - 2√6) - 2√((5 + 2√6)(5 - 2√6)).<br/><br/>The first two terms add to 10. The product inside the square root is a difference of squares:<br/><br/>(5 + 2√6)(5 - 2√6) = 25 - (2√6)<sup>2</sup> = 25 - 24 = 1.<br/><br/>Therefore the value is 10 - 2√1 = 10 - 2 = 8.",
+          "incorrectFeedback": "Expand using (a - b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab. The two squared terms add to 10.<br/><br/>For the product, use the conjugates: (5 + 2√6)(5 - 2√6) = 25 - 24 = 1. Therefore the full expression is 10 - 2√1 = 8."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 18 OF 20",
+          "question": "How many real solutions does the equation <span class=\"math-frac\"><span>x + 1</span><span>x - 2</span></span> + <span class=\"math-frac\"><span>x - 2</span><span>x + 1</span></span> = 2 have?",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. First note that x ≠ 2 and x ≠ -1. Multiply the equation by (x - 2)(x + 1):<br/><br/>(x + 1)<sup>2</sup> + (x - 2)<sup>2</sup> = 2(x - 2)(x + 1).<br/><br/>Expanding the left-hand side gives 2x<sup>2</sup> - 2x + 5. Expanding the right-hand side gives 2x<sup>2</sup> - 2x - 4.<br/><br/>The equation would therefore require 2x<sup>2</sup> - 2x + 5 = 2x<sup>2</sup> - 2x - 4, which simplifies to 5 = -4. This is impossible, so there are no real solutions.",
+          "incorrectFeedback": "Multiply both sides by (x - 2)(x + 1). This gives (x + 1)<sup>2</sup> + (x - 2)<sup>2</sup> = 2(x - 2)(x + 1).<br/><br/>After expanding, the left-hand side is 2x<sup>2</sup> - 2x + 5, while the right-hand side is 2x<sup>2</sup> - 2x - 4. This would imply 5 = -4, so the equation has 0 real solutions."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 19 OF 20",
+          "question": "The functions f and g are defined by f(x) = √(2x - 1) and g(x) = <span class=\"math-frac\"><span>1</span><span>x - 3</span></span>. What is the domain of f(g(x))?",
+          "options": [
+            "x < 3",
+            "3 < x < 5",
+            "3 < x ≤ 5",
+            "x ≥ 5",
+            "x ≠ 3"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Substituting g(x) into f gives:<br/><br/>f(g(x)) = √(<span class=\"math-frac\"><span>2</span><span>x - 3</span></span> - 1).<br/><br/>The expression inside the square root must be non-negative:<br/><br/><span class=\"math-frac\"><span>2</span><span>x - 3</span></span> - 1 ≥ 0.<br/><br/>Combining the terms gives <span class=\"math-frac\"><span>5 - x</span><span>x - 3</span></span> ≥ 0. The critical values are x = 3 and x = 5.<br/><br/>x = 3 must be excluded because it makes the denominator zero. A sign check shows the fraction is positive between 3 and 5, while x = 5 is included because it makes the fraction zero. Therefore the domain is 3 < x ≤ 5.",
+          "incorrectFeedback": "Form the composite function first:<br/><br/>f(g(x)) = √(<span class=\"math-frac\"><span>2</span><span>x - 3</span></span> - 1).<br/><br/>The quantity inside the square root must be at least zero. This gives <span class=\"math-frac\"><span>5 - x</span><span>x - 3</span></span> ≥ 0. The fraction is non-negative for 3 < x ≤ 5. The value x = 3 is excluded because the denominator would be zero, but x = 5 is included."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 20 OF 20",
+          "question": "A number x satisfies x<sup>2</sup> - 5x + 3 = 0. Let t = x<sup>2</sup>. Which equation must t satisfy?",
+          "options": [
+            "t<sup>2</sup> - 19t + 9 = 0",
+            "t<sup>2</sup> - 25t + 9 = 0",
+            "t<sup>2</sup> - 19t + 3 = 0",
+            "t<sup>2</sup> - 10t + 9 = 0",
+            "t<sup>2</sup> - 19t - 9 = 0"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Since t = x<sup>2</sup>, the original equation becomes:<br/><br/>t - 5x + 3 = 0.<br/><br/>Rearranging gives 5x = t + 3, so x = <span class=\"math-frac\"><span>t + 3</span><span>5</span></span>.<br/><br/>But t = x<sup>2</sup>, so substitute this expression for x:<br/><br/>t = (<span class=\"math-frac\"><span>t + 3</span><span>5</span></span>)<sup>2</sup>.<br/><br/>Multiplying by 25 gives 25t = (t + 3)<sup>2</sup>. Expanding gives 25t = t<sup>2</sup> + 6t + 9. Moving everything to one side gives t<sup>2</sup> - 19t + 9 = 0.",
+          "incorrectFeedback": "Use only substitution. Since t = x<sup>2</sup>, rewrite the original equation as t - 5x + 3 = 0. Therefore x = <span class=\"math-frac\"><span>t + 3</span><span>5</span></span>.<br/><br/>Now use t = x<sup>2</sup>:<br/><br/>t = (<span class=\"math-frac\"><span>t + 3</span><span>5</span></span>)<sup>2</sup>.<br/><br/>Multiplying out gives 25t = t<sup>2</sup> + 6t + 9, so t<sup>2</sup> - 19t + 9 = 0."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · COMPLETE",
+          "title": "Algebra and Functions: exam practice complete",
+          "keyPoints": [
+            "Index expressions can often be simplified by introducing a substitution.",
+            "When rationalising a two-term denominator, multiply by its conjugate.",
+            "For parameterised quadratics, check both the number and signs of the roots.",
+            "The factor theorem can create simultaneous equations for unknown coefficients.",
+            "A sum of distances represented by modulus expressions may be constant across an interval."
+          ],
+          "reviewItems": [
+            "Review Question 1 if the cubic identity was difficult to spot.",
+            "Review Question 3 if you found the parameter conditions difficult.",
+            "Review the difference between the factor theorem and remainder theorem.",
+            "Try the questions again without reading the solutions."
+          ],
+          "buttonText": "Finish questions"
+        }
+      ]
     },
     {
       "id": "arithmetic-geometric-progressions",
       "topicId": "topic-2",
       "title": "Arithmetic & Geometric Progressions",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "SEQUENCES · 1 OF 20",
+          "title": "Two ways to define a sequence",
+          "body": "A sequence is an ordered list of numbers. It can be defined directly by a formula for its nth term, or generated one term at a time using a recurrence relation.<br/><br/>For example, uₙ = 3n - 1 defines every term directly. Substituting n = 1, 2, 3, ... gives 2, 5, 8, 11, ...<br/><br/>A recurrence relation instead uses an earlier term to generate the next term.",
+          "keyPoint": "A recurrence relation normally needs both a rule and a starting value. For example, u₁ = 2 and uₙ₊₁ = 2uₙ - 1 generate the sequence 2, 3, 5, 9, ...",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "SEQUENCES · 2 OF 20",
+          "title": "Generate terms from a recurrence relation",
+          "steps": [
+            {
+              "title": "Start with the given first term",
+              "body": "Suppose u₁ = 4 and uₙ₊₁ = 3uₙ - 2. We begin with u₁ = 4."
+            },
+            {
+              "title": "Find the second term",
+              "body": "u₂ = 3u₁ - 2 = 3(4) - 2 = 10."
+            },
+            {
+              "title": "Find the third term",
+              "body": "u₃ = 3u₂ - 2 = 3(10) - 2 = 28."
+            },
+            {
+              "title": "Find the fourth term",
+              "body": "u₄ = 3u₃ - 2 = 3(28) - 2 = 82."
+            },
+            {
+              "title": "State the answer",
+              "body": "Therefore u₄ = 82. Each new term must be found using the term immediately before it."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEQUENCE CHECK · 3 OF 20",
+          "question": "The sequence (xₙ) is defined by x₁ = 3,   xₙ₊₁ = 2xₙ + 1. What is x₄?",
+          "prompt": "Apply the recurrence relation one term at a time.",
+          "options": [
+            "15",
+            "23",
+            "31",
+            "39",
+            "47"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Start with x₁ = 3.<br/><br/>x₂ = 2(3) + 1 = 7,<br/>x₃ = 2(7) + 1 = 15,<br/>x₄ = 2(15) + 1 = 31.<br/><br/>Therefore x₄ = 31.",
+          "incorrectFeedback": "Apply the recurrence repeatedly, beginning with x₁ = 3.<br/><br/>x₂ = 7, x₃ = 15 and x₄ = 31.<br/><br/>The answer is 31."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 4 OF 20",
+          "title": "Sequence rules understood.",
+          "body": "You can now generate terms from both an nth-term formula and a simple recurrence relation.<br/><br/>Next, we will study sequences whose terms change by a constant difference.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ARITHMETIC PROGRESSIONS · 5 OF 20",
+          "title": "Arithmetic progressions have a constant difference",
+          "body": "An arithmetic progression is a sequence in which the difference between consecutive terms is constant.<br/><br/>For example, 7, 11, 15, 19, ... has common difference d = 4.",
+          "keyPoint": "If the first term is a and the common difference is d, then the nth term is uₙ = a + (n - 1)d. The n - 1 appears because no difference has been added at the first term.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "ARITHMETIC PROGRESSIONS · 6 OF 20",
+          "title": "Find the position of a term",
+          "steps": [
+            {
+              "title": "Identify the first term and difference",
+              "body": "Consider the arithmetic progression 8, 13, 18, 23, ... Here a = 8 and d = 5."
+            },
+            {
+              "title": "Write the nth term",
+              "body": "uₙ = a + (n - 1)d, so uₙ = 8 + 5(n - 1)."
+            },
+            {
+              "title": "Set the nth term equal to 103",
+              "body": "8 + 5(n - 1) = 103."
+            },
+            {
+              "title": "Solve for n",
+              "body": "5(n - 1) = 95, so n - 1 = 19 and n = 20."
+            },
+            {
+              "title": "Interpret the result",
+              "body": "Therefore 103 is the 20th term of the progression."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ARITHMETIC CHECK · 7 OF 20",
+          "question": "An arithmetic progression has third term 11 and eighth term 31.<br/><br/>What is its first term?",
+          "prompt": "Write an equation for each of the two given terms.",
+          "options": [
+            "-1",
+            "1",
+            "3",
+            "5",
+            "7"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Using uₙ = a + (n - 1)d:<br/><br/>The third term gives a + 2d = 11.<br/>The eighth term gives a + 7d = 31.<br/><br/>Subtracting the equations gives 5d = 20, so d = 4.<br/><br/>Substitute into a + 2d = 11:<br/>a + 8 = 11, so a = 3.",
+          "incorrectFeedback": "The third and eighth terms give:<br/><br/>a + 2d = 11<br/>a + 7d = 31.<br/><br/>Subtracting gives 5d = 20, so d = 4. Substituting back gives a = 3."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 8 OF 20",
+          "title": "Arithmetic terms mastered.",
+          "body": "You can now identify a common difference, find an nth term and recover unknown information from given terms.<br><br>Next, we will add the terms of an arithmetic progression.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ARITHMETIC SERIES · 9 OF 20",
+          "title": "A series is the sum of sequence terms",
+          "body": "A sequence lists terms, while a series adds them.<br/><br/>For an arithmetic progression with first term a, common difference d and n terms, the sum is Sₙ = <span class=\"math-frac\"><span>n</span><span>2</span></span>(2a + (n - 1)d). If the final term l is known, the equivalent form is Sₙ = <span class=\"math-frac\"><span>n</span><span>2</span></span>(a + l).",
+          "keyPoint": "For the natural numbers, 1 + 2 + ... + n = n(n + 1)/2.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "ARITHMETIC SERIES · 10 OF 20",
+          "title": "Find an arithmetic-series sum",
+          "steps": [
+            {
+              "title": "Identify the progression",
+              "body": "Find 7 + 12 + 17 + ... + 102. The first term is 7 and the common difference is 5."
+            },
+            {
+              "title": "Find the number of terms",
+              "body": "The nth term is 7 + 5(n - 1). Set this equal to 102."
+            },
+            {
+              "title": "Solve for n",
+              "body": "7 + 5(n - 1) = 102 gives 5(n - 1) = 95, so n = 20."
+            },
+            {
+              "title": "Use the first and final terms",
+              "body": "S₂₀ = <span class=\"math-frac\"><span>20</span><span>2</span></span>(7 + 102)."
+            },
+            {
+              "title": "Calculate the sum",
+              "body": "S₂₀ = 10(109) = 1090."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SERIES CHECK · 11 OF 20",
+          "question": "The sum of the first n natural numbers is 210.<br/><br/>What is n?",
+          "prompt": "Use the formula for 1 + 2 + ... + n.",
+          "options": [
+            "14",
+            "15",
+            "20",
+            "21",
+            "28"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Use <span class=\"math-frac\"><span>n(n + 1)</span><span>2</span></span> = 210. Therefore n(n + 1) = 420.<br/><br/>Since 20 × 21 = 420, we obtain n = 20.",
+          "incorrectFeedback": "Use n(n + 1)/2 = 210. Multiplying by 2 gives n(n + 1) = 420.<br/><br/>The consecutive numbers 20 and 21 have product 420, so n = 20."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 12 OF 20",
+          "title": "Arithmetic sums complete.",
+          "body": "You can now sum finite arithmetic series and use the formula for the sum of the first n natural numbers.<br/><br/>Next, we will study sequences that change by multiplication rather than addition.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "GEOMETRIC PROGRESSIONS · 13 OF 20",
+          "title": "Geometric progressions have a constant ratio",
+          "body": "A geometric progression is a sequence in which each term is obtained by multiplying the previous term by a constant ratio r.<br/><br/>For example, 5, 15, 45, 135, ... has common ratio r = 3.",
+          "keyPoint": "If the first term is a and the common ratio is r, then uₙ = ar<sup>n-1</sup>. A negative ratio creates an alternating sequence, such as 4, -8, 16, -32, ...",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "GEOMETRIC PROGRESSIONS · 14 OF 20",
+          "title": "Use two terms to find a geometric progression",
+          "steps": [
+            {
+              "title": "Write the two given terms",
+              "body": "A geometric progression has second term 12 and fifth term 324. Therefore ar = 12 and ar<sup>4</sup> = 324."
+            },
+            {
+              "title": "Divide the equations",
+              "body": "<span class=\"math-frac\"><span>ar<sup>4</sup></span><span>ar</span></span> = <span class=\"math-frac\"><span>324</span><span>12</span></span>, so r<sup>3</sup> = 27."
+            },
+            {
+              "title": "Find the positive ratio",
+              "body": "The question states that the ratio is positive, so r = 3."
+            },
+            {
+              "title": "Find the first term",
+              "body": "Since ar = 12, we have 3a = 12, so a = 4."
+            },
+            {
+              "title": "State the result",
+              "body": "The progression begins 4, 12, 36, 108, 324, ..."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "GEOMETRIC CHECK · 15 OF 20",
+          "question": "The first three terms of a geometric progression are x,   12,   18, where x > 0. What is x?",
+          "prompt": "The ratio between each pair of consecutive terms must be equal.",
+          "options": [
+            "4",
+            "6",
+            "8",
+            "9",
+            "10"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The common ratio from 12 to 18 is r = <span class=\"math-frac\"><span>18</span><span>12</span></span> = <span class=\"math-frac\"><span>3</span><span>2</span></span>. Therefore 12 = x(3/2). Multiplying by 2/3 gives x = 8.",
+          "incorrectFeedback": "First find the common ratio: 18/12 = 3/2.<br/><br/>Since the second term is obtained by multiplying x by 3/2, we have 12 = 3x/2. Therefore x = 8."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 16 OF 20",
+          "title": "Geometric terms mastered.",
+          "body": "You can now recognise geometric progressions, work with negative ratios and find unknown terms using uₙ = ar<sup>n-1</sup>.<br/><br/>The final block covers the sum of a finite geometric series.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "FINITE GEOMETRIC SERIES · 17 OF 20",
+          "title": "Summing a finite geometric series",
+          "body": "For a geometric progression with first term a, common ratio r and n terms, the finite sum is Sₙ = <span class=\"math-frac\"><span>a(1 - r<sup>n</sup>)</span><span>1 - r</span></span>,   r ≠ 1. An equivalent form is Sₙ = <span class=\"math-frac\"><span>a(r<sup>n</sup> - 1)</span><span>r - 1</span></span>.",
+          "keyPoint": "Both formulas are equivalent. Choose the version that makes the signs easiest to manage. This lesson only considers a finite number of terms; sum to infinity comes later.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "FINITE GEOMETRIC SERIES · 18 OF 20",
+          "title": "Sum a finite geometric series",
+          "steps": [
+            {
+              "title": "Identify the first term and ratio",
+              "body": "Find 3 + 6 + 12 + ... + 1536. Here a = 3 and r = 2."
+            },
+            {
+              "title": "Find the number of terms",
+              "body": "The nth term is 3(2<sup>n-1</sup>). Set 3(2<sup>n-1</sup>) = 1536."
+            },
+            {
+              "title": "Solve for n",
+              "body": "2<sup>n-1</sup> = 512 = 2<sup>9</sup>, so n - 1 = 9 and n = 10."
+            },
+            {
+              "title": "Use the finite-sum formula",
+              "body": "S₁₀ = <span class=\"math-frac\"><span>3(2<sup>10</sup> - 1)</span><span>2 - 1</span></span>."
+            },
+            {
+              "title": "Calculate the result",
+              "body": "S₁₀ = 3(1024 - 1) = 3(1023) = 3069."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FINITE SERIES CHECK · 19 OF 20",
+          "question": "A finite geometric series has first term 5, common ratio 2 and sum 635.<br/><br/>How many terms does it contain?",
+          "prompt": "Substitute the given values into the finite geometric-series formula.",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Using the finite geometric-series formula:<br/><br/>Sₙ = 5(2<sup>n</sup> - 1), because r - 1 = 1.<br/><br/>Therefore 5(2<sup>n</sup> - 1) = 635.<br/><br/>Divide by 5:<br/>2<sup>n</sup> - 1 = 127.<br/><br/>Hence 2<sup>n</sup> = 128 = 2<sup>7</sup>, so n = 7.",
+          "incorrectFeedback": "Use Sₙ = 5(2<sup>n</sup> - 1).<br/><br/>Setting this equal to 635 gives 2<sup>n</sup> - 1 = 127, so 2<sup>n</sup> = 128.<br/><br/>Since 128 = 2<sup>7</sup>, the series contains 7 terms."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 20 OF 20",
+          "title": "Arithmetic and Geometric Progressions: key points",
+          "keyPoints": [
+            "A sequence may be defined by an nth-term formula or generated using a recurrence relation.",
+            "A recurrence relation needs a starting value as well as a rule.",
+            "For an arithmetic progression, uₙ = a + (n - 1)d.",
+            "For an arithmetic series, Sₙ = n(2a + (n - 1)d)/2.",
+            "The sum of the first n natural numbers is n(n + 1)/2.",
+            "For a geometric progression, uₙ = ar<sup>n-1</sup>.",
+            "For a finite geometric series, Sₙ = a(1 - r<sup>n</sup>)/(1 - r).",
+            "A negative common ratio creates an alternating geometric progression."
+          ],
+          "reviewItems": [
+            "Practise generating terms from recurrence relations.",
+            "Practise finding unknown arithmetic terms from two given terms.",
+            "Practise deciding which arithmetic-series formula is most convenient.",
+            "Practise finding the first term and ratio of a geometric progression.",
+            "Practise finding the number of terms before calculating a finite sum.",
+            "Next lesson: Binomial Expansion and Factorials."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "binomial-expansion-factorials",

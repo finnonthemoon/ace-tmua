@@ -38,16 +38,28 @@ const tagsStyles: MixedStyleRecord = {
 
 const localStyles = StyleSheet.create({
   inlineMathRow: {
-    width: "100%",
+    maxWidth: "100%",
+    alignSelf: "flex-start",
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
+    flexShrink: 1,
   },
+
   inlineText: {
+    flex: 0,
     flexGrow: 0,
     flexShrink: 1,
     flexBasis: "auto",
     width: "auto",
+  },
+  lineBreak: {
+    width: "100%",
+    height: 0,
+  },
+
+  paragraphBreak: {
+    height: 8,
   },
   fraction: {
     flexShrink: 0,
@@ -59,11 +71,17 @@ const localStyles = StyleSheet.create({
 
   fractionText: {
     paddingHorizontal: 3,
-    paddingVertical: 1,
+    paddingVertical: 0,
     textAlign: "center",
   },
+
   fractionNumerator: {
-    transform: [{ translateY: 2 }],
+    marginBottom: -2,
+    transform: [{ translateY: -1 }],
+  },
+  fractionDenominator: {
+    marginTop: -5,
+    paddingTop: 5,
   },
 
   fractionBar: {
@@ -71,7 +89,6 @@ const localStyles = StyleSheet.create({
     height: 1,
     backgroundColor: "#3a2e26",
   },
-
   superscript: {
     fontSize: 10,
     lineHeight: 11,
@@ -92,7 +109,13 @@ function decodeHtmlEntities(value: string): string {
 
 function removeOtherHtmlTags(value: string): string {
   return decodeHtmlEntities(
-    value.replace(/<(?!\/?sup\b)[^>]*>/gi, "")
+    value
+      // Preserve spacing from feedback paragraphs.
+      .replace(/<br\s*\/?>/gi, "\n")
+
+      // Remove genuine HTML tags only.
+      // This deliberately does not mistake "< 0" for a tag.
+      .replace(/<\/?(?!sup\b)[a-z][^>]*>/gi, "")
   );
 }
 
@@ -178,39 +201,94 @@ function renderTextWords(
   style: any,
   keyPrefix: string
 ): ReactNode[] {
-  if (!value) {
-    return [];
-  }
+  const nodes: ReactNode[] = [];
 
-  return [
-    <Text
-      key={`${keyPrefix}-text`}
-      style={[style, localStyles.inlineText]}
-    >
-      {renderInlineText(
-        value,
-        style,
-        `${keyPrefix}-text`
-      )}
-    </Text>,
-  ];
+  const preparedValue = value
+    .replace(
+      /<br\s*\/?>\s*<br\s*\/?>/gi,
+      "\n\n"
+    )
+    .replace(/<br\s*\/?>/gi, "\n");
+
+  const sections = preparedValue.split(/(\n+)/);
+
+  let textIndex = 0;
+  let breakIndex = 0;
+
+  sections.forEach((section) => {
+    if (!section) {
+      return;
+    }
+
+    if (/^\n+$/.test(section)) {
+      nodes.push(
+        <View
+          key={`${keyPrefix}-break-${breakIndex}`}
+          style={[
+            localStyles.lineBreak,
+            section.length > 1 &&
+            localStyles.paragraphBreak,
+          ]}
+        />
+      );
+
+      breakIndex += 1;
+      return;
+    }
+
+    const cleanedSection = removeOtherHtmlTags(section);
+    const words = cleanedSection.match(/\S+\s*/g) ?? [];
+
+    words.forEach((word) => {
+      nodes.push(
+        <Text
+          key={`${keyPrefix}-word-${textIndex}`}
+          style={[style, localStyles.inlineText]}
+        >
+          {renderInlineText(
+            word,
+            style,
+            `${keyPrefix}-word-${textIndex}`
+          )}
+        </Text>
+      );
+
+      textIndex += 1;
+    });
+  });
+
+  return nodes;
 }
-
 function renderFraction(
   numerator: string,
   denominator: string,
   style: any,
   key: string
 ): ReactNode {
+  const flattenedStyle = StyleSheet.flatten(style) ?? {};
+
+  const baseFontSize =
+    typeof flattenedStyle.fontSize === "number"
+      ? flattenedStyle.fontSize
+      : 16;
+
+  const fractionLineHeight = Math.max(
+    12,
+    Math.ceil(baseFontSize * 1.05)
+  );
+
   return (
     <View key={key} style={localStyles.fraction}>
       <Text
         style={[
           style,
           localStyles.fractionText,
+          {
+            lineHeight: fractionLineHeight,
+          },
           localStyles.fractionNumerator,
         ]}
-        numberOfLines={1}
+
       >
         {renderInlineText(
           numerator,
@@ -222,8 +300,15 @@ function renderFraction(
       <View style={localStyles.fractionBar} />
 
       <Text
-        style={[style, localStyles.fractionText]}
-        numberOfLines={1}
+        style={[
+          style,
+          localStyles.fractionText,
+          {
+            lineHeight: fractionLineHeight,
+          },
+          localStyles.fractionDenominator,
+        ]}
+
       >
         {renderInlineText(
           denominator,
@@ -234,7 +319,6 @@ function renderFraction(
     </View>
   );
 }
-
 /**
  * Converts:
  *
@@ -319,7 +403,11 @@ export function PlainOrHtml({ html, style }: Props) {
   );
 
   if (!hasHtml) {
-    return <Text style={style}>{preparedHtml}</Text>;
+    return (
+      <Text style={style}>
+        {decodeHtmlEntities(preparedHtml)}
+      </Text>
+    );
   }
 
   return (
