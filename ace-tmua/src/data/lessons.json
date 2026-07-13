@@ -1500,7 +1500,203 @@
       "id": "binomial-expansion-factorials",
       "topicId": "topic-2",
       "title": "Binomial Expansion & Factorials",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "FACTORIALS · 1 OF 13",
+          "title": "Factorials package repeated multiplication",
+          "body": "For a positive integer n, n! means n × (n - 1) × (n - 2) × ... × 2 × 1.<br><br>For example, 5! = 5 × 4 × 3 × 2 × 1 = 120.<br><br>We also define 0! = 1.",
+          "keyPoint": "Factorials often cancel. For example, <span class='math-frac'><span>8!</span><span>6!</span></span> = 8 × 7 = 56, because the factors from 6! downwards cancel.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FACTORIAL CHECK · 2 OF 13",
+          "question": "What is <span class='math-frac'><span>9!</span><span>7!</span></span>?",
+          "prompt": "Cancel the common factorial before multiplying.",
+          "options": [
+            "16",
+            "63",
+            "72",
+            "504"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. 9! = 9 × 8 × 7!, so <span class='math-frac'><span>9!</span><span>7!</span></span> = 9 × 8 = 72.",
+          "incorrectFeedback": "Cancel 7! first: <span class='math-frac'><span>9!</span><span>7!</span></span> = <span class='math-frac'><span>9 × 8 × 7!</span><span>7!</span></span> = 9 × 8 = 72."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "BINOMIAL COEFFICIENTS · 3 OF 13",
+          "title": "ⁿCᵣ counts the ways to choose r objects",
+          "body": "The notation ⁿCᵣ, read 'n choose r', is a binomial coefficient.<br><br>ⁿCᵣ = <span class='math-frac'><span>n!</span><span>(n - r)!r!</span></span>, where 0 ≤ r ≤ n.<br><br>These numbers become the coefficients in a binomial expansion.",
+          "keyPoint": "The coefficients are symmetric: ⁿCᵣ = ⁿCₙ₋ᵣ. For example, ⁷C₂ = ⁷C₅.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "BINOMIAL COEFFICIENTS · 4 OF 13",
+          "title": "Calculate a binomial coefficient",
+          "steps": [
+            {
+              "title": "Start with the formula",
+              "body": "⁸C₃ = <span class='math-frac'><span>8!</span><span>5!3!</span></span>."
+            },
+            {
+              "title": "Cancel the common factorial",
+              "body": "<span class='math-frac'><span>8!</span><span>5!3!</span></span> = <span class='math-frac'><span>8 × 7 × 6</span><span>3 × 2 × 1</span></span>."
+            },
+            {
+              "title": "Simplify",
+              "body": "<span class='math-frac'><span>8 × 7 × 6</span><span>6</span></span> = 8 × 7 = 56."
+            },
+            {
+              "title": "State the result",
+              "body": "Therefore ⁸C₃ = 56."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "BINOMIAL THEOREM · 5 OF 13",
+          "title": "Each term has a predictable structure",
+          "body": "For a positive integer n, the expansion of (a + b)<sup>n</sup> contains n + 1 terms.<br><br>The general term is:<br><br>Tᵣ₊₁ = ⁿCᵣa<sup>n-r</sup>b<sup>r</sup>, for r = 0, 1, 2, ..., n.",
+          "keyPoint": "As r increases, the power of a decreases while the power of b increases. In every term, the two powers add to n.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "BINOMIAL EXPANSION · 6 OF 13",
+          "title": "Expand (1 + 2x)⁴",
+          "steps": [
+            {
+              "title": "Write the binomial coefficients",
+              "body": "For n = 4, the coefficients are 1, 4, 6, 4, 1."
+            },
+            {
+              "title": "Build the terms",
+              "body": "(1 + 2x)<sup>4</sup> = 1 + 4(2x) + 6(2x)<sup>2</sup> + 4(2x)<sup>3</sup> + (2x)<sup>4</sup>."
+            },
+            {
+              "title": "Simplify each coefficient",
+              "body": "4(2x) = 8x, 6(2x)<sup>2</sup> = 24x<sup>2</sup>, 4(2x)<sup>3</sup> = 32x<sup>3</sup>, and (2x)<sup>4</sup> = 16x<sup>4</sup>."
+            },
+            {
+              "title": "State the expansion",
+              "body": "(1 + 2x)<sup>4</sup> = 1 + 8x + 24x<sup>2</sup> + 32x<sup>3</sup> + 16x<sup>4</sup>."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COEFFICIENT CHECK · 7 OF 13",
+          "question": "What is the coefficient of x<sup>3</sup> in the expansion of (2 - x)<sup>5</sup>?",
+          "prompt": "Use the term with r = 3 and include the negative sign.",
+          "options": [
+            "-80",
+            "-40",
+            "40",
+            "80"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The x<sup>3</sup> term is ⁵C₃(2)<sup>2</sup>(-x)<sup>3</sup> = 10 × 4 × (-x<sup>3</sup>) = -40x<sup>3</sup>.",
+          "incorrectFeedback": "Use r = 3: ⁵C₃(2)<sup>5-3</sup>(-x)<sup>3</sup> = 10 × 4 × (-x<sup>3</sup>) = -40x<sup>3</sup>. The coefficient is -40."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 8 OF 13",
+          "title": "Core binomial expansion complete.",
+          "body": "You can now use factorials, calculate ⁿCᵣ and select a particular term from an expansion.<br><br>Next, we will apply the same method when the second term is a function such as 3x<sup>2</sup>.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "FUNCTIONS INSIDE BINOMIALS · 9 OF 13",
+          "title": "Track the power created by f(x)",
+          "body": "The same theorem applies to (a + f(x))<sup>n</sup>.<br><br>The general term is ⁿCᵣa<sup>n-r</sup>(f(x))<sup>r</sup>.<br><br>If f(x) = 3x<sup>2</sup>, then (f(x))<sup>r</sup> = 3<sup>r</sup>x<sup>2r</sup>.",
+          "keyPoint": "In an expansion involving x<sup>2</sup>, only even powers of x appear. To find the x<sup>6</sup> term, solve 2r = 6, giving r = 3.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "FUNCTION EXAMPLE · 10 OF 13",
+          "title": "Find the coefficient of x⁶",
+          "steps": [
+            {
+              "title": "Choose the correct value of r",
+              "body": "In (2 + 3x<sup>2</sup>)<sup>5</sup>, the power of x in the rth choice is x<sup>2r</sup>. For x<sup>6</sup>, 2r = 6, so r = 3."
+            },
+            {
+              "title": "Write the required term",
+              "body": "The term is ⁵C₃(2)<sup>5-3</sup>(3x<sup>2</sup>)<sup>3</sup>."
+            },
+            {
+              "title": "Separate the numerical coefficient",
+              "body": "⁵C₃ × 2<sup>2</sup> × 3<sup>3</sup> = 10 × 4 × 27."
+            },
+            {
+              "title": "Calculate",
+              "body": "10 × 4 × 27 = 1080, so the coefficient of x<sup>6</sup> is 1080."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "POWER CHECK · 11 OF 13",
+          "question": "Which power of x does not appear in the expansion of (1 + 2x<sup>3</sup>)<sup>6</sup>?",
+          "prompt": "The powers of x are multiples of 3.",
+          "options": [
+            "x⁶",
+            "x⁹",
+            "x¹²",
+            "x¹⁴",
+            "x¹⁸"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The powers are x<sup>3r</sup> for r = 0, 1, ..., 6, so they are x<sup>0</sup>, x<sup>3</sup>, x<sup>6</sup>, x<sup>9</sup>, x<sup>12</sup>, x<sup>15</sup> and x<sup>18</sup>. Therefore x<sup>14</sup> does not appear.",
+          "incorrectFeedback": "The power of x is 3r. Since r is an integer from 0 to 6, only multiples of 3 appear. Therefore x<sup>14</sup> is absent."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TMUA-STYLE CHECK · 12 OF 13",
+          "question": "In the expansion of (a + bx<sup>2</sup>)<sup>7</sup>, the coefficient of x<sup>10</sup> is 15 times the coefficient of x<sup>6</sup>.<br><br>Given that a and b are non-zero positive integers, what is the smallest possible value of a + b?",
+          "prompt": "Match x¹⁰ with r = 5 and x⁶ with r = 3.",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "10"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The coefficient of x<sup>10</sup> is ⁷C₅a<sup>2</sup>b<sup>5</sup> = 21a<sup>2</sup>b<sup>5</sup>.<br><br>The coefficient of x<sup>6</sup> is ⁷C₃a<sup>4</sup>b<sup>3</sup> = 35a<sup>4</sup>b<sup>3</sup>.<br><br>Therefore 21a<sup>2</sup>b<sup>5</sup> = 15(35a<sup>4</sup>b<sup>3</sup>). Dividing by 21a<sup>2</sup>b<sup>3</sup> gives b<sup>2</sup> = 25a<sup>2</sup>.<br><br>Since a and b are positive, b = 5a. The smallest choice is a = 1 and b = 5, so a + b = 6.",
+          "incorrectFeedback": "The x<sup>10</sup> term uses r = 5, while the x<sup>6</sup> term uses r = 3.<br><br>Set 21a<sup>2</sup>b<sup>5</sup> = 15(35a<sup>4</sup>b<sup>3</sup>). This simplifies to b<sup>2</sup> = 25a<sup>2</sup>, so b = 5a.<br><br>The smallest positive integers are a = 1 and b = 5, giving a + b = 6."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 13 OF 13",
+          "title": "Binomial Expansion and Factorials: key points",
+          "keyPoints": [
+            "n! means n × (n - 1) × ... × 2 × 1, and 0! = 1.",
+            "ⁿCᵣ = n! / ((n - r)!r!).",
+            "The expansion of (a + b)ⁿ has n + 1 terms.",
+            "The general term is Tᵣ₊₁ = ⁿCᵣa<sup>n-r</sup>b<sup>r</sup>.",
+            "To find a coefficient, first identify the value of r that produces the required power.",
+            "For (a + f(x))ⁿ, remember to raise the whole function f(x) to the power r.",
+            "The sign of a term matters when the binomial contains subtraction."
+          ],
+          "reviewItems": [
+            "Practise cancelling factorials before multiplying.",
+            "Practise calculating ⁿCᵣ using the factorial formula.",
+            "Practise selecting one coefficient without expanding every term.",
+            "Practise matching powers when f(x) contains x² or x³.",
+            "Next lesson: Advanced Series Logic."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "advanced-series-logic",
