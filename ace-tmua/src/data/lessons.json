@@ -1702,7 +1702,189 @@
       "id": "advanced-series-logic",
       "topicId": "topic-2",
       "title": "Advanced Series Logic",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "SUM TO INFINITY · 1 OF 12",
+          "title": "A geometric series converges only when |r| < 1",
+          "body": "For a geometric progression with first term a and common ratio r:<br><br>Sₙ = <span class='math-frac'><span>a(1 - r<sup>n</sup>)</span><span>1 - r</span></span>.<br><br>If |r| < 1, then r<sup>n</sup> approaches 0 as n becomes large, so the series has a finite sum to infinity.",
+          "keyPoint": "S∞ = <span class='math-frac'><span>a</span><span>1 - r</span></span>, but only when |r| < 1. A negative ratio is allowed provided its magnitude is less than 1.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "CONVERGENCE CHECK · 2 OF 12",
+          "question": "Which geometric progression has a finite sum to infinity?",
+          "prompt": "Check the magnitude of the common ratio.",
+          "options": [
+            "First term 5, common ratio 1",
+            "First term 4, common ratio -3/2",
+            "First term 6, common ratio -2/3",
+            "First term 3, common ratio 5/4",
+            "First term 8, common ratio -1"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The ratio is -2/3, and |-2/3| < 1, so the terms approach 0 and the series converges.",
+          "incorrectFeedback": "A geometric series converges only when |r| < 1. Of the options, only r = -2/3 satisfies this condition."
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "POWERS OF A SERIES · 3 OF 12",
+          "title": "Use the sums of powers to recover a and r",
+          "steps": [
+            {
+              "title": "Write the two sums",
+              "body": "Suppose the sum of the terms is 4 and the sum of their squares is 48.<br><br><span class='math-frac'><span>a</span><span>1 - r</span></span> = 4 and <span class='math-frac'><span>a<sup>2</sup></span><span>1 - r<sup>2</sup></span></span> = 48."
+            },
+            {
+              "title": "Divide to remove a",
+              "body": "<span class='math-frac'><span>48</span><span>4<sup>2</sup></span></span> = <span class='math-frac'><span>1 - r</span><span>1 + r</span></span>.<br><br>Therefore 3 = <span class='math-frac'><span>1 - r</span><span>1 + r</span></span>."
+            },
+            {
+              "title": "Find the common ratio and first term",
+              "body": "1 - r = 3 + 3r, so r = -1/2.<br><br>Then a = 4(1 - r) = 6."
+            },
+            {
+              "title": "Sum the cubes",
+              "body": "The cubes form a GP with first term a<sup>3</sup> and ratio r<sup>3</sup>.<br><br>The required sum is <span class='math-frac'><span>6<sup>3</sup></span><span>1 - (-1/2)<sup>3</sup></span></span> = 192."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "POWER-SUM CHECK · 4 OF 12",
+          "question": "The sum to infinity of a geometric progression is 8. The sum to infinity of the squares of its terms is <span class='math-frac'><span>64</span><span>3</span></span>.<br><br>What is the sum to infinity of the cubes of its terms?",
+          "prompt": "First use the two given sums to recover r.",
+          "options": [
+            "64",
+            "72",
+            "<span class='math-frac'><span>512</span><span>7</span></span>",
+            "128",
+            "<span class='math-frac'><span>512</span><span>3</span></span>"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Dividing the square-sum equation by the square of the original sum gives <span class='math-frac'><span>1 - r</span><span>1 + r</span></span> = 1/3, so r = 1/2.<br><br>Then a = 8(1 - 1/2) = 4. The cube sum is <span class='math-frac'><span>4<sup>3</sup></span><span>1 - (1/2)<sup>3</sup></span></span> = <span class='math-frac'><span>512</span><span>7</span></span>.",
+          "incorrectFeedback": "Let the original sum be S and the square sum be Q. Then <span class='math-frac'><span>Q</span><span>S<sup>2</sup></span></span> = <span class='math-frac'><span>1 - r</span><span>1 + r</span></span>.<br><br>Here this gives 1/3, so r = 1/2 and a = 4. Therefore the cube sum is <span class='math-frac'><span>512</span><span>7</span></span>."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "RECURRENCE EXPONENTS · 5 OF 12",
+          "title": "Roots repeatedly divide the exponent",
+          "body": "Suppose x₁ = 5<sup>16</sup> and xₙ₊₁ = √xₙ.<br><br>Then x₂ = 5<sup>8</sup>, x₃ = 5<sup>4</sup>, x₄ = 5<sup>2</sup> and x₅ = 5.<br><br>It is often easier to track the exponent than to track the whole number.",
+          "keyPoint": "If x₁ = c<sup>m</sup> and xₙ₊₁ = xₙ<sup>1/k</sup>, then xₙ = c<sup>m/k^(n-1)</sup>.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "RECURRENCE CHECK · 6 OF 12",
+          "question": "A sequence is defined by x₁ = 7<sup>9</sup> and xₙ₊₁ = ∛xₙ.<br><br>What is x₆?",
+          "prompt": "Each step divides the exponent by 3.",
+          "options": [
+            "7<sup>27</sup>",
+            "7<sup>1/9</sup>",
+            "7<sup>1/27</sup>",
+            "7<sup>-27</sup>",
+            "7<sup>-1/27</sup>"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. After five recurrence steps, the exponent is <span class='math-frac'><span>9</span><span>3<sup>5</sup></span></span> = 1/27, so x₆ = 7<sup>1/27</sup>.",
+          "incorrectFeedback": "From x₁ to x₆ there are five recurrence steps. Each divides the exponent by 3, so the exponent becomes 9/3<sup>5</sup> = 1/27."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NICE WORK · 7 OF 12",
+          "title": "Infinite sums and recurrence logic mastered.",
+          "body": "You can now test convergence, recover a ratio from related infinite sums and simplify root-based recurrence relations.<br><br>Next, we will connect different partial sums without expanding every term.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "BLOCKING GEOMETRIC SUMS · 8 OF 12",
+          "title": "Split a long geometric sum into repeated blocks",
+          "body": "The first 2n terms can be split into two blocks of n terms.<br><br>The second block is r<sup>n</sup> times the first, so:<br><br>S₂ₙ = Sₙ + r<sup>n</sup>Sₙ = Sₙ(1 + r<sup>n</sup>).",
+          "keyPoint": "Similarly, S₃ₙ = Sₙ(1 + r<sup>n</sup> + r<sup>2n</sup>). These identities can reveal r without using the full sum formula.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FINITE-SUM CHECK · 9 OF 12",
+          "question": "For a geometric progression, the sum of the first 8 terms is 17 times the sum of the first 4 terms. The 9th term is 768.<br><br>What is the first term?",
+          "prompt": "Use S₈ = S₄(1 + r⁴).",
+          "options": [
+            "3/4",
+            "3/2",
+            "3",
+            "6",
+            "12"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. S₈ = S₄(1 + r<sup>4</sup>), so 1 + r<sup>4</sup> = 17 and r<sup>4</sup> = 16.<br><br>Therefore r<sup>8</sup> = 256. Since the 9th term is ar<sup>8</sup> = 768, a = 768/256 = 3.",
+          "incorrectFeedback": "Split the first 8 terms into two blocks of 4:<br><br>S₈ = S₄(1 + r<sup>4</sup>). Hence r<sup>4</sup> = 16 and r<sup>8</sup> = 256.<br><br>Now ar<sup>8</sup> = 768, so a = 3."
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "TAILS OF A SERIES · 10 OF 12",
+          "title": "The remaining infinite tail is another geometric series",
+          "steps": [
+            {
+              "title": "Use the tail identity",
+              "body": "For a convergent GP:<br><br>S∞ - Sₙ = S∞r<sup>n</sup>."
+            },
+            {
+              "title": "Apply it to an example",
+              "body": "Suppose S∞ = 20 and S₃ = 35/2, with r > 0.<br><br>The remaining tail is 20 - 35/2 = 5/2."
+            },
+            {
+              "title": "Recover the ratio",
+              "body": "20r<sup>3</sup> = 5/2, so r<sup>3</sup> = 1/8 and r = 1/2."
+            },
+            {
+              "title": "Find a later term",
+              "body": "Since a = 20(1 - 1/2) = 10, the 5th term is ar<sup>4</sup> = 10/16 = 5/8."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TMUA-STYLE CHECK · 11 OF 12",
+          "question": "The first, second and third terms of a convergent geometric progression are also the first, fifth and seventh terms, respectively, of an arithmetic progression.<br><br>The sum to infinity of the geometric progression is 14. What is its first term?",
+          "prompt": "Express the arithmetic common difference using the first two matched terms.",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "14"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Let the GP have first term a and ratio r, and let the AP have common difference d.<br><br>a + 4d = ar, so d = a(r - 1)/4.<br><br>Also a + 6d = ar<sup>2</sup>. Substituting for d gives 2r<sup>2</sup> - 3r + 1 = 0, so r = 1 or r = 1/2.<br><br>The GP is convergent, so r = 1/2. Hence 14 = a/(1 - 1/2) = 2a, giving a = 7.",
+          "incorrectFeedback": "From a + 4d = ar, we get d = a(r - 1)/4. Substitute this into a + 6d = ar<sup>2</sup>.<br><br>This gives 2r<sup>2</sup> - 3r + 1 = 0, so r = 1 or 1/2. Convergence rules out r = 1.<br><br>Therefore 14 = 2a, so the first term is 7."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 12 OF 12",
+          "title": "Advanced Series Logic: key points",
+          "keyPoints": [
+            "A geometric series has a finite sum to infinity only when |r| < 1.",
+            "For a convergent GP, S∞ = a / (1 - r).",
+            "The squares and cubes of GP terms form new GPs with ratios r² and r³.",
+            "Root-based recurrence relations are often simplest when you track exponents.",
+            "S₂ₙ = Sₙ(1 + rⁿ), which links partial sums without full expansion.",
+            "The infinite tail satisfies S∞ - Sₙ = S∞rⁿ.",
+            "When a question links arithmetic and geometric progressions, translate each statement into equations before solving."
+          ],
+          "reviewItems": [
+            "Practise deciding whether a geometric series converges.",
+            "Practise recovering a and r from two related sums.",
+            "Practise block identities involving Sₙ, S₂ₙ and S₃ₙ.",
+            "Practise recurrence relations involving square and cube roots.",
+            "Practise mixed arithmetic-geometric progression problems."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "sequences-series-exam-style-questions",
