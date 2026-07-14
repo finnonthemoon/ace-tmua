@@ -20,7 +20,9 @@ interface Props {
 
 /** Convert author-friendly [[LaTeX]] markers into MathJax inline delimiters. */
 export function toMathJaxMarkup(value: string) {
-  return value.replace(/\[\[([\s\S]*?)\]\]/g, (_, latex: string) => {
+  const consolidatedValue = value.replace(/\]\]\s*\[\[/g, " ");
+
+  return consolidatedValue.replace(/\[\[([\s\S]*?)\]\]/g, (_, latex: string) => {
     return `\\(${latex.trim()}\\)`;
   });
 }
