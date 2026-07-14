@@ -112,7 +112,7 @@ const TOPICS: Topic[] = [
 
 const LESSON_SUBTITLES: Record<string, string> = {
   "indices-surds-polynomials-1": "Core algebra rules and manipulation",
-  "quadratics-inequalities-1": "Forms, hidden quadratics and regions",
+  "quadratic-and-inequalities": "Forms, hidden quadratics and regions",
   "functions-simultaneous-systems": "Mappings and linked equations",
   "algebra-modulus-functions": "Graphs, equations and inequalities",
   "algebra-exam-style-questions": "Bring the whole topic together",
@@ -120,6 +120,10 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "binomial-expansion-factorials": "Expanding and counting",
   "advanced-series-logic": "Convergence and harder reasoning",
   "sequences-series-exam-style-questions": "Bring the whole topic together",
+  "log-laws-exponential-graphs": "Inverse functions, graphs and log laws",
+  "solving-exponential-log-equations": "Common bases, substitutions and domains",
+  "advanced-log-reasoning": "Inequalities, reciprocal powers and linked logs",
+  "exponentials-logarithms-exam-style-questions": "Bring the whole topic together",
 };
 
 const LESSONS = lessonsData.lessons as Lesson[];

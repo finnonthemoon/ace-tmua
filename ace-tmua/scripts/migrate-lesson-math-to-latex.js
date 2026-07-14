@@ -151,10 +151,11 @@ function toLatex(value) {
       ),
     ),
   )
-    .replace(/\blog(?=\s|\(|_|[A-Za-z0-9])/g, "\\log")
-    .replace(/\bsin(?=\s|\()/g, "\\sin")
-    .replace(/\bcos(?=\s|\()/g, "\\cos")
-    .replace(/\btan(?=\s|\()/g, "\\tan")
+    .replace(/\\+(?=(?:log|sin|cos|tan)\b)/g, "\\")
+    .replace(/(?<!\\)\blog(?=\s|\(|_|[A-Za-z0-9])/g, "\\log")
+    .replace(/(?<!\\)\bsin(?=\s|\()/g, "\\sin")
+    .replace(/(?<!\\)\bcos(?=\s|\()/g, "\\cos")
+    .replace(/(?<!\\)\btan(?=\s|\()/g, "\\tan")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -377,6 +378,7 @@ function convertNumericFractions(value) {
 
 function convertMathString(value) {
   const normalized = value
+    .replace(/<\/?(?:b|strong)\b[^>]*>/gi, "")
     .replace(/<span\s+class=(?:"math-bracket"|'math-bracket')\s*>\(<\/span>/gi, "(")
     .replace(/<span\s+class=(?:"math-bracket"|'math-bracket')\s*>\)<\/span>/gi, ")");
 

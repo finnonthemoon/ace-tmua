@@ -47,7 +47,7 @@ export default function RevealScreenView({
           {screen.eyebrow && (
             <Text style={shared.eyebrow}>{screen.eyebrow}</Text>
           )}
-          <Text style={shared.title}>{screen.title}</Text>
+          <PlainOrHtml html={screen.title} style={shared.title} />
 
           {/* .reveal-steps */}
           <View style={styles.steps}>

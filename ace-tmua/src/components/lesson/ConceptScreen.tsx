@@ -50,7 +50,7 @@ export default function ConceptScreenView({ screen, progressPercent, onNext, onE
           )}
 
           {/* h1 */}
-          <Text style={shared.title}>{screen.title}</Text>
+          <PlainOrHtml html={screen.title} style={shared.title} />
 
           {/* body — may contain HTML */}
           <PlainOrHtml html={screen.body} style={{ color: C.muted, fontSize: 16, fontWeight: '700', lineHeight: 26 }} />

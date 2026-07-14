@@ -89,7 +89,7 @@ export default function MultipleChoiceScreenView({ screen, progressPercent, onNe
 
           {/* .multiple-choice__prompt */}
           {screen.prompt && (
-            <Text style={styles.prompt}>{screen.prompt}</Text>
+            <PlainOrHtml html={screen.prompt} style={styles.prompt} />
           )}
 
           {/* .multiple-choice-options */}

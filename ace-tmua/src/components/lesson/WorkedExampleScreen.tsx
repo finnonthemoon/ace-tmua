@@ -55,7 +55,7 @@ export default function WorkedExampleScreenView({
             {screen.eyebrow || "WORKED EXAMPLE"}
           </Text>
 
-          <Text style={shared.title}>{screen.title}</Text>
+          <PlainOrHtml html={screen.title} style={shared.title} />
 
           <View style={[styles.questionCard, shared.cardShadow]}>
             <PlainOrHtml html={screen.question} style={styles.question} />

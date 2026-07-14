@@ -2,16 +2,56 @@ import { type ReactNode } from "react";
 import {
   StyleSheet,
   Text,
+  type StyleProp,
+  type TextStyle,
   View,
   useWindowDimensions,
 } from "react-native";
 import RenderHtml, {
+  type MixedStyleDeclaration,
   type MixedStyleRecord,
 } from "react-native-render-html";
+import { MathJaxSvg } from "react-native-mathjax-html-to-svg";
 
 interface Props {
   html: string;
-  style?: any;
+  style?: StyleProp<TextStyle>;
+}
+
+/** Convert author-friendly [[LaTeX]] markers into MathJax inline delimiters. */
+export function toMathJaxMarkup(value: string, boldMath = false) {
+  const consolidatedValue = value.replace(/\]\]\s*\[\[/g, " ");
+
+  return consolidatedValue.replace(
+    /\[\[([\s\S]*?)\]\]([,.;:!?]?)/g,
+    (_, latex: string, punctuation: string) => {
+      // MathJax parses the complete string as an HTML document before it parses
+      // TeX. A raw "<" can therefore be mistaken for an opening HTML tag and
+      // truncate everything that follows. TeX relation commands avoid that
+      // ambiguity while producing the same mathematical symbols.
+      const expression = latex
+        .trim()
+        .replace(/</g, "\\lt ")
+        .replace(/>/g, "\\gt ");
+      const styledExpression = boldMath
+        ? "\\boldsymbol{" + expression + "}"
+        : expression;
+      const suffix = punctuation ? "\\text{" + punctuation + "}" : "";
+
+      // Keep adjacent punctuation inside the SVG so commas and full stops do
+      // not wrap onto a new line by themselves.
+      return "\\(" + styledExpression + suffix + "\\)";
+    },
+  );
+}
+
+function usesBoldWeight(fontWeight: TextStyle["fontWeight"]): boolean {
+  if (fontWeight === "bold") return true;
+  if (typeof fontWeight === "number") return fontWeight >= 600;
+  if (typeof fontWeight === "string" && /^\d+$/.test(fontWeight)) {
+    return Number(fontWeight) >= 600;
+  }
+  return false;
 }
 
 /**
@@ -388,8 +428,35 @@ function renderHtmlWithFractions(
 
 export function PlainOrHtml({ html, style }: Props) {
   const { width } = useWindowDimensions();
+  const flattenedStyle = StyleSheet.flatten(style) ?? {};
+  const hasLatex = /\[\[[\s\S]*?\]\]/.test(html);
 
   const preparedHtml = keepPowersTogether(html);
+
+  if (hasLatex) {
+    const fontSize =
+      typeof flattenedStyle.fontSize === "number" ? flattenedStyle.fontSize : 16;
+    const color =
+      typeof flattenedStyle.color === "string" ? flattenedStyle.color : "#2D241F";
+
+    return (
+      <MathJaxSvg
+        fontSize={fontSize}
+        color={color}
+        fontCache
+        textStyle={flattenedStyle}
+        style={{
+          flex: typeof flattenedStyle.flex === "number" ? flattenedStyle.flex : undefined,
+          marginTop: flattenedStyle.marginTop,
+          marginBottom: flattenedStyle.marginBottom,
+          marginLeft: flattenedStyle.marginLeft,
+          marginRight: flattenedStyle.marginRight,
+        }}
+      >
+        {toMathJaxMarkup(html, usesBoldWeight(flattenedStyle.fontWeight))}
+      </MathJaxSvg>
+    );
+  }
 
   if (
     preparedHtml.includes("math-frac") ||
@@ -414,7 +481,7 @@ export function PlainOrHtml({ html, style }: Props) {
     <RenderHtml
       contentWidth={width}
       source={{ html: preparedHtml }}
-      baseStyle={style}
+      baseStyle={flattenedStyle as MixedStyleDeclaration}
       tagsStyles={tagsStyles}
     />
   );
