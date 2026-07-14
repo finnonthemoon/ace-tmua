@@ -377,6 +377,9 @@ function convertNumericFractions(value) {
 
 function convertMathString(value) {
   const normalized = value
+    // Weight is controlled consistently by MathText. Keeping HTML bold tags in
+    // lesson data can make prose and adjacent SVG maths use different weights.
+    .replace(/<\/?(?:b|strong)\b[^>]*>/gi, "")
     .replace(/<span\s+class=(?:"math-bracket"|'math-bracket')\s*>\(<\/span>/gi, "(")
     .replace(/<span\s+class=(?:"math-bracket"|'math-bracket')\s*>\)<\/span>/gi, ")");
 
