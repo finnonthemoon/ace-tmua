@@ -3147,49 +3147,1940 @@
       "id": "differentiation-turning-points",
       "topicId": "topic-6",
       "title": "Differentiation & Turning Points",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "DIFFERENTIATION · 1 OF 14",
+          "title": "A derivative measures instantaneous change",
+          "diagram": {
+            "kind": "tangent-gradient",
+            "caption": "At P, the derivative is the gradient of the tangent to the curve."
+          },
+          "body": "For [[y=f(x)]], the derivative [[f'(x)]] or [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}]] gives the gradient of the tangent at each x-value.<br><br>A derivative can also represent a rate of change: velocity is the derivative of displacement with respect to time.",
+          "keyPoint": "Differentiation from first principles is not required for TMUA. You need to interpret derivatives and use the power rule accurately.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "THE POWER RULE · 2 OF 14",
+          "title": "Differentiate rational powers",
+          "steps": [
+            {
+              "title": "Use the rule",
+              "body": "For rational n, [[\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^{n})=nx^{n-1}]]. Multiply by the old power, then reduce the power by 1."
+            },
+            {
+              "title": "Differentiate a positive power",
+              "body": "[[\\frac{\\mathrm{d}}{\\mathrm{d}x}(5x^{4})=20x^{3}]]."
+            },
+            {
+              "title": "Differentiate a fractional power",
+              "body": "[[\\frac{\\mathrm{d}}{\\mathrm{d}x}(6x^{1/2})=3x^{-1/2}]]."
+            },
+            {
+              "title": "Differentiate a negative power",
+              "body": "[[\\frac{\\mathrm{d}}{\\mathrm{d}x}(2x^{-3})=-6x^{-4}]]. Constants differentiate to 0."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SIMPLIFY FIRST · 3 OF 14",
+          "question": "Given [[f(x)=\\frac{3x+2}{\\sqrt{x}}]], find [[f'(x)]].",
+          "prompt": "Rewrite the quotient using powers before differentiating.",
+          "options": [
+            "[[\\frac{3}{2}x^{-1/2}-x^{-3/2}]]",
+            "[[\\frac{3}{2}x^{-1/2}+x^{-3/2}]]",
+            "[[3x^{-1/2}-2x^{-3/2}]]",
+            "[[\\frac{3}{2}x^{1/2}-x^{-1/2}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[f(x)=3x^{1/2}+2x^{-1/2}]], so [[f'(x)=\\frac32x^{-1/2}-x^{-3/2}]].",
+          "incorrectFeedback": "First write [[f(x)=3x^{1/2}+2x^{-1/2}]]. Apply the power rule separately to both terms."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "TANGENTS AND NORMALS · 4 OF 14",
+          "title": "The derivative supplies the gradient",
+          "body": "At [[x=a]], the tangent gradient is [[f'(a)]]. The point on the curve is [[(a,f(a))]].<br><br>A normal is perpendicular to the tangent. If the tangent gradient is non-zero m, the normal gradient is [[-\\frac1m]]. If the tangent is horizontal, the normal is the vertical line [[x=a]]. Use [[y-y_{1}=m(x-x_{1})]] for any non-vertical line.",
+          "keyPoint": "Always calculate both the point and the gradient. A correct gradient alone is not the equation of a tangent.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 5 OF 14",
+          "title": "Find an equation of a tangent",
+          "question": "Find the tangent to [[y=x^{2}+1]] at [[x=2]].",
+          "diagram": {
+            "kind": "tangent-gradient",
+            "caption": "The tangent touches the curve at the specified point and has gradient f′(2)."
+          },
+          "options": [
+            "[[y=2x+1]]",
+            "[[y=4x-3]]",
+            "[[y=4x+5]]",
+            "[[y=-\\frac14x+\\frac{11}{2}]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Find the point",
+              "body": "At [[x=2]], [[y=2^{2}+1=5]], so the tangent passes through [[(2,5)]]."
+            },
+            {
+              "title": "Find the gradient",
+              "body": "[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=2x]], so the tangent gradient at [[x=2]] is 4."
+            },
+            {
+              "title": "Use point-gradient form",
+              "body": "[[y-5=4(x-2)]]."
+            },
+            {
+              "title": "Simplify",
+              "body": "Expanding gives [[y=4x-3]]."
+            }
+          ],
+          "finalAnswer": "The tangent is [[y=4x-3]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "NORMAL CHECK · 6 OF 14",
+          "question": "Which is the normal to [[y=x^{2}]] at [[x=1]]?",
+          "options": [
+            "[[y-1=2(x-1)]]",
+            "[[y-1=-2(x-1)]]",
+            "[[y-1=\\frac12(x-1)]]",
+            "[[y-1=-\\frac12(x-1)]]"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The tangent gradient is [[2x=2]], so the perpendicular normal gradient is [[-\\frac12]]. The point is [[(1,1)]].",
+          "incorrectFeedback": "Find the tangent gradient first, then take its negative reciprocal. The normal still passes through [[(1,1)]]."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "CORE DIFFERENTIATION COMPLETE · 7 OF 14",
+          "title": "You can differentiate powers and construct tangent lines.",
+          "body": "You have connected derivatives with gradients and rates of change.<br><br>Next, derivatives will reveal turning points and the intervals on which a function rises or falls.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "STATIONARY POINTS · 8 OF 14",
+          "title": "At a stationary point, [[f'(x)=0]]",
+          "diagram": {
+            "kind": "turning-points",
+            "caption": "At a local maximum or minimum, the tangent is horizontal."
+          },
+          "body": "A stationary point has a horizontal tangent, so solve [[f'(x)=0]] to find its x-coordinate. Substitute back into f to find its y-coordinate.<br><br>The second derivative, written [[f''(x)]] or [[\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}]], measures how the gradient changes. If it is negative at a stationary point, the point is a local maximum; if positive, it is a local minimum.",
+          "keyPoint": "The second derivative test classifies a candidate only after you have found it using the first derivative.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "CLASSIFYING POINTS · 9 OF 14",
+          "title": "Find the stationary points of [[f(x)=x^{3}-3x^{2}-9x+5]]",
+          "diagram": {
+            "kind": "turning-points",
+            "caption": "The sign of the second derivative distinguishes the maximum from the minimum."
+          },
+          "steps": [
+            {
+              "title": "Differentiate and solve",
+              "body": "[[f'(x)=3x^{2}-6x-9=3(x-3)(x+1)]]. Therefore [[x=-1]] or [[x=3]]."
+            },
+            {
+              "title": "Find the coordinates",
+              "body": "[[f(-1)=10]] and [[f(3)=-22]], so the points are [[(-1,10)]] and [[(3,-22)]]."
+            },
+            {
+              "title": "Use the second derivative",
+              "body": "[[f''(x)=6x-6]]. Then [[f''(-1)=-12<0]], so [[(-1,10)]] is a local maximum."
+            },
+            {
+              "title": "Classify the other point",
+              "body": "[[f''(3)=12>0]], so [[(3,-22)]] is a local minimum."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "STATIONARY-POINT CHECK · 10 OF 14",
+          "question": "What stationary point does [[f(x)=x^{2}-4x+7]] have?",
+          "options": [
+            "A local maximum at [[(2,3)]]",
+            "A local minimum at [[(2,3)]]",
+            "A local minimum at [[(-2,19)]]",
+            "No stationary point"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f'(x)=2x-4=0]] gives [[x=2]], and [[f(2)=3]]. Since [[f''(x)=2>0]], it is a local minimum.",
+          "incorrectFeedback": "Solve [[2x-4=0]], substitute the result into f, and use the sign of [[f''(x)=2]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "INCREASING AND DECREASING · 11 OF 14",
+          "title": "The sign of [[f'(x)]] controls the direction",
+          "body": "A function is strictly increasing wherever [[f'(x)>0]] and strictly decreasing wherever [[f'(x)<0]].<br><br>Find the zeros of the derivative, then use a sign chart or test values to determine its sign on each interval.",
+          "keyPoint": "Do not solve [[f(x)>0]]. The height of a function and the direction in which it is moving are different questions.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 12 OF 14",
+          "title": "Find intervals of increase and decrease",
+          "question": "For [[f(x)=x^{3}-3x]], where is f strictly increasing?",
+          "options": [
+            "[[-1<x<1]]",
+            "[[x<-1]] only",
+            "[[x>1]] only",
+            "[[x<-1]] or [[x>1]]"
+          ],
+          "answerIndex": 3,
+          "steps": [
+            {
+              "title": "Differentiate",
+              "body": "[[f'(x)=3x^{2}-3=3(x-1)(x+1)]]."
+            },
+            {
+              "title": "Find the critical values",
+              "body": "[[f'(x)=0]] at [[x=-1]] and [[x=1]]. These values split the number line into three intervals."
+            },
+            {
+              "title": "Check the sign",
+              "body": "The product [[3(x-1)(x+1)]] is positive for [[x<-1]], negative for [[-1<x<1]], and positive for [[x>1]]."
+            },
+            {
+              "title": "State the intervals",
+              "body": "Therefore f is strictly increasing for [[x<-1]] or [[x>1]]."
+            }
+          ],
+          "finalAnswer": "The increasing intervals are [[x<-1]] and [[x>1]], so the correct option is D.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "RATE-OF-CHANGE CHECK · 13 OF 14",
+          "question": "A particle has displacement [[s(t)=t^{3}-6t^{2}+9t]]. What is its velocity when [[t=2]]?",
+          "options": ["[[-3]]", "[[0]]", "[[3]]", "[[9]]"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[v(t)=s'(t)=3t^{2}-12t+9]], so [[v(2)=12-24+9=-3]].",
+          "incorrectFeedback": "Velocity is the derivative of displacement. Differentiate s with respect to t, then substitute [[t=2]]."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Differentiation and Turning Points: key points",
+          "keyPoints": [
+            "[[f'(x)]] is the tangent gradient and an instantaneous rate of change.",
+            "Use [[\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^{n})=nx^{n-1}]] for rational powers.",
+            "A normal gradient is the negative reciprocal of the non-zero tangent gradient.",
+            "Stationary points satisfy [[f'(x)=0]]; the second derivative can classify maxima and minima.",
+            "A function increases where [[f'(x)>0]] and decreases where [[f'(x)<0]]."
+          ],
+          "reviewItems": [
+            "Rewrite roots and reciprocal powers before differentiating.",
+            "Use both a point and a gradient when forming a tangent or normal.",
+            "Substitute stationary x-values back into the original function.",
+            "Build sign charts from the derivative, not from the original function.",
+            "Next lesson: Integration and Area."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "integration-area",
       "topicId": "topic-6",
       "title": "Integration & Area",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "INTEGRATION · 1 OF 14",
+          "title": "Integration reverses differentiation",
+          "body": "For rational [[n\\ne-1]], [[\\int x^{n}\\,\\mathrm{d}x=\\frac{x^{n+1}}{n+1}+C]]. Increase the power by 1, then divide by the new power.<br><br>The constant C is required because every constant disappears when differentiated.",
+          "keyPoint": "Differentiate your answer mentally to check it. An indefinite integral without [[+C]] is incomplete.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "THE REVERSE POWER RULE · 2 OF 14",
+          "title": "Integrate powers term by term",
+          "steps": [
+            {
+              "title": "Start with the expression",
+              "body": "Find [[\\int(6x^{2}-4x^{-1/2})\\,\\mathrm{d}x]]."
+            },
+            {
+              "title": "Integrate the first term",
+              "body": "[[\\int6x^{2}\\,\\mathrm{d}x=6\\left(\\frac{x^{3}}3\\right)=2x^{3}]]."
+            },
+            {
+              "title": "Integrate the fractional power",
+              "body": "[[\\int-4x^{-1/2}\\,\\mathrm{d}x=-4\\left(\\frac{x^{1/2}}{1/2}\\right)=-8x^{1/2}]]."
+            },
+            {
+              "title": "Include the constant",
+              "body": "The result is [[2x^{3}-8x^{1/2}+C]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SIMPLIFY FIRST · 3 OF 14",
+          "question": "Find [[\\int\\left(3\\sqrt{x}+\\frac{2}{x^{2}}\\right)\\,\\mathrm{d}x]].",
+          "options": [
+            "[[2x^{3/2}-2x^{-1}+C]]",
+            "[[\\frac32x^{2}-2x^{-1}+C]]",
+            "[[2x^{3/2}+2x^{-1}+C]]",
+            "[[\\frac32x^{-1/2}-4x^{-3}+C]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Rewrite as [[3x^{1/2}+2x^{-2}]]. Integrating gives [[2x^{3/2}-2x^{-1}+C]].",
+          "incorrectFeedback": "Rewrite the root and reciprocal as powers. Increase each power by 1 and divide by the new power."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "DEFINITE INTEGRALS · 4 OF 14",
+          "title": "Use an antiderivative at the limits",
+          "body": "If [[F'(x)=f(x)]], the Fundamental Theorem of Calculus gives [[\\int_{a}^{b}f(x)\\,\\mathrm{d}x=F(b)-F(a)]].<br><br>A definite integral is a number, so there is no [[+C]]. Use square-bracket notation to avoid substituting into the wrong expression.",
+          "keyPoint": "Upper limit minus lower limit: [[\\left[F(x)\\right]_{a}^{b}=F(b)-F(a)]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 5 OF 14",
+          "title": "Evaluate a definite integral",
+          "question": "Find [[\\int_{1}^{3}(2x+1)\\,\\mathrm{d}x]].",
+          "options": ["[[8]]", "[[10]]", "[[12]]", "[[14]]"],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Find an antiderivative",
+              "body": "An antiderivative of [[2x+1]] is [[x^{2}+x]]."
+            },
+            {
+              "title": "Apply the limits",
+              "body": "[[\\int_{1}^{3}(2x+1)\\,\\mathrm{d}x=\\left[x^{2}+x\\right]_{1}^{3}]]."
+            },
+            {
+              "title": "Substitute the upper limit",
+              "body": "At [[x=3]], [[x^{2}+x=9+3=12]]."
+            },
+            {
+              "title": "Subtract the lower value",
+              "body": "At [[x=1]], the value is 2. Therefore the integral is [[12-2=10]]."
+            }
+          ],
+          "finalAnswer": "The value is 10, so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DEFINITE-INTEGRAL CHECK · 6 OF 14",
+          "question": "Evaluate [[\\int_{0}^{2}(3x^{2}-1)\\,\\mathrm{d}x]].",
+          "options": ["[[4]]", "[[6]]", "[[8]]", "[[10]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[\\left[x^{3}-x\\right]_{0}^{2}=8-2=6]].",
+          "incorrectFeedback": "An antiderivative is [[x^{3}-x]]. Evaluate it at 2 and subtract its value at 0."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "INTEGRATION BASICS COMPLETE · 7 OF 14",
+          "title": "You can integrate powers and evaluate between limits.",
+          "body": "You have used integration as the reverse of differentiation and applied the Fundamental Theorem.<br><br>Next, we will separate signed integrals from geometric area.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SIGNED AREA · 8 OF 14",
+          "title": "A definite integral can be negative",
+          "diagram": {
+            "kind": "signed-area",
+            "caption": "Area above the x-axis contributes positively; area below contributes negatively."
+          },
+          "body": "The integral [[\\int_{a}^{b}f(x)\\,\\mathrm{d}x]] is signed area. Regions above the x-axis count positively and regions below count negatively.<br><br>Geometric area is always non-negative. If a curve crosses the axis, split the interval at each root and make every region positive.",
+          "keyPoint": "Integral and area are equal only when the curve does not go below the x-axis on the interval.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "SPLITTING AT A ROOT · 9 OF 14",
+          "title": "Find the area between [[y=x^{2}-1]] and the x-axis for [[0\\le x\\le2]]",
+          "diagram": {
+            "kind": "signed-area",
+            "caption": "Split an area question wherever the curve crosses the x-axis."
+          },
+          "steps": [
+            {
+              "title": "Locate the crossing",
+              "body": "[[x^{2}-1=0]] gives [[x=1]] in the interval. The function is negative from 0 to 1 and positive from 1 to 2."
+            },
+            {
+              "title": "Find the first area",
+              "body": "[[\\int_{0}^{1}(1-x^{2})\\,\\mathrm{d}x=\\left[x-\\frac{x^{3}}3\\right]_{0}^{1}=\\frac23]]."
+            },
+            {
+              "title": "Find the second area",
+              "body": "[[\\int_{1}^{2}(x^{2}-1)\\,\\mathrm{d}x=\\left[\\frac{x^{3}}3-x\\right]_{1}^{2}=\\frac43]]."
+            },
+            {
+              "title": "Add positive regions",
+              "body": "The total geometric area is [[\\frac23+\\frac43=2]]. The unsplit signed integral would instead be [[\\frac23]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "AREA OR INTEGRAL? · 10 OF 14",
+          "question": "You are told only that [[\\int_{0}^{4}f(x)\\,\\mathrm{d}x=-3]]. What is the area between the graph and the x-axis?",
+          "options": [
+            "[[-3]]",
+            "[[3]]",
+            "At least 3, but its exact value cannot be determined",
+            "It must be 0"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The signed total is -3, but positive and negative regions may cancel. The geometric area is at least 3, and more information is needed to find it exactly.",
+          "incorrectFeedback": "A definite integral is signed. Without knowing where f is positive or negative, you cannot reconstruct the total geometric area."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMBINING INTEGRALS · 11 OF 14",
+          "title": "Join contiguous intervals and reverse with a sign change",
+          "body": "For adjacent intervals, [[\\int_{a}^{b}f(x)\\,\\mathrm{d}x+\\int_{b}^{c}f(x)\\,\\mathrm{d}x=\\int_{a}^{c}f(x)\\,\\mathrm{d}x]].<br><br>Reversing the limits changes the sign: [[\\int_{b}^{a}f(x)\\,\\mathrm{d}x=-\\int_{a}^{b}f(x)\\,\\mathrm{d}x]]. Integrals over the same interval can also be added term by term.",
+          "keyPoint": "Treat limits like directed journeys: going from b back to a reverses the sign.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INTERVAL CHECK · 12 OF 14",
+          "question": "Given [[\\int_{1}^{4}f(x)\\,\\mathrm{d}x=7]] and [[\\int_{4}^{6}f(x)\\,\\mathrm{d}x=-2]], find [[\\int_{1}^{6}f(x)\\,\\mathrm{d}x]].",
+          "options": ["[[-9]]", "[[-5]]", "[[5]]", "[[9]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The intervals are contiguous, so [[\\int_{1}^{6}f(x)\\,\\mathrm{d}x=7+(-2)=5]].",
+          "incorrectFeedback": "Join the journey from 1 to 4 with the journey from 4 to 6. Add the two signed values."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ACCUMULATION FUNCTIONS · 13 OF 14",
+          "title": "Differentiating an integral recovers the integrand",
+          "body": "The Fundamental Theorem also gives [[\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\int_{a}^{x}f(t)\\,\\mathrm{d}t\\right)=f(x)]].<br><br>The integral accumulates signed area as its upper limit moves. Its instantaneous rate of change is therefore the current height of the original function.",
+          "keyPoint": "The integration variable t is a placeholder. After differentiating with respect to x, replace it with x.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Integration and Area: key points",
+          "keyPoints": [
+            "For [[n\\ne-1]], [[\\int x^{n}\\,\\mathrm{d}x=\\frac{x^{n+1}}{n+1}+C]].",
+            "Definite integrals use [[F(b)-F(a)]] and do not need an arbitrary constant.",
+            "A definite integral is signed area; geometric area is always non-negative.",
+            "Split an area calculation wherever the curve crosses the x-axis.",
+            "Contiguous integrals join, and reversing the limits reverses the sign."
+          ],
+          "reviewItems": [
+            "Rewrite roots and reciprocals as powers before integrating.",
+            "Differentiate indefinite answers to check them.",
+            "Keep upper-minus-lower substitution in clear brackets.",
+            "Distinguish signed integral from total geometric area.",
+            "Next lesson: Trapezium Rule and Integration Logic."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "trapezium-rule-integration-logic",
       "topicId": "topic-6",
       "title": "Trapezium Rule & Integration Logic",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "TRAPEZIUM RULE · 1 OF 14",
+          "title": "Approximate a curved region with straight-sided strips",
+          "diagram": {
+            "kind": "trapezium-rule",
+            "caption": "At equal spacing h, neighbouring ordinates form a trapezium."
+          },
+          "body": "For n equal strips of width h with ordinates [[y_{0},y_{1},\\ldots,y_{n}]], the trapezium rule is<br><br>[[\\frac{h}{2}\\left(y_{0}+2(y_{1}+\\cdots+y_{n-1})+y_{n}\\right)]].",
+          "keyPoint": "The first and last ordinates appear once. Every interior ordinate appears twice.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "USING A TABLE · 2 OF 14",
+          "title": "Estimate an integral from four ordinates",
+          "diagram": {
+            "kind": "trapezium-rule",
+            "caption": "The number of strips is one less than the number of ordinates."
+          },
+          "steps": [
+            {
+              "title": "Read the table",
+              "body": "Suppose x-values [[0,1,2,3]] have y-values [[1,2,5,10]]. There are 3 strips and [[h=1]]."
+            },
+            {
+              "title": "Identify the endpoints",
+              "body": "The first and last values are 1 and 10. The interior values are 2 and 5."
+            },
+            {
+              "title": "Substitute into the rule",
+              "body": "[[T=\\frac12\\left(1+2(2+5)+10\\right)]]."
+            },
+            {
+              "title": "Calculate",
+              "body": "[[T=\\frac12(25)=\\frac{25}{2}=12.5]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRAPEZIUM CHECK · 3 OF 14",
+          "question": "At [[x=0,2,4]], a function has values [[3,5,9]]. Use the trapezium rule to estimate [[\\int_{0}^{4}f(x)\\,\\mathrm{d}x]].",
+          "options": ["[[11]]", "[[18]]", "[[22]]", "[[44]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Here [[h=2]], so [[T=\\frac22(3+2(5)+9)=22]].",
+          "incorrectFeedback": "There are two strips of width 2. Count the middle ordinate twice and the two endpoints once."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "OVER OR UNDER? · 4 OF 14",
+          "title": "The direction of curvature determines the error",
+          "diagram": {
+            "kind": "trapezium-rule",
+            "caption": "Each trapezium uses a chord instead of the curved section of the graph."
+          },
+          "body": "The trapezium rule replaces the curve by straight chords. If the graph is concave upwards, the chords lie above it and the estimate is too large.<br><br>If the graph is concave downwards, the chords lie below it and the estimate is too small.",
+          "keyPoint": "Where [[f''(x)>0]], expect an overestimate. Where [[f''(x)<0]], expect an underestimate.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ERROR-DIRECTION CHECK · 5 OF 14",
+          "question": "The trapezium rule is used for [[y=x^{2}]] on [[0\\le x\\le2]]. Which statement is correct?",
+          "options": [
+            "It is an underestimate because the graph is increasing.",
+            "It is an overestimate because the graph is concave upwards.",
+            "It is exact because the function is a polynomial.",
+            "The direction of the error cannot be determined."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Since [[f''(x)=2>0]], the graph is concave upwards and its chords lie above the curve.",
+          "incorrectFeedback": "Increasing or decreasing is not the deciding factor. For [[x^{2}]], the positive second derivative means the graph bends upwards."
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 6 OF 14",
+          "title": "Compare an estimate with the exact integral",
+          "question": "Use two equal strips for [[\\int_{0}^{2}x^{2}\\,\\mathrm{d}x]]. By how much does the trapezium estimate exceed the exact value?",
+          "diagram": {
+            "kind": "trapezium-rule",
+            "caption": "For a concave-up curve, the straight chords enclose extra area."
+          },
+          "options": [
+            "[[\\frac16]]",
+            "[[\\frac13]]",
+            "[[\\frac23]]",
+            "[[1]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Find the ordinates",
+              "body": "With two strips, [[h=1]]. At [[x=0,1,2]], the values of [[x^{2}]] are [[0,1,4]]."
+            },
+            {
+              "title": "Apply the trapezium rule",
+              "body": "[[T=\\frac12(0+2(1)+4)=3]]."
+            },
+            {
+              "title": "Find the exact integral",
+              "body": "[[\\int_{0}^{2}x^{2}\\,\\mathrm{d}x=\\left[\\frac{x^{3}}3\\right]_{0}^{2}=\\frac83]]."
+            },
+            {
+              "title": "Calculate the excess",
+              "body": "[[3-\\frac83=\\frac13]]."
+            }
+          ],
+          "finalAnswer": "The estimate exceeds the exact value by [[\\frac13]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "NUMERICAL INTEGRATION COMPLETE · 7 OF 14",
+          "title": "You can calculate and interpret trapezium estimates.",
+          "body": "You have used tables, counted ordinates correctly, and determined whether an estimate is above or below the true value.<br><br>Next, integration will recover a function from its derivative.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "DIFFERENTIAL EQUATIONS · 8 OF 14",
+          "title": "Recover y from [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=f(x)]]",
+          "body": "For the differential equations required by TMUA, the derivative is a function of x alone. Integrate both sides to obtain<br><br>[[y=\\int f(x)\\,\\mathrm{d}x=F(x)+C]].<br><br>A given point or initial value determines C.",
+          "keyPoint": "The integration constant represents a whole family of curves. An initial condition selects one member of that family.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 9 OF 14",
+          "title": "Use an initial condition",
+          "question": "Given [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=6x-4]] and [[y=3]] when [[x=1]], find y in terms of x.",
+          "options": [
+            "[[y=3x^{2}-4x+3]]",
+            "[[y=3x^{2}-4x+4]]",
+            "[[y=6x^{2}-4x+1]]",
+            "[[y=3x^{2}-4]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Integrate the derivative",
+              "body": "[[y=\\int(6x-4)\\,\\mathrm{d}x=3x^{2}-4x+C]]."
+            },
+            {
+              "title": "Use the given point",
+              "body": "Substitute [[x=1]] and [[y=3]]: [[3=3-4+C]]."
+            },
+            {
+              "title": "Find the constant",
+              "body": "The equation gives [[C=4]]."
+            },
+            {
+              "title": "State the particular solution",
+              "body": "Therefore [[y=3x^{2}-4x+4]]."
+            }
+          ],
+          "finalAnswer": "The particular solution is [[y=3x^{2}-4x+4]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INITIAL-VALUE CHECK · 10 OF 14",
+          "question": "Given [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=3x^{2}]] and [[y=5]] when [[x=0]], find y.",
+          "options": [
+            "[[y=x^{3}]]",
+            "[[y=x^{3}+5]]",
+            "[[y=6x+5]]",
+            "[[y=3x^{3}+5]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Integrating gives [[y=x^{3}+C]]. The condition [[y(0)=5]] gives [[C=5]].",
+          "incorrectFeedback": "Integrate [[3x^{2}]] first, include C, and then use the value at [[x=0]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "TOTAL CHANGE · 11 OF 14",
+          "title": "Integrating a rate gives the net change",
+          "body": "If [[F'(x)=f(x)]], then [[F(b)-F(a)=\\int_{a}^{b}f(x)\\,\\mathrm{d}x]].<br><br>This connects rate-of-change models with definite integration. Integrate the rate over an interval to find the change, then add the initial value to find the final value.",
+          "keyPoint": "Final amount = initial amount + accumulated change.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "RATE MODEL · 12 OF 14",
+          "title": "A quantity V changes at rate [[\\frac{\\mathrm{d}V}{\\mathrm{d}t}=4t+1]]",
+          "steps": [
+            {
+              "title": "Use the initial value",
+              "body": "Suppose [[V(0)=10]]. We want [[V(3)]]."
+            },
+            {
+              "title": "Integrate the rate",
+              "body": "[[V(3)-V(0)=\\int_{0}^{3}(4t+1)\\,\\mathrm{d}t]]."
+            },
+            {
+              "title": "Evaluate the change",
+              "body": "[[\\left[2t^{2}+t\\right]_{0}^{3}=18+3=21]]."
+            },
+            {
+              "title": "Add the initial amount",
+              "body": "[[V(3)=10+21=31]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FUNDAMENTAL-THEOREM CHECK · 13 OF 14",
+          "question": "Given [[F'(x)=f(x)]], [[\\int_{2}^{5}f(x)\\,\\mathrm{d}x=9]], and [[F(2)=4]], find [[F(5)]].",
+          "options": ["[[-5]]", "[[5]]", "[[9]]", "[[13]]"],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. [[F(5)-F(2)=9]], so [[F(5)=4+9=13]].",
+          "incorrectFeedback": "The integral gives the change in F from 2 to 5. Add that change to the initial value [[F(2)=4]]."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Trapezium Rule and Integration Logic: key points",
+          "keyPoints": [
+            "With equal spacing h, use [[\\frac{h}{2}(y_{0}+2(y_{1}+\\cdots+y_{n-1})+y_{n})]].",
+            "There is one fewer strip than there are ordinates.",
+            "Concave-up graphs give trapezium overestimates; concave-down graphs give underestimates.",
+            "Integrate [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=f(x)]] and use an initial condition to determine C.",
+            "The integral of a rate over an interval gives the net change."
+          ],
+          "reviewItems": [
+            "Check h from the x-values rather than assuming it is 1.",
+            "Count endpoints once and interior ordinates twice.",
+            "Use curvature, not whether the function rises, to judge the error.",
+            "Keep the arbitrary constant until an initial condition determines it.",
+            "Next lesson: Calculus Exam-style Questions."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "calculus-exam-style-questions",
       "topicId": "topic-6",
       "title": "Exam-style Questions",
-      "screens": []
+      "screens": [
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 1 OF 21",
+          "question": "Differentiate [[4x^{3}-3\\sqrt{x}]].",
+          "options": [
+            "[[12x^{2}-\\frac32x^{-1/2}]]",
+            "[[12x^{2}-3x^{-1/2}]]",
+            "[[4x^{2}-\\frac32x^{-1/2}]]",
+            "[[12x^{4}-\\frac32x^{1/2}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Rewrite [[\\sqrt{x}=x^{1/2}]], then apply the power rule to get [[12x^{2}-\\frac32x^{-1/2}]].",
+          "incorrectFeedback": "Rewrite the root as [[x^{1/2}]]. Multiply by each old power, then subtract 1 from that power."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 2 OF 21",
+          "question": "If [[f(x)=\\frac{x^{2}+1}{x}]], which expression equals [[f'(x)]]?",
+          "options": [
+            "[[1+x^{-2}]]",
+            "[[1-x^{-2}]]",
+            "[[2x-x^{-2}]]",
+            "[[\\frac{2x^{2}-1}{x^{2}}]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f(x)=x+x^{-1}]], so [[f'(x)=1-x^{-2}]].",
+          "incorrectFeedback": "Simplify before differentiating: divide both terms in the numerator by x."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 3 OF 21",
+          "question": "Find the tangent to [[y=x^{3}]] at [[x=1]].",
+          "diagram": {
+            "kind": "tangent-gradient",
+            "caption": "Use the derivative for the gradient and the original function for the point."
+          },
+          "options": [
+            "[[y=x]]",
+            "[[y=3x-2]]",
+            "[[y=3x+1]]",
+            "[[y=-\\frac13x+\\frac43]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The point is [[(1,1)]] and the gradient is [[3x^{2}=3]]. Thus [[y-1=3(x-1)]], or [[y=3x-2]].",
+          "incorrectFeedback": "Calculate both the point and [[f'(1)]], then use point-gradient form."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 4 OF 21",
+          "question": "Which is the normal to [[y=\\sqrt{x}]] at [[x=4]]?",
+          "options": [
+            "[[y-2=\\frac14(x-4)]]",
+            "[[y-2=-\\frac14(x-4)]]",
+            "[[y-2=4(x-4)]]",
+            "[[y-2=-4(x-4)]]"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac1{2\\sqrt{x}}]], so the tangent gradient at 4 is [[\\frac14]]. The normal gradient is -4.",
+          "incorrectFeedback": "The tangent gradient is [[\\frac1{2\\sqrt4}=\\frac14]]. Take its negative reciprocal and use the point [[(4,2)]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 5 OF 21",
+          "question": "What stationary point does [[f(x)=x^{2}+6x+10]] have?",
+          "options": [
+            "A local maximum at [[(-3,1)]]",
+            "A local minimum at [[(-3,1)]]",
+            "A local minimum at [[(3,37)]]",
+            "No stationary point"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f'(x)=2x+6=0]] gives [[x=-3]], and [[f(-3)=1]]. Since [[f''(x)=2>0]], it is a minimum.",
+          "incorrectFeedback": "Solve [[f'(x)=0]], substitute into f, then use the positive second derivative."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 6 OF 21",
+          "question": "Where is [[f(x)=x^{3}-12x]] strictly increasing?",
+          "options": [
+            "[[-2<x<2]]",
+            "[[x<-2]] or [[x>2]]",
+            "[[x<0]]",
+            "[[x>0]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f'(x)=3x^{2}-12=3(x-2)(x+2)]], which is positive outside the roots -2 and 2.",
+          "incorrectFeedback": "Increasing means [[f'(x)>0]]. Factor the derivative and make a sign chart around -2 and 2."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 7 OF 21",
+          "question": "A particle has displacement [[s(t)=2t^{3}-5t]]. Find its velocity at [[t=2]].",
+          "options": ["[[7]]", "[[14]]", "[[19]]", "[[24]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[v(t)=s'(t)=6t^{2}-5]], so [[v(2)=24-5=19]].",
+          "incorrectFeedback": "Velocity is the derivative of displacement. Differentiate first and then substitute 2."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 8 OF 21",
+          "question": "The function [[f(x)=x^{4}-2x^{2}]] has a stationary point at [[x=0]]. How is it classified?",
+          "diagram": {
+            "kind": "turning-points",
+            "caption": "Use the second derivative at the stationary x-value."
+          },
+          "options": [
+            "Local maximum",
+            "Local minimum",
+            "Neither, because [[f''(0)=0]]",
+            "It cannot be classified"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[f''(x)=12x^{2}-4]], so [[f''(0)=-4<0]]. The stationary point is a local maximum.",
+          "incorrectFeedback": "Differentiate twice. A negative second derivative at a stationary point indicates a local maximum."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 9 OF 21",
+          "question": "Find [[\\int(4x^{3}-6x^{-2})\\,\\mathrm{d}x]].",
+          "options": [
+            "[[x^{4}+6x^{-1}+C]]",
+            "[[x^{4}-6x^{-1}+C]]",
+            "[[12x^{2}+12x^{-3}+C]]",
+            "[[x^{4}+3x^{-1}+C]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[\\int4x^{3}\\,\\mathrm{d}x=x^{4}]] and [[\\int-6x^{-2}\\,\\mathrm{d}x=6x^{-1}]].",
+          "incorrectFeedback": "Increase each power by 1 and divide by the new power. Be careful: dividing -6 by -1 changes the sign."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 10 OF 21",
+          "question": "Evaluate [[\\int_{1}^{2}3x^{2}\\,\\mathrm{d}x]].",
+          "options": ["[[3]]", "[[6]]", "[[7]]", "[[8]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[\\left[x^{3}\\right]_{1}^{2}=8-1=7]].",
+          "incorrectFeedback": "An antiderivative of [[3x^{2}]] is [[x^{3}]]. Evaluate upper minus lower."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 11 OF 21",
+          "question": "Evaluate the signed integral [[\\int_{0}^{3}(2x-3)\\,\\mathrm{d}x]].",
+          "options": ["[[-\\frac92]]", "[[0]]", "[[\\frac92]]", "[[9]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[\\left[x^{2}-3x\\right]_{0}^{3}=0]]. Equal negative and positive regions cancel.",
+          "incorrectFeedback": "Use an antiderivative, not total geometric area. The region below the axis contributes negatively."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 12 OF 21",
+          "question": "Find the total area between [[y=x-1]] and the x-axis for [[0\\le x\\le3]].",
+          "diagram": {
+            "kind": "signed-area",
+            "caption": "For total area, make both the below-axis and above-axis regions positive."
+          },
+          "options": [
+            "[[\\frac32]]",
+            "[[2]]",
+            "[[\\frac52]]",
+            "[[3]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The negative triangle from 0 to 1 has area [[\\frac12]], and the positive triangle from 1 to 3 has area 2. The total is [[\\frac52]].",
+          "incorrectFeedback": "Split at the root [[x=1]]. Calculate both triangular regions as positive areas before adding."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 13 OF 21",
+          "question": "Given [[\\int_{0}^{2}f(x)\\,\\mathrm{d}x=3]] and [[\\int_{2}^{5}f(x)\\,\\mathrm{d}x=-7]], find [[\\int_{5}^{0}f(x)\\,\\mathrm{d}x]].",
+          "options": ["[[-10]]", "[[-4]]", "[[4]]", "[[10]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. First [[\\int_{0}^{5}f=3-7=-4]]. Reversing the limits changes the sign, so [[\\int_{5}^{0}f=4]].",
+          "incorrectFeedback": "Join the contiguous intervals first, then reverse the limits with a sign change."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 14 OF 21",
+          "question": "Find [[\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\int_{2}^{x}(t^{2}+1)\\,\\mathrm{d}t\\right)]].",
+          "options": [
+            "[[t^{2}+1]]",
+            "[[x^{2}+1]]",
+            "[[\\frac{x^{3}}3+x]]",
+            "[[x^{2}-3]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. By the Fundamental Theorem, differentiating an accumulation integral returns the integrand at its upper limit: [[x^{2}+1]].",
+          "incorrectFeedback": "Replace the integration variable t by the moving upper limit x after applying the Fundamental Theorem."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 15 OF 21",
+          "question": "At [[x=0,1,2,3]], the ordinates of a curve are [[2,3,6,11]]. Use the trapezium rule to estimate the integral from 0 to 3.",
+          "diagram": {
+            "kind": "trapezium-rule",
+            "caption": "There are three strips of width 1."
+          },
+          "options": [
+            "[[13]]",
+            "[[\\frac{29}{2}]]",
+            "[[\\frac{31}{2}]]",
+            "[[31]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[T=\\frac12(2+2(3+6)+11)=\\frac{31}{2}]].",
+          "incorrectFeedback": "Use the endpoints once and the two interior ordinates twice. Here [[h=1]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 16 OF 21",
+          "question": "The trapezium rule is applied to [[f(x)=-x^{2}+6]] on an interval. What type of estimate does it give?",
+          "options": [
+            "An overestimate because f is positive",
+            "An underestimate because [[f''(x)<0]]",
+            "An overestimate because [[f'(x)<0]]",
+            "An exact value because f is quadratic"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f''(x)=-2<0]], so the graph is concave down and its chords lie below the curve.",
+          "incorrectFeedback": "The direction is controlled by curvature. A negative second derivative produces a trapezium underestimate."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 17 OF 21",
+          "question": "Given [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=4x^{3}]] and [[y=3]] when [[x=1]], find y.",
+          "options": [
+            "[[y=x^{4}+1]]",
+            "[[y=x^{4}+2]]",
+            "[[y=12x^{2}-9]]",
+            "[[y=4x^{4}-1]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Integrating gives [[y=x^{4}+C]]. The condition [[3=1+C]] gives [[C=2]].",
+          "incorrectFeedback": "Integrate the derivative and retain C. Then substitute the given point to determine it."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 18 OF 21",
+          "question": "A quantity Q satisfies [[\\frac{\\mathrm{d}Q}{\\mathrm{d}t}=6t-2]] and [[Q(0)=5]]. Find [[Q(2)]].",
+          "options": ["[[8]]", "[[10]]", "[[13]]", "[[17]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The change is [[\\int_{0}^{2}(6t-2)\\,\\mathrm{d}t=\\left[3t^{2}-2t\\right]_{0}^{2}=8]]. Add the initial 5 to get 13.",
+          "incorrectFeedback": "Integrate the rate from 0 to 2 to find the change, then add the initial value."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 19 OF 21",
+          "question": "Given [[\\int_{1}^{4}f(x)\\,\\mathrm{d}x=6]] and [[\\int_{1}^{4}g(x)\\,\\mathrm{d}x=-2]], evaluate [[\\int_{1}^{4}(2f(x)-g(x))\\,\\mathrm{d}x]].",
+          "options": ["[[8]]", "[[10]]", "[[12]]", "[[14]]"],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. By linearity, the value is [[2(6)-(-2)=14]].",
+          "incorrectFeedback": "Integrate term by term: double the integral of f, then subtract the integral of g."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 20 OF 21",
+          "question": "A differentiable function F satisfies [[F'(x)>0]] for every [[a<x<b]]. Which conclusion must be true?",
+          "options": [
+            "[[F(a)>F(b)]]",
+            "[[F(a)=F(b)]]",
+            "[[F(a)<F(b)]]",
+            "F has a stationary point between a and b"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. A positive derivative throughout the interval means F is strictly increasing, so [[F(a)<F(b)]].",
+          "incorrectFeedback": "The sign of the derivative controls direction. A strictly positive derivative means the function rises as x increases."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 21 OF 21",
+          "title": "Calculus: exam review",
+          "keyPoints": [
+            "Simplify algebraic expressions before applying the differentiation or integration power rule.",
+            "Derivatives control gradients, rates, stationary points, and intervals of increase or decrease.",
+            "Definite integrals give signed accumulation; geometric area may require splitting at roots.",
+            "Use the Fundamental Theorem to connect derivatives, integrals, and total change.",
+            "Apply the trapezium rule with correct spacing and use curvature to judge its error."
+          ],
+          "reviewItems": [
+            "Redo questions where a root, reciprocal, or fractional power caused an error.",
+            "Check tangent and normal equations with the stated point.",
+            "Keep signed integral and total area conceptually separate.",
+            "Practise trapezium calculations without assuming the spacing is 1.",
+            "Repeat this set until every method is recognisable from the question structure."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "graph-transformations",
       "topicId": "topic-7",
       "title": "Graph Transformations",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "GRAPHS OF FUNCTIONS · 1 OF 14",
+          "title": "Recognise the parent graph before transforming it",
+          "body": "You should recognise the main shapes of lines, quadratics, cubics, reciprocal, square-root, exponential, logarithmic, trigonometric, and modulus functions.<br><br>Start from intercepts, symmetry, turning points, asymptotes, domain, and range. These features move predictably under transformations.",
+          "keyPoint": "A sketch needs the right structure, not perfect scale. Mark decisive features such as roots, vertices, and asymptotes.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "TRANSLATIONS · 2 OF 14",
+          "title": "Changes outside f are vertical; changes inside are horizontal",
+          "diagram": {
+            "kind": "graph-transformations",
+            "caption": "Track distinctive points on the parent graph to construct the transformed graph."
+          },
+          "body": "[[y=f(x)+a]] moves the graph a units vertically. Positive a moves it up.<br><br>[[y=f(x+a)]] moves the graph a units horizontally in the opposite-looking direction: positive a moves it left.",
+          "keyPoint": "Inside changes act on x before f is evaluated, which is why their horizontal direction appears reversed.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "POINT MAPPINGS · 3 OF 14",
+          "title": "Transform a known point [[P=(x,y)]]",
+          "steps": [
+            {
+              "title": "Vertical scaling",
+              "body": "On [[Y=af(x)]], the point becomes [[(x,ay)]]. x stays fixed."
+            },
+            {
+              "title": "Vertical translation",
+              "body": "On [[Y=f(x)+a]], the point becomes [[(x,y+a)]]."
+            },
+            {
+              "title": "Horizontal translation",
+              "body": "On [[Y=f(x+a)]], the point becomes [[(x-a,y)]]."
+            },
+            {
+              "title": "Horizontal scaling",
+              "body": "On [[Y=f(ax)]], the point becomes [[\\left(\\frac{x}{a},y\\right)]]. Horizontal coordinates are divided by a."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "MAPPING CHECK · 4 OF 14",
+          "question": "The point [[(2,5)]] lies on [[y=f(x)]]. Which point lies on [[y=f(x-3)+2]]?",
+          "options": ["[[(-1,7)]]", "[[(5,3)]]", "[[(5,7)]]", "[[(6,10)]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Replacing x by [[x-3]] moves the graph right by 3, and adding 2 moves it up by 2. Thus [[(2,5)\\mapsto(5,7)]].",
+          "incorrectFeedback": "The inside change moves the point right by 3. The outside change then raises its y-coordinate by 2."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "REFLECTIONS AND STRETCHES · 5 OF 14",
+          "title": "A negative multiplier introduces a reflection",
+          "body": "[[y=-f(x)]] reflects the graph in the x-axis, while [[y=f(-x)]] reflects it in the y-axis.<br><br>For [[y=af(x)]], [[\\lvert a\\rvert>1]] gives a vertical stretch and [[0<\\lvert a\\rvert<1]] a vertical compression. For [[y=f(ax)]], the horizontal scale factor is [[\\frac1{\\lvert a\\rvert}]].",
+          "keyPoint": "Outside multipliers change y-coordinates. Inside multipliers change x-coordinates reciprocally.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 6 OF 14",
+          "title": "Compose several transformations",
+          "question": "The point [[(6,-1)]] lies on [[y=f(x)]]. Where does it move on [[y=-2f(3x)+1]]?",
+          "diagram": {
+            "kind": "graph-transformations",
+            "caption": "Apply the horizontal mapping to x and the outside mapping to y."
+          },
+          "options": ["[[(2,-1)]]", "[[(2,3)]]", "[[(18,3)]]", "[[(-2,-3)]]"],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Handle the inside change",
+              "body": "[[f(3x)]] divides x-coordinates by 3, so [[6\\mapsto2]]."
+            },
+            {
+              "title": "Handle the vertical multiplier",
+              "body": "The y-coordinate is multiplied by -2, so [[-1\\mapsto2]]. This also reflects the graph in the x-axis."
+            },
+            {
+              "title": "Apply the translation",
+              "body": "Adding 1 raises the new y-coordinate: [[2\\mapsto3]]."
+            },
+            {
+              "title": "State the image",
+              "body": "The point becomes [[(2,3)]]."
+            }
+          ],
+          "finalAnswer": "The image is [[(2,3)]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "TRANSFORMATIONS COMPLETE · 7 OF 14",
+          "title": "You can now move points instead of guessing whole sketches.",
+          "body": "You have handled translations, stretches, compressions, reflections, and compositions.<br><br>Next, we connect function composition with graph parameters and intersections.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMPOSITE FUNCTIONS · 8 OF 14",
+          "title": "In [[f(g(x))]], apply g first",
+          "body": "The output of g becomes the input of f. Work from the inside out.<br><br>For example, if [[f(x)=x^{2}+1]] and [[g(x)=2x-3]], then [[f(g(x))=(2x-3)^{2}+1]], whereas [[g(f(x))=2(x^{2}+1)-3]]. They are generally different.",
+          "keyPoint": "Function composition is ordered: [[f\\circ g]] need not equal [[g\\circ f]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COMPOSITION CHECK · 9 OF 14",
+          "question": "Let [[f(x)=x^{2}+1]] and [[g(x)=2x-3]]. Find [[f(g(2))]].",
+          "options": ["[[1]]", "[[2]]", "[[5]]", "[[26]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[g(2)=1]], then [[f(1)=1^{2}+1=2]].",
+          "incorrectFeedback": "Evaluate the inner function first: find [[g(2)]], then use that result as the input to f."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "GRAPH PARAMETERS · 10 OF 14",
+          "title": "Read key features directly from standard forms",
+          "body": "For [[y=mx+c]], m controls the gradient and c the y-intercept.<br><br>For [[y=a(x+b)^{2}+c]], the vertex is [[(-b,c)]]. The sign of a decides whether the parabola opens up or down, while [[\\lvert a\\rvert]] controls how narrow it is.",
+          "keyPoint": "The vertex x-coordinate has the opposite sign to the number inside the bracket.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "PARAMETER CHECK · 11 OF 14",
+          "question": "Which statement describes [[y=-2(x+3)^{2}+5]]?",
+          "options": [
+            "It has a minimum at [[(3,5)]].",
+            "It has a maximum at [[(-3,5)]].",
+            "It has a maximum at [[(3,-5)]].",
+            "It has a minimum at [[(-3,-5)]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The vertex is [[(-3,5)]], and the negative coefficient means the parabola opens down, so this is a maximum.",
+          "incorrectFeedback": "Read the vertex from [[a(x+b)^{2}+c]] as [[(-b,c)]], then use the sign of a."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "INTERCEPTS AND INTERSECTIONS · 12 OF 14",
+          "title": "Algebraic solutions are geometric intersections",
+          "diagram": {
+            "kind": "function-intersections",
+            "caption": "Each intersection gives an x-value satisfying f(x) = g(x)."
+          },
+          "body": "Set [[x=0]] to find a y-intercept and set [[y=0]] to find roots or x-intercepts.<br><br>The solutions of [[f(x)=g(x)]] are the x-coordinates where the two graphs meet. A polynomial of degree n can have at most n real roots, though it may have fewer.",
+          "keyPoint": "Differentiation can add shape information: stationary points and derivative signs help determine how many intersections are possible.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INTERSECTION CHECK · 13 OF 14",
+          "question": "At which x-values do [[y=x^{2}]] and [[y=2x+3]] intersect?",
+          "options": [
+            "[[x=-3]] and [[x=1]]",
+            "[[x=-1]] and [[x=3]]",
+            "[[x=1]] and [[x=3]]",
+            "[[x=-1]] only"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[x^{2}=2x+3]] gives [[x^{2}-2x-3=(x-3)(x+1)=0]], so [[x=-1]] or [[x=3]].",
+          "incorrectFeedback": "Equate the two y-expressions, rearrange to a quadratic, and factorise."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Graph Transformations: key points",
+          "keyPoints": [
+            "Recognise parent graphs from their intercepts, symmetry, turning points, domains, ranges, and asymptotes.",
+            "Outside changes act vertically; inside changes act horizontally and reciprocally.",
+            "[[f(-x)]] reflects in the y-axis, while [[-f(x)]] reflects in the x-axis.",
+            "In [[f(g(x))]], evaluate g before f.",
+            "Roots and simultaneous solutions are intersections with axes or other graphs."
+          ],
+          "reviewItems": [
+            "Track known points through transformations.",
+            "Remember that [[f(x+a)]] moves left when a is positive.",
+            "Read quadratic vertices directly from completed-square form.",
+            "Use algebra and differentiation together when reasoning about graph shape.",
+            "Next lesson: Geometry and Proportion."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "geometry-proportion",
       "topicId": "topic-7",
       "title": "Geometry and Proportion",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "RATIO AND PROPORTION · 1 OF 18",
+          "title": "Turn proportional language into an equation",
+          "body": "If y is directly proportional to [[x^{n}]], write [[y=kx^{n}]]. If y is inversely proportional to [[x^{n}]], write [[y=\\frac{k}{x^{n}}]].<br><br>Use one pair of values to determine k, then keep the same k throughout the problem. Repeated percentage growth is also multiplicative: an increase of [[p\\%]] for n stages multiplies an initial value V by [[\\left(1+\\frac{p}{100}\\right)^{n}]].",
+          "keyPoint": "Proportion and growth are multiplicative. A statement such as [[y\\propto x^{2}]] does not mean [[y=x^{2}+c]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "DIRECT PROPORTION · 2 OF 18",
+          "title": "Use the constant of proportionality",
+          "steps": [
+            {
+              "title": "Translate the relationship",
+              "body": "Suppose [[y\\propto x^{2}]]. Then [[y=kx^{2}]]."
+            },
+            {
+              "title": "Find k",
+              "body": "If [[y=20]] when [[x=2]], then [[20=4k]], so [[k=5]]."
+            },
+            {
+              "title": "Write the full equation",
+              "body": "The relationship is [[y=5x^{2}]]."
+            },
+            {
+              "title": "Use a new input",
+              "body": "When [[x=3]], [[y=5(3^{2})=45]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INVERSE-PROPORTION CHECK · 3 OF 18",
+          "question": "The quantity y is inversely proportional to [[\\sqrt{x}]]. If x is multiplied by 9, what happens to y?",
+          "options": [
+            "It is multiplied by 9.",
+            "It is multiplied by 3.",
+            "It is divided by 3.",
+            "It is divided by 9."
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[y=\\frac{k}{\\sqrt{x}}]]. Multiplying x by 9 multiplies [[\\sqrt{x}]] by 3, so y is divided by 3.",
+          "incorrectFeedback": "Write [[y=kx^{-1/2}]]. A factor of 9 in x becomes a factor of [[9^{-1/2}=\\frac13]] in y."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SIMILARITY · 4 OF 18",
+          "title": "Length, area, and volume scale by different powers",
+          "diagram": {
+            "kind": "similarity-scale",
+            "caption": "A length scale factor of 2 produces an area factor of 4."
+          },
+          "body": "For similar figures with length scale factor k, corresponding lengths scale by k, areas by [[k^{2}]], and volumes by [[k^{3}]].<br><br>All corresponding angles are equal. Congruent figures are the special case [[k=1]].",
+          "keyPoint": "Identify whether the quantity is one-, two-, or three-dimensional before applying the scale factor.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 5 OF 18",
+          "title": "Scale the volume of a similar solid",
+          "question": "Two similar solids have corresponding lengths in the ratio [[2:3]]. The smaller has volume 64. Find the larger volume.",
+          "diagram": {
+            "kind": "similarity-scale",
+            "caption": "The linear scale factor is one and a half, so the volume factor is its cube."
+          },
+          "options": ["[[96]]", "[[144]]", "[[192]]", "[[216]]"],
+          "answerIndex": 3,
+          "steps": [
+            {
+              "title": "Find the length factor",
+              "body": "From smaller to larger, [[k=\\frac32]]."
+            },
+            {
+              "title": "Cube the factor",
+              "body": "The volume factor is [[\\left(\\frac32\\right)^{3}=\\frac{27}{8}]]."
+            },
+            {
+              "title": "Scale the volume",
+              "body": "[[64\\times\\frac{27}{8}=8\\times27=216]]."
+            },
+            {
+              "title": "Check the direction",
+              "body": "The larger solid must have the larger volume, so 216 is sensible."
+            }
+          ],
+          "finalAnswer": "The larger volume is 216, so the correct option is D.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "AREA-FACTOR CHECK · 6 OF 18",
+          "question": "Two similar shapes have corresponding lengths in the ratio [[1:3]]. What is the ratio of their areas?",
+          "options": ["[[1:3]]", "[[1:6]]", "[[1:9]]", "[[1:27]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Area uses the square of the length factor, so [[1^{2}:3^{2}=1:9]].",
+          "incorrectFeedback": "Square both parts of the length ratio. Cubing would apply to volume, not area."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "PROPORTION COMPLETE · 7 OF 18",
+          "title": "You can convert proportional relationships and scale similar figures.",
+          "body": "You have used constants of proportionality and separated length, area, and volume factors.<br><br>Next, we bring together angle facts, transformations, measurement, circles, and vectors.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ANGLE STRUCTURE · 8 OF 18",
+          "title": "Build unfamiliar geometry from standard facts",
+          "body": "Angles on a line total 180°, angles around a point total 360°, and vertically opposite angles are equal. Parallel lines create equal corresponding and alternate angles.<br><br>An n-sided polygon has interior-angle sum [[180(n-2)]] degrees and exterior-angle sum 360°. A regular polygon therefore has exterior angle [[\\frac{360}{n}]] degrees.",
+          "keyPoint": "Mark equal and supplementary angles directly on the diagram before forming equations.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "POLYGON CHECK · 9 OF 18",
+          "question": "A regular polygon has exterior angle 24°. How many sides does it have?",
+          "options": ["[[12]]", "[[15]]", "[[18]]", "[[24]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[n=\\frac{360}{24}=15]].",
+          "incorrectFeedback": "The exterior angles of any polygon total 360°. Divide 360 by the regular exterior angle."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CONGRUENCE AND TRANSFORMATIONS · 10 OF 18",
+          "title": "Know what each transformation preserves",
+          "body": "Triangles are congruent by SSS, SAS, ASA, or RHS. Rotation, reflection, and translation preserve lengths and angles; enlargement preserves angles but scales lengths.<br><br>A negative enlargement scale factor places the image on the opposite side of the centre. A translation is described by a two-dimensional vector.",
+          "keyPoint": "SSA is not a general congruence criterion. Two sides and a non-included angle may produce different triangles.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ENLARGEMENT CHECK · 11 OF 18",
+          "question": "An enlargement with centre the origin and scale factor -2 maps [[(3,-1)]] to which point?",
+          "options": ["[[(6,-2)]]", "[[(-6,2)]]", "[[(-1,3)]]", "[[\\left(-\\frac32,\\frac12\\right)]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Multiply both coordinates by -2: [[(3,-1)\\mapsto(-6,2)]].",
+          "incorrectFeedback": "For an enlargement centred at the origin, multiply the entire position vector by the scale factor."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "MEASUREMENT AND PYTHAGORAS · 12 OF 18",
+          "title": "Reduce three-dimensional problems to right triangles",
+          "body": "Use [[a^{2}+b^{2}=c^{2}]] in two or three dimensions, one right triangle at a time. A prism has volume equal to cross-sectional area times length.<br><br>Also recall [[C=2\\pi r]], [[A=\\pi r^{2}]], and, in radians, arc length [[r\\theta]] and sector area [[\\frac12r^{2}\\theta]]. Bearings are measured clockwise from north and written with three figures.",
+          "keyPoint": "Plans and elevations are two-dimensional views. Match visible lengths carefully before applying a formula.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 13 OF 18",
+          "title": "Find a cuboid's space diagonal",
+          "question": "A cuboid has side lengths 3, 4, and 12. Find the distance between opposite vertices.",
+          "options": ["[[12]]", "[[13]]", "[[15]]", "[[19]]"],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Find the base diagonal",
+              "body": "[[\\sqrt{3^{2}+4^{2}}=5]]."
+            },
+            {
+              "title": "Form a second right triangle",
+              "body": "The base diagonal 5 and vertical side 12 are perpendicular."
+            },
+            {
+              "title": "Apply Pythagoras again",
+              "body": "[[d=\\sqrt{5^{2}+12^{2}}=\\sqrt{169}=13]]."
+            },
+            {
+              "title": "Use the compact form",
+              "body": "Equivalently, [[d=\\sqrt{3^{2}+4^{2}+12^{2}}]]."
+            }
+          ],
+          "finalAnswer": "The space diagonal is 13, so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CIRCLE THEOREMS · 14 OF 18",
+          "title": "Use radii, chords, tangents, and subtended angles",
+          "diagram": {
+            "kind": "circle-theorems",
+            "caption": "A radius is perpendicular to the tangent at the point of contact."
+          },
+          "body": "The angle at the centre is twice the angle at the circumference on the same arc. An angle in a semicircle is 90°, angles in the same segment are equal, and opposite angles in a cyclic quadrilateral sum to 180°.<br><br>The angle between a tangent and a chord equals the angle in the alternate segment.",
+          "keyPoint": "Join a tangent point to the centre: the resulting radius creates a right angle.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "CIRCLE-THEOREM CHECK · 15 OF 18",
+          "question": "A chord subtends an angle of 38° at the circumference. What angle does the same chord subtend at the centre?",
+          "options": ["[[19^{\\circ}]]", "[[38^{\\circ}]]", "[[76^{\\circ}]]", "[[142^{\\circ}]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The angle at the centre is twice the angle at the circumference, so [[2\\times38^{\\circ}=76^{\\circ}]].",
+          "incorrectFeedback": "For the same arc, double the angle at the circumference to obtain the angle at the centre."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "VECTORS IN GEOMETRY · 16 OF 18",
+          "title": "Express routes as vector sums",
+          "body": "If position vectors of A and B are a and b, then [[\\overrightarrow{AB}=\\mathbf{b}-\\mathbf{a}]]. The midpoint has position vector [[\\frac12(\\mathbf{a}+\\mathbf{b})]].<br><br>Parallel vectors are scalar multiples. This lets you prove collinearity, parallelism, and fixed ratios without measuring a diagram.",
+          "keyPoint": "A valid vector proof must explain both direction and scalar relationship, not merely quote matching-looking expressions.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "VECTOR CHECK · 17 OF 18",
+          "question": "Points A and B have position vectors a and b. What is the position vector of the midpoint of AB?",
+          "options": [
+            "[[\\mathbf{b}-\\mathbf{a}]]",
+            "[[\\frac12(\\mathbf{b}-\\mathbf{a})]]",
+            "[[\\frac12(\\mathbf{a}+\\mathbf{b})]]",
+            "[[2(\\mathbf{a}+\\mathbf{b})]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The midpoint averages the two position vectors: [[\\frac12(\\mathbf{a}+\\mathbf{b})]].",
+          "incorrectFeedback": "A midpoint is the coordinate-wise average of its endpoints, so average their position vectors."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 18 OF 18",
+          "title": "Geometry and Proportion: key points",
+          "keyPoints": [
+            "Translate direct and inverse proportion into equations containing a constant k.",
+            "A length factor k produces area factor [[k^{2}]] and volume factor [[k^{3}]].",
+            "Combine angle, congruence, similarity, and transformation facts systematically.",
+            "Use Pythagoras in stages for three-dimensional distances.",
+            "Circle theorems and vector relationships turn diagrams into exact equations."
+          ],
+          "reviewItems": [
+            "Decide whether a proportional model uses x, [[x^{2}]], or a reciprocal power.",
+            "Separate length, area, and volume scale factors.",
+            "Do not use SSA as a general congruence test.",
+            "Add helpful radii and chords to circle diagrams.",
+            "Next lesson: Statistics and Probability."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "statistic-probability",
       "topicId": "topic-7",
       "title": "Statistics & Probability",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "DATA REPRESENTATION · 1 OF 18",
+          "title": "Match the diagram to the type of data",
+          "body": "Bar charts and pie charts suit categorical data; vertical line charts suit ungrouped discrete data; line graphs show time series.<br><br>Histograms represent grouped numerical data using area, and cumulative-frequency graphs reveal medians, quartiles, and percentiles.",
+          "keyPoint": "Histogram bars touch because the underlying scale is continuous. Ordinary bar-chart gaps separate categories.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "REPRESENTATION CHECK · 2 OF 18",
+          "question": "Which diagram is most appropriate for displaying the distribution of 500 measured journey times grouped into unequal class intervals?",
+          "options": [
+            "A pie chart",
+            "A histogram using frequency density",
+            "A vertical line chart",
+            "A pictogram"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Journey time is continuous, grouped numerical data. Unequal intervals require frequency density so bar area represents frequency.",
+          "incorrectFeedback": "The data are continuous and grouped into unequal widths, which is precisely the setting for a frequency-density histogram."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SUMMARY STATISTICS · 3 OF 18",
+          "title": "Compare centre and spread like for like",
+          "body": "For ungrouped data, calculate exact mean, median, mode, and range. For grouped data, use class midpoints to estimate the mean and interpolate or read graphs to estimate quartiles.<br><br>Median and interquartile range are a natural pair: median measures typical position and IQR measures the spread of the middle half.",
+          "keyPoint": "Grouped statistics are estimates because the exact values inside each class are unknown.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 4 OF 18",
+          "title": "Estimate a grouped mean",
+          "question": "Values in intervals [[0\\le x<10]], [[10\\le x<20]], and [[20\\le x<30]] have frequencies 2, 5, and 3. Estimate the mean.",
+          "options": ["[[14]]", "[[15]]", "[[16]]", "[[18]]"],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Find the class midpoints",
+              "body": "The midpoints are 5, 15, and 25."
+            },
+            {
+              "title": "Multiply midpoint by frequency",
+              "body": "The products are [[5(2)=10]], [[15(5)=75]], and [[25(3)=75]]."
+            },
+            {
+              "title": "Add the estimated total",
+              "body": "[[10+75+75=160]]. The total frequency is [[2+5+3=10]]."
+            },
+            {
+              "title": "Divide",
+              "body": "The estimated mean is [[\\frac{160}{10}=16]]."
+            }
+          ],
+          "finalAnswer": "The estimated mean is 16, so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COMPARISON CHECK · 5 OF 18",
+          "question": "Set A has median 50 and IQR 8. Set B has median 55 and IQR 14. Which comparison is justified?",
+          "options": [
+            "A has the higher typical value and greater spread.",
+            "B has the higher typical value, while A is more consistent.",
+            "B is more consistent because its median is larger.",
+            "The sets cannot be compared without their means."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. B's larger median indicates a higher typical value. A's smaller IQR indicates less spread in the middle half.",
+          "incorrectFeedback": "Compare medians with medians and IQRs with IQRs. A smaller IQR means greater consistency."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "DATA SUMMARIES COMPLETE · 6 OF 18",
+          "title": "You can choose representations and compare distributions.",
+          "body": "You have distinguished data types, estimated grouped means, and paired measures of centre and spread.<br><br>Next, we interpret histograms, cumulative frequency, and scatter data.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "HISTOGRAMS · 7 OF 18",
+          "title": "Histogram area represents frequency",
+          "diagram": {
+            "kind": "histogram-density",
+            "caption": "Unequal class widths require frequency density on the vertical axis."
+          },
+          "body": "Use [[\\text{frequency density}=\\frac{\\text{frequency}}{\\text{class width}}]]. Therefore [[\\text{frequency}=\\text{class width}\\times\\text{frequency density}]].<br><br>A taller bar need not contain more observations if it is much narrower.",
+          "keyPoint": "Compare bar areas for frequency, not heights alone.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DENSITY CHECK · 8 OF 18",
+          "question": "A histogram class has width 5 and frequency density 3. What is its frequency?",
+          "options": ["[[\\frac35]]", "[[8]]", "[[15]]", "[[30]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Frequency is bar area: [[5\\times3=15]].",
+          "incorrectFeedback": "Multiply class width by frequency density."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CUMULATIVE FREQUENCY · 9 OF 18",
+          "title": "Use positions to estimate quartiles",
+          "diagram": {
+            "kind": "cumulative-frequency",
+            "caption": "Read horizontally from a cumulative position to the curve, then down to the data scale."
+          },
+          "body": "For N observations, estimate [[Q_{1}]] at cumulative frequency [[\\frac{N}{4}]], the median at [[\\frac{N}{2}]], and [[Q_{3}]] at [[\\frac{3N}{4}]].<br><br>The interquartile range is [[Q_{3}-Q_{1}]].",
+          "keyPoint": "The vertical axis shows how many observations are at or below a value.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "QUARTILE-POSITION CHECK · 10 OF 18",
+          "question": "A cumulative-frequency graph represents 80 observations. At which cumulative frequencies are [[Q_{1}]], the median, and [[Q_{3}]] read?",
+          "options": [
+            "[[10,40,70]]",
+            "[[20,40,60]]",
+            "[[20,50,60]]",
+            "[[25,50,75]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The positions are [[\\frac{80}{4}=20]], [[\\frac{80}{2}=40]], and [[\\frac{3(80)}4=60]].",
+          "incorrectFeedback": "Use one quarter, one half, and three quarters of the total frequency."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SCATTER DATA · 11 OF 18",
+          "title": "Correlation describes association, not cause",
+          "diagram": {
+            "kind": "scatter-correlation",
+            "caption": "A line of best fit summarises an apparent trend; it does not prove a causal mechanism."
+          },
+          "body": "Scatter graphs can show positive, negative, or no correlation. A line of best fit supports interpolation within the observed range.<br><br>Extrapolation beyond the data is less reliable, and even strong correlation does not establish that one variable causes the other.",
+          "keyPoint": "A third variable or selection effect may explain an association.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "CORRELATION CHECK · 12 OF 18",
+          "question": "A strong positive correlation is observed between two variables X and Y. Which conclusion is always valid?",
+          "options": [
+            "Increasing X causes Y to increase.",
+            "Increasing Y causes X to increase.",
+            "The observed values tend to increase together.",
+            "Every point lies exactly on a straight line."
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Correlation describes an observed tendency. It does not by itself determine causation or require a perfect line.",
+          "incorrectFeedback": "A scatter graph supports a statement about association, not a causal direction."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "PROBABILITY RULES · 13 OF 18",
+          "title": "Know when to add and when to multiply",
+          "body": "Probabilities lie from 0 to 1, and exhaustive outcomes total 1. Add probabilities for mutually exclusive alternatives.<br><br>Multiply along successive branches: [[P(A\\text{ and }B)=P(A)P(B\\mid A)]]. For independent events, [[P(B\\mid A)=P(B)]]. Expected frequency is probability times number of trials.",
+          "keyPoint": "Without replacement, later probabilities usually change because the contents of the sample space have changed.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "TREE DIAGRAMS · 14 OF 18",
+          "title": "Multiply along a complete route",
+          "diagram": {
+            "kind": "probability-tree",
+            "caption": "A route through the tree represents an intersection of events."
+          },
+          "steps": [
+            {
+              "title": "Read the first branch",
+              "body": "Suppose [[P(A)=0.4]]."
+            },
+            {
+              "title": "Read the conditional branch",
+              "body": "Suppose [[P(B\\mid A)=0.7]]. This is the probability of B after A has occurred."
+            },
+            {
+              "title": "Multiply along the route",
+              "body": "[[P(A\\text{ and }B)=0.4\\times0.7=0.28]]."
+            },
+            {
+              "title": "Add only complete alternatives",
+              "body": "To find B by any route, add the probabilities of all mutually exclusive routes ending in B."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DEPENDENT-EVENT CHECK · 15 OF 18",
+          "question": "A bag contains 3 red and 2 blue counters. Two are drawn without replacement. What is the probability that both are red?",
+          "options": ["[[\\frac15]]", "[[\\frac3{10}]]", "[[\\frac9{25}]]", "[[\\frac35]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[\\frac35\\times\\frac24=\\frac3{10}]]. The second numerator and denominator both change after a red counter is removed.",
+          "incorrectFeedback": "After the first red counter, 2 red counters remain among 4 total counters."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CONDITIONAL FREQUENCY · 16 OF 18",
+          "title": "Restrict the denominator to the given condition",
+          "body": "In [[P(A\\mid B)]], the event B defines the new sample space. Use only outcomes inside B in the denominator.<br><br>Two-way tables, Venn diagrams, and expected-frequency trees make this restriction visible without requiring formal set notation.",
+          "keyPoint": "The denominator answers: out of how many cases satisfying the condition?",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 17 OF 18",
+          "title": "Read a conditional probability from counts",
+          "question": "Among 60 students, 30 play sport. Of those 30, 15 also study music. What is the probability that a randomly selected sport player studies music?",
+          "options": ["[[\\frac14]]", "[[\\frac12]]", "[[\\frac35]]", "[[\\frac34]]"],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Identify the condition",
+              "body": "We are told the selected student plays sport, so restrict attention to the 30 sport players."
+            },
+            {
+              "title": "Find the favourable count",
+              "body": "Within that group, 15 also study music."
+            },
+            {
+              "title": "Form the conditional probability",
+              "body": "[[P(\\text{music}\\mid\\text{sport})=\\frac{15}{30}]]."
+            },
+            {
+              "title": "Simplify",
+              "body": "[[\\frac{15}{30}=\\frac12]]."
+            }
+          ],
+          "finalAnswer": "The conditional probability is [[\\frac12]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 18 OF 18",
+          "title": "Statistics and Probability: key points",
+          "keyPoints": [
+            "Choose representations according to whether data are categorical, discrete, continuous, or time-based.",
+            "Grouped means and graph-read quartiles are estimates.",
+            "Histogram frequency is class width times frequency density.",
+            "Correlation does not imply causation, and extrapolation is risky.",
+            "Add mutually exclusive routes, multiply successive branches, and restrict denominators for conditional probability."
+          ],
+          "reviewItems": [
+            "Compare centre and spread using like-for-like statistics.",
+            "Use bar area—not height alone—in histograms.",
+            "Read quartiles at the correct cumulative positions.",
+            "Update probabilities when sampling without replacement.",
+            "Next lesson: Geometry and Data Exam-style Questions."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "geometry-data-exam-style-questions",
       "topicId": "topic-7",
       "title": "Exam-style Questions",
-      "screens": []
+      "screens": [
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 1 OF 21",
+          "question": "The point [[(1,4)]] lies on [[y=f(x)]]. Which point lies on [[y=f(x+2)-3]]?",
+          "diagram": {
+            "kind": "graph-transformations",
+            "caption": "Inside changes act horizontally; outside changes act vertically."
+          },
+          "options": ["[[(-1,1)]]", "[[(3,1)]]", "[[(-1,7)]]", "[[(3,7)]]"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[f(x+2)]] moves the point left by 2, and subtracting 3 moves it down by 3: [[(1,4)\\mapsto(-1,1)]].",
+          "incorrectFeedback": "A positive change inside f moves the graph left. The outside subtraction then lowers the y-coordinate."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 2 OF 21",
+          "question": "The point [[(4,-3)]] lies on [[y=f(x)]]. Where does it move on [[y=-f(2x)]]?",
+          "options": ["[[(2,3)]]", "[[(8,3)]]", "[[(-2,-3)]]", "[[(-8,3)]]"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[f(2x)]] divides x-coordinates by 2, and the outside negative reflects y-values: [[(4,-3)\\mapsto(2,3)]].",
+          "incorrectFeedback": "Divide the x-coordinate by the inside multiplier, then negate the y-coordinate."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 3 OF 21",
+          "question": "Let [[f(x)=2x+1]] and [[g(x)=x^{2}]]. Find [[g(f(1))]].",
+          "options": ["[[3]]", "[[5]]", "[[7]]", "[[9]]"],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. [[f(1)=3]], then [[g(3)=3^{2}=9]].",
+          "incorrectFeedback": "Evaluate the inner function f first, then apply g to its output."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 4 OF 21",
+          "question": "Which statement describes [[y=3(x-2)^{2}-4]]?",
+          "options": [
+            "It has a maximum at [[(2,-4)]].",
+            "It has a minimum at [[(2,-4)]].",
+            "It has a minimum at [[(-2,4)]].",
+            "It has a maximum at [[(-2,-4)]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The vertex is [[(2,-4)]], and the positive coefficient means the parabola opens upwards.",
+          "incorrectFeedback": "Read the vertex from completed-square form and use the sign of the squared-term coefficient."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 5 OF 21",
+          "question": "The graphs [[y=x^{2}+1]] and [[y=3x-1]] intersect at two points. What is the sum of their x-coordinates?",
+          "diagram": {
+            "kind": "function-intersections",
+            "caption": "Equate the two expressions to find intersection coordinates."
+          },
+          "options": ["[[1]]", "[[2]]", "[[3]]", "[[4]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[x^{2}+1=3x-1]] gives [[x^{2}-3x+2=0]], with roots 1 and 2. Their sum is 3.",
+          "incorrectFeedback": "Equate the two y-values, rearrange, and factorise the resulting quadratic."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 6 OF 21",
+          "question": "The quantity y is directly proportional to [[x^{3}]]. Given [[y=16]] when [[x=2]], find y when [[x=3]].",
+          "options": ["[[24]]", "[[36]]", "[[48]]", "[[54]]"],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. [[y=kx^{3}]] and [[16=8k]], so [[k=2]]. Therefore [[y=2(3^{3})=54]].",
+          "incorrectFeedback": "Find k from the first pair of values before substituting the new x-value."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 7 OF 21",
+          "question": "The quantity y is inversely proportional to [[x^{2}]]. If x doubles, by what factor does y change?",
+          "options": ["[[\\frac14]]", "[[\\frac12]]", "[[2]]", "[[4]]"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[y=kx^{-2}]], so doubling x multiplies y by [[2^{-2}=\\frac14]].",
+          "incorrectFeedback": "Apply the inverse-square power to the scale factor: [[2^{-2}]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 8 OF 21",
+          "question": "Similar solids have corresponding lengths in the ratio [[3:5]]. The smaller volume is 216. Find the larger volume.",
+          "diagram": {
+            "kind": "similarity-scale",
+            "caption": "Volume scales with the cube of the length ratio."
+          },
+          "options": ["[[360]]", "[[600]]", "[[1000]]", "[[1296]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The volume factor is [[\\left(\\frac53\\right)^{3}=\\frac{125}{27}]], and [[216\\times\\frac{125}{27}=1000]].",
+          "incorrectFeedback": "Cube the length scale factor from smaller to larger before scaling the volume."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 9 OF 21",
+          "question": "Each interior angle of a regular polygon is 156°. How many sides does it have?",
+          "options": ["[[12]]", "[[15]]", "[[18]]", "[[24]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The exterior angle is [[180^{\\circ}-156^{\\circ}=24^{\\circ}]], so the number of sides is [[\\frac{360}{24}=15]].",
+          "incorrectFeedback": "First convert the interior angle to an exterior angle, then divide 360° by it."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 10 OF 21",
+          "question": "Which information is not sufficient in general to prove that two triangles are congruent?",
+          "options": ["SSS", "SAS", "ASA", "SSA"],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. SSA can produce two different triangles, so it is not a general congruence criterion.",
+          "incorrectFeedback": "The standard criteria are SSS, SAS, ASA, and RHS. A non-included angle with two sides can be ambiguous."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 11 OF 21",
+          "question": "An enlargement with centre the origin and scale factor [[-\\frac12]] maps [[(6,-4)]] to which point?",
+          "options": ["[[(3,-2)]]", "[[(-3,2)]]", "[[(-12,8)]]", "[[(12,-8)]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Multiply each coordinate by [[-\\frac12]] to obtain [[(-3,2)]].",
+          "incorrectFeedback": "For a centre at the origin, multiply the position vector by the scale factor."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 12 OF 21",
+          "question": "A cuboid has side lengths 6, 8, and 24. Find its space diagonal.",
+          "options": ["[[25]]", "[[26]]", "[[30]]", "[[38]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[d=\\sqrt{6^{2}+8^{2}+24^{2}}=\\sqrt{676}=26]].",
+          "incorrectFeedback": "Apply Pythagoras in three dimensions by adding the squares of all three perpendicular side lengths."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 13 OF 21",
+          "question": "One angle of a cyclic quadrilateral is 112°. What is the opposite angle?",
+          "diagram": {
+            "kind": "circle-theorems",
+            "caption": "Opposite angles in a cyclic quadrilateral sum to 180°."
+          },
+          "options": ["[[56^{\\circ}]]", "[[68^{\\circ}]]", "[[112^{\\circ}]]", "[[248^{\\circ}]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Opposite angles sum to 180°, so [[180^{\\circ}-112^{\\circ}=68^{\\circ}]].",
+          "incorrectFeedback": "Use the cyclic-quadrilateral rule that opposite angles are supplementary."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 14 OF 21",
+          "question": "Points A and B have position vectors a and b. Which expression equals [[\\overrightarrow{AB}]]?",
+          "options": [
+            "[[\\mathbf{a}+\\mathbf{b}]]",
+            "[[\\mathbf{a}-\\mathbf{b}]]",
+            "[[\\mathbf{b}-\\mathbf{a}]]",
+            "[[\\frac12(\\mathbf{a}+\\mathbf{b})]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The route from A to B is destination minus starting position: [[\\mathbf{b}-\\mathbf{a}]].",
+          "incorrectFeedback": "Subtract the starting position vector from the destination position vector."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 15 OF 21",
+          "question": "Values in classes [[0\\le x<10]] and [[10\\le x<20]] have frequencies 4 and 6. Estimate the mean.",
+          "options": ["[[9]]", "[[10]]", "[[11]]", "[[12]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Using midpoints 5 and 15 gives [[\\frac{4(5)+6(15)}{10}=\\frac{110}{10}=11]].",
+          "incorrectFeedback": "Multiply each class midpoint by its frequency, add, and divide by the total frequency."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 16 OF 21",
+          "question": "A histogram class has width 8 and frequency density 2.5. Find the class frequency.",
+          "diagram": {
+            "kind": "histogram-density",
+            "caption": "In a histogram, bar area equals frequency."
+          },
+          "options": ["[[3.2]]", "[[10.5]]", "[[16]]", "[[20]]"],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. [[8\\times2.5=20]].",
+          "incorrectFeedback": "Multiply the class width by its frequency density."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 17 OF 21",
+          "question": "A cumulative-frequency graph contains 120 observations. At which cumulative frequency should [[Q_{3}]] be read?",
+          "diagram": {
+            "kind": "cumulative-frequency",
+            "caption": "The upper quartile lies three quarters of the way through the ordered data."
+          },
+          "options": ["[[30]]", "[[60]]", "[[90]]", "[[100]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[Q_{3}]] is at [[\\frac{3(120)}4=90]].",
+          "incorrectFeedback": "The upper quartile is at three quarters of the total frequency."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 18 OF 21",
+          "question": "A scatter graph shows strong negative correlation between X and Y. Which statement is justified?",
+          "diagram": {
+            "kind": "scatter-correlation",
+            "caption": "Correlation describes an association; it does not establish causation."
+          },
+          "options": [
+            "Larger X-values tend to be associated with smaller Y-values.",
+            "Increasing X necessarily causes Y to decrease.",
+            "Increasing Y necessarily causes X to decrease.",
+            "Every point must lie on the line of best fit."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Negative correlation means the variables tend to move in opposite directions. It does not establish a causal mechanism.",
+          "incorrectFeedback": "Describe the observed association without making a causal claim."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 19 OF 21",
+          "question": "A bag contains 4 green and 3 yellow counters. Two are drawn without replacement. What is the probability that both are green?",
+          "diagram": {
+            "kind": "probability-tree",
+            "caption": "Without replacement, the probabilities on the second stage change."
+          },
+          "options": ["[[\\frac27]]", "[[\\frac37]]", "[[\\frac47]]", "[[\\frac{16}{49}]]"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[\\frac47\\times\\frac36=\\frac{12}{42}=\\frac27]].",
+          "incorrectFeedback": "After one green counter is removed, 3 green counters remain among 6 counters."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 20 OF 21",
+          "question": "Of 50 students, 20 study physics. Of those 20, 8 also study economics. Find [[P(\\text{economics}\\mid\\text{physics})]].",
+          "options": ["[[\\frac4{25}]]", "[[\\frac25]]", "[[\\frac8{50}]]", "[[\\frac35]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Restrict the sample space to the 20 physics students: [[\\frac8{20}=\\frac25]].",
+          "incorrectFeedback": "The condition is physics, so the denominator must be the number of physics students, not all 50 students."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 21 OF 21",
+          "title": "Geometry and Data: exam review",
+          "keyPoints": [
+            "Track points through graph transformations and evaluate composite functions from the inside out.",
+            "Translate proportion into equations and apply squared or cubed scale factors where appropriate.",
+            "Combine angle, congruence, similarity, circle, coordinate, and vector facts carefully.",
+            "Interpret grouped data through midpoints, density, cumulative positions, and honest statements about correlation.",
+            "For probability, update dependent branches and restrict conditional denominators."
+          ],
+          "reviewItems": [
+            "Redo transformation questions using point mappings.",
+            "Label the dimension of every similarity factor.",
+            "Draw or annotate geometry before calculating.",
+            "Use histogram area rather than height alone.",
+            "Repeat dependent and conditional probability questions until the denominator is automatic."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "logic-of-arguments",

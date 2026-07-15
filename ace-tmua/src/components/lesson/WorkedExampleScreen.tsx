@@ -9,6 +9,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
 import { PlainOrHtml } from "./MathText";
+import LessonDiagramView from "./LessonDiagram";
 import shared, { C } from "./shared";
 import TopBar from "./TopBar";
 import type { WorkedExampleScreen } from "./types";
@@ -59,6 +60,8 @@ export default function WorkedExampleScreenView({
 
           <View style={[styles.questionCard, shared.cardShadow]}>
             <PlainOrHtml html={screen.question} style={styles.question} />
+
+            {screen.diagram && <LessonDiagramView diagram={screen.diagram} />}
 
             {!!screen.options?.length && (
               <View style={styles.options}>

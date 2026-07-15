@@ -16,6 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import TopBar from './TopBar';
 import { PlainOrHtml } from './MathText';
+import LessonDiagramView from './LessonDiagram';
 import shared, { C } from './shared';
 import type { RevealScreen } from './types';
 
@@ -48,6 +49,8 @@ export default function RevealScreenView({
             <Text style={shared.eyebrow}>{screen.eyebrow}</Text>
           )}
           <PlainOrHtml html={screen.title} style={shared.title} />
+
+          {screen.diagram && <LessonDiagramView diagram={screen.diagram} />}
 
           {/* .reveal-steps */}
           <View style={styles.steps}>

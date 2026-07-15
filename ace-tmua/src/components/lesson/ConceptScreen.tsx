@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import TopBar from './TopBar';
 import { PlainOrHtml } from './MathText';
+import LessonDiagramView from './LessonDiagram';
 import shared, { C } from './shared';
 import type { ConceptScreen } from './types';
 
@@ -51,6 +52,8 @@ export default function ConceptScreenView({ screen, progressPercent, onNext, onE
 
           {/* h1 */}
           <PlainOrHtml html={screen.title} style={shared.title} />
+
+          {screen.diagram && <LessonDiagramView diagram={screen.diagram} />}
 
           {/* body — may contain HTML */}
           <PlainOrHtml html={screen.body} style={{ color: C.muted, fontSize: 16, fontWeight: '700', lineHeight: 26 }} />

@@ -124,6 +124,14 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "solving-exponential-log-equations": "Common bases, substitutions and domains",
   "advanced-log-reasoning": "Inequalities, reciprocal powers and linked logs",
   "exponentials-logarithms-exam-style-questions": "Bring the whole topic together",
+  "differentiation-turning-points": "Gradients, tangents and stationary points",
+  "integration-area": "Antiderivatives, definite integrals and signed area",
+  "trapezium-rule-integration-logic": "Estimation, total change and initial values",
+  "calculus-exam-style-questions": "Bring the whole topic together",
+  "graph-transformations": "Mappings, compositions and intersections",
+  "geometry-proportion": "Scale, shape, circles and vectors",
+  "statistic-probability": "Data interpretation and probability reasoning",
+  "geometry-data-exam-style-questions": "Bring the whole topic together",
 };
 
 const LESSONS = lessonsData.lessons as Lesson[];
