@@ -46,7 +46,7 @@ export default function MilestoneScreenView({
 
           <Text style={styles.eyebrow}>{screen.eyebrow || "KEEP GOING"}</Text>
 
-          <Text style={styles.title}>{screen.title}</Text>
+          <PlainOrHtml html={screen.title} style={styles.title} />
 
           <PlainOrHtml html={screen.body} style={styles.body} />
         </ScrollView>

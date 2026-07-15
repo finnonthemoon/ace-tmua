@@ -7,6 +7,36 @@ export interface Lesson {
   screens: LessonScreen[];
 }
 
+export type LessonDiagramKind =
+  | "tangent-gradient"
+  | "turning-points"
+  | "signed-area"
+  | "trapezium-rule"
+  | "graph-transformations"
+  | "function-intersections"
+  | "similarity-scale"
+  | "circle-theorems"
+  | "histogram-density"
+  | "cumulative-frequency"
+  | "scatter-correlation"
+  | "probability-tree"
+  | "line-gradient"
+  | "parallel-perpendicular"
+  | "coordinate-circle"
+  | "line-circle-intersections"
+  | "circle-chord-bisector"
+  | "triangle-laws"
+  | "ambiguous-sine"
+  | "radians-sector"
+  | "unit-circle-values"
+  | "trig-graphs"
+  | "trig-solutions";
+
+export interface LessonDiagram {
+  kind: LessonDiagramKind;
+  caption?: string;
+}
+
 export type LessonScreen =
   | ConceptScreen
   | RevealScreen
@@ -22,6 +52,7 @@ export interface ConceptScreen {
   title: string;
   body: string;
   keyPoint?: string;
+  diagram?: LessonDiagram;
   buttonText?: string;
 }
 
@@ -35,6 +66,7 @@ export interface RevealScreen {
   eyebrow?: string;
   title: string;
   steps: RevealStep[];
+  diagram?: LessonDiagram;
   buttonText?: string;
 }
 
@@ -52,6 +84,7 @@ export interface MultipleChoiceScreen {
   eyebrow?: string;
   question: string;
   prompt?: string;
+  diagram?: LessonDiagram;
   options: string[];
   answerIndex: number;
   correctFeedback: string;
@@ -63,6 +96,7 @@ export interface WorkedExampleScreen {
   eyebrow?: string;
   title: string;
   question: string;
+  diagram?: LessonDiagram;
   options?: string[];
   answerIndex: number;
   steps: RevealStep[];

@@ -22,25 +22,35 @@ interface Props {
 export function toMathJaxMarkup(value: string, boldMath = false) {
   const consolidatedValue = value.replace(/\]\]\s*\[\[/g, " ");
 
-  return consolidatedValue.replace(/\[\[([\s\S]*?)\]\]/g, (_, latex: string) => {
-    const expression = latex.trim();
-    return `\\(${boldMath ? `\\boldsymbol{${expression}}` : expression}\\)`;
-  });
+  return consolidatedValue.replace(
+    /\[\[([\s\S]*?)\]\]([,.;:!?]?)/g,
+    (_, latex: string, punctuation: string) => {
+      // MathJax parses the complete string as an HTML document before it parses
+      // TeX. A raw "<" can therefore be mistaken for an opening HTML tag and
+      // truncate everything that follows. TeX relation commands avoid that
+      // ambiguity while producing the same mathematical symbols.
+      const expression = latex
+        .trim()
+        .replace(/</g, "\\lt ")
+        .replace(/>/g, "\\gt ");
+      const styledExpression = boldMath
+        ? "\\boldsymbol{" + expression + "}"
+        : expression;
+      const suffix = punctuation ? "\\text{" + punctuation + "}" : "";
+
+      // Keep adjacent punctuation inside the SVG so commas and full stops do
+      // not wrap onto a new line by themselves.
+      return "\\(" + styledExpression + suffix + "\\)";
+    },
+  );
 }
 
 function usesBoldWeight(fontWeight: TextStyle["fontWeight"]): boolean {
-  if (fontWeight === "bold") {
-    return true;
-  }
-
-  if (typeof fontWeight === "number") {
-    return fontWeight >= 600;
-  }
-
+  if (fontWeight === "bold") return true;
+  if (typeof fontWeight === "number") return fontWeight >= 600;
   if (typeof fontWeight === "string" && /^\d+$/.test(fontWeight)) {
     return Number(fontWeight) >= 600;
   }
-
   return false;
 }
 
@@ -425,13 +435,9 @@ export function PlainOrHtml({ html, style }: Props) {
 
   if (hasLatex) {
     const fontSize =
-      typeof flattenedStyle.fontSize === "number"
-        ? flattenedStyle.fontSize
-        : 16;
+      typeof flattenedStyle.fontSize === "number" ? flattenedStyle.fontSize : 16;
     const color =
-      typeof flattenedStyle.color === "string"
-        ? flattenedStyle.color
-        : "#2D241F";
+      typeof flattenedStyle.color === "string" ? flattenedStyle.color : "#2D241F";
 
     return (
       <MathJaxSvg
@@ -440,10 +446,7 @@ export function PlainOrHtml({ html, style }: Props) {
         fontCache
         textStyle={flattenedStyle}
         style={{
-          flex:
-            typeof flattenedStyle.flex === "number"
-              ? flattenedStyle.flex
-              : undefined,
+          flex: typeof flattenedStyle.flex === "number" ? flattenedStyle.flex : undefined,
           marginTop: flattenedStyle.marginTop,
           marginBottom: flattenedStyle.marginBottom,
           marginLeft: flattenedStyle.marginLeft,

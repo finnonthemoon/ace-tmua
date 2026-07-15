@@ -112,7 +112,7 @@ const TOPICS: Topic[] = [
 
 const LESSON_SUBTITLES: Record<string, string> = {
   "indices-surds-polynomials-1": "Core algebra rules and manipulation",
-  "quadratics-inequalities-1": "Forms, hidden quadratics and regions",
+  "quadratic-and-inequalities": "Forms, hidden quadratics and regions",
   "functions-simultaneous-systems": "Mappings and linked equations",
   "algebra-modulus-functions": "Graphs, equations and inequalities",
   "algebra-exam-style-questions": "Bring the whole topic together",
@@ -120,6 +120,26 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "binomial-expansion-factorials": "Expanding and counting",
   "advanced-series-logic": "Convergence and harder reasoning",
   "sequences-series-exam-style-questions": "Bring the whole topic together",
+  "lines-gradients": "Equations, parallel lines and perpendicular bisectors",
+  "circle-equations-intersections": "Centres, radii and simultaneous solutions",
+  "circle-theorems-axes": "Tangents, chords and subtended angles",
+  "coordinate-geometry-exam-style-questions": "Bring the whole topic together",
+  "triangles-radians": "Triangle rules, 3D reasoning and sectors",
+  "values-graphs-identities": "Exact values, periodicity and core identities",
+  "solving-equations": "Intervals, transformations and quadratic forms",
+  "trigonometry-exam-style-questions": "Bring the whole topic together",
+  "log-laws-exponential-graphs": "Inverse functions, graphs and log laws",
+  "solving-exponential-log-equations": "Common bases, substitutions and domains",
+  "advanced-log-reasoning": "Inequalities, reciprocal powers and linked logs",
+  "exponentials-logarithms-exam-style-questions": "Bring the whole topic together",
+  "differentiation-turning-points": "Gradients, tangents and stationary points",
+  "integration-area": "Antiderivatives, definite integrals and signed area",
+  "trapezium-rule-integration-logic": "Estimation, total change and initial values",
+  "calculus-exam-style-questions": "Bring the whole topic together",
+  "graph-transformations": "Mappings, compositions and intersections",
+  "geometry-proportion": "Scale, shape, circles and vectors",
+  "statistic-probability": "Data interpretation and probability reasoning",
+  "geometry-data-exam-style-questions": "Bring the whole topic together",
 };
 
 const LESSONS = lessonsData.lessons as Lesson[];

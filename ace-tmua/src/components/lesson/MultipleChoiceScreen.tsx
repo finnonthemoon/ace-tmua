@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import TopBar from './TopBar';
 import { PlainOrHtml } from './MathText';
+import LessonDiagramView from './LessonDiagram';
 import shared, { C } from './shared';
 import type { MultipleChoiceScreen } from './types';
 
@@ -87,9 +88,11 @@ export default function MultipleChoiceScreenView({ screen, progressPercent, onNe
             }}
           />
 
+          {screen.diagram && <LessonDiagramView diagram={screen.diagram} />}
+
           {/* .multiple-choice__prompt */}
           {screen.prompt && (
-            <Text style={styles.prompt}>{screen.prompt}</Text>
+            <PlainOrHtml html={screen.prompt} style={styles.prompt} />
           )}
 
           {/* .multiple-choice-options */}

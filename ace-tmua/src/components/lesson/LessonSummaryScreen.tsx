@@ -52,7 +52,10 @@ export default function LessonSummaryScreenView({
             {screen.eyebrow || "LESSON SUMMARY"}
           </Text>
 
-          <Text style={shared.title}>{screen.title || "Lesson summary"}</Text>
+          <PlainOrHtml
+            html={screen.title || "Lesson summary"}
+            style={shared.title}
+          />
 
           <View style={styles.stats}>
             <View style={[styles.stat, shared.cardShadow]}>
