@@ -449,6 +449,140 @@ function CircleChordBisectorDiagram() {
   );
 }
 
+function TriangleLawsDiagram() {
+  return (
+    <>
+      <Polygon
+        points="48,151 270,151 184,34"
+        fill="#FFF4E2"
+        stroke={C.primary}
+        strokeWidth={4}
+        strokeLinejoin="round"
+      />
+      <SvgText x={33} y={166} fontSize={13} fontWeight="900" fill={C.ink}>A</SvgText>
+      <SvgText x={274} y={166} fontSize={13} fontWeight="900" fill={C.ink}>B</SvgText>
+      <SvgText x={180} y={25} fontSize={13} fontWeight="900" fill={C.ink}>C</SvgText>
+      <SvgText x={227} y={91} fontSize={13} fontWeight="900" fill="#54749F">a</SvgText>
+      <SvgText x={105} y={89} fontSize={13} fontWeight="900" fill="#54749F">b</SvgText>
+      <SvgText x={155} y={169} fontSize={13} fontWeight="900" fill="#54749F">c</SvgText>
+      <Path d="M 70 151 A 22 22 0 0 1 61 133" fill="none" stroke="#C88A43" strokeWidth={2.5} />
+      <SvgText x={70} y={143} fontSize={11} fontWeight="800" fill="#A66F2E">A</SvgText>
+    </>
+  );
+}
+
+function AmbiguousSineDiagram() {
+  return (
+    <>
+      <Line x1={38} y1={154} x2={270} y2={154} stroke={C.ink} strokeWidth={2.5} />
+      <Line x1={38} y1={154} x2={270} y2={20} stroke={C.primary} strokeWidth={3.5} />
+      <Circle
+        cx={270}
+        cy={154}
+        r={125}
+        fill="none"
+        stroke="#F4B25F"
+        strokeWidth={3}
+        strokeDasharray="6 4"
+      />
+      <Circle cx={171.6} cy={76.9} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
+      <Circle cx={252.3} cy={30.2} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
+      <Line x1={171.6} y1={76.9} x2={270} y2={154} stroke="#54749F" strokeWidth={3} />
+      <Line x1={252.3} y1={30.2} x2={270} y2={154} stroke="#54749F" strokeWidth={3} />
+      <Path d="M 68 154 A 27 27 0 0 1 65 142" fill="none" stroke="#C88A43" strokeWidth={2.5} />
+      <SvgText x={28} y={170} fontSize={12} fontWeight="900" fill={C.ink}>A</SvgText>
+      <SvgText x={275} y={170} fontSize={12} fontWeight="900" fill={C.ink}>B</SvgText>
+      <SvgText x={75} y={145} fontSize={11} fontWeight="800" fill="#A66F2E">given angle</SvgText>
+      <SvgText x={151} y={70} fontSize={11} fontWeight="900" fill={C.ink}>C₁</SvgText>
+      <SvgText x={260} y={27} fontSize={11} fontWeight="900" fill={C.ink}>C₂</SvgText>
+    </>
+  );
+}
+
+function RadiansSectorDiagram() {
+  return (
+    <>
+      <Path
+        d="M 148 104 L 252 104 A 104 104 0 0 0 205 17 Z"
+        fill="#FFE2BA"
+        stroke={C.primary}
+        strokeWidth={3.5}
+        strokeLinejoin="round"
+      />
+      <Circle cx={148} cy={104} r={4.5} fill={C.ink} />
+      <Path d="M 181 104 A 33 33 0 0 0 166 79" fill="none" stroke="#54749F" strokeWidth={3} />
+      <SvgText x={184} y={91} fontSize={14} fontWeight="900" fill="#54749F">θ</SvgText>
+      <SvgText x={194} y={119} fontSize={13} fontWeight="900" fill={C.ink}>r</SvgText>
+      <SvgText x={168} y={56} fontSize={13} fontWeight="900" fill={C.ink}>r</SvgText>
+      <SvgText x={233} y={59} fontSize={12} fontWeight="900" fill="#A66F2E">arc = rθ</SvgText>
+      <SvgText x={30} y={173} fontSize={12} fontWeight="800" fill={C.muted}>θ must be measured in radians</SvgText>
+    </>
+  );
+}
+
+function UnitCircleValuesDiagram() {
+  return (
+    <>
+      <Circle cx={151} cy={97} r={70} fill="#FFF9F1" stroke={C.primary} strokeWidth={3.5} />
+      <Line x1={68} y1={97} x2={267} y2={97} stroke="#9D8E82" strokeWidth={1.5} />
+      <Line x1={151} y1={174} x2={151} y2={18} stroke="#9D8E82" strokeWidth={1.5} />
+      <Line x1={151} y1={97} x2={207} y2={55} stroke="#54749F" strokeWidth={3} />
+      <Line x1={207} y1={55} x2={207} y2={97} stroke="#C88A43" strokeWidth={2.5} strokeDasharray="5 4" />
+      <Circle cx={207} cy={55} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
+      <Path d="M 176 97 A 25 25 0 0 0 171 82" fill="none" stroke={C.primary} strokeWidth={2.5} />
+      <SvgText x={176} y={91} fontSize={13} fontWeight="900" fill={C.primary}>θ</SvgText>
+      <SvgText x={174} y={77} fontSize={12} fontWeight="900" fill="#54749F">1</SvgText>
+      <SvgText x={169} y={112} fontSize={11} fontWeight="800" fill={C.ink}>cos θ</SvgText>
+      <SvgText x={213} y={80} fontSize={11} fontWeight="800" fill={C.ink}>sin θ</SvgText>
+    </>
+  );
+}
+
+function TrigGraphsDiagram() {
+  return (
+    <>
+      <Axes xAxisY={96} yAxisX={38} />
+      <Path
+        d="M 38 96 C 61 32, 85 32, 108 96 C 131 160, 155 160, 178 96 C 201 32, 225 32, 248 96 C 267 149, 284 157, 302 119"
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={3.5}
+        strokeLinecap="round"
+      />
+      <Path
+        d="M 38 36 C 50 36, 61 60, 73 96 C 85 132, 96 156, 108 156 C 120 156, 131 132, 143 96 C 155 60, 166 36, 178 36 C 190 36, 201 60, 213 96 C 225 132, 236 156, 248 156 C 260 156, 272 132, 284 96 C 290 78, 296 55, 302 44"
+        fill="none"
+        stroke="#54749F"
+        strokeWidth={3}
+        strokeDasharray="7 4"
+      />
+      <SvgText x={56} y={29} fontSize={11} fontWeight="900" fill={C.primary}>sin x</SvgText>
+      <SvgText x={229} y={31} fontSize={11} fontWeight="900" fill="#54749F">cos x</SvgText>
+      <SvgText x={102} y={111} fontSize={10} fontWeight="800" fill={C.muted}>π</SvgText>
+      <SvgText x={171} y={111} fontSize={10} fontWeight="800" fill={C.muted}>2π</SvgText>
+      <SvgText x={242} y={111} fontSize={10} fontWeight="800" fill={C.muted}>3π</SvgText>
+    </>
+  );
+}
+
+function TrigSolutionsDiagram() {
+  return (
+    <>
+      <Circle cx={160} cy={95} r={70} fill="#FFF9F1" stroke={C.primary} strokeWidth={3.5} />
+      <Line x1={78} y1={95} x2={242} y2={95} stroke="#9D8E82" strokeWidth={1.5} />
+      <Line x1={160} y1={171} x2={160} y2={19} stroke="#9D8E82" strokeWidth={1.5} />
+      <Line x1={160} y1={95} x2={216} y2={53} stroke="#54749F" strokeWidth={2.5} />
+      <Line x1={160} y1={95} x2={104} y2={53} stroke="#54749F" strokeWidth={2.5} />
+      <Line x1={104} y1={53} x2={216} y2={53} stroke="#C88A43" strokeWidth={1.8} strokeDasharray="5 4" />
+      <Circle cx={216} cy={53} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
+      <Circle cx={104} cy={53} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
+      <SvgText x={220} y={48} fontSize={11} fontWeight="900" fill={C.ink}>θ</SvgText>
+      <SvgText x={86} y={48} fontSize={11} fontWeight="900" fill={C.ink}>π − θ</SvgText>
+      <SvgText x={16} y={178} fontSize={12} fontWeight="800" fill={C.muted}>Same sine value, two angles in one cycle</SvgText>
+    </>
+  );
+}
+
 export default function LessonDiagramView({ diagram }: Props) {
   return (
     <View
@@ -475,6 +609,12 @@ export default function LessonDiagramView({ diagram }: Props) {
         {diagram.kind === "coordinate-circle" && <CoordinateCircleDiagram />}
         {diagram.kind === "line-circle-intersections" && <LineCircleIntersectionsDiagram />}
         {diagram.kind === "circle-chord-bisector" && <CircleChordBisectorDiagram />}
+        {diagram.kind === "triangle-laws" && <TriangleLawsDiagram />}
+        {diagram.kind === "ambiguous-sine" && <AmbiguousSineDiagram />}
+        {diagram.kind === "radians-sector" && <RadiansSectorDiagram />}
+        {diagram.kind === "unit-circle-values" && <UnitCircleValuesDiagram />}
+        {diagram.kind === "trig-graphs" && <TrigGraphsDiagram />}
+        {diagram.kind === "trig-solutions" && <TrigSolutionsDiagram />}
       </Svg>
       {diagram.caption && <Text style={styles.caption}>{diagram.caption}</Text>}
     </View>

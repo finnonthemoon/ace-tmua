@@ -24,7 +24,13 @@ export type LessonDiagramKind =
   | "parallel-perpendicular"
   | "coordinate-circle"
   | "line-circle-intersections"
-  | "circle-chord-bisector";
+  | "circle-chord-bisector"
+  | "triangle-laws"
+  | "ambiguous-sine"
+  | "radians-sector"
+  | "unit-circle-values"
+  | "trig-graphs"
+  | "trig-solutions";
 
 export interface LessonDiagram {
   kind: LessonDiagramKind;
