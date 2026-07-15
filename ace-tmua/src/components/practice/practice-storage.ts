@@ -1,5 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import {
+  deleteRemotePracticeSession,
+  pushPracticeResult,
+  pushPracticeSession,
+} from "@/services/cloud-api";
+
 import type {
   PracticeMode,
   PracticeResult,
@@ -9,8 +15,8 @@ import type {
   TopicResult,
 } from "./types";
 
-const ACTIVE_SESSION_PREFIX = "@ace-tmua/practice/session/v1/";
-const RESULTS_KEY = "@ace-tmua/practice/results/v1";
+export const ACTIVE_SESSION_PREFIX = "@ace-tmua/practice/session/v1/";
+export const RESULTS_KEY = "@ace-tmua/practice/results/v1";
 
 function activeSessionKey(testId: string) {
   return `${ACTIVE_SESSION_PREFIX}${testId}`;
@@ -76,10 +82,16 @@ export async function saveActiveSession(session: PracticeSession) {
     activeSessionKey(session.testId),
     JSON.stringify(session),
   );
+  void pushPracticeSession(session).catch((error) => {
+    console.warn("Practice session will sync later:", error);
+  });
 }
 
 export async function clearActiveSession(testId: string) {
   await AsyncStorage.removeItem(activeSessionKey(testId));
+  void deleteRemotePracticeSession(testId).catch((error) => {
+    console.warn("Practice session deletion will sync later:", error);
+  });
 }
 
 export async function getPracticeResults() {
@@ -97,6 +109,26 @@ export async function savePracticeResult(result: PracticeResult) {
   const withoutDuplicate = results.filter((item) => item.id !== result.id);
   const nextResults = [result, ...withoutDuplicate].slice(0, 100);
   await AsyncStorage.setItem(RESULTS_KEY, JSON.stringify(nextResults));
+  void pushPracticeResult(result).catch((error) => {
+    console.warn("Practice result will sync later:", error);
+  });
+}
+
+export async function mergePracticeResults(incomingResults: PracticeResult[]) {
+  const existingResults = await getPracticeResults();
+  const byId = new Map<string, PracticeResult>();
+  [...existingResults, ...incomingResults].forEach((result) => {
+    if (result?.id) byId.set(result.id, result);
+  });
+
+  const merged = [...byId.values()]
+    .sort(
+      (a, b) =>
+        new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime(),
+    )
+    .slice(0, 100);
+  await AsyncStorage.setItem(RESULTS_KEY, JSON.stringify(merged));
+  return merged;
 }
 
 function buildTopicResults(

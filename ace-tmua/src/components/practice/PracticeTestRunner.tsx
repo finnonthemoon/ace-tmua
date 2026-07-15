@@ -18,6 +18,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Colors } from "@/constants/theme";
+import { useAccount } from "@/contexts/AccountContext";
 
 import PracticeQuestion from "./PracticeQuestion";
 import QuestionNavigator from "./QuestionNavigator";
@@ -40,6 +41,7 @@ interface Props {
 
 export default function PracticeTestRunner({ test }: Props) {
   const router = useRouter();
+  const { isPremium } = useAccount();
   const scrollRef = useRef<ScrollView>(null);
   const sessionRef = useRef<PracticeSession | null>(null);
   const submittingRef = useRef(false);
@@ -133,6 +135,19 @@ export default function PracticeTestRunner({ test }: Props) {
     const timeout = setTimeout(() => void finishTest(true), 0);
     return () => clearTimeout(timeout);
   }, [finishTest, remainingSeconds, session?.mode]);
+
+  if (test.premium && !isPremium) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.loading}>
+          <Text style={styles.loadingText}>Premium access is required for this mock.</Text>
+          <Pressable onPress={() => router.replace("/premium")}>
+            <Text style={styles.premiumLink}>See Premium</Text>
+          </Pressable>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   if (loading || !session) {
     return (
@@ -364,6 +379,11 @@ const styles = StyleSheet.create({
     color: Colors.muted,
     fontSize: 14,
     fontWeight: "800",
+  },
+  premiumLink: {
+    color: Colors.primary,
+    fontSize: 13,
+    fontWeight: "900",
   },
   header: {
     minHeight: 66,

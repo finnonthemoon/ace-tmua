@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const COMPLETED_LESSONS_KEY = "completedLessonIds";
-const LESSON_ACTIVITY_KEY = "@ace-tmua/lesson-activity/v1";
+export const LESSON_ACTIVITY_KEY = "@ace-tmua/lesson-activity/v1";
 
 export interface LessonActivity {
   id: string;
@@ -70,4 +70,24 @@ export async function recordLessonActivity(
   );
 
   return activity;
+}
+
+export async function mergeLessonActivities(
+  incomingActivities: LessonActivity[],
+) {
+  const existingActivities = await getLessonActivities();
+  const byId = new Map<string, LessonActivity>();
+
+  [...existingActivities, ...incomingActivities].forEach((activity) => {
+    if (isLessonActivity(activity)) byId.set(activity.id, activity);
+  });
+
+  const merged = [...byId.values()]
+    .sort(
+      (a, b) =>
+        new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime(),
+    )
+    .slice(0, 200);
+  await AsyncStorage.setItem(LESSON_ACTIVITY_KEY, JSON.stringify(merged));
+  return merged;
 }

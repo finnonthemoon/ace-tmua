@@ -27,6 +27,7 @@ import type {
   PracticeMode,
   PracticeSession,
 } from "@/components/practice/types";
+import { useAccount } from "@/contexts/AccountContext";
 
 function firstParam(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value;
@@ -34,6 +35,7 @@ function firstParam(value: string | string[] | undefined) {
 
 export default function PracticeInstructionsScreen() {
   const router = useRouter();
+  const { isPremium } = useAccount();
   const params = useLocalSearchParams<{ testId?: string | string[] }>();
   const testId = firstParam(params.testId);
   const test = getPracticeTest(testId);
@@ -62,6 +64,25 @@ export default function PracticeInstructionsScreen() {
           <Text style={styles.errorTitle}>Practice set not found</Text>
           <Pressable onPress={() => router.replace("/questions")}>
             <Text style={styles.errorLink}>Back to practice</Text>
+          </Pressable>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (test.premium && !isPremium) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.errorState}>
+          <View style={styles.premiumLockIcon}>
+            <Ionicons name="sparkles" size={28} color={Colors.primary} />
+          </View>
+          <Text style={styles.errorTitle}>This is a Premium mock</Text>
+          <Text style={styles.premiumLockText}>
+            Unlock full Paper 1 and Paper 2 mock attempts with ACE TMUA Premium.
+          </Text>
+          <Pressable onPress={() => router.replace("/premium")}>
+            <Text style={styles.errorLink}>See Premium</Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -634,6 +655,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 12,
+  },
+  premiumLockIcon: {
+    width: 58,
+    height: 58,
+    borderRadius: 20,
+    backgroundColor: "#FFF0D3",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  premiumLockText: {
+    maxWidth: 300,
+    color: Colors.muted,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: "700",
+    textAlign: "center",
   },
   errorTitle: {
     color: Colors.ink,

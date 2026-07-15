@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ComponentProps } from "react";
 import type { BottomTabBarProps } from "expo-router/build/react-navigation/bottom-tabs";
-import { Tabs } from "expo-router";
+import { Tabs, useRouter, useSegments } from "expo-router";
 import {
   GlassContainer,
   GlassView,
@@ -9,6 +9,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import {
   Animated,
+  ActivityIndicator,
   type ColorValue,
   type GestureResponderEvent,
   Platform,
@@ -19,6 +20,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Colors } from "../constants/theme";
+import { AccountProvider, useAccount } from "../contexts/AccountContext";
 
 type IoniconName = ComponentProps<typeof Ionicons>["name"];
 
@@ -61,6 +63,7 @@ function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const canUseLiquidGlass =
     Platform.OS === "ios" && isGlassEffectAPIAvailable();
   const visibleRoutes = state.routes.filter((route) => tabIcons[route.name]);
+
   const focusedVisibleIndex = Math.max(
     0,
     visibleRoutes.findIndex((route) => route.key === focusedRoute.key),
@@ -80,6 +83,10 @@ function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       useNativeDriver: true,
     }).start();
   }, [barWidth, beadX, focusedVisibleIndex, itemWidth]);
+
+  if (!tabIcons[focusedRoute.name]) {
+    return null;
+  }
 
   const moveBead = (event: GestureResponderEvent) => {
     if (!itemWidth) {
@@ -128,13 +135,6 @@ function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       }
     }
   };
-
-  if (
-    focusedRoute.name === "lesson/[lessonId]" ||
-    focusedRoute.name === "practice"
-  ) {
-    return null;
-  }
 
   return (
     <View
@@ -252,6 +252,47 @@ function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 
 export default function RootLayout() {
   return (
+    <AccountProvider>
+      <RootNavigator />
+    </AccountProvider>
+  );
+}
+
+function RootNavigator() {
+  const router = useRouter();
+  const segments = useSegments();
+  const { isLoading, profile } = useAccount();
+
+  useEffect(() => {
+    if (isLoading) return;
+
+    const rootSegment = segments[0];
+    const isOnboardingRoute = rootSegment === "onboarding";
+    const isPublicAccountRoute =
+      rootSegment === "sign-in" ||
+      rootSegment === "auth" ||
+      rootSegment === "reset-password";
+
+    if (
+      !profile.onboardingCompleted &&
+      !isOnboardingRoute &&
+      !isPublicAccountRoute
+    ) {
+      router.replace("/onboarding");
+    } else if (profile.onboardingCompleted && isOnboardingRoute) {
+      router.replace("/");
+    }
+  }, [isLoading, profile.onboardingCompleted, router, segments]);
+
+  if (isLoading) {
+    return (
+      <View style={styles.accountLoading}>
+        <ActivityIndicator size="large" color={Colors.primary} />
+      </View>
+    );
+  }
+
+  return (
     <Tabs
       tabBar={(props) => <AppTabBar {...props} />}
       screenOptions={{
@@ -341,11 +382,23 @@ export default function RootLayout() {
           tabBarStyle: styles.hiddenTabBar,
         }}
       />
+
+      <Tabs.Screen name="onboarding" options={{ href: null }} />
+      <Tabs.Screen name="sign-in" options={{ href: null }} />
+      <Tabs.Screen name="premium" options={{ href: null }} />
+      <Tabs.Screen name="auth" options={{ href: null }} />
+      <Tabs.Screen name="reset-password" options={{ href: null }} />
     </Tabs>
   );
 }
 
 const styles = StyleSheet.create({
+  accountLoading: {
+    flex: 1,
+    backgroundColor: Colors.cream,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   tabBar: {
     position: "absolute",
     left: 24,

@@ -14,6 +14,7 @@ import {
   COMPLETED_LESSONS_KEY,
   recordLessonActivity,
 } from "../../services/study-activity";
+import { pushLessonActivity } from "../../services/cloud-api";
 import ConceptScreenView from "./ConceptScreen";
 import LessonSummaryScreenView from "./LessonSummaryScreen";
 import MilestoneScreenView from "./MilestoneScreen";
@@ -124,11 +125,14 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
     }
 
     try {
-      await recordLessonActivity({
+      const activity = await recordLessonActivity({
         lessonId: lesson.id,
         durationSeconds: (Date.now() - sessionStartedAt.current) / 1000,
         correctAnswers,
         totalAnswers,
+      });
+      void pushLessonActivity(activity).catch((error) => {
+        console.warn("Lesson activity will sync later:", error);
       });
     } catch (error) {
       console.error("Could not save lesson activity:", error);

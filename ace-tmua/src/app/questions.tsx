@@ -22,9 +22,11 @@ import type {
   PracticeTestDefinition,
 } from "@/components/practice/types";
 import { Colors, Shadow } from "@/constants/theme";
+import { useAccount } from "@/contexts/AccountContext";
 
 export default function QuestionsScreen() {
   const router = useRouter();
+  const { isPremium } = useAccount();
   const [sessions, setSessions] = useState<PracticeSession[]>([]);
   const [results, setResults] = useState<PracticeResult[]>([]);
 
@@ -47,10 +49,15 @@ export default function QuestionsScreen() {
     }, []),
   );
 
-  const openTest = (testId: string) => {
+  const openTest = (test: PracticeTestDefinition) => {
+    if (test.premium && !isPremium) {
+      router.push("/premium");
+      return;
+    }
+
     router.push({
       pathname: "/practice/[testId]/instructions",
-      params: { testId },
+      params: { testId: test.id },
     });
   };
 
@@ -116,7 +123,7 @@ export default function QuestionsScreen() {
                 bestResult={best}
                 session={session}
                 test={test}
-                onPress={() => openTest(test.id)}
+                onPress={() => openTest(test)}
               />
             );
           })}
@@ -153,7 +160,7 @@ export default function QuestionsScreen() {
                 bestResult={best}
                 session={session}
                 test={test}
-                onPress={() => openTest(test.id)}
+                onPress={() => openTest(test)}
               />
             );
           })}

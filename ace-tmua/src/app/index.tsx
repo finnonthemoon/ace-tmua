@@ -20,15 +20,7 @@ import {
 import type { HomeDashboardData } from "@/components/home/home-data";
 import type { Lesson } from "@/components/lesson/types";
 import { Colors, Shadow } from "@/constants/theme";
-import localTestStorage from "@/data/localTestStorage.json";
-
-interface UserProfile {
-  name: string;
-  targetUni: string;
-  targetScore: number;
-}
-
-const USER = localTestStorage.userData as UserProfile;
+import { useAccount } from "@/contexts/AccountContext";
 const DAY_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 function getInitials(name: string) {
@@ -64,6 +56,7 @@ function formatMinutes(minutes: number) {
 
 export default function HomeScreen() {
   const router = useRouter();
+  const { profile } = useAccount();
   const [dashboard, setDashboard] = useState<HomeDashboardData | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
@@ -163,7 +156,7 @@ export default function HomeScreen() {
           <View style={styles.headerText}>
             <Text style={styles.eyebrow}>ACE TMUA</Text>
             <Text style={styles.greeting}>
-              {getGreeting()}, {USER.name.split(" ")[0]}
+              {getGreeting()}, {profile.name.split(" ")[0] || "Student"}
             </Text>
             <Text style={styles.headerSubtext}>
               {dashboard.primarySession
@@ -183,7 +176,9 @@ export default function HomeScreen() {
               pressed && styles.buttonPressed,
             ]}
           >
-            <Text style={styles.avatarText}>{getInitials(USER.name)}</Text>
+            <Text style={styles.avatarText}>
+              {getInitials(profile.name || "Student")}
+            </Text>
           </Pressable>
         </View>
 
@@ -348,7 +343,8 @@ export default function HomeScreen() {
         <View style={styles.targetNote}>
           <Ionicons name="flag-outline" size={18} color={Colors.primary} />
           <Text style={styles.targetNoteText}>
-            Targeting {USER.targetScore}% for {USER.targetUni}
+            Targeting {profile.targetScore}%
+            {profile.targetUniversity ? ` for ${profile.targetUniversity}` : ""}
           </Text>
           <Pressable onPress={() => router.push("/profile")} hitSlop={10}>
             <Ionicons name="chevron-forward" size={18} color={Colors.muted} />
