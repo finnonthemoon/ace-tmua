@@ -583,6 +583,129 @@ function TrigSolutionsDiagram() {
   );
 }
 
+function ImplicationFlowDiagram() {
+  return (
+    <>
+      <Rect x={24} y={24} width={106} height={48} rx={16} fill="#FFF0D9" stroke={C.primary} strokeWidth={2.5} />
+      <Rect x={190} y={24} width={106} height={48} rx={16} fill="#E9F3FD" stroke="#54749F" strokeWidth={2.5} />
+      <SvgText x={77} y={45} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.ink}>condition</SvgText>
+      <SvgText x={77} y={61} textAnchor="middle" fontSize={10} fontWeight="700" fill={C.muted}>A is true</SvgText>
+      <SvgText x={243} y={45} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.ink}>conclusion</SvgText>
+      <SvgText x={243} y={61} textAnchor="middle" fontSize={10} fontWeight="700" fill={C.muted}>B must follow</SvgText>
+      <Line x1={130} y1={48} x2={188} y2={48} stroke={C.ink} strokeWidth={2.5} />
+      <Polygon points="188,48 178,43 178,53" fill={C.ink} />
+      <SvgText x={159} y={37} textAnchor="middle" fontSize={10} fontWeight="800" fill={C.primary}>if A, then B</SvgText>
+      <Rect x={24} y={113} width={106} height={48} rx={16} fill="#E9F3FD" stroke="#54749F" strokeWidth={2.5} />
+      <Rect x={190} y={113} width={106} height={48} rx={16} fill="#FFF0D9" stroke={C.primary} strokeWidth={2.5} />
+      <SvgText x={77} y={134} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.ink}>not B</SvgText>
+      <SvgText x={77} y={150} textAnchor="middle" fontSize={10} fontWeight="700" fill={C.muted}>conclusion fails</SvgText>
+      <SvgText x={243} y={134} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.ink}>not A</SvgText>
+      <SvgText x={243} y={150} textAnchor="middle" fontSize={10} fontWeight="700" fill={C.muted}>condition must fail</SvgText>
+      <Line x1={130} y1={137} x2={188} y2={137} stroke={C.ink} strokeWidth={2.5} />
+      <Polygon points="188,137 178,132 178,142" fill={C.ink} />
+      <SvgText x={159} y={178} textAnchor="middle" fontSize={11} fontWeight="900" fill="#54749F">the contrapositive is equivalent</SvgText>
+    </>
+  );
+}
+
+function NecessarySufficientDiagram() {
+  return (
+    <>
+      <Circle cx={160} cy={96} r={80} fill="#E9F3FD" stroke="#54749F" strokeWidth={3} />
+      <Circle cx={160} cy={96} r={47} fill="#FFF0D9" stroke={C.primary} strokeWidth={3} />
+      <SvgText x={160} y={44} textAnchor="middle" fontSize={11} fontWeight="900" fill="#54749F">even integers</SvgText>
+      <SvgText x={160} y={91} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.primary}>multiples</SvgText>
+      <SvgText x={160} y={107} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.primary}>of 4</SvgText>
+      <SvgText x={160} y={184} textAnchor="middle" fontSize={11} fontWeight="800" fill={C.muted}>inside implies outside, not conversely</SvgText>
+    </>
+  );
+}
+
+function QuantifierScopeDiagram() {
+  const points = [76, 110, 144, 178, 212, 246];
+  return (
+    <>
+      <SvgText x={28} y={38} fontSize={12} fontWeight="900" fill={C.ink}>“for all”</SvgText>
+      {points.map((x) => (
+        <Circle key={`all-${x}`} cx={x} cy={67} r={11} fill="#FFD6A8" stroke={C.primary} strokeWidth={2} />
+      ))}
+      <Line x1={63} y1={88} x2={259} y2={88} stroke={C.primary} strokeWidth={2} />
+      <SvgText x={160} y={104} textAnchor="middle" fontSize={10} fontWeight="800" fill={C.muted}>every object must satisfy the claim</SvgText>
+      <SvgText x={28} y={134} fontSize={12} fontWeight="900" fill={C.ink}>“for some”</SvgText>
+      {points.map((x, index) => (
+        <Circle
+          key={`some-${x}`}
+          cx={x}
+          cy={159}
+          r={11}
+          fill={index === 3 ? C.primary : "#F1ECE7"}
+          stroke={index === 3 ? C.primary : "#B8ACA2"}
+          strokeWidth={2}
+        />
+      ))}
+      <SvgText x={160} y={187} textAnchor="middle" fontSize={10} fontWeight="800" fill={C.muted}>at least one example is enough</SvgText>
+    </>
+  );
+}
+
+function ProofChainDiagram() {
+  const boxes = [
+    { x: 14, label: "given" },
+    { x: 112, label: "deduce" },
+    { x: 210, label: "conclude" },
+  ];
+  return (
+    <>
+      {boxes.map((box) => (
+        <Rect key={box.x} x={box.x} y={62} width={84} height={54} rx={16} fill={box.x === 112 ? "#FFF0D9" : "#E9F3FD"} stroke={box.x === 112 ? C.primary : "#54749F"} strokeWidth={2.5} />
+      ))}
+      {boxes.map((box) => (
+        <SvgText key={box.label} x={box.x + 42} y={94} textAnchor="middle" fontSize={12} fontWeight="900" fill={C.ink}>{box.label}</SvgText>
+      ))}
+      <Line x1={98} y1={89} x2={110} y2={89} stroke={C.ink} strokeWidth={2.5} />
+      <Polygon points="110,89 102,84 102,94" fill={C.ink} />
+      <Line x1={196} y1={89} x2={208} y2={89} stroke={C.ink} strokeWidth={2.5} />
+      <Polygon points="208,89 200,84 200,94" fill={C.ink} />
+      <SvgText x={160} y={37} textAnchor="middle" fontSize={12} fontWeight="900" fill={C.primary}>each arrow needs a valid reason</SvgText>
+      <SvgText x={160} y={146} textAnchor="middle" fontSize={11} fontWeight="800" fill={C.muted}>definitions · algebra · known results</SvgText>
+    </>
+  );
+}
+
+function ProofByCasesDiagram() {
+  return (
+    <>
+      <Rect x={105} y={17} width={110} height={42} rx={14} fill="#FFF0D9" stroke={C.primary} strokeWidth={2.5} />
+      <SvgText x={160} y={43} textAnchor="middle" fontSize={12} fontWeight="900" fill={C.ink}>every integer</SvgText>
+      <Line x1={160} y1={59} x2={91} y2={103} stroke={C.ink} strokeWidth={2.5} />
+      <Line x1={160} y1={59} x2={229} y2={103} stroke={C.ink} strokeWidth={2.5} />
+      <Rect x={31} y={103} width={120} height={48} rx={15} fill="#E9F3FD" stroke="#54749F" strokeWidth={2.5} />
+      <Rect x={169} y={103} width={120} height={48} rx={15} fill="#E9F3FD" stroke="#54749F" strokeWidth={2.5} />
+      <SvgText x={91} y={132} textAnchor="middle" fontSize={12} fontWeight="900" fill={C.ink}>even case</SvgText>
+      <SvgText x={229} y={132} textAnchor="middle" fontSize={12} fontWeight="900" fill={C.ink}>odd case</SvgText>
+      <SvgText x={160} y={179} textAnchor="middle" fontSize={11} fontWeight="800" fill={C.muted}>exhaustive cases cover every possibility</SvgText>
+    </>
+  );
+}
+
+function CounterexampleSearchDiagram() {
+  const points = [58, 96, 134, 172, 210, 248];
+  return (
+    <>
+      <SvgText x={160} y={31} textAnchor="middle" fontSize={12} fontWeight="900" fill={C.ink}>test the universal claim</SvgText>
+      <Line x1={45} y1={93} x2={271} y2={93} stroke="#CFC5BD" strokeWidth={3} />
+      {points.map((x, index) => (
+        <Circle key={x} cx={x} cy={93} r={15} fill={index === 4 ? "#FFE0DF" : "#E7F9F1"} stroke={index === 4 ? "#D95D59" : "#55A982"} strokeWidth={2.5} />
+      ))}
+      {points.map((x, index) => (
+        <SvgText key={`mark-${x}`} x={x} y={99} textAnchor="middle" fontSize={16} fontWeight="900" fill={index === 4 ? "#D95D59" : "#318064"}>{index === 4 ? "×" : "✓"}</SvgText>
+      ))}
+      <Line x1={210} y1={111} x2={210} y2={143} stroke="#D95D59" strokeWidth={2} strokeDasharray="4 3" />
+      <SvgText x={210} y={160} textAnchor="middle" fontSize={11} fontWeight="900" fill="#D95D59">one failure disproves “all”</SvgText>
+    </>
+  );
+}
+
 export default function LessonDiagramView({ diagram }: Props) {
   return (
     <View
@@ -615,6 +738,12 @@ export default function LessonDiagramView({ diagram }: Props) {
         {diagram.kind === "unit-circle-values" && <UnitCircleValuesDiagram />}
         {diagram.kind === "trig-graphs" && <TrigGraphsDiagram />}
         {diagram.kind === "trig-solutions" && <TrigSolutionsDiagram />}
+        {diagram.kind === "implication-flow" && <ImplicationFlowDiagram />}
+        {diagram.kind === "necessary-sufficient" && <NecessarySufficientDiagram />}
+        {diagram.kind === "quantifier-scope" && <QuantifierScopeDiagram />}
+        {diagram.kind === "proof-chain" && <ProofChainDiagram />}
+        {diagram.kind === "proof-by-cases" && <ProofByCasesDiagram />}
+        {diagram.kind === "counterexample-search" && <CounterexampleSearchDiagram />}
       </Svg>
       {diagram.caption && <Text style={styles.caption}>{diagram.caption}</Text>}
     </View>

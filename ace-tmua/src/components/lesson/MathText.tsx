@@ -61,10 +61,7 @@ function usesBoldWeight(fontWeight: TextStyle["fontWeight"]): boolean {
  * x<sup>3/2</sup>
  */
 function keepPowersTogether(value: string): string {
-  return value.replace(
-    /([A-Za-z0-9)\]])\s*<sup\b/gi,
-    "$1\u2060<sup"
-  );
+  return value.replace(/([A-Za-z0-9)\]])\s*<sup\b/gi, "$1\u2060<sup");
 }
 
 const tagsStyles: MixedStyleRecord = {
@@ -155,7 +152,7 @@ function removeOtherHtmlTags(value: string): string {
 
       // Remove genuine HTML tags only.
       // This deliberately does not mistake "< 0" for a tag.
-      .replace(/<\/?(?!sup\b)[a-z][^>]*>/gi, "")
+      .replace(/<\/?(?!sup\b)[a-z][^>]*>/gi, ""),
   );
 }
 
@@ -168,25 +165,17 @@ function removeOtherHtmlTags(value: string): string {
 function renderInlineText(
   value: string,
   style: any,
-  keyPrefix: string
+  keyPrefix: string,
 ): ReactNode[] {
   const nodes: ReactNode[] = [];
   const flattenedStyle = StyleSheet.flatten(style) ?? {};
 
   const baseFontSize =
-    typeof flattenedStyle.fontSize === "number"
-      ? flattenedStyle.fontSize
-      : 16;
+    typeof flattenedStyle.fontSize === "number" ? flattenedStyle.fontSize : 16;
 
-  const superscriptFontSize = Math.max(
-    10,
-    Math.round(baseFontSize * 0.65)
-  );
+  const superscriptFontSize = Math.max(10, Math.round(baseFontSize * 0.65));
 
-  const superscriptTop = -Math.max(
-    5,
-    Math.round(baseFontSize * 0.32)
-  );
+  const superscriptTop = -Math.max(5, Math.round(baseFontSize * 0.32));
   const supPattern = /<sup\b[^>]*>([\s\S]*?)<\/sup>/gi;
 
   let previousIndex = 0;
@@ -195,7 +184,7 @@ function renderInlineText(
 
   while ((match = supPattern.exec(value)) !== null) {
     const textBefore = removeOtherHtmlTags(
-      value.slice(previousIndex, match.index)
+      value.slice(previousIndex, match.index),
     );
 
     if (textBefore) {
@@ -218,16 +207,14 @@ function renderInlineText(
         ]}
       >
         {exponent}
-      </Text>
+      </Text>,
     );
 
     previousIndex = supPattern.lastIndex;
     index += 1;
   }
 
-  const remainingText = removeOtherHtmlTags(
-    value.slice(previousIndex)
-  );
+  const remainingText = removeOtherHtmlTags(value.slice(previousIndex));
 
   if (remainingText) {
     nodes.push(remainingText);
@@ -239,15 +226,12 @@ function renderInlineText(
 function renderTextWords(
   value: string,
   style: any,
-  keyPrefix: string
+  keyPrefix: string,
 ): ReactNode[] {
   const nodes: ReactNode[] = [];
 
   const preparedValue = value
-    .replace(
-      /<br\s*\/?>\s*<br\s*\/?>/gi,
-      "\n\n"
-    )
+    .replace(/<br\s*\/?>\s*<br\s*\/?>/gi, "\n\n")
     .replace(/<br\s*\/?>/gi, "\n");
 
   const sections = preparedValue.split(/(\n+)/);
@@ -266,10 +250,9 @@ function renderTextWords(
           key={`${keyPrefix}-break-${breakIndex}`}
           style={[
             localStyles.lineBreak,
-            section.length > 1 &&
-            localStyles.paragraphBreak,
+            section.length > 1 && localStyles.paragraphBreak,
           ]}
-        />
+        />,
       );
 
       breakIndex += 1;
@@ -285,12 +268,8 @@ function renderTextWords(
           key={`${keyPrefix}-word-${textIndex}`}
           style={[style, localStyles.inlineText]}
         >
-          {renderInlineText(
-            word,
-            style,
-            `${keyPrefix}-word-${textIndex}`
-          )}
-        </Text>
+          {renderInlineText(word, style, `${keyPrefix}-word-${textIndex}`)}
+        </Text>,
       );
 
       textIndex += 1;
@@ -303,19 +282,14 @@ function renderFraction(
   numerator: string,
   denominator: string,
   style: any,
-  key: string
+  key: string,
 ): ReactNode {
   const flattenedStyle = StyleSheet.flatten(style) ?? {};
 
   const baseFontSize =
-    typeof flattenedStyle.fontSize === "number"
-      ? flattenedStyle.fontSize
-      : 16;
+    typeof flattenedStyle.fontSize === "number" ? flattenedStyle.fontSize : 16;
 
-  const fractionLineHeight = Math.max(
-    12,
-    Math.ceil(baseFontSize * 1.05)
-  );
+  const fractionLineHeight = Math.max(12, Math.ceil(baseFontSize * 1.05));
 
   return (
     <View key={key} style={localStyles.fraction}>
@@ -328,13 +302,8 @@ function renderFraction(
           },
           localStyles.fractionNumerator,
         ]}
-
       >
-        {renderInlineText(
-          numerator,
-          style,
-          `${key}-numerator`
-        )}
+        {renderInlineText(numerator, style, `${key}-numerator`)}
       </Text>
 
       <View style={localStyles.fractionBar} />
@@ -348,13 +317,8 @@ function renderFraction(
           },
           localStyles.fractionDenominator,
         ]}
-
       >
-        {renderInlineText(
-          denominator,
-          style,
-          `${key}-denominator`
-        )}
+        {renderInlineText(denominator, style, `${key}-denominator`)}
       </Text>
     </View>
   );
@@ -369,10 +333,7 @@ function renderFraction(
  *
  * into a genuine stacked React Native fraction.
  */
-function renderHtmlWithFractions(
-  html: string,
-  style: any
-): ReactNode {
+function renderHtmlWithFractions(html: string, style: any): ReactNode {
   const nodes: ReactNode[] = [];
 
   const fractionPattern =
@@ -383,26 +344,14 @@ function renderHtmlWithFractions(
   let fractionIndex = 0;
 
   while ((match = fractionPattern.exec(html)) !== null) {
-    const textBeforeFraction = html.slice(
-      previousIndex,
-      match.index
+    const textBeforeFraction = html.slice(previousIndex, match.index);
+
+    nodes.push(
+      ...renderTextWords(textBeforeFraction, style, `before-${fractionIndex}`),
     );
 
     nodes.push(
-      ...renderTextWords(
-        textBeforeFraction,
-        style,
-        `before-${fractionIndex}`
-      )
-    );
-
-    nodes.push(
-      renderFraction(
-        match[1],
-        match[2],
-        style,
-        `fraction-${fractionIndex}`
-      )
+      renderFraction(match[1], match[2], style, `fraction-${fractionIndex}`),
     );
 
     previousIndex = fractionPattern.lastIndex;
@@ -412,18 +361,10 @@ function renderHtmlWithFractions(
   const textAfterFinalFraction = html.slice(previousIndex);
 
   nodes.push(
-    ...renderTextWords(
-      textAfterFinalFraction,
-      style,
-      "after-final-fraction"
-    )
+    ...renderTextWords(textAfterFinalFraction, style, "after-final-fraction"),
   );
 
-  return (
-    <View style={localStyles.inlineMathRow}>
-      {nodes}
-    </View>
-  );
+  return <View style={localStyles.inlineMathRow}>{nodes}</View>;
 }
 
 export function PlainOrHtml({ html, style }: Props) {
@@ -435,9 +376,13 @@ export function PlainOrHtml({ html, style }: Props) {
 
   if (hasLatex) {
     const fontSize =
-      typeof flattenedStyle.fontSize === "number" ? flattenedStyle.fontSize : 16;
+      typeof flattenedStyle.fontSize === "number"
+        ? flattenedStyle.fontSize
+        : 16;
     const color =
-      typeof flattenedStyle.color === "string" ? flattenedStyle.color : "#2D241F";
+      typeof flattenedStyle.color === "string"
+        ? flattenedStyle.color
+        : "#2D241F";
 
     return (
       <MathJaxSvg
@@ -446,7 +391,10 @@ export function PlainOrHtml({ html, style }: Props) {
         fontCache
         textStyle={flattenedStyle}
         style={{
-          flex: typeof flattenedStyle.flex === "number" ? flattenedStyle.flex : undefined,
+          flex:
+            typeof flattenedStyle.flex === "number"
+              ? flattenedStyle.flex
+              : undefined,
           marginTop: flattenedStyle.marginTop,
           marginBottom: flattenedStyle.marginBottom,
           marginLeft: flattenedStyle.marginLeft,
@@ -458,23 +406,14 @@ export function PlainOrHtml({ html, style }: Props) {
     );
   }
 
-  if (
-    preparedHtml.includes("math-frac") ||
-    /<sup\b/i.test(preparedHtml)
-  ) {
+  if (preparedHtml.includes("math-frac") || /<sup\b/i.test(preparedHtml)) {
     return renderHtmlWithFractions(preparedHtml, style);
   }
 
-  const hasHtml = /<\/?[a-z][\s\S]*>/i.test(
-    preparedHtml
-  );
+  const hasHtml = /<\/?[a-z][\s\S]*>/i.test(preparedHtml);
 
   if (!hasHtml) {
-    return (
-      <Text style={style}>
-        {decodeHtmlEntities(preparedHtml)}
-      </Text>
-    );
+    return <Text style={style}>{decodeHtmlEntities(preparedHtml)}</Text>;
   }
 
   return (

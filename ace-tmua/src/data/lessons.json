@@ -1772,7 +1772,7 @@
           "eyebrow": "RECURRENCE EXPONENTS · 5 OF 12",
           "title": "Roots repeatedly divide the exponent",
           "body": "Suppose [[x_{1}]] = [[5^{16}]] and [[x_{n+1}]] = [[\\sqrt{x_{n}}]].<br><br>Then [[x_{2}]] = [[5^{8}]], [[x_{3}]] = [[5^{4}]], [[x_{4}]] = [[5^{2}]] and [[x_{5}]] = 5.<br><br>It is often easier to track the exponent than to track the whole number.",
-          "keyPoint": "If [[x_{1}]] = [[c^{m}]] and [[x_{n+1}]] = [[x_{n}^{1/k}]], then [[x_{n}]] = [[c^{m/k^(n-1)}]].",
+          "keyPoint": "If [[x_{1}]] = [[c^{m}]] and [[x_{n+1}]] = [[x_{n}^{1/k}]], then [[x_{n}]] = [[c^{m/k^{n-1}}]].",
           "buttonText": "Continue"
         },
         {
@@ -1809,7 +1809,7 @@
         {
           "type": "multipleChoice",
           "eyebrow": "FINITE-SUM CHECK · 9 OF 12",
-          "question": "For a geometric progression, the sum of the first 8 terms is 17 times the sum of the first 4 terms. The 9th term is 768.<br><br>What is the first term?",
+          "question": "A geometric progression has a positive common ratio. The sum of the first 8 terms is 17 times the sum of the first 4 terms. The 9th term is 768.<br><br>What is the first term?",
           "prompt": "Use [[S_{8}]] = [[S_{4}]](1 + [[r^{4}]]).",
           "options": [
             "[[\\frac{3}{4}]]",
@@ -1924,7 +1924,7 @@
         {
           "type": "multipleChoice",
           "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 3 OF 20",
-          "question": "For a geometric progression, the sum of the first 12 terms is 9 times the sum of the first 6 terms. The thirteenth term is 320.<br><br>What is the first term?",
+          "question": "A geometric progression has a positive common ratio. The sum of the first 12 terms is 9 times the sum of the first 6 terms. The thirteenth term is 320.<br><br>What is the first term?",
           "options": [
             "[[\\frac{5}{2}]]",
             "4",
@@ -5865,7 +5865,7 @@
         {
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 20 OF 21",
-          "question": "A differentiable function F satisfies [[F'(x)>0]] for every [[a<x<b]]. Which conclusion must be true?",
+          "question": "A function F is continuous on [[a\\le x\\le b]] and differentiable on [[a\\lt x\\lt b]], with [[F'(x)\\gt0]] throughout [[a\\lt x\\lt b]]. Which conclusion must be true?",
           "options": [
             "[[F(a)>F(b)]]",
             "[[F(a)=F(b)]]",
@@ -6854,25 +6854,971 @@
       "id": "logic-of-arguments",
       "topicId": "topic-8",
       "title": "Logic of Arguments",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "STATEMENTS · 1 OF 14",
+          "title": "A mathematical statement has a definite truth value",
+          "body": "A statement is a claim that is either true or false. “[[7]] is prime” is true; “[[9]] is prime” is false. A question or an instruction is not a statement.<br><br>Compound statements use and, or, and not. In mathematics, “or” is inclusive: “A or B” allows A, B, or both to be true.",
+          "keyPoint": "“A and B” is true only when both parts are true. “A or B” is false only when both parts are false.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "CONNECTIVES · 2 OF 14",
+          "title": "Read compound claims one word at a time",
+          "steps": [
+            {
+              "title": "And requires both",
+              "body": "The claim “[[n]] is positive and even” requires both properties. A positive odd number does not satisfy it."
+            },
+            {
+              "title": "Or includes the overlap",
+              "body": "The claim “[[n]] is divisible by [[2]] or [[3]]” includes multiples of [[6]], because both conditions may hold."
+            },
+            {
+              "title": "Not reverses the truth value",
+              "body": "The negation of “[[x\\gt4]]” is “[[x\\le4]]”, not merely “[[x\\lt4]]”. Equality must be included."
+            }
+          ],
+          "buttonText": "Check the meaning"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INCLUSIVE OR · 3 OF 14",
+          "question": "Which integer satisfies “divisible by [[2]] or divisible by [[3]]” because both parts are true?",
+          "options": ["[[4]]", "[[6]]", "[[9]]", "[[25]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[6]] is divisible by both [[2]] and [[3]], and inclusive “or” allows this overlap.",
+          "incorrectFeedback": "Look for a number divisible by both [[2]] and [[3]], not exactly one of them."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "IMPLICATION · 4 OF 14",
+          "title": "An if-then statement points in one direction",
+          "body": "“If A, then B” promises that whenever A is true, B must also be true. A is the condition and B is the conclusion.<br><br>The claim says nothing about cases where A is false. It also does not automatically allow the direction to be reversed.",
+          "keyPoint": "To disprove “if A, then B”, find a case where A is true but B is false.",
+          "diagram": {
+            "kind": "implication-flow",
+            "caption": "The contrapositive reverses and negates both parts, preserving the original meaning."
+          },
+          "buttonText": "Translate the wording"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "IF AND ONLY IF · 5 OF 14",
+          "title": "Small words decide the direction",
+          "steps": [
+            {
+              "title": "“A if B”",
+              "body": "This means: if B is true, then A is true. B is sufficient for A."
+            },
+            {
+              "title": "“A only if B”",
+              "body": "This means: if A is true, then B must be true. B is necessary for A."
+            },
+            {
+              "title": "“A if and only if B”",
+              "body": "Both directions must hold: if A then B, and if B then A."
+            }
+          ],
+          "buttonText": "Apply the direction"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ONLY IF · 6 OF 14",
+          "question": "What does “an integer is divisible by [[4]] only if it is even” mean?",
+          "options": [
+            "If an integer is even, it is divisible by [[4]].",
+            "If an integer is divisible by [[4]], it is even.",
+            "An integer is divisible by [[4]] exactly when it is odd.",
+            "No even integer is divisible by [[4]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. “A only if B” means if A, then B. Being even is necessary for divisibility by [[4]].",
+          "incorrectFeedback": "The words “only if” introduce a necessary condition: divisibility by [[4]] cannot occur without evenness."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "RELATED STATEMENTS · 7 OF 14",
+          "title": "The converse is different; the contrapositive is equivalent",
+          "body": "From “if A, then B”:<br><br>The converse is “if B, then A”. It may be true or false independently.<br><br>The contrapositive is “if not B, then not A”. It always has the same truth value as the original statement.",
+          "keyPoint": "Reversing alone gives the converse. Reversing and negating both parts gives the contrapositive.",
+          "diagram": {
+            "kind": "implication-flow",
+            "caption": "A valid implication always carries its contrapositive with it."
+          },
+          "buttonText": "Work through an example"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "CONVERSE CHECK · 8 OF 14",
+          "title": "Test each direction separately",
+          "question": "Consider: “If an integer is divisible by [[4]], then it is even.” Which related statement is guaranteed to be true?",
+          "options": [
+            "If an integer is even, then it is divisible by [[4]].",
+            "If an integer is not even, then it is not divisible by [[4]].",
+            "If an integer is not divisible by [[4]], then it is not even.",
+            "Every even integer is divisible by [[8]]."
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Identify the original direction",
+              "body": "Divisible by [[4]] is the condition; even is the conclusion."
+            },
+            {
+              "title": "Check the converse",
+              "body": "The converse says every even integer is divisible by [[4]]. This is false: [[6]] is even but not divisible by [[4]]."
+            },
+            {
+              "title": "Form the contrapositive",
+              "body": "Reverse and negate both parts: if an integer is not even, then it is not divisible by [[4]]. This is equivalent to the original."
+            }
+          ],
+          "finalAnswer": "If an integer is not even, then it is not divisible by [[4]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "HALFWAY · 9 OF 14",
+          "title": "You can now track the direction of an argument.",
+          "body": "Next, necessary and sufficient conditions make those directions precise.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CONDITIONS · 10 OF 14",
+          "title": "Sufficient guarantees; necessary is required",
+          "body": "A is sufficient for B when A guarantees B. B is necessary for A when A cannot be true without B.<br><br>For example, being divisible by [[4]] is sufficient for being even. Being even is necessary for being divisible by [[4]], but it is not sufficient.",
+          "keyPoint": "In “if A, then B”, A is sufficient for B, while B is necessary for A.",
+          "diagram": {
+            "kind": "necessary-sufficient",
+            "caption": "Every multiple of 4 is even, but not every even integer is a multiple of 4."
+          },
+          "buttonText": "Check a condition"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "NECESSARY OR SUFFICIENT · 11 OF 14",
+          "question": "For a quadrilateral to be a rectangle, being a square is:",
+          "options": [
+            "necessary but not sufficient",
+            "sufficient but not necessary",
+            "both necessary and sufficient",
+            "neither necessary nor sufficient"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Every square is a rectangle, so being a square is sufficient. Many rectangles are not squares, so it is not necessary.",
+          "incorrectFeedback": "Ask both questions separately: does square guarantee rectangle, and must every rectangle be square?"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "EQUIVALENCE · 12 OF 14",
+          "title": "If and only if requires two proofs",
+          "body": "To establish “A if and only if B”, prove both “if A, then B” and “if B, then A”. This makes each condition both necessary and sufficient for the other.<br><br>One direction may be easy while the reverse needs a different argument.",
+          "keyPoint": "Never claim equivalence after proving only one implication.",
+          "buttonText": "Test an equivalence"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TWO DIRECTIONS · 13 OF 14",
+          "question": "Which statement is true for every integer [[n]]?",
+          "options": [
+            "[[n]] is even if and only if [[n^{2}]] is even.",
+            "[[n]] is divisible by [[4]] if and only if [[n]] is even.",
+            "[[n\\gt2]] if and only if [[n^{2}\\gt4]].",
+            "[[n]] is prime if and only if [[n]] is odd."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Even [[n]] gives even [[n^{2}]]. Conversely, if [[n]] were odd, [[n^{2}]] would be odd, so even [[n^{2}]] forces even [[n]].",
+          "incorrectFeedback": "Test both directions and look for counterexamples such as negative integers, [[2]], or even numbers not divisible by [[4]]."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Logic of Arguments: key points",
+          "keyPoints": [
+            "Mathematical “or” is inclusive.",
+            "“A only if B” means if A, then B.",
+            "The converse reverses an implication and need not be true.",
+            "The contrapositive reverses and negates both parts and is equivalent.",
+            "In “if A, then B”, A is sufficient and B is necessary."
+          ],
+          "reviewItems": [
+            "Identify the condition and conclusion before reasoning.",
+            "Translate “if”, “only if”, and “if and only if” carefully.",
+            "Test a converse independently.",
+            "Use a counterexample where the condition holds and conclusion fails.",
+            "Prove both directions before claiming equivalence."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "methods-of-proof-quantifiers",
       "topicId": "topic-8",
       "title": "Methods of Proof & Quantifiers",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "QUANTIFIERS · 1 OF 14",
+          "title": "“For all” and “for some” make different promises",
+          "body": "A universal statement claims something for every object in its domain. An existential statement claims that at least one suitable object exists.<br><br>“For some” means “for at least one”; it does not mean “for several” or “for most”.",
+          "keyPoint": "The domain matters. “Every number has a square root” changes truth value depending on whether the domain is positive reals, all reals, or complex numbers.",
+          "diagram": {
+            "kind": "quantifier-scope",
+            "caption": "Universal claims cover every case; existential claims need at least one witness."
+          },
+          "buttonText": "Negate a claim"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "NEGATION · 2 OF 14",
+          "title": "Negation swaps the quantifier and reverses the property",
+          "steps": [
+            {
+              "title": "Negating “for all”",
+              "body": "The negation of “every object has property P” is “there exists at least one object that does not have property P”."
+            },
+            {
+              "title": "Negating “there exists”",
+              "body": "The negation of “there exists an object with property P” is “every object fails to have property P”."
+            },
+            {
+              "title": "Negating and/or",
+              "body": "The negation of “A and B” is “not A or not B”. The negation of “A or B” is “not A and not B”."
+            }
+          ],
+          "buttonText": "Check a negation"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "QUANTIFIER CHECK · 3 OF 14",
+          "question": "What is the negation of “for every real [[x]], [[x^{2}\\ge x]]”?",
+          "options": [
+            "For every real [[x]], [[x^{2}\\lt x]].",
+            "There exists a real [[x]] such that [[x^{2}\\lt x]].",
+            "There exists a real [[x]] such that [[x^{2}\\ge x]].",
+            "For every real [[x]], [[x^{2}=x]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Negating “for every” gives “there exists”, and negating [[x^{2}\\ge x]] gives [[x^{2}\\lt x]].",
+          "incorrectFeedback": "A universal claim fails when at least one counterexample exists. Reverse both the quantifier and the inequality."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "DIRECT PROOF · 4 OF 14",
+          "title": "A direct proof is a justified chain",
+          "body": "Begin with the assumptions, use definitions or known results, and derive the required conclusion. Each step must follow from something already established.<br><br>A proof is not a collection of true sentences; the sentences must be connected in the correct logical order.",
+          "keyPoint": "State why each deduction is valid, especially when dividing, taking roots, or applying a theorem with conditions.",
+          "diagram": {
+            "kind": "proof-chain",
+            "caption": "A valid proof connects the given information to the target without gaps."
+          },
+          "buttonText": "See a direct proof"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "ALGEBRAIC PROOF · 5 OF 14",
+          "title": "Translate definitions into algebra",
+          "question": "Prove directly that the sum of two odd integers is even.",
+          "options": [
+            "Write the integers as [[2a+1]] and [[2b+1]].",
+            "Check [[3+5=8]].",
+            "Assume their sum is even.",
+            "Write both integers as [[2a]]."
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Use the definition of odd",
+              "body": "Let the odd integers be [[2a+1]] and [[2b+1]], where [[a]] and [[b]] are integers."
+            },
+            {
+              "title": "Add and factor",
+              "body": "[[(2a+1)+(2b+1)=2a+2b+2=2(a+b+1)]]."
+            },
+            {
+              "title": "Apply the definition of even",
+              "body": "Since [[a+b+1]] is an integer, the sum is [[2]] times an integer and is therefore even."
+            }
+          ],
+          "finalAnswer": "The sum is [[2(a+b+1)]], so it is even.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DEDUCTION · 6 OF 14",
+          "question": "Suppose [[n]] is an integer divisible by [[6]]. Which deduction proves directly that [[n]] is divisible by [[3]]?",
+          "options": [
+            "Write [[n=6k=3(2k)]] for an integer [[k]].",
+            "Check that [[6,12,18]] are divisible by [[3]].",
+            "Assume [[n]] is divisible by [[3]].",
+            "Write [[n=3k+1]]."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Since [[2k]] is an integer, [[n=3(2k)]] matches the definition of divisibility by [[3]].",
+          "incorrectFeedback": "Use the definition of divisibility and express [[n]] as [[3]] times an integer."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "PROOF BY CASES · 7 OF 14",
+          "title": "Cases must be exhaustive",
+          "body": "Proof by cases divides the problem into possibilities that cover the whole domain. Prove the result separately in each case.<br><br>For integers, even and odd form an exhaustive pair: every integer is exactly one of them.",
+          "keyPoint": "Listing several examples is not proof by cases. Each case must represent an entire class.",
+          "diagram": {
+            "kind": "proof-by-cases",
+            "caption": "Once both exhaustive branches are proved, no possibility remains."
+          },
+          "buttonText": "Use two cases"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "EVEN OR ODD · 8 OF 14",
+          "title": "Prove the result on every branch",
+          "question": "Prove that [[n^{2}+n]] is even for every integer [[n]].",
+          "options": [
+            "Consider even and odd [[n]].",
+            "Check [[n=1,2,3]].",
+            "Assume [[n^{2}+n]] is even.",
+            "Consider only positive [[n]]."
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Even case",
+              "body": "If [[n=2k]], then [[n^{2}+n=4k^{2}+2k=2(2k^{2}+k)]], which is even."
+            },
+            {
+              "title": "Odd case",
+              "body": "If [[n=2k+1]], then [[n^{2}+n=(2k+1)^{2}+(2k+1)=2(2k^{2}+3k+1)]], which is even."
+            },
+            {
+              "title": "Conclude exhaustively",
+              "body": "Every integer is even or odd, so the result holds for every integer [[n]]."
+            }
+          ],
+          "finalAnswer": "[[n^{2}+n]] is even in both exhaustive cases.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "HALFWAY · 9 OF 14",
+          "title": "You can construct direct proofs and proofs by cases.",
+          "body": "Now use contradiction when denying the conclusion exposes an impossibility.",
+          "buttonText": "Start contradiction"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CONTRADICTION · 10 OF 14",
+          "title": "Assume the opposite and force an impossibility",
+          "body": "To prove a claim by contradiction, assume its negation. Deduce consequences until they conflict with the assumptions, a known fact, or each other.<br><br>The contradiction shows that the temporary assumption was impossible, so the original claim must hold.",
+          "keyPoint": "State the negation precisely. A vague “suppose the result is false” often hides the real logical work.",
+          "buttonText": "Follow a contradiction"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "IRRATIONALITY · 11 OF 14",
+          "title": "A reduced fraction cannot have two even parts",
+          "question": "Which assumption begins a proof by contradiction that [[\\sqrt2]] is irrational?",
+          "options": [
+            "[[\\sqrt2=\\frac ab]] for coprime positive integers [[a,b]].",
+            "[[\\sqrt2]] is irrational.",
+            "[[a]] and [[b]] are both even.",
+            "[[2]] is prime."
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Assume the negation in lowest terms",
+              "body": "Suppose [[\\sqrt2=\\frac ab]], where [[a]] and [[b]] are coprime positive integers."
+            },
+            {
+              "title": "Force a to be even",
+              "body": "Squaring gives [[a^{2}=2b^{2}]], so [[a^{2}]] is even and therefore [[a]] is even. Write [[a=2k]]."
+            },
+            {
+              "title": "Force b to be even",
+              "body": "Then [[4k^{2}=2b^{2}]], so [[b^{2}=2k^{2}]] and [[b]] is even. This contradicts [[a]] and [[b]] being coprime."
+            }
+          ],
+          "finalAnswer": "Assume [[\\sqrt2=\\frac ab]] in lowest terms, then derive a common factor of [[2]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CONJECTURES · 12 OF 14",
+          "title": "Small cases suggest a pattern but do not prove it",
+          "body": "Examples are valuable for discovering a conjecture and testing its plausibility. A proof must then cover every case in the stated domain.<br><br>Even a million successful examples cannot establish a universal claim; the next case could fail.",
+          "keyPoint": "Use examples to discover and challenge a conjecture, then replace the pattern with a general argument.",
+          "diagram": {
+            "kind": "counterexample-search",
+            "caption": "Successful tests build confidence, but one later failure can overturn a universal conjecture."
+          },
+          "buttonText": "Choose a proof"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "METHOD CHOICE · 13 OF 14",
+          "question": "Which is the strongest direct reason that [[n^{2}-n]] is even for every integer [[n]]?",
+          "options": [
+            "[[n^{2}-n=n(n-1)]], a product of consecutive integers.",
+            "It works for [[n=1,2,3,4]].",
+            "Most integers are even.",
+            "Assume [[n^{2}-n]] is odd."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Of two consecutive integers, one is even, so their product is even for every integer [[n]].",
+          "incorrectFeedback": "Choose the statement that covers an arbitrary integer rather than a finite list of examples."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Methods of Proof and Quantifiers: key points",
+          "keyPoints": [
+            "Negating “for all” produces “there exists a counterexample”.",
+            "Negating “there exists” produces a universal non-existence claim.",
+            "Direct proof builds a justified chain from assumptions to conclusion.",
+            "Proof by cases requires exhaustive cases.",
+            "Contradiction assumes the precise negation and derives an impossibility."
+          ],
+          "reviewItems": [
+            "State the domain and quantifier.",
+            "Translate definitions into algebra.",
+            "Explain every deduction in a proof chain.",
+            "Distinguish representative cases from isolated examples.",
+            "Use small cases to form conjectures, never as universal proof."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "disproving-statements",
       "topicId": "topic-8",
       "title": "Disproving Statements",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "COUNTEREXAMPLES · 1 OF 14",
+          "title": "One valid failure defeats a universal claim",
+          "body": "To disprove “every object has property P”, find one object in the stated domain that does not have property P.<br><br>A counterexample must satisfy every assumption in the claim and fail exactly the conclusion being asserted.",
+          "keyPoint": "A counterexample disproves a universal statement. It does not prove a different universal statement.",
+          "diagram": {
+            "kind": "counterexample-search",
+            "caption": "Any single failure is enough to show that “all” was too strong."
+          },
+          "buttonText": "Build a counterexample"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "SEARCH STRATEGY · 2 OF 14",
+          "title": "Attack the weakest point of the claim",
+          "steps": [
+            {
+              "title": "Read the domain",
+              "body": "Integers, positive reals, and non-zero reals allow different examples. A value outside the domain proves nothing."
+            },
+            {
+              "title": "Try structural edge cases",
+              "body": "Test [[0]], [[1]], negative values, equality cases, repeated roots, and the smallest prime or composite numbers."
+            },
+            {
+              "title": "Preserve the premise",
+              "body": "For “if A, then B”, the example must make A true and B false. If A is false, the implication has not been challenged."
+            }
+          ],
+          "buttonText": "Test a deduction"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ILLEGAL CANCELLATION · 3 OF 14",
+          "question": "Which values disprove the claim “if [[ab=ac]], then [[b=c]]” for all real [[a,b,c]]?",
+          "options": [
+            "[[a=0,b=1,c=2]]",
+            "[[a=1,b=2,c=2]]",
+            "[[a=2,b=3,c=3]]",
+            "[[a=4,b=0,c=0]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Both products equal [[0]], so the premise holds, but [[1\\ne2]], so the conclusion fails.",
+          "incorrectFeedback": "Make the common factor [[a]] equal to [[0]], while choosing different values for [[b]] and [[c]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "HIDDEN CONDITIONS · 4 OF 14",
+          "title": "Cancellation is division, so zero must be excluded",
+          "body": "From [[ab=ac]], moving to [[b=c]] divides both sides by [[a]]. This is valid only when [[a\\ne0]].<br><br>Many false proofs hide an undefined operation: division by zero, a square root of a negative real, or a denominator that may vanish.",
+          "keyPoint": "Before dividing by an expression, state or establish that it is non-zero.",
+          "buttonText": "Find the hidden zero"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "FALSE PROOF · 5 OF 14",
+          "title": "Locate the first invalid step",
+          "question": "A purported proof starts with [[a=b\\ne0]] and concludes [[2=1]]. Where does it fail?",
+          "options": [
+            "When it divides by [[a-b]].",
+            "When it multiplies by [[a]].",
+            "When it subtracts [[b^{2}]].",
+            "When it replaces [[a]] by [[b]]."
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Follow the valid algebra",
+              "body": "From [[a=b]], multiplying by [[a]] gives [[a^{2}=ab]]. Subtracting [[b^{2}]] gives [[a^{2}-b^{2}=ab-b^{2}]]."
+            },
+            {
+              "title": "Factor both sides",
+              "body": "[[(a-b)(a+b)=b(a-b)]]. This step is still valid."
+            },
+            {
+              "title": "Expose the illegal division",
+              "body": "Cancelling [[a-b]] divides by it. But [[a=b]], so [[a-b=0]]. Division by zero creates the false conclusion."
+            }
+          ],
+          "finalAnswer": "The cancellation of [[a-b=0]] is invalid.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIG COUNTEREXAMPLE · 6 OF 14",
+          "question": "Which pair disproves “if [[\\sin A=\\sin B]], then [[A=B]]” for angles between [[0^{\\circ}]] and [[180^{\\circ}]]?",
+          "options": [
+            "[[A=30^{\\circ},B=150^{\\circ}]]",
+            "[[A=30^{\\circ},B=30^{\\circ}]]",
+            "[[A=45^{\\circ},B=45^{\\circ}]]",
+            "[[A=90^{\\circ},B=90^{\\circ}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[\\sin30^{\\circ}=\\sin150^{\\circ}=\\frac12]], but the angles are unequal.",
+          "incorrectFeedback": "Use supplementary angles, which have equal sine values."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "HALFWAY · 7 OF 14",
+          "title": "You can disprove claims and expose illegal cancellation.",
+          "body": "Next, diagnose arguments whose individual facts are true but whose logic is invalid.",
+          "buttonText": "Inspect proof errors"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "INVALID DEDUCTIONS · 8 OF 14",
+          "title": "A true conclusion does not repair a broken argument",
+          "body": "An argument is valid only when each conclusion follows from its premises. Common failures include assuming the converse, assuming the desired result, using an example as a proof, or applying a theorem without its conditions.<br><br>A proof may reach a true statement through invalid reasoning.",
+          "keyPoint": "Judge the connection between steps, not only whether each isolated sentence looks true.",
+          "diagram": {
+            "kind": "proof-chain",
+            "caption": "One unsupported arrow breaks the proof chain."
+          },
+          "buttonText": "Catalogue the errors"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "COMMON TRAPS · 9 OF 14",
+          "title": "Ask what information each operation loses",
+          "steps": [
+            {
+              "title": "Taking square roots",
+              "body": "From [[x^{2}=9]], both [[x=3]] and [[x=-3]] are possible. Writing only the positive root loses a solution."
+            },
+            {
+              "title": "Squaring both sides",
+              "body": "Squaring is not reversible without checking. It can introduce extraneous solutions because opposite numbers have the same square."
+            },
+            {
+              "title": "Dividing by a variable expression",
+              "body": "Dividing by [[x]] discards the possibility [[x=0]]. Separate the zero case before division."
+            },
+            {
+              "title": "Checking examples",
+              "body": "Examples can refute a universal claim, but successful examples cannot prove it."
+            }
+          ],
+          "buttonText": "Analyse a converse"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "CONVERSE ERROR · 10 OF 14",
+          "title": "Proving the reverse direction is not enough",
+          "question": "A student tries to prove: “if [[n^{2}]] is even, then [[n]] is even.” They show that even [[n]] gives even [[n^{2}]]. What is wrong?",
+          "options": [
+            "They proved the converse, not the required implication.",
+            "Even integers do not have even squares.",
+            "They should test only [[n=2]].",
+            "The original claim is false."
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Name the target",
+              "body": "The required direction starts from “[[n^{2}]] is even” and must conclude “[[n]] is even”."
+            },
+            {
+              "title": "Name what was actually proved",
+              "body": "The student's argument starts from even [[n]] and concludes even [[n^{2}]]. That is the converse."
+            },
+            {
+              "title": "Repair with the contrapositive",
+              "body": "If [[n]] is odd, write [[n=2k+1]]. Then [[n^{2}=2(2k^{2}+2k)+1]], which is odd. Therefore even [[n^{2}]] forces even [[n]]."
+            }
+          ],
+          "finalAnswer": "The proof establishes the converse; the contrapositive proves the required direction.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "LOST SOLUTION · 11 OF 14",
+          "question": "A student solves [[x(x-3)=0]] by dividing by [[x]] and obtains only [[x=3]]. Which solution was lost?",
+          "options": ["[[-3]]", "[[0]]", "[[1]]", "[[6]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Dividing by [[x]] assumes [[x\\ne0]], so it discards the valid solution [[x=0]].",
+          "incorrectFeedback": "Substitute the value that makes the divided factor [[x]] equal to zero."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "PROOF OR DISPROOF · 12 OF 14",
+          "title": "Match the evidence to the quantifier",
+          "body": "To prove a universal claim, give a general argument covering every case. To disprove it, give one counterexample.<br><br>To prove an existential claim, one explicit witness is enough. To disprove it, show that no object in the domain can work.",
+          "keyPoint": "The same example can prove “there exists” but only test “for all”.",
+          "diagram": {
+            "kind": "quantifier-scope",
+            "caption": "The quantifier determines how much evidence the argument needs."
+          },
+          "buttonText": "Final counterexample"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DOMAIN EDGE · 13 OF 14",
+          "question": "Which counterexample disproves “every prime number is odd”?",
+          "options": ["[[1]]", "[[2]]", "[[3]]", "[[9]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[2]] is prime and even, so it satisfies the premise and fails the conclusion.",
+          "incorrectFeedback": "Choose a number that is genuinely prime but not odd."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Disproving Statements: key points",
+          "keyPoints": [
+            "A counterexample must lie in the domain and satisfy the premise.",
+            "One counterexample disproves a universal claim.",
+            "Cancellation requires the cancelled expression to be non-zero.",
+            "Equal squares or equal sine values do not force equal inputs.",
+            "Proving a converse does not prove the original implication."
+          ],
+          "reviewItems": [
+            "Test zero, boundary values, negatives, and smallest cases.",
+            "Find the first invalid line of a purported proof.",
+            "Check for lost or extraneous solutions after non-reversible operations.",
+            "Distinguish examples from general arguments.",
+            "Repair invalid implications using a direct proof or contrapositive."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "logic-proof-exam-style-questions",
       "topicId": "topic-8",
       "title": "Exam-style Questions",
-      "screens": []
+      "screens": [
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 1 OF 21",
+          "question": "In mathematical logic, when is “A or B” false?",
+          "options": [
+            "Only when both A and B are false",
+            "When both A and B are true",
+            "Whenever A is false",
+            "Whenever exactly one is true"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Mathematical “or” is inclusive, so it is true when either or both parts are true.",
+          "incorrectFeedback": "Inclusive “or” permits both parts to be true."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 2 OF 21",
+          "question": "The statement “A if B” means:",
+          "options": [
+            "if A, then B",
+            "if B, then A",
+            "A and B are both false",
+            "A if and only if B"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. “A if B” says that B is sufficient for A.",
+          "incorrectFeedback": "Read the phrase as “A happens if B happens”."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 3 OF 21",
+          "question": "The statement “A only if B” means:",
+          "options": [
+            "if B, then A",
+            "if A, then B",
+            "A and B cannot both hold",
+            "B is sufficient but not necessary for A"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. B is a necessary condition for A, so A cannot hold without B.",
+          "incorrectFeedback": "The words “only if” introduce the condition that must be present whenever A is true."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 4 OF 21",
+          "question": "What is the converse of “if an integer is divisible by [[6]], then it is even”?",
+          "options": [
+            "If an integer is even, then it is divisible by [[6]].",
+            "If an integer is not even, then it is not divisible by [[6]].",
+            "If an integer is not divisible by [[6]], then it is not even.",
+            "Every integer divisible by [[6]] is even."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The converse reverses the condition and conclusion without negating them.",
+          "incorrectFeedback": "Reverse the two parts but do not negate either one."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 5 OF 21",
+          "question": "What is the contrapositive of “if an integer is divisible by [[6]], then it is even”?",
+          "options": [
+            "If an integer is even, then it is divisible by [[6]].",
+            "If an integer is not even, then it is not divisible by [[6]].",
+            "If an integer is not divisible by [[6]], then it is not even.",
+            "If an integer is odd, then it is divisible by [[6]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Reverse the parts and negate both. This statement is equivalent to the original.",
+          "incorrectFeedback": "A contrapositive both reverses and negates the condition and conclusion."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 6 OF 21",
+          "question": "For an integer to be divisible by [[3]], being divisible by [[6]] is:",
+          "options": [
+            "necessary but not sufficient",
+            "sufficient but not necessary",
+            "both necessary and sufficient",
+            "neither necessary nor sufficient"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Divisibility by [[6]] guarantees divisibility by [[3]], but numbers such as [[9]] show it is not necessary.",
+          "incorrectFeedback": "Ask whether every multiple of [[6]] is a multiple of [[3]], then whether every multiple of [[3]] must be a multiple of [[6]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 7 OF 21",
+          "question": "Which statement is true for every integer [[n]]?",
+          "options": [
+            "[[n]] is divisible by [[6]] if and only if it is divisible by both [[2]] and [[3]].",
+            "[[n]] is even if and only if it is divisible by [[4]].",
+            "[[n]] is odd if and only if it is prime.",
+            "[[n^{2}\\gt1]] if and only if [[n\\gt1]]."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Divisibility by [[6]] gives divisibility by [[2]] and [[3]], and the two coprime factors together give divisibility by [[6]].",
+          "incorrectFeedback": "Test both directions, including negative integers and small values such as [[2]] and [[6]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 8 OF 21",
+          "question": "What is the negation of “for every integer [[n]], [[n^{2}\\ge0]]”?",
+          "options": [
+            "For every integer [[n]], [[n^{2}\\lt0]].",
+            "There exists an integer [[n]] such that [[n^{2}\\lt0]].",
+            "There exists an integer [[n]] such that [[n^{2}\\ge0]].",
+            "For every integer [[n]], [[n^{2}=0]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Negating a universal statement produces the existence of at least one failure.",
+          "incorrectFeedback": "Replace “for every” with “there exists” and negate the inequality."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 9 OF 21",
+          "question": "What is the negation of “there exists an even prime greater than [[2]]”?",
+          "options": [
+            "Every prime is even.",
+            "There exists an odd prime.",
+            "No even prime is greater than [[2]].",
+            "Every integer greater than [[2]] is composite."
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Negating existence says that no object in the domain has all the stated properties.",
+          "incorrectFeedback": "The negation must rule out every even prime greater than [[2]], not merely produce a different example."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 10 OF 21",
+          "question": "What is the negation of “[[n]] is positive and even”?",
+          "options": [
+            "[[n]] is non-positive or [[n]] is odd.",
+            "[[n]] is negative and odd.",
+            "[[n]] is positive or even.",
+            "[[n]] is non-positive and odd."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. To make “A and B” false, at least one part must fail, giving “not A or not B”.",
+          "incorrectFeedback": "Negating a conjunction changes “and” to inclusive “or”."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 11 OF 21",
+          "question": "Suppose integers [[a]] and [[b]] are both divisible by [[5]]. Which line proves directly that [[a+b]] is divisible by [[5]]?",
+          "options": [
+            "Write [[a=5r]] and [[b=5s]], so [[a+b=5(r+s)]].",
+            "Check [[5+10=15]].",
+            "Assume [[a+b]] is divisible by [[5]].",
+            "Write [[a+b=5r+s]]."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Since [[r+s]] is an integer, the sum is [[5]] times an integer.",
+          "incorrectFeedback": "Translate both divisibility assumptions into algebra using arbitrary integers."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 12 OF 21",
+          "question": "Which observation proves [[n(n+1)]] is even for every integer [[n]]?",
+          "diagram": {
+            "kind": "proof-by-cases",
+            "caption": "Every integer is even or odd, and consecutive integers have opposite parity."
+          },
+          "options": [
+            "One of two consecutive integers [[n,n+1]] is even.",
+            "It is true for [[n=1,2,3]].",
+            "Every integer [[n]] is even.",
+            "[[n+1]] is always odd."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. In every case, the product contains an even factor.",
+          "incorrectFeedback": "Use the exhaustive parity relationship between consecutive integers."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 13 OF 21",
+          "question": "To prove by contradiction that there is no greatest integer, what should be assumed first?",
+          "options": [
+            "There is a greatest integer [[N]].",
+            "Every integer has a successor.",
+            "There is no greatest integer.",
+            "[[N+1\\gt N]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Assume the negation of the target. Then [[N+1]] is an integer greater than [[N]], producing the contradiction.",
+          "incorrectFeedback": "A contradiction proof begins by assuming the precise opposite of the statement being proved."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 14 OF 21",
+          "question": "Which value disproves “[[x^{2}\\gt x]] for every real [[x]]”?",
+          "diagram": {
+            "kind": "counterexample-search",
+            "caption": "A universal inequality fails if one real input violates it."
+          },
+          "options": ["[[x=-2]]", "[[x=0]]", "[[x=2]]", "[[x=3]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. At [[x=0]], the claim becomes [[0\\gt0]], which is false.",
+          "incorrectFeedback": "Test a boundary value where the two sides become equal."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 15 OF 21",
+          "question": "Which missing condition makes the deduction “[[ab=ac]], therefore [[b=c]]” valid?",
+          "options": ["[[a=0]]", "[[a\\ne0]]", "[[b=0]]", "[[b\\ne c]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Cancelling [[a]] divides by it, which requires [[a\\ne0]].",
+          "incorrectFeedback": "Identify the expression used as a divisor during cancellation."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 16 OF 21",
+          "question": "Why is “[[\\sin A=\\sin B]], therefore [[A=B]]” invalid without further restrictions?",
+          "options": [
+            "Supplementary angles can have equal sine values.",
+            "Sine is never positive.",
+            "Every angle has a different sine value.",
+            "Sine is defined only for acute angles."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. For example, [[\\sin30^{\\circ}=\\sin150^{\\circ}]], although the angles differ.",
+          "incorrectFeedback": "Recall the symmetry of the sine graph between quadrants I and II."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 17 OF 21",
+          "question": "Squaring [[\\sqrt{x+2}=x]] gives candidates [[x=2]] and [[x=-1]]. Which candidate is extraneous?",
+          "options": ["[[-2]]", "[[-1]]", "[[1]]", "[[2]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Substitution gives [[\\sqrt1=1\\ne-1]], so [[x=-1]] solves the squared equation but not the original.",
+          "incorrectFeedback": "Substitute each candidate into the original unsquared equation."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 18 OF 21",
+          "question": "To prove that the square of an even integer is even, which order is logically correct?<br><br>1. Therefore [[n^{2}]] is even.<br>2. Let [[n=2k]], where [[k]] is an integer.<br>3. Then [[n^{2}=4k^{2}=2(2k^{2})]].<br>4. [[2k^{2}]] is an integer.",
+          "options": ["1, 2, 3, 4", "2, 3, 4, 1", "2, 4, 1, 3", "3, 2, 4, 1"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Begin with the definition, calculate, establish the remaining factor is an integer, then conclude evenness.",
+          "incorrectFeedback": "A proof must begin from the assumption and place the conclusion only after its justification."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 19 OF 21",
+          "question": "A conjecture has been checked successfully for the first [[100]] positive integers. What follows?",
+          "options": [
+            "The conjecture is proved for every positive integer.",
+            "The conjecture is plausible but still needs a general proof.",
+            "The conjecture must fail at [[101]].",
+            "The conjecture is false."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Finite evidence can suggest a universal claim but cannot establish every remaining case.",
+          "incorrectFeedback": "A universal statement requires a general argument, regardless of how many examples have been tested."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 20 OF 21",
+          "question": "Suppose: if [[x-2]] is a factor of [[f(x)]], then [[f(2)=0]]. Also, [[f(2)=0]] only if [[c=4]]. Given [[c\\ne4]], what must follow?",
+          "diagram": {
+            "kind": "proof-chain",
+            "caption": "Chain the implications, then use the contrapositive."
+          },
+          "options": [
+            "[[x-2]] is not a factor of [[f(x)]].",
+            "[[f(2)=0]]",
+            "[[c=4]]",
+            "[[x-2]] is the only factor of [[f(x)]]."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. If [[x-2]] were a factor, then [[f(2)=0]], which would require [[c=4]]. Since [[c\\ne4]], the factor is impossible.",
+          "incorrectFeedback": "Follow both implications forward, then apply their combined contrapositive to [[c\\ne4]]."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 21 OF 21",
+          "title": "Logic and Proof: exam review",
+          "keyPoints": [
+            "Translate implication language before attempting deductions.",
+            "Use contrapositives, converse checks, and necessary/sufficient conditions precisely.",
+            "Negate quantifiers and compound statements completely.",
+            "Choose direct proof, exhaustive cases, contradiction, or counterexample appropriately.",
+            "Audit every algebraic operation and every arrow in a purported proof."
+          ],
+          "reviewItems": [
+            "Do not use formal truth tables; reason from the meaning of the words.",
+            "State domains and hidden non-zero conditions.",
+            "Check whether an argument proves the required direction.",
+            "Substitute candidates after non-reversible operations.",
+            "Replace evidence from examples with a general proof."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     }
   ]
 }

@@ -140,6 +140,10 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "geometry-proportion": "Scale, shape, circles and vectors",
   "statistic-probability": "Data interpretation and probability reasoning",
   "geometry-data-exam-style-questions": "Bring the whole topic together",
+  "logic-of-arguments": "Implication, converse and necessary conditions",
+  "methods-of-proof-quantifiers": "Quantifiers, direct proof, cases and contradiction",
+  "disproving-statements": "Counterexamples and finding invalid steps",
+  "logic-proof-exam-style-questions": "Bring the whole topic together",
 };
 
 const LESSONS = lessonsData.lessons as Lesson[];

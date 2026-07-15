@@ -30,7 +30,13 @@ export type LessonDiagramKind =
   | "radians-sector"
   | "unit-circle-values"
   | "trig-graphs"
-  | "trig-solutions";
+  | "trig-solutions"
+  | "implication-flow"
+  | "necessary-sufficient"
+  | "quantifier-scope"
+  | "proof-chain"
+  | "proof-by-cases"
+  | "counterexample-search";
 
 export interface LessonDiagram {
   kind: LessonDiagramKind;
