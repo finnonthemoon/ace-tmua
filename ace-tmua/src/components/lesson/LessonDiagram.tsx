@@ -375,6 +375,80 @@ function ProbabilityTreeDiagram() {
   );
 }
 
+function LineGradientDiagram() {
+  return (
+    <>
+      <Axes xAxisY={151} yAxisX={39} />
+      <Line x1={48} y1={139} x2={286} y2={39} stroke={C.primary} strokeWidth={4} />
+      <Circle cx={91} cy={121} r={5} fill={C.ink} stroke="#FFFFFF" strokeWidth={2} />
+      <Circle cx={235} cy={60} r={5} fill={C.ink} stroke="#FFFFFF" strokeWidth={2} />
+      <Line x1={91} y1={121} x2={235} y2={121} stroke="#54749F" strokeWidth={1.8} strokeDasharray="5 4" />
+      <Line x1={235} y1={121} x2={235} y2={60} stroke="#54749F" strokeWidth={1.8} strokeDasharray="5 4" />
+      <SvgText x={145} y={137} fontSize={11} fontWeight="800" fill="#54749F">change in x</SvgText>
+      <SvgText x={242} y={96} fontSize={11} fontWeight="800" fill="#54749F">change in y</SvgText>
+      <SvgText x={77} y={111} fontSize={11} fontWeight="900" fill={C.ink}>A</SvgText>
+      <SvgText x={242} y={56} fontSize={11} fontWeight="900" fill={C.ink}>B</SvgText>
+    </>
+  );
+}
+
+function ParallelPerpendicularDiagram() {
+  return (
+    <>
+      <Axes xAxisY={157} yAxisX={37} />
+      <Line x1={48} y1={134} x2={288} y2={45} stroke={C.primary} strokeWidth={3.5} />
+      <Line x1={48} y1={160} x2={288} y2={71} stroke="#F4B25F" strokeWidth={3.5} />
+      <Line x1={140} y1={35} x2={190} y2={170} stroke="#54749F" strokeWidth={3.5} />
+      <Rect x={161} y={92} width={12} height={12} fill="none" stroke={C.ink} strokeWidth={1.5} transform="rotate(-20.4 161 92)" />
+      <SvgText x={244} y={39} fontSize={11} fontWeight="800" fill={C.primary}>parallel</SvgText>
+      <SvgText x={221} y={151} fontSize={11} fontWeight="800" fill="#54749F">perpendicular</SvgText>
+    </>
+  );
+}
+
+function CoordinateCircleDiagram() {
+  return (
+    <>
+      <Axes xAxisY={112} yAxisX={143} />
+      <Circle cx={188} cy={79} r={52} fill="#FFF6E8" stroke={C.primary} strokeWidth={4} />
+      <Circle cx={188} cy={79} r={4.5} fill={C.ink} />
+      <Line x1={188} y1={79} x2={226} y2={44} stroke="#54749F" strokeWidth={2.5} strokeDasharray="5 4" />
+      <SvgText x={195} y={74} fontSize={11} fontWeight="900" fill={C.ink}>(a, b)</SvgText>
+      <SvgText x={208} y={55} fontSize={12} fontWeight="900" fill="#54749F">r</SvgText>
+    </>
+  );
+}
+
+function LineCircleIntersectionsDiagram() {
+  return (
+    <>
+      <Axes xAxisY={151} yAxisX={42} />
+      <Circle cx={164} cy={91} r={65} fill="#FFF9F1" stroke={C.primary} strokeWidth={4} />
+      <Line x1={80} y1={154} x2={250} y2={26.5} stroke="#54749F" strokeWidth={3} />
+      <Circle cx={112} cy={130} r={5} fill={C.ink} stroke="#FFFFFF" strokeWidth={2} />
+      <Circle cx={216} cy={52} r={5} fill={C.ink} stroke="#FFFFFF" strokeWidth={2} />
+      <SvgText x={93} y={123} fontSize={11} fontWeight="900" fill={C.ink}>P</SvgText>
+      <SvgText x={223} y={48} fontSize={11} fontWeight="900" fill={C.ink}>Q</SvgText>
+    </>
+  );
+}
+
+function CircleChordBisectorDiagram() {
+  return (
+    <>
+      <Circle cx={160} cy={95} r={72} fill="#FFF8ED" stroke={C.primary} strokeWidth={4} />
+      <Line x1={99} y1={57} x2={221} y2={57} stroke="#C88A43" strokeWidth={3} />
+      <Circle cx={160} cy={95} r={4.5} fill={C.ink} />
+      <Line x1={160} y1={95} x2={160} y2={57} stroke="#54749F" strokeWidth={2.5} />
+      <Line x1={160} y1={95} x2={160} y2={167} stroke="#54749F" strokeWidth={2.5} strokeDasharray="6 4" />
+      <Rect x={160} y={57} width={11} height={11} fill="none" stroke={C.ink} strokeWidth={1.4} />
+      <Circle cx={160} cy={57} r={4} fill={C.ink} />
+      <SvgText x={105} y={48} fontSize={11} fontWeight="800" fill="#A66F2E">chord</SvgText>
+      <SvgText x={174} y={61} fontSize={11} fontWeight="900" fill={C.ink}>midpoint</SvgText>
+    </>
+  );
+}
+
 export default function LessonDiagramView({ diagram }: Props) {
   return (
     <View
@@ -396,6 +470,11 @@ export default function LessonDiagramView({ diagram }: Props) {
         {diagram.kind === "cumulative-frequency" && <CumulativeFrequencyDiagram />}
         {diagram.kind === "scatter-correlation" && <ScatterCorrelationDiagram />}
         {diagram.kind === "probability-tree" && <ProbabilityTreeDiagram />}
+        {diagram.kind === "line-gradient" && <LineGradientDiagram />}
+        {diagram.kind === "parallel-perpendicular" && <ParallelPerpendicularDiagram />}
+        {diagram.kind === "coordinate-circle" && <CoordinateCircleDiagram />}
+        {diagram.kind === "line-circle-intersections" && <LineCircleIntersectionsDiagram />}
+        {diagram.kind === "circle-chord-bisector" && <CircleChordBisectorDiagram />}
       </Svg>
       {diagram.caption && <Text style={styles.caption}>{diagram.caption}</Text>}
     </View>

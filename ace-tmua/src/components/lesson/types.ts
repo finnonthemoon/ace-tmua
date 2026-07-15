@@ -19,7 +19,12 @@ export type LessonDiagramKind =
   | "histogram-density"
   | "cumulative-frequency"
   | "scatter-correlation"
-  | "probability-tree";
+  | "probability-tree"
+  | "line-gradient"
+  | "parallel-perpendicular"
+  | "coordinate-circle"
+  | "line-circle-intersections"
+  | "circle-chord-bisector";
 
 export interface LessonDiagram {
   kind: LessonDiagramKind;

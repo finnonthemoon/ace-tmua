@@ -2216,25 +2216,983 @@
       "id": "lines-gradients",
       "topicId": "topic-3",
       "title": "Lines & Gradients",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "LINES AND GRADIENTS · 1 OF 14",
+          "title": "Gradient is change in y divided by change in x",
+          "diagram": {
+            "kind": "line-gradient",
+            "caption": "The gradient compares the vertical change with the horizontal change."
+          },
+          "body": "For distinct points [[A=(x_{1},y_{1})]] and [[B=(x_{2},y_{2})]],<br><br>[[m=\\frac{y_{2}-y_{1}}{x_{2}-x_{1}}]].<br><br>A positive gradient rises from left to right; a negative gradient falls. A vertical line has undefined gradient.",
+          "keyPoint": "Subtract coordinates in the same order in the numerator and denominator.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "FINDING A GRADIENT · 2 OF 14",
+          "title": "Use two points consistently",
+          "steps": [
+            {
+              "title": "Choose an order",
+              "body": "Find the gradient through [[A=(-1,2)]] and [[B=(5,11)]]. Use B minus A."
+            },
+            {
+              "title": "Find the vertical change",
+              "body": "[[11-2=9]]."
+            },
+            {
+              "title": "Find the horizontal change",
+              "body": "[[5-(-1)=6]]."
+            },
+            {
+              "title": "Form and simplify the ratio",
+              "body": "[[m=\\frac96=\\frac32]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "GRADIENT CHECK · 3 OF 14",
+          "question": "Find the gradient of the line through [[(-2,5)]] and [[(4,-7)]].",
+          "options": ["[[-3]]", "[[-2]]", "[[2]]", "[[3]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[m=\\frac{-7-5}{4-(-2)}=\\frac{-12}{6}=-2]].",
+          "incorrectFeedback": "Use the same subtraction order for both coordinates: second y minus first y over second x minus first x."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "EQUATIONS OF LINES · 4 OF 14",
+          "title": "Choose the form that matches the information",
+          "body": "If you know a point [[(x_{1},y_{1})]] and gradient m, use [[y-y_{1}=m(x-x_{1})]].<br><br>In [[y=mx+c]], m is the gradient and c the y-intercept. For [[ax+by+c=0]] with [[b\\ne0]], rearranging gives gradient [[-\\frac{a}{b}]]. A vertical line has equation [[x=k]].",
+          "keyPoint": "Point-gradient form avoids finding the intercept before you need it.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 5 OF 14",
+          "title": "Find the line through two points",
+          "question": "Find the equation of the line through [[(2,-1)]] and [[(5,8)]].",
+          "diagram": {
+            "kind": "line-gradient",
+            "caption": "Two distinct points determine one straight line."
+          },
+          "options": [
+            "[[y=3x-7]]",
+            "[[y=3x+5]]",
+            "[[y=-3x+5]]",
+            "[[y=\\frac13x-\\frac53]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Find the gradient",
+              "body": "[[m=\\frac{8-(-1)}{5-2}=\\frac93=3]]."
+            },
+            {
+              "title": "Use either point",
+              "body": "Using [[(2,-1)]], point-gradient form gives [[y+1=3(x-2)]]."
+            },
+            {
+              "title": "Expand",
+              "body": "[[y+1=3x-6]]."
+            },
+            {
+              "title": "Rearrange",
+              "body": "[[y=3x-7]]."
+            }
+          ],
+          "finalAnswer": "The line is [[y=3x-7]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "GENERAL-FORM CHECK · 6 OF 14",
+          "question": "What are the gradient and y-intercept of [[2x+3y-12=0]]?",
+          "options": [
+            "Gradient [[\\frac23]], intercept 4",
+            "Gradient [[-\\frac23]], intercept 4",
+            "Gradient [[-\\frac32]], intercept 6",
+            "Gradient 2, intercept -12"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Rearranging gives [[y=-\\frac23x+4]].",
+          "incorrectFeedback": "Make y the subject, then read the coefficient of x and the constant term."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "LINE EQUATIONS COMPLETE · 7 OF 14",
+          "title": "You can move between points, gradients, and equations.",
+          "body": "You have calculated gradients and written lines in point-gradient, intercept, and general form.<br><br>Next, we use gradient relationships for parallel lines, perpendicular lines, and coordinate proofs.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "PARALLEL AND PERPENDICULAR · 8 OF 14",
+          "title": "Parallel gradients match; perpendicular gradients multiply to -1",
+          "diagram": {
+            "kind": "parallel-perpendicular",
+            "caption": "Parallel lines share a gradient; non-vertical perpendicular gradients are negative reciprocals."
+          },
+          "body": "Parallel non-vertical lines have equal gradients. For perpendicular non-vertical lines with gradients [[m_{1}]] and [[m_{2}]], [[m_{1}m_{2}=-1]].<br><br>A horizontal line is perpendicular to a vertical line.",
+          "keyPoint": "The negative reciprocal of [[\\frac{p}{q}]] is [[-\\frac{q}{p}]], not merely [[-\\frac{p}{q}]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "PERPENDICULAR LINE · 9 OF 14",
+          "title": "Find the perpendicular through [[(4,-1)]] to [[3x-2y+5=0]]",
+          "steps": [
+            {
+              "title": "Find the original gradient",
+              "body": "[[3x-2y+5=0]] rearranges to [[y=\\frac32x+\\frac52]], so its gradient is [[\\frac32]]."
+            },
+            {
+              "title": "Take the negative reciprocal",
+              "body": "The perpendicular gradient is [[-\\frac23]]."
+            },
+            {
+              "title": "Use the given point",
+              "body": "[[y+1=-\\frac23(x-4)]]."
+            },
+            {
+              "title": "Rearrange if required",
+              "body": "[[y=-\\frac23x+\\frac53]], equivalently [[2x+3y-5=0]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "PARALLEL-LINE CHECK · 10 OF 14",
+          "question": "Which line passes through [[(1,3)]] and is parallel to [[4x+2y=7]]?",
+          "options": [
+            "[[2x+y-5=0]]",
+            "[[x-2y+5=0]]",
+            "[[2x-y+1=0]]",
+            "[[4x+2y-7=0]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The given line has gradient -2. Through [[(1,3)]], [[y-3=-2(x-1)]], so [[2x+y-5=0]].",
+          "incorrectFeedback": "A parallel line needs the same gradient but a different intercept. Use gradient -2 through the given point."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "MIDPOINTS AND DISTANCES · 11 OF 14",
+          "title": "Coordinate geometry turns shape facts into algebra",
+          "body": "The midpoint of [[(x_{1},y_{1})]] and [[(x_{2},y_{2})]] is<br>[[\\left(\\frac{x_{1}+x_{2}}2,\\frac{y_{1}+y_{2}}2\\right)]].<br><br>The distance between them is [[\\sqrt{(x_{2}-x_{1})^{2}+(y_{2}-y_{1})^{2}}]]. Equal lengths and gradient products can prove isosceles, parallelogram, or right-angle properties.",
+          "keyPoint": "A perpendicular bisector passes through a segment's midpoint and has gradient equal to the segment's negative reciprocal.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 12 OF 14",
+          "title": "Find a perpendicular bisector",
+          "question": "Find the perpendicular bisector of the segment joining [[A=(-1,2)]] and [[B=(5,4)]].",
+          "options": [
+            "[[y=-3x+9]]",
+            "[[y=3x-3]]",
+            "[[y=\\frac13x+\\frac73]]",
+            "[[y=-\\frac13x+\\frac{11}{3}]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Find the midpoint",
+              "body": "[[M=\\left(\\frac{-1+5}{2},\\frac{2+4}{2}\\right)=(2,3)]]."
+            },
+            {
+              "title": "Find the segment gradient",
+              "body": "[[m_{AB}=\\frac{4-2}{5-(-1)}=\\frac13]]."
+            },
+            {
+              "title": "Find the perpendicular gradient",
+              "body": "The negative reciprocal of [[\\frac13]] is -3."
+            },
+            {
+              "title": "Use the midpoint",
+              "body": "[[y-3=-3(x-2)]], so [[y=-3x+9]]."
+            }
+          ],
+          "finalAnswer": "The perpendicular bisector is [[y=-3x+9]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DISTANCE CHECK · 13 OF 14",
+          "question": "Find the distance between [[(-2,1)]] and [[(4,9)]].",
+          "options": ["[[8]]", "[[10]]", "[[12]]", "[[14]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The changes are 6 and 8, so the distance is [[\\sqrt{6^{2}+8^{2}}=10]].",
+          "incorrectFeedback": "Use Pythagoras on the horizontal and vertical coordinate changes."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Lines and Gradients: key points",
+          "keyPoints": [
+            "Gradient is [[\\frac{\\text{change in }y}{\\text{change in }x}]].",
+            "Use [[y-y_{1}=m(x-x_{1})]] when a point and gradient are known.",
+            "Parallel lines have equal gradients; perpendicular non-vertical gradients multiply to -1.",
+            "Midpoint and distance formulae support exact coordinate proofs.",
+            "A perpendicular bisector combines a midpoint with a negative-reciprocal gradient."
+          ],
+          "reviewItems": [
+            "Keep coordinate subtraction orders consistent.",
+            "Rearrange general-form equations before reading their gradients.",
+            "Treat vertical lines separately.",
+            "Check a proposed line by substituting the given point.",
+            "Next lesson: Circle Equations and Intersections."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "circle-equations-intersections",
       "topicId": "topic-3",
       "title": "Circle Equations & Intersections",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "CIRCLE EQUATIONS · 1 OF 14",
+          "title": "Standard form reveals the centre and radius",
+          "diagram": {
+            "kind": "coordinate-circle",
+            "caption": "Every point on the circle is distance r from the centre (a, b)."
+          },
+          "body": "The circle with centre [[(a,b)]] and radius r has equation<br><br>[[(x-a)^{2}+(y-b)^{2}=r^{2}]].<br><br>The signs inside the brackets are opposite to the centre coordinates, and the right-hand side is the radius squared.",
+          "keyPoint": "Read [[(x+3)^{2}]] as [[(x-(-3))^{2}]]: its centre coordinate is -3.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "STANDARD-FORM CHECK · 2 OF 14",
+          "question": "What are the centre and radius of [[(x+3)^{2}+(y-2)^{2}=25]]?",
+          "options": [
+            "Centre [[(3,-2)]], radius 25",
+            "Centre [[(-3,2)]], radius 25",
+            "Centre [[(3,-2)]], radius 5",
+            "Centre [[(-3,2)]], radius 5"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The centre is [[(-3,2)]] and [[r=\\sqrt{25}=5]].",
+          "incorrectFeedback": "Reverse the bracket signs for the centre, then take the positive square root of the right-hand side."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMPLETING THE SQUARE · 3 OF 14",
+          "title": "Convert expanded form into standard form",
+          "body": "A circle may be written [[x^{2}+y^{2}+cx+dy+e=0]]. Group the x-terms and y-terms, then complete each square.<br><br>Use [[x^{2}+cx=\\left(x+\\frac c2\\right)^{2}-\\left(\\frac c2\\right)^{2}]], and similarly for y.",
+          "keyPoint": "Whatever constants you add to complete the squares must be balanced on both sides.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 4 OF 14",
+          "title": "Reveal the centre and radius",
+          "question": "Find the centre and radius of [[x^{2}+y^{2}-6x+4y-12=0]].",
+          "diagram": {
+            "kind": "coordinate-circle",
+            "caption": "Completing both squares converts the expanded equation into geometric information."
+          },
+          "options": [
+            "Centre [[(-3,2)]], radius 5",
+            "Centre [[(3,-2)]], radius 5",
+            "Centre [[(3,-2)]], radius 25",
+            "Centre [[(6,-4)]], radius 5"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Move the constant",
+              "body": "[[x^{2}-6x+y^{2}+4y=12]]."
+            },
+            {
+              "title": "Complete the x-square",
+              "body": "[[x^{2}-6x=(x-3)^{2}-9]]."
+            },
+            {
+              "title": "Complete the y-square",
+              "body": "[[y^{2}+4y=(y+2)^{2}-4]]."
+            },
+            {
+              "title": "Collect the constants",
+              "body": "[[(x-3)^{2}+(y+2)^{2}=25]]. The centre is [[(3,-2)]] and the radius is 5."
+            }
+          ],
+          "finalAnswer": "The centre is [[(3,-2)]] and the radius is 5, so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COMPLETING-SQUARE CHECK · 5 OF 14",
+          "question": "Find the centre and radius of [[x^{2}+y^{2}+8x-2y+8=0]].",
+          "options": [
+            "Centre [[(-4,1)]], radius 3",
+            "Centre [[(4,-1)]], radius 3",
+            "Centre [[(-4,1)]], radius 9",
+            "Centre [[(-8,2)]], radius 3"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The equation becomes [[(x+4)^{2}+(y-1)^{2}=9]].",
+          "incorrectFeedback": "Complete both squares: add 16 for the x-terms and 1 for the y-terms."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "CIRCLE FORMS COMPLETE · 6 OF 14",
+          "title": "You can extract geometry from either form of a circle equation.",
+          "body": "You have read standard form and completed squares in expanded form.<br><br>Next, we test points, intersect circles with lines, and construct a circle from a diameter.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "POINTS AND REGIONS · 7 OF 14",
+          "title": "Compare squared distance with [[r^{2}]]",
+          "body": "For a circle centred at [[(a,b)]], calculate [[D^{2}=(x-a)^{2}+(y-b)^{2}]] for a point [[(x,y)]].<br><br>If [[D^{2}=r^{2}]], the point is on the circle. If [[D^{2}<r^{2}]], it is inside; if [[D^{2}>r^{2}]], it is outside.",
+          "keyPoint": "Use squared distances to avoid unnecessary square roots.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "POINT CHECK · 8 OF 14",
+          "question": "Relative to the circle with centre [[(1,-2)]] and radius 5, where is the point [[(4,2)]]?",
+          "options": ["Inside", "On the circle", "Outside", "At the centre"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[(4-1)^{2}+(2-(-2))^{2}=3^{2}+4^{2}=25=5^{2}]].",
+          "incorrectFeedback": "Compare the squared distance from [[(1,-2)]] with [[5^{2}]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "LINE-CIRCLE INTERSECTIONS · 9 OF 14",
+          "title": "Substitution produces a quadratic",
+          "diagram": {
+            "kind": "line-circle-intersections",
+            "caption": "Two, one, or zero real quadratic roots correspond to a secant, tangent, or non-intersecting line."
+          },
+          "body": "Substitute the line equation into the circle equation. The resulting quadratic gives the intersection x-values.<br><br>A positive discriminant gives two intersections, zero gives one tangent point, and a negative discriminant gives no real intersection.",
+          "keyPoint": "After solving for x, substitute into the line equation to recover each y-coordinate.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 10 OF 14",
+          "title": "Find both line-circle intersections",
+          "question": "Find the intersections of [[x^{2}+y^{2}=25]] and [[y=x+1]].",
+          "diagram": {
+            "kind": "line-circle-intersections",
+            "caption": "The line cuts the circle at two points, so the substituted quadratic has two roots."
+          },
+          "options": [
+            "[[(3,4)]] and [[(-4,-3)]]",
+            "[[(4,3)]] and [[(-3,-4)]]",
+            "[[(3,-4)]] and [[(-4,3)]]",
+            "[[(5,0)]] and [[(0,5)]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Substitute for y",
+              "body": "[[x^{2}+(x+1)^{2}=25]]."
+            },
+            {
+              "title": "Simplify the quadratic",
+              "body": "[[2x^{2}+2x-24=0]], so [[x^{2}+x-12=0]]."
+            },
+            {
+              "title": "Factorise",
+              "body": "[[(x+4)(x-3)=0]], giving [[x=-4]] or [[x=3]]."
+            },
+            {
+              "title": "Find the y-values",
+              "body": "Using [[y=x+1]], the points are [[(-4,-3)]] and [[(3,4)]]."
+            }
+          ],
+          "finalAnswer": "The intersections are [[(3,4)]] and [[(-4,-3)]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INTERSECTION CHECK · 11 OF 14",
+          "question": "Where does the line [[y=4]] meet the circle [[x^{2}+y^{2}=25]]?",
+          "options": [
+            "[[(3,4)]] and [[(-3,4)]]",
+            "[[(4,3)]] and [[(4,-3)]]",
+            "[[(5,4)]] only",
+            "It does not meet the circle"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Substitution gives [[x^{2}+16=25]], so [[x=\\pm3]].",
+          "incorrectFeedback": "Set [[y=4]] in the circle equation, solve for both x-values, and retain the fixed y-coordinate."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CIRCLES FROM DIAMETERS · 12 OF 14",
+          "title": "A diameter determines the centre and radius",
+          "body": "If A and B are endpoints of a diameter, the centre is their midpoint. The radius is half the distance AB.<br><br>It is often quickest to calculate [[r^{2}]] directly as one quarter of the squared diameter length.",
+          "keyPoint": "Once the midpoint and [[r^{2}]] are known, place them directly into standard circle form.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 13 OF 14",
+          "title": "Construct a circle from its diameter",
+          "question": "A circle has diameter endpoints [[(-2,1)]] and [[(4,5)]]. Find its equation.",
+          "options": [
+            "[[(x-1)^{2}+(y-3)^{2}=13]]",
+            "[[(x+1)^{2}+(y+3)^{2}=13]]",
+            "[[(x-1)^{2}+(y-3)^{2}=52]]",
+            "[[(x-2)^{2}+(y-4)^{2}=26]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Find the centre",
+              "body": "The midpoint is [[\\left(\\frac{-2+4}{2},\\frac{1+5}{2}\\right)=(1,3)]]."
+            },
+            {
+              "title": "Find the squared diameter",
+              "body": "[[AB^{2}=6^{2}+4^{2}=52]]."
+            },
+            {
+              "title": "Find the squared radius",
+              "body": "Since the radius is half the diameter, [[r^{2}=\\frac{52}{4}=13]]."
+            },
+            {
+              "title": "Write the equation",
+              "body": "[[(x-1)^{2}+(y-3)^{2}=13]]."
+            }
+          ],
+          "finalAnswer": "The equation is [[(x-1)^{2}+(y-3)^{2}=13]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Circle Equations and Intersections: key points",
+          "keyPoints": [
+            "[[(x-a)^{2}+(y-b)^{2}=r^{2}]] has centre [[(a,b)]] and radius r.",
+            "Complete the x-square and y-square separately in expanded form.",
+            "Compare squared distance with [[r^{2}]] to classify a point.",
+            "Line-circle intersections reduce to a quadratic after substitution.",
+            "Diameter endpoints give the centre by midpoint and the radius by half-distance."
+          ],
+          "reviewItems": [
+            "Reverse bracket signs when reading centre coordinates.",
+            "Balance constants carefully while completing squares.",
+            "Use the quadratic discriminant to count intersections.",
+            "Recover y-values after solving intersection x-values.",
+            "Next lesson: Circle Theorems on Axes."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "circle-theorems-axes",
       "topicId": "topic-3",
       "title": "Circle Theorems on Axes",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "TANGENTS ON AXES · 1 OF 14",
+          "title": "A tangent is perpendicular to the radius at contact",
+          "diagram": {
+            "kind": "circle-theorems",
+            "caption": "Join the point of contact to the centre before finding the tangent gradient."
+          },
+          "body": "To find a tangent equation, calculate the gradient from the centre to the contact point, then take its negative reciprocal.<br><br>The tangent passes through the contact point. If the radius is vertical, the tangent is horizontal; if the radius is horizontal, the tangent is vertical.",
+          "keyPoint": "First confirm that the stated contact point lies on the circle.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 2 OF 14",
+          "title": "Find a tangent without differentiation",
+          "question": "Find the tangent to [[x^{2}+y^{2}=25]] at [[(3,4)]].",
+          "options": [
+            "[[3x+4y=25]]",
+            "[[4x+3y=24]]",
+            "[[3x-4y=-7]]",
+            "[[y-4=\\frac43(x-3)]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Identify the centre",
+              "body": "The centre is [[(0,0)]]. The point [[(3,4)]] lies on the circle because [[3^{2}+4^{2}=25]]."
+            },
+            {
+              "title": "Find the radius gradient",
+              "body": "From [[(0,0)]] to [[(3,4)]], the gradient is [[\\frac43]]."
+            },
+            {
+              "title": "Find the tangent gradient",
+              "body": "The negative reciprocal is [[-\\frac34]]."
+            },
+            {
+              "title": "Write and rearrange the line",
+              "body": "[[y-4=-\\frac34(x-3)]], which rearranges to [[3x+4y=25]]."
+            }
+          ],
+          "finalAnswer": "The tangent is [[3x+4y=25]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TANGENT CHECK · 3 OF 14",
+          "question": "A circle has centre [[(2,-1)]], and [[P=(5,3)]] lies on it. Which line is tangent at P?",
+          "options": [
+            "[[y-3=\\frac43(x-5)]]",
+            "[[y-3=-\\frac34(x-5)]]",
+            "[[y+1=-\\frac34(x-2)]]",
+            "[[y-3=\\frac34(x-5)]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The radius gradient is [[\\frac{3-(-1)}{5-2}=\\frac43]], so the tangent gradient is [[-\\frac34]].",
+          "incorrectFeedback": "Find the centre-to-P gradient, take its negative reciprocal, and use P in point-gradient form."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CHORDS AND BISECTORS · 4 OF 14",
+          "title": "The perpendicular from the centre bisects a chord",
+          "diagram": {
+            "kind": "circle-chord-bisector",
+            "caption": "The centre lies on the perpendicular bisector of every chord."
+          },
+          "body": "For chord endpoints A and B, its midpoint M is found by averaging coordinates. The line from the centre to M is perpendicular to AB.<br><br>Therefore an unknown centre can be located by intersecting perpendicular bisectors of chords or combining one such bisector with other information.",
+          "keyPoint": "A chord's perpendicular bisector passes through the circle centre even when the chord is not a diameter.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 5 OF 14",
+          "title": "Locate a centre from a chord",
+          "question": "A circle contains chord endpoints [[A=(2,6)]] and [[B=(8,2)]]. Its centre lies on [[y=x]]. Find the centre.",
+          "diagram": {
+            "kind": "circle-chord-bisector",
+            "caption": "The centre is where the chord's perpendicular bisector meets y = x."
+          },
+          "options": ["[[(4,4)]]", "[[(5,5)]]", "[[(6,6)]]", "[[(7,7)]]"],
+          "answerIndex": 3,
+          "steps": [
+            {
+              "title": "Find the chord midpoint",
+              "body": "[[M=\\left(\\frac{2+8}{2},\\frac{6+2}{2}\\right)=(5,4)]]."
+            },
+            {
+              "title": "Find the chord gradient",
+              "body": "[[m_{AB}=\\frac{2-6}{8-2}=-\\frac23]]."
+            },
+            {
+              "title": "Write the perpendicular bisector",
+              "body": "Its gradient is [[\\frac32]], so [[y-4=\\frac32(x-5)]]."
+            },
+            {
+              "title": "Intersect with the known centre line",
+              "body": "Set [[y=x]]. Solving [[x-4=\\frac32(x-5)]] gives [[x=7]], so the centre is [[(7,7)]]."
+            }
+          ],
+          "finalAnswer": "The centre is [[(7,7)]], so the correct option is D.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "CHORD CHECK · 6 OF 14",
+          "question": "A circle has radius 5 and a chord of length 8. What is the perpendicular distance from the centre to the chord?",
+          "options": ["[[2]]", "[[3]]", "[[4]]", "[[\\sqrt{41}]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The perpendicular bisects the chord, giving a right triangle with hypotenuse 5 and one leg 4. The other leg is [[\\sqrt{25-16}=3]].",
+          "incorrectFeedback": "Halve the chord first, then use Pythagoras with the radius as the hypotenuse."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "COORDINATE CIRCLE TOOLS COMPLETE · 7 OF 14",
+          "title": "You can combine gradients, midpoints, and circle structure.",
+          "body": "You have constructed tangents and located centres from chords.<br><br>Next, we connect coordinate information with the remaining angle theorems.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SUBTENDED ANGLES · 8 OF 14",
+          "title": "The angle at the centre is twice the angle at the circumference",
+          "body": "For the same arc AB, [[\\angle AOB=2\\angle ACB]], where O is the centre and C is on the circumference.<br><br>Angles standing on the same chord in the same segment are equal. Coordinate information may first be needed to identify the centre, endpoints, or diameter.",
+          "keyPoint": "Check that the angles refer to the same arc or chord before applying a circle theorem.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "CENTRE AND CIRCUMFERENCE · 9 OF 14",
+          "title": "Translate between related angles",
+          "steps": [
+            {
+              "title": "Identify the common arc",
+              "body": "Suppose chord AB subtends [[34^{\\circ}]] at a point C on the circumference."
+            },
+            {
+              "title": "Use the centre theorem",
+              "body": "At the centre O, the same chord subtends twice that angle."
+            },
+            {
+              "title": "Calculate",
+              "body": "[[\\angle AOB=2(34^{\\circ})=68^{\\circ}]]."
+            },
+            {
+              "title": "Use the same segment",
+              "body": "Any other point on the same segment standing on chord AB also sees an angle of [[34^{\\circ}]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "CYCLIC-ANGLE CHECK · 10 OF 14",
+          "question": "One angle of a cyclic quadrilateral is 117°. What is the opposite angle?",
+          "options": ["[[54^{\\circ}]]", "[[63^{\\circ}]]", "[[117^{\\circ}]]", "[[243^{\\circ}]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Opposite angles in a cyclic quadrilateral sum to 180°, so [[180^{\\circ}-117^{\\circ}=63^{\\circ}]].",
+          "incorrectFeedback": "Use the supplementary opposite-angle property of a cyclic quadrilateral."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SEMICIRCLES AND TANGENT-CHORD ANGLES · 11 OF 14",
+          "title": "Diameters create right angles; tangents transfer angles",
+          "body": "An angle subtended by a diameter at the circumference is 90°.<br><br>The angle between a tangent and a chord at the point of contact equals the angle made by that chord in the alternate segment. These facts can complete a triangle after coordinate work identifies a diameter or tangent.",
+          "keyPoint": "The radius-tangent right angle and the alternate-segment theorem are different facts; use the one matching the requested angle.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 12 OF 14",
+          "title": "Use a coordinate diameter",
+          "question": "A circle has diameter endpoints [[A=(-3,1)]] and [[B=(5,1)]]. Point C lies elsewhere on the circle, and [[\\angle CAB=32^{\\circ}]]. Find [[\\angle ABC]].",
+          "options": ["[[32^{\\circ}]]", "[[48^{\\circ}]]", "[[58^{\\circ}]]", "[[90^{\\circ}]]"],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Recognise the diameter",
+              "body": "AB passes through the centre because its endpoints define the diameter."
+            },
+            {
+              "title": "Use the semicircle theorem",
+              "body": "[[\\angle ACB=90^{\\circ}]]."
+            },
+            {
+              "title": "Use the triangle angle sum",
+              "body": "[[\\angle ABC=180^{\\circ}-90^{\\circ}-32^{\\circ}]]."
+            },
+            {
+              "title": "Calculate",
+              "body": "[[\\angle ABC=58^{\\circ}]]."
+            }
+          ],
+          "finalAnswer": "The angle is [[58^{\\circ}]], so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ALTERNATE-SEGMENT CHECK · 13 OF 14",
+          "question": "The angle between a tangent and a chord is 47°. What angle does that chord subtend in the alternate segment?",
+          "options": ["[[43^{\\circ}]]", "[[47^{\\circ}]]", "[[94^{\\circ}]]", "[[133^{\\circ}]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The alternate-segment theorem makes the two angles equal.",
+          "incorrectFeedback": "The angle between the tangent and chord equals the angle subtended by the chord in the alternate segment."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Circle Theorems on Axes: key points",
+          "keyPoints": [
+            "A tangent is perpendicular to the radius at the contact point.",
+            "The centre lies on the perpendicular bisector of every chord.",
+            "The angle at the centre is twice the angle at the circumference on the same arc.",
+            "An angle in a semicircle is 90°, and opposite cyclic angles sum to 180°.",
+            "The tangent-chord angle equals the angle in the alternate segment."
+          ],
+          "reviewItems": [
+            "Confirm contact points satisfy the circle equation.",
+            "Use midpoint and negative-reciprocal gradient for chord bisectors.",
+            "Name the common arc before applying an angle theorem.",
+            "Combine coordinate facts and geometric facts in separate clear stages.",
+            "Next lesson: Coordinate Geometry Exam-style Questions."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "coordinate-geometry-exam-style-questions",
       "topicId": "topic-3",
       "title": "Exam-style Questions",
-      "screens": []
+      "screens": [
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 1 OF 21",
+          "question": "Find the gradient of the line through [[(-3,4)]] and [[(5,-8)]].",
+          "diagram": {
+            "kind": "line-gradient",
+            "caption": "Use a consistent coordinate subtraction order."
+          },
+          "options": ["[[-\\frac32]]", "[[-\\frac23]]", "[[\\frac23]]", "[[\\frac32]]"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[m=\\frac{-8-4}{5-(-3)}=\\frac{-12}{8}=-\\frac32]].",
+          "incorrectFeedback": "Calculate second y minus first y over second x minus first x."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 2 OF 21",
+          "question": "Find the equation of the line through [[(2,5)]] with gradient -3.",
+          "options": [
+            "[[y=-3x+11]]",
+            "[[y=-3x+7]]",
+            "[[y=3x-1]]",
+            "[[y=3x+11]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[y-5=-3(x-2)]], so [[y=-3x+11]].",
+          "incorrectFeedback": "Use point-gradient form and expand carefully."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 3 OF 21",
+          "question": "What is the gradient of [[5x+y-7=0]]?",
+          "options": ["[[-7]]", "[[-5]]", "[[5]]", "[[7]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Rearranging gives [[y=-5x+7]], so the gradient is -5.",
+          "incorrectFeedback": "Make y the subject before reading the coefficient of x."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 4 OF 21",
+          "question": "Which line passes through [[(2,1)]] and is parallel to [[3x-y=4]]?",
+          "options": [
+            "[[3x-y-5=0]]",
+            "[[3x+y-7=0]]",
+            "[[x+3y-5=0]]",
+            "[[3x-y-4=0]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The gradient is 3. Through [[(2,1)]], [[y-1=3(x-2)]], giving [[3x-y-5=0]].",
+          "incorrectFeedback": "Use the same gradient as the given line, then impose the new point."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 5 OF 21",
+          "question": "Which line passes through [[(0,-3)]] and is perpendicular to [[2x+5y=1]]?",
+          "diagram": {
+            "kind": "parallel-perpendicular",
+            "caption": "Perpendicular non-vertical gradients are negative reciprocals."
+          },
+          "options": [
+            "[[y+3=\\frac52x]]",
+            "[[y+3=-\\frac52x]]",
+            "[[y+3=\\frac25x]]",
+            "[[y-3=\\frac52x]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The original gradient is [[-\\frac25]], so the perpendicular gradient is [[\\frac52]].",
+          "incorrectFeedback": "Rearrange the original line, then take the negative reciprocal of its gradient."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 6 OF 21",
+          "question": "Find the midpoint of the segment joining [[(-4,2)]] and [[(6,8)]].",
+          "options": ["[[(1,5)]]", "[[(2,5)]]", "[[(1,6)]]", "[[(5,10)]]"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Average corresponding coordinates: [[\\left(\\frac{-4+6}{2},\\frac{2+8}{2}\\right)=(1,5)]].",
+          "incorrectFeedback": "A midpoint is the coordinate-wise average of the endpoints."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 7 OF 21",
+          "question": "Find the perpendicular bisector of the segment joining [[(0,0)]] and [[(4,2)]].",
+          "options": [
+            "[[y=-2x+5]]",
+            "[[y=2x-3]]",
+            "[[y=-\\frac12x+2]]",
+            "[[y=\\frac12x]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The midpoint is [[(2,1)]], the segment gradient is [[\\frac12]], and the perpendicular gradient is -2. Hence [[y-1=-2(x-2)]].",
+          "incorrectFeedback": "Find both the midpoint and the negative-reciprocal gradient before forming the line."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 8 OF 21",
+          "question": "What are the centre and radius of [[(x-4)^{2}+(y+1)^{2}=36]]?",
+          "diagram": {
+            "kind": "coordinate-circle",
+            "caption": "Standard form displays the centre and squared radius."
+          },
+          "options": [
+            "Centre [[(4,-1)]], radius 6",
+            "Centre [[(-4,1)]], radius 6",
+            "Centre [[(4,-1)]], radius 36",
+            "Centre [[(-4,1)]], radius 36"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The centre is [[(4,-1)]] and [[r=\\sqrt{36}=6]].",
+          "incorrectFeedback": "Reverse the signs inside the brackets and take the square root of the right side."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 9 OF 21",
+          "question": "Find the centre and radius of [[x^{2}+y^{2}-4x+6y-12=0]].",
+          "options": [
+            "Centre [[(2,-3)]], radius 5",
+            "Centre [[(-2,3)]], radius 5",
+            "Centre [[(2,-3)]], radius 25",
+            "Centre [[(4,-6)]], radius 5"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Completing squares gives [[(x-2)^{2}+(y+3)^{2}=25]].",
+          "incorrectFeedback": "Complete the x-square and y-square separately, then collect the constants."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 10 OF 21",
+          "question": "Where is [[P=(4,5)]] relative to [[(x-1)^{2}+(y-1)^{2}=16]]?",
+          "options": ["Inside", "On the circle", "Outside", "At the centre"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The squared centre-to-P distance is [[3^{2}+4^{2}=25]], which is greater than [[r^{2}=16]].",
+          "incorrectFeedback": "Compare the squared distance from [[(1,1)]] with 16."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 11 OF 21",
+          "question": "How many points of intersection do [[x^{2}+y^{2}=25]] and [[y=5]] have?",
+          "options": ["0", "1", "2", "Infinitely many"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Substitution gives [[x^{2}+25=25]], so [[x=0]]. The line is tangent at [[(0,5)]].",
+          "incorrectFeedback": "Substitute [[y=5]] into the circle and count the real x-values."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 12 OF 21",
+          "question": "Where does [[y=0]] meet [[(x-2)^{2}+(y+1)^{2}=10]]?",
+          "diagram": {
+            "kind": "line-circle-intersections",
+            "caption": "Substitute the line equation and solve for both points."
+          },
+          "options": [
+            "[[(5,0)]] and [[(-1,0)]]",
+            "[[(3,0)]] and [[(1,0)]]",
+            "[[(2,3)]] and [[(2,-3)]]",
+            "[[(5,1)]] and [[(-1,1)]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Setting [[y=0]] gives [[(x-2)^{2}+1=10]], so [[x-2=\\pm3]] and [[x=5]] or [[x=-1]].",
+          "incorrectFeedback": "Substitute y = 0, isolate the squared bracket, and remember both square roots."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 13 OF 21",
+          "question": "A circle has diameter endpoints [[(0,0)]] and [[(6,8)]]. Which is its equation?",
+          "options": [
+            "[[(x-3)^{2}+(y-4)^{2}=25]]",
+            "[[(x-3)^{2}+(y-4)^{2}=100]]",
+            "[[(x+3)^{2}+(y+4)^{2}=25]]",
+            "[[(x-6)^{2}+(y-8)^{2}=50]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The centre is [[(3,4)]], the diameter is 10, and the radius is 5.",
+          "incorrectFeedback": "Use the diameter midpoint for the centre and half the endpoint distance for the radius."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 14 OF 21",
+          "question": "Find the tangent to [[x^{2}+y^{2}=13]] at [[(2,3)]].",
+          "options": [
+            "[[2x+3y=13]]",
+            "[[3x+2y=12]]",
+            "[[2x-3y=-5]]",
+            "[[y-3=\\frac32(x-2)]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The radius gradient is [[\\frac32]], so the tangent gradient is [[-\\frac23]]. Point-gradient form rearranges to [[2x+3y=13]].",
+          "incorrectFeedback": "Find the origin-to-point radius gradient, take its negative reciprocal, and use [[(2,3)]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 15 OF 21",
+          "question": "A circle has centre [[(1,-1)]], and [[P=(4,3)]] lies on it. What is the tangent gradient at P?",
+          "options": ["[[-\\frac43]]", "[[-\\frac34]]", "[[\\frac34]]", "[[\\frac43]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The radius gradient is [[\\frac{3-(-1)}{4-1}=\\frac43]], so the tangent gradient is [[-\\frac34]].",
+          "incorrectFeedback": "Calculate the centre-to-P gradient and take its negative reciprocal."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 16 OF 21",
+          "question": "A circle has radius 5 and a chord of length 6. Find the perpendicular distance from the centre to the chord.",
+          "diagram": {
+            "kind": "circle-chord-bisector",
+            "caption": "The perpendicular from the centre bisects the chord."
+          },
+          "options": ["[[2]]", "[[3]]", "[[4]]", "[[\\sqrt{34}]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Half the chord is 3, so the distance is [[\\sqrt{5^{2}-3^{2}}=4]].",
+          "incorrectFeedback": "Halve the chord, then use a right triangle with radius 5 as the hypotenuse."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 17 OF 21",
+          "question": "A chord subtends an angle of 42° at the circumference. What angle does it subtend at the centre?",
+          "options": ["[[21^{\\circ}]]", "[[42^{\\circ}]]", "[[84^{\\circ}]]", "[[138^{\\circ}]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The angle at the centre is twice the angle at the circumference: [[2(42^{\\circ})=84^{\\circ}]].",
+          "incorrectFeedback": "Double the circumference angle for the same chord and arc."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 18 OF 21",
+          "question": "Two points on the same segment of a circle stand on the same chord. One subtended angle is 31°. What is the other?",
+          "options": ["[[31^{\\circ}]]", "[[62^{\\circ}]]", "[[149^{\\circ}]]", "[[329^{\\circ}]]"],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Angles in the same segment standing on the same chord are equal.",
+          "incorrectFeedback": "Use the same-segment theorem rather than doubling or supplementing the angle."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 19 OF 21",
+          "question": "One angle of a cyclic quadrilateral is 128°. Find the opposite angle.",
+          "options": ["[[42^{\\circ}]]", "[[52^{\\circ}]]", "[[128^{\\circ}]]", "[[232^{\\circ}]]"],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Opposite cyclic angles total 180°, so [[180^{\\circ}-128^{\\circ}=52^{\\circ}]].",
+          "incorrectFeedback": "Subtract the given angle from 180°."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 20 OF 21",
+          "question": "AB is a diameter of a circle and C lies on the circumference. If [[\\angle CAB=27^{\\circ}]], find [[\\angle ABC]].",
+          "options": ["[[27^{\\circ}]]", "[[53^{\\circ}]]", "[[63^{\\circ}]]", "[[90^{\\circ}]]"],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[\\angle ACB=90^{\\circ}]] because AB is a diameter. Thus [[\\angle ABC=180^{\\circ}-90^{\\circ}-27^{\\circ}=63^{\\circ}]].",
+          "incorrectFeedback": "Use the angle-in-a-semicircle theorem, then the triangle angle sum."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 21 OF 21",
+          "title": "Coordinate Geometry: exam review",
+          "keyPoints": [
+            "Use gradients, point-gradient form, and midpoint or distance formulae systematically.",
+            "Parallel lines share gradients; perpendicular gradients are negative reciprocals.",
+            "Convert expanded circles by completing both squares.",
+            "Substitute line equations into circles and interpret the quadratic roots geometrically.",
+            "Combine coordinate calculations with tangent, chord, and angle theorems."
+          ],
+          "reviewItems": [
+            "Check signs when reading circle centres.",
+            "Treat vertical and horizontal lines explicitly.",
+            "Retain both roots when a line crosses a circle twice.",
+            "Verify contact points before constructing tangents.",
+            "Repeat this set until algebraic and geometric information connect immediately."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "triangles-radians",
