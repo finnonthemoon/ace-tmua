@@ -129,7 +129,10 @@ function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
     }
   };
 
-  if (focusedRoute.name === "lesson/[lessonId]") {
+  if (
+    focusedRoute.name === "lesson/[lessonId]" ||
+    focusedRoute.name === "practice"
+  ) {
     return null;
   }
 
@@ -323,6 +326,15 @@ export default function RootLayout() {
 
       <Tabs.Screen
         name="lesson/[lessonId]"
+        options={{
+          href: null,
+          headerShown: false,
+          tabBarStyle: styles.hiddenTabBar,
+        }}
+      />
+
+      <Tabs.Screen
+        name="practice"
         options={{
           href: null,
           headerShown: false,

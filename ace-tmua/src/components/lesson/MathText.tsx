@@ -18,13 +18,53 @@ interface Props {
   style?: StyleProp<TextStyle>;
 }
 
+const plainNumberPattern = /^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$/;
+
+function protectProseDelimiters(value: string): string {
+  return value
+    .split(/(\[\[[\s\S]*?\]\])/g)
+    .map((part, index) => {
+      if (index % 2 === 1) {
+        return part;
+      }
+
+      return part
+        // React Native may otherwise leave an opening quote or bracket at the
+        // end of a line, separated from the word it introduces.
+        .replace(/([\[(“‘])(?=\S)/g, "$1\u2060")
+        // Apply the same protection before closing punctuation.
+        .replace(/(\S)([\])”’])/g, "$1\u2060$2");
+    })
+    .join("");
+}
+
+function delimiterToLatex(value: string): string {
+  return [...value]
+    .map((character) => {
+      if ("()[]".includes(character)) {
+        return character;
+      }
+
+      return `\\text{${character}}`;
+    })
+    .join("");
+}
+
 /** Convert author-friendly [[LaTeX]] markers into MathJax inline delimiters. */
 export function toMathJaxMarkup(value: string, boldMath = false) {
-  const consolidatedValue = value.replace(/\]\]\s*\[\[/g, " ");
+  const consolidatedValue = protectProseDelimiters(value).replace(
+    /\]\]\s*\[\[/g,
+    " ",
+  );
 
   return consolidatedValue.replace(
-    /\[\[([\s\S]*?)\]\]([,.;:!?]?)/g,
-    (_, latex: string, punctuation: string) => {
+    /([\[(“‘"]{0,2})\[\[([\s\S]*?)\]\]([\])”’"]?[,.;:!?]?)/g,
+    (
+      _,
+      openingDelimiter: string,
+      latex: string,
+      closingDelimiter: string,
+    ) => {
       // MathJax parses the complete string as an HTML document before it parses
       // TeX. A raw "<" can therefore be mistaken for an opening HTML tag and
       // truncate everything that follows. TeX relation commands avoid that
@@ -33,14 +73,23 @@ export function toMathJaxMarkup(value: string, boldMath = false) {
         .trim()
         .replace(/</g, "\\lt ")
         .replace(/>/g, "\\gt ");
+
+      // A plain number does not benefit from SVG rendering. Leaving it as
+      // native text keeps short prose and answer choices in one wrapping text
+      // run instead of splitting the sentence around an inline SVG view.
+      if (plainNumberPattern.test(expression)) {
+        return openingDelimiter + expression + closingDelimiter;
+      }
+
       const styledExpression = boldMath
         ? "\\boldsymbol{" + expression + "}"
         : expression;
-      const suffix = punctuation ? "\\text{" + punctuation + "}" : "";
+      const prefix = delimiterToLatex(openingDelimiter);
+      const suffix = delimiterToLatex(closingDelimiter);
 
-      // Keep adjacent punctuation inside the SVG so commas and full stops do
-      // not wrap onto a new line by themselves.
-      return "\\(" + styledExpression + suffix + "\\)";
+      // Keep adjacent punctuation inside the SVG so brackets, quotation marks,
+      // commas, and full stops do not wrap onto a line by themselves.
+      return "\\(" + prefix + styledExpression + suffix + "\\)";
     },
   );
 }

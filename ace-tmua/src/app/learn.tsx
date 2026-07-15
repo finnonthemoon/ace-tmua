@@ -13,6 +13,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import lessonsData from "../data/lessons.json";
 import type { Lesson } from "../components/lesson/types";
+import { COMPLETED_LESSONS_KEY } from "../services/study-activity";
 
 type IconName = React.ComponentProps<typeof Ionicons>["name"];
 
@@ -147,8 +148,6 @@ const LESSON_SUBTITLES: Record<string, string> = {
 };
 
 const LESSONS = lessonsData.lessons as Lesson[];
-const COMPLETED_LESSONS_KEY = "completedLessonIds";
-
 export default function LearnScreen() {
   const router = useRouter();
   const [activeTopic, setActiveTopic] = useState<Topic | null>(null);

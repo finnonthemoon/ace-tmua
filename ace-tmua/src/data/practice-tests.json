@@ -1,0 +1,186 @@
+{
+  "tests": [
+    {
+      "id": "starter-diagnostic-1",
+      "title": "Starter diagnostic",
+      "subtitle": "Mixed Paper 1 and Paper 2 skills",
+      "description": "A shorter original question set for testing your timing, accuracy and review habits before attempting full mock papers.",
+      "paperStyle": "mixed",
+      "durationMinutes": 30,
+      "marksPerQuestion": 1,
+      "calculatorAllowed": false,
+      "formulaBookletAllowed": false,
+      "negativeMarking": false,
+      "premium": false,
+      "questions": [
+        {
+          "id": "starter-1-q1",
+          "topicId": "topic-1",
+          "topicTitle": "Algebra",
+          "difficulty": "foundation",
+          "question": "Given [[2^{x+1}=16\\sqrt{2}]], what is the value of [[x]]?",
+          "prompt": "Write both sides as powers of 2.",
+          "options": ["[[2]]", "[[\\frac52]]", "[[3]]", "[[\\frac72]]", "[[4]]"],
+          "answerIndex": 3,
+          "explanation": "Since [[16\\sqrt2=2^{4}\\cdot2^{1/2}=2^{9/2}]], we have [[x+1=\\frac92]]. Therefore [[x=\\frac72]]."
+        },
+        {
+          "id": "starter-1-q2",
+          "topicId": "topic-1",
+          "topicTitle": "Algebra",
+          "difficulty": "standard",
+          "question": "For which values of [[k]] does [[x^{2}-6x+k=0]] have no real solutions?",
+          "prompt": "Use the discriminant.",
+          "options": ["[[k<9]]", "[[k\\le9]]", "[[k>9]]", "[[k\\ge9]]", "All real values of [[k]]"],
+          "answerIndex": 2,
+          "explanation": "There are no real roots when the discriminant is negative. Here [[(-6)^{2}-4k<0]], so [[36-4k<0]] and therefore [[k>9]]."
+        },
+        {
+          "id": "starter-1-q3",
+          "topicId": "topic-2",
+          "topicTitle": "Sequences and Series",
+          "difficulty": "standard",
+          "question": "An arithmetic progression has third term 11 and eighth term 31. What is the sum of its first 10 terms?",
+          "options": ["[[180]]", "[[195]]", "[[200]]", "[[210]]", "[[220]]"],
+          "answerIndex": 3,
+          "explanation": "If the first term is [[a]] and the common difference is [[d]], then [[a+2d=11]] and [[a+7d=31]]. Hence [[5d=20]], so [[d=4]] and [[a=3]]. Therefore [[S_{10}=\\frac{10}{2}(2(3)+9(4))=210]]."
+        },
+        {
+          "id": "starter-1-q4",
+          "topicId": "topic-3",
+          "topicTitle": "Coordinate Geometry",
+          "difficulty": "foundation",
+          "question": "A circle has centre [[O]] and radius 5. From a point [[P]], a tangent of length 12 touches the circle. What is [[OP]]?",
+          "options": ["[[7]]", "[[10]]", "[[12]]", "[[13]]", "[[17]]"],
+          "answerIndex": 3,
+          "explanation": "The radius to the point of contact is perpendicular to the tangent. Therefore [[OP^{2}=5^{2}+12^{2}=169]], giving [[OP=13]]."
+        },
+        {
+          "id": "starter-1-q5",
+          "topicId": "topic-4",
+          "topicTitle": "Trigonometry",
+          "difficulty": "standard",
+          "question": "The angle [[\\theta]] is acute and [[\\sin\\theta=\\frac35]]. What is [[\\cos2\\theta]]?",
+          "options": ["[[\\frac7{25}]]", "[[\\frac9{25}]]", "[[\\frac{16}{25}]]", "[[\\frac{23}{25}]]", "[[\\frac{24}{25}]]"],
+          "answerIndex": 0,
+          "explanation": "Since [[\\theta]] is acute, [[\\cos\\theta=\\frac45]]. Thus [[\\cos2\\theta=\\cos^{2}\\theta-\\sin^{2}\\theta=\\frac{16}{25}-\\frac9{25}=\\frac7{25}]]."
+        },
+        {
+          "id": "starter-1-q6",
+          "topicId": "topic-5",
+          "topicTitle": "Exponentials and Logarithms",
+          "difficulty": "standard",
+          "question": "Solve [[\\log_{2}(x-1)+\\log_{2}(x+1)=3]].",
+          "options": ["[[-3]]", "[[-1]]", "[[1]]", "[[3]]", "[[9]]"],
+          "answerIndex": 3,
+          "explanation": "The domain requires [[x>1]]. Combining logarithms gives [[\\log_{2}(x^{2}-1)=3]], so [[x^{2}-1=8]] and [[x^{2}=9]]. Only [[x=3]] satisfies the domain."
+        },
+        {
+          "id": "starter-1-q7",
+          "topicId": "topic-6",
+          "topicTitle": "Calculus",
+          "difficulty": "standard",
+          "question": "The stationary points of [[f(x)=x^{3}-3x^{2}-9x]] occur at [[x=p]] and [[x=q]]. What is [[p+q]]?",
+          "options": ["[[-4]]", "[[-2]]", "[[0]]", "[[2]]", "[[4]]"],
+          "answerIndex": 3,
+          "explanation": "[[f'(x)=3x^{2}-6x-9=3(x-3)(x+1)]]. The stationary points occur at [[x=3]] and [[x=-1]], so [[p+q=2]]."
+        },
+        {
+          "id": "starter-1-q8",
+          "topicId": "topic-7",
+          "topicTitle": "Probability",
+          "difficulty": "standard",
+          "question": "A bag contains 4 orange counters and 3 blue counters. Two counters are drawn without replacement. What is the probability that exactly one is orange?",
+          "options": ["[[\\frac27]]", "[[\\frac37]]", "[[\\frac47]]", "[[\\frac{12}{49}]]", "[[\\frac{24}{49}]]"],
+          "answerIndex": 2,
+          "explanation": "The two possible orders are orange then blue, or blue then orange. Their total probability is [[\\frac47\\cdot\\frac36+\\frac37\\cdot\\frac46=\\frac47]]."
+        },
+        {
+          "id": "starter-1-q9",
+          "topicId": "topic-8",
+          "topicTitle": "Logic and Proof",
+          "difficulty": "foundation",
+          "question": "For an integer to be divisible by 6, being divisible by 12 is:",
+          "options": ["necessary but not sufficient", "sufficient but not necessary", "both necessary and sufficient", "neither necessary nor sufficient", "impossible to classify"],
+          "answerIndex": 1,
+          "explanation": "Every multiple of 12 is a multiple of 6, so divisibility by 12 is sufficient. It is not necessary because, for example, 6 is divisible by 6 but not by 12."
+        },
+        {
+          "id": "starter-1-q10",
+          "topicId": "topic-3",
+          "topicTitle": "Coordinate Geometry",
+          "difficulty": "stretch",
+          "question": "Which equation represents the line through [[(2,-1)]] perpendicular to [[3x+2y=7]]?",
+          "options": ["[[2x-3y=7]]", "[[2x+3y=1]]", "[[3x-2y=8]]", "[[3x+2y=4]]", "[[2x-3y=1]]"],
+          "answerIndex": 0,
+          "explanation": "The given line has gradient [[-\\frac32]], so a perpendicular line has gradient [[\\frac23]]. Using [[y+1=\\frac23(x-2)]] gives [[3y+3=2x-4]], hence [[2x-3y=7]]."
+        }
+      ]
+    },
+    {
+      "id": "premium-paper-1",
+      "title": "Paper 1 mock",
+      "subtitle": "Mathematical knowledge and application",
+      "description": "A full-length paper assembled from original questions modelled on the breadth, pacing and challenge of TMUA Paper 1.",
+      "paperStyle": "paper-1",
+      "durationMinutes": 75,
+      "marksPerQuestion": 1,
+      "calculatorAllowed": false,
+      "formulaBookletAllowed": false,
+      "negativeMarking": false,
+      "premium": true,
+      "questionCount": 20,
+      "selectionBlueprint": [
+        { "topicId": "p1-algebra", "topicTitle": "Algebra and Functions", "difficulty": "foundation", "count": 1 },
+        { "topicId": "p1-algebra", "topicTitle": "Algebra and Functions", "difficulty": "standard", "count": 3 },
+        { "topicId": "p1-algebra", "topicTitle": "Algebra and Functions", "difficulty": "stretch", "count": 1 },
+        { "topicId": "p1-sequences", "topicTitle": "Sequences and Series", "difficulty": "standard", "count": 2 },
+        { "topicId": "p1-coordinate", "topicTitle": "Coordinate Geometry", "difficulty": "foundation", "count": 1 },
+        { "topicId": "p1-coordinate", "topicTitle": "Coordinate Geometry", "difficulty": "standard", "count": 1 },
+        { "topicId": "p1-trigonometry", "topicTitle": "Trigonometry", "difficulty": "standard", "count": 2 },
+        { "topicId": "p1-exp-log", "topicTitle": "Exponentials and Logarithms", "difficulty": "standard", "count": 2 },
+        { "topicId": "p1-calculus", "topicTitle": "Calculus", "difficulty": "foundation", "count": 1 },
+        { "topicId": "p1-calculus", "topicTitle": "Calculus", "difficulty": "standard", "count": 1 },
+        { "topicId": "p1-calculus", "topicTitle": "Calculus", "difficulty": "stretch", "count": 1 },
+        { "topicId": "p1-probability", "topicTitle": "Probability", "difficulty": "foundation", "count": 1 },
+        { "topicId": "p1-probability", "topicTitle": "Probability", "difficulty": "standard", "count": 1 },
+        { "topicId": "p1-number", "topicTitle": "Number and Counting", "difficulty": "standard", "count": 1 },
+        { "topicId": "p1-number", "topicTitle": "Number and Counting", "difficulty": "stretch", "count": 1 }
+      ]
+    },
+    {
+      "id": "premium-paper-2",
+      "title": "Paper 2 mock",
+      "subtitle": "Mathematical reasoning",
+      "description": "A full-length reasoning paper built from original problems involving proof, counterexamples, logical conditions and unfamiliar mathematical situations.",
+      "paperStyle": "paper-2",
+      "durationMinutes": 75,
+      "marksPerQuestion": 1,
+      "calculatorAllowed": false,
+      "formulaBookletAllowed": false,
+      "negativeMarking": false,
+      "premium": true,
+      "questionCount": 20,
+      "selectionBlueprint": [
+        { "topicId": "p2-logic", "topicTitle": "Logic and Proof", "difficulty": "foundation", "count": 1 },
+        { "topicId": "p2-logic", "topicTitle": "Logic and Proof", "difficulty": "standard", "count": 3 },
+        { "topicId": "p2-logic", "topicTitle": "Logic and Proof", "difficulty": "stretch", "count": 1 },
+        { "topicId": "p2-algebra", "topicTitle": "Algebraic Reasoning", "difficulty": "foundation", "count": 1 },
+        { "topicId": "p2-algebra", "topicTitle": "Algebraic Reasoning", "difficulty": "standard", "count": 1 },
+        { "topicId": "p2-algebra", "topicTitle": "Algebraic Reasoning", "difficulty": "stretch", "count": 1 },
+        { "topicId": "p2-coordinate", "topicTitle": "Coordinate Reasoning", "difficulty": "standard", "count": 1 },
+        { "topicId": "p2-coordinate", "topicTitle": "Coordinate Reasoning", "difficulty": "stretch", "count": 1 },
+        { "topicId": "p2-number", "topicTitle": "Number Theory", "difficulty": "foundation", "count": 1 },
+        { "topicId": "p2-number", "topicTitle": "Number Theory", "difficulty": "standard", "count": 1 },
+        { "topicId": "p2-sequences", "topicTitle": "Sequences and Patterns", "difficulty": "standard", "count": 1 },
+        { "topicId": "p2-sequences", "topicTitle": "Sequences and Patterns", "difficulty": "stretch", "count": 1 },
+        { "topicId": "p2-combinatorics", "topicTitle": "Combinatorics and Probability", "difficulty": "standard", "count": 1 },
+        { "topicId": "p2-combinatorics", "topicTitle": "Combinatorics and Probability", "difficulty": "stretch", "count": 1 },
+        { "topicId": "p2-geometry", "topicTitle": "Geometry and Trigonometry", "difficulty": "standard", "count": 1 },
+        { "topicId": "p2-geometry", "topicTitle": "Geometry and Trigonometry", "difficulty": "stretch", "count": 1 },
+        { "topicId": "p2-calculus", "topicTitle": "Calculus Reasoning", "difficulty": "standard", "count": 1 },
+        { "topicId": "p2-calculus", "topicTitle": "Calculus Reasoning", "difficulty": "stretch", "count": 1 }
+      ]
+    }
+  ]
+}

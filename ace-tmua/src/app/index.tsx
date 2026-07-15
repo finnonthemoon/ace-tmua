@@ -1,142 +1,486 @@
-/**
- * Home screen — mirrors <section id="home"> from index.html exactly.
- *
- * Cards in order:
- *  1. .home__header          — eyebrow + greeting + avatar
- *  2. .streak-card           — fire icon, streak number, day pills
- *  3. .today-card            — today's practice + progress bar + CTA
- *  4. .home__next-card       — continue learning
- *  5. .home-insight-card--week   — weekly momentum bar chart
- *  6. .home-insight-card--forecast — dark trajectory card + SVG line
- */
-
-import { useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect, useRouter } from "expo-router";
+import { useCallback, useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
+  ActivityIndicator,
+  Pressable,
+  RefreshControl,
   ScrollView,
-  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
-import Svg, {
-  Defs,
-  LinearGradient,
-  Stop,
-  Line,
-  Path,
-  Circle,
-  Text as SvgText,
-} from "react-native-svg";
-import { Colors, Radius, Shadow } from "../constants/theme";
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+import {
+  DAILY_GOAL_MINUTES,
+  WEEKLY_GOAL_MINUTES,
+  loadHomeDashboard,
+} from "@/components/home/home-data";
+import type { HomeDashboardData } from "@/components/home/home-data";
+import type { Lesson } from "@/components/lesson/types";
+import { Colors, Shadow } from "@/constants/theme";
+import localTestStorage from "@/data/localTestStorage.json";
 
-function getInitials(name: string): string {
+interface UserProfile {
+  name: string;
+  targetUni: string;
+  targetScore: number;
+}
+
+const USER = localTestStorage.userData as UserProfile;
+const DAY_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
+
+function getInitials(name: string) {
   return name
     .split(" ")
     .filter(Boolean)
-    .map((p) => p[0])
+    .map((part) => part[0])
     .join("")
     .slice(0, 2)
     .toUpperCase();
 }
 
-function getGreeting(): string {
-  const h = new Date().getHours();
-  if (h < 12) return "Good morning";
-  if (h < 18) return "Good afternoon";
+function getGreeting() {
+  const hour = new Date().getHours();
+  if (hour < 12) return "Good morning";
+  if (hour < 18) return "Good afternoon";
   return "Good evening";
 }
 
-// ─── Hardcoded seed data (mirrors localTestStorage.json / userData defaults) ──
+function resultPercentage(result: HomeDashboardData["latestResult"]) {
+  if (!result || result.maxScore === 0) return 0;
+  return Math.round((result.score / result.maxScore) * 100);
+}
 
-const USER = {
-  name: "Tony Prescott",
-  targetUni: "Manchester",
-  targetScore: 85,
-  streak: 4,
-};
+function formatMinutes(minutes: number) {
+  if (minutes === 0) return "0 min";
+  if (minutes < 60) return `${minutes} min`;
 
-const STUDY_DATA = {
-  weeklyMinutes: 42,
-  weeklyGoalMinutes: 90,
-  weeklySessions: 3,
-  targetSessions: 5,
-  // Minutes per day Mon–Sun
-  dailyMinutes: [12, 18, 0, 12, 0, 0, 0],
-};
+  const hours = Math.floor(minutes / 60);
+  const remainder = minutes % 60;
+  return remainder ? `${hours}h ${remainder}m` : `${hours}h`;
+}
 
-const DAY_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
-// Which days have the streak dot active (mirrors the HTML's .streak-day.active)
-const STREAK_ACTIVE = [true, true, true, true, true, true, false];
+export default function HomeScreen() {
+  const router = useRouter();
+  const [dashboard, setDashboard] = useState<HomeDashboardData | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const [loadFailed, setLoadFailed] = useState(false);
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
+  useFocusEffect(
+    useCallback(() => {
+      let active = true;
 
-/** .home__header */
-function HomeHeader() {
-  const firstName = USER.name.split(" ")[0];
+      void loadHomeDashboard()
+        .then((nextDashboard) => {
+          if (!active) return;
+          setDashboard(nextDashboard);
+          setLoadFailed(false);
+        })
+        .catch((error) => {
+          console.error("Could not load the home dashboard:", error);
+          if (active) setLoadFailed(true);
+        });
+
+      return () => {
+        active = false;
+      };
+    }, []),
+  );
+
+  const refresh = useCallback(async () => {
+    setRefreshing(true);
+    try {
+      setDashboard(await loadHomeDashboard());
+      setLoadFailed(false);
+    } catch (error) {
+      console.error("Could not refresh the home dashboard:", error);
+      setLoadFailed(true);
+    } finally {
+      setRefreshing(false);
+    }
+  }, []);
+
+  const openLesson = (lesson: Lesson) => {
+    router.push({
+      pathname: "/lesson/[lessonId]",
+      params: { lessonId: lesson.id },
+    });
+  };
+
+  if (!dashboard && !loadFailed) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.loadingState}>
+          <ActivityIndicator size="large" color={Colors.primary} />
+          <Text style={styles.loadingText}>Building your study plan…</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (!dashboard) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.loadingState}>
+          <View style={styles.errorIcon}>
+            <Ionicons name="cloud-offline-outline" size={27} color={Colors.primary} />
+          </View>
+          <Text style={styles.errorTitle}>Your dashboard did not load</Text>
+          <Text style={styles.errorText}>
+            Your saved progress is still on this device. Try loading it again.
+          </Text>
+          <Pressable onPress={() => void refresh()} style={styles.retryButton}>
+            <Text style={styles.retryButtonText}>Try again</Text>
+          </Pressable>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  const startedTopics = dashboard.topicProgress.filter(
+    (topic) => topic.completed > 0,
+  ).length;
+  const masteredTopics = dashboard.topicProgress.filter(
+    (topic) => topic.total > 0 && topic.completed === topic.total,
+  ).length;
+
   return (
-    <View style={styles.header}>
-      <View style={styles.headerText}>
-        {/* <p class="home__eyebrow">ACE TMUA</p> */}
-        <Text style={styles.eyebrow}>ACE TMUA</Text>
-        {/* <h1 id="home-greeting"> */}
-        <Text style={styles.greeting}>
-          {getGreeting()}, {firstName}!
-        </Text>
-        {/* <p class="home__subtext"> */}
-        <Text style={styles.subtext}>
-          A little practice today goes a long way!
-        </Text>
-      </View>
-      {/* <div class="home__avatar"> — gradient circle with initials */}
-      <View style={styles.avatar}>
-        <Text style={styles.avatarText}>{getInitials(USER.name)}</Text>
-      </View>
-    </View>
+    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={() => void refresh()}
+            tintColor={Colors.primary}
+          />
+        }
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.header}>
+          <View style={styles.headerText}>
+            <Text style={styles.eyebrow}>ACE TMUA</Text>
+            <Text style={styles.greeting}>
+              {getGreeting()}, {USER.name.split(" ")[0]}
+            </Text>
+            <Text style={styles.headerSubtext}>
+              {dashboard.primarySession
+                ? "Your saved paper is ready when you are."
+                : dashboard.completedLessonCount > 0
+                  ? "Keep the momentum with one focused session."
+                  : "Start small, build consistency, then add exam pressure."}
+            </Text>
+          </View>
+
+          <Pressable
+            accessibilityLabel="Open profile"
+            accessibilityRole="button"
+            onPress={() => router.push("/profile")}
+            style={({ pressed }) => [
+              styles.avatar,
+              pressed && styles.buttonPressed,
+            ]}
+          >
+            <Text style={styles.avatarText}>{getInitials(USER.name)}</Text>
+          </Pressable>
+        </View>
+
+        <PrimaryActionCard
+          dashboard={dashboard}
+          onPress={() => {
+            if (dashboard.primarySession) {
+              router.push({
+                pathname: "/practice/[testId]/test",
+                params: { testId: dashboard.primarySession.testId },
+              });
+            } else if (dashboard.nextLesson) {
+              openLesson(dashboard.nextLesson);
+            } else {
+              router.push("/questions");
+            }
+          }}
+        />
+
+        <View style={styles.habitRow}>
+          <StreakCard
+            streak={dashboard.streak}
+            activeWeekdays={dashboard.activeWeekdays}
+          />
+          <DailyGoalCard
+            minutes={dashboard.todayMinutes}
+            progress={dashboard.dailyGoalPercent}
+            onPress={() => {
+              if (dashboard.primarySession) {
+                router.push({
+                  pathname: "/practice/[testId]/test",
+                  params: { testId: dashboard.primarySession.testId },
+                });
+              } else if (dashboard.nextLesson) {
+                openLesson(dashboard.nextLesson);
+              } else {
+                router.push("/questions");
+              }
+            }}
+          />
+        </View>
+
+        <SectionHeading
+          eyebrow="YOUR COURSE"
+          title="See the path ahead"
+          action="Open roadmap"
+          onPress={() => router.push("/learn")}
+        />
+
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => router.push("/learn")}
+          style={({ pressed }) => [
+            styles.courseCard,
+            pressed && styles.buttonPressed,
+          ]}
+        >
+          <View style={styles.courseHeader}>
+            <View>
+              <Text style={styles.courseNumber}>
+                {dashboard.courseProgressPercent}%
+              </Text>
+              <Text style={styles.courseLabel}>foundation complete</Text>
+            </View>
+            <View style={styles.courseCountPill}>
+              <Text style={styles.courseCountText}>
+                {dashboard.completedLessonCount}/{dashboard.totalLessonCount} lessons
+              </Text>
+            </View>
+          </View>
+
+          <View style={styles.largeProgressTrack}>
+            <View
+              style={[
+                styles.largeProgressFill,
+                { width: `${dashboard.courseProgressPercent}%` },
+              ]}
+            />
+          </View>
+
+          <View style={styles.topicDots}>
+            {dashboard.topicProgress.map((topic) => {
+              const progress = topic.total
+                ? (topic.completed / topic.total) * 100
+                : 0;
+              return (
+                <View key={topic.id} style={styles.topicDotColumn}>
+                  <View style={[styles.topicDotTrack, { backgroundColor: topic.softColor }]}>
+                    <View
+                      style={[
+                        styles.topicDotFill,
+                        { backgroundColor: topic.color, height: `${progress}%` },
+                      ]}
+                    />
+                  </View>
+                </View>
+              );
+            })}
+          </View>
+
+          <View style={styles.courseFooter}>
+            <CourseStat value={`${startedTopics}`} label="topics started" />
+            <View style={styles.courseDivider} />
+            <CourseStat value={`${masteredTopics}`} label="topics mastered" />
+            <View style={styles.courseArrow}>
+              <Ionicons name="arrow-forward" size={18} color={Colors.primary} />
+            </View>
+          </View>
+        </Pressable>
+
+        <SectionHeading
+          eyebrow="SMART NEXT STEP"
+          title={dashboard.weakArea ? "Focus where it matters" : "Build your baseline"}
+        />
+
+        <RecommendationCard
+          dashboard={dashboard}
+          onPress={() => {
+            if (dashboard.weakArea?.lesson) {
+              openLesson(dashboard.weakArea.lesson);
+            } else {
+              router.push({
+                pathname: "/practice/[testId]/instructions",
+                params: { testId: "starter-diagnostic-1" },
+              });
+            }
+          }}
+        />
+
+        {dashboard.latestResult ? (
+          <LatestResultCard
+            dashboard={dashboard}
+            onPress={() => {
+              const result = dashboard.latestResult;
+              if (!result) return;
+              router.push({
+                pathname: "/practice/[testId]/results",
+                params: { testId: result.testId, attemptId: result.id },
+              });
+            }}
+          />
+        ) : null}
+
+        <SectionHeading eyebrow="THIS WEEK" title="Your momentum" />
+        <MomentumCard dashboard={dashboard} />
+
+        <View style={styles.quickActions}>
+          <QuickAction
+            icon="git-network-outline"
+            title="Browse lessons"
+            subtitle="Choose a topic"
+            onPress={() => router.push("/learn")}
+          />
+          <QuickAction
+            icon="timer-outline"
+            title="Exam practice"
+            subtitle="Timed or untimed"
+            onPress={() => router.push("/questions")}
+          />
+        </View>
+
+        <View style={styles.targetNote}>
+          <Ionicons name="flag-outline" size={18} color={Colors.primary} />
+          <Text style={styles.targetNoteText}>
+            Targeting {USER.targetScore}% for {USER.targetUni}
+          </Text>
+          <Pressable onPress={() => router.push("/profile")} hitSlop={10}>
+            <Ionicons name="chevron-forward" size={18} color={Colors.muted} />
+          </Pressable>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
-/** .streak-card — orange gradient card with fire icon + day pills */
-function StreakCard() {
+function PrimaryActionCard({
+  dashboard,
+  onPress,
+}: {
+  dashboard: HomeDashboardData;
+  onPress: () => void;
+}) {
+  const session = dashboard.primarySession;
+  const nextLesson = dashboard.nextLesson;
+  const answered = session ? Object.keys(session.answers).length : 0;
+  const totalQuestions = dashboard.primarySessionQuestionCount ?? 20;
+  const progress = session
+    ? Math.min(100, Math.round((answered / Math.max(1, totalQuestions)) * 100))
+    : dashboard.nextLessonTopic
+      ? Math.round(
+          ((dashboard.topicProgress.find(
+            (topic) => topic.id === dashboard.nextLessonTopic?.id,
+          )?.completed ?? 0) /
+            Math.max(
+              1,
+              dashboard.topicProgress.find(
+                (topic) => topic.id === dashboard.nextLessonTopic?.id,
+              )?.total ?? 1,
+            )) *
+            100,
+        )
+      : 0;
+
+  return (
+    <Pressable
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [styles.primaryCard, pressed && styles.buttonPressed]}
+    >
+      <View style={styles.primaryGlowLarge} />
+      <View style={styles.primaryGlowSmall} />
+
+      <View style={styles.primaryTopRow}>
+        <View style={styles.primaryIcon}>
+          <Ionicons
+            name={session ? "bookmark" : nextLesson ? "play" : "timer"}
+            size={23}
+            color={Colors.primary}
+          />
+        </View>
+        <View style={styles.primaryTimePill}>
+          <Ionicons
+            name={session ? "save-outline" : "time-outline"}
+            size={13}
+            color="#FFFFFF"
+          />
+          <Text style={styles.primaryTimeText}>
+            {session ? `${answered} answered` : nextLesson ? "10–15 min" : "30 min"}
+          </Text>
+        </View>
+      </View>
+
+      <Text style={styles.primaryEyebrow}>
+        {session
+          ? "PICK UP WHERE YOU LEFT OFF"
+          : nextLesson
+            ? "YOUR NEXT BEST STEP"
+            : "READY FOR EXAM PRACTICE"}
+      </Text>
+      <Text style={styles.primaryTitle}>
+        {session
+          ? dashboard.primarySessionTitle
+          : nextLesson?.title ?? "Start a practice paper"}
+      </Text>
+      <Text style={styles.primarySubtitle}>
+        {session
+          ? `Question ${session.currentIndex + 1} · Your answers are saved`
+          : dashboard.nextLessonTopic?.title ??
+            "Use a timed or untimed set to keep improving"}
+      </Text>
+
+      <View style={styles.primaryProgressTrack}>
+        <View style={[styles.primaryProgressFill, { width: `${progress}%` }]} />
+      </View>
+
+      <View style={styles.primaryActionRow}>
+        <Text style={styles.primaryActionText}>
+          {session ? "Resume paper" : nextLesson ? "Start lesson" : "Choose practice"}
+        </Text>
+        <View style={styles.primaryArrow}>
+          <Ionicons name="arrow-forward" size={18} color={Colors.primary} />
+        </View>
+      </View>
+    </Pressable>
+  );
+}
+
+function StreakCard({
+  streak,
+  activeWeekdays,
+}: {
+  streak: number;
+  activeWeekdays: boolean[];
+}) {
   return (
     <View style={styles.streakCard}>
-      {/* .streak-card__icon */}
-      <View style={styles.streakIcon}>
-        <Ionicons name="flame" size={29} color={Colors.primary} />
+      <View style={styles.streakHeader}>
+        <View style={styles.streakIcon}>
+          <Ionicons name="flame" size={22} color={Colors.primary} />
+        </View>
+        <View>
+          <Text style={styles.statEyebrow}>STREAK</Text>
+          <Text style={styles.streakValue}>
+            {streak} <Text style={styles.streakUnit}>{streak === 1 ? "day" : "days"}</Text>
+          </Text>
+        </View>
       </View>
-
-      {/* .streak-card__content */}
-      <View style={styles.streakContent}>
-        <Text style={styles.streakLabel}>Current streak</Text>
-        <Text style={styles.streakNumber}>
-          {USER.streak} <Text style={styles.streakUnit}>days</Text>
-        </Text>
-        <Text style={styles.streakMessage}>
-          Keep it going — practise today!
-        </Text>
-      </View>
-
-      {/* .streak-card__days — seven day pills */}
       <View style={styles.streakDays}>
-        {DAY_LABELS.map((day, i) => (
-          <View
-            key={i}
-            style={[
-              styles.streakDay,
-              STREAK_ACTIVE[i] && styles.streakDayActive,
-            ]}
-          >
-            <Text
+        {DAY_LABELS.map((day, index) => (
+          <View key={`${day}-${index}`} style={styles.streakDayColumn}>
+            <View
               style={[
-                styles.streakDayText,
-                STREAK_ACTIVE[i] && styles.streakDayTextActive,
+                styles.streakDayDot,
+                activeWeekdays[index] && styles.streakDayDotActive,
               ]}
-            >
-              {day}
-            </Text>
+            />
+            <Text style={styles.streakDayLabel}>{day}</Text>
           </View>
         ))}
       </View>
@@ -144,761 +488,1006 @@ function StreakCard() {
   );
 }
 
-/** .today-card — today's practice with progress bar */
-function TodayCard({ onPress }: { onPress: () => void }) {
+function DailyGoalCard({
+  minutes,
+  progress,
+  onPress,
+}: {
+  minutes: number;
+  progress: number;
+  onPress: () => void;
+}) {
+  const complete = progress >= 100;
+
   return (
-    <View style={styles.todayCard}>
-      {/* .today-card__top */}
-      <View style={styles.todayTop}>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.eyebrow}>{"TODAY'S PRACTICE"}</Text>
-          <Text style={styles.todayTitle}>Quadratics: mixed practice</Text>
-        </View>
-        {/* .today-card__time */}
-        <View style={styles.todayTimeBadge}>
-          <Ionicons name="time-outline" size={13} color={Colors.primary} />
-          <Text style={styles.todayTimeText}>12 min</Text>
-        </View>
+    <Pressable
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [styles.goalCard, pressed && styles.buttonPressed]}
+    >
+      <View style={styles.goalTopRow}>
+        <Text style={styles.statEyebrow}>{"TODAY'S GOAL"}</Text>
+        <Ionicons
+          name={complete ? "checkmark-circle" : "arrow-forward-circle"}
+          size={22}
+          color={Colors.primary}
+        />
       </View>
-
-      {/* .today-card__progress */}
-      <View style={styles.progressSection}>
-        <View style={styles.progressLabels}>
-          <Text style={styles.progressLabel}>Daily goal</Text>
-          <Text style={styles.progressLabel}>0 / 10 questions</Text>
-        </View>
-        <View style={styles.progressTrack}>
-          {/* width: '0%' = no progress yet */}
-          <View style={[styles.progressFill, { width: "0%" }]} />
-        </View>
+      <Text style={styles.goalValue}>{formatMinutes(minutes)}</Text>
+      <Text style={styles.goalLabel}>of {DAILY_GOAL_MINUTES} focused minutes</Text>
+      <View style={styles.goalProgressTrack}>
+        <View style={[styles.goalProgressFill, { width: `${progress}%` }]} />
       </View>
+      <Text style={styles.goalHint}>
+        {complete ? "Daily goal complete" : `${Math.max(0, DAILY_GOAL_MINUTES - minutes)} min to go`}
+      </Text>
+    </Pressable>
+  );
+}
 
-      {/* <a class="today-card__button"> */}
-      <TouchableOpacity
-        style={styles.todayButton}
-        onPress={onPress}
-        activeOpacity={0.85}
-      >
-        <Text style={styles.todayButtonText}>Start practice</Text>
-        <Ionicons name="arrow-forward" size={16} color="white" />
-      </TouchableOpacity>
+function SectionHeading({
+  eyebrow,
+  title,
+  action,
+  onPress,
+}: {
+  eyebrow: string;
+  title: string;
+  action?: string;
+  onPress?: () => void;
+}) {
+  return (
+    <View style={styles.sectionHeading}>
+      <View style={styles.sectionHeadingText}>
+        <Text style={styles.sectionEyebrow}>{eyebrow}</Text>
+        <Text style={styles.sectionTitle}>{title}</Text>
+      </View>
+      {action && onPress ? (
+        <Pressable onPress={onPress} hitSlop={10}>
+          <Text style={styles.sectionAction}>{action}</Text>
+        </Pressable>
+      ) : null}
     </View>
   );
 }
 
-/** .home__next-card — continue learning */
-function ContinueCard({ onPress }: { onPress: () => void }) {
+function CourseStat({ value, label }: { value: string; label: string }) {
   return (
-    <View style={styles.nextCard}>
-      <View style={{ flex: 1 }}>
-        <Text style={styles.eyebrow}>CONTINUE LEARNING</Text>
-        <Text style={styles.nextTitle}>Algebra and Functions</Text>
-        <Text style={styles.nextSub}>Next up: Quadratics and Inequalities</Text>
-      </View>
-      {/* <a class="home__continue-button"> */}
-      <TouchableOpacity
-        style={styles.continueButton}
-        onPress={onPress}
-        activeOpacity={0.85}
-      >
-        <Text style={styles.continueButtonText}>Continue</Text>
-        <Ionicons name="arrow-forward" size={14} color="white" />
-      </TouchableOpacity>
+    <View style={styles.courseStat}>
+      <Text style={styles.courseStatValue}>{value}</Text>
+      <Text style={styles.courseStatLabel}>{label}</Text>
     </View>
   );
 }
 
-/** .home-insight-card--week — bar chart of daily minutes */
-function MomentumCard() {
-  const {
-    dailyMinutes,
-    weeklyMinutes,
-    weeklyGoalMinutes,
-    weeklySessions,
-    targetSessions,
-  } = STUDY_DATA;
-  const peak = Math.max(...dailyMinutes, 20);
+function RecommendationCard({
+  dashboard,
+  onPress,
+}: {
+  dashboard: HomeDashboardData;
+  onPress: () => void;
+}) {
+  const weakArea = dashboard.weakArea;
 
   return (
-    <View style={styles.insightCard}>
-      {/* heading row */}
-      <View style={styles.insightHeading}>
+    <Pressable
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.recommendationCard,
+        pressed && styles.buttonPressed,
+      ]}
+    >
+      <View
+        style={[
+          styles.recommendationIcon,
+          weakArea?.topic
+            ? { backgroundColor: weakArea.topic.softColor }
+            : undefined,
+        ]}
+      >
+        <Ionicons
+          name={weakArea ? "analytics-outline" : "sparkles-outline"}
+          size={25}
+          color={weakArea?.topic?.color ?? Colors.primary}
+        />
+      </View>
+
+      <View style={styles.recommendationBody}>
+        <Text style={styles.recommendationEyebrow}>
+          {weakArea ? "BASED ON YOUR PRACTICE" : "PERSONALISED AFTER ONE SET"}
+        </Text>
+        <Text style={styles.recommendationTitle}>
+          {weakArea ? `Strengthen ${weakArea.title}` : "Take the starter diagnostic"}
+        </Text>
+        <Text style={styles.recommendationText}>
+          {weakArea
+            ? weakArea.lesson
+              ? `${weakArea.percentage}% so far · Next lesson: ${weakArea.lesson.title}`
+              : `${weakArea.percentage}% so far · Use another practice set to improve`
+            : "Ten mixed questions will reveal the topics that deserve your attention first."}
+        </Text>
+      </View>
+
+      <View style={styles.recommendationArrow}>
+        <Ionicons name="arrow-forward" size={18} color={Colors.primary} />
+      </View>
+    </Pressable>
+  );
+}
+
+function LatestResultCard({
+  dashboard,
+  onPress,
+}: {
+  dashboard: HomeDashboardData;
+  onPress: () => void;
+}) {
+  const result = dashboard.latestResult;
+  if (!result) return null;
+
+  return (
+    <Pressable
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [styles.resultCard, pressed && styles.buttonPressed]}
+    >
+      <View style={styles.resultHeading}>
         <View>
-          <Text style={styles.eyebrow}>THIS WEEK</Text>
-          <Text style={styles.insightTitle}>Your momentum</Text>
+          <Text style={styles.resultEyebrow}>LATEST PRACTICE</Text>
+          <Text style={styles.resultTitle}>Review your last attempt</Text>
         </View>
-        {/* .home-insight-card__badge */}
-        <View style={styles.insightBadge}>
-          <Ionicons name="time-outline" size={12} color="#ef7b37" />
-          <Text style={styles.insightBadgeText}>{weeklyMinutes} min</Text>
+        <View style={styles.resultScorePill}>
+          <Text style={styles.resultScore}>{resultPercentage(result)}%</Text>
         </View>
       </View>
 
-      {/* .weekly-chart — 7 bars */}
-      <View style={styles.weeklyChart}>
-        {dailyMinutes.map((mins, i) => {
-          const heightPct = Math.max(10, Math.round((mins / peak) * 100));
-          const isActive = mins > 0;
+      <View style={styles.resultStats}>
+        <ResultStat
+          label="Score"
+          value={`${result.score}/${result.maxScore}`}
+        />
+        <View style={styles.resultDivider} />
+        <ResultStat
+          label="Personal best"
+          value={`${dashboard.bestPracticePercent ?? 0}%`}
+        />
+        <View style={styles.resultDivider} />
+        <ResultStat
+          label="Questions done"
+          value={`${dashboard.totalPracticeQuestions}`}
+        />
+      </View>
+
+      <View style={styles.resultAction}>
+        <Text style={styles.resultActionText}>See answers and explanations</Text>
+        <Ionicons name="arrow-forward" size={17} color={Colors.primary} />
+      </View>
+    </Pressable>
+  );
+}
+
+function ResultStat({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.resultStat}>
+      <Text style={styles.resultStatValue}>{value}</Text>
+      <Text style={styles.resultStatLabel}>{label}</Text>
+    </View>
+  );
+}
+
+function MomentumCard({ dashboard }: { dashboard: HomeDashboardData }) {
+  const peak = Math.max(...dashboard.dailyMinutes, DAILY_GOAL_MINUTES);
+
+  return (
+    <View style={styles.momentumCard}>
+      <View style={styles.momentumHeader}>
+        <View>
+          <Text style={styles.momentumValue}>
+            {formatMinutes(dashboard.weeklyMinutes)}
+          </Text>
+          <Text style={styles.momentumLabel}>focused this week</Text>
+        </View>
+        <View style={styles.momentumPill}>
+          <Text style={styles.momentumPillText}>
+            {dashboard.weeklySessions} {dashboard.weeklySessions === 1 ? "session" : "sessions"}
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.chart}>
+        {dashboard.dailyMinutes.map((minutes, index) => {
+          const height = Math.max(7, Math.round((minutes / peak) * 100));
           return (
-            <View key={i} style={styles.chartDay}>
-              <View style={styles.chartBarWrap}>
+            <View key={`${DAY_LABELS[index]}-${index}`} style={styles.chartColumn}>
+              <View style={styles.chartTrack}>
                 <View
                   style={[
                     styles.chartBar,
-                    isActive && styles.chartBarActive,
-                    { height: `${heightPct}%` as any },
+                    minutes > 0 && styles.chartBarActive,
+                    { height: `${height}%` },
                   ]}
                 />
               </View>
-              <Text style={styles.chartDayLabel}>{DAY_LABELS[i]}</Text>
+              <Text style={styles.chartLabel}>{DAY_LABELS[index]}</Text>
             </View>
           );
         })}
       </View>
 
-      {/* .home-insight-card__footer */}
-      <View style={styles.insightFooter}>
-        <Text style={styles.insightFooterText}>
-          <Text style={styles.insightFooterBold}>
-            {weeklySessions} / {targetSessions}
-          </Text>
-          {" sessions"}
+      <View style={styles.momentumFooter}>
+        <Text style={styles.momentumFooterText}>
+          Weekly goal · {WEEKLY_GOAL_MINUTES} min
         </Text>
-        <Text style={styles.insightFooterText}>
-          {"Goal: "}
-          <Text style={styles.insightFooterBold}>{weeklyGoalMinutes}</Text>
-          {" min"}
+        <Text style={styles.momentumFooterStrong}>
+          {Math.min(100, Math.round((dashboard.weeklyMinutes / WEEKLY_GOAL_MINUTES) * 100))}%
         </Text>
       </View>
     </View>
   );
 }
 
-/**
- * .home-insight-card--forecast — dark card with SVG trajectory line.
- * The SVG path is taken directly from the HTML.
- */
-function ForecastCard() {
-  const projectedSessions = Math.round(STUDY_DATA.weeklySessions * 12); // ~12 weeks
-  const message =
-    STUDY_DATA.weeklySessions >= 4
-      ? `At this pace, you could complete around ${projectedSessions} more study sessions before TMUA.`
-      : `Add one more session this week to build a stronger run-up to TMUA.`;
-
+function QuickAction({
+  icon,
+  title,
+  subtitle,
+  onPress,
+}: {
+  icon: React.ComponentProps<typeof Ionicons>["name"];
+  title: string;
+  subtitle: string;
+  onPress: () => void;
+}) {
   return (
-    <View style={styles.forecastCard}>
-      {/* heading */}
-      <View style={styles.insightHeading}>
-        <View>
-          <Text style={styles.forecastEyebrow}>YOUR TRAJECTORY</Text>
-          <Text style={styles.forecastTitle}>Keep this pace</Text>
-        </View>
-        <View style={styles.forecastIcon}>
-          <Ionicons name="trending-up-outline" size={18} color="#2f2925" />
-        </View>
+    <Pressable
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [styles.quickAction, pressed && styles.buttonPressed]}
+    >
+      <View style={styles.quickActionIcon}>
+        <Ionicons name={icon} size={21} color={Colors.primary} />
       </View>
-
-      {/* forecast message */}
-      <Text style={styles.forecastMessage}>{message}</Text>
-
-      {/* SVG chart — same path data as the HTML */}
-      <View style={styles.forecastChartWrap}>
-        <View style={styles.forecastChartLabels}>
-          <Text style={styles.forecastChartLabel}>Now</Text>
-          <Text style={styles.forecastChartLabel}>TMUA</Text>
-        </View>
-
-        <Svg width="100%" height={115} viewBox="0 0 300 115">
-          <Defs>
-            <LinearGradient id="grad" x1="0" x2="1" y1="0" y2="0">
-              <Stop offset="0%" stopColor="#f6a44d" />
-              <Stop offset="100%" stopColor="#ffd783" />
-            </LinearGradient>
-          </Defs>
-
-          {/* Grid lines */}
-          <Line
-            x1="12"
-            y1="88"
-            x2="288"
-            y2="88"
-            stroke="rgba(255,255,255,0.13)"
-            strokeWidth="1"
-            strokeDasharray="3,4"
-          />
-          <Line
-            x1="12"
-            y1="58"
-            x2="288"
-            y2="58"
-            stroke="rgba(255,255,255,0.13)"
-            strokeWidth="1"
-            strokeDasharray="3,4"
-          />
-          <Line
-            x1="12"
-            y1="28"
-            x2="288"
-            y2="28"
-            stroke="rgba(255,255,255,0.13)"
-            strokeWidth="1"
-            strokeDasharray="3,4"
-          />
-
-          {/* Area fill */}
-          <Path
-            d="M 14 92 C 62 88, 82 78, 112 73 S 170 57, 204 43 S 255 25, 286 16 L 286 102 L 14 102 Z"
-            fill="rgba(246,164,77,0.16)"
-          />
-
-          {/* Line */}
-          <Path
-            d="M 14 92 C 62 88, 82 78, 112 73 S 170 57, 204 43 S 255 25, 286 16"
-            fill="none"
-            stroke="url(#grad)"
-            strokeWidth="5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-
-          {/* Dots */}
-          <Circle
-            cx="14"
-            cy="92"
-            r="5"
-            fill="#f6a44d"
-            stroke="#2f2925"
-            strokeWidth="3"
-          />
-          <Circle
-            cx="286"
-            cy="16"
-            r="5"
-            fill="#ffd783"
-            stroke="#2f2925"
-            strokeWidth="3"
-          />
-
-          {/* Labels */}
-          <SvgText
-            x="14"
-            y="112"
-            fill="rgba(255,255,255,0.58)"
-            fontSize="10"
-            fontWeight="800"
-          >
-            Today
-          </SvgText>
-          <SvgText
-            x="286"
-            y="112"
-            fill="rgba(255,255,255,0.58)"
-            fontSize="10"
-            fontWeight="800"
-            textAnchor="end"
-          >
-            Exam
-          </SvgText>
-        </Svg>
-
-        {/* Milestone labels below SVG */}
-        <View style={styles.forecastMilestones}>
-          <Text style={styles.forecastMilestone}>Foundations</Text>
-          <Text style={styles.forecastMilestone}>Mixed practice</Text>
-          <Text style={styles.forecastMilestone}>Exam-ready</Text>
-        </View>
-      </View>
-
-      {/* summary row */}
-      <View style={styles.forecastSummary}>
-        <View style={styles.forecastSummaryLeft}>
-          <Text style={styles.forecastBigNum}>{projectedSessions}</Text>
-          <Text style={styles.forecastSummaryLabel}>
-            possible sessions{"\n"}before TMUA
-          </Text>
-        </View>
-        <Text style={styles.forecastSummaryRight}>
-          Build your first{"\n"}learning streak
-        </Text>
-      </View>
-    </View>
+      <Text style={styles.quickActionTitle}>{title}</Text>
+      <Text style={styles.quickActionSubtitle}>{subtitle}</Text>
+    </Pressable>
   );
 }
-
-// ─── Main screen ──────────────────────────────────────────────────────────────
-
-export default function HomeScreen() {
-  const router = useRouter();
-
-  return (
-    <SafeAreaView style={styles.safe} edges={["top"]}>
-      <ScrollView
-        contentContainerStyle={styles.scroll}
-        showsVerticalScrollIndicator={false}
-      >
-        <HomeHeader />
-        <StreakCard />
-        <TodayCard onPress={() => router.push("/questions")} />
-        <ContinueCard onPress={() => router.push("/learn")} />
-        <MomentumCard />
-        <ForecastCard />
-        {/* Padding so content clears the floating tab bar */}
-        <View style={{ height: 110 }} />
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-// ─── Styles ───────────────────────────────────────────────────────────────────
 
 const styles = StyleSheet.create({
-  safe: {
+  safeArea: {
     flex: 1,
-    // Cream background + the radial gradient is approximated — React Native
-    // doesn't support CSS radial-gradient on View. For the glow effect you
-    // can add expo-linear-gradient later. Plain cream looks clean for now.
     backgroundColor: Colors.cream,
   },
-  scroll: {
-    paddingHorizontal: 16,
-    paddingTop: 12,
+  content: {
+    paddingHorizontal: 20,
+    paddingTop: 14,
+    paddingBottom: 138,
   },
-
-  // ── .home__header ──────────────────────────────────────────────────────────
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: 14,
-    marginTop: 8,
-    gap: 12,
-  },
-  headerText: { flex: 1 },
-  eyebrow: {
-    // .home__eyebrow
-    color: Colors.primary,
-    fontSize: 11,
-    fontWeight: "900",
-    letterSpacing: 1.5,
-    marginBottom: 3,
-  },
-  greeting: {
-    // .home__header h1
-    color: Colors.ink,
-    fontSize: 28,
-    fontWeight: "900",
-    letterSpacing: -1,
-    marginBottom: 4,
-    lineHeight: 32,
-  },
-  subtext: {
-    // .home__subtext
-    color: Colors.muted,
-    fontSize: 14,
-    fontWeight: "600",
-  },
-  avatar: {
-    // .home__avatar — gradient circle
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: Colors.primary, // gradient approximated
+  loadingState: {
+    flex: 1,
+    paddingHorizontal: 28,
     justifyContent: "center",
     alignItems: "center",
+  },
+  loadingText: {
+    marginTop: 13,
+    color: Colors.muted,
+    fontSize: 14,
+    fontWeight: "800",
+  },
+  errorIcon: {
+    width: 58,
+    height: 58,
+    marginBottom: 16,
+    borderRadius: 20,
+    backgroundColor: "#FFF0D3",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  errorTitle: {
+    color: Colors.ink,
+    fontSize: 21,
+    fontWeight: "900",
+    textAlign: "center",
+  },
+  errorText: {
+    maxWidth: 310,
+    marginTop: 8,
+    color: Colors.muted,
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: "700",
+    textAlign: "center",
+  },
+  retryButton: {
+    minHeight: 48,
+    marginTop: 18,
+    paddingHorizontal: 25,
+    borderRadius: 24,
+    backgroundColor: Colors.primary,
+    justifyContent: "center",
+  },
+  retryButtonText: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "900",
+  },
+  header: {
+    marginBottom: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
+  },
+  headerText: {
+    flex: 1,
+  },
+  eyebrow: {
+    color: Colors.primary,
+    fontSize: 10,
+    fontWeight: "900",
+    letterSpacing: 1.5,
+  },
+  greeting: {
+    marginTop: 4,
+    color: Colors.ink,
+    fontSize: 29,
+    lineHeight: 34,
+    fontWeight: "900",
+    letterSpacing: -1,
+  },
+  headerSubtext: {
+    maxWidth: 290,
+    marginTop: 4,
+    color: Colors.muted,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: "700",
+  },
+  avatar: {
+    width: 51,
+    height: 51,
+    borderRadius: 26,
+    backgroundColor: Colors.primary,
     borderWidth: 3,
-    borderColor: "#fff4dc",
+    borderColor: "#FFE9C7",
+    justifyContent: "center",
+    alignItems: "center",
     shadowColor: Colors.primary,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 0.22,
     shadowRadius: 14,
     elevation: 5,
   },
   avatarText: {
-    color: "white",
-    fontWeight: "900",
+    color: "#FFFFFF",
     fontSize: 15,
+    fontWeight: "900",
   },
-
-  // ── .streak-card ───────────────────────────────────────────────────────────
-  streakCard: {
-    // background: linear-gradient(135deg, #ff8b3d, #ff671f)
-    backgroundColor: "#ff7d2e",
-    borderRadius: Radius.lg,
-    padding: 16,
-    marginBottom: 12,
+  buttonPressed: {
+    transform: [{ scale: 0.985 }],
+    opacity: 0.96,
+  },
+  primaryCard: {
+    minHeight: 282,
+    padding: 22,
+    overflow: "hidden",
+    borderRadius: 30,
+    backgroundColor: Colors.primary,
     ...Shadow.streak,
   },
-  streakIcon: {
-    // .streak-card__icon
-    width: 52,
-    height: 52,
-    borderRadius: 16,
-    backgroundColor: "#fff2d5",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 10,
+  primaryGlowLarge: {
+    position: "absolute",
+    top: -105,
+    right: -70,
+    width: 250,
+    height: 250,
+    borderRadius: 125,
+    backgroundColor: "rgba(255, 205, 124, 0.31)",
   },
-  streakContent: { marginBottom: 12 },
-  streakLabel: {
-    color: "rgba(255,255,255,0.86)",
-    fontSize: 12,
-    fontWeight: "700",
-    marginBottom: 2,
+  primaryGlowSmall: {
+    position: "absolute",
+    bottom: -70,
+    left: -30,
+    width: 145,
+    height: 145,
+    borderRadius: 73,
+    backgroundColor: "rgba(255,255,255,0.08)",
   },
-  streakNumber: {
-    color: "white",
-    fontSize: 28,
-    fontWeight: "900",
-    lineHeight: 34,
-  },
-  streakUnit: { fontSize: 14, fontWeight: "700" },
-  streakMessage: {
-    color: "rgba(255,255,255,0.86)",
-    fontSize: 12,
-    fontWeight: "700",
-  },
-  streakDays: {
-    // .streak-card__days
+  primaryTopRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 4,
+    alignItems: "center",
   },
-  streakDay: {
+  primaryIcon: {
+    width: 49,
+    height: 49,
+    borderRadius: 17,
+    backgroundColor: "#FFF4DE",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  primaryTimePill: {
+    minHeight: 31,
+    paddingHorizontal: 11,
+    borderRadius: 16,
+    backgroundColor: "rgba(255,255,255,0.16)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.22)",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+  },
+  primaryTimeText: {
+    color: "#FFFFFF",
+    fontSize: 11,
+    fontWeight: "900",
+  },
+  primaryEyebrow: {
+    marginTop: 20,
+    color: "#FFE6C0",
+    fontSize: 10,
+    fontWeight: "900",
+    letterSpacing: 1.2,
+  },
+  primaryTitle: {
+    maxWidth: 330,
+    marginTop: 5,
+    color: "#FFFFFF",
+    fontSize: 26,
+    lineHeight: 31,
+    fontWeight: "900",
+    letterSpacing: -0.7,
+  },
+  primarySubtitle: {
+    marginTop: 6,
+    color: "rgba(255,255,255,0.84)",
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: "700",
+  },
+  primaryProgressTrack: {
+    height: 7,
+    marginTop: 18,
+    overflow: "hidden",
+    borderRadius: 4,
+    backgroundColor: "rgba(255,255,255,0.22)",
+  },
+  primaryProgressFill: {
+    height: "100%",
+    borderRadius: 4,
+    backgroundColor: "#FFFFFF",
+  },
+  primaryActionRow: {
+    marginTop: 15,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  primaryActionText: {
+    color: "#FFFFFF",
+    fontSize: 15,
+    fontWeight: "900",
+  },
+  primaryArrow: {
     width: 34,
     height: 34,
     borderRadius: 17,
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.36)",
+    backgroundColor: "#FFFFFF",
     justifyContent: "center",
     alignItems: "center",
   },
-  streakDayActive: {
-    backgroundColor: "white",
-    borderColor: "white",
-  },
-  streakDayText: {
-    color: "rgba(255,255,255,0.72)",
-    fontSize: 11,
-    fontWeight: "900",
-  },
-  streakDayTextActive: { color: Colors.primary },
-
-  // ── .today-card ────────────────────────────────────────────────────────────
-  todayCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: Radius.lg,
-    padding: 16,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: Colors.line,
-    ...Shadow.card,
-  },
-  todayTop: {
+  habitRow: {
+    marginTop: 14,
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: 14,
-  },
-  todayTitle: {
-    color: Colors.ink,
-    fontSize: 17,
-    fontWeight: "900",
-    marginTop: 4,
-    lineHeight: 22,
-  },
-  todayTimeBadge: {
-    // .today-card__time
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 4,
-    backgroundColor: "#fff2dc",
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
-  todayTimeText: {
-    color: Colors.primary,
-    fontSize: 12,
-    fontWeight: "900",
-  },
-  progressSection: { marginBottom: 14 },
-  progressLabels: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 8,
-  },
-  progressLabel: {
-    color: Colors.muted,
-    fontSize: 12,
-    fontWeight: "800",
-  },
-  progressTrack: {
-    // .today-card__bar
-    height: 9,
-    backgroundColor: "#f5ead8",
-    borderRadius: 999,
-    overflow: "hidden",
-  },
-  progressFill: {
-    height: "100%",
-    backgroundColor: Colors.primary,
-    borderRadius: 999,
-  },
-  todayButton: {
-    // .today-card__button
-    backgroundColor: Colors.primary,
-    borderRadius: 14,
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 8,
-  },
-  todayButtonText: {
-    color: "white",
-    fontWeight: "900",
-    fontSize: 15,
-  },
-
-  // ── .home__next-card ───────────────────────────────────────────────────────
-  nextCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: Radius.lg,
-    padding: 16,
-    marginBottom: 12,
-    flexDirection: "row",
-    alignItems: "flex-end",
-    justifyContent: "space-between",
     gap: 12,
+  },
+  streakCard: {
+    flex: 1,
+    minHeight: 157,
+    padding: 15,
+    borderRadius: 24,
+    backgroundColor: "#FFF0D3",
+    borderWidth: 1,
+    borderColor: "#F6D9A9",
+  },
+  streakHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 9,
+  },
+  streakIcon: {
+    width: 42,
+    height: 42,
+    borderRadius: 14,
+    backgroundColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  statEyebrow: {
+    color: Colors.muted,
+    fontSize: 9,
+    fontWeight: "900",
+    letterSpacing: 1,
+  },
+  streakValue: {
+    marginTop: 1,
+    color: Colors.ink,
+    fontSize: 21,
+    fontWeight: "900",
+  },
+  streakUnit: {
+    fontSize: 11,
+    color: Colors.muted,
+  },
+  streakDays: {
+    marginTop: 19,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  streakDayColumn: {
+    alignItems: "center",
+    gap: 5,
+  },
+  streakDayDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: "#E8D9C3",
+  },
+  streakDayDotActive: {
+    backgroundColor: Colors.primary,
+  },
+  streakDayLabel: {
+    color: Colors.muted,
+    fontSize: 8,
+    fontWeight: "900",
+  },
+  goalCard: {
+    flex: 1,
+    minHeight: 157,
+    padding: 15,
+    borderRadius: 24,
+    backgroundColor: Colors.surface,
     borderWidth: 1,
     borderColor: Colors.line,
     ...Shadow.card,
   },
-  nextTitle: {
-    color: Colors.ink,
-    fontSize: 17,
-    fontWeight: "900",
-    marginTop: 4,
-    marginBottom: 4,
+  goalTopRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
-  nextSub: {
+  goalValue: {
+    marginTop: 13,
+    color: Colors.ink,
+    fontSize: 23,
+    fontWeight: "900",
+  },
+  goalLabel: {
+    marginTop: 1,
     color: Colors.muted,
-    fontSize: 13,
+    fontSize: 10,
     fontWeight: "700",
   },
-  continueButton: {
-    // .home__continue-button
-    backgroundColor: Colors.primary,
-    borderRadius: 14,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-    flexShrink: 0,
-  },
-  continueButtonText: {
-    color: "white",
-    fontWeight: "900",
-    fontSize: 13,
-  },
-
-  // ── .home-insight-card (shared white card base) ────────────────────────────
-  insightCard: {
-    backgroundColor: "#ffffff",
-    borderRadius: 20,
-    padding: 16,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: "#f0dfc9",
-    shadowColor: "#4a2f19",
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.08,
-    shadowRadius: 22,
-    elevation: 4,
+  goalProgressTrack: {
+    height: 7,
+    marginTop: 13,
     overflow: "hidden",
+    borderRadius: 4,
+    backgroundColor: "#F2E8D8",
   },
-  insightHeading: {
+  goalProgressFill: {
+    height: "100%",
+    borderRadius: 4,
+    backgroundColor: Colors.primary,
+  },
+  goalHint: {
+    marginTop: 8,
+    color: Colors.primary,
+    fontSize: 10,
+    fontWeight: "900",
+  },
+  sectionHeading: {
+    marginTop: 31,
+    marginBottom: 13,
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "space-between",
+    gap: 12,
+  },
+  sectionHeadingText: {
+    flex: 1,
+  },
+  sectionEyebrow: {
+    color: Colors.primary,
+    fontSize: 9,
+    fontWeight: "900",
+    letterSpacing: 1.25,
+  },
+  sectionTitle: {
+    marginTop: 3,
+    color: Colors.ink,
+    fontSize: 22,
+    fontWeight: "900",
+    letterSpacing: -0.5,
+  },
+  sectionAction: {
+    color: Colors.primary,
+    fontSize: 11,
+    fontWeight: "900",
+  },
+  courseCard: {
+    padding: 20,
+    borderRadius: 27,
+    backgroundColor: Colors.surface,
+    borderWidth: 1,
+    borderColor: Colors.line,
+    ...Shadow.card,
+  },
+  courseHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
     gap: 12,
-    marginBottom: 4,
   },
-  insightTitle: {
-    color: "#24211f",
-    fontSize: 18,
+  courseNumber: {
+    color: Colors.ink,
+    fontSize: 34,
+    lineHeight: 38,
     fontWeight: "900",
-    lineHeight: 22,
-    marginTop: 3,
+    letterSpacing: -1,
   },
-  insightBadge: {
+  courseLabel: {
+    color: Colors.muted,
+    fontSize: 11,
+    fontWeight: "800",
+  },
+  courseCountPill: {
+    paddingHorizontal: 11,
+    paddingVertical: 8,
+    borderRadius: 14,
+    backgroundColor: "#FFF0D3",
+  },
+  courseCountText: {
+    color: Colors.primary,
+    fontSize: 10,
+    fontWeight: "900",
+  },
+  largeProgressTrack: {
+    height: 10,
+    marginTop: 19,
+    overflow: "hidden",
+    borderRadius: 5,
+    backgroundColor: "#F2E8D8",
+  },
+  largeProgressFill: {
+    height: "100%",
+    borderRadius: 5,
+    backgroundColor: Colors.primary,
+  },
+  topicDots: {
+    height: 37,
+    marginTop: 16,
+    flexDirection: "row",
+    gap: 7,
+  },
+  topicDotColumn: {
+    flex: 1,
+  },
+  topicDotTrack: {
+    flex: 1,
+    overflow: "hidden",
+    borderRadius: 5,
+    justifyContent: "flex-end",
+  },
+  topicDotFill: {
+    width: "100%",
+    minHeight: 3,
+    borderRadius: 5,
+  },
+  courseFooter: {
+    minHeight: 52,
+    marginTop: 17,
+    paddingTop: 15,
+    borderTopWidth: 1,
+    borderTopColor: Colors.line,
     flexDirection: "row",
     alignItems: "center",
-    gap: 4,
-    backgroundColor: "#fff1e5",
-    borderRadius: 10,
-    paddingHorizontal: 9,
-    paddingVertical: 7,
   },
-  insightBadgeText: {
-    color: "#ef7b37",
+  courseStat: {
+    flex: 1,
+  },
+  courseStatValue: {
+    color: Colors.ink,
+    fontSize: 16,
+    fontWeight: "900",
+  },
+  courseStatLabel: {
+    marginTop: 1,
+    color: Colors.muted,
+    fontSize: 9,
+    fontWeight: "800",
+  },
+  courseDivider: {
+    width: 1,
+    height: 31,
+    marginHorizontal: 13,
+    backgroundColor: Colors.line,
+  },
+  courseArrow: {
+    width: 35,
+    height: 35,
+    borderRadius: 18,
+    backgroundColor: "#FFF0D3",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  recommendationCard: {
+    padding: 17,
+    borderRadius: 25,
+    backgroundColor: "#2D2824",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 13,
+  },
+  recommendationIcon: {
+    width: 49,
+    height: 49,
+    borderRadius: 17,
+    backgroundColor: "#FFF0D3",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  recommendationBody: {
+    flex: 1,
+  },
+  recommendationEyebrow: {
+    color: "#FFD68C",
+    fontSize: 8,
+    fontWeight: "900",
+    letterSpacing: 0.9,
+  },
+  recommendationTitle: {
+    marginTop: 3,
+    color: "#FFFFFF",
+    fontSize: 16,
+    lineHeight: 20,
+    fontWeight: "900",
+  },
+  recommendationText: {
+    marginTop: 4,
+    color: "rgba(255,255,255,0.66)",
+    fontSize: 10,
+    lineHeight: 15,
+    fontWeight: "700",
+  },
+  recommendationArrow: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    backgroundColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  resultCard: {
+    marginTop: 13,
+    padding: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.surface,
+    borderWidth: 1,
+    borderColor: Colors.line,
+    ...Shadow.card,
+  },
+  resultHeading: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+  },
+  resultEyebrow: {
+    color: Colors.primary,
+    fontSize: 9,
+    fontWeight: "900",
+    letterSpacing: 1.1,
+  },
+  resultTitle: {
+    marginTop: 3,
+    color: Colors.ink,
+    fontSize: 17,
+    fontWeight: "900",
+  },
+  resultScorePill: {
+    minWidth: 58,
+    paddingHorizontal: 10,
+    paddingVertical: 9,
+    borderRadius: 16,
+    backgroundColor: "#FFF0D3",
+    alignItems: "center",
+  },
+  resultScore: {
+    color: Colors.primary,
+    fontSize: 17,
+    fontWeight: "900",
+  },
+  resultStats: {
+    marginTop: 19,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  resultStat: {
+    flex: 1,
+    alignItems: "center",
+  },
+  resultStatValue: {
+    color: Colors.ink,
+    fontSize: 16,
+    fontWeight: "900",
+  },
+  resultStatLabel: {
+    marginTop: 2,
+    color: Colors.muted,
+    fontSize: 8,
+    fontWeight: "800",
+    textAlign: "center",
+  },
+  resultDivider: {
+    width: 1,
+    height: 31,
+    backgroundColor: Colors.line,
+  },
+  resultAction: {
+    marginTop: 17,
+    paddingTop: 14,
+    borderTopWidth: 1,
+    borderTopColor: Colors.line,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  resultActionText: {
+    color: Colors.primary,
     fontSize: 11,
     fontWeight: "900",
   },
-
-  // ── .weekly-chart ──────────────────────────────────────────────────────────
-  weeklyChart: {
+  momentumCard: {
+    padding: 19,
+    borderRadius: 27,
+    backgroundColor: Colors.surface,
+    borderWidth: 1,
+    borderColor: Colors.line,
+    ...Shadow.card,
+  },
+  momentumHeader: {
     flexDirection: "row",
-    height: 110,
-    marginVertical: 16,
-    gap: 7,
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    gap: 12,
+  },
+  momentumValue: {
+    color: Colors.ink,
+    fontSize: 26,
+    fontWeight: "900",
+    letterSpacing: -0.6,
+  },
+  momentumLabel: {
+    marginTop: 1,
+    color: Colors.muted,
+    fontSize: 10,
+    fontWeight: "800",
+  },
+  momentumPill: {
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    borderRadius: 13,
+    backgroundColor: "#FFF0D3",
+  },
+  momentumPillText: {
+    color: Colors.primary,
+    fontSize: 9,
+    fontWeight: "900",
+  },
+  chart: {
+    height: 112,
+    marginTop: 20,
+    flexDirection: "row",
     alignItems: "flex-end",
+    gap: 8,
   },
-  chartDay: {
+  chartColumn: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-end",
-    gap: 6,
     height: "100%",
+    alignItems: "center",
+    gap: 7,
   },
-  chartBarWrap: {
-    // .weekly-chart__bar-wrap
-    width: "100%",
+  chartTrack: {
     flex: 1,
-    backgroundColor: "#f5eee7",
-    borderRadius: 999,
+    width: "100%",
     overflow: "hidden",
+    borderRadius: 8,
+    backgroundColor: "#F3ECE2",
     justifyContent: "flex-end",
   },
   chartBar: {
-    // .weekly-chart__bar
     width: "100%",
-    minHeight: 8,
-    backgroundColor: "#e7dcd2",
-    borderRadius: 999,
+    minHeight: 5,
+    borderRadius: 8,
+    backgroundColor: "#E2D6C7",
   },
   chartBarActive: {
-    backgroundColor: "#ef7b37",
+    backgroundColor: Colors.primary,
   },
-  chartDayLabel: {
-    color: "#8f8176",
-    fontSize: 10,
+  chartLabel: {
+    color: Colors.muted,
+    fontSize: 9,
     fontWeight: "900",
   },
-  insightFooter: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingTop: 12,
+  momentumFooter: {
+    marginTop: 16,
+    paddingTop: 14,
     borderTopWidth: 1,
-    borderTopColor: "#f0dfc9",
+    borderTopColor: Colors.line,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
-  insightFooterText: {
-    color: "#8f8176",
-    fontSize: 11,
+  momentumFooterText: {
+    color: Colors.muted,
+    fontSize: 10,
     fontWeight: "800",
   },
-  insightFooterBold: {
-    color: "#24211f",
-    fontWeight: "900",
-  },
-
-  // ── .home-insight-card--forecast (dark card) ───────────────────────────────
-  forecastCard: {
-    backgroundColor: "#2f2925",
-    borderRadius: 20,
-    padding: 16,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: "#2f2925",
-    overflow: "hidden",
-  },
-  forecastEyebrow: {
-    color: "#ffd783",
+  momentumFooterStrong: {
+    color: Colors.primary,
     fontSize: 11,
     fontWeight: "900",
-    letterSpacing: 1.5,
-    marginBottom: 3,
   },
-  forecastTitle: {
-    color: "#ffffff",
-    fontSize: 18,
-    fontWeight: "900",
-    lineHeight: 22,
-    marginTop: 3,
+  quickActions: {
+    marginTop: 14,
+    flexDirection: "row",
+    gap: 12,
   },
-  forecastIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: 11,
-    backgroundColor: "#ffd783",
+  quickAction: {
+    flex: 1,
+    minHeight: 132,
+    padding: 16,
+    borderRadius: 23,
+    backgroundColor: Colors.surface,
+    borderWidth: 1,
+    borderColor: Colors.line,
+  },
+  quickActionIcon: {
+    width: 40,
+    height: 40,
+    marginBottom: 13,
+    borderRadius: 14,
+    backgroundColor: "#FFF0D3",
     justifyContent: "center",
     alignItems: "center",
   },
-  forecastMessage: {
-    color: "rgba(255,255,255,0.78)",
-    fontSize: 12,
-    fontWeight: "700",
-    lineHeight: 18,
-    marginVertical: 14,
-  },
-  forecastChartWrap: {
-    backgroundColor: "rgba(255,255,255,0.08)",
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.1)",
-    borderRadius: 14,
-    padding: 12,
-  },
-  forecastChartLabels: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 4,
-  },
-  forecastChartLabel: {
-    color: "rgba(255,255,255,0.68)",
-    fontSize: 10,
-    fontWeight: "800",
-  },
-  forecastMilestones: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 6,
-  },
-  forecastMilestone: {
-    color: "rgba(255,255,255,0.56)",
-    fontSize: 8,
-    fontWeight: "800",
-  },
-  forecastSummary: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-    marginTop: 14,
-    gap: 12,
-  },
-  forecastSummaryLeft: {
-    flexDirection: "row",
-    alignItems: "baseline",
-    gap: 5,
-  },
-  forecastBigNum: {
-    color: "#ffd783",
-    fontSize: 26,
+  quickActionTitle: {
+    color: Colors.ink,
+    fontSize: 14,
     fontWeight: "900",
   },
-  forecastSummaryLabel: {
-    color: "rgba(255,255,255,0.68)",
+  quickActionSubtitle: {
+    marginTop: 3,
+    color: Colors.muted,
     fontSize: 10,
-    fontWeight: "800",
-    lineHeight: 14,
+    fontWeight: "700",
   },
-  forecastSummaryRight: {
-    color: "rgba(255,255,255,0.68)",
-    fontSize: 10,
+  targetNote: {
+    minHeight: 52,
+    marginTop: 14,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    backgroundColor: "#FFF0D3",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 9,
+  },
+  targetNoteText: {
+    flex: 1,
+    color: Colors.ink,
+    fontSize: 11,
     fontWeight: "800",
-    lineHeight: 14,
-    textAlign: "right",
-    maxWidth: 110,
   },
 });

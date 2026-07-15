@@ -1221,7 +1221,7 @@
         {
           "type": "multipleChoice",
           "eyebrow": "SEQUENCE CHECK · 3 OF 20",
-          "question": "The sequence ([[x_{n}]]) is defined by [[x_{1}]] = 3,   [[x_{n+1}]] = 2[[x_{n}]] + 1. What is [[x_{4}]]?",
+          "question": "The sequence [[(x_{n})]] is defined by [[x_{1}=3]], [[x_{n+1}=2x_{n}+1]]. What is [[x_{4}]]?",
           "prompt": "Apply the recurrence relation one term at a time.",
           "options": [
             "15",

@@ -10,6 +10,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import {
+  COMPLETED_LESSONS_KEY,
+  recordLessonActivity,
+} from "../../services/study-activity";
 import ConceptScreenView from "./ConceptScreen";
 import LessonSummaryScreenView from "./LessonSummaryScreen";
 import MilestoneScreenView from "./MilestoneScreen";
@@ -26,7 +30,6 @@ interface Props {
   onExit: () => void;
   onComplete?: (lesson: Lesson) => void | Promise<void>;
 }
-const COMPLETED_LESSONS_KEY = "completedLessonIds";
 
 export default function LessonPlayer(props: Props) {
   return <LessonPlayerSession key={props.lesson.id} {...props} />;
@@ -40,6 +43,8 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
   const [isComplete, setIsComplete] = useState(false);
 
   const completionRecorded = useRef(false);
+  const completionPromise = useRef<Promise<void> | null>(null);
+  const sessionStartedAt = useRef(Date.now());
 
   const progressPercent = useMemo(() => {
     if (lesson.screens.length === 0) {
@@ -71,9 +76,12 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
     setTotalAnswers(0);
     setIsComplete(false);
     completionRecorded.current = false;
+    completionPromise.current = null;
+    sessionStartedAt.current = Date.now();
   }
 
-  function leaveCompletedLesson() {
+  async function leaveCompletedLesson() {
+    await completionPromise.current;
     resetLessonSession();
     onExit();
   }
@@ -111,16 +119,32 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
         );
       }
 
-      await onComplete?.(lesson);
     } catch (error) {
       console.error("Could not save lesson completion:", error);
+    }
+
+    try {
+      await recordLessonActivity({
+        lessonId: lesson.id,
+        durationSeconds: (Date.now() - sessionStartedAt.current) / 1000,
+        correctAnswers,
+        totalAnswers,
+      });
+    } catch (error) {
+      console.error("Could not save lesson activity:", error);
+    }
+
+    try {
+      await onComplete?.(lesson);
+    } catch (error) {
+      console.error("Could not complete the lesson callback:", error);
     }
   }
 
   function finish() {
     if (!completionRecorded.current) {
       completionRecorded.current = true;
-      void saveLessonCompletion();
+      completionPromise.current = saveLessonCompletion();
     }
 
     setIsComplete(true);
@@ -142,7 +166,7 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
     return (
       <SafeAreaView style={shared.safeArea} edges={["top", "bottom"]}>
         <View style={shared.screen}>
-          <TopBar progressPercent={100} onExit={onExit} />
+          <TopBar progressPercent={100} onExit={() => void leaveCompletedLesson()} />
 
           <ScrollView
             style={shared.content}
@@ -168,7 +192,7 @@ function LessonPlayerSession({ lesson, onExit, onComplete }: Props) {
 
           <TouchableOpacity
             style={shared.primaryButton}
-            onPress={leaveCompletedLesson}
+            onPress={() => void leaveCompletedLesson()}
             activeOpacity={0.85}
           >
             <Text style={shared.primaryButtonText}>Back to roadmap</Text>

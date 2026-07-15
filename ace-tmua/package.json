@@ -50,7 +50,8 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "format:lesson-math": "node ./scripts/migrate-lesson-math-to-latex.js --write"
+    "format:lesson-math": "node ./scripts/migrate-lesson-math-to-latex.js --write",
+    "validate:practice": "node ./scripts/validate-practice-bank.js"
   },
   "private": true
 }
