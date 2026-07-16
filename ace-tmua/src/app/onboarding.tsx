@@ -28,6 +28,7 @@ export default function OnboardingScreen() {
     continueAsGuest,
     finishOnboarding,
     isSignedIn,
+    presentPremiumPaywall,
     profile,
     updateProfile,
   } = useAccount();
@@ -83,6 +84,24 @@ export default function OnboardingScreen() {
   const finish = async () => {
     setSaving(true);
     try {
+      if (selectedPlan === "premium") {
+        try {
+          const result = await presentPremiumPaywall();
+          if (result === "not-presented") {
+            Alert.alert(
+              "Premium checkout is not ready",
+              "You can continue for free and open Premium again from your Profile when the offering is available.",
+            );
+          }
+        } catch (error) {
+          Alert.alert(
+            "Premium checkout unavailable",
+            error instanceof Error
+              ? error.message
+              : "You can continue for free and upgrade later from Profile.",
+          );
+        }
+      }
       await finishOnboarding(selectedPlan === "premium");
       router.replace("/");
     } finally {
@@ -313,7 +332,7 @@ export default function OnboardingScreen() {
                 <View style={styles.premiumPromise}>
                   <Ionicons name="shield-checkmark-outline" size={17} color="#FFFFFF" />
                   <Text style={styles.premiumPromiseText}>
-                    Pricing and checkout will be connected before launch. No charge today.
+                    Secure Apple or Google checkout. Cancel or restore through your store account.
                   </Text>
                 </View>
               </Pressable>
@@ -344,7 +363,7 @@ export default function OnboardingScreen() {
                 onPress={() => void finish()}
               />
               <Text style={styles.planFootnote}>
-                Choosing Premium records your preference only. RevenueCat will handle secure App Store billing when it is added.
+                Tap Choose Premium to view the available plans before purchasing. You can continue free if you change your mind.
               </Text>
             </View>
           ) : null}

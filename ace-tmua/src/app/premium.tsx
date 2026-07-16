@@ -1,6 +1,15 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import {
+  ActivityIndicator,
+  Alert,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Colors, Shadow } from "@/constants/theme";
@@ -8,16 +17,65 @@ import { useAccount } from "@/contexts/AccountContext";
 
 export default function PremiumScreen() {
   const router = useRouter();
-  const { isPremium, updateProfile } = useAccount();
+  const {
+    isPremium,
+    isPurchasesLoading,
+    presentPremiumPaywall,
+    purchasesError,
+    restorePremium,
+    updateProfile,
+  } = useAccount();
+  const [action, setAction] = useState<"purchase" | "restore" | null>(null);
 
-  const registerInterest = async () => {
-    await updateProfile({ premiumInterest: true });
-    Alert.alert(
-      "Premium preference saved",
-      "RevenueCat checkout will replace this message before launch. You have not been charged.",
-      [{ text: "Continue", onPress: () => router.back() }],
-    );
+  const purchasePremium = async () => {
+    setAction("purchase");
+    try {
+      await updateProfile({ premiumInterest: true });
+      const result = await presentPremiumPaywall();
+
+      if (result === "purchased" || result === "restored") {
+        Alert.alert(
+          "Premium unlocked",
+          "Your complete lesson and practice pathway is now available.",
+          [{ text: "Start studying", onPress: () => router.back() }],
+        );
+      } else if (result === "not-presented") {
+        Alert.alert(
+          "Paywall not available",
+          "Make sure the RevenueCat current offering has a published paywall and grants the premium entitlement.",
+        );
+      }
+    } catch (error) {
+      Alert.alert(
+        "Checkout unavailable",
+        error instanceof Error ? error.message : "Please try again shortly.",
+      );
+    } finally {
+      setAction(null);
+    }
   };
+
+  const restorePurchase = async () => {
+    setAction("restore");
+    try {
+      const restored = await restorePremium();
+      Alert.alert(
+        restored ? "Premium restored" : "No purchase found",
+        restored
+          ? "Your Premium access is active again."
+          : "We could not find an active Premium purchase for this store account.",
+      );
+    } catch (error) {
+      Alert.alert(
+        "Could not restore purchases",
+        error instanceof Error ? error.message : "Please try again shortly.",
+      );
+    } finally {
+      setAction(null);
+    }
+  };
+
+  const checkoutBusy = action === "purchase" || isPurchasesLoading;
 
   return (
     <SafeAreaView style={styles.safeArea} edges={["top", "bottom"]}>
@@ -49,22 +107,52 @@ export default function PremiumScreen() {
         <View style={styles.trustCard}>
           <Ionicons name="shield-checkmark-outline" size={22} color={Colors.primary} />
           <View style={styles.trustBody}>
-            <Text style={styles.trustTitle}>Secure App Store billing comes next</Text>
+            <Text style={styles.trustTitle}>Secure store checkout</Text>
             <Text style={styles.trustText}>
-              RevenueCat is not connected yet, so this build records interest but never grants access or takes payment.
+              Purchase securely through Apple or Google. Your access follows your store account and can be restored at any time.
             </Text>
           </View>
         </View>
 
+        {purchasesError ? (
+          <View style={styles.errorCard}>
+            <Ionicons name="alert-circle-outline" size={18} color="#9F3C26" />
+            <Text style={styles.errorText}>{purchasesError}</Text>
+          </View>
+        ) : null}
+
         <Pressable
-          disabled={isPremium}
-          onPress={() => void registerInterest()}
-          style={({ pressed }) => [styles.primaryButton, pressed && styles.buttonPressed]}
+          disabled={isPremium || checkoutBusy}
+          onPress={() => void purchasePremium()}
+          style={({ pressed }) => [
+            styles.primaryButton,
+            (isPremium || checkoutBusy) && styles.buttonDisabled,
+            pressed && styles.buttonPressed,
+          ]}
         >
           <Text style={styles.primaryButtonText}>
-            {isPremium ? "Premium is active" : "I want ACE TMUA Premium"}
+            {isPremium
+              ? "Premium is active"
+              : isPurchasesLoading
+                ? "Preparing secure checkout"
+                : "See Premium plans"}
           </Text>
-          <Ionicons name={isPremium ? "checkmark" : "arrow-forward"} size={20} color="#7A3E00" />
+          {checkoutBusy ? (
+            <ActivityIndicator color="#7A3E00" size="small" />
+          ) : (
+            <Ionicons name={isPremium ? "checkmark" : "arrow-forward"} size={20} color="#7A3E00" />
+          )}
+        </Pressable>
+        <Pressable
+          disabled={action !== null || isPurchasesLoading}
+          onPress={() => void restorePurchase()}
+          style={styles.restoreButton}
+        >
+          {action === "restore" ? (
+            <ActivityIndicator color="#FFFFFF" size="small" />
+          ) : (
+            <Text style={styles.restoreButtonText}>Restore purchases</Text>
+          )}
         </Pressable>
         {!isPremium ? (
           <Pressable onPress={() => router.back()} style={styles.freeButton}>
@@ -119,9 +207,14 @@ const styles = StyleSheet.create({
   trustBody: { flex: 1 },
   trustTitle: { color: Colors.ink, fontSize: 12, fontWeight: "900" },
   trustText: { marginTop: 3, color: Colors.muted, fontSize: 9, lineHeight: 14, fontWeight: "700" },
+  errorCard: { marginTop: 12, padding: 13, borderRadius: 16, backgroundColor: "#FFE9E2", flexDirection: "row", alignItems: "center", gap: 9 },
+  errorText: { flex: 1, color: "#7E3021", fontSize: 10, lineHeight: 15, fontWeight: "800" },
   primaryButton: { minHeight: 57, marginTop: 19, paddingHorizontal: 20, borderRadius: 19, backgroundColor: "#FFD98F", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8, ...Shadow.streak },
   primaryButtonText: { color: "#7A3E00", fontSize: 14, fontWeight: "900" },
+  restoreButton: { minHeight: 42, justifyContent: "center", alignItems: "center" },
+  restoreButtonText: { color: "rgba(255,255,255,0.78)", fontSize: 11, fontWeight: "900", textDecorationLine: "underline" },
   freeButton: { minHeight: 48, justifyContent: "center", alignItems: "center" },
   freeButtonText: { color: "rgba(255,255,255,0.72)", fontSize: 11, fontWeight: "900" },
+  buttonDisabled: { opacity: 0.72 },
   buttonPressed: { transform: [{ scale: 0.985 }] },
 });
