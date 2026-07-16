@@ -419,8 +419,19 @@ function renderHtmlWithFractions(html: string, style: any): ReactNode {
 export function PlainOrHtml({ html, style }: Props) {
   const { width } = useWindowDimensions();
   const flattenedStyle = StyleSheet.flatten(style) ?? {};
-  const hasLatex = /\[\[[\s\S]*?\]\]/.test(html);
 
+  // Layout styles belong on the MathJax container, not on every
+  // separate text fragment surrounding an equation.
+  const {
+    flex: containerFlex,
+    marginTop: containerMarginTop,
+    marginBottom: containerMarginBottom,
+    marginLeft: containerMarginLeft,
+    marginRight: containerMarginRight,
+    ...mathTextStyle
+  } = flattenedStyle;
+
+  const hasLatex = /\[\[[\s\S]*?\]\]/.test(html);
   const preparedHtml = keepPowersTogether(html);
 
   if (hasLatex) {
@@ -438,16 +449,16 @@ export function PlainOrHtml({ html, style }: Props) {
         fontSize={fontSize}
         color={color}
         fontCache
-        textStyle={flattenedStyle}
+        textStyle={mathTextStyle}
         style={{
           flex:
-            typeof flattenedStyle.flex === "number"
-              ? flattenedStyle.flex
+            typeof containerFlex === "number"
+              ? containerFlex
               : undefined,
-          marginTop: flattenedStyle.marginTop,
-          marginBottom: flattenedStyle.marginBottom,
-          marginLeft: flattenedStyle.marginLeft,
-          marginRight: flattenedStyle.marginRight,
+          marginTop: containerMarginTop,
+          marginBottom: containerMarginBottom,
+          marginLeft: containerMarginLeft,
+          marginRight: containerMarginRight,
         }}
       >
         {toMathJaxMarkup(html, usesBoldWeight(flattenedStyle.fontWeight))}

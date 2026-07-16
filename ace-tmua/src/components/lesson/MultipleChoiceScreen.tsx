@@ -112,7 +112,13 @@ export default function MultipleChoiceScreenView({ screen, progressPercent, onNe
                 {/* Option text — may contain HTML */}
                 <PlainOrHtml
                   html={option}
-                  style={{ color: C.ink, fontSize: 15, fontWeight: '800', flex: 1 }}
+                  style={{
+                    flex: 1,
+                    color: C.ink,
+                    fontSize: 15,
+                    fontWeight: '800',
+                    lineHeight: 21,
+                  }}
                 />
               </TouchableOpacity>
             ))}
