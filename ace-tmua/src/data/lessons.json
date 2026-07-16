@@ -2220,230 +2220,183 @@
         {
           "type": "concept",
           "eyebrow": "LINES AND GRADIENTS · 1 OF 14",
-          "title": "Gradient is change in y divided by change in x",
+          "title": "A gradient and one point determine a line",
           "diagram": {
             "kind": "line-gradient",
-            "caption": "The gradient compares the vertical change with the horizontal change."
+            "caption": "Gradient records the vertical change for each unit of horizontal change."
           },
-          "body": "For distinct points [[A=(x_{1},y_{1})]] and [[B=(x_{2},y_{2})]],<br><br>[[m=\\frac{y_{2}-y_{1}}{x_{2}-x_{1}}]].<br><br>A positive gradient rises from left to right; a negative gradient falls. A vertical line has undefined gradient.",
-          "keyPoint": "Subtract coordinates in the same order in the numerator and denominator.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "FINDING A GRADIENT · 2 OF 14",
-          "title": "Use two points consistently",
-          "steps": [
-            {
-              "title": "Choose an order",
-              "body": "Find the gradient through [[A=(-1,2)]] and [[B=(5,11)]]. Use B minus A."
-            },
-            {
-              "title": "Find the vertical change",
-              "body": "[[11-2=9]]."
-            },
-            {
-              "title": "Find the horizontal change",
-              "body": "[[5-(-1)=6]]."
-            },
-            {
-              "title": "Form and simplify the ratio",
-              "body": "[[m=\\frac96=\\frac32]]."
-            }
-          ],
+          "body": "For distinct points [[A=(x_{1},y_{1})]] and [[B=(x_{2},y_{2})]],<br><br>[[m=\\frac{y_{2}-y_{1}}{x_{2}-x_{1}}]].<br><br>If a point [[(x_{1},y_{1})]] and gradient m are known, use [[y-y_{1}=m(x-x_{1})]]. A vertical line has equation [[x=k]] and undefined gradient.",
+          "keyPoint": "Keep the coordinate subtraction order consistent in the numerator and denominator.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "GRADIENT CHECK · 3 OF 14",
-          "question": "Find the gradient of the line through [[(-2,5)]] and [[(4,-7)]].",
-          "options": ["[[-3]]", "[[-2]]", "[[2]]", "[[3]]"],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[m=\\frac{-7-5}{4-(-2)}=\\frac{-12}{6}=-2]].",
-          "incorrectFeedback": "Use the same subtraction order for both coordinates: second y minus first y over second x minus first x."
+          "eyebrow": "FOUNDATION CHECK · 2 OF 14",
+          "question": "The line through [[A=(-2,5)]] and [[B=(k,-7)]] has gradient -3. Find k.",
+          "options": [
+            "[[-6]]",
+            "[[-2]]",
+            "[[2]]",
+            "[[6]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[\\frac{-7-5}{k-(-2)}=-3]], so [[\\frac{-12}{k+2}=-3]]. Hence [[k+2=4]] and [[k=2]].",
+          "incorrectFeedback": "Form the gradient using the two points, then solve the resulting equation for k."
         },
         {
           "type": "concept",
-          "eyebrow": "EQUATIONS OF LINES · 4 OF 14",
+          "eyebrow": "EQUATIONS IN DIFFERENT FORMS · 3 OF 14",
           "title": "Choose the form that matches the information",
-          "body": "If you know a point [[(x_{1},y_{1})]] and gradient m, use [[y-y_{1}=m(x-x_{1})]].<br><br>In [[y=mx+c]], m is the gradient and c the y-intercept. For [[ax+by+c=0]] with [[b\\ne0]], rearranging gives gradient [[-\\frac{a}{b}]]. A vertical line has equation [[x=k]].",
-          "keyPoint": "Point-gradient form avoids finding the intercept before you need it.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 5 OF 14",
-          "title": "Find the line through two points",
-          "question": "Find the equation of the line through [[(2,-1)]] and [[(5,8)]].",
-          "diagram": {
-            "kind": "line-gradient",
-            "caption": "Two distinct points determine one straight line."
-          },
-          "options": [
-            "[[y=3x-7]]",
-            "[[y=3x+5]]",
-            "[[y=-3x+5]]",
-            "[[y=\\frac13x-\\frac53]]"
-          ],
-          "answerIndex": 0,
-          "steps": [
-            {
-              "title": "Find the gradient",
-              "body": "[[m=\\frac{8-(-1)}{5-2}=\\frac93=3]]."
-            },
-            {
-              "title": "Use either point",
-              "body": "Using [[(2,-1)]], point-gradient form gives [[y+1=3(x-2)]]."
-            },
-            {
-              "title": "Expand",
-              "body": "[[y+1=3x-6]]."
-            },
-            {
-              "title": "Rearrange",
-              "body": "[[y=3x-7]]."
-            }
-          ],
-          "finalAnswer": "The line is [[y=3x-7]], so the correct option is A.",
+          "body": "Point-gradient form [[y-y_{1}=m(x-x_{1})]] is usually quickest when a point and gradient are known.<br><br>In [[y=mx+c]], m is the gradient and c is the y-intercept. For [[ax+by+c=0]] with [[b\\ne0]], the gradient is [[-\\frac{a}{b}]].<br><br>Substitute a known point into any proposed equation to check it.",
+          "keyPoint": "Do not rearrange into [[y=mx+c]] unless it actually makes the next step easier.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "GENERAL-FORM CHECK · 6 OF 14",
-          "question": "What are the gradient and y-intercept of [[2x+3y-12=0]]?",
-          "options": [
-            "Gradient [[\\frac23]], intercept 4",
-            "Gradient [[-\\frac23]], intercept 4",
-            "Gradient [[-\\frac32]], intercept 6",
-            "Gradient 2, intercept -12"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. Rearranging gives [[y=-\\frac23x+4]].",
-          "incorrectFeedback": "Make y the subject, then read the coefficient of x and the constant term."
-        },
-        {
-          "type": "milestone",
-          "eyebrow": "LINE EQUATIONS COMPLETE · 7 OF 14",
-          "title": "You can move between points, gradients, and equations.",
-          "body": "You have calculated gradients and written lines in point-gradient, intercept, and general form.<br><br>Next, we use gradient relationships for parallel lines, perpendicular lines, and coordinate proofs.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "concept",
-          "eyebrow": "PARALLEL AND PERPENDICULAR · 8 OF 14",
-          "title": "Parallel gradients match; perpendicular gradients multiply to -1",
+          "eyebrow": "MIXED LINE CONSTRUCTION · 4 OF 14",
+          "question": "A line passes through the intersection of [[x+y=5]] and [[2x-y=4]], and is perpendicular to [[3x+4y=7]]. Which equation represents this line?",
           "diagram": {
             "kind": "parallel-perpendicular",
-            "caption": "Parallel lines share a gradient; non-vertical perpendicular gradients are negative reciprocals."
+            "caption": "First locate the intersection, then determine the perpendicular gradient."
           },
-          "body": "Parallel non-vertical lines have equal gradients. For perpendicular non-vertical lines with gradients [[m_{1}]] and [[m_{2}]], [[m_{1}m_{2}=-1]].<br><br>A horizontal line is perpendicular to a vertical line.",
-          "keyPoint": "The negative reciprocal of [[\\frac{p}{q}]] is [[-\\frac{q}{p}]], not merely [[-\\frac{p}{q}]].",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "PERPENDICULAR LINE · 9 OF 14",
-          "title": "Find the perpendicular through [[(4,-1)]] to [[3x-2y+5=0]]",
-          "steps": [
-            {
-              "title": "Find the original gradient",
-              "body": "[[3x-2y+5=0]] rearranges to [[y=\\frac32x+\\frac52]], so its gradient is [[\\frac32]]."
-            },
-            {
-              "title": "Take the negative reciprocal",
-              "body": "The perpendicular gradient is [[-\\frac23]]."
-            },
-            {
-              "title": "Use the given point",
-              "body": "[[y+1=-\\frac23(x-4)]]."
-            },
-            {
-              "title": "Rearrange if required",
-              "body": "[[y=-\\frac23x+\\frac53]], equivalently [[2x+3y-5=0]]."
-            }
-          ],
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "PARALLEL-LINE CHECK · 10 OF 14",
-          "question": "Which line passes through [[(1,3)]] and is parallel to [[4x+2y=7]]?",
           "options": [
-            "[[2x+y-5=0]]",
-            "[[x-2y+5=0]]",
-            "[[2x-y+1=0]]",
-            "[[4x+2y-7=0]]"
+            "[[4x-3y-6=0]]",
+            "[[3x+4y-17=0]]",
+            "[[4x+3y-18=0]]",
+            "[[3x-4y-1=0]]"
           ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. The given line has gradient -2. Through [[(1,3)]], [[y-3=-2(x-1)]], so [[2x+y-5=0]].",
-          "incorrectFeedback": "A parallel line needs the same gradient but a different intercept. Use gradient -2 through the given point."
+          "correctFeedback": "Correct. The first two lines intersect at [[(3,2)]]. Since [[3x+4y=7]] has gradient [[-\\frac34]], the perpendicular gradient is [[\\frac43]]. This gives [[4x-3y-6=0]].",
+          "incorrectFeedback": "Find the intersection of the first two lines, calculate the negative-reciprocal gradient, then form the line through the intersection."
         },
         {
           "type": "concept",
-          "eyebrow": "MIDPOINTS AND DISTANCES · 11 OF 14",
-          "title": "Coordinate geometry turns shape facts into algebra",
-          "body": "The midpoint of [[(x_{1},y_{1})]] and [[(x_{2},y_{2})]] is<br>[[\\left(\\frac{x_{1}+x_{2}}2,\\frac{y_{1}+y_{2}}2\\right)]].<br><br>The distance between them is [[\\sqrt{(x_{2}-x_{1})^{2}+(y_{2}-y_{1})^{2}}]]. Equal lengths and gradient products can prove isosceles, parallelogram, or right-angle properties.",
-          "keyPoint": "A perpendicular bisector passes through a segment's midpoint and has gradient equal to the segment's negative reciprocal.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 12 OF 14",
-          "title": "Find a perpendicular bisector",
-          "question": "Find the perpendicular bisector of the segment joining [[A=(-1,2)]] and [[B=(5,4)]].",
-          "options": [
-            "[[y=-3x+9]]",
-            "[[y=3x-3]]",
-            "[[y=\\frac13x+\\frac73]]",
-            "[[y=-\\frac13x+\\frac{11}{3}]]"
-          ],
-          "answerIndex": 0,
-          "steps": [
-            {
-              "title": "Find the midpoint",
-              "body": "[[M=\\left(\\frac{-1+5}{2},\\frac{2+4}{2}\\right)=(2,3)]]."
-            },
-            {
-              "title": "Find the segment gradient",
-              "body": "[[m_{AB}=\\frac{4-2}{5-(-1)}=\\frac13]]."
-            },
-            {
-              "title": "Find the perpendicular gradient",
-              "body": "The negative reciprocal of [[\\frac13]] is -3."
-            },
-            {
-              "title": "Use the midpoint",
-              "body": "[[y-3=-3(x-2)]], so [[y=-3x+9]]."
-            }
-          ],
-          "finalAnswer": "The perpendicular bisector is [[y=-3x+9]], so the correct option is A.",
+          "eyebrow": "PARALLEL AND PERPENDICULAR · 5 OF 14",
+          "title": "Compare gradients or compare coefficients",
+          "diagram": {
+            "kind": "parallel-perpendicular",
+            "caption": "Parallel lines keep the same direction; perpendicular lines meet at a right angle."
+          },
+          "body": "Parallel non-vertical lines have equal gradients. Perpendicular non-vertical gradients satisfy [[m_{1}m_{2}=-1]].<br><br>For lines [[a_{1}x+b_{1}y+c_{1}=0]] and [[a_{2}x+b_{2}y+c_{2}=0]], they are parallel when [[a_{1}b_{2}=a_{2}b_{1}]], and perpendicular when [[a_{1}a_{2}+b_{1}b_{2}=0]].<br><br>Distinct vertical lines are parallel, while a vertical line is perpendicular to a horizontal line.",
+          "keyPoint": "Coefficient tests avoid rearranging both equations and also handle many parameter questions quickly.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "DISTANCE CHECK · 13 OF 14",
-          "question": "Find the distance between [[(-2,1)]] and [[(4,9)]].",
-          "options": ["[[8]]", "[[10]]", "[[12]]", "[[14]]"],
+          "eyebrow": "PARAMETER CHECK · 6 OF 14",
+          "question": "For what value of k are the lines [[(k-1)x+3y=5]] and [[2x+(k+2)y=7]] perpendicular?",
+          "options": [
+            "[[-2]]",
+            "[[-\\frac45]]",
+            "[[\\frac45]]",
+            "[[2]]"
+          ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. The changes are 6 and 8, so the distance is [[\\sqrt{6^{2}+8^{2}}=10]].",
-          "incorrectFeedback": "Use Pythagoras on the horizontal and vertical coordinate changes."
+          "correctFeedback": "Correct. Perpendicularity gives [[2(k-1)+3(k+2)=0]]. Therefore [[5k+4=0]], so [[k=-\\frac45]].",
+          "incorrectFeedback": "For lines in general form, use [[a_{1}a_{2}+b_{1}b_{2}=0]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "LINES ENCLOSING A REGION · 7 OF 14",
+          "title": "Turn line information into a triangle",
+          "body": "When two lines and the x-axis enclose a region, find:<br><br>1. each line's x-intercept;<br>2. the intersection of the two lines;<br>3. the base length along the x-axis and the perpendicular height.<br><br>Then use [[\\text{area}=\\frac12\\times\\text{base}\\times\\text{height}]].",
+          "keyPoint": "The base is a distance, so subtract the x-intercepts in the order that gives a positive length.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ENCLOSED-AREA CHALLENGE · 8 OF 14",
+          "question": "The line l has equation [[y=8-2x]]. A second line is perpendicular to l and passes through [[(-4,0)]]. What is the area enclosed by the two lines and the x-axis?",
+          "options": [
+            "[[\\frac{32}{5}]]",
+            "[[\\frac{48}{5}]]",
+            "[[\\frac{64}{5}]]",
+            "[[16]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The second line is [[y=\\frac12(x+4)]]. The x-intercepts are -4 and 4, while the lines intersect at height [[\\frac{16}{5}]]. Therefore the area is [[\\frac12\\times8\\times\\frac{16}{5}=\\frac{64}{5}]].",
+          "incorrectFeedback": "Find the perpendicular line, both x-intercepts and the height of the lines' intersection. These form the base and height of a triangle."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "PARALLEL-PARAMETER CHALLENGE · 9 OF 14",
+          "question": "For what value of k are the distinct lines<br><br>[[(k+1)x+(k-2)y=5]]<br><br>and<br><br>[[3x-y=7]]<br><br>parallel?",
+          "options": [
+            "[[-\\frac54]]",
+            "[[\\frac34]]",
+            "[[\\frac54]]",
+            "[[\\frac74]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. For parallel lines in general form, [[a_{1}b_{2}=a_{2}b_{1}]]. Therefore [[(k+1)(-1)=3(k-2)]]. This gives [[-k-1=3k-6]], so [[4k=5]] and [[k=\\frac54]].",
+          "incorrectFeedback": "Use the parallel-lines coefficient condition [[a_{1}b_{2}=a_{2}b_{1}]], then solve the resulting equation for k."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMPOUND LINE PROBLEMS · 10 OF 14",
+          "title": "Connect equations, intercepts, lengths and areas",
+          "body": "A harder straight-line problem may require several stages:<br><br>1. form or rearrange a line equation;<br>2. find an intersection or axis intercept;<br>3. use perpendicularity, distance or area.<br><br>Keep exact fractions and surds until the final answer.",
+          "keyPoint": "Sketching the lines can reveal which coordinates represent the required base, height or distance.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INTERCEPT-AREA CHALLENGE · 11 OF 14",
+          "question": "The line [[3x+4y=24]] cuts the x-axis at P and the y-axis at Q. A line through P, perpendicular to [[3x+4y=24]], cuts the y-axis at R. What is the area of triangle PQR?",
+          "options": [
+            "[[\\frac{100}{3}]]",
+            "[[\\frac{160}{3}]]",
+            "[[\\frac{200}{3}]]",
+            "[[\\frac{250}{3}]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[P=(8,0)]] and [[Q=(0,6)]]. The perpendicular through P has gradient [[\\frac43]], so [[R=\\left(0,-\\frac{32}{3}\\right)]]. Hence [[QR=\\frac{50}{3}]] and the area is [[\\frac12\\times\\frac{50}{3}\\times8=\\frac{200}{3}]].",
+          "incorrectFeedback": "Find P and Q first. Then construct the perpendicular line through P, find R, and use QR as the triangle's vertical base."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INTERCEPT-DISTANCE CHALLENGE · 12 OF 14",
+          "question": "A line passes through [[(2,5)]] and is perpendicular to [[3x-y=7]]. It cuts the coordinate axes at P and Q. What is the length PQ?",
+          "options": [
+            "[[\\frac{17\\sqrt{10}}{3}]]",
+            "[[\\frac{17\\sqrt5}{3}]]",
+            "[[17\\sqrt{10}]]",
+            "[[\\frac{289}{3}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The required gradient is [[-\\frac13]], so the line is [[y=-\\frac13x+\\frac{17}{3}]]. Its intercepts are [[(17,0)]] and [[\\left(0,\\frac{17}{3}\\right)]], giving [[PQ=\\frac{17\\sqrt{10}}{3}]].",
+          "incorrectFeedback": "Find the perpendicular gradient and line equation, determine both intercepts, then apply the distance formula."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "PARAMETER-REASONING CHALLENGE · 13 OF 14",
+          "question": "For real p, consider the lines<br><br>[[(p+1)x+(p-1)y=4]]<br><br>and<br><br>[[(p-1)x-(p+1)y=7]].<br><br>Which statement is true?",
+          "options": [
+            "The lines are parallel for every real p",
+            "The lines are perpendicular only when [[p=1]]",
+            "The lines are perpendicular only when [[p=-1]]",
+            "The lines are perpendicular for every real p"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The perpendicular coefficient test gives [[(p+1)(p-1)+(p-1)(-(p+1))=0]] for every real p.",
+          "incorrectFeedback": "Use [[a_{1}a_{2}+b_{1}b_{2}=0]] for perpendicular lines in general form, then simplify before solving for p."
         },
         {
           "type": "lessonSummary",
           "eyebrow": "LESSON SUMMARY · 14 OF 14",
           "title": "Lines and Gradients: key points",
           "keyPoints": [
-            "Gradient is [[\\frac{\\text{change in }y}{\\text{change in }x}]].",
-            "Use [[y-y_{1}=m(x-x_{1})]] when a point and gradient are known.",
-            "Parallel lines have equal gradients; perpendicular non-vertical gradients multiply to -1.",
-            "Midpoint and distance formulae support exact coordinate proofs.",
-            "A perpendicular bisector combines a midpoint with a negative-reciprocal gradient."
+            "Use [[m=\\frac{y_{2}-y_{1}}{x_{2}-x_{1}}]] and [[y-y_{1}=m(x-x_{1})]] as the core line tools.",
+            "Read the gradient of [[ax+by+c=0]] as [[-\\frac{a}{b}]] when [[b\\ne0]].",
+            "Parallel gradients match; perpendicular gradients multiply to -1.",
+            "Line intersections and intercepts can turn coordinate information into areas and distances.",
+            "Parameters, intercepts, distances and areas can be combined into multi-stage straight-line problems."
           ],
           "reviewItems": [
-            "Keep coordinate subtraction orders consistent.",
-            "Rearrange general-form equations before reading their gradients.",
-            "Treat vertical lines separately.",
-            "Check a proposed line by substituting the given point.",
+            "Treat vertical and horizontal lines separately.",
+            "Check equations by substituting a known point.",
+            "Use coefficient tests for parameter questions.",
+            "Sketch intercept and enclosed-region problems before calculating lengths or areas.",
             "Next lesson: Circle Equations and Intersections."
           ],
           "buttonText": "Finish lesson"
@@ -2559,7 +2512,12 @@
           "type": "multipleChoice",
           "eyebrow": "POINT CHECK · 8 OF 14",
           "question": "Relative to the circle with centre [[(1,-2)]] and radius 5, where is the point [[(4,2)]]?",
-          "options": ["Inside", "On the circle", "Outside", "At the centre"],
+          "options": [
+            "Inside",
+            "On the circle",
+            "Outside",
+            "At the centre"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[(4-1)^{2}+(2-(-2))^{2}=3^{2}+4^{2}=25=5^{2}]].",
           "incorrectFeedback": "Compare the squared distance from [[(1,-2)]] with [[5^{2}]]."
@@ -2775,7 +2733,12 @@
             "kind": "circle-chord-bisector",
             "caption": "The centre is where the chord's perpendicular bisector meets y = x."
           },
-          "options": ["[[(4,4)]]", "[[(5,5)]]", "[[(6,6)]]", "[[(7,7)]]"],
+          "options": [
+            "[[(4,4)]]",
+            "[[(5,5)]]",
+            "[[(6,6)]]",
+            "[[(7,7)]]"
+          ],
           "answerIndex": 3,
           "steps": [
             {
@@ -2802,7 +2765,12 @@
           "type": "multipleChoice",
           "eyebrow": "CHORD CHECK · 6 OF 14",
           "question": "A circle has radius 5 and a chord of length 8. What is the perpendicular distance from the centre to the chord?",
-          "options": ["[[2]]", "[[3]]", "[[4]]", "[[\\sqrt{41}]]"],
+          "options": [
+            "[[2]]",
+            "[[3]]",
+            "[[4]]",
+            "[[\\sqrt{41}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. The perpendicular bisects the chord, giving a right triangle with hypotenuse 5 and one leg 4. The other leg is [[\\sqrt{25-16}=3]].",
           "incorrectFeedback": "Halve the chord first, then use Pythagoras with the radius as the hypotenuse."
@@ -2850,7 +2818,12 @@
           "type": "multipleChoice",
           "eyebrow": "CYCLIC-ANGLE CHECK · 10 OF 14",
           "question": "One angle of a cyclic quadrilateral is 117°. What is the opposite angle?",
-          "options": ["[[54^{\\circ}]]", "[[63^{\\circ}]]", "[[117^{\\circ}]]", "[[243^{\\circ}]]"],
+          "options": [
+            "[[54^{\\circ}]]",
+            "[[63^{\\circ}]]",
+            "[[117^{\\circ}]]",
+            "[[243^{\\circ}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Opposite angles in a cyclic quadrilateral sum to 180°, so [[180^{\\circ}-117^{\\circ}=63^{\\circ}]].",
           "incorrectFeedback": "Use the supplementary opposite-angle property of a cyclic quadrilateral."
@@ -2868,7 +2841,12 @@
           "eyebrow": "WORKED EXAMPLE · 12 OF 14",
           "title": "Use a coordinate diameter",
           "question": "A circle has diameter endpoints [[A=(-3,1)]] and [[B=(5,1)]]. Point C lies elsewhere on the circle, and [[\\angle CAB=32^{\\circ}]]. Find [[\\angle ABC]].",
-          "options": ["[[32^{\\circ}]]", "[[48^{\\circ}]]", "[[58^{\\circ}]]", "[[90^{\\circ}]]"],
+          "options": [
+            "[[32^{\\circ}]]",
+            "[[48^{\\circ}]]",
+            "[[58^{\\circ}]]",
+            "[[90^{\\circ}]]"
+          ],
           "answerIndex": 2,
           "steps": [
             {
@@ -2895,7 +2873,12 @@
           "type": "multipleChoice",
           "eyebrow": "ALTERNATE-SEGMENT CHECK · 13 OF 14",
           "question": "The angle between a tangent and a chord is 47°. What angle does that chord subtend in the alternate segment?",
-          "options": ["[[43^{\\circ}]]", "[[47^{\\circ}]]", "[[94^{\\circ}]]", "[[133^{\\circ}]]"],
+          "options": [
+            "[[43^{\\circ}]]",
+            "[[47^{\\circ}]]",
+            "[[94^{\\circ}]]",
+            "[[133^{\\circ}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. The alternate-segment theorem makes the two angles equal.",
           "incorrectFeedback": "The angle between the tangent and chord equals the angle subtended by the chord in the alternate segment."
@@ -2935,7 +2918,12 @@
             "kind": "line-gradient",
             "caption": "Use a consistent coordinate subtraction order."
           },
-          "options": ["[[-\\frac32]]", "[[-\\frac23]]", "[[\\frac23]]", "[[\\frac32]]"],
+          "options": [
+            "[[-\\frac32]]",
+            "[[-\\frac23]]",
+            "[[\\frac23]]",
+            "[[\\frac32]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[m=\\frac{-8-4}{5-(-3)}=\\frac{-12}{8}=-\\frac32]].",
           "incorrectFeedback": "Calculate second y minus first y over second x minus first x."
@@ -2958,7 +2946,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 3 OF 21",
           "question": "What is the gradient of [[5x+y-7=0]]?",
-          "options": ["[[-7]]", "[[-5]]", "[[5]]", "[[7]]"],
+          "options": [
+            "[[-7]]",
+            "[[-5]]",
+            "[[5]]",
+            "[[7]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Rearranging gives [[y=-5x+7]], so the gradient is -5.",
           "incorrectFeedback": "Make y the subject before reading the coefficient of x."
@@ -2999,7 +2992,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 6 OF 21",
           "question": "Find the midpoint of the segment joining [[(-4,2)]] and [[(6,8)]].",
-          "options": ["[[(1,5)]]", "[[(2,5)]]", "[[(1,6)]]", "[[(5,10)]]"],
+          "options": [
+            "[[(1,5)]]",
+            "[[(2,5)]]",
+            "[[(1,6)]]",
+            "[[(5,10)]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. Average corresponding coordinates: [[\\left(\\frac{-4+6}{2},\\frac{2+8}{2}\\right)=(1,5)]].",
           "incorrectFeedback": "A midpoint is the coordinate-wise average of the endpoints."
@@ -3054,7 +3052,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 10 OF 21",
           "question": "Where is [[P=(4,5)]] relative to [[(x-1)^{2}+(y-1)^{2}=16]]?",
-          "options": ["Inside", "On the circle", "Outside", "At the centre"],
+          "options": [
+            "Inside",
+            "On the circle",
+            "Outside",
+            "At the centre"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The squared centre-to-P distance is [[3^{2}+4^{2}=25]], which is greater than [[r^{2}=16]].",
           "incorrectFeedback": "Compare the squared distance from [[(1,1)]] with 16."
@@ -3063,7 +3066,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 11 OF 21",
           "question": "How many points of intersection do [[x^{2}+y^{2}=25]] and [[y=5]] have?",
-          "options": ["0", "1", "2", "Infinitely many"],
+          "options": [
+            "0",
+            "1",
+            "2",
+            "Infinitely many"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Substitution gives [[x^{2}+25=25]], so [[x=0]]. The line is tangent at [[(0,5)]].",
           "incorrectFeedback": "Substitute [[y=5]] into the circle and count the real x-values."
@@ -3118,7 +3126,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 15 OF 21",
           "question": "A circle has centre [[(1,-1)]], and [[P=(4,3)]] lies on it. What is the tangent gradient at P?",
-          "options": ["[[-\\frac43]]", "[[-\\frac34]]", "[[\\frac34]]", "[[\\frac43]]"],
+          "options": [
+            "[[-\\frac43]]",
+            "[[-\\frac34]]",
+            "[[\\frac34]]",
+            "[[\\frac43]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. The radius gradient is [[\\frac{3-(-1)}{4-1}=\\frac43]], so the tangent gradient is [[-\\frac34]].",
           "incorrectFeedback": "Calculate the centre-to-P gradient and take its negative reciprocal."
@@ -3131,7 +3144,12 @@
             "kind": "circle-chord-bisector",
             "caption": "The perpendicular from the centre bisects the chord."
           },
-          "options": ["[[2]]", "[[3]]", "[[4]]", "[[\\sqrt{34}]]"],
+          "options": [
+            "[[2]]",
+            "[[3]]",
+            "[[4]]",
+            "[[\\sqrt{34}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. Half the chord is 3, so the distance is [[\\sqrt{5^{2}-3^{2}}=4]].",
           "incorrectFeedback": "Halve the chord, then use a right triangle with radius 5 as the hypotenuse."
@@ -3140,7 +3158,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 17 OF 21",
           "question": "A chord subtends an angle of 42° at the circumference. What angle does it subtend at the centre?",
-          "options": ["[[21^{\\circ}]]", "[[42^{\\circ}]]", "[[84^{\\circ}]]", "[[138^{\\circ}]]"],
+          "options": [
+            "[[21^{\\circ}]]",
+            "[[42^{\\circ}]]",
+            "[[84^{\\circ}]]",
+            "[[138^{\\circ}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The angle at the centre is twice the angle at the circumference: [[2(42^{\\circ})=84^{\\circ}]].",
           "incorrectFeedback": "Double the circumference angle for the same chord and arc."
@@ -3149,7 +3172,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 18 OF 21",
           "question": "Two points on the same segment of a circle stand on the same chord. One subtended angle is 31°. What is the other?",
-          "options": ["[[31^{\\circ}]]", "[[62^{\\circ}]]", "[[149^{\\circ}]]", "[[329^{\\circ}]]"],
+          "options": [
+            "[[31^{\\circ}]]",
+            "[[62^{\\circ}]]",
+            "[[149^{\\circ}]]",
+            "[[329^{\\circ}]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. Angles in the same segment standing on the same chord are equal.",
           "incorrectFeedback": "Use the same-segment theorem rather than doubling or supplementing the angle."
@@ -3158,7 +3186,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 19 OF 21",
           "question": "One angle of a cyclic quadrilateral is 128°. Find the opposite angle.",
-          "options": ["[[42^{\\circ}]]", "[[52^{\\circ}]]", "[[128^{\\circ}]]", "[[232^{\\circ}]]"],
+          "options": [
+            "[[42^{\\circ}]]",
+            "[[52^{\\circ}]]",
+            "[[128^{\\circ}]]",
+            "[[232^{\\circ}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Opposite cyclic angles total 180°, so [[180^{\\circ}-128^{\\circ}=52^{\\circ}]].",
           "incorrectFeedback": "Subtract the given angle from 180°."
@@ -3167,7 +3200,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 20 OF 21",
           "question": "AB is a diameter of a circle and C lies on the circumference. If [[\\angle CAB=27^{\\circ}]], find [[\\angle ABC]].",
-          "options": ["[[27^{\\circ}]]", "[[53^{\\circ}]]", "[[63^{\\circ}]]", "[[90^{\\circ}]]"],
+          "options": [
+            "[[27^{\\circ}]]",
+            "[[53^{\\circ}]]",
+            "[[63^{\\circ}]]",
+            "[[90^{\\circ}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[\\angle ACB=90^{\\circ}]] because AB is a diameter. Thus [[\\angle ABC=180^{\\circ}-90^{\\circ}-27^{\\circ}=63^{\\circ}]].",
           "incorrectFeedback": "Use the angle-in-a-semicircle theorem, then the triangle angle sum."
@@ -3235,7 +3273,12 @@
           "type": "multipleChoice",
           "eyebrow": "COSINE RULE · 3 OF 14",
           "question": "Two sides of a triangle have lengths [[5]] and [[7]], and their included angle is [[60^{\\circ}]]. Find the third side.",
-          "options": ["[[\\sqrt{39}]]", "[[6]]", "[[\\sqrt{74}]]", "[[2\\sqrt{21}]]"],
+          "options": [
+            "[[\\sqrt{39}]]",
+            "[[6]]",
+            "[[\\sqrt{74}]]",
+            "[[2\\sqrt{21}]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[c^{2}=5^{2}+7^{2}-2(5)(7)\\cos60^{\\circ}=25+49-35=39]], so [[c=\\sqrt{39}]].",
           "incorrectFeedback": "Use the cosine rule and remember that [[\\cos60^{\\circ}=\\frac12]]."
@@ -3249,7 +3292,12 @@
             "kind": "ambiguous-sine",
             "caption": "With angle-side-side information, the moving side can sometimes meet the ray twice."
           },
-          "options": ["[[52.1^{\\circ}]] only", "[[127.9^{\\circ}]] only", "[[52.1^{\\circ}]] or [[127.9^{\\circ}]]", "No triangle"],
+          "options": [
+            "[[52.1^{\\circ}]] only",
+            "[[127.9^{\\circ}]] only",
+            "[[52.1^{\\circ}]] or [[127.9^{\\circ}]]",
+            "No triangle"
+          ],
           "answerIndex": 2,
           "steps": [
             {
@@ -3272,7 +3320,12 @@
           "type": "multipleChoice",
           "eyebrow": "TRIANGLE AREA · 5 OF 14",
           "question": "Find the area of a triangle with sides [[8]] and [[11]] enclosing an angle of [[30^{\\circ}]].",
-          "options": ["[[19]]", "[[22]]", "[[44]]", "[[44\\sqrt3]]"],
+          "options": [
+            "[[19]]",
+            "[[22]]",
+            "[[44]]",
+            "[[44\\sqrt3]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[\\text{Area}=\\frac12(8)(11)\\sin30^{\\circ}=44\\left(\\frac12\\right)=22]].",
           "incorrectFeedback": "Use [[\\frac12 ab\\sin C]] with the angle enclosed by the two given sides."
@@ -3290,7 +3343,12 @@
           "eyebrow": "3D REASONING · 7 OF 14",
           "title": "Use a face diagonal as the bridge",
           "question": "A cuboid has base dimensions [[3]] by [[4]] and height [[12]]. If [[\\theta]] is the angle between the space diagonal and the base, find [[\\cos\\theta]].",
-          "options": ["[[\\frac5{13}]]", "[[\\frac{12}{13}]]", "[[\\frac5{12}]]", "[[\\frac{12}{5}]]"],
+          "options": [
+            "[[\\frac5{13}]]",
+            "[[\\frac{12}{13}]]",
+            "[[\\frac5{12}]]",
+            "[[\\frac{12}{5}]]"
+          ],
           "answerIndex": 0,
           "steps": [
             {
@@ -3332,7 +3390,12 @@
           "type": "multipleChoice",
           "eyebrow": "ANGLE CONVERSION · 10 OF 14",
           "question": "Convert [[150^{\\circ}]] to radians.",
-          "options": ["[[\\frac{3\\pi}{5}]]", "[[\\frac{5\\pi}{6}]]", "[[\\frac{6\\pi}{5}]]", "[[\\frac{5\\pi}{3}]]"],
+          "options": [
+            "[[\\frac{3\\pi}{5}]]",
+            "[[\\frac{5\\pi}{6}]]",
+            "[[\\frac{6\\pi}{5}]]",
+            "[[\\frac{5\\pi}{3}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[150\\times\\frac{\\pi}{180}=\\frac{5\\pi}{6}]].",
           "incorrectFeedback": "Multiply the degree measure by [[\\frac{\\pi}{180}]] and simplify."
@@ -3365,7 +3428,12 @@
           "type": "multipleChoice",
           "eyebrow": "ARC AND SECTOR · 12 OF 14",
           "question": "A sector has radius [[6]] and angle [[\\frac23]] radians. What are its arc length and area?",
-          "options": ["Arc [[4]], area [[12]]", "Arc [[4]], area [[24]]", "Arc [[9]], area [[12]]", "Arc [[9]], area [[24]]"],
+          "options": [
+            "Arc [[4]], area [[12]]",
+            "Arc [[4]], area [[24]]",
+            "Arc [[9]], area [[12]]",
+            "Arc [[9]], area [[24]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[s=6\\left(\\frac23\\right)=4]] and [[A=\\frac12(6^{2})\\left(\\frac23\\right)=12]].",
           "incorrectFeedback": "Use [[s=r\\theta]] and [[A=\\frac12r^{2}\\theta]] with [[\\theta]] already in radians."
@@ -3375,7 +3443,12 @@
           "eyebrow": "SEGMENT AREA · 13 OF 14",
           "title": "Subtract the central triangle",
           "question": "Find the area of the minor segment in a circle of radius [[4]] subtended by an angle of [[\\frac{\\pi}{3}]] radians.",
-          "options": ["[[\\frac{8\\pi}{3}-4\\sqrt3]]", "[[\\frac{8\\pi}{3}+4\\sqrt3]]", "[[\\frac{4\\pi}{3}-2\\sqrt3]]", "[[8\\pi-4\\sqrt3]]"],
+          "options": [
+            "[[\\frac{8\\pi}{3}-4\\sqrt3]]",
+            "[[\\frac{8\\pi}{3}+4\\sqrt3]]",
+            "[[\\frac{4\\pi}{3}-2\\sqrt3]]",
+            "[[8\\pi-4\\sqrt3]]"
+          ],
           "answerIndex": 0,
           "steps": [
             {
@@ -3457,7 +3530,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXACT VALUE · 3 OF 14",
           "question": "Evaluate [[\\sin60^{\\circ}\\cos45^{\\circ}]].",
-          "options": ["[[\\frac{\\sqrt3}{4}]]", "[[\\frac{\\sqrt6}{4}]]", "[[\\frac{\\sqrt6}{2}]]", "[[\\frac{\\sqrt3}{2}]]"],
+          "options": [
+            "[[\\frac{\\sqrt3}{4}]]",
+            "[[\\frac{\\sqrt6}{4}]]",
+            "[[\\frac{\\sqrt6}{2}]]",
+            "[[\\frac{\\sqrt3}{2}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[\\sin60^{\\circ}\\cos45^{\\circ}=\\frac{\\sqrt3}{2}\\cdot\\frac{\\sqrt2}{2}=\\frac{\\sqrt6}{4}]].",
           "incorrectFeedback": "Substitute the two exact values, then multiply the numerators and denominators."
@@ -3478,7 +3556,12 @@
           "type": "multipleChoice",
           "eyebrow": "REFERENCE ANGLES · 5 OF 14",
           "question": "Evaluate [[\\sin150^{\\circ}]].",
-          "options": ["[[-\\frac{\\sqrt3}{2}]]", "[[-\\frac12]]", "[[\\frac12]]", "[[\\frac{\\sqrt3}{2}]]"],
+          "options": [
+            "[[-\\frac{\\sqrt3}{2}]]",
+            "[[-\\frac12]]",
+            "[[\\frac12]]",
+            "[[\\frac{\\sqrt3}{2}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The reference angle is [[30^{\\circ}]], and sine is positive in quadrant II, so [[\\sin150^{\\circ}=\\frac12]].",
           "incorrectFeedback": "Use reference angle [[180^{\\circ}-150^{\\circ}=30^{\\circ}]] and determine the sign from quadrant II."
@@ -3519,7 +3602,12 @@
           "type": "multipleChoice",
           "eyebrow": "PERIOD CHECK · 8 OF 14",
           "question": "What is the period of [[y=\\tan(3x)]]?",
-          "options": ["[[\\frac{\\pi}{6}]]", "[[\\frac{\\pi}{3}]]", "[[\\frac{2\\pi}{3}]]", "[[3\\pi]]"],
+          "options": [
+            "[[\\frac{\\pi}{6}]]",
+            "[[\\frac{\\pi}{3}]]",
+            "[[\\frac{2\\pi}{3}]]",
+            "[[3\\pi]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Tangent's base period is [[\\pi]], so the period becomes [[\\frac{\\pi}{3}]].",
           "incorrectFeedback": "For [[\\tan(bx)]], divide the base period [[\\pi]] by [[\\lvert b\\rvert]]."
@@ -3544,7 +3632,12 @@
           "eyebrow": "IDENTITY REASONING · 11 OF 14",
           "title": "Replace the numerator before cancelling",
           "question": "Simplify [[\\frac{1-\\sin^{2}x}{\\cos x}]], where [[\\cos x\\ne0]].",
-          "options": ["[[\\sin x]]", "[[\\cos x]]", "[[\\tan x]]", "[[1]]"],
+          "options": [
+            "[[\\sin x]]",
+            "[[\\cos x]]",
+            "[[\\tan x]]",
+            "[[1]]"
+          ],
           "answerIndex": 1,
           "steps": [
             {
@@ -3567,7 +3660,12 @@
           "type": "multipleChoice",
           "eyebrow": "IDENTITY APPLICATION · 12 OF 14",
           "question": "An acute angle [[\\theta]] satisfies [[\\tan\\theta=\\frac34]]. Find [[\\sin\\theta]].",
-          "options": ["[[\\frac35]]", "[[\\frac45]]", "[[\\frac34]]", "[[\\frac43]]"],
+          "options": [
+            "[[\\frac35]]",
+            "[[\\frac45]]",
+            "[[\\frac34]]",
+            "[[\\frac43]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. Use a right triangle with opposite [[3]], adjacent [[4]], and hypotenuse [[5]]. Thus [[\\sin\\theta=\\frac35]].",
           "incorrectFeedback": "Interpret tangent as opposite over adjacent, then complete the right triangle."
@@ -3576,7 +3674,12 @@
           "type": "multipleChoice",
           "eyebrow": "SYMMETRY CHECK · 13 OF 14",
           "question": "Which statement is true for every real [[x]]?",
-          "options": ["[[\\sin(-x)=\\sin x]]", "[[\\cos(-x)=-\\cos x]]", "[[\\cos(-x)=\\cos x]]", "[[\\tan(-x)=\\tan x]]"],
+          "options": [
+            "[[\\sin(-x)=\\sin x]]",
+            "[[\\cos(-x)=-\\cos x]]",
+            "[[\\cos(-x)=\\cos x]]",
+            "[[\\tan(-x)=\\tan x]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. Cosine is even, so [[\\cos(-x)=\\cos x]]. Sine and tangent are odd.",
           "incorrectFeedback": "Recall the mirror symmetry of the cosine graph about the y-axis."
@@ -3648,7 +3751,12 @@
           "type": "multipleChoice",
           "eyebrow": "COSINE EQUATION · 3 OF 14",
           "question": "Solve [[\\cos x=-\\frac{\\sqrt2}{2}]] for [[0\\le x\\lt2\\pi]].",
-          "options": ["[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4}]]", "[[x=\\frac{3\\pi}{4},\\frac{5\\pi}{4}]]", "[[x=\\frac{5\\pi}{4},\\frac{7\\pi}{4}]]", "[[x=\\frac{\\pi}{4},\\frac{7\\pi}{4}]]"],
+          "options": [
+            "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4}]]",
+            "[[x=\\frac{3\\pi}{4},\\frac{5\\pi}{4}]]",
+            "[[x=\\frac{5\\pi}{4},\\frac{7\\pi}{4}]]",
+            "[[x=\\frac{\\pi}{4},\\frac{7\\pi}{4}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. The reference angle is [[\\frac{\\pi}{4}]], and cosine is negative in quadrants II and III.",
           "incorrectFeedback": "Use reference angle [[\\frac{\\pi}{4}]], then choose the two quadrants where the x-coordinate is negative."
@@ -3666,7 +3774,12 @@
           "eyebrow": "CHANGED ARGUMENT · 5 OF 14",
           "title": "Transform the interval with the angle",
           "question": "Solve [[\\tan(2x)=-1]] for [[-\\frac{\\pi}{2}\\lt x\\lt\\frac{\\pi}{2}]].",
-          "options": ["[[x=-\\frac{\\pi}{8},\\frac{3\\pi}{8}]]", "[[x=-\\frac{3\\pi}{8},\\frac{\\pi}{8}]]", "[[x=-\\frac{\\pi}{4},\\frac{\\pi}{4}]]", "[[x=\\frac{3\\pi}{8}]] only"],
+          "options": [
+            "[[x=-\\frac{\\pi}{8},\\frac{3\\pi}{8}]]",
+            "[[x=-\\frac{3\\pi}{8},\\frac{\\pi}{8}]]",
+            "[[x=-\\frac{\\pi}{4},\\frac{\\pi}{4}]]",
+            "[[x=\\frac{3\\pi}{8}]] only"
+          ],
           "answerIndex": 0,
           "steps": [
             {
@@ -3689,7 +3802,12 @@
           "type": "multipleChoice",
           "eyebrow": "COUNTING SOLUTIONS · 6 OF 14",
           "question": "How many solutions does [[\\cos(2x)=0]] have in [[0\\le x\\lt2\\pi]]?",
-          "options": ["[[2]]", "[[3]]", "[[4]]", "[[8]]"],
+          "options": [
+            "[[2]]",
+            "[[3]]",
+            "[[4]]",
+            "[[8]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[2x=\\frac{\\pi}{2},\\frac{3\\pi}{2},\\frac{5\\pi}{2},\\frac{7\\pi}{2}]], giving four values of [[x]].",
           "incorrectFeedback": "Transform the interval to [[0\\le2x\\lt4\\pi]] and count every cosine zero."
@@ -3714,7 +3832,12 @@
           "eyebrow": "IDENTITY EQUATION · 9 OF 14",
           "title": "Convert cosine squared into sine",
           "question": "Solve [[2\\cos^{2}x-3\\sin x=0]] for [[0^{\\circ}\\le x\\lt360^{\\circ}]].",
-          "options": ["[[x=30^{\\circ},150^{\\circ}]]", "[[x=30^{\\circ},210^{\\circ}]]", "[[x=150^{\\circ},330^{\\circ}]]", "[[x=30^{\\circ},150^{\\circ},270^{\\circ}]]"],
+          "options": [
+            "[[x=30^{\\circ},150^{\\circ}]]",
+            "[[x=30^{\\circ},210^{\\circ}]]",
+            "[[x=150^{\\circ},330^{\\circ}]]",
+            "[[x=30^{\\circ},150^{\\circ},270^{\\circ}]]"
+          ],
           "answerIndex": 0,
           "steps": [
             {
@@ -3737,7 +3860,12 @@
           "type": "multipleChoice",
           "eyebrow": "FACTOR AND SOLVE · 10 OF 14",
           "question": "Solve [[2\\sin^{2}x-\\sin x-1=0]] for [[0^{\\circ}\\le x\\lt360^{\\circ}]].",
-          "options": ["[[x=90^{\\circ}]]", "[[x=30^{\\circ},150^{\\circ}]]", "[[x=90^{\\circ},210^{\\circ},330^{\\circ}]]", "[[x=30^{\\circ},90^{\\circ},150^{\\circ}]]"],
+          "options": [
+            "[[x=90^{\\circ}]]",
+            "[[x=30^{\\circ},150^{\\circ}]]",
+            "[[x=90^{\\circ},210^{\\circ},330^{\\circ}]]",
+            "[[x=30^{\\circ},90^{\\circ},150^{\\circ}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[(2\\sin x+1)(\\sin x-1)=0]], so [[\\sin x=-\\frac12]] or [[\\sin x=1]]. The interval gives [[90^{\\circ},210^{\\circ},330^{\\circ}]].",
           "incorrectFeedback": "Factor as a quadratic in [[\\sin x]], then solve both valid sine equations."
@@ -3755,7 +3883,12 @@
           "eyebrow": "MIXED EQUATION · 12 OF 14",
           "title": "Preserve every valid branch",
           "question": "Solve [[12\\cos^{2}x+6\\sin x-10=2]] for [[0^{\\circ}\\lt x\\lt360^{\\circ}]].",
-          "options": ["[[x=30^{\\circ},150^{\\circ}]]", "[[x=30^{\\circ},150^{\\circ},180^{\\circ}]]", "[[x=0^{\\circ},30^{\\circ},150^{\\circ},180^{\\circ}]]", "[[x=180^{\\circ}]]"],
+          "options": [
+            "[[x=30^{\\circ},150^{\\circ}]]",
+            "[[x=30^{\\circ},150^{\\circ},180^{\\circ}]]",
+            "[[x=0^{\\circ},30^{\\circ},150^{\\circ},180^{\\circ}]]",
+            "[[x=180^{\\circ}]]"
+          ],
           "answerIndex": 1,
           "steps": [
             {
@@ -3778,7 +3911,12 @@
           "type": "multipleChoice",
           "eyebrow": "HARDER INTERVAL · 13 OF 14",
           "question": "How many solutions does [[\\sin^{2}\\left(2x+\\frac{\\pi}{3}\\right)=\\frac12]] have for [[-2\\pi\\lt x\\lt2\\pi]]?",
-          "options": ["[[8]]", "[[12]]", "[[16]]", "[[18]]"],
+          "options": [
+            "[[8]]",
+            "[[12]]",
+            "[[16]]",
+            "[[18]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[\\sin^{2}u=\\frac12]] repeats every [[\\frac{\\pi}{2}]] in [[u]]. With [[u=2x+\\frac{\\pi}{3}]], the solutions in the transformed interval correspond to sixteen integer values.",
           "incorrectFeedback": "Write [[u=\\frac{\\pi}{4}+k\\frac{\\pi}{2}]], substitute [[u=2x+\\frac{\\pi}{3}]], then count integers satisfying the x-interval."
@@ -3814,7 +3952,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 1 OF 21",
           "question": "Two sides of a triangle have lengths [[7]] and [[8]], and their included angle is [[60^{\\circ}]]. Find the third side.",
-          "options": ["[[\\sqrt{15}]]", "[[\\sqrt{57}]]", "[[\\sqrt{65}]]", "[[5\\sqrt3]]"],
+          "options": [
+            "[[\\sqrt{15}]]",
+            "[[\\sqrt{57}]]",
+            "[[\\sqrt{65}]]",
+            "[[5\\sqrt3]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[c^{2}=7^{2}+8^{2}-2(7)(8)\\cos60^{\\circ}=49+64-56=57]].",
           "incorrectFeedback": "Use the cosine rule with [[\\cos60^{\\circ}=\\frac12]]."
@@ -3827,7 +3970,12 @@
             "kind": "triangle-laws",
             "caption": "For an unknown angle, rearrange the cosine rule."
           },
-          "options": ["[[\\frac17]]", "[[\\frac27]]", "[[\\frac57]]", "[[\\frac67]]"],
+          "options": [
+            "[[\\frac17]]",
+            "[[\\frac27]]",
+            "[[\\frac57]]",
+            "[[\\frac67]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[\\cos C=\\frac{5^{2}+7^{2}-8^{2}}{2(5)(7)}=\\frac{10}{70}=\\frac17]].",
           "incorrectFeedback": "Place the side of length [[8]] opposite the required angle in the rearranged cosine rule."
@@ -3836,7 +3984,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 3 OF 21",
           "question": "In triangle [[ABC]], [[A=30^{\\circ}]], [[B=45^{\\circ}]], and [[b=6\\sqrt2]]. Find [[a]].",
-          "options": ["[[3]]", "[[6]]", "[[6\\sqrt2]]", "[[12]]"],
+          "options": [
+            "[[3]]",
+            "[[6]]",
+            "[[6\\sqrt2]]",
+            "[[12]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[\\frac{a}{\\sin30^{\\circ}}=\\frac{6\\sqrt2}{\\sin45^{\\circ}}=12]], so [[a=12\\left(\\frac12\\right)=6]].",
           "incorrectFeedback": "Use the two known opposite pairs in the sine rule."
@@ -3849,7 +4002,12 @@
             "kind": "ambiguous-sine",
             "caption": "Check both the acute and supplementary sine-rule angles."
           },
-          "options": ["None", "One", "Two", "Infinitely many"],
+          "options": [
+            "None",
+            "One",
+            "Two",
+            "Infinitely many"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[\\sin B=\\frac{8\\sin30^{\\circ}}5=\\frac45]]. Both [[B]] and [[180^{\\circ}-B]] leave a positive third angle, so two triangles exist.",
           "incorrectFeedback": "Find [[\\sin B]], then test both angles with that sine value against the triangle angle sum."
@@ -3858,7 +4016,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 5 OF 21",
           "question": "Find the area of a triangle with sides [[9]] and [[12]] enclosing an angle of [[30^{\\circ}]].",
-          "options": ["[[27]]", "[[54]]", "[[27\\sqrt3]]", "[[54\\sqrt3]]"],
+          "options": [
+            "[[27]]",
+            "[[54]]",
+            "[[27\\sqrt3]]",
+            "[[54\\sqrt3]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[\\frac12(9)(12)\\sin30^{\\circ}=54\\left(\\frac12\\right)=27]].",
           "incorrectFeedback": "Use the included-angle area formula."
@@ -3867,7 +4030,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 6 OF 21",
           "question": "A cuboid has side lengths [[2]], [[3]], and [[6]]. Find its space diagonal.",
-          "options": ["[[\\sqrt{13}]]", "[[\\sqrt{41}]]", "[[7]]", "[[11]]"],
+          "options": [
+            "[[\\sqrt{13}]]",
+            "[[\\sqrt{41}]]",
+            "[[7]]",
+            "[[11]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[d=\\sqrt{2^{2}+3^{2}+6^{2}}=\\sqrt{49}=7]].",
           "incorrectFeedback": "Apply Pythagoras across a face and then through the cuboid, or combine all three squared dimensions."
@@ -3876,7 +4044,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 7 OF 21",
           "question": "Convert [[225^{\\circ}]] to radians.",
-          "options": ["[[\\frac{3\\pi}{4}]]", "[[\\frac{5\\pi}{4}]]", "[[\\frac{4\\pi}{5}]]", "[[\\frac{5\\pi}{2}]]"],
+          "options": [
+            "[[\\frac{3\\pi}{4}]]",
+            "[[\\frac{5\\pi}{4}]]",
+            "[[\\frac{4\\pi}{5}]]",
+            "[[\\frac{5\\pi}{2}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[225\\times\\frac{\\pi}{180}=\\frac{5\\pi}{4}]].",
           "incorrectFeedback": "Multiply by [[\\frac{\\pi}{180}]] and simplify."
@@ -3885,7 +4058,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 8 OF 21",
           "question": "Convert [[\\frac{7\\pi}{6}]] radians to degrees.",
-          "options": ["[[150^{\\circ}]]", "[[180^{\\circ}]]", "[[210^{\\circ}]]", "[[240^{\\circ}]]"],
+          "options": [
+            "[[150^{\\circ}]]",
+            "[[180^{\\circ}]]",
+            "[[210^{\\circ}]]",
+            "[[240^{\\circ}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[\\frac{7\\pi}{6}\\times\\frac{180}{\\pi}=210^{\\circ}]].",
           "incorrectFeedback": "Multiply by [[\\frac{180}{\\pi}]]."
@@ -3894,7 +4072,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 9 OF 21",
           "question": "An arc has radius [[9]] and subtends [[\\frac23]] radians at the centre. Find its length.",
-          "options": ["[[3]]", "[[6]]", "[[9]]", "[[27]]"],
+          "options": [
+            "[[3]]",
+            "[[6]]",
+            "[[9]]",
+            "[[27]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[s=r\\theta=9\\left(\\frac23\\right)=6]].",
           "incorrectFeedback": "Use [[s=r\\theta]] because the angle is already in radians."
@@ -3907,7 +4090,12 @@
             "kind": "radians-sector",
             "caption": "Sector formulae use the central angle in radians."
           },
-          "options": ["[[6]]", "[[12.5]]", "[[15]]", "[[30]]"],
+          "options": [
+            "[[6]]",
+            "[[12.5]]",
+            "[[15]]",
+            "[[30]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[A=\\frac12r^{2}\\theta=\\frac12(25)(1.2)=15]].",
           "incorrectFeedback": "Substitute into [[A=\\frac12r^{2}\\theta]]."
@@ -3916,7 +4104,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 11 OF 21",
           "question": "A minor segment has radius [[2]] and central angle [[\\frac{\\pi}{2}]]. Find its area.",
-          "options": ["[[\\pi-2]]", "[[\\pi+2]]", "[[2\\pi-2]]", "[[\\frac{\\pi}{2}-1]]"],
+          "options": [
+            "[[\\pi-2]]",
+            "[[\\pi+2]]",
+            "[[2\\pi-2]]",
+            "[[\\frac{\\pi}{2}-1]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. The sector area is [[\\pi]], and the right-triangle area is [[2]], so the segment area is [[\\pi-2]].",
           "incorrectFeedback": "Subtract [[\\frac12r^{2}\\sin\\theta]] from [[\\frac12r^{2}\\theta]]."
@@ -3925,7 +4118,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 12 OF 21",
           "question": "Evaluate [[\\sin30^{\\circ}+\\cos60^{\\circ}]].",
-          "options": ["[[\\frac12]]", "[[1]]", "[[\\frac{\\sqrt2}{2}]]", "[[\\sqrt3]]"],
+          "options": [
+            "[[\\frac12]]",
+            "[[1]]",
+            "[[\\frac{\\sqrt2}{2}]]",
+            "[[\\sqrt3]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Both exact values equal [[\\frac12]], so their sum is [[1]].",
           "incorrectFeedback": "Recall the exact sine of [[30^{\\circ}]] and cosine of [[60^{\\circ}]]."
@@ -3934,7 +4132,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 13 OF 21",
           "question": "Evaluate [[\\tan45^{\\circ}\\cos60^{\\circ}]].",
-          "options": ["[[\\frac12]]", "[[1]]", "[[\\frac{\\sqrt2}{2}]]", "[[\\frac{\\sqrt3}{2}]]"],
+          "options": [
+            "[[\\frac12]]",
+            "[[1]]",
+            "[[\\frac{\\sqrt2}{2}]]",
+            "[[\\frac{\\sqrt3}{2}]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[\\tan45^{\\circ}=1]] and [[\\cos60^{\\circ}=\\frac12]].",
           "incorrectFeedback": "Substitute both exact values before multiplying."
@@ -3943,7 +4146,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 14 OF 21",
           "question": "Evaluate [[\\sin\\left(\\frac{5\\pi}{6}\\right)]].",
-          "options": ["[[-\\frac{\\sqrt3}{2}]]", "[[-\\frac12]]", "[[\\frac12]]", "[[\\frac{\\sqrt3}{2}]]"],
+          "options": [
+            "[[-\\frac{\\sqrt3}{2}]]",
+            "[[-\\frac12]]",
+            "[[\\frac12]]",
+            "[[\\frac{\\sqrt3}{2}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The reference angle is [[\\frac{\\pi}{6}]], and sine is positive in quadrant II.",
           "incorrectFeedback": "Use the reference angle and the sign of sine in quadrant II."
@@ -3956,7 +4164,12 @@
             "kind": "trig-graphs",
             "caption": "A horizontal multiplier compresses the graph's period."
           },
-          "options": ["[[\\frac{\\pi}{3}]]", "[[\\frac{2\\pi}{3}]]", "[[3\\pi]]", "[[6\\pi]]"],
+          "options": [
+            "[[\\frac{\\pi}{3}]]",
+            "[[\\frac{2\\pi}{3}]]",
+            "[[3\\pi]]",
+            "[[6\\pi]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. The period is [[\\frac{2\\pi}{3}]].",
           "incorrectFeedback": "Divide cosine's base period [[2\\pi]] by the coefficient of [[x]]."
@@ -3965,7 +4178,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 16 OF 21",
           "question": "An angle [[\\theta]] lies in quadrant III and [[\\tan\\theta=\\frac34]]. Find [[\\cos\\theta]].",
-          "options": ["[[-\\frac45]]", "[[-\\frac35]]", "[[\\frac35]]", "[[\\frac45]]"],
+          "options": [
+            "[[-\\frac45]]",
+            "[[-\\frac35]]",
+            "[[\\frac35]]",
+            "[[\\frac45]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. The reference triangle has sides [[3,4,5]]. Cosine has magnitude [[\\frac45]] and is negative in quadrant III.",
           "incorrectFeedback": "Build a [[3\\text{-}4\\text{-}5]] reference triangle, then apply the quadrant III sign."
@@ -3974,7 +4192,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 17 OF 21",
           "question": "Solve [[\\sin x=-\\frac12]] for [[0\\le x\\lt2\\pi]].",
-          "options": ["[[x=\\frac{\\pi}{6},\\frac{5\\pi}{6}]]", "[[x=\\frac{5\\pi}{6},\\frac{7\\pi}{6}]]", "[[x=\\frac{7\\pi}{6},\\frac{11\\pi}{6}]]", "[[x=\\frac{4\\pi}{3},\\frac{5\\pi}{3}]]"],
+          "options": [
+            "[[x=\\frac{\\pi}{6},\\frac{5\\pi}{6}]]",
+            "[[x=\\frac{5\\pi}{6},\\frac{7\\pi}{6}]]",
+            "[[x=\\frac{7\\pi}{6},\\frac{11\\pi}{6}]]",
+            "[[x=\\frac{4\\pi}{3},\\frac{5\\pi}{3}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The reference angle is [[\\frac{\\pi}{6}]], and sine is negative in quadrants III and IV.",
           "incorrectFeedback": "Use reference angle [[\\frac{\\pi}{6}]] and select the two quadrants below the x-axis."
@@ -3983,7 +4206,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 18 OF 21",
           "question": "Solve [[\\cos(2x)=0]] for [[0\\le x\\lt2\\pi]].",
-          "options": ["[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4}]]", "[[x=\\frac{\\pi}{2},\\frac{3\\pi}{2}]]", "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4},\\frac{5\\pi}{4},\\frac{7\\pi}{4}]]", "[[x=0,\\frac{\\pi}{2},\\pi,\\frac{3\\pi}{2}]]"],
+          "options": [
+            "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4}]]",
+            "[[x=\\frac{\\pi}{2},\\frac{3\\pi}{2}]]",
+            "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4},\\frac{5\\pi}{4},\\frac{7\\pi}{4}]]",
+            "[[x=0,\\frac{\\pi}{2},\\pi,\\frac{3\\pi}{2}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. In [[0\\le2x\\lt4\\pi]], cosine is zero at four odd multiples of [[\\frac{\\pi}{2}]]. Divide each by [[2]].",
           "incorrectFeedback": "Transform the interval for [[2x]], list every cosine zero, then divide by [[2]]."
@@ -3992,7 +4220,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 19 OF 21",
           "question": "Solve [[\\tan x=1]] for [[-\\pi\\lt x\\lt\\pi]].",
-          "options": ["[[x=-\\frac{\\pi}{4},\\frac{\\pi}{4}]]", "[[x=-\\frac{3\\pi}{4},\\frac{\\pi}{4}]]", "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4}]]", "[[x=-\\frac{3\\pi}{4},\\frac{3\\pi}{4}]]"],
+          "options": [
+            "[[x=-\\frac{\\pi}{4},\\frac{\\pi}{4}]]",
+            "[[x=-\\frac{3\\pi}{4},\\frac{\\pi}{4}]]",
+            "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4}]]",
+            "[[x=-\\frac{3\\pi}{4},\\frac{3\\pi}{4}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[x=\\frac{\\pi}{4}+n\\pi]], giving [[-\\frac{3\\pi}{4}]] and [[\\frac{\\pi}{4}]] in the interval.",
           "incorrectFeedback": "Start at [[\\frac{\\pi}{4}]] and move by tangent's period [[\\pi]] in both directions."
@@ -4001,7 +4234,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 20 OF 21",
           "question": "How many solutions does [[2\\sin^{2}x-3\\sin x+1=0]] have for [[0\\le x\\lt2\\pi]]?",
-          "options": ["[[1]]", "[[2]]", "[[3]]", "[[4]]"],
+          "options": [
+            "[[1]]",
+            "[[2]]",
+            "[[3]]",
+            "[[4]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[(2\\sin x-1)(\\sin x-1)=0]], so [[\\sin x=\\frac12]] gives two solutions and [[\\sin x=1]] gives one, for three in total.",
           "incorrectFeedback": "Factor as a quadratic in [[\\sin x]], then count the solutions from both valid sine values."
@@ -5132,7 +5370,12 @@
           "type": "multipleChoice",
           "eyebrow": "RATE-OF-CHANGE CHECK · 13 OF 14",
           "question": "A particle has displacement [[s(t)=t^{3}-6t^{2}+9t]]. What is its velocity when [[t=2]]?",
-          "options": ["[[-3]]", "[[0]]", "[[3]]", "[[9]]"],
+          "options": [
+            "[[-3]]",
+            "[[0]]",
+            "[[3]]",
+            "[[9]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[v(t)=s'(t)=3t^{2}-12t+9]], so [[v(2)=12-24+9=-3]].",
           "incorrectFeedback": "Velocity is the derivative of displacement. Differentiate s with respect to t, then substitute [[t=2]]."
@@ -5223,7 +5466,12 @@
           "eyebrow": "WORKED EXAMPLE · 5 OF 14",
           "title": "Evaluate a definite integral",
           "question": "Find [[\\int_{1}^{3}(2x+1)\\,\\mathrm{d}x]].",
-          "options": ["[[8]]", "[[10]]", "[[12]]", "[[14]]"],
+          "options": [
+            "[[8]]",
+            "[[10]]",
+            "[[12]]",
+            "[[14]]"
+          ],
           "answerIndex": 1,
           "steps": [
             {
@@ -5250,7 +5498,12 @@
           "type": "multipleChoice",
           "eyebrow": "DEFINITE-INTEGRAL CHECK · 6 OF 14",
           "question": "Evaluate [[\\int_{0}^{2}(3x^{2}-1)\\,\\mathrm{d}x]].",
-          "options": ["[[4]]", "[[6]]", "[[8]]", "[[10]]"],
+          "options": [
+            "[[4]]",
+            "[[6]]",
+            "[[8]]",
+            "[[10]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[\\left[x^{3}-x\\right]_{0}^{2}=8-2=6]].",
           "incorrectFeedback": "An antiderivative is [[x^{3}-x]]. Evaluate it at 2 and subtract its value at 0."
@@ -5328,7 +5581,12 @@
           "type": "multipleChoice",
           "eyebrow": "INTERVAL CHECK · 12 OF 14",
           "question": "Given [[\\int_{1}^{4}f(x)\\,\\mathrm{d}x=7]] and [[\\int_{4}^{6}f(x)\\,\\mathrm{d}x=-2]], find [[\\int_{1}^{6}f(x)\\,\\mathrm{d}x]].",
-          "options": ["[[-9]]", "[[-5]]", "[[5]]", "[[9]]"],
+          "options": [
+            "[[-9]]",
+            "[[-5]]",
+            "[[5]]",
+            "[[9]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The intervals are contiguous, so [[\\int_{1}^{6}f(x)\\,\\mathrm{d}x=7+(-2)=5]].",
           "incorrectFeedback": "Join the journey from 1 to 4 with the journey from 4 to 6. Add the two signed values."
@@ -5412,7 +5670,12 @@
           "type": "multipleChoice",
           "eyebrow": "TRAPEZIUM CHECK · 3 OF 14",
           "question": "At [[x=0,2,4]], a function has values [[3,5,9]]. Use the trapezium rule to estimate [[\\int_{0}^{4}f(x)\\,\\mathrm{d}x]].",
-          "options": ["[[11]]", "[[18]]", "[[22]]", "[[44]]"],
+          "options": [
+            "[[11]]",
+            "[[18]]",
+            "[[22]]",
+            "[[44]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. Here [[h=2]], so [[T=\\frac22(3+2(5)+9)=22]].",
           "incorrectFeedback": "There are two strips of width 2. Count the middle ordinate twice and the two endpoints once."
@@ -5578,7 +5841,12 @@
           "type": "multipleChoice",
           "eyebrow": "FUNDAMENTAL-THEOREM CHECK · 13 OF 14",
           "question": "Given [[F'(x)=f(x)]], [[\\int_{2}^{5}f(x)\\,\\mathrm{d}x=9]], and [[F(2)=4]], find [[F(5)]].",
-          "options": ["[[-5]]", "[[5]]", "[[9]]", "[[13]]"],
+          "options": [
+            "[[-5]]",
+            "[[5]]",
+            "[[9]]",
+            "[[13]]"
+          ],
           "answerIndex": 3,
           "correctFeedback": "Correct. [[F(5)-F(2)=9]], so [[F(5)=4+9=13]].",
           "incorrectFeedback": "The integral gives the change in F from 2 to 5. Add that change to the initial value [[F(2)=4]]."
@@ -5702,7 +5970,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 7 OF 21",
           "question": "A particle has displacement [[s(t)=2t^{3}-5t]]. Find its velocity at [[t=2]].",
-          "options": ["[[7]]", "[[14]]", "[[19]]", "[[24]]"],
+          "options": [
+            "[[7]]",
+            "[[14]]",
+            "[[19]]",
+            "[[24]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[v(t)=s'(t)=6t^{2}-5]], so [[v(2)=24-5=19]].",
           "incorrectFeedback": "Velocity is the derivative of displacement. Differentiate first and then substitute 2."
@@ -5743,7 +6016,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 10 OF 21",
           "question": "Evaluate [[\\int_{1}^{2}3x^{2}\\,\\mathrm{d}x]].",
-          "options": ["[[3]]", "[[6]]", "[[7]]", "[[8]]"],
+          "options": [
+            "[[3]]",
+            "[[6]]",
+            "[[7]]",
+            "[[8]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[\\left[x^{3}\\right]_{1}^{2}=8-1=7]].",
           "incorrectFeedback": "An antiderivative of [[3x^{2}]] is [[x^{3}]]. Evaluate upper minus lower."
@@ -5752,7 +6030,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 11 OF 21",
           "question": "Evaluate the signed integral [[\\int_{0}^{3}(2x-3)\\,\\mathrm{d}x]].",
-          "options": ["[[-\\frac92]]", "[[0]]", "[[\\frac92]]", "[[9]]"],
+          "options": [
+            "[[-\\frac92]]",
+            "[[0]]",
+            "[[\\frac92]]",
+            "[[9]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[\\left[x^{2}-3x\\right]_{0}^{3}=0]]. Equal negative and positive regions cancel.",
           "incorrectFeedback": "Use an antiderivative, not total geometric area. The region below the axis contributes negatively."
@@ -5779,7 +6062,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 13 OF 21",
           "question": "Given [[\\int_{0}^{2}f(x)\\,\\mathrm{d}x=3]] and [[\\int_{2}^{5}f(x)\\,\\mathrm{d}x=-7]], find [[\\int_{5}^{0}f(x)\\,\\mathrm{d}x]].",
-          "options": ["[[-10]]", "[[-4]]", "[[4]]", "[[10]]"],
+          "options": [
+            "[[-10]]",
+            "[[-4]]",
+            "[[4]]",
+            "[[10]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. First [[\\int_{0}^{5}f=3-7=-4]]. Reversing the limits changes the sign, so [[\\int_{5}^{0}f=4]].",
           "incorrectFeedback": "Join the contiguous intervals first, then reverse the limits with a sign change."
@@ -5848,7 +6136,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 18 OF 21",
           "question": "A quantity Q satisfies [[\\frac{\\mathrm{d}Q}{\\mathrm{d}t}=6t-2]] and [[Q(0)=5]]. Find [[Q(2)]].",
-          "options": ["[[8]]", "[[10]]", "[[13]]", "[[17]]"],
+          "options": [
+            "[[8]]",
+            "[[10]]",
+            "[[13]]",
+            "[[17]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The change is [[\\int_{0}^{2}(6t-2)\\,\\mathrm{d}t=\\left[3t^{2}-2t\\right]_{0}^{2}=8]]. Add the initial 5 to get 13.",
           "incorrectFeedback": "Integrate the rate from 0 to 2 to find the change, then add the initial value."
@@ -5857,7 +6150,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 19 OF 21",
           "question": "Given [[\\int_{1}^{4}f(x)\\,\\mathrm{d}x=6]] and [[\\int_{1}^{4}g(x)\\,\\mathrm{d}x=-2]], evaluate [[\\int_{1}^{4}(2f(x)-g(x))\\,\\mathrm{d}x]].",
-          "options": ["[[8]]", "[[10]]", "[[12]]", "[[14]]"],
+          "options": [
+            "[[8]]",
+            "[[10]]",
+            "[[12]]",
+            "[[14]]"
+          ],
           "answerIndex": 3,
           "correctFeedback": "Correct. By linearity, the value is [[2(6)-(-2)=14]].",
           "incorrectFeedback": "Integrate term by term: double the integral of f, then subtract the integral of g."
@@ -5951,7 +6249,12 @@
           "type": "multipleChoice",
           "eyebrow": "MAPPING CHECK · 4 OF 14",
           "question": "The point [[(2,5)]] lies on [[y=f(x)]]. Which point lies on [[y=f(x-3)+2]]?",
-          "options": ["[[(-1,7)]]", "[[(5,3)]]", "[[(5,7)]]", "[[(6,10)]]"],
+          "options": [
+            "[[(-1,7)]]",
+            "[[(5,3)]]",
+            "[[(5,7)]]",
+            "[[(6,10)]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. Replacing x by [[x-3]] moves the graph right by 3, and adding 2 moves it up by 2. Thus [[(2,5)\\mapsto(5,7)]].",
           "incorrectFeedback": "The inside change moves the point right by 3. The outside change then raises its y-coordinate by 2."
@@ -5973,7 +6276,12 @@
             "kind": "graph-transformations",
             "caption": "Apply the horizontal mapping to x and the outside mapping to y."
           },
-          "options": ["[[(2,-1)]]", "[[(2,3)]]", "[[(18,3)]]", "[[(-2,-3)]]"],
+          "options": [
+            "[[(2,-1)]]",
+            "[[(2,3)]]",
+            "[[(18,3)]]",
+            "[[(-2,-3)]]"
+          ],
           "answerIndex": 1,
           "steps": [
             {
@@ -6015,7 +6323,12 @@
           "type": "multipleChoice",
           "eyebrow": "COMPOSITION CHECK · 9 OF 14",
           "question": "Let [[f(x)=x^{2}+1]] and [[g(x)=2x-3]]. Find [[f(g(2))]].",
-          "options": ["[[1]]", "[[2]]", "[[5]]", "[[26]]"],
+          "options": [
+            "[[1]]",
+            "[[2]]",
+            "[[5]]",
+            "[[26]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[g(2)=1]], then [[f(1)=1^{2}+1=2]].",
           "incorrectFeedback": "Evaluate the inner function first: find [[g(2)]], then use that result as the input to f."
@@ -6162,7 +6475,12 @@
             "kind": "similarity-scale",
             "caption": "The linear scale factor is one and a half, so the volume factor is its cube."
           },
-          "options": ["[[96]]", "[[144]]", "[[192]]", "[[216]]"],
+          "options": [
+            "[[96]]",
+            "[[144]]",
+            "[[192]]",
+            "[[216]]"
+          ],
           "answerIndex": 3,
           "steps": [
             {
@@ -6189,7 +6507,12 @@
           "type": "multipleChoice",
           "eyebrow": "AREA-FACTOR CHECK · 6 OF 18",
           "question": "Two similar shapes have corresponding lengths in the ratio [[1:3]]. What is the ratio of their areas?",
-          "options": ["[[1:3]]", "[[1:6]]", "[[1:9]]", "[[1:27]]"],
+          "options": [
+            "[[1:3]]",
+            "[[1:6]]",
+            "[[1:9]]",
+            "[[1:27]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. Area uses the square of the length factor, so [[1^{2}:3^{2}=1:9]].",
           "incorrectFeedback": "Square both parts of the length ratio. Cubing would apply to volume, not area."
@@ -6213,7 +6536,12 @@
           "type": "multipleChoice",
           "eyebrow": "POLYGON CHECK · 9 OF 18",
           "question": "A regular polygon has exterior angle 24°. How many sides does it have?",
-          "options": ["[[12]]", "[[15]]", "[[18]]", "[[24]]"],
+          "options": [
+            "[[12]]",
+            "[[15]]",
+            "[[18]]",
+            "[[24]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[n=\\frac{360}{24}=15]].",
           "incorrectFeedback": "The exterior angles of any polygon total 360°. Divide 360 by the regular exterior angle."
@@ -6230,7 +6558,12 @@
           "type": "multipleChoice",
           "eyebrow": "ENLARGEMENT CHECK · 11 OF 18",
           "question": "An enlargement with centre the origin and scale factor -2 maps [[(3,-1)]] to which point?",
-          "options": ["[[(6,-2)]]", "[[(-6,2)]]", "[[(-1,3)]]", "[[\\left(-\\frac32,\\frac12\\right)]]"],
+          "options": [
+            "[[(6,-2)]]",
+            "[[(-6,2)]]",
+            "[[(-1,3)]]",
+            "[[\\left(-\\frac32,\\frac12\\right)]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Multiply both coordinates by -2: [[(3,-1)\\mapsto(-6,2)]].",
           "incorrectFeedback": "For an enlargement centred at the origin, multiply the entire position vector by the scale factor."
@@ -6248,7 +6581,12 @@
           "eyebrow": "WORKED EXAMPLE · 13 OF 18",
           "title": "Find a cuboid's space diagonal",
           "question": "A cuboid has side lengths 3, 4, and 12. Find the distance between opposite vertices.",
-          "options": ["[[12]]", "[[13]]", "[[15]]", "[[19]]"],
+          "options": [
+            "[[12]]",
+            "[[13]]",
+            "[[15]]",
+            "[[19]]"
+          ],
           "answerIndex": 1,
           "steps": [
             {
@@ -6287,7 +6625,12 @@
           "type": "multipleChoice",
           "eyebrow": "CIRCLE-THEOREM CHECK · 15 OF 18",
           "question": "A chord subtends an angle of 38° at the circumference. What angle does the same chord subtend at the centre?",
-          "options": ["[[19^{\\circ}]]", "[[38^{\\circ}]]", "[[76^{\\circ}]]", "[[142^{\\circ}]]"],
+          "options": [
+            "[[19^{\\circ}]]",
+            "[[38^{\\circ}]]",
+            "[[76^{\\circ}]]",
+            "[[142^{\\circ}]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The angle at the centre is twice the angle at the circumference, so [[2\\times38^{\\circ}=76^{\\circ}]].",
           "incorrectFeedback": "For the same arc, double the angle at the circumference to obtain the angle at the centre."
@@ -6376,7 +6719,12 @@
           "eyebrow": "WORKED EXAMPLE · 4 OF 18",
           "title": "Estimate a grouped mean",
           "question": "Values in intervals [[0\\le x<10]], [[10\\le x<20]], and [[20\\le x<30]] have frequencies 2, 5, and 3. Estimate the mean.",
-          "options": ["[[14]]", "[[15]]", "[[16]]", "[[18]]"],
+          "options": [
+            "[[14]]",
+            "[[15]]",
+            "[[16]]",
+            "[[18]]"
+          ],
           "answerIndex": 2,
           "steps": [
             {
@@ -6436,7 +6784,12 @@
           "type": "multipleChoice",
           "eyebrow": "DENSITY CHECK · 8 OF 18",
           "question": "A histogram class has width 5 and frequency density 3. What is its frequency?",
-          "options": ["[[\\frac35]]", "[[8]]", "[[15]]", "[[30]]"],
+          "options": [
+            "[[\\frac35]]",
+            "[[8]]",
+            "[[15]]",
+            "[[30]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. Frequency is bar area: [[5\\times3=15]].",
           "incorrectFeedback": "Multiply class width by frequency density."
@@ -6533,7 +6886,12 @@
           "type": "multipleChoice",
           "eyebrow": "DEPENDENT-EVENT CHECK · 15 OF 18",
           "question": "A bag contains 3 red and 2 blue counters. Two are drawn without replacement. What is the probability that both are red?",
-          "options": ["[[\\frac15]]", "[[\\frac3{10}]]", "[[\\frac9{25}]]", "[[\\frac35]]"],
+          "options": [
+            "[[\\frac15]]",
+            "[[\\frac3{10}]]",
+            "[[\\frac9{25}]]",
+            "[[\\frac35]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[\\frac35\\times\\frac24=\\frac3{10}]]. The second numerator and denominator both change after a red counter is removed.",
           "incorrectFeedback": "After the first red counter, 2 red counters remain among 4 total counters."
@@ -6551,7 +6909,12 @@
           "eyebrow": "WORKED EXAMPLE · 17 OF 18",
           "title": "Read a conditional probability from counts",
           "question": "Among 60 students, 30 play sport. Of those 30, 15 also study music. What is the probability that a randomly selected sport player studies music?",
-          "options": ["[[\\frac14]]", "[[\\frac12]]", "[[\\frac35]]", "[[\\frac34]]"],
+          "options": [
+            "[[\\frac14]]",
+            "[[\\frac12]]",
+            "[[\\frac35]]",
+            "[[\\frac34]]"
+          ],
           "answerIndex": 1,
           "steps": [
             {
@@ -6609,7 +6972,12 @@
             "kind": "graph-transformations",
             "caption": "Inside changes act horizontally; outside changes act vertically."
           },
-          "options": ["[[(-1,1)]]", "[[(3,1)]]", "[[(-1,7)]]", "[[(3,7)]]"],
+          "options": [
+            "[[(-1,1)]]",
+            "[[(3,1)]]",
+            "[[(-1,7)]]",
+            "[[(3,7)]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[f(x+2)]] moves the point left by 2, and subtracting 3 moves it down by 3: [[(1,4)\\mapsto(-1,1)]].",
           "incorrectFeedback": "A positive change inside f moves the graph left. The outside subtraction then lowers the y-coordinate."
@@ -6618,7 +6986,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 2 OF 21",
           "question": "The point [[(4,-3)]] lies on [[y=f(x)]]. Where does it move on [[y=-f(2x)]]?",
-          "options": ["[[(2,3)]]", "[[(8,3)]]", "[[(-2,-3)]]", "[[(-8,3)]]"],
+          "options": [
+            "[[(2,3)]]",
+            "[[(8,3)]]",
+            "[[(-2,-3)]]",
+            "[[(-8,3)]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[f(2x)]] divides x-coordinates by 2, and the outside negative reflects y-values: [[(4,-3)\\mapsto(2,3)]].",
           "incorrectFeedback": "Divide the x-coordinate by the inside multiplier, then negate the y-coordinate."
@@ -6627,7 +7000,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 3 OF 21",
           "question": "Let [[f(x)=2x+1]] and [[g(x)=x^{2}]]. Find [[g(f(1))]].",
-          "options": ["[[3]]", "[[5]]", "[[7]]", "[[9]]"],
+          "options": [
+            "[[3]]",
+            "[[5]]",
+            "[[7]]",
+            "[[9]]"
+          ],
           "answerIndex": 3,
           "correctFeedback": "Correct. [[f(1)=3]], then [[g(3)=3^{2}=9]].",
           "incorrectFeedback": "Evaluate the inner function f first, then apply g to its output."
@@ -6654,7 +7032,12 @@
             "kind": "function-intersections",
             "caption": "Equate the two expressions to find intersection coordinates."
           },
-          "options": ["[[1]]", "[[2]]", "[[3]]", "[[4]]"],
+          "options": [
+            "[[1]]",
+            "[[2]]",
+            "[[3]]",
+            "[[4]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[x^{2}+1=3x-1]] gives [[x^{2}-3x+2=0]], with roots 1 and 2. Their sum is 3.",
           "incorrectFeedback": "Equate the two y-values, rearrange, and factorise the resulting quadratic."
@@ -6663,7 +7046,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 6 OF 21",
           "question": "The quantity y is directly proportional to [[x^{3}]]. Given [[y=16]] when [[x=2]], find y when [[x=3]].",
-          "options": ["[[24]]", "[[36]]", "[[48]]", "[[54]]"],
+          "options": [
+            "[[24]]",
+            "[[36]]",
+            "[[48]]",
+            "[[54]]"
+          ],
           "answerIndex": 3,
           "correctFeedback": "Correct. [[y=kx^{3}]] and [[16=8k]], so [[k=2]]. Therefore [[y=2(3^{3})=54]].",
           "incorrectFeedback": "Find k from the first pair of values before substituting the new x-value."
@@ -6672,7 +7060,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 7 OF 21",
           "question": "The quantity y is inversely proportional to [[x^{2}]]. If x doubles, by what factor does y change?",
-          "options": ["[[\\frac14]]", "[[\\frac12]]", "[[2]]", "[[4]]"],
+          "options": [
+            "[[\\frac14]]",
+            "[[\\frac12]]",
+            "[[2]]",
+            "[[4]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[y=kx^{-2}]], so doubling x multiplies y by [[2^{-2}=\\frac14]].",
           "incorrectFeedback": "Apply the inverse-square power to the scale factor: [[2^{-2}]]."
@@ -6685,7 +7078,12 @@
             "kind": "similarity-scale",
             "caption": "Volume scales with the cube of the length ratio."
           },
-          "options": ["[[360]]", "[[600]]", "[[1000]]", "[[1296]]"],
+          "options": [
+            "[[360]]",
+            "[[600]]",
+            "[[1000]]",
+            "[[1296]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. The volume factor is [[\\left(\\frac53\\right)^{3}=\\frac{125}{27}]], and [[216\\times\\frac{125}{27}=1000]].",
           "incorrectFeedback": "Cube the length scale factor from smaller to larger before scaling the volume."
@@ -6694,7 +7092,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 9 OF 21",
           "question": "Each interior angle of a regular polygon is 156°. How many sides does it have?",
-          "options": ["[[12]]", "[[15]]", "[[18]]", "[[24]]"],
+          "options": [
+            "[[12]]",
+            "[[15]]",
+            "[[18]]",
+            "[[24]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. The exterior angle is [[180^{\\circ}-156^{\\circ}=24^{\\circ}]], so the number of sides is [[\\frac{360}{24}=15]].",
           "incorrectFeedback": "First convert the interior angle to an exterior angle, then divide 360° by it."
@@ -6703,7 +7106,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 10 OF 21",
           "question": "Which information is not sufficient in general to prove that two triangles are congruent?",
-          "options": ["SSS", "SAS", "ASA", "SSA"],
+          "options": [
+            "SSS",
+            "SAS",
+            "ASA",
+            "SSA"
+          ],
           "answerIndex": 3,
           "correctFeedback": "Correct. SSA can produce two different triangles, so it is not a general congruence criterion.",
           "incorrectFeedback": "The standard criteria are SSS, SAS, ASA, and RHS. A non-included angle with two sides can be ambiguous."
@@ -6712,7 +7120,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 11 OF 21",
           "question": "An enlargement with centre the origin and scale factor [[-\\frac12]] maps [[(6,-4)]] to which point?",
-          "options": ["[[(3,-2)]]", "[[(-3,2)]]", "[[(-12,8)]]", "[[(12,-8)]]"],
+          "options": [
+            "[[(3,-2)]]",
+            "[[(-3,2)]]",
+            "[[(-12,8)]]",
+            "[[(12,-8)]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Multiply each coordinate by [[-\\frac12]] to obtain [[(-3,2)]].",
           "incorrectFeedback": "For a centre at the origin, multiply the position vector by the scale factor."
@@ -6721,7 +7134,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 12 OF 21",
           "question": "A cuboid has side lengths 6, 8, and 24. Find its space diagonal.",
-          "options": ["[[25]]", "[[26]]", "[[30]]", "[[38]]"],
+          "options": [
+            "[[25]]",
+            "[[26]]",
+            "[[30]]",
+            "[[38]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[d=\\sqrt{6^{2}+8^{2}+24^{2}}=\\sqrt{676}=26]].",
           "incorrectFeedback": "Apply Pythagoras in three dimensions by adding the squares of all three perpendicular side lengths."
@@ -6734,7 +7152,12 @@
             "kind": "circle-theorems",
             "caption": "Opposite angles in a cyclic quadrilateral sum to 180°."
           },
-          "options": ["[[56^{\\circ}]]", "[[68^{\\circ}]]", "[[112^{\\circ}]]", "[[248^{\\circ}]]"],
+          "options": [
+            "[[56^{\\circ}]]",
+            "[[68^{\\circ}]]",
+            "[[112^{\\circ}]]",
+            "[[248^{\\circ}]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Opposite angles sum to 180°, so [[180^{\\circ}-112^{\\circ}=68^{\\circ}]].",
           "incorrectFeedback": "Use the cyclic-quadrilateral rule that opposite angles are supplementary."
@@ -6757,7 +7180,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 15 OF 21",
           "question": "Values in classes [[0\\le x<10]] and [[10\\le x<20]] have frequencies 4 and 6. Estimate the mean.",
-          "options": ["[[9]]", "[[10]]", "[[11]]", "[[12]]"],
+          "options": [
+            "[[9]]",
+            "[[10]]",
+            "[[11]]",
+            "[[12]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. Using midpoints 5 and 15 gives [[\\frac{4(5)+6(15)}{10}=\\frac{110}{10}=11]].",
           "incorrectFeedback": "Multiply each class midpoint by its frequency, add, and divide by the total frequency."
@@ -6770,7 +7198,12 @@
             "kind": "histogram-density",
             "caption": "In a histogram, bar area equals frequency."
           },
-          "options": ["[[3.2]]", "[[10.5]]", "[[16]]", "[[20]]"],
+          "options": [
+            "[[3.2]]",
+            "[[10.5]]",
+            "[[16]]",
+            "[[20]]"
+          ],
           "answerIndex": 3,
           "correctFeedback": "Correct. [[8\\times2.5=20]].",
           "incorrectFeedback": "Multiply the class width by its frequency density."
@@ -6783,7 +7216,12 @@
             "kind": "cumulative-frequency",
             "caption": "The upper quartile lies three quarters of the way through the ordered data."
           },
-          "options": ["[[30]]", "[[60]]", "[[90]]", "[[100]]"],
+          "options": [
+            "[[30]]",
+            "[[60]]",
+            "[[90]]",
+            "[[100]]"
+          ],
           "answerIndex": 2,
           "correctFeedback": "Correct. [[Q_{3}]] is at [[\\frac{3(120)}4=90]].",
           "incorrectFeedback": "The upper quartile is at three quarters of the total frequency."
@@ -6814,7 +7252,12 @@
             "kind": "probability-tree",
             "caption": "Without replacement, the probabilities on the second stage change."
           },
-          "options": ["[[\\frac27]]", "[[\\frac37]]", "[[\\frac47]]", "[[\\frac{16}{49}]]"],
+          "options": [
+            "[[\\frac27]]",
+            "[[\\frac37]]",
+            "[[\\frac47]]",
+            "[[\\frac{16}{49}]]"
+          ],
           "answerIndex": 0,
           "correctFeedback": "Correct. [[\\frac47\\times\\frac36=\\frac{12}{42}=\\frac27]].",
           "incorrectFeedback": "After one green counter is removed, 3 green counters remain among 6 counters."
@@ -6823,7 +7266,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 20 OF 21",
           "question": "Of 50 students, 20 study physics. Of those 20, 8 also study economics. Find [[P(\\text{economics}\\mid\\text{physics})]].",
-          "options": ["[[\\frac4{25}]]", "[[\\frac25]]", "[[\\frac8{50}]]", "[[\\frac35]]"],
+          "options": [
+            "[[\\frac4{25}]]",
+            "[[\\frac25]]",
+            "[[\\frac8{50}]]",
+            "[[\\frac35]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Restrict the sample space to the 20 physics students: [[\\frac8{20}=\\frac25]].",
           "incorrectFeedback": "The condition is physics, so the denominator must be the number of physics students, not all 50 students."
@@ -6887,7 +7335,12 @@
           "type": "multipleChoice",
           "eyebrow": "INCLUSIVE OR · 3 OF 14",
           "question": "Which integer satisfies “divisible by [[2]] or divisible by [[3]]” because both parts are true?",
-          "options": ["[[4]]", "[[6]]", "[[9]]", "[[25]]"],
+          "options": [
+            "[[4]]",
+            "[[6]]",
+            "[[9]]",
+            "[[25]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[6]] is divisible by both [[2]] and [[3]], and inclusive “or” allows this overlap.",
           "incorrectFeedback": "Look for a number divisible by both [[2]] and [[3]], not exactly one of them."
@@ -7473,7 +7926,12 @@
           "type": "multipleChoice",
           "eyebrow": "LOST SOLUTION · 11 OF 14",
           "question": "A student solves [[x(x-3)=0]] by dividing by [[x]] and obtains only [[x=3]]. Which solution was lost?",
-          "options": ["[[-3]]", "[[0]]", "[[1]]", "[[6]]"],
+          "options": [
+            "[[-3]]",
+            "[[0]]",
+            "[[1]]",
+            "[[6]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Dividing by [[x]] assumes [[x\\ne0]], so it discards the valid solution [[x=0]].",
           "incorrectFeedback": "Substitute the value that makes the divided factor [[x]] equal to zero."
@@ -7494,7 +7952,12 @@
           "type": "multipleChoice",
           "eyebrow": "DOMAIN EDGE · 13 OF 14",
           "question": "Which counterexample disproves “every prime number is odd”?",
-          "options": ["[[1]]", "[[2]]", "[[3]]", "[[9]]"],
+          "options": [
+            "[[1]]",
+            "[[2]]",
+            "[[3]]",
+            "[[9]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. [[2]] is prime and even, so it satisfies the premise and fails the conclusion.",
           "incorrectFeedback": "Choose a number that is genuinely prime but not odd."
@@ -7720,7 +8183,12 @@
             "kind": "counterexample-search",
             "caption": "A universal inequality fails if one real input violates it."
           },
-          "options": ["[[x=-2]]", "[[x=0]]", "[[x=2]]", "[[x=3]]"],
+          "options": [
+            "[[x=-2]]",
+            "[[x=0]]",
+            "[[x=2]]",
+            "[[x=3]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. At [[x=0]], the claim becomes [[0\\gt0]], which is false.",
           "incorrectFeedback": "Test a boundary value where the two sides become equal."
@@ -7729,7 +8197,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 15 OF 21",
           "question": "Which missing condition makes the deduction “[[ab=ac]], therefore [[b=c]]” valid?",
-          "options": ["[[a=0]]", "[[a\\ne0]]", "[[b=0]]", "[[b\\ne c]]"],
+          "options": [
+            "[[a=0]]",
+            "[[a\\ne0]]",
+            "[[b=0]]",
+            "[[b\\ne c]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Cancelling [[a]] divides by it, which requires [[a\\ne0]].",
           "incorrectFeedback": "Identify the expression used as a divisor during cancellation."
@@ -7752,7 +8225,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 17 OF 21",
           "question": "Squaring [[\\sqrt{x+2}=x]] gives candidates [[x=2]] and [[x=-1]]. Which candidate is extraneous?",
-          "options": ["[[-2]]", "[[-1]]", "[[1]]", "[[2]]"],
+          "options": [
+            "[[-2]]",
+            "[[-1]]",
+            "[[1]]",
+            "[[2]]"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Substitution gives [[\\sqrt1=1\\ne-1]], so [[x=-1]] solves the squared equation but not the original.",
           "incorrectFeedback": "Substitute each candidate into the original unsquared equation."
@@ -7761,7 +8239,12 @@
           "type": "multipleChoice",
           "eyebrow": "EXAM PRACTICE · 18 OF 21",
           "question": "To prove that the square of an even integer is even, which order is logically correct?<br><br>1. Therefore [[n^{2}]] is even.<br>2. Let [[n=2k]], where [[k]] is an integer.<br>3. Then [[n^{2}=4k^{2}=2(2k^{2})]].<br>4. [[2k^{2}]] is an integer.",
-          "options": ["1, 2, 3, 4", "2, 3, 4, 1", "2, 4, 1, 3", "3, 2, 4, 1"],
+          "options": [
+            "1, 2, 3, 4",
+            "2, 3, 4, 1",
+            "2, 4, 1, 3",
+            "3, 2, 4, 1"
+          ],
           "answerIndex": 1,
           "correctFeedback": "Correct. Begin with the definition, calculate, establish the remaining factor is an integer, then conclude evenness.",
           "incorrectFeedback": "A proof must begin from the assumption and place the conclusion only after its justification."
