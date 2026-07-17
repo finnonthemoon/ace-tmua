@@ -16,6 +16,7 @@ export type LessonDiagramKind =
   | "function-intersections"
   | "similarity-scale"
   | "circle-theorems"
+  | "mixed-circle-theorem"
   | "histogram-density"
   | "cumulative-frequency"
   | "scatter-correlation"

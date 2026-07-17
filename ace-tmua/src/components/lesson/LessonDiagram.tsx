@@ -292,7 +292,155 @@ function CircleTheoremsDiagram() {
     </>
   );
 }
+function MixedCircleTheoremDiagram() {
+  const A = { x: 208, y: 95 };
+  const B = { x: 111, y: 157 };
+  const CPoint = { x: 81, y: 61 };
+  const D = { x: 169, y: 33 };
 
+  return (
+    <>
+      {/* Circle */}
+      <Circle
+        cx={140}
+        cy={95}
+        r={68}
+        fill="#FFF8ED"
+        stroke={C.primary}
+        strokeWidth={3}
+      />
+
+      {/* Tangent at A */}
+      <Line
+        x1={A.x}
+        y1={12}
+        x2={A.x}
+        y2={178}
+        stroke="#54749F"
+        strokeWidth={3}
+      />
+
+      {/* Cyclic quadrilateral ABCD */}
+      <Line
+        x1={A.x}
+        y1={A.y}
+        x2={B.x}
+        y2={B.y}
+        stroke="#C88A43"
+        strokeWidth={2.7}
+      />
+      <Line
+        x1={B.x}
+        y1={B.y}
+        x2={CPoint.x}
+        y2={CPoint.y}
+        stroke={C.ink}
+        strokeWidth={2.2}
+      />
+      <Line
+        x1={CPoint.x}
+        y1={CPoint.y}
+        x2={D.x}
+        y2={D.y}
+        stroke={C.ink}
+        strokeWidth={2.2}
+      />
+      <Line
+        x1={D.x}
+        y1={D.y}
+        x2={A.x}
+        y2={A.y}
+        stroke={C.ink}
+        strokeWidth={2.2}
+      />
+
+      {/* Diagonal AC, needed for angles BAC and ACB */}
+      <Line
+        x1={A.x}
+        y1={A.y}
+        x2={CPoint.x}
+        y2={CPoint.y}
+        stroke={C.primary}
+        strokeWidth={2.3}
+      />
+
+      {/* Tangent–chord angle at A */}
+      <Path
+        d="M 208 119 A 24 24 0 0 1 188 108"
+        fill="none"
+        stroke="#54749F"
+        strokeWidth={2}
+      />
+
+      {/* Angle BAC */}
+      <Path
+        d="M 193 105 A 18 18 0 0 1 191 90"
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={2}
+      />
+
+      {/* Angle ACB: alternate-segment angle */}
+      <Path
+        d="M 99 66 A 18 18 0 0 1 87 78"
+        fill="none"
+        stroke="#54749F"
+        strokeWidth={2}
+      />
+
+      {/* Angle ADC */}
+      <Path
+        d="M 178 47 A 16 16 0 0 1 154 38"
+        fill="none"
+        stroke="#C88A43"
+        strokeWidth={2}
+      />
+
+      {/* Points */}
+      {[A, B, CPoint, D].map((point, index) => (
+        <Circle
+          key={index}
+          cx={point.x}
+          cy={point.y}
+          r={4}
+          fill={C.ink}
+          stroke="#FFFFFF"
+          strokeWidth={1.5}
+        />
+      ))}
+
+      {/* Point labels */}
+      <SvgText x={214} y={91} fontSize={12} fontWeight="900" fill={C.ink}>
+        A
+      </SvgText>
+      <SvgText x={98} y={174} fontSize={12} fontWeight="900" fill={C.ink}>
+        B
+      </SvgText>
+      <SvgText x={65} y={59} fontSize={12} fontWeight="900" fill={C.ink}>
+        C
+      </SvgText>
+      <SvgText x={165} y={23} fontSize={12} fontWeight="900" fill={C.ink}>
+        D
+      </SvgText>
+
+      {/* Angle and line labels */}
+      <SvgText x={218} y={27} fontSize={10} fontWeight="800" fill="#54749F">
+        tangent
+      </SvgText>
+      <SvgText x={220} y={113} fontSize={9.5} fontWeight="800" fill="#54749F">
+        (2x + 12)°
+      </SvgText>
+
+      <SvgText x={151} y={94} fontSize={9.5} fontWeight="800" fill={C.primary}>
+        x + 8°
+      </SvgText>
+
+      <SvgText x={121} y={56} fontSize={9.5} fontWeight="800" fill="#A66F2E">
+        4x + 10°
+      </SvgText>
+    </>
+  );
+}
 function HistogramDensityDiagram() {
   return (
     <>
@@ -723,6 +871,7 @@ export default function LessonDiagramView({ diagram }: Props) {
         {diagram.kind === "function-intersections" && <FunctionIntersectionsDiagram />}
         {diagram.kind === "similarity-scale" && <SimilarityScaleDiagram />}
         {diagram.kind === "circle-theorems" && <CircleTheoremsDiagram />}
+        {diagram.kind === "mixed-circle-theorem" && <MixedCircleTheoremDiagram />}
         {diagram.kind === "histogram-density" && <HistogramDensityDiagram />}
         {diagram.kind === "cumulative-frequency" && <CumulativeFrequencyDiagram />}
         {diagram.kind === "scatter-correlation" && <ScatterCorrelationDiagram />}

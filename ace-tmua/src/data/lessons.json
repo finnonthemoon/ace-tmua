@@ -2502,25 +2502,29 @@
         },
         {
           "type": "concept",
-          "eyebrow": "POINTS AND REGIONS · 7 OF 14",
-          "title": "Compare squared distance with [[r^{2}]]",
-          "body": "For a circle centred at [[(a,b)]], calculate [[D^{2}=(x-a)^{2}+(y-b)^{2}]] for a point [[(x,y)]].<br><br>If [[D^{2}=r^{2}]], the point is on the circle. If [[D^{2}<r^{2}]], it is inside; if [[D^{2}>r^{2}]], it is outside.",
-          "keyPoint": "Use squared distances to avoid unnecessary square roots.",
+          "eyebrow": "COMMON CHORDS · 7 OF 14",
+          "title": "Subtract two circle equations",
+          "diagram": {
+            "kind": "coordinate-circle",
+            "caption": "The common chord passes through both intersection points of the circles."
+          },
+          "body": "Suppose two circles intersect at points A and B. Every point on both circles satisfies both equations.<br><br>Subtracting one circle equation from the other eliminates the [[x^{2}]] and [[y^{2}]] terms. The remaining linear equation is the line through A and B, called the common chord.",
+          "keyPoint": "For two equal circles, the common chord is also the perpendicular bisector of the line joining their centres.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "POINT CHECK · 8 OF 14",
-          "question": "Relative to the circle with centre [[(1,-2)]] and radius 5, where is the point [[(4,2)]]?",
+          "eyebrow": "COMMON-CHORD CHECK · 8 OF 14",
+          "question": "The circles<br><br>[[x^{2}+y^{2}-4x+6y-12=0]]<br><br>and<br><br>[[x^{2}+y^{2}+8x-2y-8=0]]<br><br>intersect at two points. What is the equation of the line through those intersection points?",
           "options": [
-            "Inside",
-            "On the circle",
-            "Outside",
-            "At the centre"
+            "[[3x-2y=-1]]",
+            "[[3x-2y=1]]",
+            "[[2x+3y=-5]]",
+            "[[2x+3y=5]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[(4-1)^{2}+(2-(-2))^{2}=3^{2}+4^{2}=25=5^{2}]].",
-          "incorrectFeedback": "Compare the squared distance from [[(1,-2)]] with [[5^{2}]]."
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Subtracting the second equation from the first gives [[-12x+8y-4=0]], which simplifies to [[3x-2y=-1]].",
+          "incorrectFeedback": "Subtract the complete circle equations. The [[x^{2}]] and [[y^{2}]] terms cancel, leaving the equation of the common chord."
         },
         {
           "type": "concept",
@@ -2587,44 +2591,25 @@
         },
         {
           "type": "concept",
-          "eyebrow": "CIRCLES FROM DIAMETERS · 12 OF 14",
-          "title": "A diameter determines the centre and radius",
-          "body": "If A and B are endpoints of a diameter, the centre is their midpoint. The radius is half the distance AB.<br><br>It is often quickest to calculate [[r^{2}]] directly as one quarter of the squared diameter length.",
-          "keyPoint": "Once the midpoint and [[r^{2}]] are known, place them directly into standard circle form.",
+          "eyebrow": "PARAMETERISED CIRCLES · 12 OF 14",
+          "title": "Express the radius in terms of the parameter",
+          "body": "When a circle equation contains a parameter, complete both squares as usual. The resulting right-hand side is [[r^{2}]].<br><br>If the question asks for the smallest possible radius, rewrite [[r^{2}]] in completed-square form and find where it is minimised.",
+          "keyPoint": "Minimising [[r^{2}]] also minimises r because the radius is non-negative.",
           "buttonText": "Continue"
         },
         {
-          "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 13 OF 14",
-          "title": "Construct a circle from its diameter",
-          "question": "A circle has diameter endpoints [[(-2,1)]] and [[(4,5)]]. Find its equation.",
+          "type": "multipleChoice",
+          "eyebrow": "MINIMUM-RADIUS CHALLENGE · 13 OF 14",
+          "question": "For each real value of p, the equation<br><br>[[x^{2}+y^{2}-2px+4y+6p-9=0]]<br><br>describes a circle. For which value of p does the circle have its minimum possible radius?",
           "options": [
-            "[[(x-1)^{2}+(y-3)^{2}=13]]",
-            "[[(x+1)^{2}+(y+3)^{2}=13]]",
-            "[[(x-1)^{2}+(y-3)^{2}=52]]",
-            "[[(x-2)^{2}+(y-4)^{2}=26]]"
+            "[[p=0]]",
+            "[[p=2]]",
+            "[[p=3]]",
+            "[[p=6]]"
           ],
-          "answerIndex": 0,
-          "steps": [
-            {
-              "title": "Find the centre",
-              "body": "The midpoint is [[\\left(\\frac{-2+4}{2},\\frac{1+5}{2}\\right)=(1,3)]]."
-            },
-            {
-              "title": "Find the squared diameter",
-              "body": "[[AB^{2}=6^{2}+4^{2}=52]]."
-            },
-            {
-              "title": "Find the squared radius",
-              "body": "Since the radius is half the diameter, [[r^{2}=\\frac{52}{4}=13]]."
-            },
-            {
-              "title": "Write the equation",
-              "body": "[[(x-1)^{2}+(y-3)^{2}=13]]."
-            }
-          ],
-          "finalAnswer": "The equation is [[(x-1)^{2}+(y-3)^{2}=13]], so the correct option is A.",
-          "buttonText": "Continue"
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Completing both squares gives [[(x-p)^{2}+(y+2)^{2}=(p-3)^{2}+4]]. Therefore [[r^{2}]] is smallest when [[p=3]].",
+          "incorrectFeedback": "Complete the x-square and y-square, then rewrite the resulting expression for [[r^{2}]] as a square plus a constant."
         },
         {
           "type": "lessonSummary",
@@ -2633,15 +2618,16 @@
           "keyPoints": [
             "[[(x-a)^{2}+(y-b)^{2}=r^{2}]] has centre [[(a,b)]] and radius r.",
             "Complete the x-square and y-square separately in expanded form.",
-            "Compare squared distance with [[r^{2}]] to classify a point.",
+            "Subtract two circle equations to obtain the equation of their common chord.",
             "Line-circle intersections reduce to a quadratic after substitution.",
-            "Diameter endpoints give the centre by midpoint and the radius by half-distance."
+            "For a parameterised circle, complete the squares to express [[r^{2}]] in terms of the parameter."
           ],
           "reviewItems": [
             "Reverse bracket signs when reading centre coordinates.",
             "Balance constants carefully while completing squares.",
-            "Use the quadratic discriminant to count intersections.",
-            "Recover y-values after solving intersection x-values.",
+            "Use subtraction to eliminate the quadratic terms from two circle equations.",
+            "Use the quadratic discriminant to count line-circle intersections.",
+            "Complete the square in the parameter when finding a minimum or maximum radius.",
             "Next lesson: Circle Theorems on Axes."
           ],
           "buttonText": "Finish lesson"
@@ -2838,50 +2824,62 @@
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 12 OF 14",
-          "title": "Use a coordinate diameter",
-          "question": "A circle has diameter endpoints [[A=(-3,1)]] and [[B=(5,1)]]. Point C lies elsewhere on the circle, and [[\\angle CAB=32^{\\circ}]]. Find [[\\angle ABC]].",
+          "eyebrow": "TMUA TANGENT CHALLENGE · 12 OF 14",
+          "title": "Find a tangent from an external point",
+          "question": "The circle [[(x-1)^{2}+(y+2)^{2}=25]] has centre C. The point [[P=(8,-1)]] lies outside the circle.<br><br>Two tangents can be drawn from P. Which equation represents the tangent with negative gradient?",
+          "diagram": {
+            "kind": "circle-theorems",
+            "caption": "At a point of contact T, the radius CT is perpendicular to the tangent PT."
+          },
           "options": [
-            "[[32^{\\circ}]]",
-            "[[48^{\\circ}]]",
-            "[[58^{\\circ}]]",
-            "[[90^{\\circ}]]"
+            "[[3x+4y=20]]",
+            "[[4x-3y=35]]",
+            "[[4x+3y=29]]",
+            "[[3x-4y=28]]"
           ],
-          "answerIndex": 2,
+          "answerIndex": 0,
           "steps": [
             {
-              "title": "Recognise the diameter",
-              "body": "AB passes through the centre because its endpoints define the diameter."
+              "title": "Find the distance from C to P",
+              "body": "The centre is [[C=(1,-2)]], so<br><br>[[CP^{2}=(8-1)^{2}+(-1-(-2))^{2}=49+1=50]]."
             },
             {
-              "title": "Use the semicircle theorem",
-              "body": "[[\\angle ACB=90^{\\circ}]]."
+              "title": "Use the right triangle",
+              "body": "If T is a point of contact, then [[CT\\perp PT]]. Since [[CT=5]], Pythagoras gives<br><br>[[PT^{2}=CP^{2}-CT^{2}=50-25=25]].<br><br>Therefore [[PT=5]]."
             },
             {
-              "title": "Use the triangle angle sum",
-              "body": "[[\\angle ABC=180^{\\circ}-90^{\\circ}-32^{\\circ}]]."
+              "title": "Form a second circle",
+              "body": "The possible contact points T are distance 5 from both C and P. They therefore lie on both<br><br>[[(x-1)^{2}+(y+2)^{2}=25]]<br><br>and<br><br>[[(x-8)^{2}+(y+1)^{2}=25]]."
             },
             {
-              "title": "Calculate",
-              "body": "[[\\angle ABC=58^{\\circ}]]."
+              "title": "Find the possible contact points",
+              "body": "Subtracting the two circle equations gives [[7x+y=30]]. Substitution into either circle gives<br><br>[[x^{2}-9x+20=0]],<br><br>so [[x=4]] or [[x=5]]. The contact points are [[(4,2)]] and [[(5,-5)]]."
+            },
+            {
+              "title": "Choose the negative-gradient tangent",
+              "body": "The line from [[P=(8,-1)]] to [[(4,2)]] has gradient<br><br>[[\\frac{2-(-1)}{4-8}=-\\frac34]].<br><br>Hence [[y+1=-\\frac34(x-8)]], which rearranges to [[3x+4y=20]]."
             }
           ],
-          "finalAnswer": "The angle is [[58^{\\circ}]], so the correct option is C.",
+          "finalAnswer": "The required tangent is [[3x+4y=20]], so the correct option is A.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALTERNATE-SEGMENT CHECK · 13 OF 14",
-          "question": "The angle between a tangent and a chord is 47°. What angle does that chord subtend in the alternate segment?",
+          "eyebrow": "MIXED CIRCLE-THEOREM CHALLENGE · 13 OF 14",
+          "question": "The points A, B, C and D lie on a circle in that order. A tangent is drawn at A.<br><br>The angle between the tangent and chord AB is [[(2x+12)^{\\circ}]], [[\\angle BAC=(x+8)^{\\circ}]], and [[\\angle ADC=(4x+10)^{\\circ}]].<br><br>What is the value of x?",
+          "diagram": {
+            "kind": "mixed-circle-theorem",
+            "caption": "Use the alternate-segment theorem, the angle sum of a triangle, and the cyclic-quadrilateral theorem."
+          },
           "options": [
-            "[[43^{\\circ}]]",
-            "[[47^{\\circ}]]",
-            "[[94^{\\circ}]]",
-            "[[133^{\\circ}]]"
+            "[[8]]",
+            "[[10]]",
+            "[[12]]",
+            "[[20]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. The alternate-segment theorem makes the two angles equal.",
-          "incorrectFeedback": "The angle between the tangent and chord equals the angle subtended by the chord in the alternate segment."
+          "correctFeedback": "Correct. The alternate-segment theorem gives [[\\angle ACB=(2x+12)^{\\circ}]].<br>So in triangle ABC:<br>[[\\angle ABC=180^{\\circ}-(x+8)^{\\circ}-(2x+12)^{\\circ}]]<br>[[=160-3x]].<br>Since ABCD is cyclic:<br>[[\\angle ABC+\\angle ADC=180^{\\circ}]].<br>Hence:<br>[[(160-3x)+(4x+10)=180]].<br>So [[x=10]].",
+          "incorrectFeedback": "First transfer the tangent-chord angle to [[\\angle ACB]] using the alternate-segment theorem. Then find [[\\angle ABC]] from triangle ABC and use the fact that opposite angles in a cyclic quadrilateral sum to [[180^{\\circ}]]."
         },
         {
           "type": "lessonSummary",
