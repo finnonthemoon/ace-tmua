@@ -85,7 +85,7 @@ The code and Expo config are present, but a real standalone build needs an Apple
 6. If a web or Android Apple OAuth flow is added later, create a Services ID and Apple signing key as well. Apple OAuth secrets must be regenerated periodically; the current native iOS flow avoids that web-only maintenance requirement.
 7. Create a new native development build after changing capabilities:
 
-Expo Doctor currently reports that CocoaPods is not installed on this Mac. Install CocoaPods before making a local iOS build:
+Install CocoaPods before making a local iOS build if `pod --version` is not already working:
 
 ```text
 sudo gem install cocoapods
@@ -112,25 +112,55 @@ Expo Go can test the Apple UI, but identifiers differ from the standalone app. F
 
 If the database schema has not been installed or the device is offline, the app retains local progress and shows a sync warning instead of discarding data.
 
-## 7. Add RevenueCat later
+## 7. Finish RevenueCat
 
-Premium is intentionally not granted by client-side code. Users can record interest, while premium practice routes check the cached entitlement.
+The RevenueCat SDK, Premium screen, purchase flow, restore flow and entitlement checks are implemented. Development builds use the RevenueCat Test Store key. Release builds deliberately reject that key and require the platform-specific public SDK key.
 
-When RevenueCat is introduced:
+Add these values to the local environment as appropriate:
 
-1. Create the App Store products and RevenueCat entitlement.
-2. Add the RevenueCat React Native SDK.
-3. Replace the placeholder Premium action with the RevenueCat paywall/purchase call.
-4. Use a trusted RevenueCat webhook or Supabase Edge Function to update `public.entitlements` with the service role.
-5. Refresh the account after a purchase or restore.
+```text
+EXPO_PUBLIC_REVENUECAT_TEST_API_KEY=test_YOUR_TEST_STORE_KEY
+EXPO_PUBLIC_REVENUECAT_IOS_API_KEY=appl_YOUR_IOS_PUBLIC_SDK_KEY
+EXPO_PUBLIC_REVENUECAT_ANDROID_API_KEY=goog_YOUR_ANDROID_PUBLIC_SDK_KEY
+EXPO_PUBLIC_REVENUECAT_ENTITLEMENT_ID="AceTMUA Pro"
+```
 
-Do not add an INSERT or UPDATE client policy to `entitlements`; otherwise users could grant Premium to themselves.
+In the RevenueCat dashboard:
+
+1. Keep the entitlement identifier exactly `AceTMUA Pro`, or change the environment variable to the exact dashboard identifier.
+2. Attach every Premium product to that entitlement.
+3. Keep the intended packages in the `default` offering.
+4. Create, publish and attach a paywall to the `default` offering. Having packages alone is not enough for `presentPaywallIfNeeded`.
+5. Add the production App Store app and use its `appl_...` public SDK key for iOS release builds.
+
+The app uses the signed-in Supabase user UUID as the RevenueCat App User ID. This makes Premium portable across devices and allows server-side subscription events to map back to the correct database row.
+
+To keep `public.entitlements` in sync, deploy `supabase/functions/revenuecat-webhook` and follow its README. The function validates a private webhook header, re-reads the subscriber from RevenueCat using a secret server key, and writes with the Supabase service role. Do not add an INSERT or UPDATE client policy to `entitlements`; otherwise users could grant Premium to themselves.
+
+RevenueCat purchases cannot be fully tested in Expo Go. Use a native development build:
+
+```text
+npx expo run:ios
+```
+
+Then test one valid Test Store purchase, one failed purchase, cancellation and restore while signed into a Supabase test account.
+
+## 8. Run the service audit
+
+With `.env.local` configured and an internet connection, run:
+
+```text
+npm run check:services
+```
+
+This checks Supabase Auth health, all expected REST tables, anonymous-write RLS protection, the RevenueCat SDK key, the current offering and its packages. It never prints API keys and does not create a database user.
 
 ## Still required before App Store release
 
 - Final Apple bundle identifier and Apple Developer/App Store Connect setup.
 - Google OAuth consent configuration and production branding verification.
-- RevenueCat products, pricing, paywall and restore-purchases flow.
+- A published RevenueCat paywall, production iOS SDK key and App Store products.
+- Deployment and dashboard registration of the RevenueCat entitlement webhook.
 - Privacy Policy and Terms URLs.
 - An in-app account-deletion flow backed by a secure Supabase Edge Function.
 - TestFlight testing of email links, Google OAuth and Apple authentication on physical devices.

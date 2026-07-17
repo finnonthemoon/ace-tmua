@@ -1,0 +1,4 @@
+project_id = "ace-tmua"
+
+[functions.revenuecat-webhook]
+verify_jwt = false

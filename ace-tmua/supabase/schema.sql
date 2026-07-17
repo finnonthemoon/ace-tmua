@@ -14,7 +14,7 @@ create table if not exists public.profiles (
   updated_at timestamptz not null default now()
 );
 
--- RevenueCat or another trusted server will update this table later.
+-- RevenueCat updates this table through the trusted Supabase Edge Function.
 -- There are deliberately no client INSERT/UPDATE policies.
 create table if not exists public.entitlements (
   user_id uuid primary key references auth.users(id) on delete cascade,
