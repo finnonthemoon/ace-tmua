@@ -2910,323 +2910,295 @@
       "screens": [
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 1 OF 21",
-          "question": "Find the gradient of the line through [[(-3,4)]] and [[(5,-8)]].",
-          "diagram": {
-            "kind": "line-gradient",
-            "caption": "Use a consistent coordinate subtraction order."
-          },
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 1 OF 20",
+          "question": "The lines<br><br>[[(p-1)x+2y=5]]<br><br>and<br><br>[[3x+(p+1)y=7]]<br><br>are perpendicular. What is the value of p?",
           "options": [
-            "[[-\\frac32]]",
-            "[[-\\frac23]]",
-            "[[\\frac23]]",
-            "[[\\frac32]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[m=\\frac{-8-4}{5-(-3)}=\\frac{-12}{8}=-\\frac32]].",
-          "incorrectFeedback": "Calculate second y minus first y over second x minus first x."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 2 OF 21",
-          "question": "Find the equation of the line through [[(2,5)]] with gradient -3.",
-          "options": [
-            "[[y=-3x+11]]",
-            "[[y=-3x+7]]",
-            "[[y=3x-1]]",
-            "[[y=3x+11]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[y-5=-3(x-2)]], so [[y=-3x+11]].",
-          "incorrectFeedback": "Use point-gradient form and expand carefully."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 3 OF 21",
-          "question": "What is the gradient of [[5x+y-7=0]]?",
-          "options": [
-            "[[-7]]",
-            "[[-5]]",
-            "[[5]]",
-            "[[7]]"
+            "[[-1]]",
+            "[[\\frac15]]",
+            "[[1]]",
+            "[[5]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. Rearranging gives [[y=-5x+7]], so the gradient is -5.",
-          "incorrectFeedback": "Make y the subject before reading the coefficient of x."
+          "correctFeedback": "Correct. Their gradients are [[-\\frac{p-1}{2}]] and [[-\\frac{3}{p+1}]]. Perpendicular gradients have product -1, so<br>[[\\frac{3(p-1)}{2(p+1)}=-1]].<br>Hence [[3p-3=-2p-2]], giving [[p=\\frac15]].",
+          "incorrectFeedback": "Write each line's gradient in terms of p, then set the product of the two gradients equal to -1."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 4 OF 21",
-          "question": "Which line passes through [[(2,1)]] and is parallel to [[3x-y=4]]?",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 2 OF 20",
+          "question": "The lines [[2x-y=1]] and [[x+2y=8]] intersect at P. A line through P is perpendicular to [[3x-4y=7]]. Which equation represents this line?",
           "options": [
-            "[[3x-y-5=0]]",
-            "[[3x+y-7=0]]",
-            "[[x+3y-5=0]]",
-            "[[3x-y-4=0]]"
+            "[[3x-4y+6=0]]",
+            "[[4x-3y+1=0]]",
+            "[[3x+4y-18=0]]",
+            "[[4x+3y-17=0]]"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The first two lines meet at [[P=(2,3)]]. The line [[3x-4y=7]] has gradient [[\\frac34]], so the required gradient is [[-\\frac43]]. Thus<br>[[y-3=-\\frac43(x-2)]],<br>which rearranges to [[4x+3y-17=0]].",
+          "incorrectFeedback": "First find the intersection point P. Then take the negative reciprocal of the gradient of [[3x-4y=7]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 3 OF 20",
+          "question": "What is the equation of the perpendicular bisector of the segment joining [[(-2,5)]] and [[(6,-1)]]?",
+          "options": [
+            "[[4x-3y-2=0]]",
+            "[[3x+4y-14=0]]",
+            "[[4x+3y-14=0]]",
+            "[[3x-4y+2=0]]"
           ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. The gradient is 3. Through [[(2,1)]], [[y-1=3(x-2)]], giving [[3x-y-5=0]].",
-          "incorrectFeedback": "Use the same gradient as the given line, then impose the new point."
+          "correctFeedback": "Correct. The midpoint is [[(2,2)]]. The segment gradient is [[-\\frac34]], so the perpendicular gradient is [[\\frac43]]. Therefore<br>[[y-2=\\frac43(x-2)]],<br>which becomes [[4x-3y-2=0]].",
+          "incorrectFeedback": "Find the midpoint and the segment gradient. The perpendicular bisector passes through the midpoint with the negative-reciprocal gradient."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 5 OF 21",
-          "question": "Which line passes through [[(0,-3)]] and is perpendicular to [[2x+5y=1]]?",
-          "diagram": {
-            "kind": "parallel-perpendicular",
-            "caption": "Perpendicular non-vertical gradients are negative reciprocals."
-          },
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 4 OF 20",
+          "question": "For which value of p is the line<br><br>[[(p-2)x+(p+1)y=7]]<br><br>parallel to the y-axis?",
           "options": [
-            "[[y+3=\\frac52x]]",
-            "[[y+3=-\\frac52x]]",
-            "[[y+3=\\frac25x]]",
-            "[[y-3=\\frac52x]]"
+            "[[-2]]",
+            "[[1]]",
+            "[[-1]]",
+            "[[2]]"
           ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The original gradient is [[-\\frac25]], so the perpendicular gradient is [[\\frac52]].",
-          "incorrectFeedback": "Rearrange the original line, then take the negative reciprocal of its gradient."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. A line parallel to the y-axis is vertical, so its y-coefficient must be zero. Thus [[p+1=0]], giving [[p=-1]]. The x-coefficient is then -3, so the equation is genuinely vertical.",
+          "incorrectFeedback": "A vertical line has no y-term. Set the coefficient of y equal to zero and check that the x-coefficient is non-zero."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 6 OF 21",
-          "question": "Find the midpoint of the segment joining [[(-4,2)]] and [[(6,8)]].",
-          "options": [
-            "[[(1,5)]]",
-            "[[(2,5)]]",
-            "[[(1,6)]]",
-            "[[(5,10)]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. Average corresponding coordinates: [[\\left(\\frac{-4+6}{2},\\frac{2+8}{2}\\right)=(1,5)]].",
-          "incorrectFeedback": "A midpoint is the coordinate-wise average of the endpoints."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 7 OF 21",
-          "question": "Find the perpendicular bisector of the segment joining [[(0,0)]] and [[(4,2)]].",
-          "options": [
-            "[[y=-2x+5]]",
-            "[[y=2x-3]]",
-            "[[y=-\\frac12x+2]]",
-            "[[y=\\frac12x]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The midpoint is [[(2,1)]], the segment gradient is [[\\frac12]], and the perpendicular gradient is -2. Hence [[y-1=-2(x-2)]].",
-          "incorrectFeedback": "Find both the midpoint and the negative-reciprocal gradient before forming the line."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 8 OF 21",
-          "question": "What are the centre and radius of [[(x-4)^{2}+(y+1)^{2}=36]]?",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 5 OF 20",
+          "question": "A regular octagon is inscribed in the circle<br><br>[[x^{2}+y^{2}-6x+8y+7=0]].<br><br>What is the area of the octagon?",
           "diagram": {
             "kind": "coordinate-circle",
-            "caption": "Standard form displays the centre and squared radius."
+            "caption": "First extract the circumradius from the circle equation."
           },
           "options": [
-            "Centre [[(4,-1)]], radius 6",
-            "Centre [[(-4,1)]], radius 6",
-            "Centre [[(4,-1)]], radius 36",
-            "Centre [[(-4,1)]], radius 36"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The centre is [[(4,-1)]] and [[r=\\sqrt{36}=6]].",
-          "incorrectFeedback": "Reverse the signs inside the brackets and take the square root of the right side."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 9 OF 21",
-          "question": "Find the centre and radius of [[x^{2}+y^{2}-4x+6y-12=0]].",
-          "options": [
-            "Centre [[(2,-3)]], radius 5",
-            "Centre [[(-2,3)]], radius 5",
-            "Centre [[(2,-3)]], radius 25",
-            "Centre [[(4,-6)]], radius 5"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. Completing squares gives [[(x-2)^{2}+(y+3)^{2}=25]].",
-          "incorrectFeedback": "Complete the x-square and y-square separately, then collect the constants."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 10 OF 21",
-          "question": "Where is [[P=(4,5)]] relative to [[(x-1)^{2}+(y-1)^{2}=16]]?",
-          "options": [
-            "Inside",
-            "On the circle",
-            "Outside",
-            "At the centre"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. The squared centre-to-P distance is [[3^{2}+4^{2}=25]], which is greater than [[r^{2}=16]].",
-          "incorrectFeedback": "Compare the squared distance from [[(1,1)]] with 16."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 11 OF 21",
-          "question": "How many points of intersection do [[x^{2}+y^{2}=25]] and [[y=5]] have?",
-          "options": [
-            "0",
-            "1",
-            "2",
-            "Infinitely many"
+            "[[18\\sqrt2]]",
+            "[[36\\sqrt2]]",
+            "[[72]]",
+            "[[72\\sqrt2]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. Substitution gives [[x^{2}+25=25]], so [[x=0]]. The line is tangent at [[(0,5)]].",
-          "incorrectFeedback": "Substitute [[y=5]] into the circle and count the real x-values."
+          "correctFeedback": "Correct. Completing the square gives<br>[[(x-3)^{2}+(y+4)^{2}=18]],<br>so [[r^{2}=18]]. Dividing the octagon into eight central triangles gives<br>[[8\\left(\\frac12r^{2}\\sin45^{\\circ}\\right)=2\\sqrt2r^{2}=36\\sqrt2]].",
+          "incorrectFeedback": "Complete the square to find [[r^{2}]], then divide the regular octagon into eight isosceles triangles with central angle [[45^{\\circ}]]."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 12 OF 21",
-          "question": "Where does [[y=0]] meet [[(x-2)^{2}+(y+1)^{2}=10]]?",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 6 OF 20",
+          "question": "For each real value of p, the equation<br><br>[[x^{2}+y^{2}-2px+6y+8p-12=0]]<br><br>describes a circle. When does the minimum possible radius occur, and what is that radius?",
+          "options": [
+            "[[p=3,\\ r=2]]",
+            "[[p=4,\\ r=5]]",
+            "[[p=5,\\ r=\\sqrt5]]",
+            "[[p=4,\\ r=\\sqrt5]]"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Completing the squares gives<br>[[(x-p)^{2}+(y+3)^{2}=(p-4)^{2}+5]].<br>Hence [[r^{2}=(p-4)^{2}+5]], which is minimised when [[p=4]]. The minimum radius is [[\\sqrt5]].",
+          "incorrectFeedback": "Complete both coordinate squares, then complete the square in p. Minimise [[r^{2}]], not the unsimplified equation."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 7 OF 20",
+          "question": "Find the complete set of real values of p for which<br><br>[[x^{2}+y^{2}-2px-6y-p^{2}+6p+5=0]]<br><br>represents a genuine circle.",
+          "options": [
+            "[[p<1\\text{ or }p>2]]",
+            "[[1<p<2]]",
+            "[[p\\leq1\\text{ or }p\\geq2]]",
+            "All real values of p"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Completing the squares gives<br>[[(x-p)^{2}+(y-3)^{2}=2p^{2}-6p+4]]<br>[[=2(p-1)(p-2)]].<br>A genuine circle requires [[r^{2}>0]], so [[p<1]] or [[p>2]]. Equality would give only a single point.",
+          "incorrectFeedback": "Complete both squares and impose the strict condition [[r^{2}>0]]. A zero radius is not a genuine circle."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 8 OF 20",
+          "question": "The circles<br><br>[[x^{2}+y^{2}-2x+4y-20=0]]<br><br>and<br><br>[[x^{2}+y^{2}+6x-2y-12=0]]<br><br>intersect at two points. What is the equation of the line through those points?",
+          "options": [
+            "[[4x+3y-4=0]]",
+            "[[3x-4y+4=0]]",
+            "[[4x-3y+4=0]]",
+            "[[3x+4y-4=0]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Every intersection point satisfies both circle equations. Subtracting them eliminates [[x^{2}]] and [[y^{2}]]:<br>[[-8x+6y-8=0]].<br>Dividing by -2 gives [[4x-3y+4=0]].",
+          "incorrectFeedback": "Subtract one complete circle equation from the other. The quadratic terms cancel, leaving the common chord."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 9 OF 20",
+          "question": "Point P lies on [[(x+1)^{2}+(y-2)^{2}=9]]. Point Q lies on [[(x-5)^{2}+(y+6)^{2}=16]]. What is the maximum possible value of PQ?",
+          "options": [
+            "[[10]]",
+            "[[13]]",
+            "[[23]]",
+            "[[17]]"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The centres are [[(-1,2)]] and [[(5,-6)]], whose distance is<br>[[\\sqrt{6^{2}+(-8)^{2}}=10]].<br>The maximum occurs when P and Q lie on the line of centres on the outer sides, so [[PQ=3+10+4=17]].",
+          "incorrectFeedback": "Find the distance between the centres, then add both radii for the greatest possible separation."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 10 OF 20",
+          "question": "For which values of k does the line [[y=2x+k]] intersect the circle<br><br>[[(x-1)^{2}+(y+2)^{2}=20]]<br><br>at two distinct points?",
           "diagram": {
             "kind": "line-circle-intersections",
-            "caption": "Substitute the line equation and solve for both points."
+            "caption": "A line has two intersections exactly when its distance from the centre is less than the radius."
           },
           "options": [
-            "[[(5,0)]] and [[(-1,0)]]",
-            "[[(3,0)]] and [[(1,0)]]",
-            "[[(2,3)]] and [[(2,-3)]]",
-            "[[(5,1)]] and [[(-1,1)]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. Setting [[y=0]] gives [[(x-2)^{2}+1=10]], so [[x-2=\\pm3]] and [[x=5]] or [[x=-1]].",
-          "incorrectFeedback": "Substitute y = 0, isolate the squared bracket, and remember both square roots."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 13 OF 21",
-          "question": "A circle has diameter endpoints [[(0,0)]] and [[(6,8)]]. Which is its equation?",
-          "options": [
-            "[[(x-3)^{2}+(y-4)^{2}=25]]",
-            "[[(x-3)^{2}+(y-4)^{2}=100]]",
-            "[[(x+3)^{2}+(y+4)^{2}=25]]",
-            "[[(x-6)^{2}+(y-8)^{2}=50]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The centre is [[(3,4)]], the diameter is 10, and the radius is 5.",
-          "incorrectFeedback": "Use the diameter midpoint for the centre and half the endpoint distance for the radius."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 14 OF 21",
-          "question": "Find the tangent to [[x^{2}+y^{2}=13]] at [[(2,3)]].",
-          "options": [
-            "[[2x+3y=13]]",
-            "[[3x+2y=12]]",
-            "[[2x-3y=-5]]",
-            "[[y-3=\\frac32(x-2)]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The radius gradient is [[\\frac32]], so the tangent gradient is [[-\\frac23]]. Point-gradient form rearranges to [[2x+3y=13]].",
-          "incorrectFeedback": "Find the origin-to-point radius gradient, take its negative reciprocal, and use [[(2,3)]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 15 OF 21",
-          "question": "A circle has centre [[(1,-1)]], and [[P=(4,3)]] lies on it. What is the tangent gradient at P?",
-          "options": [
-            "[[-\\frac43]]",
-            "[[-\\frac34]]",
-            "[[\\frac34]]",
-            "[[\\frac43]]"
+            "[[-10<k<10]]",
+            "[[-14<k<6]]",
+            "[[k<-14\\text{ or }k>6]]",
+            "[[-14\\leq k\\leq6]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. The radius gradient is [[\\frac{3-(-1)}{4-1}=\\frac43]], so the tangent gradient is [[-\\frac34]].",
-          "incorrectFeedback": "Calculate the centre-to-P gradient and take its negative reciprocal."
+          "correctFeedback": "Correct. Write the line as [[2x-y+k=0]]. The centre is [[(1,-2)]] and the radius is [[2\\sqrt5]]. Two intersections require the centre-to-line distance to be less than the radius:<br>[[\\frac{|k+4|}{\\sqrt5}<2\\sqrt5]].<br>Thus [[|k+4|<10]], giving [[-14<k<6]].",
+          "incorrectFeedback": "Use the perpendicular distance from the circle's centre to the line. A secant requires this distance to be strictly less than the radius."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 16 OF 21",
-          "question": "A circle has radius 5 and a chord of length 6. Find the perpendicular distance from the centre to the chord.",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 11 OF 20",
+          "question": "The circle [[(x-2)^{2}+(y-1)^{2}=25]] has two tangents through [[P=(9,2)]]. Which equation is the tangent with negative gradient?",
+          "options": [
+            "[[3x+4y=35]]",
+            "[[4x-3y=30]]",
+            "[[3x-4y=19]]",
+            "[[4x+3y=42]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The line [[3x+4y=35]] passes through P and has gradient [[-\\frac34]]. Its distance from the centre [[(2,1)]] is<br>[[\\frac{|3(2)+4(1)-35|}{5}=5]],<br>equal to the radius, so it is tangent.",
+          "incorrectFeedback": "Test the candidate lines: the required line must pass through P, have negative gradient, and lie exactly one radius from the centre."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 12 OF 20",
+          "question": "A and B are endpoints of a diameter of a circle, where [[A=(-2,1)]] and [[B=(6,5)]]. What is the equation of the tangent at A?",
+          "options": [
+            "[[x-2y+4=0]]",
+            "[[2x-y+5=0]]",
+            "[[2x+y+3=0]]",
+            "[[x+2y=0]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The centre is the midpoint [[(2,3)]]. The radius from the centre to A has gradient [[\\frac12]], so the tangent gradient is -2. Hence<br>[[y-1=-2(x+2)]],<br>or [[2x+y+3=0]].",
+          "incorrectFeedback": "Find the midpoint of the diameter first. The tangent at A is perpendicular to the radius joining the centre to A."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 13 OF 20",
+          "question": "A circle contains the chord with endpoints [[A=(1,5)]] and [[B=(7,1)]]. Its centre lies on [[y=x+1]]. What is the centre?",
           "diagram": {
             "kind": "circle-chord-bisector",
-            "caption": "The perpendicular from the centre bisects the chord."
+            "caption": "The centre lies on the perpendicular bisector of every chord."
           },
           "options": [
-            "[[2]]",
-            "[[3]]",
-            "[[4]]",
-            "[[\\sqrt{34}]]"
+            "[[(2,3)]]",
+            "[[(4,5)]]",
+            "[[(6,7)]]",
+            "[[(8,9)]]"
           ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. Half the chord is 3, so the distance is [[\\sqrt{5^{2}-3^{2}}=4]].",
-          "incorrectFeedback": "Halve the chord, then use a right triangle with radius 5 as the hypotenuse."
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The chord midpoint is [[(4,3)]] and its gradient is [[-\\frac23]], so its perpendicular bisector has gradient [[\\frac32]]:<br>[[y-3=\\frac32(x-4)]].<br>Intersecting this with [[y=x+1]] gives [[x=8]] and [[y=9]].",
+          "incorrectFeedback": "The centre lies on the chord's perpendicular bisector. Find that line, then intersect it with [[y=x+1]]."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 17 OF 21",
-          "question": "A chord subtends an angle of 42° at the circumference. What angle does it subtend at the centre?",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 14 OF 20",
+          "question": "The line [[3x+4y=16]] cuts the circle<br><br>[[x^{2}+y^{2}-6x+4y-12=0]]<br><br>in a chord. What is the length of the chord?",
           "options": [
-            "[[21^{\\circ}]]",
-            "[[42^{\\circ}]]",
-            "[[84^{\\circ}]]",
-            "[[138^{\\circ}]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. The angle at the centre is twice the angle at the circumference: [[2(42^{\\circ})=84^{\\circ}]].",
-          "incorrectFeedback": "Double the circumference angle for the same chord and arc."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 18 OF 21",
-          "question": "Two points on the same segment of a circle stand on the same chord. One subtended angle is 31°. What is the other?",
-          "options": [
-            "[[31^{\\circ}]]",
-            "[[62^{\\circ}]]",
-            "[[149^{\\circ}]]",
-            "[[329^{\\circ}]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. Angles in the same segment standing on the same chord are equal.",
-          "incorrectFeedback": "Use the same-segment theorem rather than doubling or supplementing the angle."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 19 OF 21",
-          "question": "One angle of a cyclic quadrilateral is 128°. Find the opposite angle.",
-          "options": [
-            "[[42^{\\circ}]]",
-            "[[52^{\\circ}]]",
-            "[[128^{\\circ}]]",
-            "[[232^{\\circ}]]"
+            "[[6]]",
+            "[[8]]",
+            "[[10]]",
+            "[[16]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. Opposite cyclic angles total 180°, so [[180^{\\circ}-128^{\\circ}=52^{\\circ}]].",
-          "incorrectFeedback": "Subtract the given angle from 180°."
+          "correctFeedback": "Correct. The circle is [[(x-3)^{2}+(y+2)^{2}=25]], so its radius is 5. The centre-to-line distance is<br>[[\\frac{|3(3)+4(-2)-16|}{5}=3]].<br>Half the chord has length [[\\sqrt{5^{2}-3^{2}}=4]], so the chord length is 8.",
+          "incorrectFeedback": "Find the radius and the perpendicular distance from the centre to the chord line. The perpendicular bisects the chord."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 20 OF 21",
-          "question": "AB is a diameter of a circle and C lies on the circumference. If [[\\angle CAB=27^{\\circ}]], find [[\\angle ABC]].",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 15 OF 20",
+          "question": "A circle is tangent to the x-axis at [[(2,0)]] and passes through [[(0,2)]]. Which is its equation in expanded form?",
           "options": [
-            "[[27^{\\circ}]]",
-            "[[53^{\\circ}]]",
-            "[[63^{\\circ}]]",
-            "[[90^{\\circ}]]"
+            "[[x^{2}+y^{2}-4x-4y+4=0]]",
+            "[[x^{2}+y^{2}-4x+4y+4=0]]",
+            "[[x^{2}+y^{2}-2x-2y=0]]",
+            "[[x^{2}+y^{2}-4x-4y=0]]"
           ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. [[\\angle ACB=90^{\\circ}]] because AB is a diameter. Thus [[\\angle ABC=180^{\\circ}-90^{\\circ}-27^{\\circ}=63^{\\circ}]].",
-          "incorrectFeedback": "Use the angle-in-a-semicircle theorem, then the triangle angle sum."
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The centre lies vertically above or below the contact point, so write it as [[(2,a)]] with radius [[|a|]]. Since [[(0,2)]] lies on the circle,<br>[[4+(2-a)^{2}=a^{2}]],<br>giving [[a=2]]. Thus [[(x-2)^{2}+(y-2)^{2}=4]], which expands to [[x^{2}+y^{2}-4x-4y+4=0]].",
+          "incorrectFeedback": "Use the fact that the radius at the contact point is vertical. Let the centre be [[(2,a)]], then use the second point."
         },
         {
-          "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 21 OF 21",
-          "title": "Coordinate Geometry: exam review",
-          "keyPoints": [
-            "Use gradients, point-gradient form, and midpoint or distance formulae systematically.",
-            "Parallel lines share gradients; perpendicular gradients are negative reciprocals.",
-            "Convert expanded circles by completing both squares.",
-            "Substitute line equations into circles and interpret the quadratic roots geometrically.",
-            "Combine coordinate calculations with tangent, chord, and angle theorems."
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 16 OF 20",
+          "question": "The tangent to [[(x-1)^{2}+(y+2)^{2}=25]] at [[(4,2)]] meets the positive coordinate axes. What is the area of the triangle enclosed by the tangent and the axes?",
+          "options": [
+            "[[\\frac{25}{3}]]",
+            "[[\\frac{40}{3}]]",
+            "[[\\frac{50}{3}]]",
+            "[[20]]"
           ],
-          "reviewItems": [
-            "Check signs when reading circle centres.",
-            "Treat vertical and horizontal lines explicitly.",
-            "Retain both roots when a line crosses a circle twice.",
-            "Verify contact points before constructing tangents.",
-            "Repeat this set until algebraic and geometric information connect immediately."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The radius from [[(1,-2)]] to [[(4,2)]] has direction [[(3,4)]], so the tangent is<br>[[3x+4y=20]].<br>Its intercepts are [[\\frac{20}{3}]] and 5. Therefore the area is<br>[[\\frac12\\times\\frac{20}{3}\\times5=\\frac{50}{3}]].",
+          "incorrectFeedback": "Find the tangent equation using the radius as a normal vector. Then use its x- and y-intercepts as the triangle's base and height."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 17 OF 20",
+          "question": "The chord AB subtends angles [[(3x+7)^{\\circ}]] and [[(5x-17)^{\\circ}]] at two points C and D in the same segment of a circle. O is the centre. What is [[\\angle AOB]]?",
+          "options": [
+            "[[43^{\\circ}]]",
+            "[[72^{\\circ}]]",
+            "[[172^{\\circ}]]",
+            "[[86^{\\circ}]]"
           ],
-          "buttonText": "Finish lesson"
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Angles in the same segment are equal, so<br>[[3x+7=5x-17]],<br>giving [[x=12]]. Each circumference angle is therefore [[43^{\\circ}]]. The angle at the centre on the same arc is twice this, so [[\\angle AOB=86^{\\circ}]].",
+          "incorrectFeedback": "First equate the two same-segment angles. Then double the resulting circumference angle to obtain the central angle."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 18 OF 20",
+          "question": "AB is a diameter of a circle and C is another point on the circumference. The angle between the tangent at A and chord AC is [[38^{\\circ}]]. What is the angle between the tangent at B and chord BC?",
+          "options": [
+            "[[38^{\\circ}]]",
+            "[[52^{\\circ}]]",
+            "[[76^{\\circ}]]",
+            "[[90^{\\circ}]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. By the alternate-segment theorem, [[\\angle ABC=38^{\\circ}]]. Since AB is a diameter, [[\\angle ACB=90^{\\circ}]], so [[\\angle BAC=52^{\\circ}]]. Applying the alternate-segment theorem at B, the angle between the tangent and BC is also [[52^{\\circ}]].",
+          "incorrectFeedback": "Transfer the first tangent-chord angle into triangle ABC, use the right angle made by the diameter, then apply the tangent-chord theorem again at B."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 19 OF 20",
+          "question": "A, B, C and D lie on a circle in that order. The opposite angles satisfy<br><br>[[\\angle BAD=(2x+5)^{\\circ}]]<br><br>and<br><br>[[\\angle BCD=(5x+7)^{\\circ}]].<br><br>O is the centre. What is the angle at O standing on the same arc BD as [[\\angle BAD]]?",
+          "options": [
+            "[[106^{\\circ}]]",
+            "[[53^{\\circ}]]",
+            "[[127^{\\circ}]]",
+            "[[254^{\\circ}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Opposite angles of a cyclic quadrilateral sum to [[180^{\\circ}]], so<br>[[(2x+5)+(5x+7)=180]],<br>giving [[x=24]]. Hence [[\\angle BAD=53^{\\circ}]]. The angle at the centre on the same arc is twice this, so it is [[106^{\\circ}]].",
+          "incorrectFeedback": "Use the cyclic-quadrilateral condition to find x. Then double the angle at the circumference to obtain the angle at the centre."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 20 OF 20",
+          "question": "The points A, B, C and D lie on a circle in that order, and a tangent is drawn at A. The angle between the tangent and chord AB is [[(3x+5)^{\\circ}]], [[\\angle BAC=(x+10)^{\\circ}]], and [[\\angle ADC=(5x+2)^{\\circ}]]. What is x?",
+          "options": [
+            "[[9]]",
+            "[[11]]",
+            "[[13]]",
+            "[[15]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The alternate-segment theorem gives [[\\angle ACB=(3x+5)^{\\circ}]]. Therefore<br>[[\\angle ABC=180^{\\circ}-(x+10)^{\\circ}-(3x+5)^{\\circ}]]<br>[[=165^{\\circ}-4x]].<br>Since ABCD is cyclic,<br>[[(165-4x)+(5x+2)=180]],<br>so [[x=13]].",
+          "incorrectFeedback": "Use the alternate-segment theorem to find [[\\angle ACB]], then the triangle angle sum to find [[\\angle ABC]], and finally the cyclic opposite-angle condition."
         }
       ]
     },
@@ -3237,251 +3209,270 @@
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "TRIANGLE TOOLS · 1 OF 14",
-          "title": "Match each side with its opposite angle",
-          "body": "In any triangle, lower-case side [[a]] lies opposite angle [[A]], and similarly for [[b,B]] and [[c,C]].<br><br>The sine rule is [[\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}]]. The cosine rule is [[c^{2}=a^{2}+b^{2}-2ab\\cos C]].",
-          "keyPoint": "Use the area formula [[\\text{Area}=\\frac12 ab\\sin C]] only when [[C]] is the included angle between sides [[a]] and [[b]].",
+          "eyebrow": "TRIANGLES & RADIANS · 1 OF 15",
+          "title": "Triangles and radians",
           "diagram": {
             "kind": "triangle-laws",
-            "caption": "A side and its matching capital angle are opposite one another."
+            "caption": "Sides a, b and c lie opposite angles A, B and C."
           },
+          "body": "In this lesson, you will learn how to choose between the sine rule, cosine rule, and triangle area formula.<br><br>You will also explore why some triangle information can produce two different answers, before applying radian measure to arcs, sectors, and segments.",
+          "keyPoint": "You should know the exact sine, cosine, and tangent values at [[0^{\\circ},30^{\\circ},45^{\\circ},60^{\\circ},90^{\\circ}]]. The next lesson develops them fully, but this lesson uses familiar values such as [[\\sin30^{\\circ}=\\frac12]] and [[\\sin60^{\\circ}=\\frac{\\sqrt3}{2}]].",
           "buttonText": "Continue"
         },
         {
-          "type": "reveal",
-          "eyebrow": "CHOOSING A RULE · 2 OF 14",
-          "title": "Let the given information choose the method",
-          "steps": [
-            {
-              "title": "Look for an opposite pair",
-              "body": "If you know a side and its opposite angle, and need another side or angle, start with the sine rule."
-            },
-            {
-              "title": "Three sides or an included angle",
-              "body": "Use the cosine rule for [[\\text{SSS}]] or [[\\text{SAS}]] information. Rearranged, [[\\cos C=\\frac{a^{2}+b^{2}-c^{2}}{2ab}]]."
-            },
-            {
-              "title": "Two sides and the included angle",
-              "body": "For area, use [[\\frac12 ab\\sin C]]. If the known angle is not between the two known sides, relabel or find more information first."
-            }
-          ],
-          "buttonText": "Try one"
+          "type": "concept",
+          "eyebrow": "CHOOSING A TRIANGLE RULE · 2 OF 15",
+          "title": "Match the rule to the information",
+          "diagram": {
+            "kind": "triangle-laws",
+            "caption": "Sides a, b and c lie opposite angles A, B and C respectively."
+          },
+          "body": "Use the sine rule when you know an opposite side-angle pair:<br>[[\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}]].<br><br>Use the cosine rule for three sides, or two sides and their included angle:<br>[[a^{2}=b^{2}+c^{2}-2bc\\cos A]].<br><br>Use<br>[[\\text{Area}=\\frac12bc\\sin A]]<br>when two sides and their included angle are available.",
+          "keyPoint": "Do not choose a formula because it contains the letter you want. Choose it because the given information matches its structure.",
+          "buttonText": "Try a question"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COSINE RULE · 3 OF 14",
-          "question": "Two sides of a triangle have lengths [[5]] and [[7]], and their included angle is [[60^{\\circ}]]. Find the third side.",
+          "eyebrow": "COSINE-RULE CHECK · 3 OF 15",
+          "question": "In triangle ABC, [[AB=5]], [[AC=7]], and [[\\angle BAC=60^{\\circ}]]. What is the exact length of BC?",
+          "diagram": {
+            "kind": "triangle-laws",
+            "caption": "The known angle is included between the two known sides."
+          },
           "options": [
+            "[[\\sqrt{29}]]",
             "[[\\sqrt{39}]]",
             "[[6]]",
-            "[[\\sqrt{74}]]",
-            "[[2\\sqrt{21}]]"
+            "[[2\\sqrt{13}]]"
           ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[c^{2}=5^{2}+7^{2}-2(5)(7)\\cos60^{\\circ}=25+49-35=39]], so [[c=\\sqrt{39}]].",
-          "incorrectFeedback": "Use the cosine rule and remember that [[\\cos60^{\\circ}=\\frac12]]."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The cosine rule gives<br>[[BC^{2}=5^{2}+7^{2}-2(5)(7)\\cos60^{\\circ}]]<br>[[=25+49-35=39]].<br>Therefore [[BC=\\sqrt{39}]].",
+          "incorrectFeedback": "The two known sides enclose the known angle, so use the cosine rule and the exact value [[\\cos60^{\\circ}=\\frac12]]."
         },
         {
           "type": "workedExample",
-          "eyebrow": "AMBIGUOUS CASE · 4 OF 14",
-          "title": "One sine value can produce two angles",
-          "question": "In triangle [[ABC]], [[A=35^{\\circ}]], [[a=8]], and [[b=11]]. Find the possible values of [[B]] to one decimal place.",
+          "eyebrow": "TWO POSSIBLE TRIANGLES · 4 OF 15",
+          "title": "One set of data can produce two triangles",
+          "question": "A triangle has [[\\angle A=60^{\\circ}]], [[AC=3k]], and [[BC=\\sqrt7k]], where [[k>0]]. There are two possible values of AB.<br><br>What is the ratio<br>[[\\text{larger area}:\\text{smaller area}]]?",
           "diagram": {
             "kind": "ambiguous-sine",
-            "caption": "With angle-side-side information, the moving side can sometimes meet the ray twice."
+            "caption": "The fixed information can allow two different positions for the third vertex."
           },
           "options": [
-            "[[52.1^{\\circ}]] only",
-            "[[127.9^{\\circ}]] only",
-            "[[52.1^{\\circ}]] or [[127.9^{\\circ}]]",
-            "No triangle"
+            "[[1:1]]",
+            "[[\\sqrt2:1]]",
+            "[[2:1]]",
+            "[[3:1]]"
           ],
           "answerIndex": 2,
           "steps": [
             {
-              "title": "Apply the sine rule",
-              "body": "[[\\frac{\\sin B}{11}=\\frac{\\sin35^{\\circ}}{8}]], so [[\\sin B=\\frac{11\\sin35^{\\circ}}8]]."
+              "title": "Let the unknown side be x",
+              "body": "Set [[AB=x]]. The side opposite the [[60^{\\circ}]] angle is [[BC=\\sqrt7k]]."
             },
             {
-              "title": "Find the first angle",
-              "body": "The acute solution is [[B\\approx52.1^{\\circ}]]."
+              "title": "Apply the cosine rule",
+              "body": "[[7k^{2}=x^{2}+(3k)^{2}-2(x)(3k)\\cos60^{\\circ}]].<br>Using [[\\cos60^{\\circ}=\\frac12]] gives<br>[[7k^{2}=x^{2}+9k^{2}-3kx]]."
             },
             {
-              "title": "Test the supplementary angle",
-              "body": "Because [[\\sin(180^{\\circ}-B)=\\sin B]], the other candidate is [[127.9^{\\circ}]]. Both work because [[35^{\\circ}+127.9^{\\circ}\\lt180^{\\circ}]]."
+              "title": "Solve the resulting quadratic",
+              "body": "[[x^{2}-3kx+2k^{2}=0]],<br>so<br>[[(x-k)(x-2k)=0]].<br>Hence [[AB=k]] or [[AB=2k]]."
+            },
+            {
+              "title": "Compare the areas",
+              "body": "Both triangles have the same side AC and included angle A. Since<br>[[\\text{Area}=\\frac12(AB)(AC)\\sin A]],<br>their areas are in the same ratio as their possible AB lengths."
             }
           ],
-          "finalAnswer": "[[B\\approx52.1^{\\circ}]] or [[B\\approx127.9^{\\circ}]]",
+          "finalAnswer": "The larger area is twice the smaller area, so the ratio is [[2:1]].",
           "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "TRIANGLE AREA · 5 OF 14",
-          "question": "Find the area of a triangle with sides [[8]] and [[11]] enclosing an angle of [[30^{\\circ}]].",
-          "options": [
-            "[[19]]",
-            "[[22]]",
-            "[[44]]",
-            "[[44\\sqrt3]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[\\text{Area}=\\frac12(8)(11)\\sin30^{\\circ}=44\\left(\\frac12\\right)=22]].",
-          "incorrectFeedback": "Use [[\\frac12 ab\\sin C]] with the angle enclosed by the two given sides."
         },
         {
           "type": "concept",
-          "eyebrow": "THREE DIMENSIONS · 6 OF 14",
-          "title": "A 3D problem is usually a sequence of 2D triangles",
-          "body": "Mark the required length or angle, then identify the plane containing it. A diagonal across a face can become one side of a second right triangle.<br><br>For a cuboid with side lengths [[p,q,r]], the space diagonal satisfies [[d^{2}=p^{2}+q^{2}+r^{2}]].",
-          "keyPoint": "Never apply a triangle rule to lengths that do not lie in the same plane. Build the relevant face or cross-section first.",
-          "buttonText": "Continue"
+          "eyebrow": "THE AMBIGUOUS CASE · 5 OF 15",
+          "title": "Why the sine rule can give two answers",
+          "diagram": {
+            "kind": "ambiguous-sine",
+            "caption": "The same sine value can correspond to an acute angle and its obtuse supplement."
+          },
+          "body": "When side-side-angle information gives<br>[[\\sin B=q]],<br>the possible angles are<br>[[B=\\beta]]<br>and<br>[[B=180^{\\circ}-\\beta]],<br>because supplementary angles have the same sine.<br><br>The second value is valid only when it still leaves a positive third angle.",
+          "keyPoint": "After finding one angle, always test its supplement. Reject it if the angle sum would reach or exceed [[180^{\\circ}]].",
+          "buttonText": "Check the ambiguity"
         },
         {
-          "type": "workedExample",
-          "eyebrow": "3D REASONING · 7 OF 14",
-          "title": "Use a face diagonal as the bridge",
-          "question": "A cuboid has base dimensions [[3]] by [[4]] and height [[12]]. If [[\\theta]] is the angle between the space diagonal and the base, find [[\\cos\\theta]].",
+          "type": "multipleChoice",
+          "eyebrow": "AMBIGUOUS-SINE CHALLENGE · 6 OF 15",
+          "question": "In triangle PQR,<br>[[\\angle QPR=30^{\\circ}]],<br>[[QR=a]], and [[PQ=\\sqrt3a]], where [[a>0]].<br><br>Two distinct triangles are possible. What is the sum of the two possible values of PR?",
+          "diagram": {
+            "kind": "ambiguous-sine",
+            "caption": "Use both possible angles produced by the sine rule."
+          },
           "options": [
-            "[[\\frac5{13}]]",
-            "[[\\frac{12}{13}]]",
-            "[[\\frac5{12}]]",
-            "[[\\frac{12}{5}]]"
+            "[[2a]]",
+            "[[3a]]",
+            "[[2\\sqrt3a]]",
+            "[[4a]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The sine rule gives<br>[[\\frac{\\sin R}{\\sqrt3a}=\\frac{\\sin30^{\\circ}}{a}]],<br>so [[\\sin R=\\frac{\\sqrt3}{2}]]. Hence [[R=60^{\\circ}]] or [[120^{\\circ}]]. The corresponding Q angles are [[90^{\\circ}]] and [[30^{\\circ}]].<br><br>Now<br>[[\\frac{PR}{\\sin Q}=\\frac{a}{\\sin30^{\\circ}}=2a]],<br>so [[PR=2a]] or [[a]]. Their sum is [[3a]].",
+          "incorrectFeedback": "The sine rule gives two possible values for angle R. Find the remaining angle in each triangle, then calculate both possible values of PR."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "THREE-DIMENSIONAL TRIANGLE · 7 OF 15",
+          "question": "The points [[P=(0,0,0)]], [[Q=(2,0,0)]], and [[R=(1,2,2)]] form a triangle in three-dimensional space.<br><br>What is the exact value of [[\\cos\\angle QPR]]?",
+          "options": [
+            "[[\\frac13]]",
+            "[[\\frac12]]",
+            "[[\\frac{\\sqrt2}{3}]]",
+            "[[\\frac{2}{3}]]"
           ],
           "answerIndex": 0,
-          "steps": [
-            {
-              "title": "Find the projection on the base",
-              "body": "The base diagonal is [[\\sqrt{3^{2}+4^{2}}=5]]."
-            },
-            {
-              "title": "Find the space diagonal",
-              "body": "The base diagonal and height form a right triangle, so [[d=\\sqrt{5^{2}+12^{2}}=13]]."
-            },
-            {
-              "title": "Use the requested ratio",
-              "body": "Relative to [[\\theta]], the adjacent side is the base diagonal. Therefore [[\\cos\\theta=\\frac5{13}]]."
-            }
-          ],
-          "finalAnswer": "[[\\cos\\theta=\\frac5{13}]]",
-          "buttonText": "Continue"
+          "correctFeedback": "Correct. The side lengths are [[PQ=2]], [[PR=3]], and [[QR=3]]. Applying the cosine rule at P:<br>[[3^{2}=2^{2}+3^{2}-2(2)(3)\\cos\\angle QPR]].<br>Thus [[9=13-12\\cos\\angle QPR]], so [[\\cos\\angle QPR=\\frac13]].",
+          "incorrectFeedback": "First use the three-dimensional distance formula to find the three side lengths. Then apply the cosine rule to the resulting ordinary triangle."
         },
         {
-          "type": "milestone",
-          "eyebrow": "HALFWAY · 8 OF 14",
-          "title": "You can now choose and combine triangle methods.",
-          "body": "Next, angles become lengths and areas through radian measure.",
-          "buttonText": "Start radians"
+          "type": "multipleChoice",
+          "eyebrow": "AREA-AND-COSINE CHALLENGE · 8 OF 15",
+          "question": "A triangle has two sides of lengths 4 and 6. Its area is [[6\\sqrt3]], and the included angle between those sides is acute.<br><br>What is the length of the third side?",
+          "options": [
+            "[[2\\sqrt7]]",
+            "[[2\\sqrt{13}]]",
+            "[[2\\sqrt{19}]]",
+            "[[4\\sqrt3]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. From the area formula,<br>[[6\\sqrt3=\\frac12(4)(6)\\sin C]],<br>so [[\\sin C=\\frac{\\sqrt3}{2}]]. Since C is acute, [[C=60^{\\circ}]]. The cosine rule then gives<br>[[c^{2}=4^{2}+6^{2}-2(4)(6)\\cos60^{\\circ}=28]],<br>so [[c=2\\sqrt7]].",
+          "incorrectFeedback": "Use the area first to determine the included angle. The word acute tells you which angle with sine [[\\frac{\\sqrt3}{2}]] is required."
         },
         {
           "type": "concept",
-          "eyebrow": "RADIAN MEASURE · 9 OF 14",
-          "title": "Radians measure angle by arc length",
-          "body": "An angle of one radian subtends an arc equal in length to the radius. Since a full circumference is [[2\\pi r]], a full turn is [[2\\pi]] radians.<br><br>Therefore [[180^{\\circ}=\\pi\\text{ radians}]], so multiply degrees by [[\\frac{\\pi}{180}]] and radians by [[\\frac{180}{\\pi}]].",
-          "keyPoint": "The formulae [[s=r\\theta]] and [[A=\\frac12r^{2}\\theta]] require [[\\theta]] in radians.",
+          "eyebrow": "RADIAN MEASURE · 9 OF 15",
+          "title": "Radians connect angle, arc and area",
           "diagram": {
             "kind": "radians-sector",
-            "caption": "Radian measure makes arc length directly proportional to radius."
+            "caption": "The formulas work directly only when the angle is measured in radians."
           },
-          "buttonText": "Convert an angle"
+          "body": "An angle of [[\\theta]] radians cuts off an arc of length<br>[[s=r\\theta]].<br><br>The corresponding sector has area<br>[[A=\\frac12r^{2}\\theta]].<br><br>Since [[\\pi]] radians equals [[180^{\\circ}]], convert degrees using<br>[[\\theta_{\\text{rad}}=\\theta_{\\text{deg}}\\frac{\\pi}{180}]].",
+          "keyPoint": "In a sector question, the same angle controls both arc length and area. This often lets you eliminate [[\\theta]] rather than calculate it first.",
+          "buttonText": "Apply the formulas"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ANGLE CONVERSION · 10 OF 14",
-          "question": "Convert [[150^{\\circ}]] to radians.",
-          "options": [
-            "[[\\frac{3\\pi}{5}]]",
-            "[[\\frac{5\\pi}{6}]]",
-            "[[\\frac{6\\pi}{5}]]",
-            "[[\\frac{5\\pi}{3}]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[150\\times\\frac{\\pi}{180}=\\frac{5\\pi}{6}]].",
-          "incorrectFeedback": "Multiply the degree measure by [[\\frac{\\pi}{180}]] and simplify."
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "SECTORS · 11 OF 14",
-          "title": "Arc, sector, then segment",
+          "eyebrow": "ARC-AND-AREA CHECK · 10 OF 15",
+          "question": "A sector has radius 6 and arc length [[5\\pi]]. What is its exact area?",
           "diagram": {
             "kind": "radians-sector",
-            "caption": "A segment is the sector minus the triangle formed by the two radii."
+            "caption": "Use the arc length to recover the angle, or eliminate the angle directly."
           },
+          "options": [
+            "[[10\\pi]]",
+            "[[15\\pi]]",
+            "[[18\\pi]]",
+            "[[30\\pi]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Since [[s=r\\theta]],<br>[[5\\pi=6\\theta]], so [[\\theta=\\frac{5\\pi}{6}]]. Therefore<br>[[A=\\frac12(6^{2})\\frac{5\\pi}{6}=15\\pi]].<br><br>Equivalently, combine the formulas to get [[A=\\frac12rs]].",
+          "incorrectFeedback": "Use [[s=r\\theta]] and [[A=\\frac12r^{2}\\theta]]. You can also eliminate the angle to obtain [[A=\\frac12rs]]."
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "SIMILAR-SECTOR CHALLENGE · 11 OF 15",
+          "title": "Use one common angle",
+          "question": "Two sectors are similar. Their radii are r and [[r+4]]. The smaller sector has arc length 5, and the difference between their areas is 25.<br><br>What is the positive difference between their perimeters?",
+          "diagram": {
+            "kind": "radians-sector",
+            "caption": "Similar sectors have the same central angle."
+          },
+          "options": [
+            "[[8]]",
+            "[[9]]",
+            "[[10]]",
+            "[[\\frac{21}{2}]]"
+          ],
+          "answerIndex": 3,
           "steps": [
             {
-              "title": "Arc length",
-              "body": "For radius [[r]] and angle [[\\theta]] radians, [[s=r\\theta]]."
+              "title": "Express the common angle",
+              "body": "For the smaller sector, [[5=r\\theta]], so [[\\theta=\\frac5r]]."
             },
             {
-              "title": "Sector area",
-              "body": "The sector is the fraction [[\\frac{\\theta}{2\\pi}]] of a circle, giving [[A=\\frac12r^{2}\\theta]]."
+              "title": "Use the difference in areas",
+              "body": "[[25=\\frac12\\theta\\left((r+4)^{2}-r^{2}\\right)]].<br>Substituting [[\\theta=\\frac5r]] gives<br>[[25=\\frac{5}{2r}(8r+16)=20+\\frac{40}{r}]]."
             },
             {
-              "title": "Segment area",
-              "body": "Subtract the isosceles triangle: [[A_{\\text{segment}}=\\frac12r^{2}(\\theta-\\sin\\theta)]]."
+              "title": "Find r and the angle",
+              "body": "[[\\frac{40}{r}=5]], so [[r=8]]. Therefore [[\\theta=\\frac58]]."
+            },
+            {
+              "title": "Compare the perimeters",
+              "body": "A sector perimeter is [[2r+r\\theta]]. Increasing the radius by 4 changes the two straight sides by 8 and the arc by [[4\\theta]].<br><br>The difference is<br>[[8+4\\left(\\frac58\\right)=\\frac{21}{2}]]."
             }
           ],
+          "finalAnswer": "The positive difference between the perimeters is [[\\frac{21}{2}]].",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ARC AND SECTOR · 12 OF 14",
-          "question": "A sector has radius [[6]] and angle [[\\frac23]] radians. What are its arc length and area?",
+          "eyebrow": "SECTOR-SIMILARITY CHECK · 12 OF 15",
+          "question": "Two similar sectors have radii in the ratio [[2:3]]. The smaller arc length is [[2\\pi]], and the difference between the sector areas is [[10\\pi]].<br><br>What is the perimeter of the larger sector?",
           "options": [
-            "Arc [[4]], area [[12]]",
-            "Arc [[4]], area [[24]]",
-            "Arc [[9]], area [[12]]",
-            "Arc [[9]], area [[24]]"
+            "[[16+3\\pi]]",
+            "[[20+3\\pi]]",
+            "[[24+2\\pi]]",
+            "[[24+3\\pi]]"
           ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[s=6\\left(\\frac23\\right)=4]] and [[A=\\frac12(6^{2})\\left(\\frac23\\right)=12]].",
-          "incorrectFeedback": "Use [[s=r\\theta]] and [[A=\\frac12r^{2}\\theta]] with [[\\theta]] already in radians."
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Let the smaller radius be r, so the larger is [[\\frac32r]]. Since the smaller arc is [[2\\pi]], [[r\\theta=2\\pi]]. The area difference is<br>[[\\frac12\\theta\\left(\\frac94r^{2}-r^{2}\\right)=\\frac58\\theta r^{2}=10\\pi]].<br>Using [[\\theta r=2\\pi]] gives [[\\frac54\\pi r=10\\pi]], so [[r=8]]. The larger radius is 12 and its arc length is [[3\\pi]]. Hence its perimeter is [[24+3\\pi]].",
+          "incorrectFeedback": "Use the common angle and the radius ratio. Arc lengths scale linearly with radius, while sector areas scale with the square of the radius."
         },
         {
-          "type": "workedExample",
-          "eyebrow": "SEGMENT AREA · 13 OF 14",
+          "type": "concept",
+          "eyebrow": "AREAS OF SEGMENTS · 13 OF 15",
           "title": "Subtract the central triangle",
-          "question": "Find the area of the minor segment in a circle of radius [[4]] subtended by an angle of [[\\frac{\\pi}{3}]] radians.",
+          "diagram": {
+            "kind": "radians-sector",
+            "caption": "A minor segment is a sector with the central triangle removed."
+          },
+          "body": "For a circle of radius r and central angle [[\\theta]] radians:<br><br>sector area<br>[[=\\frac12r^{2}\\theta]],<br><br>central triangle area<br>[[=\\frac12r^{2}\\sin\\theta]].<br><br>Therefore the minor-segment area is<br>[[\\frac12r^{2}(\\theta-\\sin\\theta)]].",
+          "keyPoint": "For a major segment, subtract the minor-segment area from the full circle area [[\\pi r^{2}]].",
+          "buttonText": "Try the final challenge"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SEGMENT-AREA CHALLENGE · 14 OF 15",
+          "question": "A chord in a circle of radius 4 subtends an angle of [[\\frac{\\pi}{3}]] at the centre.<br><br>What is the exact area of the major segment cut off by the chord?",
+          "diagram": {
+            "kind": "radians-sector",
+            "caption": "Find the minor segment first, then subtract it from the whole circle."
+          },
           "options": [
             "[[\\frac{8\\pi}{3}-4\\sqrt3]]",
-            "[[\\frac{8\\pi}{3}+4\\sqrt3]]",
-            "[[\\frac{4\\pi}{3}-2\\sqrt3]]",
-            "[[8\\pi-4\\sqrt3]]"
+            "[[\\frac{40\\pi}{3}-4\\sqrt3]]",
+            "[[\\frac{40\\pi}{3}+4\\sqrt3]]",
+            "[[16\\pi-4\\sqrt3]]"
           ],
-          "answerIndex": 0,
-          "steps": [
-            {
-              "title": "Find the sector",
-              "body": "[[A_{\\text{sector}}=\\frac12(4^{2})\\left(\\frac{\\pi}{3}\\right)=\\frac{8\\pi}{3}]]."
-            },
-            {
-              "title": "Find the triangle",
-              "body": "[[A_{\\triangle}=\\frac12(4)(4)\\sin\\left(\\frac{\\pi}{3}\\right)=8\\left(\\frac{\\sqrt3}{2}\\right)=4\\sqrt3]]."
-            },
-            {
-              "title": "Subtract",
-              "body": "The minor segment is the sector minus the triangle."
-            }
-          ],
-          "finalAnswer": "[[\\frac{8\\pi}{3}-4\\sqrt3]]",
-          "buttonText": "Review"
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The minor sector has area<br>[[\\frac12(4^{2})\\frac{\\pi}{3}=\\frac{8\\pi}{3}]],<br>and the central triangle has area<br>[[\\frac12(4^{2})\\sin\\frac{\\pi}{3}=4\\sqrt3]].<br>So the minor segment is [[\\frac{8\\pi}{3}-4\\sqrt3]]. Subtracting from the whole-circle area [[16\\pi]] gives<br>[[\\frac{40\\pi}{3}+4\\sqrt3]].",
+          "incorrectFeedback": "Calculate sector minus triangle for the minor segment. The question asks for the major segment, so subtract that result from the full circle area."
         },
         {
           "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 14 OF 14",
-          "title": "Triangles and Radians: key points",
+          "eyebrow": "LESSON SUMMARY · 15 OF 15",
+          "title": "Triangles & Radians: key points",
           "keyPoints": [
-            "Use opposite side-angle pairs consistently in the sine rule.",
-            "Use the cosine rule for [[\\text{SSS}]] or [[\\text{SAS}]] information.",
-            "Check the supplementary angle in the ambiguous sine-rule case.",
-            "Reduce 3D problems to triangles lying in clearly identified planes.",
-            "For radians, remember [[s=r\\theta]] and [[A=\\frac12r^{2}\\theta]]."
+            "Use the sine rule only when an opposite side-angle pair is available.",
+            "Use the cosine rule for SSS or SAS information.",
+            "The area formula [[\\frac12ab\\sin C]] can reveal an angle before another rule is used.",
+            "In an SSA problem, test both [[\\theta]] and [[180^{\\circ}-\\theta]].",
+            "Three-dimensional problems often reduce to finding three lengths and solving an ordinary triangle.",
+            "For radians, use [[s=r\\theta]] and [[A=\\frac12r^{2}\\theta]].",
+            "A segment is found by subtracting a central triangle from a sector."
           ],
           "reviewItems": [
-            "Label sides before choosing a rule.",
-            "Check whether a given angle is included or opposite a known side.",
-            "Use exact values until a decimal answer is explicitly required.",
-            "Confirm that sector formulae use radians.",
-            "For a segment, subtract the central triangle from the sector."
+            "Learn the exact trigonometric values for [[0^{\\circ},30^{\\circ},45^{\\circ},60^{\\circ},90^{\\circ}]].",
+            "Redo the two-triangle questions without looking at the method.",
+            "Check that every angle used in an arc or sector formula is in radians.",
+            "Next lesson: Values, Graphs, and Identities."
           ],
           "buttonText": "Finish lesson"
         }

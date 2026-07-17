@@ -607,14 +607,37 @@ function TriangleLawsDiagram() {
         strokeWidth={4}
         strokeLinejoin="round"
       />
-      <SvgText x={33} y={166} fontSize={13} fontWeight="900" fill={C.ink}>A</SvgText>
-      <SvgText x={274} y={166} fontSize={13} fontWeight="900" fill={C.ink}>B</SvgText>
-      <SvgText x={180} y={25} fontSize={13} fontWeight="900" fill={C.ink}>C</SvgText>
-      <SvgText x={227} y={91} fontSize={13} fontWeight="900" fill="#54749F">a</SvgText>
-      <SvgText x={105} y={89} fontSize={13} fontWeight="900" fill="#54749F">b</SvgText>
-      <SvgText x={155} y={169} fontSize={13} fontWeight="900" fill="#54749F">c</SvgText>
-      <Path d="M 70 151 A 22 22 0 0 1 61 133" fill="none" stroke="#C88A43" strokeWidth={2.5} />
-      <SvgText x={70} y={143} fontSize={11} fontWeight="800" fill="#A66F2E">A</SvgText>
+
+      <SvgText x={33} y={166} fontSize={13} fontWeight="900" fill={C.ink}>
+        A
+      </SvgText>
+      <SvgText x={274} y={166} fontSize={13} fontWeight="900" fill={C.ink}>
+        B
+      </SvgText>
+      <SvgText x={180} y={25} fontSize={13} fontWeight="900" fill={C.ink}>
+        C
+      </SvgText>
+
+      <SvgText x={239} y={91} fontSize={13} fontWeight="900" fill="#54749F">
+        a
+      </SvgText>
+      <SvgText x={105} y={89} fontSize={13} fontWeight="900" fill="#54749F">
+        b
+      </SvgText>
+      <SvgText x={155} y={169} fontSize={13} fontWeight="900" fill="#54749F">
+        c
+      </SvgText>
+
+      <Path
+        d="M 72 151 A 24 24 0 0 0 66 136"
+        fill="none"
+        stroke="#C88A43"
+        strokeWidth={2.5}
+      />
+
+      <SvgText x={72} y={145} fontSize={11} fontWeight="800" fill="#A66F2E">
+        A
+      </SvgText>
     </>
   );
 }
