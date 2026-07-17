@@ -125,7 +125,6 @@ const tagsStyles: MixedStyleRecord = {
 const localStyles = StyleSheet.create({
   inlineMathRow: {
     maxWidth: "100%",
-    alignSelf: "flex-start",
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
@@ -138,6 +137,12 @@ const localStyles = StyleSheet.create({
     flexShrink: 1,
     flexBasis: "auto",
     width: "auto",
+  },
+  inlineLatex: {
+    flexGrow: 0,
+    flexShrink: 1,
+    maxWidth: "100%",
+    marginHorizontal: 1,
   },
   lineBreak: {
     width: "100%",
@@ -327,6 +332,103 @@ function renderTextWords(
 
   return nodes;
 }
+/**
+ * Renders prose as ordinary wrapping React Native text and renders each
+ * [[LaTeX]] expression as its own MathJax element.
+ *
+ * This prevents an entire paragraph from becoming one non-wrapping SVG.
+ */
+function renderLatexWithWrapping(
+  html: string,
+  style: StyleProp<TextStyle>,
+): ReactNode {
+  const flattenedStyle = StyleSheet.flatten(style) ?? {};
+
+  const fontSize =
+    typeof flattenedStyle.fontSize === "number"
+      ? flattenedStyle.fontSize
+      : 16;
+
+  const color =
+    typeof flattenedStyle.color === "string"
+      ? flattenedStyle.color
+      : "#2D241F";
+
+  const boldMath = usesBoldWeight(flattenedStyle.fontWeight);
+
+  const nodes: ReactNode[] = [];
+
+  /*
+   * Include nearby brackets, quotation marks and punctuation with the
+   * mathematical expression so they do not become stranded on another line.
+   */
+  const mathPattern =
+    /([\[(“‘"]{0,2})\[\[([\s\S]*?)\]\]([\])”’"]?[,.;:!?]?)/g;
+
+  let previousIndex = 0;
+  let mathIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = mathPattern.exec(html)) !== null) {
+    const proseBeforeMath = html.slice(previousIndex, match.index);
+
+    nodes.push(
+      ...renderTextWords(
+        proseBeforeMath,
+        style,
+        `latex-prose-${mathIndex}`,
+      ),
+    );
+
+    const completeMathToken = match[0];
+    const openingDelimiter = match[1];
+    const expression = match[2].trim();
+    const closingDelimiter = match[3];
+
+    /*
+     * Plain numbers are better rendered as ordinary text. This lets values
+     * such as [[10]] wrap naturally with the surrounding sentence.
+     */
+    if (plainNumberPattern.test(expression)) {
+      nodes.push(
+        <Text
+          key={`latex-number-${mathIndex}`}
+          style={[style, localStyles.inlineText]}
+        >
+          {decodeHtmlEntities(
+            openingDelimiter + expression + closingDelimiter,
+          )}
+        </Text>,
+      );
+    } else {
+      nodes.push(
+        <MathJaxSvg
+          key={`latex-expression-${mathIndex}`}
+          fontSize={fontSize}
+          color={color}
+          fontCache
+          textStyle={flattenedStyle}
+          style={localStyles.inlineLatex}
+        >
+          {toMathJaxMarkup(completeMathToken, boldMath)}
+        </MathJaxSvg>,
+      );
+    }
+
+    previousIndex = mathPattern.lastIndex;
+    mathIndex += 1;
+  }
+
+  nodes.push(
+    ...renderTextWords(
+      html.slice(previousIndex),
+      style,
+      "latex-prose-final",
+    ),
+  );
+
+  return <View style={localStyles.inlineMathRow}>{nodes}</View>;
+}
 function renderFraction(
   numerator: string,
   denominator: string,
@@ -419,61 +521,29 @@ function renderHtmlWithFractions(html: string, style: any): ReactNode {
 export function PlainOrHtml({ html, style }: Props) {
   const { width } = useWindowDimensions();
   const flattenedStyle = StyleSheet.flatten(style) ?? {};
-
-  // Layout styles belong on the MathJax container, not on every
-  // separate text fragment surrounding an equation.
-  const {
-    flex: containerFlex,
-    marginTop: containerMarginTop,
-    marginBottom: containerMarginBottom,
-    marginLeft: containerMarginLeft,
-    marginRight: containerMarginRight,
-    ...mathTextStyle
-  } = flattenedStyle;
-
   const hasLatex = /\[\[[\s\S]*?\]\]/.test(html);
+
   const preparedHtml = keepPowersTogether(html);
 
   if (hasLatex) {
-    const fontSize =
-      typeof flattenedStyle.fontSize === "number"
-        ? flattenedStyle.fontSize
-        : 16;
-    const color =
-      typeof flattenedStyle.color === "string"
-        ? flattenedStyle.color
-        : "#2D241F";
-
-    return (
-      <MathJaxSvg
-        fontSize={fontSize}
-        color={color}
-        fontCache
-        textStyle={mathTextStyle}
-        style={{
-          flex:
-            typeof containerFlex === "number"
-              ? containerFlex
-              : undefined,
-          marginTop: containerMarginTop,
-          marginBottom: containerMarginBottom,
-          marginLeft: containerMarginLeft,
-          marginRight: containerMarginRight,
-        }}
-      >
-        {toMathJaxMarkup(html, usesBoldWeight(flattenedStyle.fontWeight))}
-      </MathJaxSvg>
-    );
+    return renderLatexWithWrapping(html, style);
   }
 
-  if (preparedHtml.includes("math-frac") || /<sup\b/i.test(preparedHtml)) {
+  if (
+    preparedHtml.includes("math-frac") ||
+    /<sup\b/i.test(preparedHtml)
+  ) {
     return renderHtmlWithFractions(preparedHtml, style);
   }
 
   const hasHtml = /<\/?[a-z][\s\S]*>/i.test(preparedHtml);
 
   if (!hasHtml) {
-    return <Text style={style}>{decodeHtmlEntities(preparedHtml)}</Text>;
+    return (
+      <Text style={style}>
+        {decodeHtmlEntities(preparedHtml)}
+      </Text>
+    );
   }
 
   return (
