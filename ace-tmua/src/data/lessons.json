@@ -858,7 +858,7 @@
       "screens": [
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 1 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 1 OF 21",
           "question": "Let  a > 0  and suppose that [[a^{1/3}]] + [[a^{-1/3}]] = 3. Find the value of a + [[\\frac{1}{a}]] ",
           "options": [
             "9",
@@ -873,7 +873,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 2 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 2 OF 21",
           "question": "Simplify [[(\\frac{\\sqrt{5} + \\sqrt{3}}{\\sqrt{5} - \\sqrt{3}})^{2}]].",
           "options": [
             "[[31 - 8\\sqrt{15}]]",
@@ -888,7 +888,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 3 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 3 OF 21",
           "question": "For which values of k does the equation [[x^{2}]] - 2kx + k + 2 = 0 have two distinct positive real roots?",
           "options": [
             "k < -1",
@@ -903,7 +903,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 4 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 4 OF 21",
           "question": "The polynomial p(x) = [[x^{3}]] + [[ax^{2}]] + bx + 6 is divisible by both x - 1 and x + 2. What is the remainder when p(x) is divided by x - 3?",
           "options": [
             "-12",
@@ -918,7 +918,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 5 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 5 OF 21",
           "question": "Let f(x) = [[\\lvert x - 2 \\rvert]] + [[\\lvert x + 1 \\rvert]]. What is the minimum value of f(x)?",
           "options": [
             "0, attained when x = 2",
@@ -933,7 +933,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 6 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 6 OF 21",
           "question": "The graphs y = [[x^{2}]] - 4x + 5 and y = mx + 1 meet at exactly one point. What are the possible values of m?",
           "options": [
             "m = -8 only",
@@ -948,7 +948,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 7 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 7 OF 21",
           "question": "A polynomial p(x) leaves remainders 4, 6 and 9 when divided by x - 1, x + 1 and x - 2 respectively. What is the remainder when p(x) is divided by (x - 1)(x + 1)(x - 2)? ",
           "options": [
             "[[2x^{2} - x + 3]]",
@@ -963,7 +963,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 8 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 8 OF 21",
           "question": "The function f is defined by f(x) = [[\\frac{x + 3}{x - 1}]],   x [[\\ne]] 1. What is f(f(x))?",
           "options": [
             "x",
@@ -978,7 +978,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 9 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 9 OF 21",
           "question": "The equation [[\\sqrt{x + 5}]] - [[\\sqrt{x - 1}]] = 2 has one real solution. What is its value?",
           "options": [
             "1",
@@ -993,7 +993,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 10 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 10 OF 21",
           "question": "How many distinct real solutions does the equation [[\\lvert x^{2} - 4 \\rvert]] = x have?",
           "options": [
             "0",
@@ -1008,7 +1008,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 11 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 11 OF 21",
           "question": "The positive numbers x and y satisfy [[\\log_{2}]]x + [[\\log_{2}]]y = 6 and [[\\log_{x}]]y = [[\\frac{1}{2}]]. What is the value of x - y?",
           "options": [
             "4",
@@ -1023,7 +1023,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 12 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 12 OF 21",
           "question": "Which set contains all the real solutions of [[3^{x+1}]] + [[3^{1-x}]] = 10? ",
           "options": [
             "{-1}",
@@ -1038,7 +1038,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 13 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 13 OF 21",
           "question": "The set S is the complete set of values of x satisfying both inequalities [[x^{2}]] - 9x + 14 < 0 and 3x + 1 > 13. Which single inequality also represents S?",
           "options": [
             "[[(x^{2} - 9x + 14)(3x + 1) < 0]]",
@@ -1053,7 +1053,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 14 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 14 OF 21",
           "question": "The function f is defined by f(x) = [[x^{2}]] - 6x + 11,   x [[\\ge]] 3. Which expression gives [[f^{-1}]](x)?",
           "options": [
             "[[3 + \\sqrt{x - 2}]]",
@@ -1068,7 +1068,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 15 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 15 OF 21",
           "question": "The polynomial p(x) = [[x^{3}]] + [[ax^{2}]] + bx + 4 is divisible by [[(x - 1)^{2}]]. What is the value of p(-1)?",
           "options": [
             "-12",
@@ -1083,7 +1083,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 16 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 16 OF 21",
           "question": "For which values of k is [[x^{2}]] + 2kx + k + 3 > 0 for every real value of x?",
           "options": [
             "[[k < \\frac{1 - \\sqrt{13}}{2}]]",
@@ -1098,7 +1098,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 17 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 17 OF 21",
           "question": "Evaluate [[(\\sqrt{5 + 2\\sqrt{6}} - \\sqrt{5 - 2\\sqrt{6}})^{2}]]. ",
           "options": [
             "2",
@@ -1113,7 +1113,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 18 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 18 OF 21",
           "question": "How many real solutions does the equation [[\\frac{x + 1}{x - 2}]] + [[\\frac{x - 2}{x + 1}]] = 2 have?",
           "options": [
             "0",
@@ -1128,7 +1128,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 19 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 19 OF 21",
           "question": "The functions f and g are defined by f(x) = [[\\sqrt{2x - 1}]] and g(x) = [[\\frac{1}{x - 3}]]. What is the domain of f(g(x))?",
           "options": [
             "x < 3",
@@ -1143,7 +1143,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ALGEBRA EXAM PRACTICE · 20 OF 20",
+          "eyebrow": "ALGEBRA EXAM PRACTICE · 20 OF 21",
           "question": "A number x satisfies [[x^{2}]] - 5x + 3 = 0. Let t = [[x^{2}]]. Which equation must t satisfy?",
           "options": [
             "[[t^{2} - 19t + 9 = 0]]",
@@ -1893,7 +1893,7 @@
       "screens": [
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 1 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 1 OF 21",
           "question": "An arithmetic progression has fifth term 14 and twelfth term 42. What is the sum of its first 20 terms?",
           "options": [
             "640",
@@ -1908,7 +1908,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 2 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 2 OF 21",
           "question": "The sum of the first n terms of the arithmetic progression 4, 7, 10, ... is equal to the sum of the first 2n positive integers.<br><br>What is n?",
           "options": [
             "1",
@@ -1923,7 +1923,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 3 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 3 OF 21",
           "question": "A geometric progression has a positive common ratio. The sum of the first 12 terms is 9 times the sum of the first 6 terms. The thirteenth term is 320.<br><br>What is the first term?",
           "options": [
             "[[\\frac{5}{2}]]",
@@ -1938,7 +1938,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 4 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 4 OF 21",
           "question": "A convergent geometric progression has sum to infinity 12 and second term -9.<br><br>What is the sum of all terms in odd-numbered positions?",
           "options": [
             "-24",
@@ -1953,7 +1953,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 5 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 5 OF 21",
           "question": "The sum to infinity of a geometric progression is 6. The sum to infinity of the squares of its terms is 12.<br><br>What is the sum to infinity of the cubes of its terms?",
           "options": [
             "24",
@@ -1968,7 +1968,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 6 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 6 OF 21",
           "question": "A sequence is defined by [[x_{1}]] = [[7^{16}]] and [[x_{n+1}]] = [[\\sqrt{x_{n}}]].<br><br>What is [[x_{6}]]?",
           "options": [
             "[[7^{8}]]",
@@ -1983,7 +1983,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 7 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 7 OF 21",
           "question": "A sequence satisfies [[x_{n+1}]] = [[\\frac{x_{n} + p}{x_{n} + q}]], where p and q are real numbers.<br><br>Given [[x_{1}]] = 2, [[x_{2}]] = 4 and [[x_{3}]] = [[\\frac{14}{5}]], what is [[x_{4}]]?",
           "options": [
             "[[\\frac{14}{5}]]",
@@ -1998,7 +1998,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 8 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 8 OF 21",
           "question": "A geometric progression has positive-integer first term a and positive-integer common ratio r, where r > 1. Its partial sums satisfy [[S_{24}]] - [[S_{16}]] = [[kS_{8}]] for some positive integer k.<br><br>What is the smallest possible value of k?",
           "options": [
             "[[2^{8}]]",
@@ -2013,7 +2013,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 9 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 9 OF 21",
           "question": "Evaluate the infinite series whose term for n = 0, 1, 2, ... is [[\\frac{\\sin(n\\pi + \\pi /6)}{3^{n}}]].",
           "options": [
             "[[\\frac{-3}{8}]]",
@@ -2028,7 +2028,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 10 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 10 OF 21",
           "question": "What is the coefficient of [[x^{4}]] in the expansion of [[(2 - x)^{6}]]?",
           "options": [
             "-120",
@@ -2043,7 +2043,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 11 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 11 OF 21",
           "question": "In the expansion of [[(a + bx)^{6}]], the coefficient of [[x^{5}]] is 30 times the coefficient of [[x^{3}]].<br><br>Given that a and b are positive integers, what is the smallest possible value of a + b?",
           "options": [
             "6",
@@ -2058,7 +2058,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 12 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 12 OF 21",
           "question": "Consider the expansion of [[(a + bx)^{n}]].<br><br>The third term in ascending powers of x is [[252x^{2}]].<br><br>The fifth term in ascending powers of x is [[280x^{4}]], and this is also the fifth term in descending powers of x.<br><br>Find [[(a/b)^{2}]].",
           "options": [
             "[[\\frac{4}{9}]]",
@@ -2073,7 +2073,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 13 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 13 OF 21",
           "question": "In the simplified expansion of [[(2 + 3x)^{14}]], how many terms have a coefficient divisible by 24?",
           "options": [
             "9",
@@ -2088,7 +2088,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 14 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 14 OF 21",
           "question": "For an integer n [[\\ge]] 3, suppose [[\\binom{n}{3}]] = 5([[\\binom{n}{2}]]). What is n?",
           "options": [
             "12",
@@ -2103,7 +2103,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 15 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 15 OF 21",
           "question": "The first three terms of a convergent geometric progression are also the first, fourth and fifth terms, respectively, of an arithmetic progression.<br><br>The sum to infinity of the geometric progression is 15. What is its first term?",
           "options": [
             "5",
@@ -2118,7 +2118,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 16 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 16 OF 21",
           "question": "A convergent geometric series has positive common ratio, sum to infinity 27 and sum of its first four terms [[\\frac{80}{3}]].<br><br>What is its sixth term?",
           "options": [
             "[[\\frac{1}{27}]]",
@@ -2133,7 +2133,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 17 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 17 OF 21",
           "question": "An arithmetic progression and a convergent geometric progression both have first term 2.<br><br>The sum of their second terms is 2, and the sum of their third terms is [[\\frac{9}{2}]].<br><br>What is the sum to infinity of the geometric progression?",
           "options": [
             "-4",
@@ -2148,7 +2148,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 18 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 18 OF 21",
           "question": "A sequence is defined by [[x_{1}]] = 1 and [[x_{n+1}]] = [[\\frac{x_{n}}{1 + 2x_{n}}]].<br><br>What is [[x_{100}]]?",
           "options": [
             "[[\\frac{1}{99}]]",
@@ -2163,7 +2163,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 19 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 19 OF 21",
           "question": "A convergent geometric progression has first term 15 and sum to infinity 10.<br><br>What is the sum of all terms in even-numbered positions?",
           "options": [
             "-15",
@@ -2178,7 +2178,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 20 OF 20",
+          "eyebrow": "SEQUENCES & SERIES EXAM PRACTICE · 20 OF 21",
           "question": "In the expansion of [[(a + bx^{3})^{8}]], the coefficient of [[x^{18}]] is 32 times the coefficient of [[x^{9}]].<br><br>Given that a and b are positive integers, what is the smallest possible value of a + b?",
           "options": [
             "4",
@@ -2910,7 +2910,7 @@
       "screens": [
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 1 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 1 OF 21",
           "question": "The lines<br><br>[[(p-1)x+2y=5]]<br><br>and<br><br>[[3x+(p+1)y=7]]<br><br>are perpendicular. What is the value of p?",
           "options": [
             "[[-1]]",
@@ -2924,7 +2924,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 2 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 2 OF 21",
           "question": "The lines [[2x-y=1]] and [[x+2y=8]] intersect at P. A line through P is perpendicular to [[3x-4y=7]]. Which equation represents this line?",
           "options": [
             "[[3x-4y+6=0]]",
@@ -2938,7 +2938,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 3 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 3 OF 21",
           "question": "What is the equation of the perpendicular bisector of the segment joining [[(-2,5)]] and [[(6,-1)]]?",
           "options": [
             "[[4x-3y-2=0]]",
@@ -2952,7 +2952,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 4 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 4 OF 21",
           "question": "For which value of p is the line<br><br>[[(p-2)x+(p+1)y=7]]<br><br>parallel to the y-axis?",
           "options": [
             "[[-2]]",
@@ -2966,7 +2966,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 5 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 5 OF 21",
           "question": "A regular octagon is inscribed in the circle<br><br>[[x^{2}+y^{2}-6x+8y+7=0]].<br><br>What is the area of the octagon?",
           "diagram": {
             "kind": "coordinate-circle",
@@ -2984,7 +2984,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 6 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 6 OF 21",
           "question": "For each real value of p, the equation<br><br>[[x^{2}+y^{2}-2px+6y+8p-12=0]]<br><br>describes a circle. When does the minimum possible radius occur, and what is that radius?",
           "options": [
             "[[p=3,\\ r=2]]",
@@ -2998,7 +2998,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 7 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 7 OF 21",
           "question": "Find the complete set of real values of p for which<br><br>[[x^{2}+y^{2}-2px-6y-p^{2}+6p+5=0]]<br><br>represents a genuine circle.",
           "options": [
             "[[p<1\\text{ or }p>2]]",
@@ -3012,7 +3012,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 8 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 8 OF 21",
           "question": "The circles<br><br>[[x^{2}+y^{2}-2x+4y-20=0]]<br><br>and<br><br>[[x^{2}+y^{2}+6x-2y-12=0]]<br><br>intersect at two points. What is the equation of the line through those points?",
           "options": [
             "[[4x+3y-4=0]]",
@@ -3026,7 +3026,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 9 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 9 OF 21",
           "question": "Point P lies on [[(x+1)^{2}+(y-2)^{2}=9]]. Point Q lies on [[(x-5)^{2}+(y+6)^{2}=16]]. What is the maximum possible value of PQ?",
           "options": [
             "[[10]]",
@@ -3040,7 +3040,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 10 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 10 OF 21",
           "question": "For which values of k does the line [[y=2x+k]] intersect the circle<br><br>[[(x-1)^{2}+(y+2)^{2}=20]]<br><br>at two distinct points?",
           "diagram": {
             "kind": "line-circle-intersections",
@@ -3058,7 +3058,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 11 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 11 OF 21",
           "question": "The circle [[(x-2)^{2}+(y-1)^{2}=25]] has two tangents through [[P=(9,2)]]. Which equation is the tangent with negative gradient?",
           "options": [
             "[[3x+4y=35]]",
@@ -3072,7 +3072,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 12 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 12 OF 21",
           "question": "A and B are endpoints of a diameter of a circle, where [[A=(-2,1)]] and [[B=(6,5)]]. What is the equation of the tangent at A?",
           "options": [
             "[[x-2y+4=0]]",
@@ -3086,7 +3086,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 13 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 13 OF 21",
           "question": "A circle contains the chord with endpoints [[A=(1,5)]] and [[B=(7,1)]]. Its centre lies on [[y=x+1]]. What is the centre?",
           "diagram": {
             "kind": "circle-chord-bisector",
@@ -3104,7 +3104,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 14 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 14 OF 21",
           "question": "The line [[3x+4y=16]] cuts the circle<br><br>[[x^{2}+y^{2}-6x+4y-12=0]]<br><br>in a chord. What is the length of the chord?",
           "options": [
             "[[6]]",
@@ -3118,7 +3118,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 15 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 15 OF 21",
           "question": "A circle is tangent to the x-axis at [[(2,0)]] and passes through [[(0,2)]]. Which is its equation in expanded form?",
           "options": [
             "[[x^{2}+y^{2}-4x-4y+4=0]]",
@@ -3132,7 +3132,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 16 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 16 OF 21",
           "question": "The tangent to [[(x-1)^{2}+(y+2)^{2}=25]] at [[(4,2)]] meets the positive coordinate axes. What is the area of the triangle enclosed by the tangent and the axes?",
           "options": [
             "[[\\frac{25}{3}]]",
@@ -3146,7 +3146,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 17 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 17 OF 21",
           "question": "The chord AB subtends angles [[(3x+7)^{\\circ}]] and [[(5x-17)^{\\circ}]] at two points C and D in the same segment of a circle. O is the centre. What is [[\\angle AOB]]?",
           "options": [
             "[[43^{\\circ}]]",
@@ -3160,7 +3160,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 18 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 18 OF 21",
           "question": "AB is a diameter of a circle and C is another point on the circumference. The angle between the tangent at A and chord AC is [[38^{\\circ}]]. What is the angle between the tangent at B and chord BC?",
           "options": [
             "[[38^{\\circ}]]",
@@ -3174,7 +3174,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 19 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 19 OF 21",
           "question": "A, B, C and D lie on a circle in that order. The opposite angles satisfy<br><br>[[\\angle BAD=(2x+5)^{\\circ}]]<br><br>and<br><br>[[\\angle BCD=(5x+7)^{\\circ}]].<br><br>O is the centre. What is the angle at O standing on the same arc BD as [[\\angle BAD]]?",
           "options": [
             "[[106^{\\circ}]]",
@@ -3188,7 +3188,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 20 OF 20",
+          "eyebrow": "COORDINATE GEOMETRY EXAM PRACTICE · 20 OF 21",
           "question": "The points A, B, C and D lie on a circle in that order, and a tangent is drawn at A. The angle between the tangent and chord AB is [[(3x+5)^{\\circ}]], [[\\angle BAC=(x+10)^{\\circ}]], and [[\\angle ADC=(5x+2)^{\\circ}]]. What is x?",
           "options": [
             "[[9]]",
@@ -3199,6 +3199,26 @@
           "answerIndex": 2,
           "correctFeedback": "Correct. The alternate-segment theorem gives [[\\angle ACB=(3x+5)^{\\circ}]]. Therefore<br>[[\\angle ABC=180^{\\circ}-(x+10)^{\\circ}-(3x+5)^{\\circ}]]<br>[[=165^{\\circ}-4x]].<br>Since ABCD is cyclic,<br>[[(165-4x)+(5x+2)=180]],<br>so [[x=13]].",
           "incorrectFeedback": "Use the alternate-segment theorem to find [[\\angle ACB]], then the triangle angle sum to find [[\\angle ABC]], and finally the cyclic opposite-angle condition."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 21 OF 21",
+          "title": "Coordinate Geometry: exam review",
+          "keyPoints": [
+            "Use gradients, point-gradient form, and midpoint or distance formulae systematically.",
+            "Parallel lines share gradients; perpendicular gradients are negative reciprocals.",
+            "Convert expanded circles by completing both squares.",
+            "Substitute line equations into circles and interpret the quadratic roots geometrically.",
+            "Combine coordinate calculations with tangent, chord, and angle theorems."
+          ],
+          "reviewItems": [
+            "Check signs when reading circle centres.",
+            "Treat vertical and horizontal lines explicitly.",
+            "Retain both roots when a line crosses a circle twice.",
+            "Verify contact points before constructing tangents.",
+            "Repeat this set until algebraic and geometric information connect immediately."
+          ],
+          "buttonText": "Finish lesson"
         }
       ]
     },
@@ -3931,7 +3951,7 @@
       "screens": [
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 1 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 1 OF 21",
           "question": "Two sides of a triangle have lengths [[7]] and [[9]], and the angle between them is [[60^{\\circ}]]. What is the exact length of the third side?",
           "diagram": {
             "kind": "triangle-laws",
@@ -3949,7 +3969,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 2 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 2 OF 21",
           "question": "In triangle [[ABC]], [[A=30^{\\circ}]], [[a=5]], and [[b=8]]. How many distinct triangles satisfy this information?",
           "diagram": {
             "kind": "ambiguous-sine",
@@ -3967,7 +3987,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 3 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 3 OF 21",
           "question": "A triangle has two sides of lengths [[8]] and [[10]], and its area is [[20\\sqrt3]]. Let the two possible lengths of the third side be [[p]] and [[q]], where [[p\\lt q]]. What is [[q^{2}-p^{2}]]?",
           "options": [
             "[[80]]",
@@ -3981,7 +4001,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 4 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 4 OF 21",
           "question": "A cuboid has side lengths [[6]], [[8]], and [[24]]. Let [[\\theta]] be the angle between its space diagonal and its [[6\\times8]] base. Find [[\\cos\\theta]].",
           "options": [
             "[[\\frac5{13}]]",
@@ -3995,7 +4015,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 5 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 5 OF 21",
           "question": "A sector has arc length [[8\\pi]] and area [[48\\pi]]. What is its perimeter?",
           "diagram": {
             "kind": "radians-sector",
@@ -4013,7 +4033,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 6 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 6 OF 21",
           "question": "A chord of a circle of radius [[6]] subtends an angle of [[\\frac{2\\pi}{3}]] at the centre. What is the exact area of the major segment?",
           "diagram": {
             "kind": "radians-sector",
@@ -4031,7 +4051,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 7 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 7 OF 21",
           "question": "Evaluate exactly:<br>[[2\\sin\\frac{5\\pi}{6}-\\sqrt3\\cos\\frac{2\\pi}{3}+\\tan\\frac{7\\pi}{4}]].",
           "options": [
             "[[\\frac{\\sqrt3}{2}]]",
@@ -4045,7 +4065,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 8 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 8 OF 21",
           "question": "What is the smallest positive period of<br>[[f(x)=\\sin^{2}(4x)]]?",
           "options": [
             "[[\\frac{\\pi}{8}]]",
@@ -4059,7 +4079,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 9 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 9 OF 21",
           "question": "How many solutions does<br>[[\\sin(3x)=\\frac12]]<br>have for [[0\\le x\\lt2\\pi]]?",
           "options": [
             "[[3]]",
@@ -4073,7 +4093,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 10 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 10 OF 21",
           "question": "How many solutions does<br>[[\\tan\\left(2x+\\frac{\\pi}{4}\\right)=1]]<br>have for [[-\\pi\\lt x\\lt\\pi]]?",
           "options": [
             "[[2]]",
@@ -4087,7 +4107,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 11 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 11 OF 21",
           "question": "For [[0\\le x\\lt2\\pi]], the equation<br>[[2\\cos^{2}x+\\cos x-1=0]]<br>has [[n]] solutions whose sum is [[S]]. Which pair [[(n,S)]] is correct?",
           "options": [
             "[[(2,2\\pi)]]",
@@ -4101,7 +4121,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 12 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 12 OF 21",
           "question": "The angle [[x]] satisfies<br>[[\\sin2x+\\sqrt3\\cos2x=1]]<br>and<br>[[\\sqrt3\\sin2x-\\cos2x=-\\sqrt3]],<br>where [[0^{\\circ}\\lt x\\lt360^{\\circ}]].<br><br>What is the sum of the possible values of [[x]]?",
           "options": [
             "[[330^{\\circ}]]",
@@ -4115,7 +4135,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 13 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 13 OF 21",
           "question": "What fraction of the interval [[0\\le\\theta\\le\\pi]] satisfies<br>[[\\left(\\sin2\\theta-\\frac{\\sqrt3}{2}\\right)(\\sin\\theta+\\cos\\theta)\\ge0]]?",
           "options": [
             "[[\\frac14]]",
@@ -4129,7 +4149,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 14 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 14 OF 21",
           "question": "How many real solutions are there to<br>[[4\\cos x=\\sqrt{x}]],<br>where [[x]] is measured in radians?",
           "options": [
             "[[2]]",
@@ -4143,7 +4163,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 15 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 15 OF 21",
           "question": "For [[0^{\\circ}\\le x\\le180^{\\circ}]], the equation<br>[[2-3\\cos^{2}x=|\\cos x|]]<br>has [[n]] solutions whose sum is [[S]]. Which pair [[(n,S)]] is correct?",
           "options": [
             "[[(1,90^{\\circ})]]",
@@ -4157,7 +4177,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 16 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 16 OF 21",
           "question": "How many solutions does<br>[[\\sin2x+\\sin^{2}x=1]]<br>have for [[0\\le x\\le2\\pi]]?",
           "options": [
             "[[2]]",
@@ -4171,7 +4191,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 17 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 17 OF 21",
           "question": "How many solutions does<br>[[\\cos(3x)\\ln x=\\sin(3x)]]<br>have for [[0\\lt x\\le2\\pi]]?",
           "options": [
             "[[3]]",
@@ -4185,7 +4205,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 18 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 18 OF 21",
           "question": "How many solutions does<br>[[(1+2\\cos3x)^{2}=9]]<br>have for [[0\\le x\\lt2\\pi]]?",
           "options": [
             "[[2]]",
@@ -4199,7 +4219,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 19 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 19 OF 21",
           "question": "For [[0\\le x\\lt2\\pi]], the equation<br>[[\\cos2x=\\sin x]]<br>has [[n]] solutions whose sum is [[S]]. Which pair [[(n,S)]] is correct?",
           "options": [
             "[[(2,\\pi)]]",
@@ -4213,7 +4233,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 20 OF 20",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 20 OF 21",
           "question": "How many solutions does<br>[[\\frac{3^{\\tan^{2}x}}{27^{\\sin^{2}x}}=1]]<br>have for [[0\\le x\\le2\\pi]]?",
           "options": [
             "[[4]]",
@@ -4224,6 +4244,26 @@
           "answerIndex": 3,
           "correctFeedback": "Correct. Since [[27=3^{3}]], equality of the positive powers gives<br>[[\\tan^{2}x=3\\sin^{2}x]].<br><br>If [[\\sin x=0]], then<br>[[x=0,\\pi,2\\pi]],<br>giving three solutions.<br><br>Otherwise, dividing by [[\\sin^{2}x]] gives<br>[[\\frac1{\\cos^{2}x}=3]],<br>so [[\\cos^{2}x=\\frac13]], which gives four further solutions. The total is seven.",
           "incorrectFeedback": "First equate the powers of 3. Keep the separate case [[\\sin x=0]] before dividing by [[\\sin^{2}x]]."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 21 OF 21",
+          "title": "Trigonometry: exam review",
+          "keyPoints": [
+            "Choose the sine rule, cosine rule, or area formula from the information given.",
+            "Check the supplementary solution in angle-side-side triangle problems.",
+            "Use radians for arc length, sector area, and segment area.",
+            "Connect exact values, quadrants, graph symmetry, and periodicity.",
+            "Solve transformed and quadratic trigonometric equations over the full interval."
+          ],
+          "reviewItems": [
+            "Label opposite side-angle pairs before calculating.",
+            "Keep exact values instead of rounding.",
+            "Check whether interval endpoints are included.",
+            "Reject sine or cosine values outside [[-1\\le y\\le1]].",
+            "Repeat this set until every periodic solution is found systematically."
+          ],
+          "buttonText": "Finish lesson"
         }
       ]
     },

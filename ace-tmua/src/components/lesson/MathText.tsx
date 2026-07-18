@@ -19,6 +19,21 @@ interface Props {
 }
 
 const plainNumberPattern = /^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$/;
+const complexLatexPattern =
+  /\\(?:frac|dfrac|tfrac|sqrt|binom|sum|prod|int|lim|begin|left|right|overline|underline|vec|matrix|cases)(?![A-Za-z])/;
+
+/**
+ * MathJax's Computer Modern glyphs have a smaller visual x-height than the
+ * heavy native font used throughout the lesson UI. Give inline maths enough
+ * optical size to remain legible, with an extra lift for stacked structures.
+ */
+function readableMathFontSize(baseFontSize: number, expression: string) {
+  const baseScale =
+    baseFontSize <= 15 ? 1.28 : baseFontSize <= 18 ? 1.22 : 1.12;
+  const complexityScale = complexLatexPattern.test(expression) ? 1.06 : 1;
+
+  return Math.round(baseFontSize * baseScale * complexityScale * 10) / 10;
+}
 
 function protectProseDelimiters(value: string): string {
   return value
@@ -143,6 +158,7 @@ const localStyles = StyleSheet.create({
     flexShrink: 1,
     maxWidth: "100%",
     marginHorizontal: 1,
+    marginVertical: 2,
   },
   lineBreak: {
     width: "100%",
@@ -401,10 +417,12 @@ function renderLatexWithWrapping(
         </Text>,
       );
     } else {
+      const mathFontSize = readableMathFontSize(fontSize, expression);
+
       nodes.push(
         <MathJaxSvg
           key={`latex-expression-${mathIndex}`}
-          fontSize={fontSize}
+          fontSize={mathFontSize}
           color={color}
           fontCache
           textStyle={flattenedStyle}

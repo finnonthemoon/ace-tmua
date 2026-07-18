@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   ActivityIndicator,
   Alert,
+  Image,
   KeyboardAvoidingView,
   Modal,
   Platform,
@@ -738,9 +739,12 @@ function studyPlanSummary(days: StudyDay[], time: string) {
 function WelcomeStep({ onNext }: { onNext: () => void }) {
   return (
     <View style={styles.welcome}>
-      <View style={styles.logoMark}>
-        <Ionicons name="chevron-up" size={52} color="#FFFFFF" />
-      </View>
+      <Image
+        accessibilityLabel="ACE TMUA logo"
+        resizeMode="cover"
+        source={require("../../assets/NEWacetmualogo.png")}
+        style={styles.logoMark}
+      />
 
       <Text style={styles.welcomeEyebrow}>ACE TMUA</Text>
       <Text style={styles.welcomeTitle}>A clearer route to your best score.</Text>
@@ -1017,10 +1021,7 @@ const styles = StyleSheet.create({
     height: 84,
     marginBottom: 24,
     borderRadius: 27,
-    backgroundColor: Colors.primary,
-    justifyContent: "center",
-    alignItems: "center",
-    transform: [{ rotate: "0deg" }],
+    overflow: "hidden",
     ...Shadow.streak,
   },
   welcomeEyebrow: {
