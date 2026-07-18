@@ -3481,215 +3481,207 @@
     {
       "id": "values-graphs-identities",
       "topicId": "topic-4",
-      "title": "Values, Graphs, & Identities",
+      "title": "Values, Graphs & Identities",
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "EXACT VALUES · 1 OF 14",
-          "title": "Exact values come from two special triangles",
-          "body": "A [[45^{\\circ}]] right triangle has side ratio [[1:1:\\sqrt2]]. A [[30^{\\circ}\\text{-}60^{\\circ}]] right triangle has ratio [[1:\\sqrt3:2]].<br><br>On the unit circle, the point at angle [[\\theta]] is [[(\\cos\\theta,\\sin\\theta)]]. These two ideas generate every required exact value.",
-          "keyPoint": "Keep answers such as [[\\frac{\\sqrt3}{2}]] exact. Do not replace them with rounded decimals.",
+          "eyebrow": "VALUES, GRAPHS & IDENTITIES · 1 OF 14",
+          "title": "The facts that make trig equations possible",
           "diagram": {
             "kind": "unit-circle-values",
-            "caption": "Cosine is the horizontal coordinate; sine is the vertical coordinate."
+            "caption": "On the unit circle, the horizontal coordinate is cos θ and the vertical coordinate is sin θ."
           },
-          "buttonText": "Build the table"
+          "body": "This lesson covers exact trigonometric values, the sine, cosine, and tangent graphs, their symmetries and periods, and the identities<br><br>[[\\sin^{2}x+\\cos^{2}x=1]]<br>and<br>[[\\tan x=\\frac{\\sin x}{\\cos x}]].<br><br>The next lesson will use these facts to solve equations and count solutions.",
+          "keyPoint": "Most harder trigonometry questions become much quicker once the exact values and graph shapes are automatic.",
+          "buttonText": "Start with exact values"
         },
         {
           "type": "reveal",
-          "eyebrow": "VALUE TABLE · 2 OF 14",
-          "title": "Use one pattern instead of memorising fifteen facts",
+          "eyebrow": "EXACT VALUES · 2 OF 14",
+          "title": "Know the five standard angles",
           "steps": [
             {
-              "title": "Sine increases",
-              "body": "For [[0^{\\circ},30^{\\circ},45^{\\circ},60^{\\circ},90^{\\circ}]], the sine values are [[\\frac{\\sqrt0}{2},\\frac{\\sqrt1}{2},\\frac{\\sqrt2}{2},\\frac{\\sqrt3}{2},\\frac{\\sqrt4}{2}]]."
+              "title": "Angles",
+              "body": "Degrees:<br>[[0^{\\circ},30^{\\circ},45^{\\circ},60^{\\circ},90^{\\circ}]]<br><br>Radians:<br>[[0,\\frac{\\pi}{6},\\frac{\\pi}{4},\\frac{\\pi}{3},\\frac{\\pi}{2}]]."
             },
             {
-              "title": "Cosine reverses the pattern",
-              "body": "For the same angles, cosine runs from [[\\frac{\\sqrt4}{2}]] down to [[\\frac{\\sqrt0}{2}]]."
+              "title": "Sine values",
+              "body": "[[0,\\frac12,\\frac{\\sqrt2}{2},\\frac{\\sqrt3}{2},1]].<br><br>A useful pattern is<br>[[\\frac{\\sqrt0}{2},\\frac{\\sqrt1}{2},\\frac{\\sqrt2}{2},\\frac{\\sqrt3}{2},\\frac{\\sqrt4}{2}]]."
             },
             {
-              "title": "Tangent is a quotient",
-              "body": "Use [[\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}]]. This gives [[0,\\frac1{\\sqrt3},1,\\sqrt3]], while [[\\tan90^{\\circ}]] is undefined."
+              "title": "Cosine values",
+              "body": "[[1,\\frac{\\sqrt3}{2},\\frac{\\sqrt2}{2},\\frac12,0]].<br><br>These are the sine values in reverse order."
+            },
+            {
+              "title": "Tangent values",
+              "body": "[[0,\\frac{1}{\\sqrt3},1,\\sqrt3,\\text{undefined}]].<br><br>Use [[\\tan x=\\frac{\\sin x}{\\cos x}]]. Tangent is undefined at [[90^{\\circ}]] because [[\\cos90^{\\circ}=0]]."
             }
           ],
-          "buttonText": "Check a value"
+          "buttonText": "Try an exact-value check"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXACT VALUE · 3 OF 14",
-          "question": "Evaluate [[\\sin60^{\\circ}\\cos45^{\\circ}]].",
+          "eyebrow": "EXACT-VALUE CHECK · 3 OF 14",
+          "question": "Evaluate exactly:<br>[[2\\sin30^{\\circ}\\cos60^{\\circ}+\\tan45^{\\circ}]].",
           "options": [
-            "[[\\frac{\\sqrt3}{4}]]",
-            "[[\\frac{\\sqrt6}{4}]]",
-            "[[\\frac{\\sqrt6}{2}]]",
-            "[[\\frac{\\sqrt3}{2}]]"
+            "[[\\frac12]]",
+            "[[1]]",
+            "[[\\frac32]]",
+            "[[2]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[\\sin60^{\\circ}\\cos45^{\\circ}=\\frac{\\sqrt3}{2}\\cdot\\frac{\\sqrt2}{2}=\\frac{\\sqrt6}{4}]].",
-          "incorrectFeedback": "Substitute the two exact values, then multiply the numerators and denominators."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[\\sin30^{\\circ}=\\frac12]], [[\\cos60^{\\circ}=\\frac12]], and [[\\tan45^{\\circ}=1]]. Therefore<br>[[2\\left(\\frac12\\right)\\left(\\frac12\\right)+1=\\frac32]].",
+          "incorrectFeedback": "Use the exact values [[\\sin30^{\\circ}=\\frac12]], [[\\cos60^{\\circ}=\\frac12]], and [[\\tan45^{\\circ}=1]]."
         },
         {
           "type": "concept",
-          "eyebrow": "ALL QUADRANTS · 4 OF 14",
-          "title": "The reference angle gives size; the quadrant gives sign",
-          "body": "On the unit circle, [[\\sin\\theta]] is the y-coordinate and [[\\cos\\theta]] is the x-coordinate. Tangent is their quotient.<br><br>Sine is positive in quadrants I and II. Cosine is positive in I and IV. Tangent is positive in I and III.",
-          "keyPoint": "First reduce to an acute reference angle. Then attach the sign required by the quadrant.",
+          "eyebrow": "SINE AND COSINE GRAPHS · 4 OF 14",
+          "title": "Same range and period, different starting points",
           "diagram": {
-            "kind": "unit-circle-values",
-            "caption": "Coordinates explain both exact values and their signs."
+            "kind": "trig-graphs",
+            "caption": "Sine begins at 0; cosine begins at 1. Both repeat every 2π."
           },
+          "body": "Both [[y=\\sin x]] and [[y=\\cos x]] have range<br>[[-1\\leq y\\leq1]]<br>and period [[2\\pi]].<br><br>For sine, the key values over one cycle are<br>[[\\sin0=0]], [[\\sin\\frac{\\pi}{2}=1]], [[\\sin\\pi=0]], [[\\sin\\frac{3\\pi}{2}=-1]], and [[\\sin2\\pi=0]].<br><br>Cosine follows the same shape but begins at 1: [[\\cos0=1]].",
+          "keyPoint": "Cosine is the sine graph shifted left by [[\\frac{\\pi}{2}]]: [[\\cos x=\\sin\\left(x+\\frac{\\pi}{2}\\right)]].",
           "buttonText": "Continue"
         },
         {
+          "type": "concept",
+          "eyebrow": "SYMMETRY AND PERIODICITY · 5 OF 14",
+          "title": "Use the graph instead of memorising every angle",
+          "body": "Sine and cosine repeat every [[2\\pi]]:<br>[[\\sin(x+2\\pi)=\\sin x]],<br>[[\\cos(x+2\\pi)=\\cos x]].<br><br>Sine is odd:<br>[[\\sin(-x)=-\\sin x]].<br>Its graph has rotational symmetry about the origin.<br><br>Cosine is even:<br>[[\\cos(-x)=\\cos x]].<br>Its graph has reflection symmetry in the y-axis.",
+          "keyPoint": "Useful within one cycle: [[\\sin(\\pi-x)=\\sin x]] and [[\\cos(2\\pi-x)=\\cos x]].",
+          "buttonText": "Apply the symmetries"
+        },
+        {
           "type": "multipleChoice",
-          "eyebrow": "REFERENCE ANGLES · 5 OF 14",
-          "question": "Evaluate [[\\sin150^{\\circ}]].",
+          "eyebrow": "SYMMETRY CHECK · 6 OF 14",
+          "question": "Find the exact value of<br>[[\\sin\\left(\\frac{13\\pi}{6}\\right)+\\cos\\left(\\frac{5\\pi}{3}\\right)]].",
           "options": [
-            "[[-\\frac{\\sqrt3}{2}]]",
-            "[[-\\frac12]]",
+            "[[0]]",
             "[[\\frac12]]",
-            "[[\\frac{\\sqrt3}{2}]]"
+            "[[1]]",
+            "[[\\sqrt3]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. The reference angle is [[30^{\\circ}]], and sine is positive in quadrant II, so [[\\sin150^{\\circ}=\\frac12]].",
-          "incorrectFeedback": "Use reference angle [[180^{\\circ}-150^{\\circ}=30^{\\circ}]] and determine the sign from quadrant II."
+          "correctFeedback": "Correct. Subtracting [[2\\pi]] gives<br>[[\\sin\\frac{13\\pi}{6}=\\sin\\frac{\\pi}{6}=\\frac12]].<br>Also [[\\frac{5\\pi}{3}=2\\pi-\\frac{\\pi}{3}]], so<br>[[\\cos\\frac{5\\pi}{3}=\\cos\\frac{\\pi}{3}=\\frac12]].<br>The total is 1.",
+          "incorrectFeedback": "Use periodicity on [[\\frac{13\\pi}{6}]] and the symmetry [[\\cos(2\\pi-x)=\\cos x]] on [[\\frac{5\\pi}{3}]]."
         },
         {
           "type": "concept",
-          "eyebrow": "TRIG GRAPHS · 6 OF 14",
-          "title": "Periodicity repeats the same geometry",
-          "body": "The sine and cosine graphs have period [[2\\pi]]: [[f(x+2\\pi)=f(x)]]. The tangent graph has period [[\\pi]].<br><br>Both sine and cosine range from [[-1]] to [[1]]. Tangent has zeros at [[x=k\\pi]] and is undefined at [[x=\\frac{\\pi}{2}+k\\pi]].",
-          "keyPoint": "Sine is odd: [[\\sin(-x)=-\\sin x]]. Cosine is even: [[\\cos(-x)=\\cos x]].",
-          "diagram": {
-            "kind": "trig-graphs",
-            "caption": "Sine starts at zero; cosine starts at its maximum."
-          },
-          "buttonText": "Explore periods"
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "GRAPH CHANGES · 7 OF 14",
-          "title": "Read multipliers from the inside out",
-          "steps": [
-            {
-              "title": "Vertical multiplier",
-              "body": "For [[y=a\\sin x]] or [[y=a\\cos x]], the amplitude is [[\\lvert a\\rvert]] and the range satisfies [[-\\lvert a\\rvert\\le y\\le\\lvert a\\rvert]]."
-            },
-            {
-              "title": "Horizontal multiplier",
-              "body": "The period of [[\\sin(bx)]] and [[\\cos(bx)]] is [[\\frac{2\\pi}{\\lvert b\\rvert}]]. The period of [[\\tan(bx)]] is [[\\frac{\\pi}{\\lvert b\\rvert}]]."
-            },
-            {
-              "title": "A shift changes location, not period",
-              "body": "Replacing [[x]] by [[x-c]] shifts the graph right by [[c]]. Its amplitude and period stay unchanged."
-            }
-          ],
-          "buttonText": "Check a period"
+          "eyebrow": "THE TANGENT GRAPH · 7 OF 14",
+          "title": "Tangent repeats sooner and has asymptotes",
+          "body": "The tangent graph has period [[\\pi]]:<br>[[\\tan(x+\\pi)=\\tan x]].<br><br>It crosses the x-axis at<br>[[x=n\\pi]],<br>and is undefined where [[\\cos x=0]], giving vertical asymptotes at<br>[[x=\\frac{\\pi}{2}+n\\pi]],<br>where n is an integer.<br><br>Tangent has range all real numbers and is odd:<br>[[\\tan(-x)=-\\tan x]].",
+          "keyPoint": "Because [[\\tan x=\\frac{\\sin x}{\\cos x}]], every zero of cosine is a point where tangent is undefined.",
+          "buttonText": "Count the asymptotes"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "PERIOD CHECK · 8 OF 14",
-          "question": "What is the period of [[y=\\tan(3x)]]?",
+          "eyebrow": "TANGENT-GRAPH CHECK · 8 OF 14",
+          "question": "How many vertical asymptotes does [[y=\\tan x]] have in the interval<br>[[-2\\pi<x<2\\pi]]?",
           "options": [
-            "[[\\frac{\\pi}{6}]]",
-            "[[\\frac{\\pi}{3}]]",
-            "[[\\frac{2\\pi}{3}]]",
-            "[[3\\pi]]"
+            "[[2]]",
+            "[[3]]",
+            "[[4]]",
+            "[[5]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. Tangent's base period is [[\\pi]], so the period becomes [[\\frac{\\pi}{3}]].",
-          "incorrectFeedback": "For [[\\tan(bx)]], divide the base period [[\\pi]] by [[\\lvert b\\rvert]]."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The asymptotes are<br>[[-\\frac{3\\pi}{2},-\\frac{\\pi}{2},\\frac{\\pi}{2},\\frac{3\\pi}{2}]],<br>so there are four.",
+          "incorrectFeedback": "List values of [[x=\\frac{\\pi}{2}+n\\pi]] strictly between [[-2\\pi]] and [[2\\pi]]."
         },
         {
           "type": "milestone",
-          "eyebrow": "HALFWAY · 9 OF 14",
-          "title": "You can connect triangles, circles, and graphs.",
-          "body": "The final step is using identities to change one trigonometric form into another.",
-          "buttonText": "Start identities"
+          "eyebrow": "GRAPHS COMPLETE · 9 OF 14",
+          "title": "You can now read the three basic trig graphs.",
+          "body": "You know their ranges, periods, symmetries, zeros, and the tangent asymptotes.<br><br>Next, we use the two identities from the specification to simplify expressions and recover missing values.",
+          "buttonText": "Move to identities"
         },
         {
           "type": "concept",
-          "eyebrow": "CORE IDENTITIES · 10 OF 14",
-          "title": "Two identities do most of the work",
-          "body": "The quotient identity is [[\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}]]. The Pythagorean identity is [[\\sin^{2}\\theta+\\cos^{2}\\theta=1]].<br><br>Useful rearrangements include [[\\sin^{2}\\theta=1-\\cos^{2}\\theta]] and [[\\cos^{2}\\theta=1-\\sin^{2}\\theta]].",
-          "keyPoint": "Choose the rearrangement that leaves the entire expression in one trigonometric function.",
-          "buttonText": "Simplify"
+          "eyebrow": "TRIGONOMETRIC IDENTITIES · 10 OF 14",
+          "title": "Two identities connect all three functions",
+          "body": "An identity is true for every value for which both sides are defined.<br><br>The Pythagorean identity is<br>[[\\sin^{2}x+\\cos^{2}x=1]].<br><br>Useful rearrangements are<br>[[\\sin^{2}x=1-\\cos^{2}x]]<br>and<br>[[\\cos^{2}x=1-\\sin^{2}x]].<br><br>The quotient identity is<br>[[\\tan x=\\frac{\\sin x}{\\cos x}]],<br>provided [[\\cos x\\neq0]].",
+          "keyPoint": "Remember that [[\\sin^{2}x]] means [[(\\sin x)^{2}]], not [[\\sin(x^{2})]].",
+          "buttonText": "Simplify an expression"
         },
         {
-          "type": "workedExample",
-          "eyebrow": "IDENTITY REASONING · 11 OF 14",
-          "title": "Replace the numerator before cancelling",
-          "question": "Simplify [[\\frac{1-\\sin^{2}x}{\\cos x}]], where [[\\cos x\\ne0]].",
+          "type": "multipleChoice",
+          "eyebrow": "IDENTITY CHECK · 11 OF 14",
+          "question": "Simplify, where the expression is defined:<br>[[\\frac{1-\\cos^{2}x}{\\sin x\\cos x}]].",
           "options": [
             "[[\\sin x]]",
             "[[\\cos x]]",
             "[[\\tan x]]",
-            "[[1]]"
+            "[[\\frac{1}{\\tan x}]]"
           ],
-          "answerIndex": 1,
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Since [[1-\\cos^{2}x=\\sin^{2}x]],<br>[[\\frac{1-\\cos^{2}x}{\\sin x\\cos x}=\\frac{\\sin^{2}x}{\\sin x\\cos x}=\\frac{\\sin x}{\\cos x}=\\tan x]].",
+          "incorrectFeedback": "Replace [[1-\\cos^{2}x]] with [[\\sin^{2}x]], cancel one factor of sine, then use the quotient identity."
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "SIGNS AND IDENTITIES · 12 OF 14",
+          "title": "A squared identity gives two possible signs",
+          "question": "Suppose [[\\sin x=\\frac{\\sqrt3}{2}]] and [[\\cos x<0]]. What is [[\\tan x]]?",
+          "options": [
+            "[[-\\sqrt3]]",
+            "[[-\\frac{\\sqrt3}{3}]]",
+            "[[\\frac{\\sqrt3}{3}]]",
+            "[[\\sqrt3]]"
+          ],
+          "answerIndex": 0,
           "steps": [
             {
               "title": "Use the Pythagorean identity",
-              "body": "From [[\\sin^{2}x+\\cos^{2}x=1]], we have [[1-\\sin^{2}x=\\cos^{2}x]]."
+              "body": "[[\\cos^{2}x=1-\\sin^{2}x=1-\\frac34=\\frac14]]."
             },
             {
-              "title": "Substitute",
-              "body": "The expression becomes [[\\frac{\\cos^{2}x}{\\cos x}]]."
+              "title": "Recover both possible cosine values",
+              "body": "From [[\\cos^{2}x=\\frac14]], we get [[\\cos x=\\pm\\frac12]]."
             },
             {
-              "title": "Cancel within the stated domain",
-              "body": "Since [[\\cos x\\ne0]], the quotient simplifies to [[\\cos x]]."
+              "title": "Use the sign information",
+              "body": "The condition [[\\cos x<0]] selects [[\\cos x=-\\frac12]]."
+            },
+            {
+              "title": "Find tangent",
+              "body": "[[\\tan x=\\frac{\\sin x}{\\cos x}=\\frac{\\frac{\\sqrt3}{2}}{-\\frac12}=-\\sqrt3]]."
             }
           ],
-          "finalAnswer": "[[\\cos x]]",
-          "buttonText": "Continue"
+          "finalAnswer": "The correct answer is A: [[\\tan x=-\\sqrt3]].",
+          "buttonText": "Try the final challenge"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "IDENTITY APPLICATION · 12 OF 14",
-          "question": "An acute angle [[\\theta]] satisfies [[\\tan\\theta=\\frac34]]. Find [[\\sin\\theta]].",
+          "eyebrow": "PERIOD CHALLENGE · 13 OF 14",
+          "question": "What is the smallest positive period of<br>[[f(x)=\\sin^{2}x]]?",
           "options": [
-            "[[\\frac35]]",
-            "[[\\frac45]]",
-            "[[\\frac34]]",
-            "[[\\frac43]]"
+            "[[\\frac{\\pi}{2}]]",
+            "[[\\pi]]",
+            "[[2\\pi]]",
+            "[[4\\pi]]"
           ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. Use a right triangle with opposite [[3]], adjacent [[4]], and hypotenuse [[5]]. Thus [[\\sin\\theta=\\frac35]].",
-          "incorrectFeedback": "Interpret tangent as opposite over adjacent, then complete the right triangle."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "SYMMETRY CHECK · 13 OF 14",
-          "question": "Which statement is true for every real [[x]]?",
-          "options": [
-            "[[\\sin(-x)=\\sin x]]",
-            "[[\\cos(-x)=-\\cos x]]",
-            "[[\\cos(-x)=\\cos x]]",
-            "[[\\tan(-x)=\\tan x]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. Cosine is even, so [[\\cos(-x)=\\cos x]]. Sine and tangent are odd.",
-          "incorrectFeedback": "Recall the mirror symmetry of the cosine graph about the y-axis."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Since [[\\sin(x+\\pi)=-\\sin x]], squaring removes the sign:<br>[[\\sin^{2}(x+\\pi)=(-\\sin x)^{2}=\\sin^{2}x]].<br>Therefore the smallest positive period is [[\\pi]].",
+          "incorrectFeedback": "Although sine has period [[2\\pi]], shifting by [[\\pi]] only changes its sign. Squaring removes that change."
         },
         {
           "type": "lessonSummary",
           "eyebrow": "LESSON SUMMARY · 14 OF 14",
-          "title": "Values, Graphs, and Identities: key points",
+          "title": "Values, Graphs and Identities: key points",
           "keyPoints": [
-            "Generate exact values from the two special right triangles.",
-            "Use the reference angle for magnitude and the quadrant for sign.",
-            "Sine and cosine have period [[2\\pi]]; tangent has period [[\\pi]].",
-            "Cosine is even, while sine and tangent are odd.",
-            "Use [[\\tan x=\\frac{\\sin x}{\\cos x}]] and [[\\sin^{2}x+\\cos^{2}x=1]]."
+            "Know the exact sine, cosine, and tangent values at [[0^{\\circ},30^{\\circ},45^{\\circ},60^{\\circ},90^{\\circ}]].",
+            "Sine and cosine have range [[-1\\leq y\\leq1]] and period [[2\\pi]].",
+            "Sine and tangent are odd; cosine is even.",
+            "Tangent has period [[\\pi]] and asymptotes at [[x=\\frac{\\pi}{2}+n\\pi]].",
+            "Use [[\\sin^{2}x+\\cos^{2}x=1]] to replace squared sine or cosine terms.",
+            "Use [[\\tan x=\\frac{\\sin x}{\\cos x}]] only when [[\\cos x\\neq0]]."
           ],
           "reviewItems": [
-            "Keep exact values exact.",
-            "Distinguish amplitude from period.",
-            "Check where tangent is undefined.",
-            "Use graph symmetry to evaluate negative angles.",
-            "Convert identities into the single function you need."
+            "Memorise the standard exact-value table in both degrees and radians.",
+            "Sketch each basic graph from its key points rather than from memory alone.",
+            "Check signs when taking a square root from [[\\sin^{2}x]] or [[\\cos^{2}x]].",
+            "Next lesson: Solving Trigonometric Equations."
           ],
           "buttonText": "Finish lesson"
         }
@@ -3939,319 +3931,303 @@
       "screens": [
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 1 OF 21",
-          "question": "Two sides of a triangle have lengths [[7]] and [[8]], and their included angle is [[60^{\\circ}]]. Find the third side.",
-          "options": [
-            "[[\\sqrt{15}]]",
-            "[[\\sqrt{57}]]",
-            "[[\\sqrt{65}]]",
-            "[[5\\sqrt3]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[c^{2}=7^{2}+8^{2}-2(7)(8)\\cos60^{\\circ}=49+64-56=57]].",
-          "incorrectFeedback": "Use the cosine rule with [[\\cos60^{\\circ}=\\frac12]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 2 OF 21",
-          "question": "A triangle has sides [[5]], [[7]], and [[8]]. Find the cosine of the angle opposite the side of length [[8]].",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 1 OF 20",
+          "question": "Two sides of a triangle have lengths [[5]] and [[7]], and the angle between them is [[60^{\\circ}]]. What is the exact length of the third side?",
           "diagram": {
             "kind": "triangle-laws",
-            "caption": "For an unknown angle, rearrange the cosine rule."
+            "caption": "The cosine rule connects two sides, their included angle, and the opposite side."
           },
           "options": [
-            "[[\\frac17]]",
-            "[[\\frac27]]",
-            "[[\\frac57]]",
-            "[[\\frac67]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[\\cos C=\\frac{5^{2}+7^{2}-8^{2}}{2(5)(7)}=\\frac{10}{70}=\\frac17]].",
-          "incorrectFeedback": "Place the side of length [[8]] opposite the required angle in the rearranged cosine rule."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 3 OF 21",
-          "question": "In triangle [[ABC]], [[A=30^{\\circ}]], [[B=45^{\\circ}]], and [[b=6\\sqrt2]]. Find [[a]].",
-          "options": [
-            "[[3]]",
+            "[[\\sqrt{29}]]",
+            "[[\\sqrt{39}]]",
             "[[6]]",
-            "[[6\\sqrt2]]",
-            "[[12]]"
+            "[[2\\sqrt{13}]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. [[\\frac{a}{\\sin30^{\\circ}}=\\frac{6\\sqrt2}{\\sin45^{\\circ}}=12]], so [[a=12\\left(\\frac12\\right)=6]].",
-          "incorrectFeedback": "Use the two known opposite pairs in the sine rule."
+          "correctFeedback": "Correct. By the cosine rule,<br>[[c^{2}=5^{2}+7^{2}-2(5)(7)\\cos60^{\\circ}=25+49-35=39]].<br>Hence [[c=\\sqrt{39}]].",
+          "incorrectFeedback": "Use the cosine rule with the included angle, and remember that [[\\cos60^{\\circ}=\\frac12]]."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 4 OF 21",
-          "question": "In triangle [[ABC]], [[A=30^{\\circ}]], [[a=5]], and [[b=8]]. How many different triangles satisfy the information?",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 2 OF 20",
+          "question": "A triangle has side lengths [[5]], [[6]], and [[7]]. What is the cosine of its largest angle?",
+          "options": [
+            "[[-\\frac{1}{5}]]",
+            "[[\\frac{1}{5}]]",
+            "[[\\frac{2}{5}]]",
+            "[[\\frac{3}{5}]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The largest angle is opposite the side of length 7. Therefore<br>[[\\cos C=\\frac{5^{2}+6^{2}-7^{2}}{2(5)(6)}=\\frac{12}{60}=\\frac15]].",
+          "incorrectFeedback": "The largest angle lies opposite the longest side. Rearrange the cosine rule to find its cosine."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 3 OF 20",
+          "question": "In triangle [[ABC]], [[A=45^{\\circ}]], [[B=60^{\\circ}]], and [[b=4\\sqrt3]]. Find a.",
+          "options": [
+            "[[2\\sqrt2]]",
+            "[[4]]",
+            "[[4\\sqrt2]]",
+            "[[8]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The sine rule gives<br>[[\\frac{a}{\\sin45^{\\circ}}=\\frac{4\\sqrt3}{\\sin60^{\\circ}}=8]].<br>Thus [[a=8\\cdot\\frac{\\sqrt2}{2}=4\\sqrt2]].",
+          "incorrectFeedback": "Use the known opposite pair B and b, then multiply by [[\\sin45^{\\circ}]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 4 OF 20",
+          "question": "In triangle [[ABC]], [[A=30^{\\circ}]], [[a=6]], and [[b=10]]. How many different triangles satisfy the information?",
           "diagram": {
             "kind": "ambiguous-sine",
-            "caption": "Check both the acute and supplementary sine-rule angles."
+            "caption": "The same sine value can correspond to two different angles."
           },
           "options": [
-            "None",
-            "One",
-            "Two",
-            "Infinitely many"
+            "[[0]]",
+            "[[1]]",
+            "[[2]]",
+            "[[3]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. [[\\sin B=\\frac{8\\sin30^{\\circ}}5=\\frac45]]. Both [[B]] and [[180^{\\circ}-B]] leave a positive third angle, so two triangles exist.",
-          "incorrectFeedback": "Find [[\\sin B]], then test both angles with that sine value against the triangle angle sum."
+          "correctFeedback": "Correct. The sine rule gives [[\\sin B=\\frac{10\\sin30^{\\circ}}{6}=\\frac56]]. This produces an acute value of B and its supplementary value. Both leave a positive third angle, so two triangles are possible.",
+          "incorrectFeedback": "Find [[\\sin B]]. In an SSA problem, test both the acute angle and its supplementary angle."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 5 OF 21",
-          "question": "Find the area of a triangle with sides [[9]] and [[12]] enclosing an angle of [[30^{\\circ}]].",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 5 OF 20",
+          "question": "Two sides of a triangle have lengths [[6]] and [[8]]. Its area is [[12\\sqrt3]]. What is the sum of the possible included angles?",
           "options": [
-            "[[27]]",
-            "[[54]]",
-            "[[27\\sqrt3]]",
-            "[[54\\sqrt3]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[\\frac12(9)(12)\\sin30^{\\circ}=54\\left(\\frac12\\right)=27]].",
-          "incorrectFeedback": "Use the included-angle area formula."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 6 OF 21",
-          "question": "A cuboid has side lengths [[2]], [[3]], and [[6]]. Find its space diagonal.",
-          "options": [
-            "[[\\sqrt{13}]]",
-            "[[\\sqrt{41}]]",
-            "[[7]]",
-            "[[11]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. [[d=\\sqrt{2^{2}+3^{2}+6^{2}}=\\sqrt{49}=7]].",
-          "incorrectFeedback": "Apply Pythagoras across a face and then through the cuboid, or combine all three squared dimensions."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 7 OF 21",
-          "question": "Convert [[225^{\\circ}]] to radians.",
-          "options": [
-            "[[\\frac{3\\pi}{4}]]",
-            "[[\\frac{5\\pi}{4}]]",
-            "[[\\frac{4\\pi}{5}]]",
-            "[[\\frac{5\\pi}{2}]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[225\\times\\frac{\\pi}{180}=\\frac{5\\pi}{4}]].",
-          "incorrectFeedback": "Multiply by [[\\frac{\\pi}{180}]] and simplify."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 8 OF 21",
-          "question": "Convert [[\\frac{7\\pi}{6}]] radians to degrees.",
-          "options": [
+            "[[120^{\\circ}]]",
             "[[150^{\\circ}]]",
             "[[180^{\\circ}]]",
-            "[[210^{\\circ}]]",
             "[[240^{\\circ}]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. [[\\frac{7\\pi}{6}\\times\\frac{180}{\\pi}=210^{\\circ}]].",
-          "incorrectFeedback": "Multiply by [[\\frac{180}{\\pi}]]."
+          "correctFeedback": "Correct. From [[\\frac12(6)(8)\\sin C=12\\sqrt3]], we get [[\\sin C=\\frac{\\sqrt3}{2}]]. Thus [[C=60^{\\circ}]] or [[120^{\\circ}]], whose sum is [[180^{\\circ}]].",
+          "incorrectFeedback": "Use the triangle area formula, then remember that a positive sine value can correspond to an acute or obtuse angle."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 9 OF 21",
-          "question": "An arc has radius [[9]] and subtends [[\\frac23]] radians at the centre. Find its length.",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 6 OF 20",
+          "question": "A cuboid has side lengths [[3]], [[4]], and [[12]]. Let [[\\theta]] be the angle between its space diagonal and its [[3\\times4]] base. Find [[\\cos\\theta]].",
           "options": [
-            "[[3]]",
-            "[[6]]",
-            "[[9]]",
-            "[[27]]"
+            "[[\\frac{5}{13}]]",
+            "[[\\frac{12}{13}]]",
+            "[[\\frac{3}{5}]]",
+            "[[\\frac{4}{5}]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[s=r\\theta=9\\left(\\frac23\\right)=6]].",
-          "incorrectFeedback": "Use [[s=r\\theta]] because the angle is already in radians."
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The base diagonal is [[\\sqrt{3^{2}+4^{2}}=5]], and the space diagonal is [[\\sqrt{5^{2}+12^{2}}=13]]. Hence [[\\cos\\theta=\\frac{5}{13}]].",
+          "incorrectFeedback": "First find the base diagonal. It is the projection of the space diagonal onto the base."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 10 OF 21",
-          "question": "A sector has radius [[5]] and angle [[1.2]] radians. Find its area.",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 7 OF 20",
+          "question": "A circle has an arc of length [[7\\pi]]. The angle subtended at the centre is [[210^{\\circ}]]. What is the radius?",
           "diagram": {
             "kind": "radians-sector",
-            "caption": "Sector formulae use the central angle in radians."
+            "caption": "Arc length uses the central angle in radians."
           },
           "options": [
+            "[[3]]",
             "[[6]]",
-            "[[12.5]]",
-            "[[15]]",
-            "[[30]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. [[A=\\frac12r^{2}\\theta=\\frac12(25)(1.2)=15]].",
-          "incorrectFeedback": "Substitute into [[A=\\frac12r^{2}\\theta]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 11 OF 21",
-          "question": "A minor segment has radius [[2]] and central angle [[\\frac{\\pi}{2}]]. Find its area.",
-          "options": [
-            "[[\\pi-2]]",
-            "[[\\pi+2]]",
-            "[[2\\pi-2]]",
-            "[[\\frac{\\pi}{2}-1]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The sector area is [[\\pi]], and the right-triangle area is [[2]], so the segment area is [[\\pi-2]].",
-          "incorrectFeedback": "Subtract [[\\frac12r^{2}\\sin\\theta]] from [[\\frac12r^{2}\\theta]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 12 OF 21",
-          "question": "Evaluate [[\\sin30^{\\circ}+\\cos60^{\\circ}]].",
-          "options": [
-            "[[\\frac12]]",
-            "[[1]]",
-            "[[\\frac{\\sqrt2}{2}]]",
-            "[[\\sqrt3]]"
+            "[[7]]",
+            "[[12]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. Both exact values equal [[\\frac12]], so their sum is [[1]].",
-          "incorrectFeedback": "Recall the exact sine of [[30^{\\circ}]] and cosine of [[60^{\\circ}]]."
+          "correctFeedback": "Correct. [[210^{\\circ}=\\frac{7\\pi}{6}]] radians. Using [[s=r\\theta]],<br>[[7\\pi=r\\cdot\\frac{7\\pi}{6}]],<br>so [[r=6]].",
+          "incorrectFeedback": "Convert the angle to radians before using [[s=r\\theta]]."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 13 OF 21",
-          "question": "Evaluate [[\\tan45^{\\circ}\\cos60^{\\circ}]].",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 8 OF 20",
+          "question": "A sector has radius [[6]] and area [[18\\pi]]. What is its perimeter?",
           "options": [
-            "[[\\frac12]]",
-            "[[1]]",
-            "[[\\frac{\\sqrt2}{2}]]",
-            "[[\\frac{\\sqrt3}{2}]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[\\tan45^{\\circ}=1]] and [[\\cos60^{\\circ}=\\frac12]].",
-          "incorrectFeedback": "Substitute both exact values before multiplying."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 14 OF 21",
-          "question": "Evaluate [[\\sin\\left(\\frac{5\\pi}{6}\\right)]].",
-          "options": [
-            "[[-\\frac{\\sqrt3}{2}]]",
-            "[[-\\frac12]]",
-            "[[\\frac12]]",
-            "[[\\frac{\\sqrt3}{2}]]"
+            "[[6\\pi]]",
+            "[[12+3\\pi]]",
+            "[[12+6\\pi]]",
+            "[[18\\pi]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. The reference angle is [[\\frac{\\pi}{6}]], and sine is positive in quadrant II.",
-          "incorrectFeedback": "Use the reference angle and the sign of sine in quadrant II."
+          "correctFeedback": "Correct. From [[\\frac12r^{2}\\theta=18\\pi]],<br>[[18\\theta=18\\pi]], so [[\\theta=\\pi]]. The arc length is [[6\\pi]], giving perimeter [[12+6\\pi]].",
+          "incorrectFeedback": "Use the area to find the angle, then add the arc length to the two radii."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 15 OF 21",
-          "question": "What is the period of [[y=\\cos(3x)]]?",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 9 OF 20",
+          "question": "A chord of a circle of radius [[6]] subtends an angle [[\\frac{2\\pi}{3}]] at the centre. What is the exact area of the minor segment?",
+          "diagram": {
+            "kind": "radians-sector",
+            "caption": "Subtract the central triangle from the sector to obtain the minor segment."
+          },
+          "options": [
+            "[[6\\pi-9\\sqrt3]]",
+            "[[12\\pi-9\\sqrt3]]",
+            "[[12\\pi+9\\sqrt3]]",
+            "[[18\\pi-9\\sqrt3]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The sector area is<br>[[\\frac12(6^{2})\\frac{2\\pi}{3}=12\\pi]],<br>and the central triangle area is<br>[[\\frac12(6^{2})\\sin\\frac{2\\pi}{3}=9\\sqrt3]].<br>The segment area is [[12\\pi-9\\sqrt3]].",
+          "incorrectFeedback": "A minor segment equals the sector area minus the area of the central triangle."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 10 OF 20",
+          "question": "Evaluate exactly:<br>[[2\\sin\\left(\\frac{5\\pi}{6}\\right)+\\sqrt3\\cos\\left(\\frac{\\pi}{6}\\right)-\\tan\\left(\\frac{3\\pi}{4}\\right)]].",
+          "options": [
+            "[[\\frac32]]",
+            "[[\\frac52]]",
+            "[[3]]",
+            "[[\\frac72]]"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The three terms are [[1]], [[\\frac32]], and [[1]] respectively, because [[\\tan\\frac{3\\pi}{4}=-1]]. Their sum is [[\\frac72]].",
+          "incorrectFeedback": "Use the reference angles and signs carefully, especially the negative tangent value in quadrant II."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 11 OF 20",
+          "question": "Simplify, where the expression is defined:<br>[[\\frac{1-\\cos^{2}x}{\\tan x}]].",
+          "options": [
+            "[[\\sin x\\cos x]]",
+            "[[\\sin^{2}x]]",
+            "[[\\cos^{2}x]]",
+            "[[\\frac{1}{\\sin x\\cos x}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Since [[1-\\cos^{2}x=\\sin^{2}x]] and [[\\tan x=\\frac{\\sin x}{\\cos x}]],<br>[[\\frac{\\sin^{2}x}{\\tan x}=\\sin x\\cos x]].",
+          "incorrectFeedback": "Replace [[1-\\cos^{2}x]] using the Pythagorean identity, then replace tangent by sine over cosine."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 12 OF 20",
+          "question": "An angle x lies in quadrant II and [[\\sin x=\\frac35]]. What is [[\\tan x]]?",
+          "options": [
+            "[[-\\frac43]]",
+            "[[-\\frac34]]",
+            "[[\\frac34]]",
+            "[[\\frac43]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. In quadrant II, cosine is negative. From a [[3\\text{-}4\\text{-}5]] triangle, [[\\cos x=-\\frac45]], so [[\\tan x=\\frac{3/5}{-4/5}=-\\frac34]].",
+          "incorrectFeedback": "Use [[\\sin^{2}x+\\cos^{2}x=1]], then apply the sign of cosine in quadrant II."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 13 OF 20",
+          "question": "What is the smallest positive period of<br>[[f(x)=\\sin^{2}(3x)]]?",
           "diagram": {
             "kind": "trig-graphs",
-            "caption": "A horizontal multiplier compresses the graph's period."
+            "caption": "A horizontal multiplier shortens the period of a trigonometric graph."
           },
           "options": [
+            "[[\\frac{\\pi}{6}]]",
             "[[\\frac{\\pi}{3}]]",
             "[[\\frac{2\\pi}{3}]]",
-            "[[3\\pi]]",
-            "[[6\\pi]]"
+            "[[\\pi]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. The period is [[\\frac{2\\pi}{3}]].",
-          "incorrectFeedback": "Divide cosine's base period [[2\\pi]] by the coefficient of [[x]]."
+          "correctFeedback": "Correct. [[\\sin^{2}u]] has period [[\\pi]]. Replacing u by [[3x]] divides the period by 3, giving [[\\frac{\\pi}{3}]].",
+          "incorrectFeedback": "Squaring sine reduces its period from [[2\\pi]] to [[\\pi]], then the factor 3 compresses the graph horizontally."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 16 OF 21",
-          "question": "An angle [[\\theta]] lies in quadrant III and [[\\tan\\theta=\\frac34]]. Find [[\\cos\\theta]].",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 14 OF 20",
+          "question": "Let [[f(x)=\\sin x\\cos x]]. Which statement is true?",
           "options": [
-            "[[-\\frac45]]",
-            "[[-\\frac35]]",
-            "[[\\frac35]]",
-            "[[\\frac45]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The reference triangle has sides [[3,4,5]]. Cosine has magnitude [[\\frac45]] and is negative in quadrant III.",
-          "incorrectFeedback": "Build a [[3\\text{-}4\\text{-}5]] reference triangle, then apply the quadrant III sign."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 17 OF 21",
-          "question": "Solve [[\\sin x=-\\frac12]] for [[0\\le x\\lt2\\pi]].",
-          "options": [
-            "[[x=\\frac{\\pi}{6},\\frac{5\\pi}{6}]]",
-            "[[x=\\frac{5\\pi}{6},\\frac{7\\pi}{6}]]",
-            "[[x=\\frac{7\\pi}{6},\\frac{11\\pi}{6}]]",
-            "[[x=\\frac{4\\pi}{3},\\frac{5\\pi}{3}]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. The reference angle is [[\\frac{\\pi}{6}]], and sine is negative in quadrants III and IV.",
-          "incorrectFeedback": "Use reference angle [[\\frac{\\pi}{6}]] and select the two quadrants below the x-axis."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 18 OF 21",
-          "question": "Solve [[\\cos(2x)=0]] for [[0\\le x\\lt2\\pi]].",
-          "options": [
-            "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4}]]",
-            "[[x=\\frac{\\pi}{2},\\frac{3\\pi}{2}]]",
-            "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4},\\frac{5\\pi}{4},\\frac{7\\pi}{4}]]",
-            "[[x=0,\\frac{\\pi}{2},\\pi,\\frac{3\\pi}{2}]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. In [[0\\le2x\\lt4\\pi]], cosine is zero at four odd multiples of [[\\frac{\\pi}{2}]]. Divide each by [[2]].",
-          "incorrectFeedback": "Transform the interval for [[2x]], list every cosine zero, then divide by [[2]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 19 OF 21",
-          "question": "Solve [[\\tan x=1]] for [[-\\pi\\lt x\\lt\\pi]].",
-          "options": [
-            "[[x=-\\frac{\\pi}{4},\\frac{\\pi}{4}]]",
-            "[[x=-\\frac{3\\pi}{4},\\frac{\\pi}{4}]]",
-            "[[x=\\frac{\\pi}{4},\\frac{3\\pi}{4}]]",
-            "[[x=-\\frac{3\\pi}{4},\\frac{3\\pi}{4}]]"
+            "f is even and has period [[\\pi]]",
+            "f is odd and has period [[\\pi]]",
+            "f is even and has period [[2\\pi]]",
+            "f is odd and has period [[2\\pi]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. [[x=\\frac{\\pi}{4}+n\\pi]], giving [[-\\frac{3\\pi}{4}]] and [[\\frac{\\pi}{4}]] in the interval.",
-          "incorrectFeedback": "Start at [[\\frac{\\pi}{4}]] and move by tangent's period [[\\pi]] in both directions."
+          "correctFeedback": "Correct. [[f(-x)=(-\\sin x)(\\cos x)=-f(x)]], so f is odd. Also<br>[[f(x+\\pi)=(-\\sin x)(-\\cos x)=f(x)]], so its period is [[\\pi]].",
+          "incorrectFeedback": "Test both [[f(-x)]] and [[f(x+\\pi)]]. The two sign changes after a shift of [[\\pi]] cancel."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 20 OF 21",
-          "question": "How many solutions does [[2\\sin^{2}x-3\\sin x+1=0]] have for [[0\\le x\\lt2\\pi]]?",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 15 OF 20",
+          "question": "Solve [[\\sin(2x)=\\frac{\\sqrt3}{2}]] for [[0\\le x<2\\pi]].",
           "options": [
-            "[[1]]",
+            "[[x=\\frac{\\pi}{6},\\frac{\\pi}{3}]]",
+            "[[x=\\frac{\\pi}{3},\\frac{2\\pi}{3},\\frac{4\\pi}{3},\\frac{5\\pi}{3}]]",
+            "[[x=\\frac{\\pi}{6},\\frac{\\pi}{3},\\frac{7\\pi}{6},\\frac{4\\pi}{3}]]",
+            "[[x=\\frac{\\pi}{6},\\frac{5\\pi}{6},\\frac{7\\pi}{6},\\frac{11\\pi}{6}]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Since [[0\\le2x<4\\pi]],<br>[[2x=\\frac{\\pi}{3},\\frac{2\\pi}{3},\\frac{7\\pi}{3},\\frac{8\\pi}{3}]].<br>Dividing by 2 gives<br>[[x=\\frac{\\pi}{6},\\frac{\\pi}{3},\\frac{7\\pi}{6},\\frac{4\\pi}{3}]].",
+          "incorrectFeedback": "Transform the interval for [[2x]], find every solution over two full sine cycles, and only then divide by 2."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 16 OF 20",
+          "question": "Solve [[\\tan(3x)=1]] for [[-\\frac{\\pi}{2}<x<\\frac{\\pi}{2}]].",
+          "options": [
+            "[[x=-\\frac{\\pi}{4},\\frac{\\pi}{12}]]",
+            "[[x=\\frac{\\pi}{12},\\frac{5\\pi}{12}]]",
+            "[[x=-\\frac{\\pi}{4},\\frac{\\pi}{12},\\frac{5\\pi}{12}]]",
+            "[[x=-\\frac{5\\pi}{12},-\\frac{\\pi}{12},\\frac{\\pi}{4}]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[-\\frac{3\\pi}{2}<3x<\\frac{3\\pi}{2}]], and [[\\tan u=1]] when [[u=\\frac{\\pi}{4}+k\\pi]]. The valid u-values are [[-\\frac{3\\pi}{4},\\frac{\\pi}{4},\\frac{5\\pi}{4}]], giving<br>[[x=-\\frac{\\pi}{4},\\frac{\\pi}{12},\\frac{5\\pi}{12}]].",
+          "incorrectFeedback": "Transform the whole interval first, then list every tangent solution using its period [[\\pi]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 17 OF 20",
+          "question": "For [[0\\le x<2\\pi]], the equation<br>[[2\\cos^{2}x+\\cos x-1=0]]<br>has n solutions whose sum is S. Which pair [[(n,S)]] is correct?",
+          "options": [
+            "[[(2,2\\pi)]]",
+            "[[(3,2\\pi)]]",
+            "[[(3,3\\pi)]]",
+            "[[(4,3\\pi)]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Factorising gives<br>[[(2\\cos x-1)(\\cos x+1)=0]].<br>Thus [[x=\\frac{\\pi}{3},\\pi,\\frac{5\\pi}{3}]]. There are 3 solutions and their sum is [[3\\pi]].",
+          "incorrectFeedback": "Treat cosine as an algebraic variable, solve both factors, and include every angle in the interval."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 18 OF 20",
+          "question": "For [[0\\le x\\le2\\pi]], the equation<br>[[1-2\\sin^{2}x=|\\sin x|]]<br>has n solutions whose sum is S. Which pair [[(n,S)]] is correct?",
+          "options": [
+            "[[(2,2\\pi)]]",
+            "[[(4,2\\pi)]]",
+            "[[(4,4\\pi)]]",
+            "[[(6,4\\pi)]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let [[u=|\\sin x|]]. Then<br>[[1-2u^{2}=u]], so [[2u^{2}+u-1=0]], giving [[u=\\frac12]].<br>Thus [[|\\sin x|=\\frac12]] at four angles, and their sum is [[4\\pi]].",
+          "incorrectFeedback": "Substitute [[u=|\\sin x|]], reject the negative algebraic root, then use all four quadrants."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 19 OF 20",
+          "question": "How many solutions does<br>[[(2+3\\cos2x)^{2}=4]]<br>have for [[0\\le x<2\\pi]]?",
+          "options": [
             "[[2]]",
             "[[3]]",
-            "[[4]]"
+            "[[4]]",
+            "[[6]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. [[(2\\sin x-1)(\\sin x-1)=0]], so [[\\sin x=\\frac12]] gives two solutions and [[\\sin x=1]] gives one, for three in total.",
-          "incorrectFeedback": "Factor as a quadratic in [[\\sin x]], then count the solutions from both valid sine values."
+          "correctFeedback": "Correct. Taking both square-root branches gives<br>[[2+3\\cos2x=2]] or [[2+3\\cos2x=-2]].<br>The second would require [[\\cos2x=-\\frac43]], which is impossible. Hence [[\\cos2x=0]], giving four solutions.",
+          "incorrectFeedback": "Do not take only the positive square root. Split into two cases, reject impossible cosine values, then count over the transformed interval."
         },
         {
-          "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 21 OF 21",
-          "title": "Trigonometry: exam review",
-          "keyPoints": [
-            "Choose sine rule, cosine rule, or the area formula from the information given.",
-            "Check the supplementary solution in angle-side-side triangle problems.",
-            "Use radians for arc length, sector area, and segment area.",
-            "Connect exact values, quadrants, graph symmetry, and periodicity.",
-            "Solve transformed and quadratic trigonometric equations over the full interval."
+          "type": "multipleChoice",
+          "eyebrow": "TRIGONOMETRY EXAM PRACTICE · 20 OF 20",
+          "question": "How many solutions does<br>[[\\frac{2^{\\tan^{2}x}}{4^{\\sin^{2}x}}=1]]<br>have for [[0\\le x\\le2\\pi]]?",
+          "options": [
+            "[[3]]",
+            "[[4]]",
+            "[[6]]",
+            "[[7]]"
           ],
-          "reviewItems": [
-            "Label opposite side-angle pairs before calculating.",
-            "Keep exact values instead of rounding.",
-            "Check whether interval endpoints are included.",
-            "Reject sine or cosine values outside [[-1\\le y\\le1]].",
-            "Repeat the set until every periodic solution is found systematically."
-          ],
-          "buttonText": "Finish lesson"
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Rewrite [[4^{\\sin^{2}x}=2^{2\\sin^{2}x}]], so<br>[[\\tan^{2}x=2\\sin^{2}x]].<br>This gives [[\\sin x=0]] or [[\\cos^{2}x=\\frac12]]. There are 3 endpoint-inclusive sine-zero solutions and 4 further cosine solutions, for a total of 7.",
+          "incorrectFeedback": "Rewrite both sides with base 2. After using [[\\tan^{2}x=\\frac{\\sin^{2}x}{\\cos^{2}x}]], keep the branch [[\\sin x=0]] before cancelling."
         }
       ]
     },
