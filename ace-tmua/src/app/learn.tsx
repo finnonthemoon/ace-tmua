@@ -131,7 +131,6 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "trigonometry-exam-style-questions": "Bring the whole topic together",
   "log-laws-exponential-graphs": "Inverse functions, graphs and log laws",
   "solving-exponential-log-equations": "Common bases, substitutions and domains",
-  "advanced-log-reasoning": "Inequalities, reciprocal powers and linked logs",
   "exponentials-logarithms-exam-style-questions": "Bring the whole topic together",
   "differentiation-turning-points": "Gradients, tangents and stationary points",
   "integration-area": "Antiderivatives, definite integrals and signed area",

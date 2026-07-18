@@ -4277,29 +4277,29 @@
           "eyebrow": "EXPONENTIALS & LOGS · 1 OF 12",
           "title": "A logarithm is an exponent",
           "body": "The statements [[a^{b}=c]] and [[\\log_{a}c=b]] say exactly the same thing.<br><br>For example, [[2^{5}=32]], so [[\\log_{2}32=5]]. A logarithm answers the question: what power of the base produces this number?",
-          "keyPoint": "For real logarithms, the base must satisfy [[a>0]] and [[a\\ne1]], while the logarithm's argument must be positive.",
+          "keyPoint": "For real logarithms, the base must satisfy [[a>0]] and [[a\\ne1]]. The logarithm's argument must also be positive.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
           "eyebrow": "SWITCHING FORMS · 2 OF 12",
-          "title": "Move confidently between exponential and logarithmic form",
+          "title": "Move between exponential and logarithmic form",
           "steps": [
             {
-              "title": "Start with an exponential statement",
-              "body": "[[3^{4}=81]] means that the power of 3 required to make 81 is 4."
+              "title": "Positive exponents",
+              "body": "Since [[3^{4}=81]], we have [[\\log_{3}81=4]]."
             },
             {
-              "title": "Rewrite it as a logarithm",
-              "body": "Therefore [[\\log_{3}81=4]]."
-            },
-            {
-              "title": "Negative exponents work too",
+              "title": "Negative exponents",
               "body": "Since [[10^{-3}=\\frac{1}{1000}]], we have [[\\log_{10}\\left(\\frac{1}{1000}\\right)=-3]]."
             },
             {
-              "title": "So do fractional values",
+              "title": "Fractional exponents",
               "body": "Since [[9^{1/2}=3]], we have [[\\log_{9}3=\\frac{1}{2}]]."
+            },
+            {
+              "title": "Convert in either direction",
+              "body": "For example, [[\\log_{5}125=3]] is equivalent to [[5^{3}=125]]."
             }
           ],
           "buttonText": "Continue"
@@ -4321,134 +4321,144 @@
         },
         {
           "type": "concept",
-          "eyebrow": "EXPONENTIAL GRAPHS · 4 OF 12",
-          "title": "Every exponential graph passes through [[(0,1)]]",
-          "body": "For [[y=a^{x}]], substituting [[x=0]] gives [[y=a^{0}=1]]. The graph never touches the x-axis, because [[a^{x}>0]] for every real x.<br><br>If [[a>1]], the graph increases. If [[0<a<1]], it decreases.",
-          "keyPoint": "The x-axis is a horizontal asymptote. Exponential outputs are positive, so the range is [[y>0]].",
+          "eyebrow": "LOG LAWS · 4 OF 12",
+          "title": "Products add, quotients subtract and powers come down",
+          "body": "For positive x and y:<br><br>[[\\log_{a}x+\\log_{a}y=\\log_{a}(xy)]].<br><br>[[\\log_{a}x-\\log_{a}y=\\log_{a}\\left(\\frac{x}{y}\\right)]].<br><br>[[k\\log_{a}x=\\log_{a}(x^{k})]].",
+          "keyPoint": "The logarithms must have the same base before the product or quotient laws can be used.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "GRAPH TRANSFORMATIONS · 5 OF 12",
-          "title": "Read transformations from the equation",
+          "eyebrow": "WHY THE LAWS WORK · 5 OF 12",
+          "title": "Log laws come directly from exponent laws",
           "steps": [
             {
-              "title": "Use the basic graph",
-              "body": "[[y=2^{x}]] passes through [[(0,1)]] and has asymptote [[y=0]]."
+              "title": "Represent x and y as powers",
+              "body": "Suppose [[x=a^{m}]] and [[y=a^{n}]]. This means [[\\log_{a}x=m]] and [[\\log_{a}y=n]]."
             },
             {
-              "title": "Translate vertically",
-              "body": "[[y=2^{x}+3]] is shifted up by 3, so its horizontal asymptote is [[y=3]]."
+              "title": "Product law",
+              "body": "Since [[xy=a^{m}a^{n}=a^{m+n}]], we have [[\\log_{a}(xy)=m+n=\\log_{a}x+\\log_{a}y]]."
             },
             {
-              "title": "Translate horizontally",
-              "body": "[[y=2^{x-1}]] is shifted one unit to the right."
+              "title": "Quotient law",
+              "body": "Since [[\\frac{x}{y}=a^{m-n}]], we have [[\\log_{a}\\left(\\frac{x}{y}\\right)=m-n=\\log_{a}x-\\log_{a}y]]."
             },
             {
-              "title": "Reflect in the y-axis",
-              "body": "[[y=2^{-x}=\\left(\\frac12\\right)^{x}]] is decreasing instead of increasing."
+              "title": "Power law",
+              "body": "Since [[x^{k}=(a^{m})^{k}=a^{km}]], we have [[\\log_{a}(x^{k})=km=k\\log_{a}x]]."
             }
           ],
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "GRAPH CHECK · 6 OF 12",
-          "question": "Which statement is true about [[y=\\left(\\frac13\\right)^{x}]]?",
-          "options": [
-            "It increases and passes through [[(0,0)]].",
-            "It decreases and passes through [[(0,1)]].",
-            "It decreases and crosses the x-axis.",
-            "Its range is [[y<0]]."
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. The base lies between 0 and 1, so the graph decreases. At [[x=0]], its value is 1.",
-          "incorrectFeedback": "A positive exponential never crosses the x-axis. Because [[0<\\frac13<1]], the graph decreases and passes through [[(0,1)]]."
-        },
-        {
-          "type": "milestone",
-          "eyebrow": "FOUNDATIONS COMPLETE · 7 OF 12",
-          "title": "Exponential and logarithmic forms connected.",
-          "body": "You can now translate between powers and logarithms and read the main features of an exponential graph.<br><br>Next, we will combine logarithms using three laws.",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "LOG LAWS · 8 OF 12",
-          "title": "Products add, quotients subtract, and powers come down",
-          "body": "For positive x and y:<br><br>[[\\log_{a}x+\\log_{a}y=\\log_{a}(xy)]].<br>[[\\log_{a}x-\\log_{a}y=\\log_{a}\\left(\\frac{x}{y}\\right)]].<br>[[k\\log_{a}x=\\log_{a}(x^{k})]].",
-          "keyPoint": "These laws require the same base. There is no corresponding law that turns [[\\log_{a}x+\\log_{b}y]] into one logarithm when the bases differ.",
+          "eyebrow": "SPECIAL CASES · 6 OF 12",
+          "title": "Useful special cases",
+          "body": "Because [[a^{1}=a]], we have [[\\log_{a}a=1]].<br><br>Because [[a^{0}=1]], we have [[\\log_{a}1=0]].<br><br>Because [[\\frac{1}{x}=x^{-1}]], the power law gives [[\\log_{a}\\left(\\frac{1}{x}\\right)=-\\log_{a}x]].",
+          "keyPoint": "The reciprocal result follows from the power law with exponent [[-1]]. Remember that the logarithm's argument must be positive."
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "EXPANDING LOGARITHMS · 7 OF 12",
+          "title": "Separate products, quotients and powers",
+          "steps": [
+            {
+              "title": "Start with the expression",
+              "body": "Expand [[\\log_{a}\\left(\\frac{12x^{3}}{3y^{2}}\\right)]], where [[x>0]] and [[y>0]]."
+            },
+            {
+              "title": "Simplify the numerical factor",
+              "body": "Since [[\\frac{12}{3}=4]], the expression becomes [[\\log_{a}\\left(\\frac{4x^{3}}{y^{2}}\\right)]]."
+            },
+            {
+              "title": "Use the quotient and product laws",
+              "body": "This gives [[\\log_{a}4+\\log_{a}(x^{3})-\\log_{a}(y^{2})]]."
+            },
+            {
+              "title": "Bring the powers down",
+              "body": "The expanded form is [[\\log_{a}4+3\\log_{a}x-2\\log_{a}y]]."
+            }
+          ],
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "SIMPLIFYING LOGS · 9 OF 12",
-          "title": "Condense before calculating",
+          "eyebrow": "CONDENSING LOGARITHMS · 8 OF 12",
+          "title": "Combine several logarithms into one",
           "steps": [
             {
               "title": "Start with the expression",
-              "body": "Simplify [[\\log_{a}(12x^{3})-\\log_{a}(3x)]], where [[x>0]]."
+              "body": "Condense [[2\\log_{a}x+\\log_{a}y-\\log_{a}z]], where [[x,y,z>0]]."
+            },
+            {
+              "title": "Use the power law",
+              "body": "[[2\\log_{a}x=\\log_{a}(x^{2})]]."
+            },
+            {
+              "title": "Use the product law",
+              "body": "[[\\log_{a}(x^{2})+\\log_{a}y=\\log_{a}(x^{2}y)]]."
             },
             {
               "title": "Use the quotient law",
-              "body": "Combine the logarithms to get [[\\log_{a}\\left(\\frac{12x^{3}}{3x}\\right)]]."
-            },
-            {
-              "title": "Simplify inside",
-              "body": "[[\\frac{12x^{3}}{3x}=4x^{2}]]."
-            },
-            {
-              "title": "State the result",
-              "body": "The expression is [[\\log_{a}(4x^{2})]]."
+              "body": "The final result is [[\\log_{a}\\left(\\frac{x^{2}y}{z}\\right)]]."
             }
           ],
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "LOG LAW CHECK · 10 OF 12",
-          "question": "Which single logarithm is equal to [[2\\log_{3}5+\\log_{3}4]]?",
+          "eyebrow": "LOG LAW CHECK · 9 OF 12",
+          "question": "Evaluate [[3\\log_{2}4-\\log_{2}8]].",
+          "prompt": "Combine the logarithms before evaluating.",
           "options": [
-            "[[\\log_{3}20]]",
-            "[[\\log_{3}40]]",
-            "[[\\log_{3}100]]",
-            "[[\\log_{3}400]]"
+            "[[1]]",
+            "[[2]]",
+            "[[3]]",
+            "[[5]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. [[2\\log_{3}5=\\log_{3}25]], then [[\\log_{3}25+\\log_{3}4=\\log_{3}100]].",
-          "incorrectFeedback": "Bring the 2 down as a power first: [[2\\log_{3}5=\\log_{3}(5^{2})]]. Then use the product law."
+          "correctFeedback": "Correct. [[3\\log_{2}4-\\log_{2}8=\\log_{2}\\left(\\frac{4^{3}}{8}\\right)=\\log_{2}8=3]].",
+          "incorrectFeedback": "Use the power law first: [[3\\log_{2}4=\\log_{2}(4^{3})]]. Then use the quotient law."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "EXPONENTIAL GRAPHS · 10 OF 12",
+          "title": "The graph of [[y=a^{x}]]",
+          "body": "For [[a>0]] and [[a\\ne1]], the graph of [[y=a^{x}]] is defined for every real value of x.<br><br>Since [[a^{0}=1]], every exponential graph passes through [[(0,1)]]. Its outputs are always positive, so it never crosses or touches the x-axis.",
+          "keyPoint": "The domain is all real x, the range is [[y>0]], and the x-axis is the horizontal asymptote [[y=0]].",
+          "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "DOMAIN CHECK · 11 OF 12",
-          "question": "For which values of x is [[\\log_{2}(x-1)+\\log_{2}(5-x)]] defined?",
-          "prompt": "Both logarithm arguments must be positive.",
+          "eyebrow": "GRAPH CHECK · 11 OF 12",
+          "question": "Which statement is true about [[y=\\left(\\frac14\\right)^{x}]]?",
           "options": [
-            "[[x<1]]",
-            "[[1<x<5]]",
-            "[[x>5]]",
-            "[[x\\ne1,5]]"
+            "It increases and passes through [[(0,0)]].",
+            "It decreases and passes through [[(0,1)]].",
+            "It decreases and crosses the x-axis.",
+            "It has range [[y<0]]."
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. We need [[x-1>0]] and [[5-x>0]], giving [[x>1]] and [[x<5]]. Together, [[1<x<5]].",
-          "incorrectFeedback": "Apply the domain condition separately to both arguments: [[x-1>0]] and [[5-x>0]]. Their intersection is [[1<x<5]]."
+          "correctFeedback": "Correct. Because [[0<\\frac14<1]], the graph decreases. Like every exponential graph, it passes through [[(0,1)]] and has range [[y>0]].",
+          "incorrectFeedback": "A positive exponential never reaches the x-axis. Since the base lies between 0 and 1, the graph decreases and passes through [[(0,1)]]."
         },
         {
           "type": "lessonSummary",
           "eyebrow": "LESSON SUMMARY · 12 OF 12",
-          "title": "Log Laws and Exponential Graphs: key points",
+          "title": "Log Laws & Exponential Graphs: key points",
           "keyPoints": [
             "[[a^{b}=c]] is equivalent to [[\\log_{a}c=b]].",
-            "For real logarithms, [[a>0]], [[a\\ne1]], and the argument must be positive.",
-            "[[y=a^{x}]] passes through [[(0,1)]] and has horizontal asymptote [[y=0]].",
-            "A base greater than 1 gives an increasing exponential; a base between 0 and 1 gives a decreasing exponential.",
-            "Logarithms of products add, logarithms of quotients subtract, and powers become coefficients."
+            "Logarithms of products add, while logarithms of quotients subtract.",
+            "The power law gives [[\\log_{a}(x^{k})=k\\log_{a}x]].",
+            "[[\\log_{a}a=1]], [[\\log_{a}1=0]] and [[\\log_{a}\\left(\\frac1x\\right)=-\\log_{a}x]].",
+            "[[y=a^{x}]] passes through [[(0,1)]], has range [[y>0]] and has horizontal asymptote [[y=0]]."
           ],
           "reviewItems": [
             "Practise switching between exponential and logarithmic form.",
-            "Practise identifying exponential graph transformations.",
+            "Practise expanding a single logarithm.",
             "Practise condensing several logarithms into one.",
-            "Check the domain before manipulating any logarithmic expression.",
+            "Remember that every logarithm argument must be positive.",
             "Next lesson: Solving Exponential and Log Equations."
           ],
           "buttonText": "Finish lesson"
@@ -4462,381 +4472,250 @@
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "SOLVING EXPONENTIALS · 1 OF 12",
-          "title": "Write both sides using the same base",
-          "body": "When each side can be expressed as a power of the same positive base, equal powers have equal exponents.<br><br>For example, [[8^{x}=4]] becomes [[2^{3x}=2^{2}]], so [[3x=2]] and [[x=\\frac{2}{3}]].",
-          "keyPoint": "Before trying a more complicated method, look for a common base. Useful relationships include [[4=2^{2}]], [[8=2^{3}]], [[9=3^{2}]], and [[27=3^{3}]].",
+          "eyebrow": "SOLVING EXPONENTIALS · 1 OF 15",
+          "title": "Simplify before choosing a method",
+          "body": "An exponential equation may initially look complicated, but the aim is usually to reduce it to the form [[a^{x}=b]].<br><br>First simplify powers and isolate the exponential expression. If both sides can then be written using the same base, equate their exponents. Otherwise, use the definition of a logarithm.",
+          "keyPoint": "Do not take logarithms too early. Look first for common bases, factors and repeated powers.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "COMMON BASES · 2 OF 12",
-          "title": "Solve [[4^{x+1}=8^{2x-1}]]",
+          "eyebrow": "COMMON BASES · 2 OF 15",
+          "title": "Solve [[8^{x+1}=4^{2x-1}]]",
           "steps": [
             {
-              "title": "Rewrite both bases as powers of 2",
-              "body": "Use [[4=2^{2}]] and [[8=2^{3}]] to get [[(2^{2})^{x+1}=(2^{3})^{2x-1}]]."
+              "title": "Rewrite both bases",
+              "body": "Use [[8=2^{3}]] and [[4=2^{2}]] to obtain [[(2^{3})^{x+1}=(2^{2})^{2x-1}]]."
             },
             {
               "title": "Simplify the powers",
-              "body": "The equation becomes [[2^{2x+2}=2^{6x-3}]]."
+              "body": "The equation becomes [[2^{3x+3}=2^{4x-2}]]."
             },
             {
               "title": "Equate the exponents",
-              "body": "Because the bases are equal, [[2x+2=6x-3]]."
+              "body": "Since the bases are the same, [[3x+3=4x-2]]."
             },
             {
-              "title": "Solve the linear equation",
-              "body": "[[5=4x]], so [[x=\\frac{5}{4}]]."
+              "title": "Solve",
+              "body": "Rearranging gives [[x=5]]."
             }
           ],
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COMMON-BASE CHECK · 3 OF 12",
-          "question": "Solve [[9^{x}=27]].",
+          "eyebrow": "COMMON-BASE CHECK · 3 OF 15",
+          "question": "Solve [[27^{2x-1}=9^{x+2}]].",
+          "prompt": "Write both sides as powers of 3.",
           "options": [
-            "[[x=\\frac{2}{3}]]",
-            "[[x=1]]",
-            "[[x=\\frac{3}{2}]]",
-            "[[x=3]]"
+            "[[x=\\frac{3}{4}]]",
+            "[[x=\\frac{5}{4}]]",
+            "[[x=\\frac{7}{4}]]",
+            "[[x=\\frac{9}{4}]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. [[9^{x}=3^{2x}]] and [[27=3^{3}]], so [[2x=3]] and [[x=\\frac{3}{2}]].",
-          "incorrectFeedback": "Write both numbers as powers of 3: [[9^{x}=3^{2x}]] and [[27=3^{3}]]. Then equate the exponents."
+          "correctFeedback": "Correct. The equation becomes [[3^{6x-3}=3^{2x+4}]]. Therefore [[6x-3=2x+4]], giving [[x=\\frac{7}{4}]].",
+          "incorrectFeedback": "Use [[27=3^{3}]] and [[9=3^{2}]]. The exponents become [[3(2x-1)]] and [[2(x+2)]]."
         },
         {
           "type": "concept",
-          "eyebrow": "REPEATED POWERS · 4 OF 12",
-          "title": "A repeated exponential can hide a quadratic",
-          "body": "An equation containing [[a^{2x}]] and [[a^{x}]] may be quadratic in disguise because [[a^{2x}=(a^{x})^{2}]].<br><br>Set [[u=a^{x}]]. Solve the resulting quadratic, then substitute back. Remember that [[u>0]] because an exponential is always positive.",
-          "keyPoint": "Reject any non-positive value of u before converting back to x.",
+          "eyebrow": "LOGARITHMIC ANSWERS · 4 OF 15",
+          "title": "The bases will not always match",
+          "body": "If an equation has been reduced to [[a^{x}=b]], then its solution can be written as [[x=\\log_{a}b]].<br><br>For example, [[5^{2x-1}=7]] gives [[2x-1=\\log_{5}7]], so [[x=\\frac{1+\\log_{5}7}{2}]].",
+          "keyPoint": "An exact logarithmic answer is acceptable. The change-of-base formula is not required.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "ISOLATE FIRST · 5 OF 15",
+          "title": "Solve [[3(2^{x+1})-5=19]]",
+          "steps": [
+            {
+              "title": "Undo the subtraction",
+              "body": "Add 5 to both sides to get [[3(2^{x+1})=24]]."
+            },
+            {
+              "title": "Undo the multiplication",
+              "body": "Divide by 3: [[2^{x+1}=8]]."
+            },
+            {
+              "title": "Write using a common base",
+              "body": "Since [[8=2^{3}]], we have [[2^{x+1}=2^{3}]]."
+            },
+            {
+              "title": "Equate the exponents",
+              "body": "[[x+1=3]], so [[x=2]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ISOLATION CHECK · 6 OF 15",
+          "question": "Solve [[4(3^{2x})-7=13]], giving your answer exactly.",
+          "options": [
+            "[[x=\\log_{3}5]]",
+            "[[x=\\frac{1}{2}\\log_{3}5]]",
+            "[[x=\\log_{5}3]]",
+            "[[x=\\frac{5}{2}]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Rearranging gives [[3^{2x}=5]], so [[2x=\\log_{3}5]] and [[x=\\frac{1}{2}\\log_{3}5]].",
+          "incorrectFeedback": "First isolate the power: [[4(3^{2x})=20]], so [[3^{2x}=5]]. The exponent is [[2x]], not x."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ALGEBRAIC MANIPULATION · 7 OF 15",
+          "title": "Factor out a common exponential",
+          "body": "Terms such as [[a^{x+1}]] and [[a^{x}]] share a common factor because [[a^{x+1}=a\\cdot a^{x}]].<br><br>For example:<br><br>[[5^{x+1}-2(5^{x})=375]]<br>[[5^{x}(5-2)=375]]<br>[[3(5^{x})=375]]<br>[[5^{x}=125]], so [[x=3]].",
+          "keyPoint": "Treat [[a^{x}]] like an algebraic factor. Factoring may reveal a much simpler exponential equation.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FACTORING CHECK · 8 OF 15",
+          "question": "Solve [[2^{x+2}+2^{x}=80]].",
+          "options": [
+            "[[x=2]]",
+            "[[x=3]]",
+            "[[x=4]]",
+            "[[x=5]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Factorising gives [[2^{x}(2^{2}+1)=80]], so [[5(2^{x})=80]]. Therefore [[2^{x}=16]] and [[x=4]].",
+          "incorrectFeedback": "Use [[2^{x+2}=2^{x}\\cdot2^{2}]]. Both terms then contain the factor [[2^{x}]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "REPEATED POWERS · 9 OF 15",
+          "title": "Some exponential equations hide a quadratic",
+          "body": "Since [[a^{2x}=(a^{x})^{2}]], an equation containing both [[a^{2x}]] and [[a^{x}]] may be quadratic in disguise.<br><br>Let [[u=a^{x}]]. Solve the resulting quadratic, then substitute back.",
+          "keyPoint": "Because [[a^{x}>0]], the substituted variable must satisfy [[u>0]]. Reject any zero or negative value of u.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 5 OF 12",
-          "title": "Use substitution to expose the quadratic",
-          "question": "Solve [[25^{x}-6(5^{x})+5=0]].",
+          "eyebrow": "WORKED EXAMPLE · 10 OF 15",
+          "title": "Expose the hidden quadratic",
+          "question": "Solve [[16^{x}-17(4^{x})+16=0]].",
           "options": [
             "[[x=0]] only",
-            "[[x=1]] only",
-            "[[x=0]] or [[x=1]]",
-            "[[x=-1]] or [[x=0]]"
+            "[[x=2]] only",
+            "[[x=0]] or [[x=2]]",
+            "[[x=1]] or [[x=4]]"
           ],
           "answerIndex": 2,
           "steps": [
             {
               "title": "Identify the repeated power",
-              "body": "Since [[25^{x}=5^{2x}=(5^{x})^{2}]], let [[u=5^{x}]]."
+              "body": "Since [[16^{x}=4^{2x}=(4^{x})^{2}]], let [[u=4^{x}]]."
             },
             {
-              "title": "Solve the quadratic",
-              "body": "The equation becomes [[u^{2}-6u+5=0]], which factorises to [[(u-1)(u-5)=0]]."
+              "title": "Form the quadratic",
+              "body": "The equation becomes [[u^{2}-17u+16=0]]."
             },
             {
-              "title": "Find the possible values of u",
-              "body": "Therefore [[u=1]] or [[u=5]]. Both are positive, so neither must be rejected."
+              "title": "Factorise",
+              "body": "[[u^{2}-17u+16=(u-1)(u-16)]], so [[u=1]] or [[u=16]]."
             },
             {
               "title": "Substitute back",
-              "body": "[[5^{x}=1]] gives [[x=0]], while [[5^{x}=5]] gives [[x=1]]."
+              "body": "[[4^{x}=1]] gives [[x=0]], while [[4^{x}=16=4^{2}]] gives [[x=2]]."
             }
           ],
-          "finalAnswer": "The solutions are [[x=0]] and [[x=1]], so the correct option is C.",
+          "finalAnswer": "The solutions are [[x=0]] and [[x=2]], so the correct option is C.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SUBSTITUTION CHECK · 6 OF 12",
-          "question": "Solve [[4^{x}-5(2^{x})+4=0]].",
+          "eyebrow": "POSITIVITY CHECK · 11 OF 15",
+          "question": "Solve [[9^{x}+2(3^{x})-8=0]].",
           "options": [
-            "[[x=0]] or [[x=2]]",
-            "[[x=1]] or [[x=4]]",
-            "[[x=-2]] or [[x=0]]",
-            "[[x=2]] only"
+            "[[x=\\log_{3}2]] only",
+            "[[x=\\log_{3}2]] or [[x=\\log_{3}(-4)]]",
+            "[[x=2]] only",
+            "[[x=\\frac{1}{2}]] only"
           ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. Let [[u=2^{x}]]. Then [[u^{2}-5u+4=(u-1)(u-4)=0]], so [[2^{x}=1]] or [[2^{x}=4]], giving [[x=0]] or [[x=2]].",
-          "incorrectFeedback": "Use [[u=2^{x}]], so [[4^{x}=u^{2}]]. Solve [[u^{2}-5u+4=0]], then substitute back."
-        },
-        {
-          "type": "milestone",
-          "eyebrow": "EXPONENTIAL EQUATIONS COMPLETE · 7 OF 12",
-          "title": "You can now solve two major exponential forms.",
-          "body": "You have solved equations by matching bases and by revealing a hidden quadratic.<br><br>Next, we will solve logarithmic equations while carefully checking their domains.",
-          "buttonText": "Continue"
+          "correctFeedback": "Correct. Let [[u=3^{x}>0]]. Then [[u^{2}+2u-8=(u+4)(u-2)=0]]. Reject [[u=-4]], leaving [[3^{x}=2]] and [[x=\\log_{3}2]].",
+          "incorrectFeedback": "After using [[u=3^{x}]], remember that u must be positive. One root of the quadratic is therefore impossible."
         },
         {
           "type": "concept",
-          "eyebrow": "LOG EQUATIONS · 8 OF 12",
-          "title": "Combine logarithms, solve, then check",
-          "body": "Use log laws to condense an equation before converting it to exponential form.<br><br>Every logarithm argument must be positive. Algebra may produce values that make an original argument zero or negative, so every candidate solution must be checked in the original equation.",
-          "keyPoint": "A solution of the rearranged algebra is not automatically a solution of the logarithmic equation.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "DOMAIN RESTRICTIONS · 9 OF 12",
-          "title": "Solve [[\\log_{2}(x-1)+\\log_{2}(x-3)=3]]",
-          "steps": [
-            {
-              "title": "Establish the domain",
-              "body": "We need [[x-1>0]] and [[x-3>0]], so [[x>3]]."
-            },
-            {
-              "title": "Use the product law",
-              "body": "Combine the left side: [[\\log_{2}((x-1)(x-3))=3]]."
-            },
-            {
-              "title": "Convert to exponential form",
-              "body": "[[(x-1)(x-3)=2^{3}=8]]."
-            },
-            {
-              "title": "Solve the quadratic",
-              "body": "[[x^{2}-4x-5=0]], so [[(x-5)(x+1)=0]]. Hence [[x=5]] or [[x=-1]]."
-            },
-            {
-              "title": "Apply the domain",
-              "body": "Only [[x=5]] satisfies [[x>3]]. Therefore the solution is [[x=5]]."
-            }
-          ],
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "LOG-EQUATION CHECK · 10 OF 12",
-          "question": "Solve [[\\log_{3}(x+1)-\\log_{3}(x-1)=1]].",
-          "options": [
-            "[[x=1]]",
-            "[[x=2]]",
-            "[[x=3]]",
-            "[[x=4]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. The domain is [[x>1]]. The quotient law gives [[\\log_{3}\\left(\\frac{x+1}{x-1}\\right)=1]], so [[\\frac{x+1}{x-1}=3]] and [[x=2]].",
-          "incorrectFeedback": "First note [[x>1]]. Combine the logarithms using the quotient law, then set the resulting argument equal to [[3^{1}]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "POWER-LAW CHECK · 11 OF 12",
-          "question": "Solve [[2\\log_{5}x=\\log_{5}81]].",
-          "options": [
-            "[[x=-9]]",
-            "[[x=3]]",
-            "[[x=9]]",
-            "[[x=81]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. [[2\\log_{5}x=\\log_{5}(x^{2})]], so [[x^{2}=81]]. Although the algebra gives [[x=\\pm9]], the logarithm requires [[x>0]], leaving [[x=9]].",
-          "incorrectFeedback": "Use the power law to get [[\\log_{5}(x^{2})=\\log_{5}81]]. Then solve [[x^{2}=81]] and enforce the original condition [[x>0]]."
-        },
-        {
-          "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 12 OF 12",
-          "title": "Solving Exponential and Log Equations: key points",
-          "keyPoints": [
-            "If both sides are powers of the same base, equate their exponents.",
-            "For equations involving [[a^{2x}]] and [[a^{x}]], try [[u=a^{x}]].",
-            "A substituted exponential value must be positive.",
-            "Use log laws to combine logarithms before converting to exponential form.",
-            "Check every logarithmic solution against the domain of the original equation."
-          ],
-          "reviewItems": [
-            "Practise spotting common bases quickly.",
-            "Practise quadratic substitution with repeated powers.",
-            "Write domain restrictions before solving log equations.",
-            "Check candidate answers in the original equation.",
-            "Next lesson: Advanced Log Reasoning."
-          ],
-          "buttonText": "Finish lesson"
-        }
-      ]
-    },
-    {
-      "id": "advanced-log-reasoning",
-      "topicId": "topic-5",
-      "title": "Advanced Log Reasoning",
-      "screens": [
-        {
-          "type": "concept",
-          "eyebrow": "EXPONENTIAL INEQUALITIES · 1 OF 12",
-          "title": "The base controls the direction",
-          "body": "For [[a>1]], the function [[a^{x}]] is increasing, so comparing outputs preserves the order of the exponents.<br><br>For [[0<a<1]], the function is decreasing, so comparing outputs reverses the order of the exponents.",
-          "keyPoint": "With [[a>1]], [[a^{p}>a^{q}]] means [[p>q]]. With [[0<a<1]], [[a^{p}>a^{q}]] means [[p<q]].",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "INEQUALITY METHOD · 2 OF 12",
-          "title": "Compare powers with care",
-          "steps": [
-            {
-              "title": "An increasing base",
-              "body": "To solve [[2^{x+1}>8]], write [[8=2^{3}]]. Since [[2>1]], the order is preserved: [[x+1>3]], so [[x>2]]."
-            },
-            {
-              "title": "A decreasing base",
-              "body": "To solve [[\\left(\\frac13\\right)^{2x}<\\frac19]], write [[\\frac19=\\left(\\frac13\\right)^{2}]]."
-            },
-            {
-              "title": "Reverse the comparison",
-              "body": "Because [[0<\\frac13<1]], the exponential function decreases. Therefore [[2x>2]], so [[x>1]]."
-            },
-            {
-              "title": "Check the sense of the answer",
-              "body": "Larger exponents make powers of [[\\frac13]] smaller, so [[x>1]] is consistent with the original inequality."
-            }
-          ],
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "INEQUALITY CHECK · 3 OF 12",
-          "question": "Solve [[\\left(\\frac12\\right)^{x-1}\\ge4]].",
-          "options": [
-            "[[x\\le-1]]",
-            "[[x\\ge-1]]",
-            "[[x\\le3]]",
-            "[[x\\ge3]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[4=\\left(\\frac12\\right)^{-2}]]. Since the base lies between 0 and 1, reverse the exponent comparison: [[x-1\\le-2]], so [[x\\le-1]].",
-          "incorrectFeedback": "Write [[4=\\left(\\frac12\\right)^{-2}]]. The base is decreasing, so the comparison between the exponents is reversed."
-        },
-        {
-          "type": "concept",
-          "eyebrow": "LOG RELATIONSHIPS · 4 OF 12",
-          "title": "Translate given logarithms into powers",
-          "body": "A condition such as [[\\log_{a}b=2]] tells you that [[b=a^{2}]]. You can then simplify related logarithms using exponent laws or log laws.<br><br>This often avoids numerical approximation entirely.",
-          "keyPoint": "Keep the given relationship symbolic. TMUA questions can usually be solved using the definition and laws of logarithms alone.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "SYMBOLIC REASONING · 5 OF 12",
-          "title": "Use [[\\log_{a}b=2]] to find [[\\log_{a}\\left(\\frac{a^{3}}{b}\\right)]]",
-          "steps": [
-            {
-              "title": "Use the given relationship",
-              "body": "From [[\\log_{a}b=2]], we know [[b=a^{2}]]."
-            },
-            {
-              "title": "Substitute into the new expression",
-              "body": "[[\\frac{a^{3}}{b}=\\frac{a^{3}}{a^{2}}=a]]."
-            },
-            {
-              "title": "Evaluate the logarithm",
-              "body": "Therefore [[\\log_{a}\\left(\\frac{a^{3}}{b}\\right)=\\log_{a}a=1]]."
-            },
-            {
-              "title": "Alternative log-law route",
-              "body": "Equivalently, [[\\log_{a}(a^{3})-\\log_{a}b=3-2=1]]."
-            }
-          ],
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "RELATIONSHIP CHECK · 6 OF 12",
-          "question": "Given [[\\log_{a}b=3]], find [[\\log_{a}\\left(\\frac{b^{2}}{a}\\right)]].",
-          "options": [
-            "[[2]]",
-            "[[3]]",
-            "[[5]]",
-            "[[6]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. [[\\log_{a}(b^{2})-\\log_{a}a=2\\log_{a}b-1=2(3)-1=5]].",
-          "incorrectFeedback": "Apply the power and quotient laws: [[\\log_{a}\\left(\\frac{b^{2}}{a}\\right)=2\\log_{a}b-\\log_{a}a]]."
-        },
-        {
-          "type": "milestone",
-          "eyebrow": "ADVANCED FOUNDATIONS COMPLETE · 7 OF 12",
-          "title": "You can reason with order and symbolic log information.",
-          "body": "You have handled increasing and decreasing bases and extracted consequences from a given logarithmic relationship.<br><br>Next comes reciprocal substitution and linked logarithmic equations.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "concept",
-          "eyebrow": "RECIPROCAL POWERS · 8 OF 12",
-          "title": "Use a positive substitution for [[a^{x}+a^{-x}]]",
-          "body": "Because [[a^{-x}=\\frac{1}{a^{x}}]], an equation involving both terms can become a quadratic.<br><br>Let [[u=a^{x}]], where [[u>0]]. Then [[a^{-x}=\\frac1u]]. Multiply through by u and solve the resulting quadratic.",
-          "keyPoint": "Reciprocal roots often correspond to opposite values of x.",
+          "eyebrow": "LOG EQUATIONS · 12 OF 15",
+          "title": "Combine, convert and check",
+          "body": "When solving a logarithmic equation, first state the domain restrictions. Then use the log laws to combine terms and convert the result into exponential form.<br><br>Algebra may produce a value that makes an original logarithm undefined, so each candidate must be checked.",
+          "keyPoint": "Every logarithm argument must be strictly positive. A solution of the rearranged equation is not automatically valid.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 9 OF 12",
-          "title": "Solve a reciprocal exponential equation",
-          "question": "Solve [[2^{x}+2^{-x}=\\frac52]].",
+          "eyebrow": "DOMAIN WORKED EXAMPLE · 13 OF 15",
+          "title": "Use the original domain to reject a root",
+          "question": "Solve [[\\log_{2}(x-2)+\\log_{2}(x-5)=2]].",
           "options": [
             "[[x=1]] only",
-            "[[x=-1]] only",
-            "[[x=\\pm1]]",
-            "[[x=\\pm2]]"
+            "[[x=6]] only",
+            "[[x=1]] or [[x=6]]",
+            "There are no real solutions"
           ],
-          "answerIndex": 2,
+          "answerIndex": 1,
           "steps": [
             {
-              "title": "Substitute",
-              "body": "Let [[u=2^{x}]], so [[u>0]] and [[2^{-x}=\\frac1u]]."
+              "title": "Establish the domain",
+              "body": "We require [[x-2>0]] and [[x-5>0]], so [[x>5]]."
             },
             {
-              "title": "Clear the denominator",
-              "body": "[[u+\\frac1u=\\frac52]]. Multiplying by [[2u]] gives [[2u^{2}-5u+2=0]]."
+              "title": "Combine the logarithms",
+              "body": "The product law gives [[\\log_{2}((x-2)(x-5))=2]]."
             },
             {
-              "title": "Factorise",
-              "body": "[[2u^{2}-5u+2=(2u-1)(u-2)]], so [[u=\\frac12]] or [[u=2]]."
+              "title": "Convert to exponential form",
+              "body": "[[(x-2)(x-5)=2^{2}=4]]."
             },
             {
-              "title": "Substitute back",
-              "body": "[[2^{x}=\\frac12=2^{-1}]] gives [[x=-1]], and [[2^{x}=2]] gives [[x=1]]."
+              "title": "Solve the quadratic",
+              "body": "[[x^{2}-7x+6=0]], so [[(x-1)(x-6)=0]]. Hence [[x=1]] or [[x=6]]."
+            },
+            {
+              "title": "Apply the domain",
+              "body": "Only [[x=6]] satisfies [[x>5]]."
             }
           ],
-          "finalAnswer": "The solutions are [[x=-1]] and [[x=1]], so the correct option is C.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "concept",
-          "eyebrow": "LINKED LOGARITHMS · 10 OF 12",
-          "title": "A sum and difference can reveal a product and quotient",
-          "body": "If [[\\log_{a}x+\\log_{a}y=m]], then [[xy=a^{m}]].<br><br>If [[\\log_{a}x-\\log_{a}y=n]], then [[\\frac{x}{y}=a^{n}]]. These two algebraic relationships can be solved together.",
-          "keyPoint": "The original logarithms automatically require [[x>0]] and [[y>0]].",
+          "finalAnswer": "The only valid solution is [[x=6]], so the correct option is B.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "LINKED-EQUATION CHECK · 11 OF 12",
-          "question": "Positive numbers x and y satisfy [[\\log_{2}x+\\log_{2}y=3]] and [[\\log_{2}x-\\log_{2}y=1]]. What is [[x+y]]?",
+          "eyebrow": "LINKED POWERS · 14 OF 15",
+          "question": "The real numbers x and y satisfy [[3^{2x}=9^{y+1}]] and [[27^{x-1}=3^{y+4}]]. What is [[x+y]]?",
+          "prompt": "Rewrite every term using base 3.",
           "options": [
+            "[[3]]",
             "[[4]]",
             "[[5]]",
-            "[[6]]",
-            "[[8]]"
+            "[[6]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. Adding the equations gives [[2\\log_{2}x=4]], so [[x=4]]. Subtracting gives [[2\\log_{2}y=2]], so [[y=2]]. Hence [[x+y=6]].",
-          "incorrectFeedback": "Add the two equations to find x, then subtract them to find y. The logarithms have the same base, so this works like simultaneous linear equations."
+          "correctFeedback": "Correct. The first equation gives [[2x=2y+2]], so [[x-y=1]]. The second gives [[3x-3=y+4]], so [[3x-y=7]]. Solving simultaneously gives [[x=3]] and [[y=2]], hence [[x+y=5]].",
+          "incorrectFeedback": "Convert [[9^{y+1}]] to [[3^{2y+2}]] and [[27^{x-1}]] to [[3^{3x-3}]]. This produces two linear equations in x and y."
         },
         {
           "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 12 OF 12",
-          "title": "Advanced Log Reasoning: key points",
+          "eyebrow": "LESSON SUMMARY · 15 OF 15",
+          "title": "Solving Exponential and Log Equations: key points",
           "keyPoints": [
-            "Increasing exponential functions preserve inequalities; decreasing ones reverse them.",
-            "A fact such as [[\\log_{a}b=k]] is equivalent to [[b=a^{k}]].",
-            "Use symbolic relationships and log laws before reaching for numerical approximations.",
-            "For [[a^{x}+a^{-x}]], substitute [[u=a^{x}>0]].",
-            "Sums and differences of logarithms can form simultaneous equations."
+            "Simplify and isolate an exponential expression before choosing a method.",
+            "When both sides have the same base, equate their exponents.",
+            "The equation [[a^{x}=b]] can be written as [[x=\\log_{a}b]].",
+            "Factor common exponential terms or use [[u=a^{x}>0]] when a quadratic is hidden.",
+            "For logarithmic equations, combine logs and check every answer against the original domain."
           ],
           "reviewItems": [
-            "Check whether the exponential base is increasing or decreasing.",
-            "Translate a given logarithm into an exponential relationship.",
-            "Practise reciprocal substitutions.",
-            "Use positivity conditions to reject impossible values.",
+            "Practise recognising useful common bases.",
+            "Practise isolating an exponential before converting to logarithmic form.",
+            "Look for a common factor when powers have related exponents.",
+            "Reject non-positive values introduced by exponential substitution.",
             "Next lesson: Exponentials and Logarithms Exam-style Questions."
           ],
           "buttonText": "Finish lesson"
@@ -4850,303 +4729,285 @@
       "screens": [
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 1 OF 21",
-          "question": "Evaluate [[\\log_{2}32]].",
+          "eyebrow": "EXAM PRACTICE · 1 OF 20",
+          "question": "Evaluate [[\\log_{3}\\left(\\frac{1}{81}\\right)]].",
           "options": [
-            "[[4]]",
-            "[[5]]",
-            "[[8]]",
-            "[[16]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[2^{5}=32]], so [[\\log_{2}32=5]].",
-          "incorrectFeedback": "A logarithm is an exponent. Ask which power of 2 equals 32."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 2 OF 21",
-          "question": "Which statement is equivalent to [[3^{4}=81]]?",
-          "options": [
-            "[[\\log_{3}81=4]]",
-            "[[\\log_{4}81=3]]",
-            "[[\\log_{81}3=4]]",
-            "[[\\log_{3}4=81]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[a^{b}=c]] is equivalent to [[\\log_{a}c=b]].",
-          "incorrectFeedback": "Keep the exponential base as the logarithm base, use the output as the argument, and use the exponent as the answer."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 3 OF 21",
-          "question": "For positive a with [[a\\ne1]], simplify [[\\log_{a}8+\\log_{a}2]].",
-          "options": [
-            "[[\\log_{a}4]]",
-            "[[\\log_{a}6]]",
-            "[[\\log_{a}10]]",
-            "[[\\log_{a}16]]"
-          ],
-          "answerIndex": 3,
-          "correctFeedback": "Correct. The product law gives [[\\log_{a}8+\\log_{a}2=\\log_{a}(8\\times2)=\\log_{a}16]].",
-          "incorrectFeedback": "When logarithms with the same base are added, multiply their arguments."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 4 OF 21",
-          "question": "Evaluate [[2\\log_{3}6-\\log_{3}4]].",
-          "options": [
-            "[[1]]",
-            "[[2]]",
-            "[[3]]",
+            "[[-4]]",
+            "[[-3]]",
+            "[[\\frac{1}{4}]]",
             "[[4]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[2\\log_{3}6-\\log_{3}4=\\log_{3}\\left(\\frac{6^{2}}4\\right)=\\log_{3}9=2]].",
-          "incorrectFeedback": "Use the power law first, then the quotient law: [[2\\log_{3}6=\\log_{3}36]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 5 OF 21",
-          "question": "For which values of x is [[\\log(x-2)+\\log(7-x)]] defined?",
-          "options": [
-            "[[x<2]]",
-            "[[2<x<7]]",
-            "[[x>7]]",
-            "[[x\\ne2,7]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. Both arguments must be positive: [[x-2>0]] and [[7-x>0]], so [[2<x<7]].",
-          "incorrectFeedback": "A logarithm's argument must be strictly positive. Intersect the conditions [[x>2]] and [[x<7]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 6 OF 21",
-          "question": "Solve [[5^{2x-1}=125]].",
-          "options": [
-            "[[x=1]]",
-            "[[x=\\frac32]]",
-            "[[x=2]]",
-            "[[x=3]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. Since [[125=5^{3}]], equate exponents: [[2x-1=3]], giving [[x=2]].",
-          "incorrectFeedback": "Rewrite 125 as a power of 5, then equate the exponents."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 7 OF 21",
-          "question": "Solve [[4^{x}=8^{x-1}]].",
-          "options": [
-            "[[x=1]]",
-            "[[x=2]]",
-            "[[x=3]]",
-            "[[x=4]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. [[2^{2x}=2^{3x-3}]], so [[2x=3x-3]] and [[x=3]].",
-          "incorrectFeedback": "Write [[4=2^{2}]] and [[8=2^{3}]], simplify both powers, and equate the exponents."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 8 OF 21",
-          "question": "Solve [[9^{x}-10(3^{x})+9=0]].",
-          "options": [
-            "[[x=0]] or [[x=2]]",
-            "[[x=1]] or [[x=9]]",
-            "[[x=-2]] or [[x=0]]",
-            "[[x=2]] only"
-          ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. Let [[u=3^{x}]]. Then [[u^{2}-10u+9=(u-1)(u-9)=0]], giving [[3^{x}=1]] or [[3^{x}=9]], so [[x=0]] or [[x=2]].",
-          "incorrectFeedback": "Use [[u=3^{x}]], noting that [[9^{x}=u^{2}]]. Solve the quadratic and then substitute back."
+          "correctFeedback": "Correct. Since [[\\frac{1}{81}=3^{-4}]], we have [[\\log_{3}\\left(\\frac{1}{81}\\right)=-4]].",
+          "incorrectFeedback": "Write the argument as a power of 3. Because [[81=3^{4}]], its reciprocal is [[3^{-4}]]."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 9 OF 21",
-          "question": "Solve [[\\log_{2}(x-1)=3]].",
+          "eyebrow": "EXAM PRACTICE · 2 OF 20",
+          "question": "Solve [[3^{x+1}+3^{x-1}=10(2^{x})]], giving your answer exactly.",
           "options": [
-            "[[x=4]]",
-            "[[x=7]]",
-            "[[x=8]]",
-            "[[x=9]]"
+            "[[\\log_{3}\\left(\\frac{3}{2}\\right)]]",
+            "[[\\log_{\\frac{3}{2}}3]]",
+            "[[\\log_{\\frac{2}{3}}3]]",
+            "[[1+\\log_{3}2]]"
           ],
-          "answerIndex": 3,
-          "correctFeedback": "Correct. [[x-1=2^{3}=8]], so [[x=9]].",
-          "incorrectFeedback": "Convert to exponential form: the logarithm equation means [[x-1=2^{3}]]."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Factor the left side: [[3^{x-1}(3^{2}+1)=10(2^{x})]]. Therefore [[10(3^{x-1})=10(2^{x})]], so [[3^{x-1}=2^{x}]]. This gives [[\\left(\\frac{3}{2}\\right)^{x}=3]], hence [[x=\\log_{\\frac{3}{2}}3]].",
+          "incorrectFeedback": "Factor out [[3^{x-1}]] first. After cancelling 10, rearrange the equation into the form [[\\left(\\frac{3}{2}\\right)^{x}=3]]."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 10 OF 21",
-          "question": "Solve [[\\log_{3}x+\\log_{3}(x-2)=1]].",
+          "eyebrow": "EXAM PRACTICE · 3 OF 20",
+          "question": "Given [[\\log_{a}b=4]], find [[\\log_{a}\\left(\\frac{a^{7}}{b^{3/2}}\\right)]].",
           "options": [
-            "[[x=-1]]",
-            "[[x=1]]",
-            "[[x=2]]",
-            "[[x=3]]"
+            "[[-1]]",
+            "[[1]]",
+            "[[3]]",
+            "[[6]]"
           ],
-          "answerIndex": 3,
-          "correctFeedback": "Correct. The domain is [[x>2]]. Combining logs gives [[x(x-2)=3]], so [[(x-3)(x+1)=0]]. Only [[x=3]] is valid.",
-          "incorrectFeedback": "First require [[x>2]]. Then use the product law and solve [[x(x-2)=3]], rejecting any value outside the domain."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The log laws give [[7-\\frac{3}{2}\\log_{a}b=7-\\frac{3}{2}(4)=1]].",
+          "incorrectFeedback": "Use the quotient and power laws. The expression becomes [[7-\\frac{3}{2}\\log_{a}b]]."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 11 OF 21",
-          "question": "Solve [[\\log_{5}(x+4)-\\log_{5}x=1]].",
+          "eyebrow": "EXAM PRACTICE · 4 OF 20",
+          "question": "For which values of b does [[a^{x}=b]] have exactly one real solution, where [[a>0]] and [[a\\ne1]]?",
           "options": [
-            "[[x=1]]",
+            "[[b<0]]",
+            "[[b=0]]",
+            "[[b>0]]",
+            "[[b\\ne0]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The range of [[y=a^{x}]] is [[y>0]], and the function is one-to-one, so every positive b gives exactly one real solution.",
+          "incorrectFeedback": "An exponential output is always positive. The graph never reaches zero or takes a negative value."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 5 OF 20",
+          "question": "For [[x>3]], find x if [[\\log_{2}(x^{2}-9)-\\log_{2}(x-3)]] = [[\\log_{2}(3x-1)-1]].",
+          "options": [
             "[[x=4]]",
             "[[x=5]]",
-            "[[x=20]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The quotient law gives [[\\log_{5}\\left(\\frac{x+4}{x}\\right)=1]], so [[\\frac{x+4}{x}=5]] and [[x=1]].",
-          "incorrectFeedback": "Combine the logarithms using the quotient law, then set the quotient equal to [[5^{1}]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 12 OF 21",
-          "question": "Solve [[2\\log_{2}x=\\log_{2}49]].",
-          "options": [
-            "[[x=-7]]",
             "[[x=7]]",
-            "[[x=\\pm7]]",
-            "[[x=49]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. The power law gives [[\\log_{2}(x^{2})=\\log_{2}49]], so [[x^{2}=49]]. The original logarithm requires [[x>0]], leaving [[x=7]].",
-          "incorrectFeedback": "The algebra produces two square roots, but [[\\log_{2}x]] is only defined when [[x>0]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 13 OF 21",
-          "question": "Solve [[3^{2x-1}<\\frac1{27}]].",
-          "options": [
-            "[[x<-1]]",
-            "[[x>-1]]",
-            "[[x<1]]",
-            "[[x>1]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[\\frac1{27}=3^{-3}]]. Since the base is greater than 1, [[2x-1<-3]], so [[x<-1]].",
-          "incorrectFeedback": "Write the right side as [[3^{-3}]]. The function [[3^{x}]] is increasing, so the exponent inequality keeps its direction."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 14 OF 21",
-          "question": "Solve [[\\left(\\frac14\\right)^{x}>16]].",
-          "options": [
-            "[[x<-2]]",
-            "[[x>-2]]",
-            "[[x<2]]",
-            "[[x>2]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[16=\\left(\\frac14\\right)^{-2}]]. The base lies between 0 and 1, so the function decreases and [[x<-2]].",
-          "incorrectFeedback": "Express 16 as a power of one quarter. Because the base is decreasing, reverse the comparison between the exponents."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 15 OF 21",
-          "question": "Given [[\\log_{a}b=2]], find [[\\log_{a}\\left(\\frac{a^{5}}{b^{2}}\\right)]].",
-          "options": [
-            "[[1]]",
-            "[[2]]",
-            "[[3]]",
-            "[[4]]"
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[\\log_{a}(a^{5})-\\log_{a}(b^{2})=5-2\\log_{a}b=5-4=1]].",
-          "incorrectFeedback": "Apply the quotient and power laws: the expression becomes [[5-2\\log_{a}b]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 16 OF 21",
-          "question": "Positive numbers x and y satisfy [[\\log_{2}x+\\log_{2}y=5]] and [[\\log_{2}x-\\log_{2}y=1]]. Find [[x+y]].",
-          "options": [
-            "[[8]]",
-            "[[10]]",
-            "[[12]]",
-            "[[32]]"
+            "There is no real solution"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. Adding gives [[2\\log_{2}x=6]], so [[x=8]]. Subtracting gives [[2\\log_{2}y=4]], so [[y=4]]. Therefore [[x+y=12]].",
-          "incorrectFeedback": "Treat the two logarithms as unknowns. Add the equations to find x, then subtract them to find y."
+          "correctFeedback": "Correct. Since [[x^{2}-9=(x-3)(x+3)]], the left side becomes [[\\log_{2}(x+3)]]. Also, [[1=\\log_{2}2]], so the right side is [[\\log_{2}\\left(\\frac{3x-1}{2}\\right)]]. Therefore [[x+3=\\frac{3x-1}{2}]], giving [[x=7]], which satisfies [[x>3]].",
+          "incorrectFeedback": "Factor [[x^{2}-9]] as a difference of two squares. Also rewrite [[1]] as [[\\log_{2}2]] so that the right side can be condensed into one logarithm."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 17 OF 21",
-          "question": "The real solutions of [[2^{x}+2^{-x}=\\frac52]] are added together. What is the result?",
+          "eyebrow": "EXAM PRACTICE · 6 OF 20",
+          "question": "Solve [[5(3^{2x+1})=40]], giving your answer exactly.",
+          "options": [
+            "[[x=\\frac{1}{2}\\log_{3}8]]",
+            "[[x=\\frac{\\log_{3}8-1}{2}]]",
+            "[[x=\\frac{1-\\log_{3}8}{2}]]",
+            "[[x=\\log_{3}4]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. First [[3^{2x+1}=8]], so [[2x+1=\\log_{3}8]]. Therefore [[x=\\frac{\\log_{3}8-1}{2}]].",
+          "incorrectFeedback": "Divide by 5 first. The exponent is [[2x+1]], so after converting to logarithmic form you must still rearrange for x."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 7 OF 20",
+          "question": "The equation [[2^{x}+8^{x}=18(4^{x})]] has two real solutions p and q. Find [[p+q]].",
+          "prompt": "You do not need to calculate the two solutions separately.",
           "options": [
             "[[-2]]",
             "[[-1]]",
             "[[0]]",
-            "[[2]]"
+            "[[1]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. Let [[u=2^{x}]]. Then [[2u^{2}-5u+2=0]], so [[u=2]] or [[u=\\frac12]], giving [[x=1]] or [[x=-1]]. Their sum is 0.",
-          "incorrectFeedback": "Use [[u=2^{x}]] and [[2^{-x}=\\frac1u]]. The resulting quadratic has reciprocal roots."
+          "correctFeedback": "Correct. Divide through by [[4^{x}]] to get [[2^{-x}+2^{x}=18]]. Let [[u=2^{x}>0]]. Then [[u+\\frac{1}{u}=18]], so [[u^{2}-18u+1=0]]. The two u-values have product 1. Therefore [[2^{p}2^{q}=1]], so [[2^{p+q}=1]] and [[p+q=0]].",
+          "incorrectFeedback": "Divide every term by [[4^{x}]], then let [[u=2^{x}]]. Use the product of the quadratic's roots rather than solving the quadratic completely."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 18 OF 21",
-          "question": "Which statement describes the graph of [[y=5^{x}]]?",
+          "eyebrow": "EXAM PRACTICE · 8 OF 20",
+          "question": "Solve [[\\frac{5^{x+2}}{25^{x-1}}=125]].",
           "options": [
-            "It is increasing, passes through [[(0,1)]], and has asymptote [[y=0]].",
-            "It is decreasing, passes through [[(0,1)]], and has asymptote [[x=0]].",
-            "It is increasing, passes through [[(1,0)]], and crosses the x-axis.",
-            "It is decreasing and has range [[y<0]]."
-          ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. Because [[5>1]], the graph increases. Every graph [[y=a^{x}]] passes through [[(0,1)]] and approaches, but never reaches, [[y=0]].",
-          "incorrectFeedback": "For a base greater than 1, the exponential graph increases. Its outputs are always positive and [[5^{0}=1]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 19 OF 21",
-          "question": "For which values of k does [[2^{x}=k]] have exactly one real solution for x?",
-          "options": [
-            "[[k<0]]",
-            "[[k=0]]",
-            "[[k>0]]",
-            "All real values of k"
+            "[[x=-1]]",
+            "[[x=0]]",
+            "[[x=1]]",
+            "[[x=4]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. The function [[2^{x}]] is one-to-one and its range is [[k>0]], so each positive k gives exactly one real x.",
-          "incorrectFeedback": "The graph of [[y=2^{x}]] has range [[y>0]] and is strictly increasing."
+          "correctFeedback": "Correct. The left side is [[5^{x+2-(2x-2)}=5^{4-x}]]. Since [[125=5^{3}]], we get [[4-x=3]], so [[x=1]].",
+          "incorrectFeedback": "Rewrite [[25^{x-1}]] as [[5^{2x-2}]], then subtract the denominator's exponent from the numerator's exponent."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 20 OF 21",
-          "question": "Solve [[2^{x}+4^{x}=6]].",
+          "eyebrow": "EXAM PRACTICE · 9 OF 20",
+          "question": "Solve [[25^{x}-26(5^{x})+25=0]].",
+          "options": [
+            "[[x=0]] only",
+            "[[x=2]] only",
+            "[[x=0]] or [[x=2]]",
+            "[[x=1]] or [[x=25]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let [[u=5^{x}>0]]. Then [[u^{2}-26u+25=(u-1)(u-25)=0]], giving [[5^{x}=1]] or [[5^{x}=25]]. Hence [[x=0]] or [[x=2]].",
+          "incorrectFeedback": "Use [[25^{x}=(5^{x})^{2}]]. The resulting quadratic factorises using 1 and 25."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 10 OF 20",
+          "question": "Solve [[4^{x}+3(2^{x})-10=0]].",
+          "options": [
+            "[[x=-5]] only",
+            "[[x=1]] only",
+            "[[x=-5]] or [[x=1]]",
+            "[[x=2]] only"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Let [[u=2^{x}>0]]. Then [[u^{2}+3u-10=(u+5)(u-2)=0]]. Reject [[u=-5]], leaving [[2^{x}=2]] and [[x=1]].",
+          "incorrectFeedback": "After solving the quadratic in [[u=2^{x}]], reject any non-positive value because an exponential is always positive."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 11 OF 20",
+          "question": "For [[x>7]], solve [[\\log_{3}((x-1)(x-7))=2]].",
+          "options": [
+            "[[x=4-3\\sqrt{2}]]",
+            "[[x=4+3\\sqrt{2}]]",
+            "[[x=8+\\sqrt{2}]]",
+            "[[x=4\\pm3\\sqrt{2}]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Convert to exponential form: [[(x-1)(x-7)=9]]. This gives [[x^{2}-8x-2=0]], so [[x=4\\pm3\\sqrt{2}]]. Only [[x=4+3\\sqrt{2}]] satisfies [[x>7]].",
+          "incorrectFeedback": "Convert the logarithmic equation into [[(x-1)(x-7)=9]], solve the resulting quadratic and then apply the restriction [[x>7]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 12 OF 20",
+          "question": "For [[x>0]], solve [[3\\log_{2}(2x)-\\log_{2}(4x^{2})=5]].",
+          "prompt": "Rewrite every variable term as a multiple of [[\\log_{2}x]].",
+          "options": [
+            "[[x=4]]",
+            "[[x=8]]",
+            "[[x=16]]",
+            "[[x=32]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let [[t=\\log_{2}x]]. Then [[\\log_{2}(2x)=1+t]] and [[\\log_{2}(4x^{2})=2+2t]]. Therefore [[3(1+t)-(2+2t)=5]], so [[t=4]] and [[x=2^{4}=16]].",
+          "incorrectFeedback": "Write [[\\log_{2}(2x)=1+\\log_{2}x]] and [[\\log_{2}(4x^{2})=2+2\\log_{2}x]]. Then collect the multiples of [[\\log_{2}x]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 13 OF 20",
+          "question": "For [[x>0]], solve [[(\\log_{3}(9x))^{2}-(\\log_{3}x)^{2}=20]].",
+          "options": [
+            "[[x=9]]",
+            "[[x=27]]",
+            "[[x=81]]",
+            "[[x=243]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let [[A=\\log_{3}(9x)]] and [[B=\\log_{3}x]]. Then [[A^{2}-B^{2}=(A-B)(A+B)]]. Here [[A-B=2]] and [[A+B=2\\log_{3}x+2]], so [[2(2\\log_{3}x+2)=20]]. Hence [[\\log_{3}x=4]] and [[x=81]].",
+          "incorrectFeedback": "Recognise a difference of two squares. The difference between the two logarithms is simply [[\\log_{3}9=2]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 14 OF 20",
+          "question": "Find the positive difference between the two real values of x satisfying [[(\\log_{2}x)^{2}+3\\log_{2}\\left(\\frac{1}{x}\\right)-4=0]].",
+          "options": [
+            "[[\\frac{15}{2}]]",
+            "[[\\frac{29}{2}]]",
+            "[[\\frac{31}{2}]]",
+            "[[\\frac{33}{2}]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let [[t=\\log_{2}x]]. Since [[\\log_{2}(1/x)=-t]], we get [[t^{2}-3t-4=0]], so [[t=4]] or [[t=-1]]. Thus [[x=16]] or [[x=\\frac12]], whose positive difference is [[\\frac{31}{2}]].",
+          "incorrectFeedback": "Replace [[\\log_{2}(1/x)]] with [[-\\log_{2}x]], then solve the quadratic in [[t=\\log_{2}x]]. Remember to convert both t-values back to x."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 15 OF 20",
+          "question": "Positive x satisfies [[2\\log_{3}x=\\log_{3}(9x-18)]]. What is the sum of all possible values of x?",
+          "options": [
+            "[[6]]",
+            "[[8]]",
+            "[[9]]",
+            "[[18]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The equation becomes [[\\log_{3}(x^{2})=\\log_{3}(9x-18)]], so [[x^{2}=9x-18]]. The roots are [[x=3]] and [[x=6]], both valid, and their sum is 9.",
+          "incorrectFeedback": "Use the power law, then equate the logarithm arguments. Check that each root makes [[9x-18]] positive."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 16 OF 20",
+          "question": "Find the minimum value of [[3^{2x}-8(3^{x})+19]].",
+          "options": [
+            "[[0]]",
+            "[[3]]",
+            "[[4]]",
+            "[[19]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Let [[u=3^{x}>0]]. Then [[u^{2}-8u+19=(u-4)^{2}+3]], whose minimum value is 3. The value [[u=4]] is possible because [[3^{x}]] can equal any positive number.",
+          "incorrectFeedback": "Treat [[3^{x}]] as one positive variable and complete the square in that variable."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 17 OF 20",
+          "question": "For which values of k does [[4^{x}-5(2^{x})+k=0]] have exactly one real solution for x?",
+          "options": [
+            "[[k\\le0]] only",
+            "[[k=\\frac{25}{4}]] only",
+            "[[0<k\\le\\frac{25}{4}]]",
+            "[[k\\le0]] or [[k=\\frac{25}{4}]]"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. With [[u=2^{x}>0]], the equation is [[u^{2}-5u+k=0]]. If [[k\\le0]], exactly one root is positive because the other is non-positive. If [[k=\\frac{25}{4}]], there is one repeated positive root. Other positive k-values give either two positive roots or none.",
+          "incorrectFeedback": "Work with [[u=2^{x}>0]]. Count positive roots of [[u^{2}-5u+k=0]], remembering that [[u=0]] is not allowed."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 18 OF 20",
+          "question": "Real numbers x and y satisfy [[2^{3x}=4^{y+2}]] and [[8^{x-1}=2^{y+5}]]. What is [[x+y]]?",
+          "options": [
+            "[[4]]",
+            "[[6]]",
+            "[[8]]",
+            "[[12]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Writing everything in base 2 gives [[3x=2y+4]] and [[3x-3=y+5]]. Thus [[3x-2y=4]] and [[3x-y=8]], giving [[y=4]] and [[x=4]]. Therefore [[x+y=8]].",
+          "incorrectFeedback": "Convert 4 and 8 to powers of 2. You will obtain two simultaneous linear equations in x and y."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 19 OF 20",
+          "question": "Solve [[\\frac{4^{x}-1}{2^{x}-1}=5]].",
           "options": [
             "[[x=0]]",
             "[[x=1]]",
             "[[x=2]]",
-            "[[x=3]]"
+            "[[x=4]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. Let [[u=2^{x}>0]]. Then [[u+u^{2}=6]], so [[(u+3)(u-2)=0]]. Positivity leaves [[u=2]], hence [[x=1]].",
-          "incorrectFeedback": "Use [[u=2^{x}]], so [[4^{x}=u^{2}]]. Solve the quadratic and reject the negative value of u."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let [[u=2^{x}]], noting that [[u\\ne1]] because the original denominator cannot be zero. Then [[\\frac{u^{2}-1}{u-1}=u+1=5]], so [[u=4]] and [[x=2]].",
+          "incorrectFeedback": "Use [[4^{x}=(2^{x})^{2}]] and factor the numerator as a difference of two squares. Also exclude [[x=0]] because it makes the denominator zero."
         },
         {
-          "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 21 OF 21",
-          "title": "Exponentials and Logarithms: exam review",
-          "keyPoints": [
-            "A logarithm records an exponent: [[a^{b}=c]] is equivalent to [[\\log_{a}c=b]].",
-            "Know the product, quotient, and power laws for logarithms.",
-            "Check logarithm domains before accepting algebraic solutions.",
-            "Match bases or use a positive substitution to solve exponential equations.",
-            "The direction of an exponential inequality depends on whether its base is above or below 1."
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 20 OF 20",
+          "question": "The equation [[2^{(\\log_{2}x)^{2}}=x^{3}]] has two positive real solutions. What is their sum?",
+          "options": [
+            "[[8]]",
+            "[[9]]",
+            "[[10]]",
+            "[[16]]"
           ],
-          "reviewItems": [
-            "Redo any question where you forgot a domain restriction.",
-            "Practise moving quickly between logarithmic and exponential form.",
-            "Check that substituted exponential values are positive.",
-            "Sketch exponential graphs using their intercept, direction, range, and asymptote.",
-            "Repeat this set until each method is recognisable without prompting."
-          ],
-          "buttonText": "Finish lesson"
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Let [[t=\\log_{2}x]], so [[x=2^{t}]]. The equation becomes [[2^{t^{2}}=2^{3t}]], hence [[t^{2}=3t]]. Thus [[t=0]] or [[t=3]], giving [[x=1]] or [[x=8]]. Their sum is 9.",
+          "incorrectFeedback": "Set [[t=\\log_{2}x]] and rewrite [[x^{3}]] as [[(2^{t})^{3}=2^{3t}]]. Then equate the exponents."
         }
       ]
     },
