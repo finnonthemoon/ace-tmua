@@ -685,7 +685,15 @@ function RadiansSectorDiagram() {
       <SvgText x={184} y={91} fontSize={14} fontWeight="900" fill="#54749F">θ</SvgText>
       <SvgText x={194} y={119} fontSize={13} fontWeight="900" fill={C.ink}>r</SvgText>
       <SvgText x={168} y={56} fontSize={13} fontWeight="900" fill={C.ink}>r</SvgText>
-      <SvgText x={233} y={59} fontSize={12} fontWeight="900" fill="#A66F2E">arc = rθ</SvgText>
+      <SvgText
+        x={218}
+        y={59}
+        fontSize={12}
+        fontWeight="900"
+        fill="#A66F2E"
+      >
+        arc = rθ
+      </SvgText>
       <SvgText x={30} y={173} fontSize={12} fontWeight="800" fill={C.muted}>θ must be measured in radians</SvgText>
     </>
   );
@@ -737,23 +745,229 @@ function TrigGraphsDiagram() {
 }
 
 function TrigSolutionsDiagram() {
+  const graphLeft = 38;
+  const graphRight = 302;
+  const graphWidth = graphRight - graphLeft;
+
+  const centreY = 105;
+  const amplitude = 65;
+
+  // Height of the horizontal line y = k.
+  // k must remain between -1 and 1.
+  const k = 0.55;
+
+  const xToSvg = (x: number) =>
+    graphLeft + (x / (2 * Math.PI)) * graphWidth;
+
+  const yToSvg = (y: number) =>
+    centreY - y * amplitude;
+
+  // Generate the sine curve using actual sampled sine values.
+  const sampleCount = 80;
+
+  const sinePath = Array.from(
+    { length: sampleCount + 1 },
+    (_, index) => {
+      const x = (index / sampleCount) * 2 * Math.PI;
+      const svgX = xToSvg(x);
+      const svgY = yToSvg(Math.sin(x));
+
+      return `${index === 0 ? "M" : "L"} ${svgX} ${svgY}`;
+    }
+  ).join(" ");
+
+  // Exact intersections of sin(x) = k in one cycle.
+  const theta = Math.asin(k);
+  const secondTheta = Math.PI - theta;
+
+  const firstIntersectionX = xToSvg(theta);
+  const secondIntersectionX = xToSvg(secondTheta);
+  const intersectionY = yToSvg(k);
+
   return (
     <>
-      <Circle cx={160} cy={95} r={70} fill="#FFF9F1" stroke={C.primary} strokeWidth={3.5} />
-      <Line x1={78} y1={95} x2={242} y2={95} stroke="#9D8E82" strokeWidth={1.5} />
-      <Line x1={160} y1={171} x2={160} y2={19} stroke="#9D8E82" strokeWidth={1.5} />
-      <Line x1={160} y1={95} x2={216} y2={53} stroke="#54749F" strokeWidth={2.5} />
-      <Line x1={160} y1={95} x2={104} y2={53} stroke="#54749F" strokeWidth={2.5} />
-      <Line x1={104} y1={53} x2={216} y2={53} stroke="#C88A43" strokeWidth={1.8} strokeDasharray="5 4" />
-      <Circle cx={216} cy={53} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
-      <Circle cx={104} cy={53} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
-      <SvgText x={220} y={48} fontSize={11} fontWeight="900" fill={C.ink}>θ</SvgText>
-      <SvgText x={86} y={48} fontSize={11} fontWeight="900" fill={C.ink}>π − θ</SvgText>
-      <SvgText x={16} y={178} fontSize={12} fontWeight="800" fill={C.muted}>Same sine value, two angles in one cycle</SvgText>
+      {/* Coordinate axes */}
+      <Line
+        x1={graphLeft}
+        y1={centreY}
+        x2={graphRight}
+        y2={centreY}
+        stroke="#9D8E82"
+        strokeWidth={1.5}
+      />
+
+      <Polygon
+        points={`${graphRight},${centreY} ${graphRight - 8},${centreY - 4} ${graphRight - 8},${centreY + 4}`}
+        fill="#9D8E82"
+      />
+
+      <Line
+        x1={graphLeft}
+        y1={174}
+        x2={graphLeft}
+        y2={20}
+        stroke="#9D8E82"
+        strokeWidth={1.5}
+      />
+
+      <Polygon
+        points={`${graphLeft},20 ${graphLeft - 4},28 ${graphLeft + 4},28`}
+        fill="#9D8E82"
+      />
+
+      {/* Sine graph */}
+      <Path
+        d={sinePath}
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* Horizontal line y = k */}
+      <Line
+        x1={graphLeft}
+        y1={intersectionY}
+        x2={graphRight}
+        y2={intersectionY}
+        stroke="#C88A43"
+        strokeWidth={2.5}
+        strokeDasharray="7 5"
+      />
+
+      {/* Exact vertical guides */}
+      <Line
+        x1={firstIntersectionX}
+        y1={intersectionY}
+        x2={firstIntersectionX}
+        y2={centreY}
+        stroke="#54749F"
+        strokeWidth={1.6}
+        strokeDasharray="5 4"
+      />
+
+      <Line
+        x1={secondIntersectionX}
+        y1={intersectionY}
+        x2={secondIntersectionX}
+        y2={centreY}
+        stroke="#54749F"
+        strokeWidth={1.6}
+        strokeDasharray="5 4"
+      />
+
+      {/* Exact intersection points */}
+      <Circle
+        cx={firstIntersectionX}
+        cy={intersectionY}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+
+      <Circle
+        cx={secondIntersectionX}
+        cy={intersectionY}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+
+      {/* Axis labels */}
+      <SvgText
+        x={graphRight - 8}
+        y={centreY - 8}
+        fontSize={12}
+        fontWeight="700"
+        fill={C.muted}
+      >
+        x
+      </SvgText>
+
+      <SvgText
+        x={graphLeft + 8}
+        y={28}
+        fontSize={12}
+        fontWeight="700"
+        fill={C.muted}
+      >
+        y
+      </SvgText>
+
+      {/* Solution labels */}
+      <SvgText
+        x={firstIntersectionX}
+        y={centreY + 18}
+        textAnchor="middle"
+        fontSize={12}
+        fontWeight="900"
+        fill="#54749F"
+      >
+        θ
+      </SvgText>
+
+      <SvgText
+        x={secondIntersectionX}
+        y={centreY + 18}
+        textAnchor="middle"
+        fontSize={12}
+        fontWeight="900"
+        fill="#54749F"
+      >
+        π − θ
+      </SvgText>
+
+      {/* Standard x-axis values */}
+      <SvgText
+        x={xToSvg(Math.PI)}
+        y={centreY + 18}
+        textAnchor="middle"
+        fontSize={10}
+        fontWeight="800"
+        fill={C.muted}
+      >
+        π
+      </SvgText>
+
+      <SvgText
+        x={graphRight - 4}
+        y={centreY + 18}
+        textAnchor="middle"
+        fontSize={10}
+        fontWeight="800"
+        fill={C.muted}
+      >
+        2π
+      </SvgText>
+
+      {/* Horizontal-line label */}
+      <SvgText
+        x={graphRight - 6}
+        y={intersectionY - 8}
+        textAnchor="end"
+        fontSize={12}
+        fontWeight="900"
+        fill="#A66F2E"
+      >
+        y = k
+      </SvgText>
+
+      <SvgText
+        x={170}
+        y={187}
+        textAnchor="middle"
+        fontSize={11}
+        fontWeight="800"
+        fill={C.muted}
+      >
+        Two intersections give two matching angles
+      </SvgText>
     </>
   );
 }
-
 function ImplicationFlowDiagram() {
   return (
     <>
