@@ -449,6 +449,11 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
             target_university: profileRef.current.targetUniversity,
             target_score: profileRef.current.targetScore,
             exam_sitting: profileRef.current.examSitting,
+            study_days: profileRef.current.studyDays,
+            study_time: profileRef.current.studyTime,
+            study_reminders_enabled:
+              profileRef.current.studyRemindersEnabled,
+            trial_reminder_enabled: profileRef.current.trialReminderEnabled,
           },
         },
       });

@@ -15,7 +15,11 @@ import type {
 } from "@/components/practice/types";
 import { supabase } from "@/lib/supabase";
 
-import type { AccountProfile, ExamSitting } from "./account-storage";
+import type {
+  AccountProfile,
+  ExamSitting,
+  StudyDay,
+} from "./account-storage";
 import { saveLocalAccountProfile } from "./account-storage";
 import {
   fetchPremiumEntitlement,
@@ -49,6 +53,21 @@ function parseStringArray(value: string | null) {
 
 function isExamSitting(value: string): value is ExamSitting {
   return value === "october" || value === "january" || value === "undecided";
+}
+
+function remoteStudyDays(value: StudyDay[] | undefined, fallback: StudyDay[]) {
+  if (!Array.isArray(value)) return fallback;
+  const days = value.filter(
+    (day): day is StudyDay =>
+      Number.isInteger(day) && day >= 1 && day <= 7,
+  );
+  return days.length ? days : fallback;
+}
+
+function remoteTargetScore(value: number | undefined, fallback: number) {
+  if (!Number.isFinite(value)) return fallback;
+  const score = value! > 9 ? value! / 10 : value!;
+  return Math.round(Math.min(9, Math.max(1, score)) * 10) / 10;
 }
 
 async function clearProgressFromPreviousUser() {
@@ -229,7 +248,7 @@ export async function syncAccountForSession(
       ? remoteProfile?.target_university ?? ""
       : localProfile.targetUniversity || remoteProfile?.target_university || "",
     targetScore: preferRemote
-      ? remoteProfile?.target_score ?? localProfile.targetScore
+      ? remoteTargetScore(remoteProfile?.target_score, localProfile.targetScore)
       : localProfile.targetScore,
     examSitting:
       preferRemote &&
@@ -237,6 +256,20 @@ export async function syncAccountForSession(
       isExamSitting(remoteProfile.exam_sitting)
         ? remoteProfile.exam_sitting
         : localProfile.examSitting,
+    studyDays:
+      preferRemote && remoteProfile
+        ? remoteStudyDays(remoteProfile.study_days, localProfile.studyDays)
+        : localProfile.studyDays,
+    studyTime:
+      preferRemote && remoteProfile?.study_time
+        ? remoteProfile.study_time.slice(0, 5)
+        : localProfile.studyTime,
+    studyRemindersEnabled: preferRemote
+      ? remoteProfile?.study_reminders_enabled === true
+      : localProfile.studyRemindersEnabled,
+    trialReminderEnabled: preferRemote
+      ? remoteProfile?.trial_reminder_enabled !== false
+      : localProfile.trialReminderEnabled,
     onboardingCompleted: preferRemote
       ? remoteProfile?.onboarding_completed ?? localProfile.onboardingCompleted
       : localProfile.onboardingCompleted ||

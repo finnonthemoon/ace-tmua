@@ -5,6 +5,7 @@ const ACCOUNT_PROFILE_KEY = "@ace-tmua/account/profile/v1";
 export type ExamSitting = "october" | "january" | "undecided";
 export type AccountType = "guest" | "authenticated";
 export type PremiumStatus = "free" | "premium";
+export type StudyDay = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export interface AccountProfile {
   id: string;
@@ -13,6 +14,10 @@ export interface AccountProfile {
   targetUniversity: string;
   targetScore: number;
   examSitting: ExamSitting;
+  studyDays: StudyDay[];
+  studyTime: string;
+  studyRemindersEnabled: boolean;
+  trialReminderEnabled: boolean;
   onboardingCompleted: boolean;
   accountType: AccountType;
   premiumStatus: PremiumStatus;
@@ -33,8 +38,12 @@ export function createEmptyProfile(): AccountProfile {
     name: "",
     email: null,
     targetUniversity: "",
-    targetScore: 70,
+    targetScore: 7,
     examSitting: "october",
+    studyDays: [1, 3, 5],
+    studyTime: "18:00",
+    studyRemindersEnabled: false,
+    trialReminderEnabled: true,
     onboardingCompleted: false,
     accountType: "guest",
     premiumStatus: "free",
@@ -46,6 +55,31 @@ export function createEmptyProfile(): AccountProfile {
 
 function isExamSitting(value: unknown): value is ExamSitting {
   return value === "october" || value === "january" || value === "undecided";
+}
+
+function normaliseTargetScore(value: unknown) {
+  if (typeof value !== "number" || !Number.isFinite(value)) return 7;
+
+  // Profiles created before the TMUA scale migration stored percentages.
+  const migratedValue = value > 9 ? Math.min(9, value / 10) : value;
+  return Math.round(Math.min(9, Math.max(1, migratedValue)) * 10) / 10;
+}
+
+function normaliseStudyDays(value: unknown): StudyDay[] {
+  if (!Array.isArray(value)) return [1, 3, 5];
+  const days = [...new Set(value)]
+    .filter(
+      (day): day is StudyDay =>
+        typeof day === "number" && Number.isInteger(day) && day >= 1 && day <= 7,
+    )
+    .sort((a, b) => a - b);
+  return days.length ? days : [1, 3, 5];
+}
+
+function normaliseStudyTime(value: unknown) {
+  return typeof value === "string" && /^([01]\d|2[0-3]):[0-5]\d$/.test(value)
+    ? value
+    : "18:00";
 }
 
 function normaliseProfile(value: unknown): AccountProfile | null {
@@ -63,11 +97,14 @@ function normaliseProfile(value: unknown): AccountProfile | null {
       typeof profile.targetUniversity === "string"
         ? profile.targetUniversity
         : "",
-    targetScore:
-      typeof profile.targetScore === "number" ? profile.targetScore : 70,
+    targetScore: normaliseTargetScore(profile.targetScore),
     examSitting: isExamSitting(profile.examSitting)
       ? profile.examSitting
       : "undecided",
+    studyDays: normaliseStudyDays(profile.studyDays),
+    studyTime: normaliseStudyTime(profile.studyTime),
+    studyRemindersEnabled: profile.studyRemindersEnabled === true,
+    trialReminderEnabled: profile.trialReminderEnabled !== false,
     onboardingCompleted: profile.onboardingCompleted === true,
     accountType:
       profile.accountType === "authenticated" ? "authenticated" : "guest",

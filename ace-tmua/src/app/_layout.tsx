@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ComponentProps } from "react";
 import type { BottomTabBarProps } from "expo-router/build/react-navigation/bottom-tabs";
 import { Tabs, useRouter, useSegments } from "expo-router";
+import * as Notifications from "expo-notifications";
 import {
   GlassContainer,
   GlassView,
@@ -262,6 +263,29 @@ function RootNavigator() {
   const router = useRouter();
   const segments = useSegments();
   const { isLoading, profile } = useAccount();
+
+  useEffect(() => {
+    const openNotificationRoute = (
+      notification: Notifications.Notification,
+    ) => {
+      const route = notification.request.content.data?.route;
+      if (route === "/" || route === "/profile") {
+        router.push(route);
+      }
+    };
+
+    const lastResponse = Notifications.getLastNotificationResponse();
+    if (lastResponse?.notification) {
+      openNotificationRoute(lastResponse.notification);
+    }
+
+    const subscription =
+      Notifications.addNotificationResponseReceivedListener((response) => {
+        openNotificationRoute(response.notification);
+      });
+
+    return () => subscription.remove();
+  }, [router]);
 
   useEffect(() => {
     if (isLoading) return;

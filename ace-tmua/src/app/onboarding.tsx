@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
   Alert,
   KeyboardAvoidingView,
+  Modal,
   Platform,
   Pressable,
   ScrollView,
@@ -18,9 +19,34 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AuthPanel from "@/components/auth/AuthPanel";
 import { useAccount } from "@/contexts/AccountContext";
 import { Colors, Shadow } from "@/constants/theme";
-import type { ExamSitting } from "@/services/account-storage";
+import {
+  OTHER_UNIVERSITY,
+  TMUA_UNIVERSITIES,
+} from "@/data/tmua-universities";
+import type { ExamSitting, StudyDay } from "@/services/account-storage";
+import {
+  disableStudyReminders,
+  requestNotificationPermission,
+  scheduleStudyReminders,
+  scheduleTrialEndingReminder,
+} from "@/services/study-notifications";
 
-const TOTAL_STEPS = 5;
+const TOTAL_STEPS = 6;
+const STUDY_DAYS: { day: StudyDay; short: string; full: string }[] = [
+  { day: 1, short: "M", full: "Monday" },
+  { day: 2, short: "T", full: "Tuesday" },
+  { day: 3, short: "W", full: "Wednesday" },
+  { day: 4, short: "T", full: "Thursday" },
+  { day: 5, short: "F", full: "Friday" },
+  { day: 6, short: "S", full: "Saturday" },
+  { day: 7, short: "S", full: "Sunday" },
+];
+const STUDY_TIMES = Array.from({ length: 31 }, (_, index) => {
+  const totalMinutes = 7 * 60 + index * 30;
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+});
 
 export default function OnboardingScreen() {
   const router = useRouter();
@@ -37,9 +63,35 @@ export default function OnboardingScreen() {
   const [targetUniversity, setTargetUniversity] = useState(
     profile.targetUniversity,
   );
-  const [targetScore, setTargetScore] = useState(`${profile.targetScore}`);
+  const [customUniversity, setCustomUniversity] = useState(
+    profile.targetUniversity &&
+      !TMUA_UNIVERSITIES.includes(
+        profile.targetUniversity as (typeof TMUA_UNIVERSITIES)[number],
+      )
+      ? profile.targetUniversity
+      : "",
+  );
+  const [usingOtherUniversity, setUsingOtherUniversity] = useState(
+    Boolean(
+      profile.targetUniversity &&
+        !TMUA_UNIVERSITIES.includes(
+          profile.targetUniversity as (typeof TMUA_UNIVERSITIES)[number],
+        ),
+    ),
+  );
+  const [universityPickerVisible, setUniversityPickerVisible] = useState(false);
+  const [timePickerVisible, setTimePickerVisible] = useState(false);
+  const [targetScore, setTargetScore] = useState(profile.targetScore);
   const [examSitting, setExamSitting] = useState<ExamSitting>(
     profile.examSitting,
+  );
+  const [studyDays, setStudyDays] = useState<StudyDay[]>(profile.studyDays);
+  const [studyTime, setStudyTime] = useState(profile.studyTime);
+  const [studyRemindersEnabled, setStudyRemindersEnabled] = useState(
+    profile.studyRemindersEnabled,
+  );
+  const [trialReminderEnabled, setTrialReminderEnabled] = useState(
+    profile.trialReminderEnabled,
   );
   const [selectedPlan, setSelectedPlan] = useState<"free" | "premium">(
     "premium",
@@ -63,19 +115,78 @@ export default function OnboardingScreen() {
   };
 
   const saveGoals = async () => {
-    const numericScore = Number(targetScore);
-    if (!Number.isFinite(numericScore) || numericScore < 1 || numericScore > 100) {
-      Alert.alert("Check your target", "Enter a target score between 1 and 100.");
+    const university = usingOtherUniversity
+      ? customUniversity.trim()
+      : targetUniversity.trim();
+    if (!university) {
+      Alert.alert(
+        "Choose your university",
+        "Select a university or enter your own target to continue.",
+      );
       return;
     }
     setSaving(true);
     try {
       await updateProfile({
-        targetUniversity: targetUniversity.trim(),
-        targetScore: Math.round(numericScore),
+        targetUniversity: university,
+        targetScore,
         examSitting,
       });
       setStep(3);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const toggleStudyDay = (day: StudyDay) => {
+    setStudyDays((current) =>
+      current.includes(day)
+        ? current.filter((item) => item !== day)
+        : [...current, day].sort((a, b) => a - b),
+    );
+  };
+
+  const saveStudyPlan = async () => {
+    if (!studyDays.length) {
+      Alert.alert(
+        "Choose at least one day",
+        "A small repeatable commitment is more useful than a perfect plan you cannot keep.",
+      );
+      return;
+    }
+
+    setSaving(true);
+    try {
+      let studyNotifications = studyRemindersEnabled;
+      let trialNotifications = trialReminderEnabled;
+
+      if (studyNotifications || trialNotifications) {
+        const permissionGranted = await requestNotificationPermission();
+        if (!permissionGranted) {
+          studyNotifications = false;
+          trialNotifications = false;
+          setStudyRemindersEnabled(false);
+          setTrialReminderEnabled(false);
+          Alert.alert(
+            "Reminders are off",
+            "Your timetable is saved. You can enable notifications later from your device settings.",
+          );
+        }
+      }
+
+      if (studyNotifications) {
+        await scheduleStudyReminders(studyDays, studyTime);
+      } else {
+        await disableStudyReminders();
+      }
+
+      await updateProfile({
+        studyDays,
+        studyTime,
+        studyRemindersEnabled: studyNotifications,
+        trialReminderEnabled: trialNotifications,
+      });
+      setStep(4);
     } finally {
       setSaving(false);
     }
@@ -87,6 +198,12 @@ export default function OnboardingScreen() {
       if (selectedPlan === "premium") {
         try {
           const result = await presentPremiumPaywall();
+          if (
+            (result === "purchased" || result === "restored") &&
+            trialReminderEnabled
+          ) {
+            await scheduleTrialEndingReminder();
+          }
           if (result === "not-presented") {
             Alert.alert(
               "Premium checkout is not ready",
@@ -191,33 +308,106 @@ export default function OnboardingScreen() {
             <View style={styles.stepContent}>
               <StepHeading
                 eyebrow="YOUR TARGET"
-                title="Give every session a purpose"
-                body="Your goal helps us frame progress and choose the right next step."
+                title="Picture the result you’re working towards"
+                body="A clear target turns practice into progress. You can change any of this later."
               />
 
               <View style={styles.formCard}>
                 <Text style={styles.inputLabel}>TARGET UNIVERSITY</Text>
-                <TextInput
-                  autoCapitalize="words"
-                  onChangeText={setTargetUniversity}
-                  placeholder="e.g. Cambridge"
-                  placeholderTextColor="#A89587"
-                  style={styles.input}
-                  value={targetUniversity}
-                />
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => setUniversityPickerVisible(true)}
+                  style={styles.dropdown}
+                >
+                  <View style={styles.dropdownBody}>
+                    <Text
+                      numberOfLines={1}
+                      style={
+                        targetUniversity || usingOtherUniversity
+                          ? styles.dropdownText
+                          : styles.dropdownPlaceholder
+                      }
+                    >
+                      {usingOtherUniversity
+                        ? OTHER_UNIVERSITY
+                        : targetUniversity || "Choose a university"}
+                    </Text>
+                  </View>
+                  <Ionicons name="chevron-down" size={19} color={Colors.primary} />
+                </Pressable>
+
+                {usingOtherUniversity ? (
+                  <TextInput
+                    autoCapitalize="words"
+                    onChangeText={setCustomUniversity}
+                    placeholder="Enter your target university"
+                    placeholderTextColor="#A89587"
+                    style={[styles.input, styles.otherUniversityInput]}
+                    value={customUniversity}
+                  />
+                ) : null}
+
+                <Text style={styles.courseNote}>
+                  TMUA requirements vary by course and admissions year, so always check the official course page.
+                </Text>
 
                 <Text style={[styles.inputLabel, styles.fieldSpacing]}>
-                  TARGET SCORE (%)
+                  TARGET TMUA SCORE
                 </Text>
-                <TextInput
-                  keyboardType="number-pad"
-                  maxLength={3}
-                  onChangeText={setTargetScore}
-                  placeholder="70"
-                  placeholderTextColor="#A89587"
-                  style={styles.input}
-                  value={targetScore}
-                />
+                <View style={styles.scorePicker}>
+                  <Pressable
+                    accessibilityLabel="Reduce target score"
+                    disabled={targetScore <= 1}
+                    onPress={() =>
+                      setTargetScore((score) =>
+                        Math.max(1, Math.round((score - 0.1) * 10) / 10),
+                      )
+                    }
+                    style={styles.scoreButton}
+                  >
+                    <Ionicons name="remove" size={23} color={Colors.primary} />
+                  </Pressable>
+                  <View style={styles.scoreValueWrap}>
+                    <Text style={styles.scoreValue}>{targetScore.toFixed(1)}</Text>
+                    <Text style={styles.scoreScale}>OUT OF 9.0</Text>
+                  </View>
+                  <Pressable
+                    accessibilityLabel="Increase target score"
+                    disabled={targetScore >= 9}
+                    onPress={() =>
+                      setTargetScore((score) =>
+                        Math.min(9, Math.round((score + 0.1) * 10) / 10),
+                      )
+                    }
+                    style={styles.scoreButton}
+                  >
+                    <Ionicons name="add" size={23} color={Colors.primary} />
+                  </Pressable>
+                </View>
+                <View style={styles.scoreQuickRow}>
+                  {[6, 7, 8, 9].map((score) => (
+                    <Pressable
+                      key={score}
+                      onPress={() => setTargetScore(score)}
+                      style={[
+                        styles.scoreQuickOption,
+                        targetScore === score && styles.scoreQuickOptionActive,
+                      ]}
+                    >
+                      <Text
+                        style={[
+                          styles.scoreQuickText,
+                          targetScore === score && styles.scoreQuickTextActive,
+                        ]}
+                      >
+                        {score.toFixed(1)}
+                      </Text>
+                    </Pressable>
+                  ))}
+                </View>
+                <Text style={styles.scoreEncouragement}>
+                  {scoreEncouragement(targetScore)}
+                </Text>
 
                 <Text style={[styles.inputLabel, styles.fieldSpacing]}>
                   TMUA SITTING
@@ -243,7 +433,7 @@ export default function OnboardingScreen() {
 
               <PrimaryButton
                 busy={saving}
-                label="Build my plan"
+                label="Make this my target"
                 onPress={() => void saveGoals()}
               />
             </View>
@@ -252,9 +442,90 @@ export default function OnboardingScreen() {
           {step === 3 ? (
             <View style={styles.stepContent}>
               <StepHeading
+                eyebrow="YOUR ROUTINE"
+                title="Make your goal part of the week"
+                body="Choose a rhythm you can keep. Short, regular sessions beat occasional marathon revision."
+              />
+
+              <View style={styles.formCard}>
+                <Text style={styles.inputLabel}>STUDY DAYS</Text>
+                <View style={styles.dayRow}>
+                  {STUDY_DAYS.map(({ day, short, full }) => {
+                    const active = studyDays.includes(day);
+                    return (
+                      <Pressable
+                        accessibilityLabel={full}
+                        accessibilityState={{ selected: active }}
+                        key={day}
+                        onPress={() => toggleStudyDay(day)}
+                        style={[styles.dayButton, active && styles.dayButtonActive]}
+                      >
+                        <Text style={[styles.dayText, active && styles.dayTextActive]}>
+                          {short}
+                        </Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+
+                <Text style={[styles.inputLabel, styles.fieldSpacing]}>START TIME</Text>
+                <Pressable
+                  onPress={() => setTimePickerVisible(true)}
+                  style={styles.dropdown}
+                >
+                  <View style={styles.dropdownBody}>
+                    <Text style={styles.dropdownText}>{formatTime(studyTime)}</Text>
+                  </View>
+                  <Ionicons name="time-outline" size={20} color={Colors.primary} />
+                </Pressable>
+
+                <View style={styles.commitmentSummary}>
+                  <View style={styles.commitmentIcon}>
+                    <Ionicons name="calendar" size={19} color={Colors.primary} />
+                  </View>
+                  <View style={styles.commitmentBody}>
+                    <Text style={styles.commitmentTitle}>Your weekly commitment</Text>
+                    <Text style={styles.commitmentText}>
+                      {studyPlanSummary(studyDays, studyTime)}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+
+              <View style={styles.reminderList}>
+                <ReminderChoice
+                  body="A gentle prompt on each study day."
+                  enabled={studyRemindersEnabled}
+                  icon="notifications-outline"
+                  onPress={() => setStudyRemindersEnabled((value) => !value)}
+                  title="Study reminders"
+                />
+                <ReminderChoice
+                  body="If you start an eligible 7-day trial, we’ll remind you before its real expiry time."
+                  enabled={trialReminderEnabled}
+                  icon="shield-checkmark-outline"
+                  onPress={() => setTrialReminderEnabled((value) => !value)}
+                  title="Trial-ending reminder"
+                />
+              </View>
+              <Text style={styles.permissionNote}>
+                Your device will ask for notification permission after you continue. You stay in control and can turn reminders off at any time.
+              </Text>
+
+              <PrimaryButton
+                busy={saving}
+                label="Commit to my plan"
+                onPress={() => void saveStudyPlan()}
+              />
+            </View>
+          ) : null}
+
+          {step === 4 ? (
+            <View style={styles.stepContent}>
+              <StepHeading
                 eyebrow="KEEP YOUR PROGRESS"
-                title="Study on any device"
-                body="Create an account to back up lessons, practice scores and your streak. Guest mode still works on this device."
+                title="Keep every step towards your target"
+                body="Create an account to protect lessons, mock results and your streak across devices. Guest mode still works here."
               />
 
               {isSignedIn ? (
@@ -280,27 +551,27 @@ export default function OnboardingScreen() {
                         "We sent a confirmation link. You can finish onboarding now and your account will connect when you confirm it.",
                       );
                     }
-                    setStep(4);
+                    setStep(5);
                   }}
                   onGuest={() =>
-                    void continueAsGuest().then(() => setStep(4))
+                    void continueAsGuest().then(() => setStep(5))
                   }
                   showGuest
                 />
               )}
 
               {isSignedIn ? (
-                <PrimaryButton label="Continue" onPress={() => setStep(4)} />
+                <PrimaryButton label="Continue" onPress={() => setStep(5)} />
               ) : null}
             </View>
           ) : null}
 
-          {step === 4 ? (
+          {step === 5 ? (
             <View style={styles.stepContent}>
               <StepHeading
                 eyebrow="CHOOSE YOUR EXPERIENCE"
-                title="Turn preparation into an advantage"
-                body="Start free, or choose Premium for the complete exam-preparation system."
+                title={`${name.trim() || "You"}, your ${targetScore.toFixed(1)} plan is ready`}
+                body="You have a target and a routine. Premium gives that commitment the complete lesson and mock-paper system."
               />
 
               <Pressable
@@ -312,7 +583,7 @@ export default function OnboardingScreen() {
               >
                 <View style={styles.bestValuePill}>
                   <Ionicons name="sparkles" size={13} color="#7A3E00" />
-                  <Text style={styles.bestValueText}>BEST FOR SERIOUS PREP</Text>
+                  <Text style={styles.bestValueText}>START WITH 7 DAYS FREE</Text>
                 </View>
                 <View style={styles.planHeadingRow}>
                   <View>
@@ -329,10 +600,20 @@ export default function OnboardingScreen() {
                   <PremiumBenefit text="Unlimited attempts as your score improves" />
                 </View>
 
+                <View style={styles.trialBanner}>
+                  <View>
+                    <Text style={styles.trialEyebrow}>TRY THE COMPLETE PLAN</Text>
+                    <Text style={styles.trialTitle}>Explore everything for 7 days</Text>
+                  </View>
+                  <Text style={styles.trialPrice}>£0 today</Text>
+                </View>
+
                 <View style={styles.premiumPromise}>
-                  <Ionicons name="shield-checkmark-outline" size={17} color="#FFFFFF" />
+                  <Ionicons name="notifications-outline" size={17} color="#FFFFFF" />
                   <Text style={styles.premiumPromiseText}>
-                    Secure Apple or Google checkout. Cancel or restore through your store account.
+                    {trialReminderEnabled
+                      ? "If your plan includes the trial, we’ll remind you before it ends."
+                      : "Secure Apple or Google checkout. Cancel through your store account."}
                   </Text>
                 </View>
               </Pressable>
@@ -357,20 +638,101 @@ export default function OnboardingScreen() {
                 busy={saving}
                 label={
                   selectedPlan === "premium"
-                    ? "Choose Premium"
+                    ? "Start my 7-day free trial"
                     : "Start learning free"
                 }
                 onPress={() => void finish()}
               />
               <Text style={styles.planFootnote}>
-                Tap Choose Premium to view the available plans before purchasing. You can continue free if you change your mind.
+                Trial availability and the price after trial are shown in the secure store paywall before you confirm. Cancel at least 24 hours before renewal to avoid being charged.
               </Text>
             </View>
           ) : null}
         </ScrollView>
       </KeyboardAvoidingView>
+
+      <OptionPickerModal
+        onClose={() => setUniversityPickerVisible(false)}
+        title="Target university"
+        visible={universityPickerVisible}
+      >
+        {[...TMUA_UNIVERSITIES, OTHER_UNIVERSITY].map((university) => (
+          <OptionPickerRow
+            active={
+              university === OTHER_UNIVERSITY
+                ? usingOtherUniversity
+                : !usingOtherUniversity && targetUniversity === university
+            }
+            key={university}
+            label={university}
+            onPress={() => {
+              if (university === OTHER_UNIVERSITY) {
+                setUsingOtherUniversity(true);
+                setTargetUniversity("");
+              } else {
+                setUsingOtherUniversity(false);
+                setTargetUniversity(university);
+              }
+              setUniversityPickerVisible(false);
+            }}
+          />
+        ))}
+      </OptionPickerModal>
+
+      <OptionPickerModal
+        onClose={() => setTimePickerVisible(false)}
+        title="Study start time"
+        visible={timePickerVisible}
+      >
+        <View style={styles.timeGrid}>
+          {STUDY_TIMES.map((time) => (
+            <Pressable
+              key={time}
+              onPress={() => {
+                setStudyTime(time);
+                setTimePickerVisible(false);
+              }}
+              style={[
+                styles.timeOption,
+                time === studyTime && styles.timeOptionActive,
+              ]}
+            >
+              <Text
+                style={[
+                  styles.timeOptionText,
+                  time === studyTime && styles.timeOptionTextActive,
+                ]}
+              >
+                {formatTime(time)}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
+      </OptionPickerModal>
     </SafeAreaView>
   );
+}
+
+function scoreEncouragement(score: number) {
+  if (score >= 8) return "An exceptional target. We’ll help you build the accuracy and composure it demands.";
+  if (score >= 7) return "An ambitious target—and a realistic one to work towards with consistent, focused practice.";
+  if (score >= 6) return "A strong target. Every topic you master gives you more room to perform on exam day.";
+  return "A worthwhile target. Start with the foundations and let each small improvement build confidence.";
+}
+
+function formatTime(time: string) {
+  const [hour, minute] = time.split(":").map(Number);
+  const suffix = hour >= 12 ? "pm" : "am";
+  const displayHour = hour % 12 || 12;
+  return `${displayHour}:${String(minute).padStart(2, "0")} ${suffix}`;
+}
+
+function studyPlanSummary(days: StudyDay[], time: string) {
+  if (!days.length) return "Choose at least one day";
+  const labels = days.map(
+    (day) => STUDY_DAYS.find((item) => item.day === day)?.full.slice(0, 3) ?? "",
+  );
+  return `${labels.join(", ")} at ${formatTime(time)} · ${days.length} ${days.length === 1 ? "session" : "sessions"} each week`;
 }
 
 function WelcomeStep({ onNext }: { onNext: () => void }) {
@@ -478,6 +840,102 @@ function SittingOption({
       >
         {label}
       </Text>
+    </Pressable>
+  );
+}
+
+function ReminderChoice({
+  body,
+  enabled,
+  icon,
+  onPress,
+  title,
+}: {
+  body: string;
+  enabled: boolean;
+  icon: React.ComponentProps<typeof Ionicons>["name"];
+  onPress: () => void;
+  title: string;
+}) {
+  return (
+    <Pressable
+      accessibilityRole="switch"
+      accessibilityState={{ checked: enabled }}
+      onPress={onPress}
+      style={[styles.reminderChoice, enabled && styles.reminderChoiceActive]}
+    >
+      <View style={styles.reminderIcon}>
+        <Ionicons name={icon} size={21} color={Colors.primary} />
+      </View>
+      <View style={styles.reminderBody}>
+        <Text style={styles.reminderTitle}>{title}</Text>
+        <Text style={styles.reminderText}>{body}</Text>
+      </View>
+      <View style={[styles.toggleTrack, enabled && styles.toggleTrackActive]}>
+        <View style={[styles.toggleThumb, enabled && styles.toggleThumbActive]} />
+      </View>
+    </Pressable>
+  );
+}
+
+function OptionPickerModal({
+  children,
+  onClose,
+  title,
+  visible,
+}: {
+  children: React.ReactNode;
+  onClose: () => void;
+  title: string;
+  visible: boolean;
+}) {
+  return (
+    <Modal
+      animationType="slide"
+      onRequestClose={onClose}
+      transparent
+      visible={visible}
+    >
+      <View style={styles.modalBackdrop}>
+        <SafeAreaView style={styles.modalSheet} edges={["bottom"]}>
+          <View style={styles.modalHandle} />
+          <View style={styles.modalHeader}>
+            <Text style={styles.modalTitle}>{title}</Text>
+            <Pressable accessibilityLabel="Close" onPress={onClose} style={styles.modalClose}>
+              <Ionicons name="close" size={21} color={Colors.ink} />
+            </Pressable>
+          </View>
+          <ScrollView
+            contentContainerStyle={styles.modalContent}
+            showsVerticalScrollIndicator={false}
+          >
+            {children}
+          </ScrollView>
+        </SafeAreaView>
+      </View>
+    </Modal>
+  );
+}
+
+function OptionPickerRow({
+  active,
+  label,
+  onPress,
+}: {
+  active: boolean;
+  label: string;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      accessibilityState={{ selected: active }}
+      onPress={onPress}
+      style={[styles.optionPickerRow, active && styles.optionPickerRowActive]}
+    >
+      <Text style={styles.optionPickerText}>{label}</Text>
+      <View style={[styles.optionRadio, active && styles.optionRadioActive]}>
+        {active ? <View style={styles.optionRadioDot} /> : null}
+      </View>
     </Pressable>
   );
 }
@@ -675,6 +1133,81 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "800",
   },
+  dropdown: {
+    minHeight: 55,
+    paddingHorizontal: 16,
+    borderRadius: 16,
+    backgroundColor: "#FFF9EF",
+    borderWidth: 1,
+    borderColor: Colors.line,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  dropdownBody: { flex: 1 },
+  dropdownText: { color: Colors.ink, fontSize: 14, fontWeight: "800" },
+  dropdownPlaceholder: { color: "#A89587", fontSize: 14, fontWeight: "700" },
+  otherUniversityInput: { marginTop: 10 },
+  courseNote: {
+    marginTop: 10,
+    color: Colors.muted,
+    fontSize: 9,
+    lineHeight: 14,
+    fontWeight: "600",
+  },
+  scorePicker: {
+    minHeight: 90,
+    paddingHorizontal: 12,
+    borderRadius: 20,
+    backgroundColor: "#FFF5E2",
+    borderWidth: 1,
+    borderColor: "#FFD79B",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  scoreButton: {
+    width: 46,
+    height: 46,
+    borderRadius: 16,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: Colors.line,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  scoreValueWrap: { flex: 1, alignItems: "center" },
+  scoreValue: {
+    color: Colors.ink,
+    fontSize: 39,
+    lineHeight: 42,
+    fontWeight: "900",
+    letterSpacing: -1.4,
+  },
+  scoreScale: {
+    color: Colors.primary,
+    fontSize: 8,
+    fontWeight: "900",
+    letterSpacing: 1,
+  },
+  scoreQuickRow: { marginTop: 9, flexDirection: "row", gap: 7 },
+  scoreQuickOption: {
+    flex: 1,
+    minHeight: 36,
+    borderRadius: 12,
+    backgroundColor: "#F4EBDD",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  scoreQuickOptionActive: { backgroundColor: Colors.primary },
+  scoreQuickText: { color: Colors.muted, fontSize: 10, fontWeight: "900" },
+  scoreQuickTextActive: { color: "#FFFFFF" },
+  scoreEncouragement: {
+    marginTop: 10,
+    color: Colors.muted,
+    fontSize: 10,
+    lineHeight: 15,
+    fontWeight: "700",
+  },
   reassuranceRow: {
     marginTop: 13,
     flexDirection: "row",
@@ -707,6 +1240,101 @@ const styles = StyleSheet.create({
     fontWeight: "900",
   },
   sittingOptionTextActive: { color: Colors.primary },
+  dayRow: { flexDirection: "row", justifyContent: "space-between", gap: 5 },
+  dayButton: {
+    flex: 1,
+    aspectRatio: 1,
+    maxWidth: 42,
+    borderRadius: 15,
+    backgroundColor: "#F4EBDD",
+    borderWidth: 1,
+    borderColor: "transparent",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  dayButtonActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
+  dayText: { color: Colors.muted, fontSize: 11, fontWeight: "900" },
+  dayTextActive: { color: "#FFFFFF" },
+  commitmentSummary: {
+    marginTop: 15,
+    padding: 13,
+    borderRadius: 17,
+    backgroundColor: "#FFF0D3",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  commitmentIcon: {
+    width: 38,
+    height: 38,
+    borderRadius: 13,
+    backgroundColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  commitmentBody: { flex: 1 },
+  commitmentTitle: { color: Colors.ink, fontSize: 11, fontWeight: "900" },
+  commitmentText: {
+    marginTop: 2,
+    color: Colors.muted,
+    fontSize: 9,
+    lineHeight: 14,
+    fontWeight: "700",
+  },
+  reminderList: { marginBottom: 10, gap: 9 },
+  reminderChoice: {
+    minHeight: 74,
+    padding: 12,
+    borderRadius: 20,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: Colors.line,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  reminderChoiceActive: { borderColor: "#F4B550", backgroundColor: "#FFFCF5" },
+  reminderIcon: {
+    width: 42,
+    height: 42,
+    borderRadius: 14,
+    backgroundColor: "#FFF0D3",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  reminderBody: { flex: 1 },
+  reminderTitle: { color: Colors.ink, fontSize: 12, fontWeight: "900" },
+  reminderText: {
+    marginTop: 2,
+    color: Colors.muted,
+    fontSize: 9,
+    lineHeight: 13,
+    fontWeight: "700",
+  },
+  toggleTrack: {
+    width: 42,
+    height: 25,
+    padding: 3,
+    borderRadius: 13,
+    backgroundColor: "#DED4C7",
+  },
+  toggleTrackActive: { backgroundColor: Colors.primary },
+  toggleThumb: {
+    width: 19,
+    height: 19,
+    borderRadius: 10,
+    backgroundColor: "#FFFFFF",
+  },
+  toggleThumbActive: { alignSelf: "flex-end" },
+  permissionNote: {
+    marginBottom: 15,
+    paddingHorizontal: 6,
+    color: Colors.muted,
+    fontSize: 9,
+    lineHeight: 14,
+    fontWeight: "600",
+    textAlign: "center",
+  },
   primaryButton: {
     minHeight: 56,
     paddingHorizontal: 21,
@@ -822,6 +1450,24 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     fontWeight: "700",
   },
+  trialBanner: {
+    marginTop: 18,
+    padding: 13,
+    borderRadius: 16,
+    backgroundColor: "#FFF0D3",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  trialEyebrow: {
+    color: Colors.primary,
+    fontSize: 7,
+    fontWeight: "900",
+    letterSpacing: 0.8,
+  },
+  trialTitle: { marginTop: 3, color: Colors.ink, fontSize: 11, fontWeight: "900" },
+  trialPrice: { color: "#7A3E00", fontSize: 14, fontWeight: "900" },
   premiumPromise: {
     marginTop: 19,
     padding: 12,
@@ -869,4 +1515,89 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
   },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(45,36,31,0.45)",
+    justifyContent: "flex-end",
+  },
+  modalSheet: {
+    maxHeight: "82%",
+    paddingTop: 9,
+    paddingHorizontal: 18,
+    backgroundColor: Colors.cream,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+  },
+  modalHandle: {
+    width: 42,
+    height: 5,
+    alignSelf: "center",
+    borderRadius: 3,
+    backgroundColor: "#D8CBBB",
+  },
+  modalHeader: {
+    minHeight: 66,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  modalTitle: { color: Colors.ink, fontSize: 22, fontWeight: "900" },
+  modalClose: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalContent: { paddingBottom: 18, gap: 8 },
+  optionPickerRow: {
+    minHeight: 60,
+    paddingHorizontal: 15,
+    borderRadius: 18,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: Colors.line,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  optionPickerRowActive: { borderColor: Colors.primary, backgroundColor: "#FFF8EA" },
+  optionPickerText: {
+    flex: 1,
+    color: Colors.ink,
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: "800",
+  },
+  optionRadio: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    borderWidth: 2,
+    borderColor: "#CFC1B2",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  optionRadioActive: { borderColor: Colors.primary },
+  optionRadioDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: Colors.primary,
+  },
+  timeGrid: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
+  timeOption: {
+    width: "31%",
+    minHeight: 45,
+    borderRadius: 14,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: Colors.line,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  timeOptionActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
+  timeOptionText: { color: Colors.ink, fontSize: 10, fontWeight: "800" },
+  timeOptionTextActive: { color: "#FFFFFF" },
 });

@@ -1,4 +1,4 @@
-import type { AccountProfile } from "./account-storage";
+import type { AccountProfile, StudyDay } from "./account-storage";
 import type { LessonActivity } from "./study-activity";
 import type {
   PracticeResult,
@@ -12,6 +12,10 @@ export interface RemoteProfileRow {
   target_university: string;
   target_score: number;
   exam_sitting: string;
+  study_days: StudyDay[];
+  study_time: string;
+  study_reminders_enabled: boolean;
+  trial_reminder_enabled: boolean;
   onboarding_completed: boolean;
   premium_interest: boolean;
   created_at: string;
@@ -64,6 +68,10 @@ export async function upsertRemoteProfile(
       target_university: profile.targetUniversity,
       target_score: profile.targetScore,
       exam_sitting: profile.examSitting,
+      study_days: profile.studyDays,
+      study_time: profile.studyTime,
+      study_reminders_enabled: profile.studyRemindersEnabled,
+      trial_reminder_enabled: profile.trialReminderEnabled,
       onboarding_completed: profile.onboardingCompleted,
       premium_interest: profile.premiumInterest,
       updated_at: profile.updatedAt,

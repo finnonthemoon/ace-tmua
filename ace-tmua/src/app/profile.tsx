@@ -20,7 +20,7 @@ import {
 import type { HomeDashboardData } from "@/components/home/home-data";
 import { Colors, Shadow } from "@/constants/theme";
 import { useAccount } from "@/contexts/AccountContext";
-import type { ExamSitting } from "@/services/account-storage";
+import type { ExamSitting, StudyDay } from "@/services/account-storage";
 
 function getInitials(name: string) {
   return name
@@ -36,6 +36,25 @@ function examSittingLabel(sitting: ExamSitting) {
   if (sitting === "october") return "October sitting";
   if (sitting === "january") return "January sitting";
   return "Sitting undecided";
+}
+
+function tmuaScoreLabel(score: number) {
+  return `${score.toFixed(1)} / 9.0`;
+}
+
+const SHORT_DAY_LABELS: Record<StudyDay, string> = {
+  1: "Mon",
+  2: "Tue",
+  3: "Wed",
+  4: "Thu",
+  5: "Fri",
+  6: "Sat",
+  7: "Sun",
+};
+
+function studyPlanLabel(days: StudyDay[], time: string) {
+  const dayList = days.map((day) => SHORT_DAY_LABELS[day]).join(", ");
+  return `${dayList || "No days selected"} at ${time}`;
 }
 
 export default function ProfileScreen() {
@@ -81,8 +100,8 @@ export default function ProfileScreen() {
 
   const saveProfile = async () => {
     const numericScore = Number(score);
-    if (!name.trim() || !Number.isFinite(numericScore) || numericScore < 1 || numericScore > 100) {
-      Alert.alert("Check your details", "Add a name and a target score between 1 and 100.");
+    if (!name.trim() || !Number.isFinite(numericScore) || numericScore < 1 || numericScore > 9) {
+      Alert.alert("Check your details", "Add a name and a TMUA target between 1.0 and 9.0.");
       return;
     }
 
@@ -91,7 +110,7 @@ export default function ProfileScreen() {
       await updateProfile({
         name: name.trim(),
         targetUniversity: university.trim(),
-        targetScore: Math.round(numericScore),
+        targetScore: Math.round(numericScore * 10) / 10,
         examSitting: sitting,
       });
       setEditing(false);
@@ -141,8 +160,8 @@ export default function ProfileScreen() {
             <Text style={styles.name}>{profile.name || "TMUA student"}</Text>
             <Text style={styles.target}>
               {profile.targetUniversity
-                ? `Target: ${profile.targetUniversity} · ${profile.targetScore}%`
-                : `Target score: ${profile.targetScore}%`}
+                ? `Target: ${profile.targetUniversity} · ${tmuaScoreLabel(profile.targetScore)}`
+                : `Target score: ${tmuaScoreLabel(profile.targetScore)}`}
             </Text>
             <View style={styles.planPill}>
               <Ionicons
@@ -217,9 +236,21 @@ export default function ProfileScreen() {
         <View style={styles.detailsCard}>
           <DetailRow icon="school-outline" label="Target university" value={profile.targetUniversity || "Not set"} />
           <View style={styles.divider} />
-          <DetailRow icon="analytics-outline" label="Target score" value={`${profile.targetScore}%`} />
+          <DetailRow icon="analytics-outline" label="Target score" value={tmuaScoreLabel(profile.targetScore)} />
           <View style={styles.divider} />
           <DetailRow icon="calendar-outline" label="Exam plan" value={examSittingLabel(profile.examSitting)} />
+          <View style={styles.divider} />
+          <DetailRow
+            icon="time-outline"
+            label="Study routine"
+            value={studyPlanLabel(profile.studyDays, profile.studyTime)}
+          />
+          <View style={styles.divider} />
+          <DetailRow
+            icon="notifications-outline"
+            label="Study reminders"
+            value={profile.studyRemindersEnabled ? "On" : "Off"}
+          />
         </View>
 
         <Pressable onPress={() => router.push("/premium")} style={styles.premiumCard}>
@@ -261,8 +292,8 @@ export default function ProfileScreen() {
             <TextInput onChangeText={setName} style={styles.input} value={name} />
             <Text style={styles.inputLabel}>TARGET UNIVERSITY</Text>
             <TextInput onChangeText={setUniversity} placeholder="Optional" placeholderTextColor="#A89587" style={styles.input} value={university} />
-            <Text style={styles.inputLabel}>TARGET SCORE (%)</Text>
-            <TextInput keyboardType="number-pad" maxLength={3} onChangeText={setScore} style={styles.input} value={score} />
+            <Text style={styles.inputLabel}>TARGET TMUA SCORE (1.0–9.0)</Text>
+            <TextInput keyboardType="decimal-pad" maxLength={3} onChangeText={setScore} style={styles.input} value={score} />
             <Text style={styles.inputLabel}>EXAM SITTING</Text>
             <View style={styles.sittingRow}>
               {(["october", "january", "undecided"] as const).map((option) => (

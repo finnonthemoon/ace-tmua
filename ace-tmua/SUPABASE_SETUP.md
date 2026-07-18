@@ -12,6 +12,8 @@ The app works immediately in guest mode. When Supabase is configured it adds ema
 
 The script creates profiles, lesson progress, study activity, practice results, saved practice sessions and a protected Premium entitlement table. Row Level Security ensures signed-in users can only access their own rows.
 
+If the database was set up before the onboarding study-plan update, do not rerun only the original `create table` statements: they do not alter an existing table. Instead, open a new SQL Editor query, copy `supabase/migrations/20260718010000_onboarding_study_plan.sql`, and run it once. This safely converts old percentage-style targets such as `70` to TMUA scores such as `7.0`, then adds the study day, time and reminder fields.
+
 ## 2. Add the project keys
 
 1. In Supabase, open the project's **Connect** panel.
@@ -132,6 +134,7 @@ In the RevenueCat dashboard:
 3. Keep the intended packages in the `default` offering.
 4. Create, publish and attach a paywall to the `default` offering. Having packages alone is not enough for `presentPaywallIfNeeded`.
 5. Add the production App Store app and use its `appl_...` public SDK key for iOS release builds.
+6. Configure the intended subscription product with a seven-day introductory free trial in the relevant store/Test Store, then confirm the RevenueCat paywall shows that trial. The onboarding copy describes a trial, but the store remains the source of truth and decides whether each Apple or Google account is eligible.
 
 The app uses the signed-in Supabase user UUID as the RevenueCat App User ID. This makes Premium portable across devices and allows server-side subscription events to map back to the correct database row.
 
@@ -144,6 +147,8 @@ npx expo run:ios
 ```
 
 Then test one valid Test Store purchase, one failed purchase, cancellation and restore while signed into a Supabase test account.
+
+The onboarding study reminders use local scheduled notifications, so they do not need an Expo push server or push credentials. The `expo-notifications` config plugin is installed; rebuild the native app after pulling this update. The trial-ending reminder is only scheduled after RevenueCat reports an active trial with a real expiry date.
 
 ## 8. Run the service audit
 

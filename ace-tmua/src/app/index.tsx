@@ -343,7 +343,7 @@ export default function HomeScreen() {
         <View style={styles.targetNote}>
           <Ionicons name="flag-outline" size={18} color={Colors.primary} />
           <Text style={styles.targetNoteText}>
-            Targeting {profile.targetScore}%
+            Targeting {profile.targetScore.toFixed(1)} / 9.0
             {profile.targetUniversity ? ` for ${profile.targetUniversity}` : ""}
           </Text>
           <Pressable onPress={() => router.push("/profile")} hitSlop={10}>

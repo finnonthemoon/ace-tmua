@@ -5,9 +5,18 @@ create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   display_name text not null default '',
   target_university text not null default '',
-  target_score smallint not null default 70 check (target_score between 1 and 100),
+  target_score numeric(2,1) not null default 7.0
+    check (target_score between 1.0 and 9.0),
   exam_sitting text not null default 'undecided'
     check (exam_sitting in ('october', 'january', 'undecided')),
+  study_days smallint[] not null default array[1, 3, 5]::smallint[]
+    check (
+      cardinality(study_days) between 1 and 7
+      and study_days <@ array[1, 2, 3, 4, 5, 6, 7]::smallint[]
+    ),
+  study_time time not null default '18:00',
+  study_reminders_enabled boolean not null default false,
+  trial_reminder_enabled boolean not null default true,
   onboarding_completed boolean not null default false,
   premium_interest boolean not null default false,
   created_at timestamptz not null default now(),
@@ -108,22 +117,47 @@ begin
     display_name,
     target_university,
     target_score,
-    exam_sitting
+    exam_sitting,
+    study_days,
+    study_time,
+    study_reminders_enabled,
+    trial_reminder_enabled
   ) values (
     new.id,
     coalesce(new.raw_user_meta_data ->> 'full_name', ''),
     coalesce(new.raw_user_meta_data ->> 'target_university', ''),
     case
-      when new.raw_user_meta_data ->> 'target_score' ~ '^[0-9]{1,3}$'
-        and (new.raw_user_meta_data ->> 'target_score')::integer between 1 and 100
-        then (new.raw_user_meta_data ->> 'target_score')::smallint
-      else 70
+      when new.raw_user_meta_data ->> 'target_score' ~ '^[1-9](\.[0-9])?$'
+        and (new.raw_user_meta_data ->> 'target_score')::numeric between 1 and 9
+        then (new.raw_user_meta_data ->> 'target_score')::numeric(2,1)
+      else 7.0
     end,
     case
       when new.raw_user_meta_data ->> 'exam_sitting' in ('october', 'january', 'undecided')
         then new.raw_user_meta_data ->> 'exam_sitting'
       else 'undecided'
-    end
+    end,
+    case
+      when jsonb_typeof(new.raw_user_meta_data -> 'study_days') = 'array'
+        and jsonb_array_length(new.raw_user_meta_data -> 'study_days') between 1 and 7
+        and not exists (
+          select 1
+          from jsonb_array_elements_text(new.raw_user_meta_data -> 'study_days') as item(value)
+          where item.value !~ '^[1-7]$'
+        )
+        then array(
+          select item.value::smallint
+          from jsonb_array_elements_text(new.raw_user_meta_data -> 'study_days') as item(value)
+        )
+      else array[1, 3, 5]::smallint[]
+    end,
+    case
+      when new.raw_user_meta_data ->> 'study_time' ~ '^([01][0-9]|2[0-3]):[0-5][0-9]$'
+        then (new.raw_user_meta_data ->> 'study_time')::time
+      else '18:00'::time
+    end,
+    new.raw_user_meta_data ->> 'study_reminders_enabled' = 'true',
+    coalesce(new.raw_user_meta_data ->> 'trial_reminder_enabled', 'true') = 'true'
   )
   on conflict (id) do nothing;
 
