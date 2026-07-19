@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import {
+  Alert,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -55,7 +56,16 @@ export default function SignInScreen() {
 
           <AuthPanel
             defaultMode="sign-in"
-            onComplete={() => router.replace("/")}
+            onComplete={(requiresEmailConfirmation) => {
+              if (requiresEmailConfirmation) {
+                Alert.alert(
+                  "Confirm your email",
+                  "Your account has been created, but you are not signed in yet. Open the confirmation link in your email; ACE TMUA will then connect your account automatically.",
+                );
+                return;
+              }
+              router.replace("/");
+            }}
           />
         </ScrollView>
       </KeyboardAvoidingView>

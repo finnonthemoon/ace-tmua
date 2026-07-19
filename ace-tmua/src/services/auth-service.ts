@@ -131,3 +131,33 @@ export async function signInWithApple() {
 
   return data.session;
 }
+
+export async function getAppleAuthorizationCodeForAccountDeletion(
+  expectedAppleUserId?: string,
+) {
+  const available = await AppleAuthentication.isAvailableAsync();
+  if (!available) return null;
+
+  const state = randomNonce(await Crypto.getRandomBytesAsync(24));
+  const credential = await AppleAuthentication.signInAsync({ state });
+
+  if (credential.state !== state) {
+    throw new Error("Apple account confirmation could not be verified.");
+  }
+  if (expectedAppleUserId && credential.user !== expectedAppleUserId) {
+    throw new Error(
+      "The Apple account selected does not match the signed-in account.",
+    );
+  }
+
+  return credential.authorizationCode;
+}
+
+export function isAppleAuthenticationCancellation(error: unknown) {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    error.code === "ERR_REQUEST_CANCELED"
+  );
+}

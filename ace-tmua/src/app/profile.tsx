@@ -21,6 +21,7 @@ import type { HomeDashboardData } from "@/components/home/home-data";
 import { Colors, Shadow } from "@/constants/theme";
 import { useAccount } from "@/contexts/AccountContext";
 import type { ExamSitting, StudyDay } from "@/services/account-storage";
+import { isAppleAuthenticationCancellation } from "@/services/auth-service";
 
 function getInitials(name: string) {
   return name
@@ -65,6 +66,9 @@ export default function ProfileScreen() {
     isSupabaseConfigured,
     isSyncing,
     profile,
+    session,
+    deleteAccount,
+    openSubscriptionManagement,
     refreshAccount,
     signOut,
     syncError,
@@ -77,6 +81,10 @@ export default function ProfileScreen() {
   const [score, setScore] = useState(`${profile.targetScore}`);
   const [sitting, setSitting] = useState<ExamSitting>(profile.examSitting);
   const [saving, setSaving] = useState(false);
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+  const [deleteConfirmation, setDeleteConfirmation] = useState("");
+  const [deletionError, setDeletionError] = useState<string | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
@@ -133,6 +141,71 @@ export default function ProfileScreen() {
       ],
     );
   };
+
+  const openDeleteAccount = () => {
+    setDeleteConfirmation("");
+    setDeletionError(null);
+    setDeleteModalVisible(true);
+  };
+
+  const manageSubscription = async () => {
+    try {
+      await openSubscriptionManagement();
+    } catch (error) {
+      Alert.alert(
+        "Could not open subscriptions",
+        error instanceof Error
+          ? error.message
+          : "Open your App Store or Google Play subscription settings manually.",
+      );
+    }
+  };
+
+  const completeAccountDeletion = async () => {
+    if (deleteConfirmation.trim().toUpperCase() !== "DELETE") return;
+
+    setIsDeleting(true);
+    setDeletionError(null);
+    try {
+      const result = await deleteAccount();
+      setDeleteModalVisible(false);
+      setDeleteConfirmation("");
+
+      const appleMessage =
+        result.appleRevocation === "manual-required"
+          ? " Apple could not revoke the sign-in token automatically. In iPhone Settings, open your Apple Account, then Sign-In & Security → Sign in with Apple → ACE TMUA → Stop Using Apple ID."
+          : "";
+
+      Alert.alert(
+        "Account deleted",
+        `Your profile, lesson progress, practice results and saved sessions have been permanently deleted.${appleMessage}`,
+        [
+          {
+            text: "Continue",
+            onPress: () => router.replace("/onboarding"),
+          },
+        ],
+      );
+    } catch (error) {
+      if (isAppleAuthenticationCancellation(error)) {
+        setDeletionError(
+          "Apple account confirmation was cancelled. Your account has not been deleted.",
+        );
+      } else {
+        setDeletionError(
+          error instanceof Error
+            ? error.message
+            : "The account could not be deleted. Please try again.",
+        );
+      }
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  const hasAppleIdentity = Boolean(
+    session?.user.identities?.some((identity) => identity.provider === "apple"),
+  );
 
   const bestScore = dashboard?.bestPracticePercent;
 
@@ -265,10 +338,29 @@ export default function ProfileScreen() {
         </Pressable>
 
         {isSignedIn ? (
-          <Pressable onPress={confirmSignOut} style={styles.signOutButton}>
-            <Ionicons name="log-out-outline" size={18} color="#A64A3E" />
-            <Text style={styles.signOutText}>Sign out</Text>
-          </Pressable>
+          <>
+            <Pressable onPress={confirmSignOut} style={styles.signOutButton}>
+              <Ionicons name="log-out-outline" size={18} color="#A64A3E" />
+              <Text style={styles.signOutText}>Sign out</Text>
+            </Pressable>
+
+            <Pressable
+              accessibilityRole="button"
+              onPress={openDeleteAccount}
+              style={styles.dangerZone}
+            >
+              <View style={styles.dangerIcon}>
+                <Ionicons name="trash-outline" size={19} color="#A43E36" />
+              </View>
+              <View style={styles.dangerBody}>
+                <Text style={styles.dangerTitle}>Delete account</Text>
+                <Text style={styles.dangerText}>
+                  Permanently remove your account and all synced study data.
+                </Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color="#A43E36" />
+            </Pressable>
+          </>
         ) : null}
 
         <View style={styles.bottomSpacing} />
@@ -311,7 +403,146 @@ export default function ProfileScreen() {
           </SafeAreaView>
         </View>
       </Modal>
+
+      <Modal
+        animationType="slide"
+        onRequestClose={() => {
+          if (!isDeleting) setDeleteModalVisible(false);
+        }}
+        transparent
+        visible={deleteModalVisible}
+      >
+        <View style={styles.modalBackdrop}>
+          <SafeAreaView style={styles.deleteSheet} edges={["bottom"]}>
+            <View style={styles.modalHandle} />
+            <ScrollView
+              contentContainerStyle={styles.deleteContent}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+            >
+              <View style={styles.deleteHeader}>
+                <View style={styles.deleteHeaderIcon}>
+                  <Ionicons
+                    name="warning-outline"
+                    size={24}
+                    color="#A43E36"
+                  />
+                </View>
+                <View style={styles.deleteHeaderText}>
+                  <Text style={styles.deleteEyebrow}>PERMANENT ACTION</Text>
+                  <Text style={styles.deleteTitle}>Delete your account?</Text>
+                </View>
+                <Pressable
+                  disabled={isDeleting}
+                  onPress={() => setDeleteModalVisible(false)}
+                  style={styles.modalClose}
+                >
+                  <Ionicons name="close" size={22} color={Colors.ink} />
+                </Pressable>
+              </View>
+
+              <Text style={styles.deleteIntro}>
+                This cannot be undone. ACE TMUA will permanently remove:
+              </Text>
+              <DeletionItem text="Your profile and study preferences" />
+              <DeletionItem text="Lesson progress and activity history" />
+              <DeletionItem text="Practice results and saved test sessions" />
+              <DeletionItem text="Your Premium entitlement record in ACE TMUA" />
+
+              <View style={styles.subscriptionWarning}>
+                <Ionicons name="card-outline" size={21} color="#8A591E" />
+                <View style={styles.subscriptionWarningBody}>
+                  <Text style={styles.subscriptionWarningTitle}>
+                    Your subscription will not be cancelled
+                  </Text>
+                  <Text style={styles.subscriptionWarningText}>
+                    Apple or Google controls billing. Cancel there first if you
+                    do not want your subscription to renew.
+                  </Text>
+                </View>
+              </View>
+
+              <Pressable
+                disabled={isDeleting}
+                onPress={() => void manageSubscription()}
+                style={styles.manageSubscriptionButton}
+              >
+                <Ionicons name="open-outline" size={17} color={Colors.primary} />
+                <Text style={styles.manageSubscriptionText}>
+                  Manage subscription
+                </Text>
+              </Pressable>
+
+              {hasAppleIdentity ? (
+                <Text style={styles.providerConfirmationText}>
+                  Apple will also ask you to confirm your identity so ACE TMUA
+                  can revoke its Sign in with Apple access.
+                </Text>
+              ) : null}
+
+              <Text style={styles.deleteInputLabel}>
+                TYPE DELETE TO CONFIRM
+              </Text>
+              <TextInput
+                autoCapitalize="characters"
+                autoCorrect={false}
+                editable={!isDeleting}
+                onChangeText={setDeleteConfirmation}
+                placeholder="DELETE"
+                placeholderTextColor="#B7A79A"
+                style={styles.deleteInput}
+                value={deleteConfirmation}
+              />
+
+              {deletionError ? (
+                <View style={styles.deletionError}>
+                  <Ionicons
+                    name="alert-circle-outline"
+                    size={17}
+                    color="#A43E36"
+                  />
+                  <Text style={styles.deletionErrorText}>{deletionError}</Text>
+                </View>
+              ) : null}
+
+              <Pressable
+                disabled={
+                  isDeleting ||
+                  deleteConfirmation.trim().toUpperCase() !== "DELETE"
+                }
+                onPress={() => void completeAccountDeletion()}
+                style={({ pressed }) => [
+                  styles.deleteAccountButton,
+                  deleteConfirmation.trim().toUpperCase() !== "DELETE" &&
+                    styles.deleteAccountButtonDisabled,
+                  pressed && !isDeleting && styles.deleteAccountButtonPressed,
+                ]}
+              >
+                {isDeleting ? (
+                  <ActivityIndicator color="#FFFFFF" />
+                ) : (
+                  <>
+                    <Ionicons name="trash-outline" size={18} color="#FFFFFF" />
+                    <Text style={styles.deleteAccountButtonText}>
+                      Permanently delete account
+                    </Text>
+                  </>
+                )}
+              </Pressable>
+            </ScrollView>
+          </SafeAreaView>
+        </View>
+      </Modal>
     </SafeAreaView>
+  );
+}
+
+function DeletionItem({ text }: { text: string }) {
+  return (
+    <View style={styles.deletionItem}>
+      <View style={styles.deletionItemDot} />
+      <Text style={styles.deletionItemText}>{text}</Text>
+    </View>
   );
 }
 
@@ -381,6 +612,11 @@ const styles = StyleSheet.create({
   premiumTitle: { marginTop: 3, color: "#5B3107", fontSize: 13, lineHeight: 17, fontWeight: "900" },
   signOutButton: { minHeight: 50, marginTop: 15, borderRadius: 18, backgroundColor: "#FFF0EC", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 7 },
   signOutText: { color: "#A64A3E", fontSize: 12, fontWeight: "900" },
+  dangerZone: { minHeight: 76, marginTop: 11, padding: 14, borderRadius: 20, borderWidth: 1, borderColor: "#E9C8C2", backgroundColor: "#FFF9F7", flexDirection: "row", alignItems: "center", gap: 11 },
+  dangerIcon: { width: 42, height: 42, borderRadius: 14, backgroundColor: "#FBE7E3", justifyContent: "center", alignItems: "center" },
+  dangerBody: { flex: 1 },
+  dangerTitle: { color: "#8E302A", fontSize: 13, fontWeight: "900" },
+  dangerText: { marginTop: 3, color: "#9B6C66", fontSize: 9, lineHeight: 13, fontWeight: "700" },
   bottomSpacing: { height: 20 },
   modalBackdrop: { flex: 1, backgroundColor: "rgba(45,36,31,0.42)", justifyContent: "flex-end" },
   modalSheet: { padding: 20, paddingTop: 11, borderTopLeftRadius: 30, borderTopRightRadius: 30, backgroundColor: Colors.cream },
@@ -397,4 +633,30 @@ const styles = StyleSheet.create({
   sittingTextActive: { color: Colors.primary },
   saveButton: { minHeight: 54, marginTop: 20, borderRadius: 17, backgroundColor: Colors.primary, justifyContent: "center", alignItems: "center" },
   saveButtonText: { color: "#FFFFFF", fontSize: 14, fontWeight: "900" },
+  deleteSheet: { maxHeight: "94%", padding: 20, paddingTop: 11, borderTopLeftRadius: 30, borderTopRightRadius: 30, backgroundColor: Colors.cream },
+  deleteContent: { paddingBottom: 4 },
+  deleteHeader: { flexDirection: "row", alignItems: "center", gap: 11, marginBottom: 16 },
+  deleteHeaderIcon: { width: 46, height: 46, borderRadius: 16, backgroundColor: "#FBE7E3", justifyContent: "center", alignItems: "center" },
+  deleteHeaderText: { flex: 1 },
+  deleteEyebrow: { color: "#A43E36", fontSize: 8, fontWeight: "900", letterSpacing: 1 },
+  deleteTitle: { marginTop: 2, color: Colors.ink, fontSize: 22, fontWeight: "900" },
+  deleteIntro: { marginBottom: 9, color: Colors.muted, fontSize: 11, lineHeight: 17, fontWeight: "700" },
+  deletionItem: { minHeight: 25, flexDirection: "row", alignItems: "center", gap: 9 },
+  deletionItemDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: "#C75B50" },
+  deletionItemText: { flex: 1, color: Colors.ink, fontSize: 10, lineHeight: 15, fontWeight: "800" },
+  subscriptionWarning: { marginTop: 13, padding: 13, borderRadius: 17, backgroundColor: "#FFF0D3", flexDirection: "row", alignItems: "flex-start", gap: 10 },
+  subscriptionWarningBody: { flex: 1 },
+  subscriptionWarningTitle: { color: "#754512", fontSize: 11, fontWeight: "900" },
+  subscriptionWarningText: { marginTop: 3, color: "#8A6B49", fontSize: 9, lineHeight: 14, fontWeight: "700" },
+  manageSubscriptionButton: { minHeight: 44, marginTop: 9, borderRadius: 14, borderWidth: 1, borderColor: Colors.line, backgroundColor: "#FFFFFF", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 7 },
+  manageSubscriptionText: { color: Colors.primary, fontSize: 11, fontWeight: "900" },
+  providerConfirmationText: { marginTop: 11, color: Colors.muted, fontSize: 9, lineHeight: 14, fontWeight: "700" },
+  deleteInputLabel: { marginTop: 14, marginBottom: 6, color: "#8E302A", fontSize: 8, fontWeight: "900", letterSpacing: 0.9 },
+  deleteInput: { height: 49, paddingHorizontal: 14, borderRadius: 14, borderWidth: 1, borderColor: "#E2B6AF", backgroundColor: "#FFFFFF", color: Colors.ink, fontSize: 14, fontWeight: "900", letterSpacing: 1 },
+  deletionError: { marginTop: 9, padding: 10, borderRadius: 13, backgroundColor: "#FBE7E3", flexDirection: "row", alignItems: "flex-start", gap: 7 },
+  deletionErrorText: { flex: 1, color: "#8E302A", fontSize: 9, lineHeight: 14, fontWeight: "700" },
+  deleteAccountButton: { minHeight: 54, marginTop: 13, borderRadius: 17, backgroundColor: "#A43E36", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8 },
+  deleteAccountButtonDisabled: { backgroundColor: "#D5B5B0" },
+  deleteAccountButtonPressed: { opacity: 0.84 },
+  deleteAccountButtonText: { color: "#FFFFFF", fontSize: 12, fontWeight: "900" },
 });

@@ -153,3 +153,7 @@ export async function scheduleTrialEndingReminder() {
   );
   return true;
 }
+
+export async function disableTrialEndingReminder() {
+  await cancelStoredNotifications(TRIAL_NOTIFICATION_ID_KEY);
+}

@@ -1,4 +1,5 @@
 import type { Session } from "@supabase/supabase-js";
+import * as Linking from "expo-linking";
 import RevenueCatUI, { PAYWALL_RESULT } from "react-native-purchases-ui";
 import Purchases, {
   LOG_LEVEL,
@@ -13,15 +14,22 @@ import {
   useRef,
   useState,
 } from "react";
-import { AppState } from "react-native";
+import { AppState, Platform } from "react-native";
 
 import { isSupabaseConfigured, requireSupabase, supabase } from "@/lib/supabase";
 import {
   authRedirectUri,
+  getAppleAuthorizationCodeForAccountDeletion,
+  isAppleAuthenticationCancellation,
   passwordResetRedirectUri,
   signInWithApple as authenticateWithApple,
   signInWithGoogle as authenticateWithGoogle,
 } from "@/services/auth-service";
+import {
+  clearDeletedAccountFromDevice,
+  requestAccountDeletion,
+} from "@/services/account-deletion";
+import type { AccountDeletionResult } from "@/services/account-deletion";
 import {
   createEmptyProfile,
   getLocalAccountProfile,
@@ -71,6 +79,8 @@ interface AccountContextValue {
   sendPasswordReset: (email: string) => Promise<void>;
   updatePassword: (password: string) => Promise<void>;
   signOut: () => Promise<void>;
+  deleteAccount: () => Promise<AccountDeletionResult>;
+  openSubscriptionManagement: () => Promise<void>;
   refreshAccount: () => Promise<void>;
   refreshPremiumStatus: () => Promise<boolean>;
   presentPremiumPaywall: () => Promise<PremiumPaywallResult>;
@@ -400,6 +410,22 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
     return applyCustomerInfo(customerInfo);
   }, [applyCustomerInfo, isPurchasesConfigured, purchasesError]);
 
+  const openSubscriptionManagement = useCallback(async () => {
+    let managementUrl: string | null = null;
+
+    if (isPurchasesConfigured) {
+      const customerInfo = await Purchases.getCustomerInfo();
+      managementUrl = customerInfo.managementURL;
+    }
+
+    managementUrl ??=
+      Platform.OS === "android"
+        ? "https://play.google.com/store/account/subscriptions"
+        : "https://apps.apple.com/account/subscriptions";
+
+    await Linking.openURL(managementUrl);
+  }, [isPurchasesConfigured]);
+
   const updateProfile = useCallback(
     async (patch: Partial<AccountProfile>) => {
       const nextProfile = await commitProfile({
@@ -529,6 +555,67 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
     });
   }, [commitProfile]);
 
+  const deleteAccount = useCallback(async () => {
+    const currentSession = sessionRef.current;
+    if (!currentSession) {
+      throw new Error("Sign in again before deleting your account.");
+    }
+
+    const appleIdentity = currentSession.user.identities?.find(
+      (identity) => identity.provider === "apple",
+    );
+    const appleSubject = appleIdentity?.identity_data?.sub;
+    let appleAuthorizationCode: string | null = null;
+    if (appleIdentity) {
+      try {
+        appleAuthorizationCode =
+          await getAppleAuthorizationCodeForAccountDeletion(
+            typeof appleSubject === "string" ? appleSubject : undefined,
+          );
+      } catch (error) {
+        if (isAppleAuthenticationCancellation(error)) throw error;
+        console.warn(
+          "Apple reauthentication was unavailable; manual revocation will be required:",
+          error,
+        );
+      }
+    }
+
+    const result = await requestAccountDeletion(appleAuthorizationCode);
+
+    if (
+      isPurchasesConfigured &&
+      currentPurchasesUserIdRef.current &&
+      !isAnonymousRevenueCatUser(currentPurchasesUserIdRef.current)
+    ) {
+      try {
+        await Purchases.logOut();
+        currentPurchasesUserIdRef.current = await Purchases.getAppUserID();
+      } catch (error) {
+        console.warn("Could not reset the local RevenueCat identity:", error);
+        currentPurchasesUserIdRef.current = null;
+      }
+    }
+
+    if (supabase) {
+      const { error } = await supabase.auth.signOut({ scope: "local" });
+      if (error) {
+        console.warn("Could not clear the local Supabase session:", error);
+      }
+    }
+
+    await clearDeletedAccountFromDevice();
+    const emptyProfile = createEmptyProfile();
+    profileRef.current = emptyProfile;
+    sessionRef.current = null;
+    setProfile(emptyProfile);
+    setSession(null);
+    setRevenueCatPremium(false);
+    setSyncError(null);
+
+    return result;
+  }, [isPurchasesConfigured]);
+
   const refreshAccount = useCallback(async () => {
     if (!session) return;
     await hydrateSession(session);
@@ -559,6 +646,8 @@ export function AccountProvider({ children }: { children: React.ReactNode }) {
         sendPasswordReset,
         updatePassword,
         signOut,
+        deleteAccount,
+        openSubscriptionManagement,
         refreshAccount,
         refreshPremiumStatus,
         presentPremiumPaywall,

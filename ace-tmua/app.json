@@ -30,7 +30,7 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#FFF8EE",
-          "image": "./assets/NEWacetmualogo.png",
+          "image": "./assets/curvedacetmua.png",
           "imageWidth": 140
         }
       ],

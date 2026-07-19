@@ -84,7 +84,7 @@ The code and Expo config are present, but a real standalone build needs an Apple
 3. Enable the **Sign in with Apple** capability on the App ID.
 4. In Supabase open **Authentication → Providers → Apple** and enable Apple.
 5. Add the native iOS bundle identifier to the Apple provider's accepted Client IDs.
-6. If a web or Android Apple OAuth flow is added later, create a Services ID and Apple signing key as well. Apple OAuth secrets must be regenerated periodically; the current native iOS flow avoids that web-only maintenance requirement.
+6. Create a Sign in with Apple signing key for the account-deletion Edge Function. The function generates short-lived client secrets server-side so it can exchange and revoke a fresh native authorization code. A Services ID is only additionally required if a web or Android Apple OAuth flow is added later.
 7. Create a new native development build after changing capabilities:
 
 Install CocoaPods before making a local iOS build if `pod --version` is not already working:
@@ -150,7 +150,57 @@ Then test one valid Test Store purchase, one failed purchase, cancellation and r
 
 The onboarding study reminders use local scheduled notifications, so they do not need an Expo push server or push credentials. The `expo-notifications` config plugin is installed; rebuild the native app after pulling this update. The trial-ending reminder is only scheduled after RevenueCat reports an active trial with a real expiry date.
 
-## 8. Run the service audit
+## 8. Deploy in-app account deletion
+
+The Profile screen includes a permanent account-deletion flow. The destructive
+operation runs in `supabase/functions/delete-account`; the mobile app never
+receives the Supabase service-role key, Apple private key or RevenueCat secret.
+
+Deploy the function:
+
+```text
+npx supabase login
+npx supabase link --project-ref YOUR_PROJECT_REF
+npx supabase functions deploy delete-account
+```
+
+The function validates the signed-in user's access token and hard-deletes that
+same Auth user. The schema's `on delete cascade` foreign keys remove the user's
+profile, entitlement, lesson progress, study activity, practice results and
+saved practice sessions.
+
+Before release, add RevenueCat customer-erasure credentials. Create a V2 secret
+key with `customer_information:customers:read_write`, then run:
+
+```text
+npx supabase secrets set REVENUECAT_PROJECT_ID=proj_YOUR_PROJECT_ID
+npx supabase secrets set REVENUECAT_V2_SECRET_API_KEY=sk_YOUR_V2_SECRET_KEY
+```
+
+Once Sign in with Apple is configured, add the Apple server credentials:
+
+```text
+npx supabase secrets set APPLE_TEAM_ID=YOUR_TEAM_ID
+npx supabase secrets set APPLE_KEY_ID=YOUR_KEY_ID
+npx supabase secrets set APPLE_CLIENT_ID=com.yourcompany.acetmua
+npx supabase secrets set APPLE_PRIVATE_KEY="$(cat AuthKey_YOUR_KEY_ID.p8)"
+```
+
+The Apple client ID must match the App ID used by the native authorization
+code. These are server secrets: do not prefix them with `EXPO_PUBLIC_`, put them
+in `.env`, or commit the `.p8` file.
+
+The in-app flow explicitly warns that deleting an account does not cancel an
+App Store or Google Play subscription and provides a subscription-management
+button before deletion. Apple-linked users are asked for a fresh Apple
+authorization code so the Edge Function can revoke it. If Apple cannot provide
+one, deletion still completes and the user is shown Apple's manual revocation
+path.
+
+The full deployment and test checklist is in
+`supabase/functions/delete-account/README.md`.
+
+## 9. Run the service audit
 
 With `.env.local` configured and an internet connection, run:
 
@@ -166,8 +216,8 @@ This checks Supabase Auth health, all expected REST tables, anonymous-write RLS 
 - Google OAuth consent configuration and production branding verification.
 - A published RevenueCat paywall, production iOS SDK key and App Store products.
 - Deployment and dashboard registration of the RevenueCat entitlement webhook.
+- Deployment and secret configuration of the account-deletion Edge Function.
 - Privacy Policy and Terms URLs.
-- An in-app account-deletion flow backed by a secure Supabase Edge Function.
 - TestFlight testing of email links, Google OAuth and Apple authentication on physical devices.
 
 Official references:
@@ -178,4 +228,7 @@ Official references:
 - [Supabase Apple login](https://supabase.com/docs/guides/auth/social-login/auth-apple)
 - [Expo Apple Authentication](https://docs.expo.dev/versions/v57.0.0/sdk/apple-authentication/)
 - [Expo AuthSession](https://docs.expo.dev/versions/v57.0.0/sdk/auth-session/)
+- [Apple account-deletion requirements](https://developer.apple.com/support/offering-account-deletion-in-your-app/)
+- [Supabase server-side user deletion](https://supabase.com/docs/reference/javascript/auth-admin-deleteuser)
+- [RevenueCat customer deletion](https://www.revenuecat.com/docs/dashboard-and-metrics/customer-profile#delete-customer)
 - [CocoaPods installation](https://guides.cocoapods.org/using/getting-started.html)
