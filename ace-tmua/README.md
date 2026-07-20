@@ -1,56 +1,65 @@
-# Welcome to your Expo app 👋
+# ACE TMUA
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+ACE TMUA is an Expo/React Native study app for the Test of Mathematics for
+University Admission. It combines a structured lesson pathway, mathematical
+rendering, timed practice papers, progress tracking, account synchronisation,
+and a RevenueCat-powered Premium tier.
 
-## Get started
+This repository contains the mobile app, its JSON lesson and question content,
+the Supabase database schema and Edge Functions, and the scripts used to check
+the content and connected services.
 
-1. Install dependencies
+## Understand the system
 
-   ```bash
-   npm install
-   ```
+The best place to begin is the [ACE TMUA engineering handbook](docs/README.md).
+It is written as a start-to-finish explanation for someone who knows basic
+programming but does not yet know this codebase. It covers:
 
-2. Start the app
+- how Expo, React Native, Expo Router, Supabase, and RevenueCat fit together;
+- how screens, state, local storage, and cloud synchronisation work;
+- the lesson runner, mathematical renderer, and practice-paper engine;
+- authentication, subscriptions, notifications, and account deletion;
+- testing, debugging, common changes, and interview questions.
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Start the project
 
 ```bash
-npm run reset-project
+npm install
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+The app reads service configuration from `.env.local`. See
+[SUPABASE_SETUP.md](SUPABASE_SETUP.md) for backend setup and
+[docs/09-testing-debugging-and-release.md](docs/09-testing-debugging-and-release.md)
+for the full development and release checklist.
 
-### Other setup steps
+Useful checks:
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+npx tsc --noEmit
+npm run lint
+npm run validate:practice
+npm run check:services
+```
 
-## Learn more
+## Important directories
 
-To learn more about developing your project with Expo, look at the following resources:
+| Path | Purpose |
+| --- | --- |
+| `src/app` | File-based Expo Router screens and layouts |
+| `src/components/lesson` | Lesson runner, screen types, maths, and diagrams |
+| `src/components/practice` | Mock-paper selection, runner, storage, and results |
+| `src/contexts` | App-wide account and Premium state |
+| `src/services` | Authentication, storage, sync, cloud, and notification logic |
+| `src/data` | Lessons, question bank, test definitions, and static data |
+| `supabase` | Database schema, migrations, and server-side Edge Functions |
+| `scripts` | Content and service validation tools |
+| `docs` | The engineering handbook |
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Current status
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The main learning, practice, profile, onboarding, authentication, local-first
+storage, Supabase sync, RevenueCat, notifications, and deletion flows are
+implemented. Some release configuration still depends on external dashboards
+and store accounts. The leaderboard currently displays static demonstration
+data rather than a production multiplayer service.
