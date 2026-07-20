@@ -11,9 +11,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import lessonsData from "../data/lessons.json";
-import type { Lesson } from "../components/lesson/types";
-import { COMPLETED_LESSONS_KEY } from "../services/study-activity";
+import type { Lesson } from "@/components/lesson/types";
+import lessonsData from "@/data/lessons.json";
+import { COMPLETED_LESSONS_KEY } from "@/services/study-activity";
 
 type IconName = React.ComponentProps<typeof Ionicons>["name"];
 
@@ -205,7 +205,7 @@ export default function LearnScreen() {
 
   if (activeTopic) {
     return (
-      <SafeAreaView style={styles.safeArea} edges={["top"]}>
+      <SafeAreaView collapsable={false} style={styles.safeArea} edges={["top"]}>
         <ScrollView
           contentContainerStyle={styles.topicContainer}
           showsVerticalScrollIndicator={false}
@@ -358,7 +358,7 @@ export default function LearnScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+    <SafeAreaView collapsable={false} style={styles.safeArea} edges={["top"]}>
       <ScrollView
         contentContainerStyle={styles.learnContainer}
         showsVerticalScrollIndicator={false}

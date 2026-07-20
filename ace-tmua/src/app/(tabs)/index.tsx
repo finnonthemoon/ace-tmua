@@ -140,7 +140,7 @@ export default function HomeScreen() {
   ).length;
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+    <SafeAreaView collapsable={false} style={styles.safeArea} edges={["top"]}>
       <ScrollView
         contentContainerStyle={styles.content}
         refreshControl={

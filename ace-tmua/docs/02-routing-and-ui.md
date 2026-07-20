@@ -83,10 +83,13 @@ file structure into navigation structure.
 ```text
 src/app/
 ├── _layout.tsx
-├── index.tsx
-├── learn.tsx
-├── questions.tsx
-├── profile.tsx
+├── (tabs)/
+│   ├── _layout.tsx
+│   ├── index.tsx
+│   ├── learn.tsx
+│   ├── leaderboard.tsx
+│   ├── questions.tsx
+│   └── profile.tsx
 ├── lesson/
 │   └── [lessonId].tsx
 └── practice/
@@ -146,30 +149,36 @@ This is a **client-side navigation guard**, not a security boundary. It
 controls user flow. Supabase Row Level Security controls actual database
 security.
 
-### 3. Declare tabs and hidden routes
+### 3. Separate the native tabs from full-screen routes
 
-Home, Learn, Leaderboard, Questions, and Profile are visible tabs. Lesson,
-practice, onboarding, Premium, and authentication routes use `href: null`, so
-they remain navigable without appearing as tabs.
+The root uses a `Stack`. Its first screen is the `(tabs)` route group, while
+lessons, practice, onboarding, Premium, and authentication are separate stack
+screens. This keeps the tab bar off full-screen flows without manually hiding
+it.
 
-The custom tab bar filters its routes through `tabIcons`. It uses
-`expo-glass-effect` where the native liquid-glass API is available on iOS and a
-normal translucent fallback elsewhere. An animated “bead” is positioned from
-the focused tab index. Tapping or dragging emits normal navigation tab events;
-the visual effect does not replace the router.
+[`src/app/(tabs)/_layout.tsx`](../src/app/(tabs)/_layout.tsx) declares Home,
+Learn, Leaderboard, Questions, and Profile with Expo Router's `NativeTabs`.
+These are real `UITabBarController`/Android tab-bar views rather than a custom
+React Native rectangle. On an iOS 26 build produced by Xcode 26 or later, iOS
+therefore supplies its native Liquid Glass material, selection animation, and
+refraction. Older operating systems and Android display their standard native
+tab bars.
 
-One useful code-reading detail: [`src/components/app-tabs.tsx`](../src/components/app-tabs.tsx)
-appears to be an older starter implementation. The active tab implementation
-is the `AppTabBar` inside `_layout.tsx`.
+The `(tabs)` folder is a **route group**: its name organises navigation but is
+not included in the URL. For example, `(tabs)/learn.tsx` is still `/learn`.
+[`src/components/app-tabs.tsx`](../src/components/app-tabs.tsx) is an older
+starter implementation and is not the active navigation bar.
 
 ## Layouts nest
 
-The root layout uses tabs, but [`src/app/practice/_layout.tsx`](../src/app/practice/_layout.tsx)
-uses a stack for the practice flow. Conceptually:
+The root layout uses a stack containing the tab group. The nested
+[`src/app/practice/_layout.tsx`](../src/app/practice/_layout.tsx) uses another
+stack for the practice flow. Conceptually:
 
 ```text
-Root tabs
-└── Hidden practice route
+Root stack
+├── Native tab group
+└── Practice route
     └── Practice stack
         ├── Instructions
         ├── Test
@@ -197,7 +206,7 @@ and hands it to an instruction, runner, or result component.
 
 ## How the Home screen works
 
-[`src/app/index.tsx`](../src/app/index.tsx) mainly renders cards. The calculations
+[`src/app/(tabs)/index.tsx`](../src/app/(tabs)/index.tsx) mainly renders cards. The calculations
 are in [`src/components/home/home-data.ts`](../src/components/home/home-data.ts).
 When Home gains focus it loads:
 
@@ -221,7 +230,7 @@ not need another independent database field that might become inconsistent.
 
 ## The Learn roadmap
 
-[`src/app/learn.tsx`](../src/app/learn.tsx) reads the same lesson JSON and a list
+[`src/app/(tabs)/learn.tsx`](../src/app/(tabs)/learn.tsx) reads the same lesson JSON and a list
 of completed lesson IDs. Within each topic:
 
 - the first populated lesson is available;

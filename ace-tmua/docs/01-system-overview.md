@@ -63,16 +63,17 @@ Files inside [`src/app`](../src/app) are routes. For example:
 
 | File | Route | Purpose |
 | --- | --- | --- |
-| `src/app/index.tsx` | `/` | Home dashboard |
-| `src/app/learn.tsx` | `/learn` | Topic and lesson roadmap |
+| `src/app/(tabs)/index.tsx` | `/` | Home dashboard |
+| `src/app/(tabs)/learn.tsx` | `/learn` | Topic and lesson roadmap |
 | `src/app/lesson/[lessonId].tsx` | `/lesson/:lessonId` | A dynamic lesson |
-| `src/app/questions.tsx` | `/questions` | Practice catalogue |
+| `src/app/(tabs)/questions.tsx` | `/questions` | Practice catalogue |
 | `src/app/practice/[testId]/test.tsx` | `/practice/:testId/test` | Practice runner |
-| `src/app/profile.tsx` | `/profile` | Account, progress, and deletion |
+| `src/app/(tabs)/profile.tsx` | `/profile` | Account, progress, and deletion |
 
 [`src/app/_layout.tsx`](../src/app/_layout.tsx) is the root shell. It installs
-the account provider, protects onboarding, declares tabs, and handles taps on
-notifications.
+the account provider, protects onboarding, declares the root stack, and handles
+taps on notifications. [`src/app/(tabs)/_layout.tsx`](../src/app/(tabs)/_layout.tsx)
+declares the five native system tabs.
 
 ### 2. Reusable components
 

@@ -9,8 +9,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
-import leaderboardData from "../data/leaderboard.json";
-import { Colors } from "../constants/theme";
+import { Colors } from "@/constants/theme";
+import leaderboardData from "@/data/leaderboard.json";
 
 interface LeaderboardUser {
   name: string;
@@ -52,7 +52,7 @@ export default function LeaderboardScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+    <SafeAreaView collapsable={false} style={styles.safeArea} edges={["top"]}>
       <ScrollView
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}

@@ -210,7 +210,7 @@ export default function ProfileScreen() {
   const bestScore = dashboard?.bestPracticePercent;
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+    <SafeAreaView collapsable={false} style={styles.safeArea} edges={["top"]}>
       <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
         <View style={styles.pageHeading}>
           <View>
