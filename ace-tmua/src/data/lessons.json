@@ -5721,7 +5721,7 @@
           "eyebrow": "COMBINING INTEGRALS · 13 OF 15",
           "title": "Integral intervals behave like directed journeys",
           "body": "Adjacent intervals can be joined:<br><br>[[\\int_{a}^{b}f(x)\\,\\mathrm{d}x+\\int_{b}^{c}f(x)\\,\\mathrm{d}x]]<br>[[=\\int_{a}^{c}f(x)\\,\\mathrm{d}x]].<br><br>Reversing the direction changes the sign:<br><br>[[\\int_{b}^{a}f(x)\\,\\mathrm{d}x]]<br>[[=-\\int_{a}^{b}f(x)\\,\\mathrm{d}x]].<br><br>Over equal limits, sums can be integrated term by term.",
-          "keyPoint": "For constants r and s:<br><br>[[\\int_{a}^{b}(rf(x)+sg(x))\\,\\mathrm{d}x]]<br>[[=r\\int_{a}^{b}f(x)\\,\\mathrm{d}x+s\\int_{a}^{b}g(x)\\,\\mathrm{d}x]].",
+          "keyPoint": "For constants r and s:<br><br>[[\\int_{a}^{b}(rf(x)+sg(x))\\,\\mathrm{d}x]]<br>[[=r\\int_{a}^{b}f(x)\\,\\mathrm{d}x+s\\int_{a}^{b}g(x)\\,\\mathrm{d}x]]."
         },
         {
           "type": "multipleChoice",
@@ -5762,249 +5762,251 @@
     {
       "id": "trapezium-rule-integration-logic",
       "topicId": "topic-6",
-      "title": "Trapezium Rule & Integration Logic",
+      "title": "Trapezium Rule, Differential Equations & Change",
       "screens": [
         {
           "type": "concept",
           "eyebrow": "TRAPEZIUM RULE · 1 OF 14",
-          "title": "Approximate a curved region with straight-sided strips",
+          "title": "Approximate a curved region using trapezia",
           "diagram": {
             "kind": "trapezium-rule",
-            "caption": "At equal spacing h, neighbouring ordinates form a trapezium."
+            "caption": "Straight chords replace short sections of the curve."
           },
-          "body": "For n equal strips of width h with ordinates [[y_{0},y_{1},\\ldots,y_{n}]], the trapezium rule is<br><br>[[\\frac{h}{2}\\left(y_{0}+2(y_{1}+\\cdots+y_{n-1})+y_{n}\\right)]].",
-          "keyPoint": "The first and last ordinates appear once. Every interior ordinate appears twice.",
+          "body": "Suppose an interval is divided into n equal strips of width h, with ordinates<br><br>[[y_{0},y_{1},\\ldots,y_{n}]].<br><br>The trapezium-rule estimate is<br><br>[[\\frac{h}{2}\\left(y_{0}+2(y_{1}+\\cdots+y_{n-1})+y_{n}\\right)]].",
+          "keyPoint": "The two endpoint ordinates appear once. Every ordinate inside the interval appears twice.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "USING A TABLE · 2 OF 14",
-          "title": "Estimate an integral from four ordinates",
-          "diagram": {
-            "kind": "trapezium-rule",
-            "caption": "The number of strips is one less than the number of ordinates."
-          },
+          "eyebrow": "SETTING UP THE RULE · 2 OF 14",
+          "title": "Find the strip width and count the ordinates",
           "steps": [
             {
-              "title": "Read the table",
-              "body": "Suppose x-values [[0,1,2,3]] have y-values [[1,2,5,10]]. There are 3 strips and [[h=1]]."
+              "title": "Find the width",
+              "body": "For n equal strips between a and b,<br><br>[[h=\\frac{b-a}{n}]]."
+            },
+            {
+              "title": "Count the values",
+              "body": "There are always [[n+1]] ordinates because neighbouring strips share their boundary values."
             },
             {
               "title": "Identify the endpoints",
-              "body": "The first and last values are 1 and 10. The interior values are 2 and 5."
+              "body": "[[y_{0}]] and [[y_{n}]] are counted once."
             },
             {
-              "title": "Substitute into the rule",
-              "body": "[[T=\\frac12\\left(1+2(2+5)+10\\right)]]."
-            },
-            {
-              "title": "Calculate",
-              "body": "[[T=\\frac12(25)=\\frac{25}{2}=12.5]]."
+              "title": "Identify the interior values",
+              "body": "[[y_{1},\\ldots,y_{n-1}]] are each counted twice because they belong to two adjacent trapezia."
             }
           ],
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TRAPEZIUM CHECK · 3 OF 14",
-          "question": "At [[x=0,2,4]], a function has values [[3,5,9]]. Use the trapezium rule to estimate [[\\int_{0}^{4}f(x)\\,\\mathrm{d}x]].",
+          "eyebrow": "NON-UNIT SPACING · 3 OF 14",
+          "question": "At<br><br>[[x=0,\\frac32,3,\\frac92]],<br><br>the ordinates of a curve are respectively<br><br>[[2,5,4,8]].<br><br>Use the trapezium rule to estimate the integral.",
           "options": [
-            "[[11]]",
+            "[[14]]",
             "[[18]]",
-            "[[22]]",
-            "[[44]]"
+            "[[21]]",
+            "[[28]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. Here [[h=2]], so [[T=\\frac22(3+2(5)+9)=22]].",
-          "incorrectFeedback": "There are two strips of width 2. Count the middle ordinate twice and the two endpoints once."
+          "correctFeedback": "Correct. There are three strips of width [[h=\\frac32]]. Therefore<br><br>[[T=\\frac34\\left(2+2(5+4)+8\\right)]]<br>[[=\\frac34(28)=21]].",
+          "incorrectFeedback": "There are three strips, not four. Their width is [[\\frac32]]. Count the two interior ordinates twice."
         },
         {
           "type": "concept",
           "eyebrow": "OVER OR UNDER? · 4 OF 14",
-          "title": "The direction of curvature determines the error",
+          "title": "Curvature determines the direction of the error",
           "diagram": {
             "kind": "trapezium-rule",
-            "caption": "Each trapezium uses a chord instead of the curved section of the graph."
+            "caption": "The rule uses straight chords in place of the curved graph."
           },
-          "body": "The trapezium rule replaces the curve by straight chords. If the graph is concave upwards, the chords lie above it and the estimate is too large.<br><br>If the graph is concave downwards, the chords lie below it and the estimate is too small.",
+          "body": "If the graph is concave upwards, its chords lie above the curve, so the trapezium rule gives an overestimate.<br><br>If the graph is concave downwards, its chords lie below the curve, so the rule gives an underestimate.",
           "keyPoint": "Where [[f''(x)>0]], expect an overestimate. Where [[f''(x)<0]], expect an underestimate.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
           "eyebrow": "ERROR-DIRECTION CHECK · 5 OF 14",
-          "question": "The trapezium rule is used for [[y=x^{2}]] on [[0\\le x\\le2]]. Which statement is correct?",
+          "question": "The trapezium rule is used to estimate an integral of<br><br>[[f(x)=6-2x^{2}]].<br><br>Which statement is correct?",
           "options": [
-            "It is an underestimate because the graph is increasing.",
-            "It is an overestimate because the graph is concave upwards.",
-            "It is exact because the function is a polynomial.",
-            "The direction of the error cannot be determined."
+            "It is an overestimate because f may be positive.",
+            "It is an underestimate because [[f''(x)<0]].",
+            "It is an overestimate because [[f'(x)<0]] for positive x.",
+            "It is exact because f is a polynomial."
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. Since [[f''(x)=2>0]], the graph is concave upwards and its chords lie above the curve.",
-          "incorrectFeedback": "Increasing or decreasing is not the deciding factor. For [[x^{2}]], the positive second derivative means the graph bends upwards."
+          "correctFeedback": "Correct. Since [[f''(x)=-4<0]], the graph is concave downwards and each chord lies below the curve.",
+          "incorrectFeedback": "Whether the function is positive or increasing is not decisive. Use the sign of the second derivative."
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 6 OF 14",
-          "title": "Compare an estimate with the exact integral",
-          "question": "Use two equal strips for [[\\int_{0}^{2}x^{2}\\,\\mathrm{d}x]]. By how much does the trapezium estimate exceed the exact value?",
-          "diagram": {
-            "kind": "trapezium-rule",
-            "caption": "For a concave-up curve, the straight chords enclose extra area."
-          },
+          "eyebrow": "EXACT-VALUE COMPARISON · 6 OF 14",
+          "title": "Compare a trapezium estimate with a geometric integral",
+          "question": "The trapezium rule with three equal strips estimates<br><br>[[\\int_{0}^{3}\\sqrt{9-x^{2}}\\,\\mathrm{d}x]].<br><br>By how much does the exact value exceed the estimate?",
           "options": [
-            "[[\\frac16]]",
-            "[[\\frac13]]",
-            "[[\\frac23]]",
-            "[[1]]"
+            "[[\\frac{9\\pi}{4}-\\frac32-2\\sqrt2-\\sqrt5]]",
+            "[[\\frac{9\\pi}{4}+\\frac32+2\\sqrt2+\\sqrt5]]",
+            "[[\\frac{9\\pi}{2}-\\frac32-2\\sqrt2-\\sqrt5]]",
+            "[[\\frac32+2\\sqrt2+\\sqrt5-\\frac{9\\pi}{4}]]"
           ],
-          "answerIndex": 1,
+          "answerIndex": 0,
           "steps": [
             {
               "title": "Find the ordinates",
-              "body": "With two strips, [[h=1]]. At [[x=0,1,2]], the values of [[x^{2}]] are [[0,1,4]]."
+              "body": "The strip width is 1. At [[x=0,1,2,3]], the ordinates are<br><br>[[3,2\\sqrt2,\\sqrt5,0]]."
             },
             {
               "title": "Apply the trapezium rule",
-              "body": "[[T=\\frac12(0+2(1)+4)=3]]."
+              "body": "[[T=\\frac12\\left(3+2(2\\sqrt2+\\sqrt5)+0\\right)]]<br>[[=\\frac32+2\\sqrt2+\\sqrt5]]."
             },
             {
               "title": "Find the exact integral",
-              "body": "[[\\int_{0}^{2}x^{2}\\,\\mathrm{d}x=\\left[\\frac{x^{3}}3\\right]_{0}^{2}=\\frac83]]."
+              "body": "The curve is the upper quarter of the circle [[x^{2}+y^{2}=9]]. Its exact area is<br><br>[[\\frac14\\pi(3^{2})=\\frac{9\\pi}{4}]]."
             },
             {
-              "title": "Calculate the excess",
-              "body": "[[3-\\frac83=\\frac13]]."
+              "title": "Find the positive difference",
+              "body": "The graph is concave down, so the estimate is smaller. The required difference is<br><br>[[\\frac{9\\pi}{4}-\\frac32-2\\sqrt2-\\sqrt5]]."
             }
           ],
-          "finalAnswer": "The estimate exceeds the exact value by [[\\frac13]], so the correct option is B.",
+          "finalAnswer": "The correct option is A.",
           "buttonText": "Continue"
         },
         {
+          "type": "multipleChoice",
+          "eyebrow": "TMUA TRAPEZIUM CHALLENGE · 7 OF 14",
+          "question": "Use the trapezium rule with three equal strips to estimate<br><br>[[\\int_{1}^{4}\\log_{2}x\\,\\mathrm{d}x]].",
+          "prompt": "Leave the answer as a single logarithm.",
+          "options": [
+            "[[\\log_{2}6]]",
+            "[[\\log_{2}8]]",
+            "[[\\log_{2}12]]",
+            "[[\\log_{2}18]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Here [[h=1]], and the ordinates are<br><br>[[0,1,\\log_{2}3,2]].<br><br>Therefore<br>[[T=\\frac12\\left(0+2(1+\\log_{2}3)+2\\right)]]<br>[[=2+\\log_{2}3=\\log_{2}12]].",
+          "incorrectFeedback": "Use the values at [[x=1,2,3,4]]. After applying the trapezium rule, combine [[2+\\log_{2}3]] into one logarithm."
+        },
+        {
           "type": "milestone",
-          "eyebrow": "NUMERICAL INTEGRATION COMPLETE · 7 OF 14",
+          "eyebrow": "NUMERICAL INTEGRATION COMPLETE · 8 OF 14",
           "title": "You can calculate and interpret trapezium estimates.",
-          "body": "You have used tables, counted ordinates correctly, and determined whether an estimate is above or below the true value.<br><br>Next, integration will recover a function from its derivative.",
+          "body": "You have handled non-unit spacing, exact comparisons, logarithmic ordinates and the direction of the error.<br><br>Next, integration will be used to recover a function from its derivative.",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "DIFFERENTIAL EQUATIONS · 8 OF 14",
-          "title": "Recover y from [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=f(x)]]",
-          "body": "For the differential equations required by TMUA, the derivative is a function of x alone. Integrate both sides to obtain<br><br>[[y=\\int f(x)\\,\\mathrm{d}x=F(x)+C]].<br><br>A given point or initial value determines C.",
-          "keyPoint": "The integration constant represents a whole family of curves. An initial condition selects one member of that family.",
+          "eyebrow": "DIFFERENTIAL EQUATIONS · 9 OF 14",
+          "title": "Recover y from its derivative",
+          "body": "For the differential equations required by TMUA, the derivative has the form<br><br>[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=f(x)]].<br><br>Integrating both sides gives<br><br>[[y=\\int f(x)\\,\\mathrm{d}x=F(x)+C]].<br><br>A point on the curve or an initial condition can then be used to determine C.",
+          "keyPoint": "The general solution contains C. A given condition selects one particular curve from that family.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 9 OF 14",
-          "title": "Use an initial condition",
-          "question": "Given [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=6x-4]] and [[y=3]] when [[x=1]], find y in terms of x.",
+          "eyebrow": "INITIAL CONDITIONS · 10 OF 14",
+          "title": "Find a particular solution",
+          "question": "Given<br><br>[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=6x^{2}-4x+1]]<br><br>and [[y=2]] when [[x=1]], find y in terms of x.",
           "options": [
-            "[[y=3x^{2}-4x+3]]",
-            "[[y=3x^{2}-4x+4]]",
-            "[[y=6x^{2}-4x+1]]",
-            "[[y=3x^{2}-4]]"
+            "[[y=2x^{3}-2x^{2}+x+1]]",
+            "[[y=2x^{3}-2x^{2}+x+2]]",
+            "[[y=6x^{3}-4x^{2}+x-1]]",
+            "[[y=2x^{3}-4x^{2}+x+3]]"
           ],
-          "answerIndex": 1,
+          "answerIndex": 0,
           "steps": [
             {
-              "title": "Integrate the derivative",
-              "body": "[[y=\\int(6x-4)\\,\\mathrm{d}x=3x^{2}-4x+C]]."
+              "title": "Integrate",
+              "body": "[[y=2x^{3}-2x^{2}+x+C]]."
             },
             {
               "title": "Use the given point",
-              "body": "Substitute [[x=1]] and [[y=3]]: [[3=3-4+C]]."
+              "body": "When [[x=1]] and [[y=2]],<br><br>[[2=2-2+1+C]]."
             },
             {
               "title": "Find the constant",
-              "body": "The equation gives [[C=4]]."
+              "body": "The equation gives [[C=1]]."
             },
             {
-              "title": "State the particular solution",
-              "body": "Therefore [[y=3x^{2}-4x+4]]."
+              "title": "State the solution",
+              "body": "Therefore<br><br>[[y=2x^{3}-2x^{2}+x+1]]."
             }
           ],
-          "finalAnswer": "The particular solution is [[y=3x^{2}-4x+4]], so the correct option is B.",
+          "finalAnswer": "The correct option is A.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "INITIAL-VALUE CHECK · 10 OF 14",
-          "question": "Given [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=3x^{2}]] and [[y=5]] when [[x=0]], find y.",
+          "eyebrow": "ABSOLUTE-VALUE CHALLENGE · 11 OF 14",
+          "question": "A differential equation is given by<br><br>[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=|8x|]]<br><br>for all real x. Which is a possible general solution?",
           "options": [
-            "[[y=x^{3}]]",
-            "[[y=x^{3}+5]]",
-            "[[y=6x+5]]",
-            "[[y=3x^{3}+5]]"
+            "[[y=4x|x|+C]]",
+            "[[y=-4x|x|+C]]",
+            "[[y=4x^{2}+C]]",
+            "[[y=-4x^{2}+C]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. Integrating gives [[y=x^{3}+C]]. The condition [[y(0)=5]] gives [[C=5]].",
-          "incorrectFeedback": "Integrate [[3x^{2}]] first, include C, and then use the value at [[x=0]]."
+          "answerIndex": 0,
+          "correctFeedback": "Correct. For [[x\\ge0]], [[4x|x|=4x^{2}]], whose derivative is [[8x]]. For [[x<0]], [[4x|x|=-4x^{2}]], whose derivative is [[-8x]]. These are both equal to [[|8x|]].",
+          "incorrectFeedback": "Consider positive and negative x separately. The expression must differentiate to [[8x]] when x is positive and to [[-8x]] when x is negative."
         },
         {
           "type": "concept",
-          "eyebrow": "TOTAL CHANGE · 11 OF 14",
+          "eyebrow": "TOTAL CHANGE · 12 OF 14",
           "title": "Integrating a rate gives the net change",
-          "body": "If [[F'(x)=f(x)]], then [[F(b)-F(a)=\\int_{a}^{b}f(x)\\,\\mathrm{d}x]].<br><br>This connects rate-of-change models with definite integration. Integrate the rate over an interval to find the change, then add the initial value to find the final value.",
-          "keyPoint": "Final amount = initial amount + accumulated change.",
+          "body": "If a quantity Q changes at rate [[Q'(t)]], then<br><br>[[Q(b)-Q(a)=\\int_{a}^{b}Q'(t)\\,\\mathrm{d}t]].<br><br>Therefore:<br><br>final value = initial value<br>+ accumulated change.",
+          "keyPoint": "A negative integral represents a decrease in the quantity, not a negative geometric area.",
           "buttonText": "Continue"
         },
         {
-          "type": "reveal",
-          "eyebrow": "RATE MODEL · 12 OF 14",
-          "title": "A quantity V changes at rate [[\\frac{\\mathrm{d}V}{\\mathrm{d}t}=4t+1]]",
+          "type": "workedExample",
+          "eyebrow": "RATE-OF-CHANGE CHALLENGE · 13 OF 14",
+          "title": "Find the least value of a changing quantity",
+          "question": "For [[t\\ge1]], a quantity Q satisfies<br><br>[[\\frac{\\mathrm{d}Q}{\\mathrm{d}t}=3(t-1)(t-3)]].<br><br>Given [[Q(1)=5]], what is the least possible value of Q?",
+          "options": [
+            "[[0]]",
+            "[[1]]",
+            "[[3]]",
+            "[[5]]"
+          ],
+          "answerIndex": 1,
           "steps": [
             {
-              "title": "Use the initial value",
-              "body": "Suppose [[V(0)=10]]. We want [[V(3)]]."
+              "title": "Find when Q decreases",
+              "body": "For [[1<t<3]], the rate [[3(t-1)(t-3)]] is negative. For [[t>3]], it is positive."
             },
             {
-              "title": "Integrate the rate",
-              "body": "[[V(3)-V(0)=\\int_{0}^{3}(4t+1)\\,\\mathrm{d}t]]."
+              "title": "Locate the minimum",
+              "body": "Therefore Q decreases until [[t=3]] and increases afterwards. Its least value occurs at [[t=3]]."
             },
             {
-              "title": "Evaluate the change",
-              "body": "[[\\left[2t^{2}+t\\right]_{0}^{3}=18+3=21]]."
+              "title": "Find the accumulated change",
+              "body": "[[Q(3)-Q(1)]]<br>[[=\\int_{1}^{3}3(t-1)(t-3)\\,\\mathrm{d}t]]."
             },
             {
-              "title": "Add the initial amount",
-              "body": "[[V(3)=10+21=31]]."
+              "title": "Evaluate",
+              "body": "An antiderivative is [[t^{3}-6t^{2}+9t]]. The integral from 1 to 3 is [[0-4=-4]]. Hence<br><br>[[Q(3)=5-4=1]]."
             }
           ],
+          "finalAnswer": "The least possible value is 1, so the correct option is B.",
           "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "FUNDAMENTAL-THEOREM CHECK · 13 OF 14",
-          "question": "Given [[F'(x)=f(x)]], [[\\int_{2}^{5}f(x)\\,\\mathrm{d}x=9]], and [[F(2)=4]], find [[F(5)]].",
-          "options": [
-            "[[-5]]",
-            "[[5]]",
-            "[[9]]",
-            "[[13]]"
-          ],
-          "answerIndex": 3,
-          "correctFeedback": "Correct. [[F(5)-F(2)=9]], so [[F(5)=4+9=13]].",
-          "incorrectFeedback": "The integral gives the change in F from 2 to 5. Add that change to the initial value [[F(2)=4]]."
         },
         {
           "type": "lessonSummary",
           "eyebrow": "LESSON SUMMARY · 14 OF 14",
-          "title": "Trapezium Rule and Integration Logic: key points",
+          "title": "Trapezium Rule, Differential Equations and Change",
           "keyPoints": [
-            "With equal spacing h, use [[\\frac{h}{2}(y_{0}+2(y_{1}+\\cdots+y_{n-1})+y_{n})]].",
-            "There is one fewer strip than there are ordinates.",
-            "Concave-up graphs give trapezium overestimates; concave-down graphs give underestimates.",
-            "Integrate [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=f(x)]] and use an initial condition to determine C.",
-            "The integral of a rate over an interval gives the net change."
+            "For n equal strips, [[h=\\frac{b-a}{n}]] and there are [[n+1]] ordinates.",
+            "Count the two endpoint ordinates once and every interior ordinate twice.",
+            "Concave-up curves give overestimates; concave-down curves give underestimates.",
+            "Integrate [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=f(x)]] and use any given condition to determine C.",
+            "The integral of a rate over an interval gives the net change in the quantity."
           ],
           "reviewItems": [
-            "Check h from the x-values rather than assuming it is 1.",
-            "Count endpoints once and interior ordinates twice.",
-            "Use curvature, not whether the function rises, to judge the error.",
-            "Keep the arbitrary constant until an initial condition determines it.",
+            "Never assume that the strip width is 1.",
+            "Use geometry when an exact integral represents a familiar shape.",
+            "Keep the arbitrary constant until a condition determines it.",
+            "Distinguish accumulated change from geometric area.",
             "Next lesson: Calculus Exam-style Questions."
           ],
           "buttonText": "Finish lesson"
@@ -6018,319 +6020,287 @@
       "screens": [
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 1 OF 21",
-          "question": "Differentiate [[4x^{3}-3\\sqrt{x}]].",
+          "eyebrow": "EXAM PRACTICE · 1 OF 20",
+          "question": "Differentiate<br><br>[[\\frac{3x^{4}-5x^{2}}{2x\\sqrt{x}}]].",
+          "prompt": "Simplify the powers of x before differentiating.",
           "options": [
-            "[[12x^{2}-\\frac32x^{-1/2}]]",
-            "[[12x^{2}-3x^{-1/2}]]",
-            "[[4x^{2}-\\frac32x^{-1/2}]]",
-            "[[12x^{4}-\\frac32x^{1/2}]]"
+            "[[\\frac{5(3x^{2}-1)}{4\\sqrt{x}}]]",
+            "[[\\frac{5(3x^{2}+1)}{4\\sqrt{x}}]]",
+            "[[\\frac{15x^{2}-5}{2\\sqrt{x}}]]",
+            "[[\\frac{3x^{2}-1}{4\\sqrt{x}}]]"
           ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. Rewrite [[\\sqrt{x}=x^{1/2}]], then apply the power rule to get [[12x^{2}-\\frac32x^{-1/2}]].",
-          "incorrectFeedback": "Rewrite the root as [[x^{1/2}]]. Multiply by each old power, then subtract 1 from that power."
+          "correctFeedback": "Correct. First simplify:<br><br>[[\\frac{3x^{4}-5x^{2}}{2x\\sqrt{x}}]]<br>[[=\\frac32x^{5/2}-\\frac52x^{1/2}]].<br><br>Differentiating gives<br>[[\\frac{15}{4}x^{3/2}-\\frac54x^{-1/2}]]<br>[[=\\frac{5(3x^{2}-1)}{4\\sqrt{x}}]].",
+          "incorrectFeedback": "Rewrite the denominator as [[2x^{3/2}]], simplify both terms, and then apply the power rule."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 2 OF 21",
-          "question": "If [[f(x)=\\frac{x^{2}+1}{x}]], which expression equals [[f'(x)]]?",
+          "eyebrow": "EXAM PRACTICE · 2 OF 20",
+          "question": "The function<br><br>[[f(x)=x^{4}+ax^{3}+bx^{2}]]<br><br>has a stationary point at [[x=1]]. It is also given that [[f''(1)=0]]. Find [[a+b]].",
+          "prompt": "Use the two derivative conditions to form simultaneous equations.",
           "options": [
-            "[[1+x^{-2}]]",
-            "[[1-x^{-2}]]",
-            "[[2x-x^{-2}]]",
-            "[[\\frac{2x^{2}-1}{x^{2}}]]"
+            "[[-\\frac{8}{3}]]",
+            "[[-\\frac{2}{3}]]",
+            "[[\\frac{2}{3}]]",
+            "[[2]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. [[f(x)=x+x^{-1}]], so [[f'(x)=1-x^{-2}]].",
-          "incorrectFeedback": "Simplify before differentiating: divide both terms in the numerator by x."
+          "correctFeedback": "Correct. Since [[x=1]] is stationary,<br><br>[[f'(1)=4+3a+2b=0]].<br><br>Also,<br>[[f''(1)=12+6a+2b=0]].<br><br>Subtracting the first equation from the second gives [[8+3a=0]], so [[a=-\\frac83]]. Substitution gives [[b=2]]. Therefore<br><br>[[a+b=-\\frac83+2=-\\frac23]].",
+          "incorrectFeedback": "Differentiate twice:<br><br>[[f'(x)=4x^{3}+3ax^{2}+2bx]]<br><br>and<br>[[f''(x)=12x^{2}+6ax+2b]].<br><br>Use [[f'(1)=0]] and [[f''(1)=0]] as simultaneous equations."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 3 OF 21",
-          "question": "Find the tangent to [[y=x^{3}]] at [[x=1]].",
-          "diagram": {
-            "kind": "tangent-gradient",
-            "caption": "Use the derivative for the gradient and the original function for the point."
-          },
+          "eyebrow": "EXAM PRACTICE · 3 OF 20",
+          "question": "The curve has equation<br><br>[[y=\\frac{x^{2}+3}{\\sqrt{x}}]].<br><br>Find the normal at [[x=4]].",
           "options": [
-            "[[y=x]]",
-            "[[y=3x-2]]",
-            "[[y=3x+1]]",
-            "[[y=-\\frac13x+\\frac43]]"
+            "[[y-\\frac{19}{2}=-\\frac{16}{45}(x-4)]]",
+            "[[y-\\frac{19}{2}=\\frac{45}{16}(x-4)]]",
+            "[[y-4=-\\frac{16}{45}\\left(x-\\frac{19}{2}\\right)]]",
+            "[[y-\\frac{19}{2}=\\frac{16}{45}(x-4)]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Rewrite<br>[[y=x^{3/2}+3x^{-1/2}]].<br><br>At [[x=4]], the point is [[\\left(4,\\frac{19}{2}\\right)]], and the tangent gradient is [[\\frac{45}{16}]]. The normal gradient is therefore [[-\\frac{16}{45}]].",
+          "incorrectFeedback": "Find the point using the original function. Then differentiate, substitute [[x=4]], and take the negative reciprocal of the tangent gradient."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 4 OF 20",
+          "question": "The curve has equation<br><br>[[y=x^{4}+qx^{3}+(2q^{2}-5q)x^{2}]].<br><br>As q varies, what is the least possible gradient of the curve at [[x=1]]?",
+          "prompt": "Express the gradient at x = 1 as a quadratic in q.",
+          "options": [
+            "[[\\frac78]]",
+            "[[\\frac{15}{16}]]",
+            "[[1]]",
+            "[[\\frac{17}{16}]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. The point is [[(1,1)]] and the gradient is [[3x^{2}=3]]. Thus [[y-1=3(x-1)]], or [[y=3x-2]].",
-          "incorrectFeedback": "Calculate both the point and [[f'(1)]], then use point-gradient form."
+          "correctFeedback": "Correct. Differentiating gives<br><br>[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=4x^{3}+3qx^{2}+2(2q^{2}-5q)x]].<br><br>At [[x=1]], the gradient is<br><br>[[4q^{2}-7q+4]].<br><br>Completing the square gives<br><br>[[4\\left(q-\\frac78\\right)^{2}+\\frac{15}{16}]].<br><br>Therefore the least possible gradient is [[\\frac{15}{16}]].",
+          "incorrectFeedback": "Differentiate with respect to x and then substitute [[x=1]]. Complete the square in the resulting expression [[4q^{2}-7q+4]]. Be careful: the question asks for the minimum gradient, not the value of q where it occurs."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 4 OF 21",
-          "question": "Which is the normal to [[y=\\sqrt{x}]] at [[x=4]]?",
+          "eyebrow": "EXAM PRACTICE · 5 OF 20",
+          "question": "The function<br><br>[[f(x)=x^{3}+px^{2}+qx+7]]<br><br>has stationary points when [[x=-1]] and [[x=3]]. Find [[p-q]].",
           "options": [
-            "[[y-2=\\frac14(x-4)]]",
-            "[[y-2=-\\frac14(x-4)]]",
-            "[[y-2=4(x-4)]]",
-            "[[y-2=-4(x-4)]]"
+            "[[-12]]",
+            "[[-6]]",
+            "[[6]]",
+            "[[12]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Since<br>[[f'(x)=3x^{2}+2px+q]],<br><br>its roots are -1 and 3. Therefore<br>[[f'(x)=3(x+1)(x-3)]]<br>[[=3x^{2}-6x-9]].<br><br>Hence [[2p=-6]] and [[q=-9]], giving [[p-q=6]].",
+          "incorrectFeedback": "Form the quadratic derivative whose roots are -1 and 3, then compare its coefficients with [[3x^{2}+2px+q]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 6 OF 20",
+          "question": "The function is defined for [[x>0]] by<br><br>[[f(x)=\\frac{x^{2}+8}{\\sqrt{x}}]].<br><br>Where is f strictly decreasing?",
+          "options": [
+            "[[0<x<\\sqrt{\\frac83}]]",
+            "[[x>\\sqrt{\\frac83}]]",
+            "[[0<x<\\frac83]]",
+            "For every [[x>0]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Differentiating gives<br><br>[[f'(x)=\\frac{3x^{2}-8}{2x^{3/2}}]].<br><br>The denominator is positive for [[x>0]], so [[f'(x)<0]] precisely when [[3x^{2}-8<0]], giving [[0<x<\\sqrt{\\frac83}]].",
+          "incorrectFeedback": "For [[x>0]], the denominator of the derivative is positive. Determine where its numerator is negative."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 7 OF 20",
+          "question": "Let<br><br>[[f(x)=x^{3}-3x^{2}-9x]]<br><br>and<br><br>[[g(x)=x^{3}-3x^{2}-24x]].<br><br>For which values of x is f increasing while g is decreasing?",
+          "options": [
+            "[[-1<x<3]]",
+            "[[-2<x<-1]] or [[3<x<4]]",
+            "[[x<-2]] or [[x>4]]",
+            "[[-2<x<4]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. We have<br><br>[[f'(x)=3(x-3)(x+1)]],<br><br>so f increases for [[x<-1]] or [[x>3]]. Also,<br><br>[[g'(x)=3(x-4)(x+2)]],<br><br>so g decreases for [[-2<x<4]]. Intersecting these sets gives the stated intervals.",
+          "incorrectFeedback": "Find where [[f'(x)>0]] and where [[g'(x)<0]], then take the intersection of the two solution sets."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 8 OF 20",
+          "question": "A differentiable function satisfies<br><br>[[f'(x)=(x+2)^{2}(x-1)]].<br><br>Which statement must be true?",
+          "options": [
+            "f has a local maximum at [[x=-2]] and a local minimum at [[x=1]].",
+            "f is stationary at [[x=-2]], but has no local extremum there; it has a local minimum at [[x=1]].",
+            "f has a local minimum at [[x=-2]] and a local maximum at [[x=1]].",
+            "f is strictly increasing except at its two stationary points."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The squared factor does not change sign at [[x=-2]], so the derivative remains negative on both sides and there is no extremum. At [[x=1]], the derivative changes from negative to positive, giving a local minimum.",
+          "incorrectFeedback": "Make a sign chart for the derivative. A repeated root of even multiplicity does not cause its sign to change."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 9 OF 20",
+          "question": "For which values of k is<br><br>[[f'(x)>0]]<br><br>for every real x, where<br><br>[[f(x)=x^{3}+3kx^{2}+3x]]?",
+          "options": [
+            "[[k<-1]]",
+            "[[-1<k<1]]",
+            "[[k>1]]",
+            "[[-1\\le k\\le1]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. We have<br><br>[[f'(x)=3(x^{2}+2kx+1)]].<br><br>The quadratic must be strictly positive for every real x. Since it opens upwards, this requires its discriminant to be negative:<br>[[4k^{2}-4<0]],<br><br>so [[-1<k<1]].",
+          "incorrectFeedback": "Require the quadratic inside the derivative to have no real roots. Equality would make the derivative zero at one point, so the inequalities must be strict."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 10 OF 20",
+          "question": "Which statement correctly describes the stationary points of<br><br>[[f(x)=x^{4}-8x^{2}+3]]?",
+          "options": [
+            "There is one local minimum at [[(0,3)]].",
+            "There are local maxima at [[(-2,-13)]] and [[(2,-13)]].",
+            "All three stationary points are local minima.",
+            "There are local minima at [[(-2,-13)]] and [[(2,-13)]], and a local maximum at [[(0,3)]]."
           ],
           "answerIndex": 3,
-          "correctFeedback": "Correct. [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac1{2\\sqrt{x}}]], so the tangent gradient at 4 is [[\\frac14]]. The normal gradient is -4.",
-          "incorrectFeedback": "The tangent gradient is [[\\frac1{2\\sqrt4}=\\frac14]]. Take its negative reciprocal and use the point [[(4,2)]]."
+          "correctFeedback": "Correct. Since<br>[[f'(x)=4x(x-2)(x+2)]],<br><br>the stationary values are [[x=-2,0,2]]. Also,<br>[[f''(x)=12x^{2}-16]].<br><br>This is positive at [[x=\\pm2]] and negative at [[x=0]].",
+          "incorrectFeedback": "Solve [[f'(x)=0]], calculate all three coordinates, and use the sign of the second derivative at each point."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 5 OF 21",
-          "question": "What stationary point does [[f(x)=x^{2}+6x+10]] have?",
+          "eyebrow": "EXAM PRACTICE · 11 OF 20",
+          "question": "Find<br><br>[[\\int\\frac{6x^{3}-5x}{2x\\sqrt{x}}\\,\\mathrm{d}x]].",
           "options": [
-            "A local maximum at [[(-3,1)]]",
-            "A local minimum at [[(-3,1)]]",
-            "A local minimum at [[(3,37)]]",
-            "No stationary point"
+            "[[\\frac65x^{5/2}-5x^{1/2}+C]]",
+            "[[\\frac65x^{5/2}+5x^{1/2}+C]]",
+            "[[3x^{3/2}-\\frac52x^{-1/2}+C]]",
+            "[[\\frac{12}{5}x^{5/2}-10x^{1/2}+C]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[f'(x)=2x+6=0]] gives [[x=-3]], and [[f(-3)=1]]. Since [[f''(x)=2>0]], it is a minimum.",
-          "incorrectFeedback": "Solve [[f'(x)=0]], substitute into f, then use the positive second derivative."
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The integrand simplifies to<br><br>[[3x^{3/2}-\\frac52x^{-1/2}]].<br><br>Integrating gives<br>[[\\frac65x^{5/2}-5x^{1/2}+C]].",
+          "incorrectFeedback": "Rewrite [[2x\\sqrt{x}]] as [[2x^{3/2}]] and simplify both numerator terms before integrating."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 6 OF 21",
-          "question": "Where is [[f(x)=x^{3}-12x]] strictly increasing?",
+          "eyebrow": "EXAM PRACTICE · 12 OF 20",
+          "question": "Evaluate<br><br>[[\\int_{1}^{9}\\left(2\\sqrt{x}-\\frac3{\\sqrt{x}}\\right)\\mathrm{d}x]].",
           "options": [
-            "[[-2<x<2]]",
-            "[[x<-2]] or [[x>2]]",
-            "[[x<0]]",
-            "[[x>0]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[f'(x)=3x^{2}-12=3(x-2)(x+2)]], which is positive outside the roots -2 and 2.",
-          "incorrectFeedback": "Increasing means [[f'(x)>0]]. Factor the derivative and make a sign chart around -2 and 2."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 7 OF 21",
-          "question": "A particle has displacement [[s(t)=2t^{3}-5t]]. Find its velocity at [[t=2]].",
-          "options": [
-            "[[7]]",
-            "[[14]]",
-            "[[19]]",
+            "[[\\frac{50}{3}]]",
+            "[[18]]",
+            "[[\\frac{68}{3}]]",
             "[[24]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. [[v(t)=s'(t)=6t^{2}-5]], so [[v(2)=24-5=19]].",
-          "incorrectFeedback": "Velocity is the derivative of displacement. Differentiate first and then substitute 2."
+          "correctFeedback": "Correct. An antiderivative is<br><br>[[\\frac43x^{3/2}-6x^{1/2}]].<br><br>Its value at 9 is 18, and its value at 1 is [[-\\frac{14}{3}]]. Therefore the integral is [[18+\\frac{14}{3}=\\frac{68}{3}]].",
+          "incorrectFeedback": "Rewrite the root and reciprocal root as fractional powers, integrate, and use upper limit minus lower limit."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 8 OF 21",
-          "question": "The function [[f(x)=x^{4}-2x^{2}]] has a stationary point at [[x=0]]. How is it classified?",
-          "diagram": {
-            "kind": "turning-points",
-            "caption": "Use the second derivative at the stationary x-value."
-          },
+          "eyebrow": "EXAM PRACTICE · 13 OF 20",
+          "question": "Define<br><br>[[H(x)=\\int_{0}^{x}(3t^{2}+kt-4)\\,\\mathrm{d}t]].<br><br>The graph of H has a stationary point when [[x=2]]. Find [[H(2)]].",
           "options": [
-            "Local maximum",
-            "Local minimum",
-            "Neither, because [[f''(0)=0]]",
-            "It cannot be classified"
+            "[[-16]]",
+            "[[-8]]",
+            "[[0]]",
+            "[[8]]"
           ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[f''(x)=12x^{2}-4]], so [[f''(0)=-4<0]]. The stationary point is a local maximum.",
-          "incorrectFeedback": "Differentiate twice. A negative second derivative at a stationary point indicates a local maximum."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. By the Fundamental Theorem,<br><br>[[H'(x)=3x^{2}+kx-4]].<br><br>The stationary-point condition gives [[H'(2)=0]], so [[8+2k=0]] and [[k=-4]]. Therefore<br><br>[[H(2)=\\int_{0}^{2}(3t^{2}-4t-4)\\,\\mathrm{d}t=-8]].",
+          "incorrectFeedback": "Use the Fundamental Theorem to find [[H'(x)]]. The stationary condition determines k before the definite integral is evaluated."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 9 OF 21",
-          "question": "Find [[\\int(4x^{3}-6x^{-2})\\,\\mathrm{d}x]].",
+          "eyebrow": "EXAM PRACTICE · 14 OF 20",
+          "question": "Find the total area between<br><br>[[y=x^{2}-5x+4]]<br><br>and the x-axis for [[0\\le x\\le5]].",
           "options": [
-            "[[x^{4}+6x^{-1}+C]]",
-            "[[x^{4}-6x^{-1}+C]]",
-            "[[12x^{2}+12x^{-3}+C]]",
-            "[[x^{4}+3x^{-1}+C]]"
+            "[[\\frac56]]",
+            "[[\\frac{35}{6}]]",
+            "[[\\frac{49}{6}]]",
+            "[[\\frac{59}{6}]]"
           ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[\\int4x^{3}\\,\\mathrm{d}x=x^{4}]] and [[\\int-6x^{-2}\\,\\mathrm{d}x=6x^{-1}]].",
-          "incorrectFeedback": "Increase each power by 1 and divide by the new power. Be careful: dividing -6 by -1 changes the sign."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The curve crosses the axis at [[x=1]] and [[x=4]]. It is positive on [[0,1]], negative on [[1,4]], and positive on [[4,5]]. Evaluating the three positive regions gives a total area of [[\\frac{49}{6}]].",
+          "incorrectFeedback": "Factor the quadratic to find both roots. Split the interval at those roots and make the below-axis integral positive."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 10 OF 21",
-          "question": "Evaluate [[\\int_{1}^{2}3x^{2}\\,\\mathrm{d}x]].",
+          "eyebrow": "EXAM PRACTICE · 15 OF 20",
+          "question": "A function f satisfies<br><br>[[\\int_{0}^{6}f(x)\\,\\mathrm{d}x=2]]<br><br>and<br><br>[[\\int_{0}^{6}|f(x)|\\,\\mathrm{d}x=14]].<br><br>It is known that f is non-negative on [[0\\le x\\le2]] and non-positive on [[2\\le x\\le6]]. Find<br><br>[[\\int_{6}^{2}f(x)\\,\\mathrm{d}x]].",
           "options": [
-            "[[3]]",
+            "[[-8]]",
+            "[[-6]]",
             "[[6]]",
-            "[[7]]",
             "[[8]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. [[\\left[x^{3}\\right]_{1}^{2}=8-1=7]].",
-          "incorrectFeedback": "An antiderivative of [[3x^{2}]] is [[x^{3}]]. Evaluate upper minus lower."
+          "correctFeedback": "Correct. Let the positive area be P and the magnitude of the negative area be N. Then<br><br>[[P-N=2]],<br>[[P+N=14]].<br><br>Hence [[P=8]] and [[N=6]]. Therefore [[\\int_{2}^{6}f(x)\\,\\mathrm{d}x=-6]], so reversing the limits gives 6.",
+          "incorrectFeedback": "Use the signed integral and the absolute-value integral to form two simultaneous equations for the positive and negative areas."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 11 OF 21",
-          "question": "Evaluate the signed integral [[\\int_{0}^{3}(2x-3)\\,\\mathrm{d}x]].",
+          "eyebrow": "EXAM PRACTICE · 16 OF 20",
+          "question": "For every integer [[n\\ge0]],<br><br>[[\\int_{n}^{n+1}f(x)\\,\\mathrm{d}x=3n-1]].<br><br>Evaluate<br>[[\\int_{5}^{1}f(x)\\,\\mathrm{d}x]].",
           "options": [
-            "[[-\\frac92]]",
-            "[[0]]",
-            "[[\\frac92]]",
-            "[[9]]"
+            "[[-30]]",
+            "[[-26]]",
+            "[[26]]",
+            "[[30]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. [[\\left[x^{2}-3x\\right]_{0}^{3}=0]]. Equal negative and positive regions cancel.",
-          "incorrectFeedback": "Use an antiderivative, not total geometric area. The region below the axis contributes negatively."
+          "correctFeedback": "Correct. From 1 to 5, use [[n=1,2,3,4]]:<br><br>[[2+5+8+11=26]].<br><br>The required limits are reversed, so the value is -26.",
+          "incorrectFeedback": "First add the four contiguous integrals from 1 to 5. Then account for the reversed limits."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 12 OF 21",
-          "question": "Find the total area between [[y=x-1]] and the x-axis for [[0\\le x\\le3]].",
-          "diagram": {
-            "kind": "signed-area",
-            "caption": "For total area, make both the below-axis and above-axis regions positive."
-          },
+          "eyebrow": "EXAM PRACTICE · 17 OF 20",
+          "question": "Evaluate<br><br>[[\\sum_{r=1}^{4}\\int_{r}^{r+1}(2x-r)\\,\\mathrm{d}x]].",
           "options": [
-            "[[\\frac32]]",
-            "[[2]]",
-            "[[\\frac52]]",
-            "[[3]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. The negative triangle from 0 to 1 has area [[\\frac12]], and the positive triangle from 1 to 3 has area 2. The total is [[\\frac52]].",
-          "incorrectFeedback": "Split at the root [[x=1]]. Calculate both triangular regions as positive areas before adding."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 13 OF 21",
-          "question": "Given [[\\int_{0}^{2}f(x)\\,\\mathrm{d}x=3]] and [[\\int_{2}^{5}f(x)\\,\\mathrm{d}x=-7]], find [[\\int_{5}^{0}f(x)\\,\\mathrm{d}x]].",
-          "options": [
-            "[[-10]]",
-            "[[-4]]",
-            "[[4]]",
-            "[[10]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. First [[\\int_{0}^{5}f=3-7=-4]]. Reversing the limits changes the sign, so [[\\int_{5}^{0}f=4]].",
-          "incorrectFeedback": "Join the contiguous intervals first, then reverse the limits with a sign change."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 14 OF 21",
-          "question": "Find [[\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\int_{2}^{x}(t^{2}+1)\\,\\mathrm{d}t\\right)]].",
-          "options": [
-            "[[t^{2}+1]]",
-            "[[x^{2}+1]]",
-            "[[\\frac{x^{3}}3+x]]",
-            "[[x^{2}-3]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. By the Fundamental Theorem, differentiating an accumulation integral returns the integrand at its upper limit: [[x^{2}+1]].",
-          "incorrectFeedback": "Replace the integration variable t by the moving upper limit x after applying the Fundamental Theorem."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 15 OF 21",
-          "question": "At [[x=0,1,2,3]], the ordinates of a curve are [[2,3,6,11]]. Use the trapezium rule to estimate the integral from 0 to 3.",
-          "diagram": {
-            "kind": "trapezium-rule",
-            "caption": "There are three strips of width 1."
-          },
-          "options": [
-            "[[13]]",
-            "[[\\frac{29}{2}]]",
-            "[[\\frac{31}{2}]]",
-            "[[31]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. [[T=\\frac12(2+2(3+6)+11)=\\frac{31}{2}]].",
-          "incorrectFeedback": "Use the endpoints once and the two interior ordinates twice. Here [[h=1]]."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 16 OF 21",
-          "question": "The trapezium rule is applied to [[f(x)=-x^{2}+6]] on an interval. What type of estimate does it give?",
-          "options": [
-            "An overestimate because f is positive",
-            "An underestimate because [[f''(x)<0]]",
-            "An overestimate because [[f'(x)<0]]",
-            "An exact value because f is quadratic"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[f''(x)=-2<0]], so the graph is concave down and its chords lie below the curve.",
-          "incorrectFeedback": "The direction is controlled by curvature. A negative second derivative produces a trapezium underestimate."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 17 OF 21",
-          "question": "Given [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=4x^{3}]] and [[y=3]] when [[x=1]], find y.",
-          "options": [
-            "[[y=x^{4}+1]]",
-            "[[y=x^{4}+2]]",
-            "[[y=12x^{2}-9]]",
-            "[[y=4x^{4}-1]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. Integrating gives [[y=x^{4}+C]]. The condition [[3=1+C]] gives [[C=2]].",
-          "incorrectFeedback": "Integrate the derivative and retain C. Then substitute the given point to determine it."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 18 OF 21",
-          "question": "A quantity Q satisfies [[\\frac{\\mathrm{d}Q}{\\mathrm{d}t}=6t-2]] and [[Q(0)=5]]. Find [[Q(2)]].",
-          "options": [
-            "[[8]]",
-            "[[10]]",
-            "[[13]]",
-            "[[17]]"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. The change is [[\\int_{0}^{2}(6t-2)\\,\\mathrm{d}t=\\left[3t^{2}-2t\\right]_{0}^{2}=8]]. Add the initial 5 to get 13.",
-          "incorrectFeedback": "Integrate the rate from 0 to 2 to find the change, then add the initial value."
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 19 OF 21",
-          "question": "Given [[\\int_{1}^{4}f(x)\\,\\mathrm{d}x=6]] and [[\\int_{1}^{4}g(x)\\,\\mathrm{d}x=-2]], evaluate [[\\int_{1}^{4}(2f(x)-g(x))\\,\\mathrm{d}x]].",
-          "options": [
-            "[[8]]",
             "[[10]]",
             "[[12]]",
-            "[[14]]"
+            "[[14]]",
+            "[[16]]"
           ],
-          "answerIndex": 3,
-          "correctFeedback": "Correct. By linearity, the value is [[2(6)-(-2)=14]].",
-          "incorrectFeedback": "Integrate term by term: double the integral of f, then subtract the integral of g."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. For a fixed r,<br><br>[[\\int_{r}^{r+1}(2x-r)\\,\\mathrm{d}x=r+1]].<br><br>Therefore the required sum is<br>[[2+3+4+5=14]].",
+          "incorrectFeedback": "Evaluate the integral in terms of r first. Only then substitute [[r=1,2,3,4]] and add the results."
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "EXAM PRACTICE · 20 OF 21",
-          "question": "A function F is continuous on [[a\\le x\\le b]] and differentiable on [[a\\lt x\\lt b]], with [[F'(x)\\gt0]] throughout [[a\\lt x\\lt b]]. Which conclusion must be true?",
+          "eyebrow": "EXAM PRACTICE · 18 OF 20",
+          "question": "At<br><br>[[x=0,\\frac12,1,\\frac32,2]],<br><br>the ordinates of a curve are respectively<br><br>[[4,5,8,13,20]].<br><br>The curve satisfies [[f''(x)>0]] throughout the interval. Which statement is correct?",
           "options": [
-            "[[F(a)>F(b)]]",
-            "[[F(a)=F(b)]]",
-            "[[F(a)<F(b)]]",
-            "F has a stationary point between a and b"
+            "The trapezium estimate is 19 and is an underestimate.",
+            "The trapezium estimate is 19 and is an overestimate.",
+            "The trapezium estimate is 38 and is an overestimate.",
+            "The trapezium estimate is 38 and is an underestimate."
           ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. A positive derivative throughout the interval means F is strictly increasing, so [[F(a)<F(b)]].",
-          "incorrectFeedback": "The sign of the derivative controls direction. A strictly positive derivative means the function rises as x increases."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Here [[h=\\frac12]], so<br><br>[[T=\\frac14(4+2(5+8+13)+20)=19]].<br><br>Since [[f''(x)>0]], the graph is concave upwards and the trapezium rule gives an overestimate.",
+          "incorrectFeedback": "There are four strips of width [[\\frac12]]. Count the internal ordinates twice, then use the positive second derivative to determine the error direction."
         },
         {
-          "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 21 OF 21",
-          "title": "Calculus: exam review",
-          "keyPoints": [
-            "Simplify algebraic expressions before applying the differentiation or integration power rule.",
-            "Derivatives control gradients, rates, stationary points, and intervals of increase or decrease.",
-            "Definite integrals give signed accumulation; geometric area may require splitting at roots.",
-            "Use the Fundamental Theorem to connect derivatives, integrals, and total change.",
-            "Apply the trapezium rule with correct spacing and use curvature to judge its error."
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 19 OF 20",
+          "question": "A function satisfies<br><br>[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=6x^{2}-4x^{-1/2}]]<br><br>and [[y=3]] when [[x=1]]. Find y when [[x=4]].",
+          "options": [
+            "[[105]]",
+            "[[112]]",
+            "[[121]]",
+            "[[128]]"
           ],
-          "reviewItems": [
-            "Redo questions where a root, reciprocal, or fractional power caused an error.",
-            "Check tangent and normal equations with the stated point.",
-            "Keep signed integral and total area conceptually separate.",
-            "Practise trapezium calculations without assuming the spacing is 1.",
-            "Repeat this set until every method is recognisable from the question structure."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Integrating gives<br><br>[[y=2x^{3}-8x^{1/2}+C]].<br><br>The initial condition gives [[C=9]]. Therefore<br>[[y(4)=128-16+9=121]].",
+          "incorrectFeedback": "Integrate both terms and include an arbitrary constant. Use the value at [[x=1]] before substituting [[x=4]]."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 20 OF 20",
+          "question": "A rectangle is symmetric about the y-axis. Its upper vertices lie on<br><br>[[y=12-x^{2}]],<br><br>and its lower vertices lie on<br><br>[[y=x^{2}]].<br><br>What is the greatest possible area of the rectangle?",
+          "prompt": "Let the vertical sides have equations x = u and x = -u.",
+          "options": [
+            "[[8\\sqrt2]]",
+            "[[12\\sqrt2]]",
+            "[[16\\sqrt2]]",
+            "[[24\\sqrt2]]"
           ],
-          "buttonText": "Finish lesson"
+          "answerIndex": 2,
+          "correctFeedback": "Correct. At [[x=\\pm u]], the width is [[2u]] and the height is<br><br>[[12-u^{2}-u^{2}=12-2u^{2}]].<br><br>Hence<br>[[A(u)=24u-4u^{3}]].<br><br>Solving [[A'(u)=24-12u^{2}=0]] gives [[u=\\sqrt2]]. Therefore the maximum area is [[16\\sqrt2]].",
+          "incorrectFeedback": "Express the width and vertical distance between the curves in terms of u. Differentiate the resulting area function and find its positive stationary value."
         }
       ]
     },

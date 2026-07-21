@@ -428,51 +428,92 @@ function SignedAreaDiagram() {
 }
 
 function TrapeziumRuleDiagram() {
+  const axisY = 146;
+  const yAxisX = 40;
+
+  // Ordinated points used both for the trapezia and for the smooth curve.
+  const p0 = { x: 40, y: 128 };
+  const p1 = { x: 90, y: 92 };
+  const p2 = { x: 140, y: 64 };
+  const p3 = { x: 190, y: 78 };
+  const p4 = { x: 240, y: 108 };
+
+  // Extra curve continuation points, just for the smooth orange graph.
+  const leftStart = { x: 18, y: 138 };
+  const rightEnd = { x: 286, y: 136 };
+
   return (
     <>
-      <Axes xAxisY={158} />
-      {trapeziumPoints.slice(0, -1).map((point, index) => {
-        const next = trapeziumPoints[index + 1];
-        return (
-          <Polygon
-            key={point.x}
-            points={
-              point.x + ",158 " +
-              point.x + "," + point.y + " " +
-              next.x + "," + next.y + " " +
-              next.x + ",158"
-            }
-            fill={index % 2 === 0 ? "#FFE3BE" : "#FFF0D9"}
-            stroke="#F4B25F"
-            strokeWidth={1}
-          />
-        );
-      })}
-      {trapeziumPoints.map((point) => (
-        <Line
-          key={"line-" + point.x}
-          x1={point.x}
-          y1={158}
-          x2={point.x}
-          y2={point.y}
-          stroke="#C88A43"
-          strokeWidth={1.4}
-        />
-      ))}
+      <Axes xAxisY={axisY} yAxisX={yAxisX} />
+
+      {/* Shaded trapezia start exactly at x = 0 (the y-axis). */}
       <Path
-        d="M 24 143 C 73 128, 104 94, 134 76 C 171 53, 196 51, 230 67 C 253 78, 270 96, 298 116"
+        d={`
+          M ${p0.x} ${axisY}
+          L ${p0.x} ${p0.y}
+          L ${p1.x} ${p1.y}
+          L ${p2.x} ${p2.y}
+          L ${p3.x} ${p3.y}
+          L ${p4.x} ${p4.y}
+          L ${p4.x} ${axisY}
+          Z
+        `}
+        fill="#F4D7AE"
+        opacity={0.95}
+      />
+
+      {/* Vertical trapezium boundaries */}
+      <Line x1={p0.x} y1={axisY} x2={p0.x} y2={p0.y} stroke="#D89C4A" strokeWidth={1.6} />
+      <Line x1={p1.x} y1={axisY} x2={p1.x} y2={p1.y} stroke="#D89C4A" strokeWidth={1.6} />
+      <Line x1={p2.x} y1={axisY} x2={p2.x} y2={p2.y} stroke="#D89C4A" strokeWidth={1.6} />
+      <Line x1={p3.x} y1={axisY} x2={p3.x} y2={p3.y} stroke="#D89C4A" strokeWidth={1.6} />
+      <Line x1={p4.x} y1={axisY} x2={p4.x} y2={p4.y} stroke="#D89C4A" strokeWidth={1.6} />
+
+      {/* Straight chord tops of the trapezia */}
+      <Path
+        d={`
+          M ${p0.x} ${p0.y}
+          L ${p1.x} ${p1.y}
+          L ${p2.x} ${p2.y}
+          L ${p3.x} ${p3.y}
+          L ${p4.x} ${p4.y}
+        `}
+        fill="none"
+        stroke="#D89C4A"
+        strokeWidth={2}
+        strokeLinejoin="round"
+      />
+
+      {/* Smooth orange curve passing exactly through every orange dot */}
+      <Path
+        d={`
+          M ${leftStart.x} ${leftStart.y}
+          Q 28 134, ${p0.x} ${p0.y}
+          Q 64 118, ${p1.x} ${p1.y}
+          Q 114 70, ${p2.x} ${p2.y}
+          Q 166 58, ${p3.x} ${p3.y}
+          Q 216 92, ${p4.x} ${p4.y}
+          Q 264 122, ${rightEnd.x} ${rightEnd.y}
+        `}
         fill="none"
         stroke={C.primary}
         strokeWidth={4}
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      {trapeziumPoints.map((point) => (
-        <Circle key={"point-" + point.x} cx={point.x} cy={point.y} r={3.5} fill={C.primary} />
-      ))}
-      <Line x1={38} y1={170} x2={86} y2={170} stroke={C.ink} strokeWidth={1.2} />
-      <Line x1={38} y1={166} x2={38} y2={174} stroke={C.ink} strokeWidth={1.2} />
-      <Line x1={86} y1={166} x2={86} y2={174} stroke={C.ink} strokeWidth={1.2} />
-      <SvgText x={59} y={181} fontSize={11} fontWeight="800" fill={C.ink}>
+
+      {/* Orange ordinate points, all exactly on the curve */}
+      <Circle cx={p0.x} cy={p0.y} r={3.6} fill={C.primary} />
+      <Circle cx={p1.x} cy={p1.y} r={3.6} fill={C.primary} />
+      <Circle cx={p2.x} cy={p2.y} r={4.2} fill={C.primary} />
+      <Circle cx={p3.x} cy={p3.y} r={3.6} fill={C.primary} />
+      <Circle cx={p4.x} cy={p4.y} r={3.6} fill={C.primary} />
+
+      {/* h marker under the first strip */}
+      <Line x1={p0.x} y1={163} x2={p1.x} y2={163} stroke={C.ink} strokeWidth={1.5} />
+      <Line x1={p0.x} y1={158} x2={p0.x} y2={168} stroke={C.ink} strokeWidth={1.5} />
+      <Line x1={p1.x} y1={158} x2={p1.x} y2={168} stroke={C.ink} strokeWidth={1.5} />
+      <SvgText x={63} y={177} fontSize={11} fontWeight="700" fill={C.ink}>
         h
       </SvgText>
     </>
