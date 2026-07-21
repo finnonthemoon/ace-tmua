@@ -51,6 +51,7 @@ function TangentGradientDiagram() {
   return (
     <>
       <Axes />
+
       <Path
         d="M 22 158 C 68 153, 96 119, 138 92 C 180 65, 225 72, 298 31"
         fill="none"
@@ -58,78 +59,368 @@ function TangentGradientDiagram() {
         strokeWidth={4}
         strokeLinecap="round"
       />
+
+      {/* Tangent passes exactly through P at (138, 92). */}
       <Line
-        x1={69}
+        x1={68}
         y1={137}
-        x2={263}
-        y2={42}
+        x2={250}
+        y2={20}
         stroke={C.ink}
         strokeWidth={2.5}
         strokeDasharray="7 5"
       />
-      <Circle cx={151} cy={97} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
-      <SvgText x={159} y={90} fontSize={12} fontWeight="800" fill={C.ink}>
+
+      {/* P is exactly on both the curve and tangent. */}
+      <Circle
+        cx={138}
+        cy={92}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+
+      <SvgText
+        x={147}
+        y={86}
+        fontSize={12}
+        fontWeight="800"
+        fill={C.ink}
+      >
         P
       </SvgText>
-      <SvgText x={224} y={57} fontSize={11} fontWeight="700" fill={C.muted}>
+
+      {/* Positioned above the tangent so the line does not cross the text. */}
+      <SvgText
+        x={190}
+        y={36}
+        fontSize={11}
+        fontWeight="700"
+        fill={C.muted}
+      >
         tangent
       </SvgText>
     </>
   );
 }
-
 function TurningPointsDiagram() {
   return (
     <>
       <Axes xAxisY={154} />
+
+      {/*
+        The Bézier control points have matching y-values at the
+        maximum and minimum, making both tangents horizontal.
+      */}
       <Path
-        d="M 24 139 C 63 153, 75 49, 127 55 C 184 61, 175 157, 229 149 C 265 144, 274 94, 299 61"
+        d="M 24 139
+           C 57 154, 78 54, 126 54
+           C 171 54, 181 150, 224 150
+           C 260 150, 274 93, 299 61"
         fill="none"
         stroke={C.primary}
         strokeWidth={4}
         strokeLinecap="round"
       />
-      <Circle cx={112} cy={54} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
-      <Circle cx={219} cy={150} r={5} fill={C.primary} stroke="#FFFFFF" strokeWidth={2} />
-      <Line x1={92} y1={54} x2={132} y2={54} stroke={C.ink} strokeWidth={2} strokeDasharray="4 4" />
-      <Line x1={199} y1={150} x2={239} y2={150} stroke={C.ink} strokeWidth={2} strokeDasharray="4 4" />
-      <SvgText x={75} y={39} fontSize={11} fontWeight="800" fill={C.ink}>
+
+      {/* Maximum */}
+      <Circle
+        cx={126}
+        cy={54}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+
+      <Line
+        x1={104}
+        y1={54}
+        x2={148}
+        y2={54}
+        stroke={C.ink}
+        strokeWidth={2}
+        strokeDasharray="4 4"
+      />
+
+      <SvgText
+        x={91}
+        y={39}
+        fontSize={11}
+        fontWeight="800"
+        fill={C.ink}
+      >
         maximum
       </SvgText>
-      <SvgText x={201} y={137} fontSize={11} fontWeight="800" fill={C.ink}>
+
+      {/* Minimum */}
+      <Circle
+        cx={224}
+        cy={150}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+
+      <Line
+        x1={202}
+        y1={150}
+        x2={246}
+        y2={150}
+        stroke={C.ink}
+        strokeWidth={2}
+        strokeDasharray="4 4"
+      />
+
+      <SvgText
+        x={201}
+        y={137}
+        fontSize={11}
+        fontWeight="800"
+        fill={C.ink}
+      >
         minimum
       </SvgText>
     </>
   );
 }
+function CubicStationaryPointsDiagram() {
+  const graphLeft = 42;
+  const graphRight = 304;
+  const graphTop = 18;
+  const graphBottom = 164;
 
-function SignedAreaDiagram() {
+  const xMin = -3;
+  const xMax = 5;
+  const yMin = -25;
+  const yMax = 15;
+
+  const f = (x: number) =>
+    x ** 3 - 3 * x ** 2 - 9 * x + 5;
+
+  const xToSvg = (x: number) =>
+    graphLeft +
+    ((x - xMin) / (xMax - xMin)) *
+    (graphRight - graphLeft);
+
+  const yToSvg = (y: number) =>
+    graphTop +
+    ((yMax - y) / (yMax - yMin)) *
+    (graphBottom - graphTop);
+
+  const sampleCount = 120;
+
+  const curvePath = Array.from(
+    { length: sampleCount + 1 },
+    (_, index) => {
+      const x =
+        xMin + (index / sampleCount) * (xMax - xMin);
+
+      const svgX = xToSvg(x);
+      const svgY = yToSvg(f(x));
+
+      return `${index === 0 ? "M" : "L"} ${svgX} ${svgY}`;
+    }
+  ).join(" ");
+
+  const xAxisY = yToSvg(0);
+  const yAxisX = xToSvg(0);
+
+  const maximum = {
+    x: xToSvg(-1),
+    y: yToSvg(10),
+  };
+
+  const minimum = {
+    x: xToSvg(3),
+    y: yToSvg(-22),
+  };
+
   return (
     <>
-      <Axes xAxisY={101} />
+      <Axes xAxisY={xAxisY} yAxisX={yAxisX} />
+
+      {/* Actual graph of f(x) = x³ - 3x² - 9x + 5 */}
       <Path
-        d="M 50 101 C 77 56, 111 52, 150 101 L 50 101 Z"
-        fill="#FFD6A8"
-        opacity={0.9}
-      />
-      <Path
-        d="M 150 101 C 190 146, 230 149, 270 101 L 150 101 Z"
-        fill="#DDE7F8"
-        opacity={0.95}
-      />
-      <Path
-        d="M 22 133 C 69 48, 111 50, 150 101 C 192 151, 231 148, 298 54"
+        d={curvePath}
         fill="none"
         stroke={C.primary}
         strokeWidth={4}
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <Circle cx={150} cy={101} r={3.5} fill={C.ink} />
-      <Circle cx={270} cy={101} r={3.5} fill={C.ink} />
-      <SvgText x={91} y={83} fontSize={13} fontWeight="900" fill={C.primary}>
+
+      {/* Vertical guides to the stationary x-values */}
+      <Line
+        x1={maximum.x}
+        y1={maximum.y}
+        x2={maximum.x}
+        y2={xAxisY}
+        stroke="#54749F"
+        strokeWidth={1.5}
+        strokeDasharray="5 4"
+      />
+
+      <Line
+        x1={minimum.x}
+        y1={xAxisY}
+        x2={minimum.x}
+        y2={minimum.y}
+        stroke="#54749F"
+        strokeWidth={1.5}
+        strokeDasharray="5 4"
+      />
+
+      {/* Horizontal tangents */}
+      <Line
+        x1={maximum.x - 20}
+        y1={maximum.y}
+        x2={maximum.x + 20}
+        y2={maximum.y}
+        stroke={C.ink}
+        strokeWidth={2}
+        strokeDasharray="4 4"
+      />
+
+      <Line
+        x1={minimum.x - 20}
+        y1={minimum.y}
+        x2={minimum.x + 20}
+        y2={minimum.y}
+        stroke={C.ink}
+        strokeWidth={2}
+        strokeDasharray="4 4"
+      />
+
+      {/* Stationary points */}
+      <Circle
+        cx={maximum.x}
+        cy={maximum.y}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+
+      <Circle
+        cx={minimum.x}
+        cy={minimum.y}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+
+      {/* Point labels */}
+      <SvgText
+        x={maximum.x}
+        y={maximum.y - 13}
+        textAnchor="middle"
+        fontSize={11}
+        fontWeight="800"
+        fill={C.ink}
+      >
+        maximum
+      </SvgText>
+
+      <SvgText
+        x={minimum.x}
+        y={minimum.y - 12}
+        textAnchor="middle"
+        fontSize={11}
+        fontWeight="800"
+        fill={C.ink}
+      >
+        minimum
+      </SvgText>
+
+      {/* Stationary x-values */}
+      <SvgText
+        x={maximum.x}
+        y={xAxisY + 17}
+        textAnchor="middle"
+        fontSize={10}
+        fontWeight="800"
+        fill="#54749F"
+      >
+        −1
+      </SvgText>
+
+      <SvgText
+        x={minimum.x}
+        y={xAxisY + 17}
+        textAnchor="middle"
+        fontSize={10}
+        fontWeight="800"
+        fill="#54749F"
+      >
+        3
+      </SvgText>
+    </>
+  );
+}
+function SignedAreaDiagram() {
+  const axisY = 101;
+
+  const firstRoot = 56;
+  const middleRoot = 150;
+  const secondRoot = 274;
+
+  return (
+    <>
+      <Axes xAxisY={axisY} />
+
+      {/* Positive signed area */}
+      <Path
+        d={`
+          M ${firstRoot} ${axisY}
+          C 66 92, 108 58, ${middleRoot} ${axisY}
+          L ${firstRoot} ${axisY}
+          Z
+        `}
+        fill="#FFD6A8"
+        opacity={0.92}
+      />
+
+      {/* Negative signed area */}
+      <Path
+        d={`
+          M ${middleRoot} ${axisY}
+          C 186 145, 228 149, ${secondRoot} ${axisY}
+          L ${middleRoot} ${axisY}
+          Z
+        `}
+        fill="#DDE7F8"
+        opacity={0.96}
+      />
+
+      {/* Main curve with smooth join at the first x-intercept */}
+      <Path
+        d={`
+          M 24 132
+          C 34 120, 46 110, ${firstRoot} ${axisY}
+          C 66 92, 108 58, ${middleRoot} ${axisY}
+          C 186 145, 228 149, ${secondRoot} ${axisY}
+          C 284 92, 292 76, 300 62
+        `}
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* x-axis intercept markers */}
+      <Circle cx={firstRoot} cy={axisY} r={3.5} fill={C.ink} />
+      <Circle cx={middleRoot} cy={axisY} r={3.5} fill={C.ink} />
+      <Circle cx={secondRoot} cy={axisY} r={3.5} fill={C.ink} />
+
+      <SvgText x={100} y={97} fontSize={13} fontWeight="900" fill={C.primary}>
         +A
       </SvgText>
-      <SvgText x={202} y={126} fontSize={13} fontWeight="900" fill="#54749F">
+      <SvgText x={214} y={126} fontSize={13} fontWeight="900" fill="#54749F">
         −B
       </SvgText>
     </>
@@ -1102,6 +1393,9 @@ export default function LessonDiagramView({ diagram }: Props) {
       <Svg width="100%" height={190} viewBox="0 0 320 190">
         {diagram.kind === "tangent-gradient" && <TangentGradientDiagram />}
         {diagram.kind === "turning-points" && <TurningPointsDiagram />}
+        {diagram.kind === "cubic-stationary-points" && (
+          <CubicStationaryPointsDiagram />
+        )}
         {diagram.kind === "signed-area" && <SignedAreaDiagram />}
         {diagram.kind === "trapezium-rule" && <TrapeziumRuleDiagram />}
         {diagram.kind === "graph-transformations" && <GraphTransformationsDiagram />}

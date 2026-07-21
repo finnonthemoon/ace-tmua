@@ -10,6 +10,7 @@ export interface Lesson {
 export type LessonDiagramKind =
   | "tangent-gradient"
   | "turning-points"
+  | "cubic-stationary-points"
   | "signed-area"
   | "trapezium-rule"
   | "graph-transformations"

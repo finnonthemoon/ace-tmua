@@ -5012,9 +5012,9 @@
       ]
     },
     {
-      "id": "differentiation-turning-points",
+      "id": "differentiation-gradients-rates-rules",
       "topicId": "topic-6",
-      "title": "Differentiation & Turning Points",
+      "title": "Differentiation: Gradients, Rates & Rules",
       "screens": [
         {
           "type": "concept",
@@ -5024,240 +5024,477 @@
             "kind": "tangent-gradient",
             "caption": "At P, the derivative is the gradient of the tangent to the curve."
           },
-          "body": "For [[y=f(x)]], the derivative [[f'(x)]] or [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}]] gives the gradient of the tangent at each x-value.<br><br>A derivative can also represent a rate of change: velocity is the derivative of displacement with respect to time.",
-          "keyPoint": "Differentiation from first principles is not required for TMUA. You need to interpret derivatives and use the power rule accurately.",
+          "body": "For [[y=f(x)]], the derivative [[f'(x)]] gives the gradient of the tangent to the graph at each x-value.<br><br>It can also represent an instantaneous rate of change. For example, the derivative of displacement with respect to time is velocity.",
+          "keyPoint": "Differentiation from first principles is excluded from TMUA. You need to interpret derivatives and use the differentiation rules accurately.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "THE POWER RULE · 2 OF 14",
-          "title": "Differentiate rational powers",
+          "eyebrow": "AVERAGE AND INSTANTANEOUS CHANGE · 2 OF 14",
+          "title": "A tangent captures change at one instant",
+          "diagram": {
+            "kind": "tangent-gradient",
+            "caption": "The tangent gradient describes the behaviour of the curve at a single point."
+          },
           "steps": [
             {
-              "title": "Use the rule",
-              "body": "For rational n, [[\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^{n})=nx^{n-1}]]. Multiply by the old power, then reduce the power by 1."
+              "title": "Average rate of change",
+              "body": "Between [[x=a]] and [[x=b]], the average rate of change is [[\\frac{f(b)-f(a)}{b-a}]]."
             },
             {
-              "title": "Differentiate a positive power",
-              "body": "[[\\frac{\\mathrm{d}}{\\mathrm{d}x}(5x^{4})=20x^{3}]]."
+              "title": "Interpret the average",
+              "body": "This is the gradient of the straight line joining the two points on the curve."
             },
             {
-              "title": "Differentiate a fractional power",
-              "body": "[[\\frac{\\mathrm{d}}{\\mathrm{d}x}(6x^{1/2})=3x^{-1/2}]]."
+              "title": "Instantaneous rate of change",
+              "body": "At the single point [[x=a]], the instantaneous rate of change is [[f'(a)]]."
             },
             {
-              "title": "Differentiate a negative power",
-              "body": "[[\\frac{\\mathrm{d}}{\\mathrm{d}x}(2x^{-3})=-6x^{-4}]]. Constants differentiate to 0."
+              "title": "Interpret the derivative",
+              "body": "[[f'(a)]] is the gradient of the tangent at [[(a,f(a))]]. It describes how quickly f is changing at that exact x-value."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "DERIVATIVE NOTATION · 3 OF 14",
+          "title": "Recognise the different forms of notation",
+          "body": "The first derivative may be written as [[f'(x)]] or [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}]]. These mean the same thing when [[y=f(x)]].<br><br>The second derivative may be written as [[f''(x)]] or [[\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}]]. It is found by differentiating the first derivative.",
+          "keyPoint": "[[f'(x)]] is a function of x, while [[f'(a)]] is the numerical gradient at the particular point [[x=a]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "THE POWER RULE · 4 OF 14",
+          "title": "Multiply by the power, then reduce it by 1",
+          "steps": [
+            {
+              "title": "Use the power rule",
+              "body": "For rational n, [[\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^{n})=nx^{n-1}]]."
+            },
+            {
+              "title": "Include coefficients",
+              "body": "[[\\frac{\\mathrm{d}}{\\mathrm{d}x}(5x^{4})=5(4x^{3})=20x^{3}]]."
+            },
+            {
+              "title": "Differentiate term by term",
+              "body": "Differentiate each term separately:<br><br>[[\\frac{\\mathrm{d}}{\\mathrm{d}x}(3x^{3}-2x^{2}+7x)]]<br>[[=9x^{2}-4x+7]]."
+            },
+            {
+              "title": "Differentiate constants",
+              "body": "The derivative of a constant is zero because a constant does not change as x changes."
             }
           ],
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SIMPLIFY FIRST · 3 OF 14",
-          "question": "Given [[f(x)=\\frac{3x+2}{\\sqrt{x}}]], find [[f'(x)]].",
-          "prompt": "Rewrite the quotient using powers before differentiating.",
+          "eyebrow": "POWER-RULE CHECK · 5 OF 14",
+          "question": "Differentiate [[5x^{4}-3x^{2}+7x-9]].",
           "options": [
-            "[[\\frac{3}{2}x^{-1/2}-x^{-3/2}]]",
-            "[[\\frac{3}{2}x^{-1/2}+x^{-3/2}]]",
-            "[[3x^{-1/2}-2x^{-3/2}]]",
-            "[[\\frac{3}{2}x^{1/2}-x^{-1/2}]]"
+            "[[20x^{3}-6x+7]]",
+            "[[20x^{3}-3x+7]]",
+            "[[5x^{3}-6x+7]]",
+            "[[20x^{5}-6x^{3}+7x^{2}]]"
           ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. [[f(x)=3x^{1/2}+2x^{-1/2}]], so [[f'(x)=\\frac32x^{-1/2}-x^{-3/2}]].",
-          "incorrectFeedback": "First write [[f(x)=3x^{1/2}+2x^{-1/2}]]. Apply the power rule separately to both terms."
+          "correctFeedback": "Correct. Differentiate each term to obtain [[f'(x)=20x^{3}-6x+7]]. The constant -9 differentiates to zero.",
+          "incorrectFeedback": "Multiply each term by its old power, then reduce that power by 1. The derivative of -9 is zero."
         },
         {
           "type": "concept",
-          "eyebrow": "TANGENTS AND NORMALS · 4 OF 14",
-          "title": "The derivative supplies the gradient",
-          "body": "At [[x=a]], the tangent gradient is [[f'(a)]]. The point on the curve is [[(a,f(a))]].<br><br>A normal is perpendicular to the tangent. If the tangent gradient is non-zero m, the normal gradient is [[-\\frac1m]]. If the tangent is horizontal, the normal is the vertical line [[x=a]]. Use [[y-y_{1}=m(x-x_{1})]] for any non-vertical line.",
-          "keyPoint": "Always calculate both the point and the gradient. A correct gradient alone is not the equation of a tangent.",
+          "eyebrow": "RATIONAL POWERS · 6 OF 14",
+          "title": "Rewrite roots and reciprocals before differentiating",
+          "body": "The power rule also works with fractional and negative powers.<br><br>Rewrite roots using [[\\sqrt{x}=x^{1/2}]] and reciprocals using [[\\frac{1}{x^{k}}=x^{-k}]].<br><br>For example, [[\\frac{\\mathrm{d}}{\\mathrm{d}x}(6x^{1/2})=3x^{-1/2}]] and [[\\frac{\\mathrm{d}}{\\mathrm{d}x}(2x^{-3})=-6x^{-4}]].",
+          "keyPoint": "Simplifying the expression first often turns an unfamiliar quotient or root into an ordinary sum of powers.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 5 OF 14",
-          "title": "Find an equation of a tangent",
-          "question": "Find the tangent to [[y=x^{2}+1]] at [[x=2]].",
-          "diagram": {
-            "kind": "tangent-gradient",
-            "caption": "The tangent touches the curve at the specified point and has gradient f′(2)."
-          },
+          "eyebrow": "SIMPLIFY FIRST · 7 OF 14",
+          "title": "Differentiate an expression containing a root",
+          "question": "Given [[f(x)=\\frac{3x^{2}-2x+5}{\\sqrt{x}}]], find [[f'(x)]].",
           "options": [
-            "[[y=2x+1]]",
-            "[[y=4x-3]]",
-            "[[y=4x+5]]",
-            "[[y=-\\frac14x+\\frac{11}{2}]]"
+            "[[\\frac92x^{1/2}-x^{-1/2}-\\frac52x^{-3/2}]]",
+            "[[\\frac92x^{1/2}-x^{-1/2}+\\frac52x^{-3/2}]]",
+            "[[6x-2-\\frac52x^{-3/2}]]",
+            "[[\\frac32x^{1/2}-x^{-1/2}-5x^{-3/2}]]"
           ],
-          "answerIndex": 1,
+          "answerIndex": 0,
           "steps": [
             {
-              "title": "Find the point",
-              "body": "At [[x=2]], [[y=2^{2}+1=5]], so the tangent passes through [[(2,5)]]."
+              "title": "Rewrite the denominator",
+              "body": "Since [[\\sqrt{x}=x^{1/2}]], divide every term in the numerator by [[x^{1/2}]]."
             },
             {
-              "title": "Find the gradient",
-              "body": "[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=2x]], so the tangent gradient at [[x=2]] is 4."
+              "title": "Simplify the powers",
+              "body": "[[f(x)=3x^{3/2}-2x^{1/2}+5x^{-1/2}]]."
             },
             {
-              "title": "Use point-gradient form",
-              "body": "[[y-5=4(x-2)]]."
+              "title": "Differentiate term by term",
+              "body": "[[f'(x)=\\frac92x^{1/2}-x^{-1/2}-\\frac52x^{-3/2}]]."
             },
             {
-              "title": "Simplify",
-              "body": "Expanding gives [[y=4x-3]]."
+              "title": "Check the final term",
+              "body": "The derivative of [[5x^{-1/2}]] is [[-\\frac52x^{-3/2}]], so its sign must be negative."
             }
           ],
-          "finalAnswer": "The tangent is [[y=4x-3]], so the correct option is B.",
+          "finalAnswer": "The derivative is [[\\frac92x^{1/2}-x^{-1/2}-\\frac52x^{-3/2}]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "DIFFERENTIATION RULES COMPLETE · 8 OF 14",
+          "title": "You can now differentiate rational powers.",
+          "body": "You have differentiated sums and differences containing positive, fractional and negative powers.<br><br>Next, you will use derivatives to model rates of change and construct tangents and normals.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "NORMAL CHECK · 6 OF 14",
-          "question": "Which is the normal to [[y=x^{2}]] at [[x=1]]?",
+          "eyebrow": "HARDER SIMPLIFICATION · 9 OF 14",
+          "question": "Differentiate<br>[[\\frac{2x^{3}-7x^{2}}{3x\\sqrt{x}}]].",
+          "prompt": "Cancel powers of x before applying the power rule.",
           "options": [
-            "[[y-1=2(x-1)]]",
-            "[[y-1=-2(x-1)]]",
-            "[[y-1=\\frac12(x-1)]]",
-            "[[y-1=-\\frac12(x-1)]]"
+            "[[\\frac{6x-7}{6\\sqrt{x}}]]",
+            "[[\\frac{6x+7}{6\\sqrt{x}}]]",
+            "[[\\frac{2x-7}{3\\sqrt{x}}]]",
+            "[[\\frac{6x-7}{3\\sqrt{x}}]]"
           ],
-          "answerIndex": 3,
-          "correctFeedback": "Correct. The tangent gradient is [[2x=2]], so the perpendicular normal gradient is [[-\\frac12]]. The point is [[(1,1)]].",
-          "incorrectFeedback": "Find the tangent gradient first, then take its negative reciprocal. The normal still passes through [[(1,1)]]."
-        },
-        {
-          "type": "milestone",
-          "eyebrow": "CORE DIFFERENTIATION COMPLETE · 7 OF 14",
-          "title": "You can differentiate powers and construct tangent lines.",
-          "body": "You have connected derivatives with gradients and rates of change.<br><br>Next, derivatives will reveal turning points and the intervals on which a function rises or falls.",
-          "buttonText": "Continue"
+          "answerIndex": 0,
+          "correctFeedback": "Correct. First simplify:<br><br>[[\\frac{2x^{3}-7x^{2}}{3x\\sqrt{x}}=\\frac23x^{3/2}-\\frac73x^{1/2}]].<br><br>Differentiating gives<br>[[x^{1/2}-\\frac76x^{-1/2}=\\frac{6x-7}{6\\sqrt{x}}]].",
+          "incorrectFeedback": "Since [[3x\\sqrt{x}=3x^{3/2}]], simplify the expression to [[\\frac23x^{3/2}-\\frac73x^{1/2}]] before differentiating."
         },
         {
           "type": "concept",
-          "eyebrow": "STATIONARY POINTS · 8 OF 14",
-          "title": "At a stationary point, [[f'(x)=0]]",
+          "eyebrow": "SECOND DERIVATIVES AND RATES · 10 OF 14",
+          "title": "Differentiate again to measure how a rate changes",
+          "body": "The second derivative is the derivative of the first derivative:<br><br>[[f''(x)=\\frac{\\mathrm{d}}{\\mathrm{d}x}(f'(x))]].<br><br>If displacement is [[s(t)]], then velocity is [[v(t)=s'(t)]] and acceleration is [[a(t)=v'(t)=s''(t)]].",
+          "keyPoint": "Always check what the variables represent. A first derivative may be a velocity, while a second derivative may be an acceleration.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SECOND-ORDER RATE CHECK · 11 OF 14",
+          "question": "A particle has displacement [[s(t)=t^{4}-3t^{3}+2t]]. What is its acceleration when [[t=2]]?",
+          "options": [
+            "[[2]]",
+            "[[8]]",
+            "[[12]]",
+            "[[14]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[v(t)=4t^{3}-9t^{2}+2]] and [[a(t)=12t^{2}-18t]]. Therefore [[a(2)=48-36=12]].",
+          "incorrectFeedback": "Acceleration is the second derivative of displacement. Differentiate s twice before substituting [[t=2]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "TANGENTS AND NORMALS · 12 OF 14",
+          "title": "Use the derivative to construct a line",
+          "diagram": {
+            "kind": "tangent-gradient",
+            "caption": "The tangent and normal pass through the same point on the curve."
+          },
+          "body": "At [[x=a]], the point on the curve is [[(a,f(a))]] and the tangent gradient is [[f'(a)]].<br><br>If this gradient is the non-zero value m, the normal gradient is [[-\\frac1m]]. Use [[y-y_{1}=m(x-x_{1})]] to form either line.<br><br>If the tangent is horizontal, the normal is the vertical line [[x=a]].",
+          "keyPoint": "An equation of a tangent or normal requires both the correct gradient and the correct point.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "TANGENT AND NORMAL CHALLENGE · 13 OF 14",
+          "title": "Simplify before finding the normal",
+          "question": "The curve [[y=\\frac{x^{3}+2x}{\\sqrt{x}}]] has a normal at [[x=1]]. Which equation is the normal?",
+          "options": [
+            "[[y-3=\\frac72(x-1)]]",
+            "[[y-3=-\\frac72(x-1)]]",
+            "[[y-3=\\frac27(x-1)]]",
+            "[[y-3=-\\frac27(x-1)]]"
+          ],
+          "answerIndex": 3,
+          "steps": [
+            {
+              "title": "Find the point",
+              "body": "At [[x=1]], [[y=\\frac{1+2}{1}=3]], so the line passes through [[(1,3)]]."
+            },
+            {
+              "title": "Simplify the function",
+              "body": "[[y=x^{5/2}+2x^{1/2}]]."
+            },
+            {
+              "title": "Find the tangent gradient",
+              "body": "[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac52x^{3/2}+x^{-1/2}]], so at [[x=1]] the tangent gradient is [[\\frac72]]."
+            },
+            {
+              "title": "Find the normal",
+              "body": "The normal gradient is the negative reciprocal, [[-\\frac27]]. Therefore its equation is [[y-3=-\\frac27(x-1)]]."
+            }
+          ],
+          "finalAnswer": "The normal is [[y-3=-\\frac27(x-1)]], so the correct option is D.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "title": "Differentiation: Gradients, Rates and Rules",
+          "keyPoints": [
+            "[[f'(a)]] is the gradient of the tangent and the instantaneous rate of change at [[x=a]].",
+            "Use [[\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^{n})=nx^{n-1}]] for rational powers.",
+            "Rewrite roots, reciprocals and quotients as powers before differentiating.",
+            "The second derivative describes how the first derivative changes.",
+            "A normal has gradient [[-\\frac1m]] when the tangent gradient is the non-zero value m."
+          ],
+          "reviewItems": [
+            "Distinguish an average rate of change from an instantaneous rate of change.",
+            "Recognise [[f'(x)]], [[\\frac{\\mathrm{d}y}{\\mathrm{d}x}]], [[f''(x)]] and [[\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}]].",
+            "Check signs carefully when differentiating negative powers.",
+            "Use both the original function and its derivative when finding a tangent or normal.",
+            "Next lesson: Stationary Points and Curve Behaviour."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
+    },
+    {
+      "id": "stationary-points-curve-behaviour",
+      "topicId": "topic-6",
+      "title": "Stationary Points & Curve Behaviour",
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "STATIONARY POINTS · 1 OF 14",
+          "title": "A stationary point has zero gradient",
           "diagram": {
             "kind": "turning-points",
-            "caption": "At a local maximum or minimum, the tangent is horizontal."
+            "caption": "At a stationary point, the tangent to the curve is horizontal."
           },
-          "body": "A stationary point has a horizontal tangent, so solve [[f'(x)=0]] to find its x-coordinate. Substitute back into f to find its y-coordinate.<br><br>The second derivative, written [[f''(x)]] or [[\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}]], measures how the gradient changes. If it is negative at a stationary point, the point is a local maximum; if positive, it is a local minimum.",
-          "keyPoint": "The second derivative test classifies a candidate only after you have found it using the first derivative.",
+          "body": "At a stationary point, the tangent is horizontal. Its gradient is therefore zero, so stationary points occur where<br><br>[[f'(x)=0]].<br><br>Solving this equation gives the possible x-coordinates. Substitute each value into the original function to find the complete coordinates.",
+          "keyPoint": "Solving [[f'(x)=0]] finds stationary x-values, not complete stationary points.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "FINDING A STATIONARY POINT · 2 OF 14",
+          "title": "Find the stationary point of a quadratic",
+          "question": "Find the stationary point of [[f(x)=x^{2}-6x+11]].",
+          "options": [
+            "A local maximum at [[(3,2)]]",
+            "A local minimum at [[(3,2)]]",
+            "A local minimum at [[(-3,38)]]",
+            "A local maximum at [[(-3,38)]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Differentiate",
+              "body": "[[f'(x)=2x-6]]."
+            },
+            {
+              "title": "Set the derivative equal to zero",
+              "body": "[[2x-6=0]], so [[x=3]]."
+            },
+            {
+              "title": "Find the y-coordinate",
+              "body": "[[f(3)=3^{2}-6(3)+11=2]], so the stationary point is [[(3,2)]]."
+            },
+            {
+              "title": "Classify the point",
+              "body": "[[f''(x)=2>0]], so the point is a local minimum."
+            }
+          ],
+          "finalAnswer": "The stationary point is a local minimum at [[(3,2)]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "STATIONARY VALUES · 3 OF 14",
+          "question": "At which x-values does [[f(x)=x^{3}-3x^{2}+2]] have stationary points?",
+          "prompt": "Solve [[f'(x)=0]].",
+          "options": [
+            "[[x=-2]] and [[x=0]]",
+            "[[x=0]] and [[x=2]]",
+            "[[x=1]] and [[x=2]]",
+            "[[x=-1]] and [[x=3]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f'(x)=3x^{2}-6x=3x(x-2)]], so the derivative is zero at [[x=0]] and [[x=2]].",
+          "incorrectFeedback": "Differentiate first, then factor [[3x^{2}-6x]]. The stationary values are the roots of the derivative."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "THE SECOND DERIVATIVE · 4 OF 14",
+          "title": "Use [[f''(x)]] to classify stationary points",
+          "body": "The second derivative describes how the gradient is changing.<br><br>At a stationary point [[x=a]]:<br><br>• If [[f''(a)>0]], the gradient is increasing through zero and the point is a local minimum.<br><br>• If [[f''(a)<0]], the gradient is decreasing through zero and the point is a local maximum.",
+          "keyPoint": "Find stationary points using [[f'(x)=0]] before applying the second derivative test.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "CLASSIFYING POINTS · 9 OF 14",
-          "title": "Find the stationary points of [[f(x)=x^{3}-3x^{2}-9x+5]]",
+          "eyebrow": "TWO STATIONARY POINTS · 5 OF 14",
+          "title": "Classify both stationary points",
           "diagram": {
-            "kind": "turning-points",
-            "caption": "The sign of the second derivative distinguishes the maximum from the minimum."
+            "kind": "cubic-stationary-points",
+            "caption": "The actual graph has a local maximum at (-1, 10) and a local minimum at (3, -22)."
           },
           "steps": [
             {
               "title": "Differentiate and solve",
-              "body": "[[f'(x)=3x^{2}-6x-9=3(x-3)(x+1)]]. Therefore [[x=-1]] or [[x=3]]."
+              "body": "For [[f(x)=x^{3}-3x^{2}-9x+5]],<br><br>[[f'(x)=3x^{2}-6x-9]]<br>[[=3(x-3)(x+1)]].<br><br>Therefore [[x=-1]] or [[x=3]]."
             },
             {
               "title": "Find the coordinates",
-              "body": "[[f(-1)=10]] and [[f(3)=-22]], so the points are [[(-1,10)]] and [[(3,-22)]]."
+              "body": "[[f(-1)=10]] and [[f(3)=-22]], so the stationary points are [[(-1,10)]] and [[(3,-22)]]."
             },
             {
-              "title": "Use the second derivative",
-              "body": "[[f''(x)=6x-6]]. Then [[f''(-1)=-12<0]], so [[(-1,10)]] is a local maximum."
+              "title": "Differentiate again",
+              "body": "[[f''(x)=6x-6]]."
             },
             {
-              "title": "Classify the other point",
-              "body": "[[f''(3)=12>0]], so [[(3,-22)]] is a local minimum."
+              "title": "Classify both points",
+              "body": "[[f''(-1)=-12<0]], so [[(-1,10)]] is a local maximum. Also, [[f''(3)=12>0]], so [[(3,-22)]] is a local minimum."
             }
           ],
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "STATIONARY-POINT CHECK · 10 OF 14",
-          "question": "What stationary point does [[f(x)=x^{2}-4x+7]] have?",
+          "eyebrow": "SECOND-DERIVATIVE CHALLENGE · 6 OF 14",
+          "question": "The function f is defined by<br><br>[[f(x)=\\left(\\frac{3}{x}-\\frac{1}{2x^{2}}\\right)^{2}]], [[x\\ne0]].<br><br>Find [[f''(1)]].",
+          "prompt": "Expand the square and rewrite using negative powers before differentiating twice.",
           "options": [
-            "A local maximum at [[(2,3)]]",
-            "A local minimum at [[(2,3)]]",
-            "A local minimum at [[(-2,19)]]",
-            "No stationary point"
+            "[[5]]",
+            "[[18]]",
+            "[[23]]",
+            "[[41]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[f'(x)=2x-4=0]] gives [[x=2]], and [[f(2)=3]]. Since [[f''(x)=2>0]], it is a local minimum.",
-          "incorrectFeedback": "Solve [[2x-4=0]], substitute the result into f, and use the sign of [[f''(x)=2]]."
+          "answerIndex": 2,
+          "correctFeedback": "Correct. First expand:<br><br>[[f(x)=9x^{-2}-3x^{-3}+\\frac14x^{-4}]].<br><br>Then<br>[[f'(x)=-18x^{-3}+9x^{-4}-x^{-5}]]<br><br>and<br>[[f''(x)=54x^{-4}-36x^{-5}+5x^{-6}]].<br><br>Therefore [[f''(1)=54-36+5=23]].",
+          "incorrectFeedback": "Expand the square first:<br><br>[[f(x)=9x^{-2}-3x^{-3}+\\frac14x^{-4}]].<br><br>Apply the power rule twice, then substitute [[x=1]]."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "STATIONARY POINTS COMPLETE · 7 OF 14",
+          "title": "You can now find and classify turning points.",
+          "body": "You have used the first derivative to locate stationary points and the second derivative to classify maxima and minima.<br><br>Next, we will use the sign of the derivative to describe the behaviour of a function across whole intervals.",
+          "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "INCREASING AND DECREASING · 11 OF 14",
-          "title": "The sign of [[f'(x)]] controls the direction",
-          "body": "A function is strictly increasing wherever [[f'(x)>0]] and strictly decreasing wherever [[f'(x)<0]].<br><br>Find the zeros of the derivative, then use a sign chart or test values to determine its sign on each interval.",
-          "keyPoint": "Do not solve [[f(x)>0]]. The height of a function and the direction in which it is moving are different questions.",
+          "eyebrow": "INCREASING AND DECREASING · 8 OF 14",
+          "title": "The sign of the derivative controls direction",
+          "body": "A function is strictly increasing wherever [[f'(x)>0]] and strictly decreasing wherever [[f'(x)<0]].<br><br>The roots of [[f'(x)]] divide the number line into intervals. Test the sign of the derivative in each interval to determine whether the original function rises or falls.",
+          "keyPoint": "Use the sign of [[f'(x)]], not the sign of [[f(x)]]. A negative function can still be increasing.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 12 OF 14",
+          "eyebrow": "SIGN CHARTS · 9 OF 14",
           "title": "Find intervals of increase and decrease",
-          "question": "For [[f(x)=x^{3}-3x]], where is f strictly increasing?",
+          "question": "For [[f(x)=x^{3}-12x]], where is f strictly increasing?",
           "options": [
-            "[[-1<x<1]]",
-            "[[x<-1]] only",
-            "[[x>1]] only",
-            "[[x<-1]] or [[x>1]]"
+            "[[-2<x<2]]",
+            "[[x<-2]] only",
+            "[[x>2]] only",
+            "[[x<-2]] or [[x>2]]"
           ],
           "answerIndex": 3,
           "steps": [
             {
               "title": "Differentiate",
-              "body": "[[f'(x)=3x^{2}-3=3(x-1)(x+1)]]."
+              "body": "[[f'(x)=3x^{2}-12=3(x-2)(x+2)]]."
             },
             {
               "title": "Find the critical values",
-              "body": "[[f'(x)=0]] at [[x=-1]] and [[x=1]]. These values split the number line into three intervals."
+              "body": "[[f'(x)=0]] at [[x=-2]] and [[x=2]]. These values split the number line into three intervals."
             },
             {
               "title": "Check the sign",
-              "body": "The product [[3(x-1)(x+1)]] is positive for [[x<-1]], negative for [[-1<x<1]], and positive for [[x>1]]."
+              "body": "The derivative is positive for [[x<-2]], negative for [[-2<x<2]], and positive for [[x>2]]."
             },
             {
-              "title": "State the intervals",
-              "body": "Therefore f is strictly increasing for [[x<-1]] or [[x>1]]."
+              "title": "State the answer",
+              "body": "Therefore f is strictly increasing when [[x<-2]] or [[x>2]]."
             }
           ],
-          "finalAnswer": "The increasing intervals are [[x<-1]] and [[x>1]], so the correct option is D.",
+          "finalAnswer": "The correct option is D.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "RATE-OF-CHANGE CHECK · 13 OF 14",
-          "question": "A particle has displacement [[s(t)=t^{3}-6t^{2}+9t]]. What is its velocity when [[t=2]]?",
+          "eyebrow": "DECREASING INTERVALS · 10 OF 14",
+          "question": "For which values of x is [[f(x)=x^{3}+3x^{2}-9x]] strictly decreasing?",
           "options": [
-            "[[-3]]",
-            "[[0]]",
-            "[[3]]",
-            "[[9]]"
+            "[[x<-3]]",
+            "[[-3<x<1]]",
+            "[[x>1]]",
+            "[[x<-3]] or [[x>1]]"
           ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. [[v(t)=s'(t)=3t^{2}-12t+9]], so [[v(2)=12-24+9=-3]].",
-          "incorrectFeedback": "Velocity is the derivative of displacement. Differentiate s with respect to t, then substitute [[t=2]]."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f'(x)=3x^{2}+6x-9=3(x+3)(x-1)]]. This is negative between its roots, so f decreases for [[-3<x<1]].",
+          "incorrectFeedback": "Factor the derivative and determine where the product [[3(x+3)(x-1)]] is negative."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "WHEN THE TEST IS INCONCLUSIVE · 11 OF 14",
+          "title": "[[f''(a)=0]] does not classify the point",
+          "body": "If [[f''(a)=0]], the second derivative test is inconclusive. The point might be a maximum, a minimum or neither.<br><br>Instead, examine the sign of [[f'(x)]] on either side of a:<br><br>• Positive to negative means a local maximum.<br><br>• Negative to positive means a local minimum.<br><br>• No sign change means it is not a turning point.<br><br>A point of inflexion is where the direction of curvature changes. TMUA does not require formal calculations involving points of inflexion, but you should recognise their general shape.",
+          "keyPoint": "A zero second derivative is not itself evidence of a point of inflexion.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "FIRST-DERIVATIVE TEST · 12 OF 14",
+          "title": "Classify the stationary point of [[f(x)=x^{4}]]",
+          "steps": [
+            {
+              "title": "Find the stationary point",
+              "body": "[[f'(x)=4x^{3}]], so [[f'(x)=0]] only when [[x=0]]. The point is [[(0,0)]]."
+            },
+            {
+              "title": "Try the second derivative",
+              "body": "[[f''(x)=12x^{2}]], so [[f''(0)=0]]. The second derivative test is inconclusive."
+            },
+            {
+              "title": "Check the derivative to the left",
+              "body": "When [[x<0]], [[4x^{3}<0]], so the function is decreasing."
+            },
+            {
+              "title": "Check the derivative to the right",
+              "body": "When [[x>0]], [[4x^{3}>0]], so the function is increasing. Therefore [[(0,0)]] is a local minimum."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "MINIMISING A GRADIENT · 13 OF 14",
+          "question": "The curve has equation<br><br>[[y=(5p-x^{2})(px+4)]].<br><br>The gradient at [[x=2]] depends on p. For which value of p is this gradient least?",
+          "prompt": "Expand before differentiating, then minimise the resulting quadratic in p.",
+          "options": [
+            "[[-\\frac65]]",
+            "[[0]]",
+            "[[\\frac65]]",
+            "[[\\frac{12}{5}]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. First expand:<br><br>[[y=5p^{2}x+20p-px^{3}-4x^{2}]].<br><br>Differentiate with respect to x:<br><br>[[\\frac{\\mathrm{d}y}{\\mathrm{d}x}=5p^{2}-3px^{2}-8x]].<br><br>At [[x=2]], the gradient is<br>[[5p^{2}-12p-16]].<br><br>This upward-opening quadratic is minimised when<br>[[p=-\\frac{-12}{2(5)}=\\frac65]].",
+          "incorrectFeedback": "Expand the brackets before differentiating. At [[x=2]], the gradient becomes<br><br>[[5p^{2}-12p-16]].<br><br>Use [[p=-\\frac{b}{2a}]] to find where this quadratic is smallest."
         },
         {
           "type": "lessonSummary",
           "eyebrow": "LESSON SUMMARY · 14 OF 14",
-          "title": "Differentiation and Turning Points: key points",
+          "title": "Stationary Points and Curve Behaviour: key points",
           "keyPoints": [
-            "[[f'(x)]] is the tangent gradient and an instantaneous rate of change.",
-            "Use [[\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^{n})=nx^{n-1}]] for rational powers.",
-            "A normal gradient is the negative reciprocal of the non-zero tangent gradient.",
-            "Stationary points satisfy [[f'(x)=0]]; the second derivative can classify maxima and minima.",
-            "A function increases where [[f'(x)>0]] and decreases where [[f'(x)<0]]."
+            "Stationary points occur where [[f'(x)=0]].",
+            "Substitute stationary x-values into f to find complete coordinates.",
+            "At a stationary point, [[f''(x)>0]] indicates a local minimum and [[f''(x)<0]] indicates a local maximum.",
+            "A function increases where [[f'(x)>0]] and decreases where [[f'(x)<0]].",
+            "If the second derivative test is inconclusive, examine how the sign of [[f'(x)]] changes."
           ],
           "reviewItems": [
-            "Rewrite roots and reciprocal powers before differentiating.",
-            "Use both a point and a gradient when forming a tangent or normal.",
-            "Substitute stationary x-values back into the original function.",
-            "Build sign charts from the derivative, not from the original function.",
+            "Factor derivatives carefully before solving.",
+            "Do not forget the y-coordinate of a stationary point.",
+            "Use the original function to find coordinates and the derivatives to study behaviour.",
+            "Build sign charts from the derivative rather than the original function.",
             "Next lesson: Integration and Area."
           ],
           "buttonText": "Finish lesson"
@@ -5267,217 +5504,256 @@
     {
       "id": "integration-area",
       "topicId": "topic-6",
-      "title": "Integration & Area",
+      "title": "Integration: Rules, Definite Integrals & Area",
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "INTEGRATION · 1 OF 14",
+          "eyebrow": "INTEGRATION · 1 OF 15",
           "title": "Integration reverses differentiation",
-          "body": "For rational [[n\\ne-1]], [[\\int x^{n}\\,\\mathrm{d}x=\\frac{x^{n+1}}{n+1}+C]]. Increase the power by 1, then divide by the new power.<br><br>The constant C is required because every constant disappears when differentiated.",
-          "keyPoint": "Differentiate your answer mentally to check it. An indefinite integral without [[+C]] is incomplete.",
+          "body": "If [[F'(x)=f(x)]], then<br><br>[[\\int f(x)\\,\\mathrm{d}x=F(x)+C]].<br><br>The function F is called an antiderivative of f. The constant C is required because every constant disappears when differentiated.",
+          "keyPoint": "Differentiate an indefinite integral mentally to check it. Without [[+C]], the answer represents only one member of the family of antiderivatives.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "THE REVERSE POWER RULE · 2 OF 14",
-          "title": "Integrate powers term by term",
+          "eyebrow": "THE REVERSE POWER RULE · 2 OF 15",
+          "title": "Increase the power, then divide",
           "steps": [
             {
-              "title": "Start with the expression",
-              "body": "Find [[\\int(6x^{2}-4x^{-1/2})\\,\\mathrm{d}x]]."
+              "title": "Use the rule",
+              "body": "For rational [[n\\ne-1]],<br><br>[[\\int x^{n}\\,\\mathrm{d}x=\\frac{x^{n+1}}{n+1}+C]]."
             },
             {
-              "title": "Integrate the first term",
-              "body": "[[\\int6x^{2}\\,\\mathrm{d}x=6\\left(\\frac{x^{3}}3\\right)=2x^{3}]]."
+              "title": "Integrate a positive power",
+              "body": "[[\\int6x^{2}\\,\\mathrm{d}x=2x^{3}+C]]."
             },
             {
-              "title": "Integrate the fractional power",
-              "body": "[[\\int-4x^{-1/2}\\,\\mathrm{d}x=-4\\left(\\frac{x^{1/2}}{1/2}\\right)=-8x^{1/2}]]."
+              "title": "Integrate a fractional power",
+              "body": "[[\\int3x^{1/2}\\,\\mathrm{d}x=2x^{3/2}+C]]."
             },
             {
-              "title": "Include the constant",
-              "body": "The result is [[2x^{3}-8x^{1/2}+C]]."
+              "title": "Integrate a negative power",
+              "body": "[[\\int-4x^{-2}\\,\\mathrm{d}x=4x^{-1}+C]]. Dividing by a negative new power may change the sign."
             }
           ],
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "SIMPLIFY FIRST · 3 OF 14",
-          "question": "Find [[\\int\\left(3\\sqrt{x}+\\frac{2}{x^{2}}\\right)\\,\\mathrm{d}x]].",
+          "eyebrow": "REVERSE-POWER-RULE CHECK · 3 OF 15",
+          "question": "Find<br>[[\\int(6x^{2}-4x+5)\\,\\mathrm{d}x]].",
           "options": [
-            "[[2x^{3/2}-2x^{-1}+C]]",
-            "[[\\frac32x^{2}-2x^{-1}+C]]",
-            "[[2x^{3/2}+2x^{-1}+C]]",
-            "[[\\frac32x^{-1/2}-4x^{-3}+C]]"
+            "[[2x^{3}-2x^{2}+5x+C]]",
+            "[[2x^{3}-4x^{2}+5x+C]]",
+            "[[18x-4+5x+C]]",
+            "[[2x^{3}-2x^{2}+5+C]]"
           ],
           "answerIndex": 0,
-          "correctFeedback": "Correct. Rewrite as [[3x^{1/2}+2x^{-2}]]. Integrating gives [[2x^{3/2}-2x^{-1}+C]].",
-          "incorrectFeedback": "Rewrite the root and reciprocal as powers. Increase each power by 1 and divide by the new power."
+          "correctFeedback": "Correct. Integrating term by term gives [[2x^{3}-2x^{2}+5x+C]].",
+          "incorrectFeedback": "Increase each power by 1 and divide by the new power. Also remember that [[\\int5\\,\\mathrm{d}x=5x]]."
         },
         {
           "type": "concept",
-          "eyebrow": "DEFINITE INTEGRALS · 4 OF 14",
-          "title": "Use an antiderivative at the limits",
-          "body": "If [[F'(x)=f(x)]], the Fundamental Theorem of Calculus gives [[\\int_{a}^{b}f(x)\\,\\mathrm{d}x=F(b)-F(a)]].<br><br>A definite integral is a number, so there is no [[+C]]. Use square-bracket notation to avoid substituting into the wrong expression.",
-          "keyPoint": "Upper limit minus lower limit: [[\\left[F(x)\\right]_{a}^{b}=F(b)-F(a)]].",
+          "eyebrow": "RATIONAL POWERS · 4 OF 15",
+          "title": "Rewrite roots and reciprocals first",
+          "body": "The reverse power rule works with fractional and negative powers.<br><br>Use [[\\sqrt{x}=x^{1/2}]] and [[\\frac1{x^{k}}=x^{-k}]]. If an entire expression is divided by a power of x, divide every term before integrating.",
+          "keyPoint": "The case [[x^{-1}]] is excluded from this power rule because increasing its power would produce zero in the denominator.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 5 OF 14",
-          "title": "Evaluate a definite integral",
-          "question": "Find [[\\int_{1}^{3}(2x+1)\\,\\mathrm{d}x]].",
+          "eyebrow": "SIMPLIFY FIRST · 5 OF 15",
+          "title": "Divide through by the root",
+          "question": "Find<br>[[\\int\\frac{6x^{2}-4x}{\\sqrt{x}}\\,\\mathrm{d}x]].",
           "options": [
-            "[[8]]",
-            "[[10]]",
-            "[[12]]",
-            "[[14]]"
+            "[[\\frac{12}{5}x^{5/2}-\\frac83x^{3/2}+C]]",
+            "[[\\frac{12}{5}x^{5/2}+\\frac83x^{3/2}+C]]",
+            "[[4x^{3/2}-2x^{1/2}+C]]",
+            "[[12x^{5/2}-8x^{3/2}+C]]"
           ],
-          "answerIndex": 1,
+          "answerIndex": 0,
           "steps": [
             {
-              "title": "Find an antiderivative",
-              "body": "An antiderivative of [[2x+1]] is [[x^{2}+x]]."
+              "title": "Rewrite the denominator",
+              "body": "Since [[\\sqrt{x}=x^{1/2}]], divide both terms by [[x^{1/2}]]."
             },
             {
-              "title": "Apply the limits",
-              "body": "[[\\int_{1}^{3}(2x+1)\\,\\mathrm{d}x=\\left[x^{2}+x\\right]_{1}^{3}]]."
+              "title": "Simplify",
+              "body": "[[\\frac{6x^{2}-4x}{\\sqrt{x}}=6x^{3/2}-4x^{1/2}]]."
             },
             {
-              "title": "Substitute the upper limit",
-              "body": "At [[x=3]], [[x^{2}+x=9+3=12]]."
+              "title": "Integrate the first term",
+              "body": "[[\\int6x^{3/2}\\,\\mathrm{d}x=\\frac{12}{5}x^{5/2}]]."
             },
             {
-              "title": "Subtract the lower value",
-              "body": "At [[x=1]], the value is 2. Therefore the integral is [[12-2=10]]."
+              "title": "Integrate the second term",
+              "body": "[[\\int-4x^{1/2}\\,\\mathrm{d}x=-\\frac83x^{3/2}]]. Therefore the correct option is A."
             }
           ],
-          "finalAnswer": "The value is 10, so the correct option is B.",
+          "finalAnswer": "The integral is [[\\frac{12}{5}x^{5/2}-\\frac83x^{3/2}+C]].",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "DEFINITE-INTEGRAL CHECK · 6 OF 14",
-          "question": "Evaluate [[\\int_{0}^{2}(3x^{2}-1)\\,\\mathrm{d}x]].",
+          "eyebrow": "HARDER SIMPLIFICATION · 6 OF 15",
+          "question": "Find<br>[[\\int\\frac{4x^{3}-3x}{2x\\sqrt{x}}\\,\\mathrm{d}x]].",
+          "prompt": "Rewrite the denominator as a power of x.",
           "options": [
-            "[[4]]",
-            "[[6]]",
-            "[[8]]",
-            "[[10]]"
+            "[[\\frac45x^{5/2}-3x^{1/2}+C]]",
+            "[[\\frac45x^{5/2}+3x^{1/2}+C]]",
+            "[[2x^{3/2}-\\frac32x^{-1/2}+C]]",
+            "[[\\frac85x^{5/2}-6x^{1/2}+C]]"
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[\\left[x^{3}-x\\right]_{0}^{2}=8-2=6]].",
-          "incorrectFeedback": "An antiderivative is [[x^{3}-x]]. Evaluate it at 2 and subtract its value at 0."
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The integrand simplifies to [[2x^{3/2}-\\frac32x^{-1/2}]]. Integrating gives [[\\frac45x^{5/2}-3x^{1/2}+C]].",
+          "incorrectFeedback": "Since [[2x\\sqrt{x}=2x^{3/2}]], simplify the integrand to [[2x^{3/2}-\\frac32x^{-1/2}]] before integrating."
         },
         {
           "type": "milestone",
-          "eyebrow": "INTEGRATION BASICS COMPLETE · 7 OF 14",
-          "title": "You can integrate powers and evaluate between limits.",
-          "body": "You have used integration as the reverse of differentiation and applied the Fundamental Theorem.<br><br>Next, we will separate signed integrals from geometric area.",
+          "eyebrow": "INDEFINITE INTEGRATION COMPLETE · 7 OF 15",
+          "title": "You can now recover a family of functions.",
+          "body": "You have integrated positive, fractional and negative powers and simplified expressions before applying the reverse power rule.<br><br>Next, limits will select a numerical amount of accumulated change.",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "SIGNED AREA · 8 OF 14",
-          "title": "A definite integral can be negative",
-          "diagram": {
-            "kind": "signed-area",
-            "caption": "Area above the x-axis contributes positively; area below contributes negatively."
-          },
-          "body": "The integral [[\\int_{a}^{b}f(x)\\,\\mathrm{d}x]] is signed area. Regions above the x-axis count positively and regions below count negatively.<br><br>Geometric area is always non-negative. If a curve crosses the axis, split the interval at each root and make every region positive.",
-          "keyPoint": "Integral and area are equal only when the curve does not go below the x-axis on the interval.",
+          "eyebrow": "THE FUNDAMENTAL THEOREM · 8 OF 15",
+          "title": "Definite integrals measure accumulated change",
+          "body": "If [[F'(x)=f(x)]], then<br><br>[[\\int_{a}^{b}f(x)\\,\\mathrm{d}x=F(b)-F(a)]].<br><br>A definite integral is a number, so it does not require [[+C]]. The theorem also gives<br><br>[[\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\int_{a}^{x}f(t)\\,\\mathrm{d}t\\right)=f(x)]].",
+          "keyPoint": "Use upper limit minus lower limit: [[\\left[F(x)\\right]_{a}^{b}=F(b)-F(a)]].",
           "buttonText": "Continue"
         },
         {
-          "type": "reveal",
-          "eyebrow": "SPLITTING AT A ROOT · 9 OF 14",
-          "title": "Find the area between [[y=x^{2}-1]] and the x-axis for [[0\\le x\\le2]]",
-          "diagram": {
-            "kind": "signed-area",
-            "caption": "Split an area question wherever the curve crosses the x-axis."
-          },
+          "type": "workedExample",
+          "eyebrow": "DEFINITE INTEGRALS · 9 OF 15",
+          "title": "Integrate before applying the limits",
+          "question": "Evaluate<br>[[\\int_{1}^{4}(3x^{1/2}-2x^{-1/2})\\,\\mathrm{d}x]].",
+          "options": [
+            "[[6]]",
+            "[[8]]",
+            "[[10]]",
+            "[[12]]"
+          ],
+          "answerIndex": 2,
           "steps": [
             {
-              "title": "Locate the crossing",
-              "body": "[[x^{2}-1=0]] gives [[x=1]] in the interval. The function is negative from 0 to 1 and positive from 1 to 2."
+              "title": "Find an antiderivative",
+              "body": "[[\\int(3x^{1/2}-2x^{-1/2})\\,\\mathrm{d}x]]<br>[[=2x^{3/2}-4x^{1/2}]]."
             },
             {
-              "title": "Find the first area",
-              "body": "[[\\int_{0}^{1}(1-x^{2})\\,\\mathrm{d}x=\\left[x-\\frac{x^{3}}3\\right]_{0}^{1}=\\frac23]]."
+              "title": "Apply the limits",
+              "body": "[[\\left[2x^{3/2}-4x^{1/2}\\right]_{1}^{4}]]."
+            },
+            {
+              "title": "Use the upper limit",
+              "body": "At [[x=4]], the value is [[2(8)-4(2)=8]]."
+            },
+            {
+              "title": "Subtract the lower value",
+              "body": "At [[x=1]], the value is [[2-4=-2]]. Therefore the integral is [[8-(-2)=10]]."
+            }
+          ],
+          "finalAnswer": "The value of the definite integral is 10, so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TMUA INTEGRAL CHALLENGE · 10 OF 15",
+          "question": "Define [[F(x)]] by<br><br>[[F(x)=]]<br>[[\\int_{0}^{x}(3t^{2}-4t+k)\\,\\mathrm{d}t]].<br><br>It is known that [[F(2)=F(1)]].<br><br>Find [[F(3)]].",
+          "prompt": "Use the equality to determine k before calculating F(3).",
+          "options": [
+            "[[-2]]",
+            "[[0]]",
+            "[[4]]",
+            "[[6]]"
+          ],
+          "answerIndex": 3,
+          "correctFeedback": "Correct. Since [[F(2)=F(1)]],<br><br>[[F(2)-F(1)=\\int_{1}^{2}(3t^{2}-4t+k)\\,\\mathrm{d}t=0]].<br><br>Using the antiderivative [[t^{3}-2t^{2}+kt]] gives<br>[[k+1=0]], so [[k=-1]].<br><br>Therefore<br>[[F(3)=\\int_{0}^{3}(3t^{2}-4t-1)\\,\\mathrm{d}t=6]].",
+          "incorrectFeedback": "Begin with<br><br>[[F(2)-F(1)=\\int_{1}^{2}(3t^{2}-4t+k)\\,\\mathrm{d}t]].<br><br>The equality [[F(2)=F(1)]] means this integral is zero. Use it to find k, then evaluate F(3)."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SIGNED AREA · 11 OF 15",
+          "title": "An integral is not always geometric area",
+          "diagram": {
+            "kind": "signed-area",
+            "caption": "Regions above the x-axis contribute positively and regions below contribute negatively."
+          },
+          "body": "The definite integral [[\\int_{a}^{b}f(x)\\,\\mathrm{d}x]] gives signed area.<br><br>Area above the x-axis counts positively, while area below it counts negatively. Geometric area is always non-negative, so a curve crossing the axis requires the interval to be split at each root.",
+          "keyPoint": "Integral and geometric area are equal only when the function does not go below the x-axis on the interval.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "AREA ACROSS THE AXIS · 12 OF 15",
+          "title": "Split the interval at the root",
+          "question": "Find the total area between [[y=x^{2}-4]] and the x-axis for [[0\\le x\\le3]].",
+          "options": [
+            "[[3]]",
+            "[[\\frac73]]",
+            "[[\\frac{16}{3}]]",
+            "[[\\frac{23}{3}]]"
+          ],
+          "answerIndex": 3,
+          "steps": [
+            {
+              "title": "Find the crossing",
+              "body": "[[x^{2}-4=0]] gives [[x=2]] in the interval. The curve is below the axis from 0 to 2 and above it from 2 to 3."
+            },
+            {
+              "title": "Find the first positive area",
+              "body": "[[\\int_{0}^{2}(4-x^{2})\\,\\mathrm{d}x=\\left[4x-\\frac{x^{3}}3\\right]_{0}^{2}=\\frac{16}{3}]]."
             },
             {
               "title": "Find the second area",
-              "body": "[[\\int_{1}^{2}(x^{2}-1)\\,\\mathrm{d}x=\\left[\\frac{x^{3}}3-x\\right]_{1}^{2}=\\frac43]]."
+              "body": "[[\\int_{2}^{3}(x^{2}-4)\\,\\mathrm{d}x=\\left[\\frac{x^{3}}3-4x\\right]_{2}^{3}=\\frac73]]."
             },
             {
-              "title": "Add positive regions",
-              "body": "The total geometric area is [[\\frac23+\\frac43=2]]. The unsplit signed integral would instead be [[\\frac23]]."
+              "title": "Add the regions",
+              "body": "The total geometric area is [[\\frac{16}{3}+\\frac73=\\frac{23}{3}]]."
             }
           ],
+          "finalAnswer": "The total area is [[\\frac{23}{3}]], so the correct option is D.",
           "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "AREA OR INTEGRAL? · 10 OF 14",
-          "question": "You are told only that [[\\int_{0}^{4}f(x)\\,\\mathrm{d}x=-3]]. What is the area between the graph and the x-axis?",
-          "options": [
-            "[[-3]]",
-            "[[3]]",
-            "At least 3, but its exact value cannot be determined",
-            "It must be 0"
-          ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. The signed total is -3, but positive and negative regions may cancel. The geometric area is at least 3, and more information is needed to find it exactly.",
-          "incorrectFeedback": "A definite integral is signed. Without knowing where f is positive or negative, you cannot reconstruct the total geometric area."
         },
         {
           "type": "concept",
-          "eyebrow": "COMBINING INTEGRALS · 11 OF 14",
-          "title": "Join contiguous intervals and reverse with a sign change",
-          "body": "For adjacent intervals, [[\\int_{a}^{b}f(x)\\,\\mathrm{d}x+\\int_{b}^{c}f(x)\\,\\mathrm{d}x=\\int_{a}^{c}f(x)\\,\\mathrm{d}x]].<br><br>Reversing the limits changes the sign: [[\\int_{b}^{a}f(x)\\,\\mathrm{d}x=-\\int_{a}^{b}f(x)\\,\\mathrm{d}x]]. Integrals over the same interval can also be added term by term.",
-          "keyPoint": "Treat limits like directed journeys: going from b back to a reverses the sign.",
-          "buttonText": "Continue"
+          "eyebrow": "COMBINING INTEGRALS · 13 OF 15",
+          "title": "Integral intervals behave like directed journeys",
+          "body": "Adjacent intervals can be joined:<br><br>[[\\int_{a}^{b}f(x)\\,\\mathrm{d}x+\\int_{b}^{c}f(x)\\,\\mathrm{d}x]]<br>[[=\\int_{a}^{c}f(x)\\,\\mathrm{d}x]].<br><br>Reversing the direction changes the sign:<br><br>[[\\int_{b}^{a}f(x)\\,\\mathrm{d}x]]<br>[[=-\\int_{a}^{b}f(x)\\,\\mathrm{d}x]].<br><br>Over equal limits, sums can be integrated term by term.",
+          "keyPoint": "For constants r and s:<br><br>[[\\int_{a}^{b}(rf(x)+sg(x))\\,\\mathrm{d}x]]<br>[[=r\\int_{a}^{b}f(x)\\,\\mathrm{d}x+s\\int_{a}^{b}g(x)\\,\\mathrm{d}x]].",
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "INTERVAL CHECK · 12 OF 14",
-          "question": "Given [[\\int_{1}^{4}f(x)\\,\\mathrm{d}x=7]] and [[\\int_{4}^{6}f(x)\\,\\mathrm{d}x=-2]], find [[\\int_{1}^{6}f(x)\\,\\mathrm{d}x]].",
+          "eyebrow": "CONTIGUOUS-INTERVAL CHALLENGE · 14 OF 15",
+          "question": "For every integer [[n\\ge0]],<br><br>[[\\int_{n}^{n+1}f(x)\\,\\mathrm{d}x=2n+1]].<br><br>Evaluate [[\\int_{0}^{4}f(x)\\,\\mathrm{d}x]].",
           "options": [
-            "[[-9]]",
-            "[[-5]]",
-            "[[5]]",
-            "[[9]]"
+            "[[12]]",
+            "[[14]]",
+            "[[16]]",
+            "[[20]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. The intervals are contiguous, so [[\\int_{1}^{6}f(x)\\,\\mathrm{d}x=7+(-2)=5]].",
-          "incorrectFeedback": "Join the journey from 1 to 4 with the journey from 4 to 6. Add the two signed values."
-        },
-        {
-          "type": "concept",
-          "eyebrow": "ACCUMULATION FUNCTIONS · 13 OF 14",
-          "title": "Differentiating an integral recovers the integrand",
-          "body": "The Fundamental Theorem also gives [[\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\int_{a}^{x}f(t)\\,\\mathrm{d}t\\right)=f(x)]].<br><br>The integral accumulates signed area as its upper limit moves. Its instantaneous rate of change is therefore the current height of the original function.",
-          "keyPoint": "The integration variable t is a placeholder. After differentiating with respect to x, replace it with x.",
-          "buttonText": "Continue"
+          "correctFeedback": "Correct. Split the interval into four adjacent parts:<br><br>[[\\int_{0}^{4}f(x)\\,\\mathrm{d}x=1+3+5+7=16]].",
+          "incorrectFeedback": "Use [[n=0,1,2,3]] for the four intervals from 0 to 4. Their values are 1, 3, 5 and 7."
         },
         {
           "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 14 OF 14",
-          "title": "Integration and Area: key points",
+          "eyebrow": "LESSON SUMMARY · 15 OF 15",
+          "title": "Integration, Definite Integrals and Area",
           "keyPoints": [
             "For [[n\\ne-1]], [[\\int x^{n}\\,\\mathrm{d}x=\\frac{x^{n+1}}{n+1}+C]].",
-            "Definite integrals use [[F(b)-F(a)]] and do not need an arbitrary constant.",
-            "A definite integral is signed area; geometric area is always non-negative.",
-            "Split an area calculation wherever the curve crosses the x-axis.",
-            "Contiguous integrals join, and reversing the limits reverses the sign."
+            "Rewrite roots, reciprocals and quotients using powers before integrating.",
+            "Definite integrals use [[F(b)-F(a)]] and do not require an arbitrary constant.",
+            "A definite integral gives signed accumulation, which may differ from geometric area.",
+            "Contiguous intervals join, while reversing the limits reverses the sign."
           ],
           "reviewItems": [
-            "Rewrite roots and reciprocals as powers before integrating.",
             "Differentiate indefinite answers to check them.",
-            "Keep upper-minus-lower substitution in clear brackets.",
-            "Distinguish signed integral from total geometric area.",
-            "Next lesson: Trapezium Rule and Integration Logic."
+            "Use clear brackets when substituting limits.",
+            "Split total-area calculations wherever the curve crosses the x-axis.",
+            "Use integral identities before attempting unnecessary calculations.",
+            "Next lesson: Trapezium Rule, Differential Equations and Total Change."
           ],
           "buttonText": "Finish lesson"
         }
