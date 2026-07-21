@@ -132,7 +132,10 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "log-laws-exponential-graphs": "Inverse functions, graphs and log laws",
   "solving-exponential-log-equations": "Common bases, substitutions and domains",
   "exponentials-logarithms-exam-style-questions": "Bring the whole topic together",
-  "differentiation-turning-points": "Gradients, tangents and stationary points",
+  "differentiation-gradients-rates-rules":
+    "Gradients, rates of change, tangents and normals",
+  "stationary-points-curve-behaviour":
+    "Turning points, classification and curve behaviour",
   "integration-area": "Antiderivatives, definite integrals and signed area",
   "trapezium-rule-integration-logic": "Estimation, total change and initial values",
   "calculus-exam-style-questions": "Bring the whole topic together",
