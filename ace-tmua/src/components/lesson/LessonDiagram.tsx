@@ -938,6 +938,234 @@ function CommonTrigGraphsDiagram() {
 }
 
 
+
+function GraphVerticalTransformationsDiagram() {
+  return (
+    <>
+      <Axes xAxisY={154} yAxisX={42} />
+
+      <Path
+        d="M 68 148 Q 140 45 212 148"
+        fill="none"
+        stroke="#A99C92"
+        strokeWidth={3}
+        strokeDasharray="6 5"
+      />
+
+      <Path
+        d="M 68 111 Q 140 8 212 111"
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={4}
+        strokeLinecap="round"
+      />
+
+      <Line
+        x1={235}
+        y1={139}
+        x2={235}
+        y2={102}
+        stroke="#54749F"
+        strokeWidth={2.4}
+      />
+      <Polygon points="235,97 230,107 240,107" fill="#54749F" />
+
+      <SvgText x={72} y={137} fontSize={11} fontWeight="800" fill="#8E8178">
+        y = f(x)
+      </SvgText>
+      <SvgText x={150} y={33} fontSize={11} fontWeight="900" fill={C.primary}>
+        y = f(x) + a
+      </SvgText>
+      <SvgText x={244} y={122} fontSize={11} fontWeight="900" fill="#54749F">
+        +a
+      </SvgText>
+    </>
+  );
+}
+
+function GraphHorizontalTransformationsDiagram() {
+  return (
+    <>
+      <Axes xAxisY={154} yAxisX={42} />
+
+      <Path
+        d="M 130 148 Q 196 42 262 148"
+        fill="none"
+        stroke="#A99C92"
+        strokeWidth={3}
+        strokeDasharray="6 5"
+      />
+
+      <Path
+        d="M 62 148 Q 128 42 194 148"
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={4}
+        strokeLinecap="round"
+      />
+
+      <Path
+        d="M 158 148 Q 196 42 234 148"
+        fill="none"
+        stroke="#54749F"
+        strokeWidth={3}
+        strokeLinecap="round"
+      />
+
+      <Line
+        x1={182}
+        y1={116}
+        x2={132}
+        y2={116}
+        stroke={C.ink}
+        strokeWidth={2}
+      />
+      <Polygon points="126,116 137,110 137,122" fill={C.ink} />
+
+      <SvgText x={55} y={58} fontSize={10.5} fontWeight="900" fill={C.primary}>
+        f(x + a)
+      </SvgText>
+      <SvgText x={221} y={75} fontSize={10.5} fontWeight="800" fill="#8E8178">
+        f(x)
+      </SvgText>
+      <SvgText x={204} y={33} fontSize={10.5} fontWeight="900" fill="#54749F">
+        f(2x)
+      </SvgText>
+      <SvgText x={103} y={108} fontSize={10} fontWeight="800" fill={C.ink}>
+        left
+      </SvgText>
+    </>
+  );
+}
+
+function GraphScaleReflectionsDiagram() {
+  return (
+    <>
+      <Axes xAxisY={98} yAxisX={42} />
+
+      <Path
+        d="M 67 91 Q 142 20 217 91"
+        fill="none"
+        stroke="#A99C92"
+        strokeWidth={3}
+        strokeDasharray="6 5"
+      />
+
+      <Path
+        d="M 67 110 Q 142 184 217 110"
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={4}
+        strokeLinecap="round"
+      />
+
+      <Line
+        x1={238}
+        y1={70}
+        x2={238}
+        y2={126}
+        stroke="#54749F"
+        strokeWidth={2.2}
+      />
+      <Polygon points="238,132 232,121 244,121" fill="#54749F" />
+
+      <SvgText x={75} y={55} fontSize={11} fontWeight="800" fill="#8E8178">
+        y = f(x)
+      </SvgText>
+      <SvgText x={145} y={160} fontSize={11} fontWeight="900" fill={C.primary}>
+        y = −af(x)
+      </SvgText>
+      <SvgText x={246} y={103} fontSize={10.5} fontWeight="900" fill="#54749F">
+        reflect
+      </SvgText>
+    </>
+  );
+}
+
+function GraphCombinedTransformationsDiagram() {
+  return (
+    <>
+      <Axes xAxisY={151} yAxisX={42} />
+
+      <Circle
+        cx={102}
+        cy={75}
+        r={5}
+        fill="#A99C92"
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+      <Line
+        x1={102}
+        y1={75}
+        x2={102}
+        y2={151}
+        stroke="#A99C92"
+        strokeWidth={1.5}
+        strokeDasharray="5 4"
+      />
+      <Line
+        x1={42}
+        y1={75}
+        x2={102}
+        y2={75}
+        stroke="#A99C92"
+        strokeWidth={1.5}
+        strokeDasharray="5 4"
+      />
+
+      <Circle
+        cx={226}
+        cy={116}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+      <Line
+        x1={226}
+        y1={116}
+        x2={226}
+        y2={151}
+        stroke={C.primary}
+        strokeWidth={1.5}
+        strokeDasharray="5 4"
+      />
+      <Line
+        x1={42}
+        y1={116}
+        x2={226}
+        y2={116}
+        stroke={C.primary}
+        strokeWidth={1.5}
+        strokeDasharray="5 4"
+      />
+
+      <Path
+        d="M 116 80 C 147 64, 171 88, 207 108"
+        fill="none"
+        stroke="#54749F"
+        strokeWidth={2.6}
+        strokeDasharray="7 5"
+      />
+      <Polygon points="211,111 201,108 206,101" fill="#54749F" />
+
+      <SvgText x={68} y={63} fontSize={11} fontWeight="900" fill="#8E8178">
+        P(u, v)
+      </SvgText>
+      <SvgText x={169} y={105} fontSize={10.5} fontWeight="900" fill={C.primary}>
+        P′
+      </SvgText>
+      <SvgText x={146} y={28} fontSize={11} fontWeight="900" fill={C.ink}>
+        y = A f(B(x − H)) + K
+      </SvgText>
+      <SvgText x={160} y={178} textAnchor="middle" fontSize={10.5} fontWeight="800" fill={C.muted}>
+        x′ = H + u/B         y′ = Av + K
+      </SvgText>
+    </>
+  );
+}
+
 function GraphTransformationsDiagram() {
   return (
     <>
@@ -1862,6 +2090,10 @@ export default function LessonDiagramView({ diagram }: Props) {
         {diagram.kind === "reciprocal-graph" && <ReciprocalGraphDiagram />}
         {diagram.kind === "exponential-log-graphs" && <ExponentialLogGraphsDiagram />}
         {diagram.kind === "common-trig-graphs" && <CommonTrigGraphsDiagram />}
+        {diagram.kind === "graph-vertical-transformations" && <GraphVerticalTransformationsDiagram />}
+        {diagram.kind === "graph-horizontal-transformations" && <GraphHorizontalTransformationsDiagram />}
+        {diagram.kind === "graph-scale-reflections" && <GraphScaleReflectionsDiagram />}
+        {diagram.kind === "graph-combined-transformations" && <GraphCombinedTransformationsDiagram />}
         {diagram.kind === "graph-transformations" && <GraphTransformationsDiagram />}
         {diagram.kind === "function-intersections" && <FunctionIntersectionsDiagram />}
         {diagram.kind === "similarity-scale" && <SimilarityScaleDiagram />}

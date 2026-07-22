@@ -1,4 +1,3 @@
-// types.ts
 
 export interface Lesson {
   id: string;
@@ -18,6 +17,10 @@ export type LessonDiagramKind =
   | "reciprocal-graph"
   | "exponential-log-graphs"
   | "common-trig-graphs"
+  | "graph-vertical-transformations"
+  | "graph-horizontal-transformations"
+  | "graph-scale-reflections"
+  | "graph-combined-transformations"
   | "graph-transformations"
   | "function-intersections"
   | "similarity-scale"

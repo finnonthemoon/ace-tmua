@@ -6572,205 +6572,312 @@
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "GRAPHS OF FUNCTIONS · 1 OF 14",
-          "title": "Recognise the parent graph before transforming it",
-          "body": "You should recognise the main shapes of lines, quadratics, cubics, reciprocal, square-root, exponential, logarithmic, trigonometric, and modulus functions.<br><br>Start from intercepts, symmetry, turning points, asymptotes, domain, and range. These features move predictably under transformations.",
-          "keyPoint": "A sketch needs the right structure, not perfect scale. Mark decisive features such as roots, vertices, and asymptotes.",
+          "eyebrow": "TRANSFORMATIONS · 1 OF 18",
+          "title": "Transform features instead of redrawing from scratch",
+          "diagram": {
+            "kind": "graph-transformations",
+            "caption": "A transformed graph keeps the parent graph's structure while moving or rescaling its key features."
+          },
+          "body": "The four core forms are [[y=af(x)]], [[y=f(x)+a]], [[y=f(x+a)]], and [[y=f(ax)]].<br><br>Track distinctive points, roots, vertices, endpoints, and asymptotes. Their coordinates change by consistent rules.",
+          "keyPoint": "Outside changes act on y-coordinates. Inside changes act on x-coordinates, with the direction or scale appearing reversed.",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "TRANSLATIONS · 2 OF 14",
-          "title": "Changes outside f are vertical; changes inside are horizontal",
+          "eyebrow": "VERTICAL TRANSLATIONS · 2 OF 18",
+          "title": "Adding outside f moves every point vertically",
           "diagram": {
-            "kind": "graph-transformations",
-            "caption": "Track distinctive points on the parent graph to construct the transformed graph."
+            "kind": "graph-vertical-transformations",
+            "caption": "On y = f(x) + a, every x-coordinate stays fixed while every y-coordinate increases by a."
           },
-          "body": "[[y=f(x)+a]] moves the graph a units vertically. Positive a moves it up.<br><br>[[y=f(x+a)]] moves the graph a units horizontally in the opposite-looking direction: positive a moves it left.",
-          "keyPoint": "Inside changes act on x before f is evaluated, which is why their horizontal direction appears reversed.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "reveal",
-          "eyebrow": "POINT MAPPINGS · 3 OF 14",
-          "title": "Transform a known point [[P=(x,y)]]",
-          "steps": [
-            {
-              "title": "Vertical scaling",
-              "body": "On [[Y=af(x)]], the point becomes [[(x,ay)]]. x stays fixed."
-            },
-            {
-              "title": "Vertical translation",
-              "body": "On [[Y=f(x)+a]], the point becomes [[(x,y+a)]]."
-            },
-            {
-              "title": "Horizontal translation",
-              "body": "On [[Y=f(x+a)]], the point becomes [[(x-a,y)]]."
-            },
-            {
-              "title": "Horizontal scaling",
-              "body": "On [[Y=f(ax)]], the point becomes [[\\left(\\frac{x}{a},y\\right)]]. Horizontal coordinates are divided by a."
-            }
-          ],
+          "body": "For [[y=f(x)+a]], the graph moves up by a when [[a>0]] and down by [[\\lvert a\\rvert]] when [[a<0]].<br><br>A point [[(x,y)]] maps to [[(x,y+a)]]. Horizontal asymptotes also move by the same vertical amount.",
+          "keyPoint": "The transformation changes outputs, so x-coordinates do not move.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "MAPPING CHECK · 4 OF 14",
-          "question": "The point [[(2,5)]] lies on [[y=f(x)]]. Which point lies on [[y=f(x-3)+2]]?",
+          "eyebrow": "VERTICAL-MAPPING CHECK · 3 OF 18",
+          "question": "The point [[(-2,4)]] lies on [[y=f(x)]]. Which point lies on [[y=f(x)-5]]?",
           "options": [
-            "[[(-1,7)]]",
-            "[[(5,3)]]",
-            "[[(5,7)]]",
-            "[[(6,10)]]"
+            "[[(-7,4)]]",
+            "[[(-2,-1)]]",
+            "[[(3,4)]]",
+            "[[(-2,9)]]"
           ],
-          "answerIndex": 2,
-          "correctFeedback": "Correct. Replacing x by [[x-3]] moves the graph right by 3, and adding 2 moves it up by 2. Thus [[(2,5)\\mapsto(5,7)]].",
-          "incorrectFeedback": "The inside change moves the point right by 3. The outside change then raises its y-coordinate by 2."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Subtracting 5 changes only the y-coordinate: [[(-2,4)\\mapsto(-2,-1)]].",
+          "incorrectFeedback": "The change is outside f, so keep x fixed and subtract 5 from the y-coordinate."
         },
         {
           "type": "concept",
-          "eyebrow": "REFLECTIONS AND STRETCHES · 5 OF 14",
-          "title": "A negative multiplier introduces a reflection",
-          "body": "[[y=-f(x)]] reflects the graph in the x-axis, while [[y=f(-x)]] reflects it in the y-axis.<br><br>For [[y=af(x)]], [[\\lvert a\\rvert>1]] gives a vertical stretch and [[0<\\lvert a\\rvert<1]] a vertical compression. For [[y=f(ax)]], the horizontal scale factor is [[\\frac1{\\lvert a\\rvert}]].",
-          "keyPoint": "Outside multipliers change y-coordinates. Inside multipliers change x-coordinates reciprocally.",
+          "eyebrow": "HORIZONTAL TRANSLATIONS · 4 OF 18",
+          "title": "Adding inside f moves the graph in the opposite direction",
+          "diagram": {
+            "kind": "graph-horizontal-transformations",
+            "caption": "The graph of y = f(x + a) is shifted left by a when a is positive."
+          },
+          "body": "For [[y=f(x+a)]], a point [[(x,y)]] maps to [[(x-a,y)]]. Therefore positive a moves the graph left, while negative a moves it right.<br><br>The sign looks reversed because the new input must compensate for the change inside the function.",
+          "keyPoint": "Inside [[+a]] means left by a; inside [[-a]] means right by a.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "HORIZONTAL-MAPPING CHECK · 5 OF 18",
+          "question": "The graph of [[y=f(x)]] has a minimum at [[(3,-2)]]. Where is the corresponding minimum on [[y=f(x+4)]]?",
+          "options": [
+            "[[(-1,-2)]]",
+            "[[(7,-2)]]",
+            "[[(3,2)]]",
+            "[[(-1,2)]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[f(x+4)]] shifts the graph 4 units left, so [[(3,-2)\\mapsto(-1,-2)]].",
+          "incorrectFeedback": "A positive number inside f moves the graph left. Subtract 4 from the x-coordinate."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "VERTICAL SCALING · 6 OF 18",
+          "title": "Multiplying outside f rescales y-values",
+          "diagram": {
+            "kind": "graph-scale-reflections",
+            "caption": "Outside multipliers stretch or compress vertically; a negative multiplier also reflects in the x-axis."
+          },
+          "body": "For [[y=af(x)]], a point [[(x,y)]] maps to [[(x,ay)]]. If [[\\lvert a\\rvert>1]], the graph is stretched vertically; if [[0<\\lvert a\\rvert<1]], it is compressed vertically.<br><br>When [[a<0]], all y-values change sign, giving a reflection in the x-axis.",
+          "keyPoint": "The x-intercepts stay fixed under [[y=af(x)]] provided [[a\\ne0]], because multiplying zero still gives zero.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 6 OF 14",
-          "title": "Compose several transformations",
-          "question": "The point [[(6,-1)]] lies on [[y=f(x)]]. Where does it move on [[y=-2f(3x)+1]]?",
+          "eyebrow": "WORKED EXAMPLE · 7 OF 18",
+          "title": "Combine a vertical reflection, stretch, and translation",
+          "question": "The point [[(5,-2)]] lies on [[y=f(x)]]. Where does it move on [[y=-3f(x)+4]]?",
           "diagram": {
-            "kind": "graph-transformations",
-            "caption": "Apply the horizontal mapping to x and the outside mapping to y."
+            "kind": "graph-scale-reflections",
+            "caption": "Apply the multiplier to the y-coordinate before applying the vertical translation."
           },
           "options": [
-            "[[(2,-1)]]",
-            "[[(2,3)]]",
-            "[[(18,3)]]",
-            "[[(-2,-3)]]"
+            "[[(5,-10)]]",
+            "[[(5,2)]]",
+            "[[(5,10)]]",
+            "[[(-5,10)]]"
           ],
-          "answerIndex": 1,
+          "answerIndex": 2,
           "steps": [
             {
-              "title": "Handle the inside change",
-              "body": "[[f(3x)]] divides x-coordinates by 3, so [[6\\mapsto2]]."
+              "title": "Keep the x-coordinate",
+              "body": "Both changes are outside f, so [[x=5]] is unchanged."
             },
             {
-              "title": "Handle the vertical multiplier",
-              "body": "The y-coordinate is multiplied by -2, so [[-1\\mapsto2]]. This also reflects the graph in the x-axis."
+              "title": "Apply the multiplier",
+              "body": "[[-2]] is multiplied by [[-3]], giving [[6]]."
             },
             {
               "title": "Apply the translation",
-              "body": "Adding 1 raises the new y-coordinate: [[2\\mapsto3]]."
+              "body": "Adding 4 gives [[6+4=10]]."
             },
             {
               "title": "State the image",
-              "body": "The point becomes [[(2,3)]]."
+              "body": "The point becomes [[(5,10)]]."
             }
           ],
-          "finalAnswer": "The image is [[(2,3)]], so the correct option is B.",
+          "finalAnswer": "The image is [[(5,10)]], so the correct option is C.",
           "buttonText": "Continue"
         },
         {
           "type": "milestone",
-          "eyebrow": "TRANSFORMATIONS COMPLETE · 7 OF 14",
-          "title": "You can now move points instead of guessing whole sketches.",
-          "body": "You have handled translations, stretches, compressions, reflections, and compositions.<br><br>Next, we connect function composition with graph parameters and intersections.",
+          "eyebrow": "OUTSIDE CHANGES COMPLETE · 8 OF 18",
+          "title": "You can now handle every transformation applied outside f.",
+          "body": "Vertical translations alter y by addition, while vertical stretches, compressions, and reflections alter y by multiplication.<br><br>Next, we apply the reciprocal scaling rule to changes inside f.",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "COMPOSITE FUNCTIONS · 8 OF 14",
-          "title": "In [[f(g(x))]], apply g first",
-          "body": "The output of g becomes the input of f. Work from the inside out.<br><br>For example, if [[f(x)=x^{2}+1]] and [[g(x)=2x-3]], then [[f(g(x))=(2x-3)^{2}+1]], whereas [[g(f(x))=2(x^{2}+1)-3]]. They are generally different.",
-          "keyPoint": "Function composition is ordered: [[f\\circ g]] need not equal [[g\\circ f]].",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "COMPOSITION CHECK · 9 OF 14",
-          "question": "Let [[f(x)=x^{2}+1]] and [[g(x)=2x-3]]. Find [[f(g(2))]].",
-          "options": [
-            "[[1]]",
-            "[[2]]",
-            "[[5]]",
-            "[[26]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[g(2)=1]], then [[f(1)=1^{2}+1=2]].",
-          "incorrectFeedback": "Evaluate the inner function first: find [[g(2)]], then use that result as the input to f."
-        },
-        {
-          "type": "concept",
-          "eyebrow": "GRAPH PARAMETERS · 10 OF 14",
-          "title": "Read key features directly from standard forms",
-          "body": "For [[y=mx+c]], m controls the gradient and c the y-intercept.<br><br>For [[y=a(x+b)^{2}+c]], the vertex is [[(-b,c)]]. The sign of a decides whether the parabola opens up or down, while [[\\lvert a\\rvert]] controls how narrow it is.",
-          "keyPoint": "The vertex x-coordinate has the opposite sign to the number inside the bracket.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "PARAMETER CHECK · 11 OF 14",
-          "question": "Which statement describes [[y=-2(x+3)^{2}+5]]?",
-          "options": [
-            "It has a minimum at [[(3,5)]].",
-            "It has a maximum at [[(-3,5)]].",
-            "It has a maximum at [[(3,-5)]].",
-            "It has a minimum at [[(-3,-5)]]."
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. The vertex is [[(-3,5)]], and the negative coefficient means the parabola opens down, so this is a maximum.",
-          "incorrectFeedback": "Read the vertex from [[a(x+b)^{2}+c]] as [[(-b,c)]], then use the sign of a."
-        },
-        {
-          "type": "concept",
-          "eyebrow": "INTERCEPTS AND INTERSECTIONS · 12 OF 14",
-          "title": "Algebraic solutions are geometric intersections",
+          "eyebrow": "HORIZONTAL SCALING · 9 OF 18",
+          "title": "Multiplying x inside f changes horizontal distances reciprocally",
           "diagram": {
-            "kind": "function-intersections",
-            "caption": "Each intersection gives an x-value satisfying f(x) = g(x)."
+            "kind": "graph-horizontal-transformations",
+            "caption": "On y = f(ax), x-coordinates are divided by a, so larger inside multipliers make the graph narrower."
           },
-          "body": "Set [[x=0]] to find a y-intercept and set [[y=0]] to find roots or x-intercepts.<br><br>The solutions of [[f(x)=g(x)]] are the x-coordinates where the two graphs meet. A polynomial of degree n can have at most n real roots, though it may have fewer.",
-          "keyPoint": "Differentiation can add shape information: stationary points and derivative signs help determine how many intersections are possible.",
+          "body": "For [[y=f(ax)]], a point [[(x,y)]] maps to [[\\left(\\frac{x}{a},y\\right)]]. Thus [[\\lvert a\\rvert>1]] gives a horizontal compression with scale factor [[\\frac1{\\lvert a\\rvert}]].<br><br>If [[a<0]], the x-coordinate also changes sign, so the graph is reflected in the y-axis.",
+          "keyPoint": "Inside multipliers act reciprocally: multiply inside by 3, divide x-coordinates by 3.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "INTERSECTION CHECK · 13 OF 14",
-          "question": "At which x-values do [[y=x^{2}]] and [[y=2x+3]] intersect?",
+          "eyebrow": "HORIZONTAL-SCALING CHECK · 10 OF 18",
+          "question": "The point [[(-6,7)]] lies on [[y=f(x)]]. Which point lies on [[y=f(-2x)]]?",
           "options": [
-            "[[x=-3]] and [[x=1]]",
-            "[[x=-1]] and [[x=3]]",
-            "[[x=1]] and [[x=3]]",
-            "[[x=-1]] only"
+            "[[(-12,7)]]",
+            "[[(-3,7)]]",
+            "[[(3,7)]]",
+            "[[(12,-7)]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Divide the x-coordinate by [[-2]]: [[-6\\div(-2)=3]]. The y-coordinate stays 7.",
+          "incorrectFeedback": "For [[f(ax)]], divide x-coordinates by a. Here [[-6\\div(-2)=3]]."
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "FEATURE MAPPINGS · 11 OF 18",
+          "title": "Transform vertices and asymptotes using the same coordinate rules",
+          "steps": [
+            {
+              "title": "Start with a known feature",
+              "body": "Suppose [[y=f(x)]] has a minimum at [[(6,-1)]], a vertical asymptote [[x=9]], and a horizontal asymptote [[y=-1]]."
+            },
+            {
+              "title": "Apply the transformation to the minimum",
+              "body": "Divide x by 3 and add 2 to y: [[(6,-1)\\mapsto(2,1)]]."
+            },
+            {
+              "title": "Transform the vertical asymptote",
+              "body": "Its x-coordinate is divided by 3, so [[x=9]] becomes [[x=3]]."
+            },
+            {
+              "title": "Transform the horizontal asymptote",
+              "body": "It moves up by 2, so [[y=-1]] becomes [[y=1]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DESCRIPTION TO EQUATION · 12 OF 18",
+          "question": "Which expression reflects [[y=f(x)]] in the y-axis, compresses it horizontally by scale factor [[\\frac12]], and then moves it down 3 units?",
+          "options": [
+            "[[y=f(-2x)-3]]",
+            "[[y=-2f(x)-3]]",
+            "[[y=f\\left(-\\frac{x}{2}\\right)-3]]",
+            "[[y=-f(2x+3)]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Horizontal scale factor [[\\frac12]] requires an inside multiplier 2; the negative sign reflects in the y-axis, and subtracting 3 moves the graph down.",
+          "incorrectFeedback": "A horizontal scale factor is the reciprocal of the inside multiplier. Reflection in the y-axis requires a negative inside multiplier."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMBINED TRANSFORMATIONS · 13 OF 18",
+          "title": "Use one point-mapping rule for a full composition",
+          "diagram": {
+            "kind": "graph-combined-transformations",
+            "caption": "For y = A f(B(x − H)) + K, solve the inside equation for the new x-coordinate and transform y outside."
+          },
+          "body": "If [[(u,v)]] lies on [[y=f(x)]], then on [[y=A f(B(x-H))+K]] it maps to<br><br>[[\\left(H+\\frac{u}{B},\\;Av+K\\right)]].<br><br>This rule packages horizontal translation, horizontal scaling or reflection, vertical scaling or reflection, and vertical translation.",
+          "keyPoint": "Do not apply the written operations blindly from left to right. Map x through the inside expression and y through the outside expression.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "COMPOSITION WORKED EXAMPLE · 14 OF 18",
+          "title": "Map a point through four transformations",
+          "question": "The point [[(8,-3)]] lies on [[y=f(x)]]. Where does it move on [[y=1-2f(4(x-3))]]?",
+          "diagram": {
+            "kind": "graph-combined-transformations",
+            "caption": "Set the new inside input equal to the original x-coordinate, then transform the original y-coordinate."
+          },
+          "options": [
+            "[[(2,7)]]",
+            "[[(5,7)]]",
+            "[[(5,-5)]]",
+            "[[(35,7)]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. [[x^{2}=2x+3]] gives [[x^{2}-2x-3=(x-3)(x+1)=0]], so [[x=-1]] or [[x=3]].",
-          "incorrectFeedback": "Equate the two y-expressions, rearrange to a quadratic, and factorise."
+          "steps": [
+            {
+              "title": "Match the input",
+              "body": "Set [[4(x-3)=8]]."
+            },
+            {
+              "title": "Solve for the new x-coordinate",
+              "body": "[[x-3=2]], so [[x=5]]."
+            },
+            {
+              "title": "Transform the y-coordinate",
+              "body": "[[1-2(-3)=1+6=7]]."
+            },
+            {
+              "title": "State the image",
+              "body": "The point becomes [[(5,7)]]."
+            }
+          ],
+          "finalAnswer": "The image is [[(5,7)]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "PARENT-GRAPH CHECK · 15 OF 18",
+          "question": "Which sequence transforms [[y=x^{2}]] into [[y=-3(x+2)^{2}+4]]?",
+          "options": [
+            "Right 2, vertical stretch factor 3, reflect in the x-axis, up 4",
+            "Left 2, vertical stretch factor 3, reflect in the x-axis, up 4",
+            "Left 2, horizontal stretch factor 3, reflect in the y-axis, up 4",
+            "Right 2, vertical compression factor [[\\frac13]], reflect in the x-axis, down 4"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[x+2]] moves the graph left 2, the factor 3 stretches vertically, the negative reflects in the x-axis, and [[+4]] moves it up.",
+          "incorrectFeedback": "Read inside changes first for horizontal movement, then use the outside multiplier and final vertical translation."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SKETCHING STRATEGY · 16 OF 18",
+          "title": "Transform decisive features before drawing the curve",
+          "body": "Mark transformed roots, vertices, endpoints, and asymptotes first. Then preserve the parent graph's connectivity and overall shape.<br><br>A smooth parent graph remains smooth under these transformations, while a sharp point such as the vertex of [[y=\\lvert x\\rvert]] remains sharp.",
+          "keyPoint": "A reliable sketch is built from transformed features; the curve is drawn last.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "HARDER FEATURE CHECK · 17 OF 18",
+          "question": "The graph of [[y=f(x)]] has a maximum at [[(-4,5)]] and horizontal asymptote [[y=-2]]. Which statement is true for [[y=-\\frac12f(-2x)+3]]?",
+          "options": [
+            "It has a maximum at [[(2,\\frac12)]] and asymptote [[y=2]].",
+            "It has a minimum at [[(2,\\frac12)]] and asymptote [[y=4]].",
+            "It has a minimum at [[(-8,\\frac12)]] and asymptote [[y=4]].",
+            "It has a maximum at [[(2,\\frac{11}{2})]] and asymptote [[y=-4]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[-4\\div(-2)=2]] and [[-\\frac12(5)+3=\\frac12]]. The negative outside multiplier turns the maximum into a minimum. The asymptote maps to [[-\\frac12(-2)+3=4]].",
+          "incorrectFeedback": "Divide the x-coordinate by the inside multiplier, transform y using the outside rule, and remember that a negative outside multiplier swaps maxima and minima."
         },
         {
           "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 14 OF 14",
+          "eyebrow": "LESSON SUMMARY · 18 OF 18",
           "title": "Graph Transformations: key points",
           "keyPoints": [
-            "Recognise parent graphs from their intercepts, symmetry, turning points, domains, ranges, and asymptotes.",
-            "Outside changes act vertically; inside changes act horizontally and reciprocally.",
-            "[[f(-x)]] reflects in the y-axis, while [[-f(x)]] reflects in the x-axis.",
-            "In [[f(g(x))]], evaluate g before f.",
-            "Roots and simultaneous solutions are intersections with axes or other graphs."
+            "[[f(x)+a]] changes y-coordinates by adding a.",
+            "[[f(x+a)]] changes x-coordinates by subtracting a.",
+            "[[af(x)]] multiplies y-coordinates by a and reflects in the x-axis when a is negative.",
+            "[[f(ax)]] divides x-coordinates by a and reflects in the y-axis when a is negative.",
+            "Transform roots, vertices, endpoints, and asymptotes before drawing the final curve."
           ],
           "reviewItems": [
-            "Track known points through transformations.",
-            "Remember that [[f(x+a)]] moves left when a is positive.",
-            "Read quadratic vertices directly from completed-square form.",
-            "Use algebra and differentiation together when reasoning about graph shape.",
-            "Return to Learn to choose the next topic."
+            "Outside changes act vertically; inside changes act horizontally.",
+            "Horizontal scale factors are reciprocals of inside multipliers.",
+            "Use point mappings instead of guessing the transformed shape.",
+            "For combined transformations, solve the inside equation for x and transform y outside.",
+            "Next lesson: Graph Parameters and Composite Functions."
           ],
           "buttonText": "Finish lesson"
         }
       ]
+    },
+    {
+      "id": "graph-parameters-composite-functions",
+      "topicId": "topic-7",
+      "title": "Graph Parameters and Composite Functions",
+      "screens": []
+    },
+    {
+      "id": "sketching-roots-intersections",
+      "topicId": "topic-7",
+      "title": "Sketching, Roots and Intersections",
+      "screens": []
+    },
+    {
+      "id": "graphs-transformations-exam-style-questions",
+      "topicId": "topic-7",
+      "title": "Exam-style Questions",
+      "screens": []
     },
     {
       "id": "geometry-proportion",

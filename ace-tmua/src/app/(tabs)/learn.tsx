@@ -173,7 +173,14 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "calculus-exam-style-questions": "Bring the whole topic together",
   "recognising-sketching-common-graphs":
     "Parent shapes, key features and accurate sketches",
-  "graph-transformations": "Common graphs, transformations and compositions",
+  "graph-transformations":
+    "Translations, stretches, reflections and compositions",
+  "graph-parameters-composite-functions":
+    "Line and quadratic families, function notation and composition",
+  "sketching-roots-intersections":
+    "Roots, intersections and curve behaviour",
+  "graphs-transformations-exam-style-questions":
+    "Bring the whole topic together",
   "geometry-proportion": "Scale, shape, circles and vectors",
   "statistics-data": "Charts, grouped data and comparisons",
   "probability": "Expected frequencies, trees and conditional probability",
