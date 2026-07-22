@@ -6305,6 +6305,267 @@
       ]
     },
     {
+      "id": "recognising-sketching-common-graphs",
+      "topicId": "topic-7",
+      "title": "Recognising and Sketching Common Graphs",
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "GRAPH SKETCHES · 1 OF 18",
+          "title": "A useful sketch records structure, not perfect scale",
+          "diagram": {
+            "kind": "common-polynomial-graphs",
+            "caption": "The overall shape, intercepts, symmetry and end behaviour matter more than exact proportions."
+          },
+          "body": "A mathematical sketch should show the features that determine the graph: intercepts, symmetry, turning points or sharp corners, asymptotes, endpoints, periodicity, and end behaviour.<br><br>Do not spend time making a sketch look artistic. Place the important features in the correct order and label any values that are known exactly.",
+          "keyPoint": "Before drawing, ask: where is the function defined, where can it cross an axis, and what happens at the edges of its domain?",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "LINES · 2 OF 18",
+          "title": "A line is determined by its gradient and intercept",
+          "diagram": {
+            "kind": "line-gradient",
+            "caption": "For y = mx + c, m controls the direction and steepness while c gives the y-intercept."
+          },
+          "body": "For [[y=mx+c]], a positive m gives an increasing line and a negative m gives a decreasing line. When [[m=0]], the graph is horizontal.<br><br>The graph crosses the y-axis at [[(0,c)]]. If [[m\\ne0]], its x-intercept is found from [[mx+c=0]], giving [[x=-\\frac{c}{m}]].",
+          "keyPoint": "A vertical line has equation [[x=k]] and cannot be written in the form [[y=mx+c]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "LINE CHECK · 3 OF 18",
+          "question": "Which description is correct for [[y=-3x+6]]?",
+          "options": [
+            "It is increasing and crosses the x-axis at [[x=-2]].",
+            "It is decreasing and crosses the x-axis at [[x=2]].",
+            "It is decreasing and crosses the y-axis at [[y=-3]].",
+            "It is horizontal and crosses the y-axis at [[y=6]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The gradient is negative, so the line decreases. Setting [[y=0]] gives [[-3x+6=0]], hence [[x=2]].",
+          "incorrectFeedback": "Read the sign of the coefficient of x, then set [[y=0]] to locate the x-intercept."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "QUADRATICS · 4 OF 18",
+          "title": "A quadratic has one turning point and a line of symmetry",
+          "diagram": {
+            "kind": "common-polynomial-graphs",
+            "caption": "The parent graph y = x² is symmetric about the y-axis and has a minimum at the origin."
+          },
+          "body": "A graph with a non-zero [[x^{2}]] term and no higher powers is a parabola. A positive leading coefficient makes it open upwards; a negative one makes it open downwards.<br><br>A quadratic may cross the x-axis twice, touch it once, or miss it completely. Its turning point is a minimum when it opens upwards and a maximum when it opens downwards.",
+          "keyPoint": "The axis of symmetry passes through the turning point and lies midway between two real roots.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "QUADRATIC CHECK · 5 OF 18",
+          "question": "Which set of features belongs to [[y=(x-2)^{2}-9]]?",
+          "options": [
+            "Maximum [[(2,-9)]] with roots [[-1]] and [[5]].",
+            "Minimum [[(2,-9)]] with roots [[-1]] and [[5]].",
+            "Minimum [[(-2,-9)]] with roots [[-5]] and [[1]].",
+            "Minimum [[(2,9)]] with no real roots."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The completed-square form gives the minimum [[(2,-9)]]. Solving [[(x-2)^{2}=9]] gives [[x=-1]] or [[x=5]].",
+          "incorrectFeedback": "Read the turning point from completed-square form, then solve for the x-intercepts."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CUBICS · 6 OF 18",
+          "title": "A positive cubic runs from bottom-left to top-right",
+          "diagram": {
+            "kind": "common-polynomial-graphs",
+            "caption": "The parent cubic y = x³ has rotational symmetry about the origin and passes through it."
+          },
+          "body": "For the parent graph [[y=x^{3}]], the domain and range are both all real numbers. It is increasing throughout and has rotational symmetry about the origin.<br><br>A general cubic can bend to create a local maximum and minimum. With real coefficients it has at least one real root, and it may have three distinct real roots.",
+          "keyPoint": "The sign of the leading [[x^{3}]] coefficient determines the end behaviour: positive rises to the right; negative falls to the right.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "WORKED EXAMPLE · 7 OF 18",
+          "title": "Build a cubic sketch from algebraic features",
+          "question": "Which description matches [[h(x)=x^{3}-4x]]?",
+          "options": [
+            "It has roots [[-2,0,2]], rotational symmetry about the origin, and rises to the right.",
+            "It has roots [[-4,0,4]], symmetry about the y-axis, and rises to the right.",
+            "It has roots [[-2,2]], rotational symmetry about the origin, and falls to the right.",
+            "It has one root at [[0]] and no other x-intercepts."
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Factorise to find the roots",
+              "body": "[[h(x)=x(x^{2}-4)=x(x-2)(x+2)]], so the roots are [[-2,0,2]]."
+            },
+            {
+              "title": "Check symmetry",
+              "body": "[[h(-x)=-x^{3}+4x=-h(x)]], so h is odd and has rotational symmetry about the origin."
+            },
+            {
+              "title": "Read the end behaviour",
+              "body": "The leading term is [[+x^{3}]], so the graph goes down to the left and up to the right."
+            },
+            {
+              "title": "Combine the evidence",
+              "body": "The curve must cross the x-axis at [[-2,0,2]] in that order while keeping the cubic end behaviour."
+            }
+          ],
+          "finalAnswer": "The correct description is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "POLYNOMIAL SHAPES COMPLETE · 8 OF 18",
+          "title": "You can now distinguish lines, quadratics and cubics from their structure.",
+          "body": "You have used gradient, symmetry, roots, turning points and end behaviour rather than relying on a memorised picture.<br><br>Next come graphs with restricted domains, sharp corners and asymptotes.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SQUARE ROOT AND MODULUS · 9 OF 18",
+          "title": "Endpoints and corners reveal the function family",
+          "diagram": {
+            "kind": "root-modulus-graphs",
+            "caption": "The square-root graph has an endpoint; the modulus graph has a sharp vertex."
+          },
+          "body": "The parent square-root graph [[y=\\sqrt{x}]] starts at [[(0,0)]] and exists only for [[x\\ge0]]. It increases but gradually becomes less steep.<br><br>The modulus graph [[y=\\lvert x\\rvert]] is made from two straight rays. It is defined for every real x, has range [[y\\ge0]], and has a sharp corner at the origin.",
+          "keyPoint": "A smooth U-shaped minimum suggests a quadratic; a sharp V-shaped minimum suggests a modulus graph.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DOMAIN CHECK · 10 OF 18",
+          "question": "Which statement distinguishes [[y=\\sqrt{x}]] from [[y=\\lvert x\\rvert]]?",
+          "options": [
+            "Only [[y=\\sqrt{x}]] has range [[y\\ge0]].",
+            "Only [[y=\\sqrt{x}]] is defined for negative x.",
+            "Only [[y=\\sqrt{x}]] has a restricted domain and an endpoint.",
+            "Only [[y=\\sqrt{x}]] passes through the origin."
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Both graphs pass through the origin and have non-negative range, but [[\\sqrt{x}]] is defined only for [[x\\ge0]].",
+          "incorrectFeedback": "Compare their domains as well as their ranges."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "RECIPROCAL GRAPHS · 11 OF 18",
+          "title": "A reciprocal graph approaches axes without meeting them",
+          "diagram": {
+            "kind": "reciprocal-graph",
+            "caption": "For y = 1/x, x = 0 and y = 0 are asymptotes."
+          },
+          "body": "For [[y=\\frac1x]], the function is undefined at [[x=0]], and its output is never zero. The coordinate axes are asymptotes.<br><br>The parent graph has two branches in the first and third quadrants and rotational symmetry about the origin. It decreases on each of the intervals [[x<0]] and [[x>0]].",
+          "keyPoint": "Crossing an asymptote is not automatically impossible for every function, but the parent reciprocal graph never crosses either axis.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ASYMPTOTE CHECK · 12 OF 18",
+          "question": "Which feature belongs to [[y=\\frac1x]] but not to [[y=x^{3}]]?",
+          "options": [
+            "Rotational symmetry about the origin.",
+            "A domain containing every real number.",
+            "A vertical asymptote and no x-intercept.",
+            "A branch in the first quadrant."
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Both have origin symmetry and points in the first quadrant, but [[1/x]] is undefined at zero and never equals zero.",
+          "incorrectFeedback": "Look for the feature caused by division by x."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "EXPONENTIALS AND LOGARITHMS · 13 OF 18",
+          "title": "Inverse functions swap domain, range and asymptotes",
+          "diagram": {
+            "kind": "exponential-log-graphs",
+            "caption": "For base 2, the exponential passes through (0,1) and the logarithm passes through (1,0)."
+          },
+          "body": "For a base [[a>1]], [[y=a^{x}]] is positive for every real x, passes through [[(0,1)]], and has horizontal asymptote [[y=0]].<br><br>Its inverse [[y=\\log_{a}x]] is defined only for [[x>0]], passes through [[(1,0)]], and has vertical asymptote [[x=0]]. Their graphs are reflections of each other in [[y=x]].",
+          "keyPoint": "An exponential has unrestricted x-values but positive outputs; a logarithm has positive x-values but unrestricted outputs.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "INVERSE-GRAPH CHECK · 14 OF 18",
+          "question": "Which ordered pair correctly gives the domain and range of [[y=\\log_{2}x]]?",
+          "options": [
+            "Domain: all real x; range: [[y>0]].",
+            "Domain: [[x>0]]; range: all real y.",
+            "Domain: [[x\\ge0]]; range: [[y\\ge0]].",
+            "Domain: all real x except 0; range: all real y except 0."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. A logarithm accepts only positive inputs, but its output can be any real number.",
+          "incorrectFeedback": "Use the fact that logarithms and exponentials exchange domain and range."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "TRIGONOMETRIC GRAPHS · 15 OF 18",
+          "title": "Periodicity separates trigonometric graphs from the other families",
+          "diagram": {
+            "kind": "common-trig-graphs",
+            "caption": "Sine and cosine repeat every 2π; tangent repeats every π and has vertical asymptotes."
+          },
+          "body": "The graphs of [[\\sin x]] and [[\\cos x]] have range [[-1\\le y\\le1]] and period [[2\\pi]]. Sine passes through the origin, while cosine begins at 1 when [[x=0]].<br><br>The tangent graph has period [[\\pi]], range all real numbers, zeros at integer multiples of [[\\pi]], and vertical asymptotes halfway between them.",
+          "keyPoint": "At [[x=0]], the values [[\\sin0=0]], [[\\cos0=1]], and [[\\tan0=0]] quickly distinguish the three parent graphs.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRIG GRAPH CHECK · 16 OF 18",
+          "question": "A periodic graph has range all real numbers and is undefined at [[x=\\frac{\\pi}{2}]]. Which parent function matches it?",
+          "options": [
+            "[[y=\\sin x]]",
+            "[[y=\\cos x]]",
+            "[[y=\\tan x]]",
+            "[[y=\\lvert x\\rvert]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Tangent has vertical asymptotes at [[x=\\frac{\\pi}{2}+k\\pi]] and takes every real y-value between them.",
+          "incorrectFeedback": "Sine and cosine are defined everywhere and remain between -1 and 1."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "MIXED RECOGNITION · 17 OF 18",
+          "question": "A graph is continuous for all real x, has rotational symmetry about the origin, passes through [[(0,0)]], and has a horizontal tangent there. Which parent graph fits all four features?",
+          "options": [
+            "[[y=x]]",
+            "[[y=x^{2}]]",
+            "[[y=x^{3}]]",
+            "[[y=\\frac1x]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[y=x^{3}]] is continuous and odd, passes through the origin, and flattens there. The line [[y=x]] does not have a horizontal tangent.",
+          "incorrectFeedback": "Use every condition. In particular, compare the behaviour at the origin."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 18 OF 18",
+          "title": "Recognising and Sketching Common Graphs: key points",
+          "keyPoints": [
+            "Use intercepts, symmetry, turning points, endpoints, corners, asymptotes and end behaviour to build a sketch.",
+            "Lines, quadratics and cubics are distinguished by gradient, turning-point structure and end behaviour.",
+            "Square-root graphs have restricted domains; modulus graphs have sharp vertices; reciprocal graphs have separate branches and asymptotes.",
+            "Exponential and logarithmic graphs are inverse shapes with exchanged domains, ranges and asymptotes.",
+            "Sine, cosine and tangent are recognised through starting values, ranges, periods and asymptotes."
+          ],
+          "reviewItems": [
+            "Sketch each parent graph from memory and label one decisive feature.",
+            "Check the domain before drawing any graph involving a root, denominator or logarithm.",
+            "Use factorisation to place known polynomial roots accurately.",
+            "Do not confuse a quadratic's smooth minimum with a modulus graph's sharp corner.",
+            "Next lesson: Graph Transformations."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
+    },
+    {
       "id": "graph-transformations",
       "topicId": "topic-7",
       "title": "Graph Transformations",

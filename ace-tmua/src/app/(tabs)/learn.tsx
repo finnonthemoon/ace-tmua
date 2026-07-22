@@ -171,6 +171,8 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "integration-area": "Antiderivatives, definite integrals and signed area",
   "trapezium-rule-integration-logic": "Estimation, total change and initial values",
   "calculus-exam-style-questions": "Bring the whole topic together",
+  "recognising-sketching-common-graphs":
+    "Parent shapes, key features and accurate sketches",
   "graph-transformations": "Common graphs, transformations and compositions",
   "geometry-proportion": "Scale, shape, circles and vectors",
   "statistics-data": "Charts, grouped data and comparisons",

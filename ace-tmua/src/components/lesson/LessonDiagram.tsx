@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import Svg, {
   Circle,
+  G,
   Line,
   Path,
   Polygon,
@@ -519,6 +520,423 @@ function TrapeziumRuleDiagram() {
     </>
   );
 }
+
+function MiniAxes({
+  left,
+  top,
+  width,
+  height,
+  xAxisFraction = 0.5,
+  yAxisFraction = 0.5,
+}: {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  xAxisFraction?: number;
+  yAxisFraction?: number;
+}) {
+  const xAxisY = top + height * xAxisFraction;
+  const yAxisX = left + width * yAxisFraction;
+
+  return (
+    <>
+      <Line
+        x1={left}
+        y1={xAxisY}
+        x2={left + width}
+        y2={xAxisY}
+        stroke="#B4A79D"
+        strokeWidth={1.1}
+      />
+      <Line
+        x1={yAxisX}
+        y1={top + height}
+        x2={yAxisX}
+        y2={top}
+        stroke="#B4A79D"
+        strokeWidth={1.1}
+      />
+    </>
+  );
+}
+
+function buildGraphPath({
+  fn,
+  xMin,
+  xMax,
+  yMin,
+  yMax,
+  left,
+  top,
+  width,
+  height,
+  samples = 120,
+}: {
+  fn: (x: number) => number;
+  xMin: number;
+  xMax: number;
+  yMin: number;
+  yMax: number;
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  samples?: number;
+}) {
+  const commands: string[] = [];
+  let drawing = false;
+  let previousY: number | null = null;
+
+  for (let index = 0; index <= samples; index += 1) {
+    const x = xMin + (index / samples) * (xMax - xMin);
+    const y = fn(x);
+    const isVisible = Number.isFinite(y) && y >= yMin && y <= yMax;
+    const hasLargeJump =
+      previousY !== null && Math.abs(y - previousY) > (yMax - yMin) * 0.45;
+
+    if (!isVisible || hasLargeJump) {
+      drawing = false;
+      previousY = Number.isFinite(y) ? y : null;
+      continue;
+    }
+
+    const svgX = left + ((x - xMin) / (xMax - xMin)) * width;
+    const svgY = top + ((yMax - y) / (yMax - yMin)) * height;
+
+    commands.push(`${drawing ? "L" : "M"} ${svgX.toFixed(2)} ${svgY.toFixed(2)}`);
+    drawing = true;
+    previousY = y;
+  }
+
+  return commands.join(" ");
+}
+
+function CommonPolynomialGraphsDiagram() {
+  const panels = [
+    {
+      left: 14,
+      label: "y = x",
+      path: buildGraphPath({
+        fn: (x) => x,
+        xMin: -2,
+        xMax: 2,
+        yMin: -2,
+        yMax: 2,
+        left: 14,
+        top: 25,
+        width: 88,
+        height: 118,
+      }),
+    },
+    {
+      left: 116,
+      label: "y = x²",
+      path: buildGraphPath({
+        fn: (x) => x ** 2,
+        xMin: -2,
+        xMax: 2,
+        yMin: -0.7,
+        yMax: 4,
+        left: 116,
+        top: 25,
+        width: 88,
+        height: 118,
+      }),
+    },
+    {
+      left: 218,
+      label: "y = x³",
+      path: buildGraphPath({
+        fn: (x) => x ** 3,
+        xMin: -2,
+        xMax: 2,
+        yMin: -8,
+        yMax: 8,
+        left: 218,
+        top: 25,
+        width: 88,
+        height: 118,
+      }),
+    },
+  ];
+
+  return (
+    <>
+      {panels.map((panel) => (
+        <G key={panel.label}>
+          <MiniAxes
+            left={panel.left}
+            top={25}
+            width={88}
+            height={118}
+            xAxisFraction={panel.label === "y = x²" ? 0.85 : 0.5}
+          />
+          <Path
+            d={panel.path}
+            fill="none"
+            stroke={C.primary}
+            strokeWidth={3.4}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <SvgText
+            x={panel.left + 44}
+            y={169}
+            textAnchor="middle"
+            fontSize={11}
+            fontWeight="900"
+            fill={C.ink}
+          >
+            {panel.label}
+          </SvgText>
+        </G>
+      ))}
+    </>
+  );
+}
+
+function RootModulusGraphsDiagram() {
+  const squareRootPath = buildGraphPath({
+    fn: (x) => Math.sqrt(x),
+    xMin: -2,
+    xMax: 5,
+    yMin: -1,
+    yMax: 2.6,
+    left: 18,
+    top: 25,
+    width: 132,
+    height: 120,
+  });
+
+  const modulusPath = buildGraphPath({
+    fn: (x) => Math.abs(x),
+    xMin: -3,
+    xMax: 3,
+    yMin: -1,
+    yMax: 3.4,
+    left: 170,
+    top: 25,
+    width: 132,
+    height: 120,
+  });
+
+  return (
+    <>
+      <MiniAxes
+        left={18}
+        top={25}
+        width={132}
+        height={120}
+        xAxisFraction={0.72}
+        yAxisFraction={2 / 7}
+      />
+      <Path
+        d={squareRootPath}
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={3.8}
+        strokeLinecap="round"
+      />
+      <Circle cx={18 + (2 / 7) * 132} cy={25 + 0.72 * 120} r={4.5} fill={C.primary} />
+      <SvgText x={84} y={169} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.ink}>
+        y = √x
+      </SvgText>
+
+      <MiniAxes
+        left={170}
+        top={25}
+        width={132}
+        height={120}
+        xAxisFraction={0.77}
+        yAxisFraction={0.5}
+      />
+      <Path
+        d={modulusPath}
+        fill="none"
+        stroke="#54749F"
+        strokeWidth={3.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <SvgText x={236} y={169} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.ink}>
+        y = |x|
+      </SvgText>
+    </>
+  );
+}
+
+function ReciprocalGraphDiagram() {
+  const left = 34;
+  const top = 18;
+  const width = 252;
+  const height = 146;
+
+  const reciprocalPath = buildGraphPath({
+    fn: (x) => 1 / x,
+    xMin: -4,
+    xMax: 4,
+    yMin: -4,
+    yMax: 4,
+    left,
+    top,
+    width,
+    height,
+    samples: 220,
+  });
+
+  return (
+    <>
+      <Line
+        x1={left}
+        y1={top + height / 2}
+        x2={left + width}
+        y2={top + height / 2}
+        stroke="#54749F"
+        strokeWidth={1.6}
+        strokeDasharray="6 4"
+      />
+      <Line
+        x1={left + width / 2}
+        y1={top}
+        x2={left + width / 2}
+        y2={top + height}
+        stroke="#54749F"
+        strokeWidth={1.6}
+        strokeDasharray="6 4"
+      />
+      <Path
+        d={reciprocalPath}
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={4}
+        strokeLinecap="round"
+      />
+      <SvgText x={238} y={45} fontSize={12} fontWeight="900" fill={C.primary}>
+        y = 1/x
+      </SvgText>
+      <SvgText x={160} y={184} textAnchor="middle" fontSize={11} fontWeight="800" fill={C.muted}>
+        The axes are asymptotes, not intercepts
+      </SvgText>
+    </>
+  );
+}
+
+function ExponentialLogGraphsDiagram() {
+  const exponentialPath = buildGraphPath({
+    fn: (x) => 2 ** x,
+    xMin: -3,
+    xMax: 3,
+    yMin: -0.5,
+    yMax: 8,
+    left: 18,
+    top: 22,
+    width: 132,
+    height: 126,
+  });
+
+  const logarithmPath = buildGraphPath({
+    fn: (x) => Math.log2(x),
+    xMin: -1,
+    xMax: 6,
+    yMin: -3,
+    yMax: 3,
+    left: 170,
+    top: 22,
+    width: 132,
+    height: 126,
+  });
+
+  const expAxisY = 22 + (8 / 8.5) * 126;
+  const expAxisX = 18 + 0.5 * 132;
+  const logAxisY = 22 + 0.5 * 126;
+  const logAxisX = 170 + (1 / 7) * 132;
+
+  return (
+    <>
+      <MiniAxes
+        left={18}
+        top={22}
+        width={132}
+        height={126}
+        xAxisFraction={8 / 8.5}
+        yAxisFraction={0.5}
+      />
+      <Line x1={18} y1={expAxisY} x2={150} y2={expAxisY} stroke="#54749F" strokeWidth={1.5} strokeDasharray="5 4" />
+      <Path d={exponentialPath} fill="none" stroke={C.primary} strokeWidth={3.8} strokeLinecap="round" />
+      <Circle cx={expAxisX} cy={22 + ((8 - 1) / 8.5) * 126} r={4} fill={C.primary} />
+      <SvgText x={84} y={171} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.ink}>
+        y = 2ˣ
+      </SvgText>
+
+      <MiniAxes
+        left={170}
+        top={22}
+        width={132}
+        height={126}
+        xAxisFraction={0.5}
+        yAxisFraction={1 / 7}
+      />
+      <Line x1={logAxisX} y1={22} x2={logAxisX} y2={148} stroke="#54749F" strokeWidth={1.5} strokeDasharray="5 4" />
+      <Path d={logarithmPath} fill="none" stroke="#54749F" strokeWidth={3.8} strokeLinecap="round" />
+      <Circle cx={170 + (2 / 7) * 132} cy={logAxisY} r={4} fill="#54749F" />
+      <SvgText x={236} y={171} textAnchor="middle" fontSize={11} fontWeight="900" fill={C.ink}>
+        y = log₂x
+      </SvgText>
+    </>
+  );
+}
+
+function CommonTrigGraphsDiagram() {
+  const left = 54;
+  const width = 242;
+  const rowHeight = 42;
+  const rows = [
+    { top: 10, label: "sin x", color: C.primary, fn: (x: number) => Math.sin(x) },
+    { top: 69, label: "cos x", color: "#54749F", fn: (x: number) => Math.cos(x) },
+    { top: 128, label: "tan x", color: "#C88A43", fn: (x: number) => Math.tan(x) },
+  ];
+
+  return (
+    <>
+      {rows.map((row) => {
+        const path = buildGraphPath({
+          fn: row.fn,
+          xMin: -Math.PI,
+          xMax: Math.PI,
+          yMin: row.label === "tan x" ? -3 : -1.2,
+          yMax: row.label === "tan x" ? 3 : 1.2,
+          left,
+          top: row.top,
+          width,
+          height: rowHeight,
+          samples: 180,
+        });
+
+        return (
+          <G key={row.label}>
+            <Line x1={left} y1={row.top + rowHeight / 2} x2={left + width} y2={row.top + rowHeight / 2} stroke="#B4A79D" strokeWidth={1} />
+            <Line x1={left + width / 2} y1={row.top} x2={left + width / 2} y2={row.top + rowHeight} stroke="#B4A79D" strokeWidth={1} />
+            {row.label === "tan x" && (
+              <>
+                <Line x1={left + width / 4} y1={row.top} x2={left + width / 4} y2={row.top + rowHeight} stroke="#C88A43" strokeWidth={1.2} strokeDasharray="4 3" />
+                <Line x1={left + (3 * width) / 4} y1={row.top} x2={left + (3 * width) / 4} y2={row.top + rowHeight} stroke="#C88A43" strokeWidth={1.2} strokeDasharray="4 3" />
+              </>
+            )}
+            <Path d={path} fill="none" stroke={row.color} strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" />
+            <SvgText x={10} y={row.top + 26} fontSize={11} fontWeight="900" fill={row.color}>
+              {row.label}
+            </SvgText>
+          </G>
+        );
+      })}
+      <SvgText x={175} y={187} textAnchor="middle" fontSize={10} fontWeight="800" fill={C.muted}>
+        −π                 0                 π
+      </SvgText>
+    </>
+  );
+}
+
 
 function GraphTransformationsDiagram() {
   return (
@@ -1439,6 +1857,11 @@ export default function LessonDiagramView({ diagram }: Props) {
         )}
         {diagram.kind === "signed-area" && <SignedAreaDiagram />}
         {diagram.kind === "trapezium-rule" && <TrapeziumRuleDiagram />}
+        {diagram.kind === "common-polynomial-graphs" && <CommonPolynomialGraphsDiagram />}
+        {diagram.kind === "root-modulus-graphs" && <RootModulusGraphsDiagram />}
+        {diagram.kind === "reciprocal-graph" && <ReciprocalGraphDiagram />}
+        {diagram.kind === "exponential-log-graphs" && <ExponentialLogGraphsDiagram />}
+        {diagram.kind === "common-trig-graphs" && <CommonTrigGraphsDiagram />}
         {diagram.kind === "graph-transformations" && <GraphTransformationsDiagram />}
         {diagram.kind === "function-intersections" && <FunctionIntersectionsDiagram />}
         {diagram.kind === "similarity-scale" && <SimilarityScaleDiagram />}
