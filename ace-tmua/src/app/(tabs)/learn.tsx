@@ -26,6 +26,7 @@ interface Topic {
   color: string;
   softColor: string;
   icon: IconName;
+  fullWidth?: boolean;
 }
 
 const TOPICS: Topic[] = [
@@ -90,24 +91,55 @@ const TOPICS: Topic[] = [
     icon: "code-working-outline",
   },
   {
-    id: "geometry",
+    id: "graphs",
     lessonTopicId: "topic-7",
-    title: "Geometry and Data",
-    displayTitle: "Geometry and\nData",
-    intro: "Geometry, transformations, probability and data interpretation.",
+    title: "Graphs and Transformations",
+    displayTitle: "Graphs and\nTransformations",
+    intro: "Recognise, sketch, transform and interpret common functions.",
     color: "#4F91D4",
     softColor: "#E9F3FD",
-    icon: "pie-chart-outline",
+    icon: "analytics-outline",
+  },
+  {
+    id: "geometry",
+    lessonTopicId: "topic-8",
+    title: "Geometry and Proportion",
+    displayTitle: "Geometry and\nProportion",
+    intro: "Ratio, similarity, shape, measures, circles and vectors.",
+    color: "#49A78E",
+    softColor: "#E7F7F2",
+    icon: "scan-outline",
+  },
+  {
+    id: "statistics",
+    lessonTopicId: "topic-9",
+    title: "Statistics",
+    displayTitle: "Statistics",
+    intro: "Represent, summarise and compare numerical and categorical data.",
+    color: "#7C73D6",
+    softColor: "#EFEDFF",
+    icon: "bar-chart-outline",
+  },
+  {
+    id: "probability",
+    lessonTopicId: "topic-10",
+    title: "Probability",
+    displayTitle: "Probability",
+    intro: "Outcomes, expected frequencies, trees and conditional probability.",
+    color: "#E8895D",
+    softColor: "#FCECE4",
+    icon: "git-branch-outline",
   },
   {
     id: "logic",
-    lessonTopicId: "topic-8",
+    lessonTopicId: "topic-11",
     title: "Logic and Proof",
     displayTitle: "Logic and Proof",
     intro: "Statements, proof methods, counterexamples and logical reasoning.",
     color: "#E9B738",
     softColor: "#FFF6D7",
     icon: "checkmark-circle-outline",
+    fullWidth: true,
   },
 ];
 
@@ -139,10 +171,10 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "integration-area": "Antiderivatives, definite integrals and signed area",
   "trapezium-rule-integration-logic": "Estimation, total change and initial values",
   "calculus-exam-style-questions": "Bring the whole topic together",
-  "graph-transformations": "Mappings, compositions and intersections",
+  "graph-transformations": "Common graphs, transformations and compositions",
   "geometry-proportion": "Scale, shape, circles and vectors",
-  "statistic-probability": "Data interpretation and probability reasoning",
-  "geometry-data-exam-style-questions": "Bring the whole topic together",
+  "statistics-data": "Charts, grouped data and comparisons",
+  "probability": "Expected frequencies, trees and conditional probability",
   "logic-of-arguments": "Implication, converse and necessary conditions",
   "methods-of-proof-quantifiers": "Quantifiers, direct proof, cases and contradiction",
   "disproving-statements": "Counterexamples and finding invalid steps",
@@ -316,10 +348,10 @@ export default function LearnScreen() {
                     >
                       {isCompleted
                         ? `STEP ${index + 1} · COMPLETE`
-                        : isLast
-                          ? "FINAL STEP"
-                          : isCurrent
-                            ? `STEP ${index + 1} · START HERE`
+                        : isCurrent
+                          ? `STEP ${index + 1} · START HERE`
+                          : isLast && topicLessons.length > 1
+                            ? "FINAL STEP"
                             : `STEP ${index + 1}`}
                     </Text>
 
@@ -372,22 +404,43 @@ export default function LearnScreen() {
         </Text>
 
         <View style={styles.grid}>
-          {TOPICS.map((topic) => (
-            <TouchableOpacity
-              key={topic.id}
-              style={[styles.topicCard, { backgroundColor: topic.color }]}
-              onPress={() => setActiveTopic(topic)}
-              activeOpacity={0.84}
-              accessibilityRole="button"
-              accessibilityLabel={`Open ${topic.title}`}
-            >
-              <View style={styles.topicIcon}>
-                <Ionicons name={topic.icon} size={27} color="#FFFFFF" />
-              </View>
-              <Text style={styles.topicCardTitle}>{topic.displayTitle}</Text>
-              <Text style={styles.topicProgress}>0% complete</Text>
-            </TouchableOpacity>
-          ))}
+          {TOPICS.map((topic) => {
+            const lessonsForTopic = LESSONS.filter(
+              (lesson) =>
+                lesson.topicId === topic.lessonTopicId &&
+                lesson.screens.length > 0
+            );
+            const completedForTopic = lessonsForTopic.filter((lesson) =>
+              completedLessonIds.includes(lesson.id)
+            ).length;
+            const progress =
+              lessonsForTopic.length === 0
+                ? 0
+                : Math.round(
+                  (completedForTopic / lessonsForTopic.length) * 100
+                );
+
+            return (
+              <TouchableOpacity
+                key={topic.id}
+                style={[
+                  styles.topicCard,
+                  topic.fullWidth && styles.fullWidthTopicCard,
+                  { backgroundColor: topic.color },
+                ]}
+                onPress={() => setActiveTopic(topic)}
+                activeOpacity={0.84}
+                accessibilityRole="button"
+                accessibilityLabel={`Open ${topic.title}`}
+              >
+                <View style={styles.topicIcon}>
+                  <Ionicons name={topic.icon} size={27} color="#FFFFFF" />
+                </View>
+                <Text style={styles.topicCardTitle}>{topic.displayTitle}</Text>
+                <Text style={styles.topicProgress}>{progress}% complete</Text>
+              </TouchableOpacity>
+            );
+          })}
         </View>
         <View style={styles.learnBottomSpacing} />
       </ScrollView>
@@ -430,6 +483,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 13,
     elevation: 5,
+  },
+  fullWidthTopicCard: {
+    width: "100%",
+    minHeight: 132,
   },
   topicIcon: {
     width: 44,

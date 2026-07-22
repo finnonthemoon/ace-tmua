@@ -6505,7 +6505,7 @@
             "Remember that [[f(x+a)]] moves left when a is positive.",
             "Read quadratic vertices directly from completed-square form.",
             "Use algebra and differentiation together when reasoning about graph shape.",
-            "Next lesson: Geometry and Proportion."
+            "Return to Learn to choose the next topic."
           ],
           "buttonText": "Finish lesson"
         }
@@ -6513,7 +6513,7 @@
     },
     {
       "id": "geometry-proportion",
-      "topicId": "topic-7",
+      "topicId": "topic-8",
       "title": "Geometry and Proportion",
       "screens": [
         {
@@ -6781,20 +6781,20 @@
             "Separate length, area, and volume scale factors.",
             "Do not use SSA as a general congruence test.",
             "Add helpful radii and chords to circle diagrams.",
-            "Next lesson: Statistics and Probability."
+            "Return to Learn to choose the next topic."
           ],
           "buttonText": "Finish lesson"
         }
       ]
     },
     {
-      "id": "statistic-probability",
-      "topicId": "topic-7",
-      "title": "Statistics & Probability",
+      "id": "statistics-data",
+      "topicId": "topic-9",
+      "title": "Statistics",
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "DATA REPRESENTATION · 1 OF 18",
+          "eyebrow": "DATA REPRESENTATION · 1 OF 13",
           "title": "Match the diagram to the type of data",
           "body": "Bar charts and pie charts suit categorical data; vertical line charts suit ungrouped discrete data; line graphs show time series.<br><br>Histograms represent grouped numerical data using area, and cumulative-frequency graphs reveal medians, quartiles, and percentiles.",
           "keyPoint": "Histogram bars touch because the underlying scale is continuous. Ordinary bar-chart gaps separate categories.",
@@ -6802,7 +6802,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "REPRESENTATION CHECK · 2 OF 18",
+          "eyebrow": "REPRESENTATION CHECK · 2 OF 13",
           "question": "Which diagram is most appropriate for displaying the distribution of 500 measured journey times grouped into unequal class intervals?",
           "options": [
             "A pie chart",
@@ -6816,7 +6816,7 @@
         },
         {
           "type": "concept",
-          "eyebrow": "SUMMARY STATISTICS · 3 OF 18",
+          "eyebrow": "SUMMARY STATISTICS · 3 OF 13",
           "title": "Compare centre and spread like for like",
           "body": "For ungrouped data, calculate exact mean, median, mode, and range. For grouped data, use class midpoints to estimate the mean and interpolate or read graphs to estimate quartiles.<br><br>Median and interquartile range are a natural pair: median measures typical position and IQR measures the spread of the middle half.",
           "keyPoint": "Grouped statistics are estimates because the exact values inside each class are unknown.",
@@ -6824,7 +6824,7 @@
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 4 OF 18",
+          "eyebrow": "WORKED EXAMPLE · 4 OF 13",
           "title": "Estimate a grouped mean",
           "question": "Values in intervals [[0\\le x<10]], [[10\\le x<20]], and [[20\\le x<30]] have frequencies 2, 5, and 3. Estimate the mean.",
           "options": [
@@ -6857,7 +6857,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COMPARISON CHECK · 5 OF 18",
+          "eyebrow": "COMPARISON CHECK · 5 OF 13",
           "question": "Set A has median 50 and IQR 8. Set B has median 55 and IQR 14. Which comparison is justified?",
           "options": [
             "A has the higher typical value and greater spread.",
@@ -6871,14 +6871,14 @@
         },
         {
           "type": "milestone",
-          "eyebrow": "DATA SUMMARIES COMPLETE · 6 OF 18",
+          "eyebrow": "DATA SUMMARIES COMPLETE · 6 OF 13",
           "title": "You can choose representations and compare distributions.",
           "body": "You have distinguished data types, estimated grouped means, and paired measures of centre and spread.<br><br>Next, we interpret histograms, cumulative frequency, and scatter data.",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "HISTOGRAMS · 7 OF 18",
+          "eyebrow": "HISTOGRAMS · 7 OF 13",
           "title": "Histogram area represents frequency",
           "diagram": {
             "kind": "histogram-density",
@@ -6890,7 +6890,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "DENSITY CHECK · 8 OF 18",
+          "eyebrow": "DENSITY CHECK · 8 OF 13",
           "question": "A histogram class has width 5 and frequency density 3. What is its frequency?",
           "options": [
             "[[\\frac35]]",
@@ -6904,7 +6904,7 @@
         },
         {
           "type": "concept",
-          "eyebrow": "CUMULATIVE FREQUENCY · 9 OF 18",
+          "eyebrow": "CUMULATIVE FREQUENCY · 9 OF 13",
           "title": "Use positions to estimate quartiles",
           "diagram": {
             "kind": "cumulative-frequency",
@@ -6916,7 +6916,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "QUARTILE-POSITION CHECK · 10 OF 18",
+          "eyebrow": "QUARTILE-POSITION CHECK · 10 OF 13",
           "question": "A cumulative-frequency graph represents 80 observations. At which cumulative frequencies are [[Q_{1}]], the median, and [[Q_{3}]] read?",
           "options": [
             "[[10,40,70]]",
@@ -6930,7 +6930,7 @@
         },
         {
           "type": "concept",
-          "eyebrow": "SCATTER DATA · 11 OF 18",
+          "eyebrow": "SCATTER DATA · 11 OF 13",
           "title": "Correlation describes association, not cause",
           "diagram": {
             "kind": "scatter-correlation",
@@ -6942,7 +6942,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "CORRELATION CHECK · 12 OF 18",
+          "eyebrow": "CORRELATION CHECK · 12 OF 13",
           "question": "A strong positive correlation is observed between two variables X and Y. Which conclusion is always valid?",
           "options": [
             "Increasing X causes Y to increase.",
@@ -6955,45 +6955,131 @@
           "incorrectFeedback": "A scatter graph supports a statement about association, not a causal direction."
         },
         {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 13 OF 13",
+          "title": "Statistics: key points",
+          "keyPoints": [
+            "Choose representations according to whether data are categorical, discrete, continuous, or time-based.",
+            "Grouped means and graph-read quartiles are estimates because exact values inside each class are unknown.",
+            "Histogram frequency is class width multiplied by frequency density.",
+            "Compare data sets using like-for-like measures of centre and spread.",
+            "Correlation describes association, not causation, and extrapolation beyond the data is risky."
+          ],
+          "reviewItems": [
+            "Use bar area—not height alone—to interpret histogram frequency.",
+            "Read quartiles at one quarter, one half, and three quarters of the cumulative total.",
+            "Pair the median with the interquartile range when comparing distributions.",
+            "State clearly when a grouped statistic is only an estimate.",
+            "Return to Learn to continue with Probability."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
+    },
+    {
+      "id": "probability",
+      "topicId": "topic-10",
+      "title": "Probability",
+      "screens": [
+        {
           "type": "concept",
-          "eyebrow": "PROBABILITY RULES · 13 OF 18",
-          "title": "Know when to add and when to multiply",
-          "body": "Probabilities lie from 0 to 1, and exhaustive outcomes total 1. Add probabilities for mutually exclusive alternatives.<br><br>Multiply along successive branches: [[P(A\\text{ and }B)=P(A)P(B\\mid A)]]. For independent events, [[P(B\\mid A)=P(B)]]. Expected frequency is probability times number of trials.",
-          "keyPoint": "Without replacement, later probabilities usually change because the contents of the sample space have changed.",
+          "eyebrow": "EXPERIMENTAL PROBABILITY · 1 OF 11",
+          "title": "Use repeated outcomes to estimate probability",
+          "body": "Relative frequency is [[\\frac{\\text{number of times the event occurs}}{\\text{number of trials}}]]. It gives an experimental estimate of probability.<br><br>Probabilities lie from 0 to 1. Repeating the same experiment can produce a different short-run outcome, even when the process is fair.",
+          "keyPoint": "As the number of trials becomes large, relative frequency often settles closer to the theoretical probability, but it need not match it exactly.",
           "buttonText": "Continue"
         },
         {
+          "type": "multipleChoice",
+          "eyebrow": "RELATIVE-FREQUENCY CHECK · 2 OF 11",
+          "question": "An event occurs 42 times in 120 trials. What is its relative frequency?",
+          "options": [
+            "[[0.28]]",
+            "[[0.35]]",
+            "[[0.42]]",
+            "[[0.50]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[\\frac{42}{120}=0.35]].",
+          "incorrectFeedback": "Divide the number of successful outcomes by the total number of trials."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "FAIRNESS AND EXPECTATION · 3 OF 11",
+          "title": "Fair events have equally likely relevant outcomes",
+          "body": "A fair process does not favour one equally defined outcome over another. For example, each face of a fair six-sided die has probability [[\\frac16]].<br><br>Expected frequency is [[\\text{number of trials}\\times\\text{probability}]]. It predicts a long-run average, not a guaranteed result.",
+          "keyPoint": "An expected count can be non-integer because it describes an average over many repetitions.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXPECTED-FREQUENCY CHECK · 4 OF 11",
+          "question": "An event has probability [[0.18]]. How many times is it expected to occur in 500 trials?",
+          "options": [
+            "[[18]]",
+            "[[50]]",
+            "[[90]]",
+            "[[180]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[500\\times0.18=90]].",
+          "incorrectFeedback": "Multiply the probability by the number of trials."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "EXHAUSTIVE OUTCOMES · 5 OF 11",
+          "title": "Complete outcome sets have total probability 1",
+          "body": "The probabilities of an exhaustive set of mutually exclusive outcomes sum to 1. Therefore a missing probability can be found by subtraction.<br><br>List combined outcomes systematically using a table, grid, tree diagram, or Venn diagram. The representation should make every possible outcome visible exactly once.",
+          "keyPoint": "Mutually exclusive means the outcomes cannot occur together; exhaustive means that one of them must occur.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "POSSIBILITY-SPACE CHECK · 6 OF 11",
+          "question": "A fair coin and a fair spinner numbered 1, 2 and 3 are used. What is the probability of obtaining heads and an even number?",
+          "options": [
+            "[[\\frac16]]",
+            "[[\\frac13]]",
+            "[[\\frac12]]",
+            "[[\\frac23]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The six equally likely outcomes are H1, H2, H3, T1, T2 and T3. Only H2 is favourable, so the probability is [[\\frac16]].",
+          "incorrectFeedback": "Construct all six equally likely coin-spinner outcomes and count those satisfying both conditions."
+        },
+        {
           "type": "reveal",
-          "eyebrow": "TREE DIAGRAMS · 14 OF 18",
-          "title": "Multiply along a complete route",
+          "eyebrow": "TREE DIAGRAMS · 7 OF 11",
+          "title": "Multiply along branches and add complete routes",
           "diagram": {
             "kind": "probability-tree",
-            "caption": "A route through the tree represents an intersection of events."
+            "caption": "Each complete route represents a combined outcome."
           },
           "steps": [
             {
-              "title": "Read the first branch",
-              "body": "Suppose [[P(A)=0.4]]."
+              "title": "Multiply for successive events",
+              "body": "[[P(A\\text{ and }B)=P(A)P(B\\mid A)]]. Multiply the probabilities along one complete route."
             },
             {
-              "title": "Read the conditional branch",
-              "body": "Suppose [[P(B\\mid A)=0.7]]. This is the probability of B after A has occurred."
+              "title": "Add alternative routes",
+              "body": "Add route probabilities only when the routes are mutually exclusive ways of producing the required event."
             },
             {
-              "title": "Multiply along the route",
-              "body": "[[P(A\\text{ and }B)=0.4\\times0.7=0.28]]."
+              "title": "Identify independence",
+              "body": "For independent events, the probability on the second stage is unchanged by the first outcome."
             },
             {
-              "title": "Add only complete alternatives",
-              "body": "To find B by any route, add the probabilities of all mutually exclusive routes ending in B."
+              "title": "Update dependent probabilities",
+              "body": "Without replacement, the contents of the sample space change, so later branch probabilities usually change."
             }
           ],
           "buttonText": "Continue"
         },
         {
-          "type": "multipleChoice",
-          "eyebrow": "DEPENDENT-EVENT CHECK · 15 OF 18",
-          "question": "A bag contains 3 red and 2 blue counters. Two are drawn without replacement. What is the probability that both are red?",
+          "type": "workedExample",
+          "eyebrow": "DEPENDENT EVENTS · 8 OF 11",
+          "title": "Calculate a probability without replacement",
+          "question": "A bag contains 3 red and 2 blue counters. Two counters are drawn without replacement. What is the probability that both are red?",
           "options": [
             "[[\\frac15]]",
             "[[\\frac3{10}]]",
@@ -7001,21 +7087,38 @@
             "[[\\frac35]]"
           ],
           "answerIndex": 1,
-          "correctFeedback": "Correct. [[\\frac35\\times\\frac24=\\frac3{10}]]. The second numerator and denominator both change after a red counter is removed.",
-          "incorrectFeedback": "After the first red counter, 2 red counters remain among 4 total counters."
-        },
-        {
-          "type": "concept",
-          "eyebrow": "CONDITIONAL FREQUENCY · 16 OF 18",
-          "title": "Restrict the denominator to the given condition",
-          "body": "In [[P(A\\mid B)]], the event B defines the new sample space. Use only outcomes inside B in the denominator.<br><br>Two-way tables, Venn diagrams, and expected-frequency trees make this restriction visible without requiring formal set notation.",
-          "keyPoint": "The denominator answers: out of how many cases satisfying the condition?",
+          "steps": [
+            {
+              "title": "First red counter",
+              "body": "The probability of red first is [[\\frac35]]."
+            },
+            {
+              "title": "Update the bag",
+              "body": "After one red is removed, 2 red counters remain among 4 counters."
+            },
+            {
+              "title": "Multiply the route",
+              "body": "[[\\frac35\\times\\frac24=\\frac6{20}=\\frac3{10}]]."
+            },
+            {
+              "title": "Check dependence",
+              "body": "The second probability differs from the first because the draw is without replacement."
+            }
+          ],
+          "finalAnswer": "The probability is [[\\frac3{10}]], so the correct option is B.",
           "buttonText": "Continue"
         },
         {
-          "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 17 OF 18",
-          "title": "Read a conditional probability from counts",
+          "type": "concept",
+          "eyebrow": "CONDITIONAL PROBABILITY · 9 OF 11",
+          "title": "Restrict the sample space to the given condition",
+          "body": "In [[P(A\\mid B)]], event B defines the new sample space. The denominator counts only outcomes satisfying B.<br><br>Two-way tables, Venn diagrams, frequency trees, and expected frequencies can all make this restriction visible without formal set notation.",
+          "keyPoint": "Ask: out of the cases satisfying the condition, how many also satisfy the required event?",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "CONDITIONAL-PROBABILITY CHECK · 10 OF 11",
           "question": "Among 60 students, 30 play sport. Of those 30, 15 also study music. What is the probability that a randomly selected sport player studies music?",
           "options": [
             "[[\\frac14]]",
@@ -7024,44 +7127,26 @@
             "[[\\frac34]]"
           ],
           "answerIndex": 1,
-          "steps": [
-            {
-              "title": "Identify the condition",
-              "body": "We are told the selected student plays sport, so restrict attention to the 30 sport players."
-            },
-            {
-              "title": "Find the favourable count",
-              "body": "Within that group, 15 also study music."
-            },
-            {
-              "title": "Form the conditional probability",
-              "body": "[[P(\\text{music}\\mid\\text{sport})=\\frac{15}{30}]]."
-            },
-            {
-              "title": "Simplify",
-              "body": "[[\\frac{15}{30}=\\frac12]]."
-            }
-          ],
-          "finalAnswer": "The conditional probability is [[\\frac12]], so the correct option is B.",
-          "buttonText": "Continue"
+          "correctFeedback": "Correct. Restrict the denominator to the 30 sport players: [[\\frac{15}{30}=\\frac12]].",
+          "incorrectFeedback": "The condition is that the student plays sport, so use 30—not 60—as the denominator."
         },
         {
           "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 18 OF 18",
-          "title": "Statistics and Probability: key points",
+          "eyebrow": "LESSON SUMMARY · 11 OF 11",
+          "title": "Probability: key points",
           "keyPoints": [
-            "Choose representations according to whether data are categorical, discrete, continuous, or time-based.",
-            "Grouped means and graph-read quartiles are estimates.",
-            "Histogram frequency is class width times frequency density.",
-            "Correlation does not imply causation, and extrapolation is risky.",
-            "Add mutually exclusive routes, multiply successive branches, and restrict denominators for conditional probability."
+            "Relative frequency estimates probability from repeated experimental outcomes.",
+            "Expected frequency is probability multiplied by the number of trials.",
+            "Exhaustive mutually exclusive outcomes have probabilities summing to 1.",
+            "Multiply along successive branches and add mutually exclusive complete routes.",
+            "For conditional probability, restrict the denominator to outcomes satisfying the condition."
           ],
           "reviewItems": [
-            "Compare centre and spread using like-for-like statistics.",
-            "Use bar area—not height alone—in histograms.",
-            "Read quartiles at the correct cumulative positions.",
-            "Update probabilities when sampling without replacement.",
-            "Next lesson: Geometry and Data Exam-style Questions."
+            "Do not treat an expected frequency as a guaranteed count.",
+            "List possibility spaces systematically so no outcome is missed or repeated.",
+            "Update branch probabilities when sampling without replacement.",
+            "Distinguish independent events from mutually exclusive events.",
+            "Return to Learn to choose the next topic."
           ],
           "buttonText": "Finish lesson"
         }
@@ -7069,8 +7154,8 @@
     },
     {
       "id": "geometry-data-exam-style-questions",
-      "topicId": "topic-7",
-      "title": "Exam-style Questions",
+      "topicId": "topic-archive",
+      "title": "Mixed Foundation Exam-style Questions",
       "screens": [
         {
           "type": "multipleChoice",
@@ -7408,7 +7493,7 @@
     },
     {
       "id": "logic-of-arguments",
-      "topicId": "topic-8",
+      "topicId": "topic-11",
       "title": "Logic of Arguments",
       "screens": [
         {
@@ -7619,7 +7704,7 @@
     },
     {
       "id": "methods-of-proof-quantifiers",
-      "topicId": "topic-8",
+      "topicId": "topic-11",
       "title": "Methods of Proof & Quantifiers",
       "screens": [
         {
@@ -7858,7 +7943,7 @@
     },
     {
       "id": "disproving-statements",
-      "topicId": "topic-8",
+      "topicId": "topic-11",
       "title": "Disproving Statements",
       "screens": [
         {
@@ -8094,7 +8179,7 @@
     },
     {
       "id": "logic-proof-exam-style-questions",
-      "topicId": "topic-8",
+      "topicId": "topic-11",
       "title": "Exam-style Questions",
       "screens": [
         {
