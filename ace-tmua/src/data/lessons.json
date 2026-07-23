@@ -6987,16 +6987,16 @@
         {
           "type": "multipleChoice",
           "eyebrow": "TRANSFORMED PARAMETERS · 8 OF 18",
-          "question": "Let [[f(x)=x^{2}-8x+7]]. The graphs [[y=f(kx)]] and [[y=f(x-c)]] have the same minimum point, where [[k>0]] and [[c>0]]. Which expression gives k in terms of c?",
+          "question": "Let [[f(x)=x^{2}-10x+7]]. The minimum point of [[y=f(2x-1)]] has x-coordinate p. The minimum point of [[y=f(x-s)]] has x-coordinate [[3p]], where [[s>0]]. Find [[p+s]].",
           "options": [
-            "[[\\frac{4}{c+4}]]",
-            "[[\\frac{4}{c-4}]]",
-            "[[\\frac{c+4}{4}]]",
-            "[[\\frac{c-4}{4}]]"
+            "[[4]]",
+            "[[7]]",
+            "[[9]]",
+            "[[12]]"
           ],
-          "answerIndex": 0,
-          "correctFeedback": "Correct. The minimum of f occurs when its input is 4. For [[f(kx)]], this gives [[kx=4]], so the minimum has x-coordinate [[\\frac4k]]. For [[f(x-c)]], it gives [[x-c=4]], so the minimum has x-coordinate [[c+4]]. Equating them gives [[\\frac4k=c+4]], hence [[k=\\frac4{c+4}]].",
-          "incorrectFeedback": "Find where the input to f equals 4 in each graph. Equal minimum points require their x-coordinates to match."
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The minimum of f occurs when its input is 5. For [[f(2x-1)]], solve [[2x-1=5]], giving [[p=3]]. For [[f(x-s)]], the minimum occurs when [[x-s=5]], so its x-coordinate is [[s+5]]. Since this equals [[3p=9]], [[s=4]]. Therefore [[p+s=7]].",
+          "incorrectFeedback": "First find the input value at which f has its minimum. Then set each transformed input equal to that value and compare the resulting x-coordinates."
         },
         {
           "type": "milestone",
@@ -7020,19 +7020,19 @@
           "steps": [
             {
               "title": "Define the functions",
-              "body": "Let [[f(x)=x^{2}-2x]] and [[g(x)=x+3]]."
+              "body": "Let [[f(x)=x^{2}-2x]] and<br><br>[[g(x)=x+3]]."
             },
             {
-              "title": "Find [[f(g(x))]]",
-              "body": "Replace every x in f by [[x+3]]: [[f(g(x))=(x+3)^{2}-2(x+3)=x^{2}+4x+3]]."
+              "title": "Find f(g(x))",
+              "body": "Replace every x in f with [[x+3]].<br><br>[[f(g(x))=(x+3)^{2}-2(x+3)]]<br><br>Expanding gives [[f(g(x))=x^{2}+4x+3]]."
             },
             {
-              "title": "Find [[g(f(x))]]",
-              "body": "The rule g adds 3 to its input, so [[g(f(x))=(x^{2}-2x)+3=x^{2}-2x+3]]."
+              "title": "Find g(f(x))",
+              "body": "The function g adds 3 to its input.<br><br>[[g(f(x))=f(x)+3]]<br><br>Therefore [[g(f(x))=x^{2}-2x+3]]."
             },
             {
               "title": "Compare the results",
-              "body": "The two compositions differ because the functions were applied in opposite orders."
+              "body": "The two compositions are different because the functions were applied in opposite orders."
             }
           ],
           "buttonText": "Continue"
@@ -7160,13 +7160,600 @@
       "id": "sketching-roots-intersections",
       "topicId": "topic-7",
       "title": "Sketching, Roots and Intersections",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "BUILDING A SKETCH · 1 OF 18",
+          "title": "Combine algebra with the calculus you already know",
+          "body": "A reliable sketch is built from evidence. First determine the end behaviour, coordinate-axis intersections, repeated roots, stationary points, and intervals of increase or decrease.<br><br>You have already learned how to find and classify stationary points. In this lesson, those results will be used to determine the overall shape and possible numbers of roots.",
+          "keyPoint": "Do not calculate every possible point. Place the decisive features first, then join them with the correct overall shape.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "AXIS INTERSECTIONS · 2 OF 18",
+          "title": "Find roots and the y-intercept before drawing",
+          "steps": [
+            {
+              "title": "Read the factorised function",
+              "body": "Let [[p(x)=(x+3)(x-1)^{2}]]."
+            },
+            {
+              "title": "Find the x-intercepts",
+              "body": "[[p(x)=0]] when [[x=-3]] or [[x=1]]. Therefore the graph meets the x-axis at [[(-3,0)]] and [[(1,0)]]."
+            },
+            {
+              "title": "Use the repeated factor",
+              "body": "The factor [[(x-1)^{2}]] gives a repeated root, so the graph touches the x-axis at [[x=1]]. The factor [[x+3]] gives a simple root, so it crosses at [[x=-3]]."
+            },
+            {
+              "title": "Find the y-intercept and end behaviour",
+              "body": "[[p(0)=3]], so the y-intercept is [[(0,3)]]. The leading term is [[x^{3}]], so the graph falls to the left and rises to the right."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ROOT-BEHAVIOUR CHECK · 3 OF 18",
+          "question": "Which description is correct for [[q(x)=-(x+2)^{2}(x-4)]]?",
+          "options": [
+            "It crosses at [[x=-2]], touches at [[x=4]], and rises to the right.",
+            "It touches at [[x=-2]], crosses at [[x=4]], and falls to the right.",
+            "It touches at both roots and falls to the right.",
+            "It crosses at both roots and rises to the right."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The squared factor gives a repeated root at [[x=-2]], so the graph touches there. It crosses at the simple root [[x=4]]. The leading term is [[-x^{3}]], so the graph falls to the right.",
+          "incorrectFeedback": "Use the powers of the factors to distinguish touching from crossing, then inspect the sign of the leading term."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "POSSIBLE NUMBERS OF ROOTS · 4 OF 18",
+          "title": "The degree limits how many real roots are possible",
+          "body": "A polynomial of degree n has at most n distinct real roots. A quadratic may have 0, 1, or 2 distinct real roots.<br><br>A cubic with real coefficients has at least one real root and may have 1, 2, or 3 distinct real roots. Two distinct roots occur when one root is repeated.",
+          "keyPoint": "The degree gives a maximum, not a guarantee. Some roots may be repeated or non-real.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "USING CURVE BEHAVIOUR · 5 OF 18",
+          "title": "Stationary values can determine the number of roots",
+          "question": "A positive cubic h has a local maximum at [[(-1,10)]] and a local minimum at [[(3,-22)]]. What must be true?",
+          "options": [
+            "h has exactly one real root.",
+            "h has exactly two distinct real roots.",
+            "h has exactly three distinct real roots.",
+            "The number of real roots cannot be determined."
+          ],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Use the left-hand end",
+              "body": "A positive cubic tends to negative infinity as x tends to negative infinity. It must cross the x-axis before reaching the positive local maximum."
+            },
+            {
+              "title": "Move between the stationary points",
+              "body": "The graph falls from a positive value 10 to a negative value -22, so it must cross the x-axis again."
+            },
+            {
+              "title": "Use the right-hand end",
+              "body": "After the negative local minimum, the graph rises towards positive infinity and must cross the axis a third time."
+            },
+            {
+              "title": "Count the crossings",
+              "body": "The three crossings occur in separate intervals, so the roots are distinct."
+            }
+          ],
+          "finalAnswer": "The cubic has exactly three distinct real roots, so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "PARAMETERS AND ROOT COUNTS · 6 OF 18",
+          "title": "A vertical shift changes where a curve meets the x-axis",
+          "body": "For [[y=F(x)+k]], changing k moves the whole graph vertically. Equivalently, the roots of [[F(x)+k=0]] are the intersections of [[y=F(x)]] with the horizontal line [[y=-k]].<br><br>The boundary between one and three intersections occurs when that horizontal line passes through a local maximum or minimum.",
+          "keyPoint": "For a cubic with two turning points, three distinct roots require its local maximum to lie above the x-axis and its local minimum below it.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "THREE-ROOT RANGE · 7 OF 18",
+          "title": "Use the stationary values as strict boundaries",
+          "question": "For which values of k does [[x^{3}-12x+k=0]] have three distinct real solutions?",
+          "options": [
+            "[[k<-16]]",
+            "[[-16<k<16]]",
+            "[[k>16]]",
+            "[[k\\leq-16]] or [[k\\geq16]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Locate the turning points",
+              "body": "For [[F(x)=x^{3}-12x+k]],<br><br>[[F'(x)=3(x-2)(x+2)]], so the stationary x-values are [[-2]] and [[2]]."
+            },
+            {
+              "title": "Find the local maximum value",
+              "body": "[[F(-2)=16+k]]. For three distinct roots, this maximum must be positive, so [[k>-16]]."
+            },
+            {
+              "title": "Find the local minimum value",
+              "body": "[[F(2)=k-16]]. This minimum must be negative, so [[k<16]]."
+            },
+            {
+              "title": "Combine the inequalities",
+              "body": "Both conditions hold when [[-16<k<16]]. Equality would make the graph touch the axis and create a repeated root."
+            }
+          ],
+          "finalAnswer": "The complete range is [[-16<k<16]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "HARDER PARAMETER CHECK · 8 OF 18",
+          "question": "Let [[r>0]]. A vertical translation of [[y=x^{3}-3r^{2}x]] by s units has three distinct x-intercepts. Which condition on s is necessary and sufficient?",
+          "options": [
+            "[[-3r^{3}<s<3r^{3}]]",
+            "[[-2r^{3}<s<2r^{3}]]",
+            "[[s<-2r^{3}]] or [[s>2r^{3}]]",
+            "[[0<s<2r^{3}]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The stationary points occur at [[x=-r]] and [[x=r]]. Their y-values after translation are [[2r^{3}+s]] and [[s-2r^{3}]]. Three distinct intercepts require [[2r^{3}+s>0]] and [[s-2r^{3}<0]], giving [[-2r^{3}<s<2r^{3}]].",
+          "incorrectFeedback": "Find the two stationary x-values, evaluate the translated cubic there, and require the local maximum to be positive and the local minimum to be negative."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "ROOTS AND SKETCHES COMPLETE · 9 OF 18",
+          "title": "You can now turn algebraic features into a reliable sketch.",
+          "body": "You have combined factors, multiplicity, intercepts, end behaviour, and stationary values to determine how a polynomial meets the axes.<br><br>Next, the same ideas will describe where two different graphs meet.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "GRAPH INTERSECTIONS · 10 OF 18",
+          "title": "Intersections are solutions of simultaneous equations",
+          "diagram": {
+            "kind": "function-intersections",
+            "caption": "At an intersection, both functions give the same y-value for the same x-value."
+          },
+          "body": "The graphs [[y=f(x)]] and [[y=g(x)]] intersect where<br><br>[[f(x)=g(x)]].<br><br>Solving this equation gives the x-coordinates of the intersections. Substitute each x-value into either original function to find the corresponding y-coordinate.",
+          "keyPoint": "Solving [[f(x)=g(x)]] gives x-values first. A complete intersection point also needs its y-coordinate.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "EXACT INTERSECTIONS · 11 OF 18",
+          "title": "Solve a line and a quadratic simultaneously",
+          "question": "Find the intersection points of [[y=x^{2}-3x-4]] and [[y=2x-4]].",
+          "options": [
+            "[[(0,-4)]] and [[(5,6)]]",
+            "[[(0,4)]] and [[(5,-6)]]",
+            "[[(-1,-6)]] and [[(4,4)]]",
+            "[[(1,-2)]] and [[(4,4)]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Equate the two expressions",
+              "body": "[[x^{2}-3x-4=2x-4]]."
+            },
+            {
+              "title": "Solve for x",
+              "body": "[[x^{2}-5x=0]], so [[x(x-5)=0]]. Therefore [[x=0]] or [[x=5]]."
+            },
+            {
+              "title": "Find the first y-coordinate",
+              "body": "Using the line, when [[x=0]], [[y=2(0)-4=-4]]."
+            },
+            {
+              "title": "Find the second y-coordinate",
+              "body": "When [[x=5]], [[y=2(5)-4=6]]."
+            }
+          ],
+          "finalAnswer": "The intersections are [[(0,-4)]] and [[(5,6)]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "DISCRIMINANTS AND GEOMETRY · 12 OF 18",
+          "title": "The discriminant counts line–quadratic intersections",
+          "body": "After equating a line and a quadratic, the resulting equation has the form [[Ax^{2}+Bx+C=0]]. Its discriminant describes the geometry:<br><br>• [[B^{2}-4AC>0]]: two intersections.<br><br>• [[B^{2}-4AC=0]]: one intersection, so the line is tangent.<br><br>• [[B^{2}-4AC<0]]: no intersections.",
+          "keyPoint": "The discriminant is not only an algebraic test: it counts the real intersection points of the two graphs.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "NO-INTERSECTION RANGE · 13 OF 18",
+          "title": "Turn a geometric condition into an inequality",
+          "question": "The graphs [[y=x^{2}-4x+7]] and [[y=mx+1]] do not meet. What is the complete range of m?",
+          "options": [
+            "[[-4-2\\sqrt6<m<-4+2\\sqrt6]]",
+            "[[m<-4-2\\sqrt6]] or [[m>-4+2\\sqrt6]]",
+            "[[-2\\sqrt6<m<2\\sqrt6]]",
+            "[[-4-\\sqrt6<m<-4+\\sqrt6]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Form the intersection equation",
+              "body": "[[x^{2}-4x+7=mx+1]], so<br><br>[[x^{2}-(m+4)x+6=0]]."
+            },
+            {
+              "title": "Use the no-intersection condition",
+              "body": "No real intersection requires<br><br>[[(m+4)^{2}-24<0]]."
+            },
+            {
+              "title": "Solve the inequality",
+              "body": "[[(m+4)^{2}<24]], so<br><br>[[-2\\sqrt6<m+4<2\\sqrt6]]."
+            },
+            {
+              "title": "Isolate m",
+              "body": "Subtracting 4 gives<br><br>[[-4-2\\sqrt6<m<-4+2\\sqrt6]]."
+            }
+          ],
+          "finalAnswer": "The complete range is [[-4-2\\sqrt6<m<-4+2\\sqrt6]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TANGENCY CHECK · 14 OF 18",
+          "question": "For which values of k is the line [[y=kx+4]] tangent to the curve [[y=x^{2}-2x+7]]?",
+          "options": [
+            "[[k=-2\\pm\\sqrt3]]",
+            "[[k=2\\pm2\\sqrt3]]",
+            "[[k=-2\\pm2\\sqrt3]]",
+            "[[k=2\\pm\\sqrt3]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Equating the graphs gives [[x^{2}-(k+2)x+3=0]]. Tangency requires one repeated solution, so [[(k+2)^{2}-12=0]]. Hence [[k+2=\\pm2\\sqrt3]] and [[k=-2\\pm2\\sqrt3]].",
+          "incorrectFeedback": "Equate the two graphs, then set the discriminant of the resulting quadratic equal to zero."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "EQUATIONS AS INTERSECTIONS · 15 OF 18",
+          "title": "Rewrite an equation as a comparison of two graphs",
+          "body": "The equation [[f(x)=g(x)]] can be studied either by plotting the two graphs or by finding the roots of [[f(x)-g(x)=0]]. These are two views of the same problem.<br><br>For modulus, roots, logarithms, and denominators, keep the original domain restrictions when solving. Algebraic manipulation must not introduce invalid solutions.",
+          "keyPoint": "A sketch can predict how many solutions to expect; algebra determines which candidate values are valid.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "NON-POLYNOMIAL INTERSECTION · 16 OF 18",
+          "question": "How many real solutions does [[x^{2}-2=\\lvert x\\rvert]] have?",
+          "options": [
+            "[[0]]",
+            "[[1]]",
+            "[[2]]",
+            "[[4]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Let [[u=\\lvert x\\rvert\\geq0]]. Since [[x^{2}=u^{2}]], the equation becomes [[u^{2}-u-2=0]], so [[(u-2)(u+1)=0]]. Only [[u=2]] is valid, giving [[x=\\pm2]].",
+          "incorrectFeedback": "Use [[u=\\lvert x\\rvert]], noting that [[x^{2}=u^{2}]] and [[u\\geq0]]. Then convert the valid value of u back into x-values."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FINAL MIXED CHALLENGE · 17 OF 18",
+          "question": "For which values of t does the horizontal line [[y=t]] meet [[y=x^{3}-6x^{2}+9x+4]] at three distinct points?",
+          "options": [
+            "[[t<4]]",
+            "[[4<t<8]]",
+            "[[t>8]]",
+            "[[t\\leq4]] or [[t\\geq8]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The derivative is [[3(x-1)(x-3)]], so the cubic has a local maximum at [[x=1]] and a local minimum at [[x=3]]. Their y-values are 8 and 4. A horizontal line meets the cubic three times exactly when it lies strictly between these values: [[4<t<8]].",
+          "incorrectFeedback": "Find the two stationary y-values. Three distinct intersections occur only when the horizontal line lies strictly between the local minimum and local maximum."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 18 OF 18",
+          "title": "Sketching, Roots and Intersections: key points",
+          "keyPoints": [
+            "Use end behaviour, axis intersections, repeated roots, and stationary values to construct a sketch.",
+            "A repeated root usually makes a polynomial touch the x-axis; a simple root makes it cross.",
+            "A degree-n polynomial has at most n distinct real roots.",
+            "The intersections of [[y=f(x)]] and [[y=g(x)]] are the solutions of [[f(x)=g(x)]].",
+            "For line–quadratic intersections, the discriminant distinguishes two intersections, tangency, and no intersection."
+          ],
+          "reviewItems": [
+            "Find the y-intercept by setting x to zero and the x-intercepts by setting y to zero.",
+            "Use stationary values as boundaries in parameter root-count questions.",
+            "State complete intersection coordinates, not only x-values.",
+            "Keep strict inequalities when repeated roots or tangencies are excluded.",
+            "Next lesson: Exam-style Questions."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "graphs-transformations-exam-style-questions",
       "topicId": "topic-7",
       "title": "Exam-style Questions",
-      "screens": []
+      "screens": [
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 1 OF 20",
+          "question": "A graph is decreasing, has vertical asymptote [[x=3]], passes through [[(4,2)]], and crosses the x-axis at [[x=7]]. Which equation could define the graph?",
+          "options": [
+            "[[y=2-\\log_{2}(x-3)]]",
+            "[[y=2+\\log_{2}(x-3)]]",
+            "[[y=\\log_{2}(x+3)-2]]",
+            "[[y=2-2^{x-3}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[y=2-\\log_{2}(x-3)]] has asymptote [[x=3]] and is decreasing. At [[x=4]], it gives 2, while [[y=0]] gives [[\\log_{2}(x-3)=2]], so [[x=7]].",
+          "incorrectFeedback": "Use all four features: the logarithm's input determines the vertical asymptote, the negative sign determines whether it decreases, and the two stated points check the constants."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 2 OF 20",
+          "question": "Starting with [[y=\\log_{2}(x+1)]], apply these transformations in order:<br><br>1. reflection in the y-axis<br>2. stretch parallel to the x-axis with scale factor [[\\frac12]]<br>3. translation by [[\\begin{pmatrix}3\\\\-4\\end{pmatrix}]]<br>4. reflection in the x-axis<br><br>What is the resulting equation?",
+          "options": [
+            "[[y=4-\\log_{2}(7-2x)]]",
+            "[[y=-4-\\log_{2}(7-2x)]]",
+            "[[y=4-\\log_{2}(2x-5)]]",
+            "[[y=\\log_{2}(7-2x)+4]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Reflection in the y-axis gives [[y=\\log_{2}(1-x)]]. A horizontal scale factor [[\\frac12]] replaces x by [[2x]], giving [[y=\\log_{2}(1-2x)]]. Translating right 3 and down 4 gives [[y=\\log_{2}(7-2x)-4]]. Reflecting in the x-axis produces [[y=4-\\log_{2}(7-2x)]].",
+          "incorrectFeedback": "Apply the transformations in order. A horizontal scale factor [[\\frac12]] replaces x by [[2x]], and the final reflection changes the sign of the entire expression."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 3 OF 20",
+          "question": "The graph of [[y=f(x)]] has a local minimum at [[(6,-4)]], vertical asymptote [[x=-2]], and horizontal asymptote [[y=3]]. Which statement is true for<br><br>[[y=-2f(3(x+1))+5]]?",
+          "options": [
+            "It has a local maximum at [[(1,13)]], vertical asymptote [[x=-\\frac53]], and horizontal asymptote [[y=-1]].",
+            "It has a local minimum at [[(1,13)]], vertical asymptote [[x=-\\frac53]], and horizontal asymptote [[y=11]].",
+            "It has a local maximum at [[(17,13)]], vertical asymptote [[x=-7]], and horizontal asymptote [[y=-1]].",
+            "It has a local minimum at [[(1,-3)]], vertical asymptote [[x=-\\frac13]], and horizontal asymptote [[y=1]]."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Solve [[3(x+1)=6]] to map the minimum's x-coordinate, giving [[x=1]]. Its y-value becomes [[-2(-4)+5=13]], and the negative multiplier changes the minimum to a maximum. The asymptotes map to [[x=-\\frac53]] and [[y=-1]].",
+          "incorrectFeedback": "Map horizontal features by solving the inside equation, and transform y-values using [[y\\mapsto-2y+5]]. A negative outside multiplier swaps minima and maxima."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 4 OF 20",
+          "question": "Which statement gives the endpoint, domain, and range of<br><br>[[h(x)=4-2\\sqrt{3-2x}]]?",
+          "options": [
+            "Endpoint [[(\\frac32,4)]], domain [[x\\leq\\frac32]], range [[y\\leq4]].",
+            "Endpoint [[(-\\frac32,4)]], domain [[x\\geq-\\frac32]], range [[y\\leq4]].",
+            "Endpoint [[(\\frac32,4)]], domain [[x\\geq\\frac32]], range [[y\\geq4]].",
+            "Endpoint [[(3,-2)]], domain [[x\\leq3]], range [[y\\geq-2]]."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The square root requires [[3-2x\\geq0]], so [[x\\leq\\frac32]]. It is zero at [[x=\\frac32]], giving the endpoint [[(\\frac32,4)]]. Since a non-negative square root is subtracted from 4, [[y\\leq4]].",
+          "incorrectFeedback": "Set the square-root input greater than or equal to zero. Then use the outside negative coefficient to determine which side of 4 the outputs occupy."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 5 OF 20",
+          "question": "Let [[f(x)=ax+b]] and [[g(x)=x^{2}-1]]. It is known that<br><br>[[f(g(x))=6x^{2}-9]]<br><br>for every real x. What is [[f(b)]]?",
+          "options": [
+            "[[-21]]",
+            "[[-15]]",
+            "[[3]]",
+            "[[15]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. [[f(g(x))=a(x^{2}-1)+b=ax^{2}+b-a]]. Comparing coefficients gives [[a=6]] and [[b-a=-9]], so [[b=-3]]. Therefore [[f(b)=6(-3)-3=-21]].",
+          "incorrectFeedback": "Write out [[f(g(x))]] and compare both the coefficient of [[x^{2}]] and the constant term before evaluating f at b."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 6 OF 20",
+          "question": "Let [[f(x)=\\sqrt{5-x}]] and [[g(x)=\\frac{2}{x-1}]]. What is the domain of [[f(g(x))]]?",
+          "options": [
+            "[[x<1]] or [[x\\geq\\frac75]]",
+            "[[x\\leq1]] or [[x>\\frac75]]",
+            "[[1<x\\leq\\frac75]]",
+            "[[x\\geq\\frac75]] only"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The condition is [[5-\\frac{2}{x-1}\\geq0]], with [[x\\ne1]]. Solving the rational inequality gives [[x<1]] or [[x\\geq\\frac75]].",
+          "incorrectFeedback": "Require the square-root input to be non-negative and also exclude [[x=1]]. Use the critical values 1 and [[\\frac75]] to test the intervals."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 7 OF 20",
+          "question": "The line [[y=mx+1]] passes through the points<br><br>[[\\left(2,\\log_{3}p\\right)]] and [[\\left(\\log_{3}p,4\\right)]], where [[p>0]]. What are the possible values of p?",
+          "options": [
+            "[[p=9]] or [[p=\\frac1{27}]]",
+            "[[p=27]] or [[p=\\frac19]]",
+            "[[p=27]] only",
+            "[[p=\\frac19]] only"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Let [[L=\\log_{3}p]]. The two points give [[L=2m+1]] and [[4=mL+1]]. Hence [[m=\\frac{L-1}{2}]] and [[L(L-1)=6]], so [[L^{2}-L-6=0]]. Thus [[L=3]] or [[L=-2]], giving [[p=27]] or [[p=\\frac19]].",
+          "incorrectFeedback": "Set [[L=\\log_{3}p]], use each point in the line equation, eliminate m, and then convert the possible values of L back into p."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 8 OF 20",
+          "question": "A quadratic has equation [[y=a(x+b)^{2}+c]]. Its roots are [[-1]] and [[7]], and it passes through [[(1,-12)]]. Find [[a+b+c]].",
+          "options": [
+            "[[-18]]",
+            "[[-12]]",
+            "[[-10]]",
+            "[[18]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The axis of symmetry is midway between the roots, so it is [[x=3]] and therefore [[b=-3]]. The roots are 4 units from the axis, so [[c=-16a]]. Using [[(1,-12)]] gives [[4a+c=-12]], hence [[a=1]] and [[c=-16]]. Thus [[a+b+c=-18]].",
+          "incorrectFeedback": "Use the midpoint of the roots to find the axis, then use the root distance and the extra point to determine a and c."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 9 OF 20",
+          "question": "The curve [[y=px^{2}+12x-q]] has axis of symmetry [[x=-3]] and is tangent to the horizontal line [[y=5]]. Find [[p-q]].",
+          "options": [
+            "[[21]]",
+            "[[23]]",
+            "[[25]]",
+            "[[27]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The axis is [[x=-\\frac{12}{2p}=-\\frac6p]], so [[p=2]]. A horizontal tangent occurs at the turning point, so substituting [[x=-3]] gives [[5=2(9)-36-q=-18-q]], hence [[q=-23]]. Therefore [[p-q=25]].",
+          "incorrectFeedback": "The stated axis determines p. Because the tangent line is horizontal, it touches at the turning point, whose y-value must be 5."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 10 OF 20",
+          "question": "Let [[f(x)=\\log_{2}(x-1)]] and [[g(x)=2^{x}+1]]. Which statement is correct?",
+          "options": [
+            "Both [[f(g(x))]] and [[g(f(x))]] equal x for every real x.",
+            "[[f(g(x))=x]] for every real x, while [[g(f(x))=x]] only for [[x>1]].",
+            "[[g(f(x))=x]] for every real x, while [[f(g(x))=x]] only for [[x>1]].",
+            "Neither composition simplifies to x."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f(g(x))=\\log_{2}(2^{x})=x]] for every real x. But f itself requires [[x>1]], so [[g(f(x))=2^{\\log_{2}(x-1)}+1=x]] only on [[x>1]].",
+          "incorrectFeedback": "The algebraic simplification is not the whole story. Track the domain of the inside function in each composition."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 11 OF 20",
+          "question": "For [[0<x<1]], let<br><br>[[f(x)=\\sqrt{x}\\,p(x)]], where<br><br>[[p(x)=15x^{2}-20x+9]].<br><br>What fraction of the interval [[0<x<1]] is f decreasing on?",
+          "options": [
+            "[[\\frac15]]",
+            "[[\\frac25]]",
+            "[[\\frac35]]",
+            "[[\\frac45]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Differentiation gives<br><br>[[f'(x)=\\frac{3(5x-1)(5x-3)}{2\\sqrt{x}}]].<br><br>Since the denominator is positive, f decreases for [[\\frac15<x<\\frac35]]. This interval has length [[\\frac25]].",
+          "incorrectFeedback": "Rewrite the square root as [[x^{1/2}]], differentiate, factor the numerator, and determine where the derivative is negative."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 12 OF 20",
+          "question": "For [[m>0]], the cubic<br><br>[[2x^{3}+3mx^{2}+n=0]]<br><br>has three distinct real solutions. What is the complete range of n?",
+          "options": [
+            "[[-m^{3}<n<0]]",
+            "[[0<n<m^{3}]]",
+            "[[n<-m^{3}]]",
+            "[[n>m^{3}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The stationary points occur at [[x=-m]] and [[x=0]]. Their values are [[m^{3}+n]] and n. Three distinct roots require the local maximum to be positive and the local minimum negative, so [[m^{3}+n>0]] and [[n<0]]. Hence [[-m^{3}<n<0]].",
+          "incorrectFeedback": "Find the two stationary values and require the local maximum to lie above the x-axis while the local minimum lies below it."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 13 OF 20",
+          "question": "The graphs<br><br>[[y=2x^{2}-3x+5]] and [[y=mx-1]]<br><br>do not meet. What is the complete range of m?",
+          "options": [
+            "[[-3-4\\sqrt3<m<-3+4\\sqrt3]]",
+            "[[m<-3-4\\sqrt3]] or [[m>-3+4\\sqrt3]]",
+            "[[-4\\sqrt3<m<4\\sqrt3]]",
+            "[[-3-2\\sqrt3<m<-3+2\\sqrt3]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Equating the graphs gives [[2x^{2}-(m+3)x+6=0]]. No intersection means a negative discriminant:<br><br>[[(m+3)^{2}-48<0]].<br><br>Therefore [[-3-4\\sqrt3<m<-3+4\\sqrt3]].",
+          "incorrectFeedback": "Equate the two graph equations and require the resulting quadratic to have no real roots, so its discriminant must be negative."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 14 OF 20",
+          "question": "For which values of k is the line [[y=kx-3]] tangent to the curve [[y=x^{2}-4x+5]]?",
+          "options": [
+            "[[k=-4\\pm2\\sqrt2]]",
+            "[[k=4\\pm4\\sqrt2]]",
+            "[[k=-4\\pm4\\sqrt2]]",
+            "[[k=4\\pm2\\sqrt2]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Equating the graphs gives [[x^{2}-(k+4)x+8=0]]. Tangency requires one repeated solution, so [[(k+4)^{2}-32=0]]. Thus [[k=-4\\pm4\\sqrt2]].",
+          "incorrectFeedback": "At tangency the simultaneous equation has exactly one real solution. Set its discriminant equal to zero."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 15 OF 20",
+          "question": "What is the complete set of real solutions of<br><br>[[\\lvert x^{2}-4\\rvert=x+2]]?",
+          "options": [
+            "[[\\{-2,1,3\\}]]",
+            "[[\\{-2,3\\}]]",
+            "[[\\{1,3\\}]]",
+            "[[\\{-3,-1,2\\}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. For [[x^{2}\\geq4]], solve [[x^{2}-4=x+2]], giving [[x=-2,3]]. For [[x^{2}\\leq4]], solve [[4-x^{2}=x+2]], giving [[x=-2,1]]. Combining the valid solutions gives [[\\{-2,1,3\\}]].",
+          "incorrectFeedback": "Split according to the sign of [[x^{2}-4]], solve both equations, and retain only values valid in the corresponding region."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 16 OF 20",
+          "question": "How many solutions does<br><br>[[\\lvert2\\cos(3x)-1\\rvert=1]]<br><br>have in the interval [[0\\leq x<2\\pi]]?",
+          "options": [
+            "[[6]]",
+            "[[8]]",
+            "[[9]]",
+            "[[12]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The equation gives either [[\\cos(3x)=1]] or [[\\cos(3x)=0]]. Over [[0\\leq3x<6\\pi]], these produce 3 and 6 solutions respectively, with no overlap. The total is 9.",
+          "incorrectFeedback": "Remove the modulus by considering both [[2\\cos(3x)-1=1]] and [[2\\cos(3x)-1=-1]], then count solutions over three full cosine periods."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 17 OF 20",
+          "question": "Let<br><br>[[p(x)=(x+1)^{2}(x-3)^{3}]]<br><br>and [[q(x)=-p(2-x)]]. Which description of q is correct?",
+          "options": [
+            "It touches the x-axis at [[x=3]], crosses with flattening at [[x=-1]], and rises to the right.",
+            "It crosses at [[x=3]], touches at [[x=-1]], and falls to the right.",
+            "It touches at both roots and rises to the right.",
+            "It crosses at both roots and falls to the right."
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The root [[-1]] of p maps through [[2-x=-1]] to [[x=3]] and keeps multiplicity 2, so q touches there. The root 3 maps to [[x=-1]] with multiplicity 3, so q crosses with flattening. The final leading coefficient is positive, so q rises to the right.",
+          "incorrectFeedback": "Solve [[2-x=-1]] and [[2-x=3]], preserve each root's multiplicity, and then determine the sign of the transformed leading term."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 18 OF 20",
+          "question": "For which values of k does the cubic equation<br><br>[[x^{3}-3x+k=0]]<br><br>have exactly two distinct real roots?",
+          "options": [
+            "[[k=-2]] only",
+            "[[k=2]] only",
+            "[[k=-2]] or [[k=2]]",
+            "[[-2<k<2]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The stationary points are at [[x=-1]] and [[x=1]], with values [[k+2]] and [[k-2]]. Exactly two distinct roots occur when one stationary point lies on the x-axis, giving [[k=-2]] or [[k=2]]. One root is then repeated.",
+          "incorrectFeedback": "A cubic has exactly two distinct real roots when it has a repeated root. Require either stationary value to equal zero."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 19 OF 20",
+          "question": "Let [[c>0]] and [[m>0]]. The graphs<br><br>[[y=mx+2c]] and [[y=\\sqrt{3x}]]<br><br>have two distinct points of intersection. What is the complete range of m?",
+          "options": [
+            "[[0<m<\\frac{3}{8c}]]",
+            "[[0<m<\\frac{3}{4c}]]",
+            "[[m>\\frac{3}{8c}]]",
+            "[[m>\\frac{3}{4c}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. Squaring is safe because both sides are positive, and gives<br><br>[[m^{2}x^{2}+(4mc-3)x+4c^{2}=0]].<br><br>Two distinct intersections require a positive discriminant: [[9-24mc>0]], so [[0<m<\\frac{3}{8c}]].",
+          "incorrectFeedback": "Form a quadratic by squaring the intersection equation. Then require two distinct real roots and use the given positivity conditions."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "EXAM PRACTICE · 20 OF 20",
+          "question": "Let [[r>0]], [[f(u)=u^{3}-3r^{2}u]], and<br><br>[[h(x)=5-2f(3x-1)]].<br><br>For which values of t does the equation [[h(x)=t]] have three distinct real solutions?",
+          "options": [
+            "[[5-4r^{3}<t<5+4r^{3}]]",
+            "[[-2r^{3}<t<2r^{3}]]",
+            "[[t<5-4r^{3}]] or [[t>5+4r^{3}]]",
+            "[[5-2r^{3}<t<5+2r^{3}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The stationary values of f are [[2r^{3}]] and [[-2r^{3}]]. Under [[y\\mapsto5-2y]], these become [[5-4r^{3}]] and [[5+4r^{3}]]. The inside linear transformation does not change the number of intersections. Therefore three distinct solutions occur strictly between these values.",
+          "incorrectFeedback": "Find the local maximum and minimum values of f, transform those y-values using [[5-2y]], and place t strictly between the transformed extremes."
+        }
+      ]
     },
     {
       "id": "geometry-proportion",
