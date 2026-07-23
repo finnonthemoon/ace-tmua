@@ -103,9 +103,9 @@ const TOPICS: Topic[] = [
   {
     id: "geometry",
     lessonTopicId: "topic-8",
-    title: "Geometry and Proportion",
-    displayTitle: "Geometry and\nProportion",
-    intro: "Ratio, similarity, shape, measures, circles and vectors.",
+    title: "Geometry, Measures and Vectors",
+    displayTitle: "Geometry, Measures\nand Vectors",
+    intro: "Angles, transformations, similarity, circles, measures and vectors.",
     color: "#49A78E",
     softColor: "#E7F7F2",
     icon: "scan-outline",
@@ -182,6 +182,10 @@ const LESSON_SUBTITLES: Record<string, string> = {
   "graphs-transformations-exam-style-questions":
     "Bring the whole topic together",
   "geometry-proportion": "Scale, shape, circles and vectors",
+  "transformations-similarity-scale":
+    "Geometric transformations, similar figures and scale factors",
+  "circle-geometry-theorems":
+    "Circle theorems, tangents, chords and multi-stage deductions",
   "statistics-data": "Charts, grouped data and comparisons",
   "probability": "Expected frequencies, trees and conditional probability",
   "logic-of-arguments": "Implication, converse and necessary conditions",

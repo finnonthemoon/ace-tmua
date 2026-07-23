@@ -7756,276 +7756,892 @@
       ]
     },
     {
-      "id": "geometry-proportion",
+      "id": "angles-polygons-congruence",
       "topicId": "topic-8",
-      "title": "Geometry and Proportion",
+      "title": "Angles, Polygons and Congruence",
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "RATIO AND PROPORTION · 1 OF 18",
-          "title": "Turn proportional language into an equation",
-          "body": "If y is directly proportional to [[x^{n}]], write [[y=kx^{n}]]. If y is inversely proportional to [[x^{n}]], write [[y=\\frac{k}{x^{n}}]].<br><br>Use one pair of values to determine k, then keep the same k throughout the problem. Repeated percentage growth is also multiplicative: an increase of [[p\\%]] for n stages multiplies an initial value V by [[\\left(1+\\frac{p}{100}\\right)^{n}]].",
-          "keyPoint": "Proportion and growth are multiplicative. A statement such as [[y\\propto x^{2}]] does not mean [[y=x^{2}+c]].",
+          "eyebrow": "GEOMETRIC LANGUAGE · 1 OF 18",
+          "title": "Precise language tells you which facts may be used",
+          "body": "A line extends indefinitely, while a line segment has two endpoints. A vertex is a point where sides or edges meet, and a plane is a flat two-dimensional surface.<br><br>Parallel lines never meet, perpendicular lines meet at a right angle, and an angle is subtended by the points or lines that form it. A regular polygon has equal sides and equal interior angles.",
+          "keyPoint": "Do not assume a diagram is drawn to scale. Use only marked facts, stated properties, and conclusions you can justify.",
           "buttonText": "Continue"
         },
         {
           "type": "reveal",
-          "eyebrow": "DIRECT PROPORTION · 2 OF 18",
-          "title": "Use the constant of proportionality",
+          "eyebrow": "CORE ANGLE FACTS · 2 OF 18",
+          "title": "Build longer deductions from a small set of facts",
           "steps": [
             {
-              "title": "Translate the relationship",
-              "body": "Suppose [[y\\propto x^{2}]]. Then [[y=kx^{2}]]."
+              "title": "At a point and on a line",
+              "body": "Angles around a point total [[360^\\circ]]. Angles on a straight line total [[180^\\circ]]."
             },
             {
-              "title": "Find k",
-              "body": "If [[y=20]] when [[x=2]], then [[20=4k]], so [[k=5]]."
+              "title": "At an intersection",
+              "body": "Vertically opposite angles are equal. Perpendicular lines create four right angles."
             },
             {
-              "title": "Write the full equation",
-              "body": "The relationship is [[y=5x^{2}]]."
+              "title": "Across parallel lines",
+              "body": "Corresponding and alternate angles are equal. Co-interior angles on the same side of a transversal total [[180^\\circ]]."
             },
             {
-              "title": "Use a new input",
-              "body": "When [[x=3]], [[y=5(3^{2})=45]]."
+              "title": "Inside plane figures",
+              "body": "The interior angles of a triangle total [[180^\\circ]], while those of a quadrilateral total [[360^\\circ]]."
             }
           ],
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "INVERSE-PROPORTION CHECK · 3 OF 18",
-          "question": "The quantity y is inversely proportional to [[\\sqrt{x}]]. If x is multiplied by 9, what happens to y?",
+          "eyebrow": "PARALLEL-LINE CHECK · 3 OF 18",
+          "question": "Two parallel lines are crossed by a transversal. A pair of alternate interior angles are [[(4x+7)^\\circ]] and [[(7x-38)^\\circ]]. What is the obtuse angle formed at either intersection?",
           "options": [
-            "It is multiplied by 9.",
-            "It is multiplied by 3.",
-            "It is divided by 3.",
-            "It is divided by 9."
+            "[[67^\\circ]]",
+            "[[105^\\circ]]",
+            "[[113^\\circ]]",
+            "[[135^\\circ]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. [[y=\\frac{k}{\\sqrt{x}}]]. Multiplying x by 9 multiplies [[\\sqrt{x}]] by 3, so y is divided by 3.",
-          "incorrectFeedback": "Write [[y=kx^{-1/2}]]. A factor of 9 in x becomes a factor of [[9^{-1/2}=\\frac13]] in y."
+          "correctFeedback": "Correct. Alternate angles are equal, so [[4x+7=7x-38]], giving [[x=15]]. The equal acute angles are [[67^\\circ]], so each adjacent obtuse angle is [[180^\\circ-67^\\circ=113^\\circ]].",
+          "incorrectFeedback": "First equate the alternate angles. The question asks for the adjacent obtuse angle, so subtract the acute result from [[180^\\circ]]."
         },
         {
           "type": "concept",
-          "eyebrow": "SIMILARITY · 4 OF 18",
-          "title": "Length, area, and volume scale by different powers",
-          "diagram": {
-            "kind": "similarity-scale",
-            "caption": "A length scale factor of 2 produces an area factor of 4."
-          },
-          "body": "For similar figures with length scale factor k, corresponding lengths scale by k, areas by [[k^{2}]], and volumes by [[k^{3}]].<br><br>All corresponding angles are equal. Congruent figures are the special case [[k=1]].",
-          "keyPoint": "Identify whether the quantity is one-, two-, or three-dimensional before applying the scale factor.",
+          "eyebrow": "TRIANGLES AND QUADRILATERALS · 4 OF 18",
+          "title": "Definitions give properties, but properties do not always give definitions",
+          "body": "An isosceles triangle has two equal sides and therefore two equal base angles. An equilateral triangle has three equal sides and three [[60^\\circ]] angles.<br><br>A parallelogram has two pairs of parallel sides. A rectangle is a parallelogram with four right angles, a rhombus is a parallelogram with four equal sides, and a square is both a rectangle and a rhombus.<br><br>A kite has two pairs of adjacent equal sides. A trapezium has at least one pair of parallel sides.",
+          "keyPoint": "A square satisfies the definitions of a rectangle, rhombus and parallelogram. Classification questions may have more than one true description.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "QUADRILATERAL CHECK · 5 OF 18",
+          "question": "A quadrilateral has four equal sides and one interior angle of [[68^\\circ]]. Which statement must be true?",
+          "options": [
+            "Its diagonals have equal length.",
+            "Its opposite angle is [[68^\\circ]] and each adjacent angle is [[112^\\circ]].",
+            "It has four lines of reflection symmetry.",
+            "Exactly one pair of opposite sides is parallel."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The quadrilateral is a non-square rhombus. Opposite angles are equal and adjacent angles are supplementary, so the angles alternate between [[68^\\circ]] and [[112^\\circ]].",
+          "incorrectFeedback": "Four equal sides make the quadrilateral a rhombus. Use the angle properties of a parallelogram, but do not assume the extra properties of a square."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "POLYGON ANGLES · 6 OF 18",
+          "title": "Interior and exterior angles encode the number of sides",
+          "body": "For an n-sided polygon, the interior-angle sum is<br><br>[[180(n-2)^\\circ]].<br><br>The exterior angles of any polygon, one at each vertex in the same direction, total [[360^\\circ]]. Therefore a regular n-gon has exterior angle [[\\frac{360^\\circ}{n}]] and interior angle [[180^\\circ-\\frac{360^\\circ}{n}]].",
+          "keyPoint": "When solving for the number of sides, the result must be an integer with [[n\\geq3]]. Algebraic solutions that fail this condition do not describe polygons.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 5 OF 18",
-          "title": "Scale the volume of a similar solid",
-          "question": "Two similar solids have corresponding lengths in the ratio [[2:3]]. The smaller has volume 64. Find the larger volume.",
-          "diagram": {
-            "kind": "similarity-scale",
-            "caption": "The linear scale factor is one and a half, so the volume factor is its cube."
-          },
+          "eyebrow": "POLYGON INTEGER CHALLENGE · 7 OF 18",
+          "title": "Count the polygon pairs allowed by an angle relationship",
+          "question": "The interior angle of a regular n-gon is [[\\frac45]] of the interior angle of a regular m-gon. How many ordered pairs of integers [[(n,m)]] are possible?",
           "options": [
-            "[[96]]",
-            "[[144]]",
-            "[[192]]",
-            "[[216]]"
-          ],
-          "answerIndex": 3,
-          "steps": [
-            {
-              "title": "Find the length factor",
-              "body": "From smaller to larger, [[k=\\frac32]]."
-            },
-            {
-              "title": "Cube the factor",
-              "body": "The volume factor is [[\\left(\\frac32\\right)^{3}=\\frac{27}{8}]]."
-            },
-            {
-              "title": "Scale the volume",
-              "body": "[[64\\times\\frac{27}{8}=8\\times27=216]]."
-            },
-            {
-              "title": "Check the direction",
-              "body": "The larger solid must have the larger volume, so 216 is sensible."
-            }
-          ],
-          "finalAnswer": "The larger volume is 216, so the correct option is D.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "AREA-FACTOR CHECK · 6 OF 18",
-          "question": "Two similar shapes have corresponding lengths in the ratio [[1:3]]. What is the ratio of their areas?",
-          "options": [
-            "[[1:3]]",
-            "[[1:6]]",
-            "[[1:9]]",
-            "[[1:27]]"
+            "[[2]]",
+            "[[3]]",
+            "[[4]]",
+            "[[5]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. Area uses the square of the length factor, so [[1^{2}:3^{2}=1:9]].",
-          "incorrectFeedback": "Square both parts of the length ratio. Cubing would apply to volume, not area."
+          "steps": [
+            {
+              "title": "Write both interior angles",
+              "body": "[[180-\\frac{360}{n}=\\frac45\\left(180-\\frac{360}{m}\\right)]]."
+            },
+            {
+              "title": "Rearrange the equation",
+              "body": "Simplifying gives<br><br>[[1=\\frac{10}{n}-\\frac{8}{m}]],<br><br>so [[(10-n)(m+8)=80]]."
+            },
+            {
+              "title": "Use the polygon restrictions",
+              "body": "Because [[n\\geq3]] and the left interior angle is smaller, [[3\\leq n<10]]. Thus [[10-n]] is one of the positive divisors of 80 from 1 to 7."
+            },
+            {
+              "title": "List the valid pairs",
+              "body": "The valid values give<br><br>[[(n,m)=(9,72),(8,32),(6,12),(5,8)]].<br><br>There are 4 ordered pairs."
+            }
+          ],
+          "finalAnswer": "There are 4 possible ordered pairs, so the correct option is C.",
+          "buttonText": "Continue"
         },
         {
           "type": "milestone",
-          "eyebrow": "PROPORTION COMPLETE · 7 OF 18",
-          "title": "You can convert proportional relationships and scale similar figures.",
-          "body": "You have used constants of proportionality and separated length, area, and volume factors.<br><br>Next, we bring together angle facts, transformations, measurement, circles, and vectors.",
+          "eyebrow": "ANGLE STRUCTURE COMPLETE · 8 OF 18",
+          "title": "You can now combine angle facts with properties of plane figures.",
+          "body": "You have used parallel lines, triangle and quadrilateral properties, and polygon formulae.<br><br>Next, you will decide when geometric information is strong enough to force congruence.",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "ANGLE STRUCTURE · 8 OF 18",
-          "title": "Build unfamiliar geometry from standard facts",
-          "body": "Angles on a line total 180°, angles around a point total 360°, and vertically opposite angles are equal. Parallel lines create equal corresponding and alternate angles.<br><br>An n-sided polygon has interior-angle sum [[180(n-2)]] degrees and exterior-angle sum 360°. A regular polygon therefore has exterior angle [[\\frac{360}{n}]] degrees.",
-          "keyPoint": "Mark equal and supplementary angles directly on the diagram before forming equations.",
-          "buttonText": "Continue"
-        },
-        {
-          "type": "multipleChoice",
-          "eyebrow": "POLYGON CHECK · 9 OF 18",
-          "question": "A regular polygon has exterior angle 24°. How many sides does it have?",
-          "options": [
-            "[[12]]",
-            "[[15]]",
-            "[[18]]",
-            "[[24]]"
-          ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. [[n=\\frac{360}{24}=15]].",
-          "incorrectFeedback": "The exterior angles of any polygon total 360°. Divide 360 by the regular exterior angle."
-        },
-        {
-          "type": "concept",
-          "eyebrow": "CONGRUENCE AND TRANSFORMATIONS · 10 OF 18",
-          "title": "Know what each transformation preserves",
-          "body": "Triangles are congruent by SSS, SAS, ASA, or RHS. Rotation, reflection, and translation preserve lengths and angles; enlargement preserves angles but scales lengths.<br><br>A negative enlargement scale factor places the image on the opposite side of the centre. A translation is described by a two-dimensional vector.",
-          "keyPoint": "SSA is not a general congruence criterion. Two sides and a non-included angle may produce different triangles.",
+          "eyebrow": "TRIANGLE CONGRUENCE · 9 OF 18",
+          "title": "Congruent triangles match exactly in size and shape",
+          "body": "The standard congruence criteria are:<br><br>• SSS: three corresponding sides are equal.<br>• SAS: two sides and the included angle are equal.<br>• ASA: two angles and a corresponding side are equal.<br>• RHS: right angle, hypotenuse and one other side are equal.<br><br>Once congruence is established, all corresponding sides and angles are equal.",
+          "keyPoint": "SSA is not a general congruence criterion because two sides and a non-included angle can sometimes produce two different triangles.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "ENLARGEMENT CHECK · 11 OF 18",
-          "question": "An enlargement with centre the origin and scale factor -2 maps [[(3,-1)]] to which point?",
+          "eyebrow": "CONGRUENCE CHECK · 10 OF 18",
+          "question": "Which information does not, by itself, guarantee that two triangles are congruent?",
           "options": [
-            "[[(6,-2)]]",
-            "[[(-6,2)]]",
-            "[[(-1,3)]]",
-            "[[\\left(-\\frac32,\\frac12\\right)]]"
+            "All three pairs of corresponding sides are equal.",
+            "Two pairs of sides and the included angles are equal.",
+            "Two pairs of angles and one pair of corresponding sides are equal.",
+            "Two pairs of sides and a corresponding non-included angle are equal."
           ],
-          "answerIndex": 1,
-          "correctFeedback": "Correct. Multiply both coordinates by -2: [[(3,-1)\\mapsto(-6,2)]].",
-          "incorrectFeedback": "For an enlargement centred at the origin, multiply the entire position vector by the scale factor."
+          "answerIndex": 3,
+          "correctFeedback": "Correct. The final condition is SSA. Depending on the lengths and angle, it may allow two non-congruent triangles.",
+          "incorrectFeedback": "Match the first three options to SSS, SAS and ASA. The remaining information is the ambiguous SSA case."
         },
         {
           "type": "concept",
-          "eyebrow": "MEASUREMENT AND PYTHAGORAS · 12 OF 18",
-          "title": "Reduce three-dimensional problems to right triangles",
-          "body": "Use [[a^{2}+b^{2}=c^{2}]] in two or three dimensions, one right triangle at a time. A prism has volume equal to cross-sectional area times length.<br><br>Also recall [[C=2\\pi r]], [[A=\\pi r^{2}]], and, in radians, arc length [[r\\theta]] and sector area [[\\frac12r^{2}\\theta]]. Bearings are measured clockwise from north and written with three figures.",
-          "keyPoint": "Plans and elevations are two-dimensional views. Match visible lengths carefully before applying a formula.",
+          "eyebrow": "NECESSARY AND SUFFICIENT · 11 OF 18",
+          "title": "Read logical words as instructions about every possible figure",
+          "body": "A condition is sufficient if it guarantees the conclusion. A condition is necessary if the conclusion cannot hold without it.<br><br>“Necessarily true” means true for every figure satisfying the given information. To show that a statement is not necessary, one valid counterexample is enough.",
+          "keyPoint": "Geometry often tests whether information forces a conclusion, not merely whether the conclusion is possible in one convenient diagram.",
           "buttonText": "Continue"
         },
         {
           "type": "workedExample",
-          "eyebrow": "WORKED EXAMPLE · 13 OF 18",
-          "title": "Find a cuboid's space diagonal",
-          "question": "A cuboid has side lengths 3, 4, and 12. Find the distance between opposite vertices.",
+          "eyebrow": "SUFFICIENT INFORMATION · 12 OF 18",
+          "title": "Use equal area alongside extra conditions",
+          "question": "Triangles ABC and PQR have the same area. Consider these conditions independently:<br><br>I. [[AB=PQ]] and [[AC=PR]]<br>II. [[AB=PQ]] and [[\\angle BAC=\\angle QPR]]<br>III. [[\\angle A=\\angle P]] and [[\\angle B=\\angle Q]]<br><br>Which conditions are sufficient to imply that the triangles are congruent?",
           "options": [
-            "[[12]]",
-            "[[13]]",
-            "[[15]]",
-            "[[19]]"
+            "I only",
+            "II only",
+            "II and III only",
+            "I, II and III"
           ],
-          "answerIndex": 1,
+          "answerIndex": 2,
           "steps": [
             {
-              "title": "Find the base diagonal",
-              "body": "[[\\sqrt{3^{2}+4^{2}}=5]]."
+              "title": "Test condition I",
+              "body": "Equal pairs of sides and equal area give equal values of the sine of the included angle. Supplementary included angles have the same sine, so two non-congruent triangles may still be possible. I is not sufficient."
             },
             {
-              "title": "Form a second right triangle",
-              "body": "The base diagonal 5 and vertical side 12 are perpendicular."
+              "title": "Test condition II",
+              "body": "Using [[\\text{area}=\\frac12ab\\sin C]], equal area, one equal side and the equal included angle force the other side beside that angle to be equal. SAS then gives congruence."
             },
             {
-              "title": "Apply Pythagoras again",
-              "body": "[[d=\\sqrt{5^{2}+12^{2}}=\\sqrt{169}=13]]."
+              "title": "Test condition III",
+              "body": "Two equal angles make the triangles similar. Equal areas mean the square of the scale factor is 1, so the positive scale factor is 1. The triangles are congruent."
             },
             {
-              "title": "Use the compact form",
-              "body": "Equivalently, [[d=\\sqrt{3^{2}+4^{2}+12^{2}}]]."
+              "title": "Combine the results",
+              "body": "Conditions II and III are sufficient, but condition I is not."
             }
           ],
-          "finalAnswer": "The space diagonal is 13, so the correct option is B.",
+          "finalAnswer": "The correct option is C: II and III only.",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "CIRCLE THEOREMS · 14 OF 18",
-          "title": "Use radii, chords, tangents, and subtended angles",
-          "diagram": {
-            "kind": "circle-theorems",
-            "caption": "A radius is perpendicular to the tangent at the point of contact."
-          },
-          "body": "The angle at the centre is twice the angle at the circumference on the same arc. An angle in a semicircle is 90°, angles in the same segment are equal, and opposite angles in a cyclic quadrilateral sum to 180°.<br><br>The angle between a tangent and a chord equals the angle in the alternate segment.",
-          "keyPoint": "Join a tangent point to the centre: the resulting radius creates a right angle.",
+          "eyebrow": "WHY SSA CAN FAIL · 13 OF 18",
+          "title": "A circle can meet the same angle ray twice",
+          "body": "Suppose one side of a triangle and an angle at one endpoint are fixed. The third vertex must lie on a ray from that endpoint.<br><br>If a second, non-included side length is fixed, the vertex must also lie on a circle centred at the other endpoint. That circle may meet the ray twice, producing two different triangles with the same SSA information.",
+          "keyPoint": "SSA may give no triangle, one triangle or two triangles. It is therefore not a universal congruence criterion.",
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "CIRCLE-THEOREM CHECK · 15 OF 18",
-          "question": "A chord subtends an angle of 38° at the circumference. What angle does the same chord subtend at the centre?",
+          "eyebrow": "NECESSARY-TRUTH CHALLENGE · 14 OF 18",
+          "question": "The diagonals of a convex quadrilateral are perpendicular. Consider:<br><br>I. At least one diagonal is a line of symmetry.<br>II. Joining the midpoints of consecutive sides produces a rectangle.<br><br>Which statements are necessarily true?",
           "options": [
-            "[[19^{\\circ}]]",
-            "[[38^{\\circ}]]",
-            "[[76^{\\circ}]]",
-            "[[142^{\\circ}]]"
+            "Neither I nor II",
+            "I only",
+            "II only",
+            "I and II"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. The angle at the centre is twice the angle at the circumference, so [[2\\times38^{\\circ}=76^{\\circ}]].",
-          "incorrectFeedback": "For the same arc, double the angle at the circumference to obtain the angle at the centre."
+          "correctFeedback": "Correct. Perpendicular diagonals do not force a line of symmetry, so I can fail. The midpoint figure has sides parallel to the two original diagonals; because those diagonals are perpendicular, the midpoint parallelogram is a rectangle.",
+          "incorrectFeedback": "Do not assume the quadrilateral is a kite or rhombus. For statement II, use the fact that a segment joining two side midpoints in a triangle is parallel to the third side."
         },
         {
-          "type": "concept",
-          "eyebrow": "VECTORS IN GEOMETRY · 16 OF 18",
-          "title": "Express routes as vector sums",
-          "body": "If position vectors of A and B are a and b, then [[\\overrightarrow{AB}=\\mathbf{b}-\\mathbf{a}]]. The midpoint has position vector [[\\frac12(\\mathbf{a}+\\mathbf{b})]].<br><br>Parallel vectors are scalar multiples. This lets you prove collinearity, parallelism, and fixed ratios without measuring a diagram.",
-          "keyPoint": "A valid vector proof must explain both direction and scalar relationship, not merely quote matching-looking expressions.",
+          "type": "reveal",
+          "eyebrow": "CONGRUENCE IN A PROOF · 15 OF 18",
+          "title": "Prove the angle-bisector property of a kite",
+          "steps": [
+            {
+              "title": "State the information",
+              "body": "In quadrilateral ABCD, suppose [[AB=AD]] and [[CB=CD]]. Draw diagonal AC."
+            },
+            {
+              "title": "Compare the triangles",
+              "body": "Triangles ABC and ADC have [[AB=AD]], [[BC=DC]], and the common side [[AC]]."
+            },
+            {
+              "title": "Establish congruence",
+              "body": "The triangles are congruent by SSS."
+            },
+            {
+              "title": "Use corresponding angles",
+              "body": "Therefore [[\\angle BAC=\\angle CAD]] and [[\\angle BCA=\\angle ACD]]. Hence AC bisects the angles at A and C."
+            }
+          ],
           "buttonText": "Continue"
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "VECTOR CHECK · 17 OF 18",
-          "question": "Points A and B have position vectors a and b. What is the position vector of the midpoint of AB?",
+          "eyebrow": "TRIANGLE-EXISTENCE CHALLENGE · 16 OF 18",
+          "question": "Three proposed side lengths are [[p]], [[p+2q]], and [[p+5q]], where [[p>0]] and [[q>0]]. Which condition is necessary and sufficient for them to form a triangle?",
           "options": [
-            "[[\\mathbf{b}-\\mathbf{a}]]",
-            "[[\\frac12(\\mathbf{b}-\\mathbf{a})]]",
-            "[[\\frac12(\\mathbf{a}+\\mathbf{b})]]",
-            "[[2(\\mathbf{a}+\\mathbf{b})]]"
+            "[[p>q]]",
+            "[[p>2q]]",
+            "[[p>3q]]",
+            "[[p>5q]]"
           ],
           "answerIndex": 2,
-          "correctFeedback": "Correct. The midpoint averages the two position vectors: [[\\frac12(\\mathbf{a}+\\mathbf{b})]].",
-          "incorrectFeedback": "A midpoint is the coordinate-wise average of its endpoints, so average their position vectors."
+          "correctFeedback": "Correct. Only the inequality involving the two shorter sides is restrictive:<br><br>[[p+(p+2q)>p+5q]],<br><br>which simplifies to [[p>3q]]. The other triangle inequalities then hold automatically.",
+          "incorrectFeedback": "For positive side lengths, check whether the sum of the two shorter sides is greater than the longest side."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FINAL DEDUCTION · 17 OF 18",
+          "question": "The diagonals AC and BD of quadrilateral ABCD meet at O. It is known that<br><br>[[AO=OC]], [[BO=OD]], and [[AC\\perp BD]].<br><br>Which classification is necessarily true?",
+          "options": [
+            "ABCD is a rectangle but need not be a square.",
+            "ABCD is a rhombus but need not be a square.",
+            "ABCD is a kite but need not be a parallelogram.",
+            "ABCD must be a square."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Since the diagonals bisect each other, ABCD is a parallelogram. A parallelogram with perpendicular diagonals is a rhombus. Equal diagonal lengths were not given, so it need not be a square.",
+          "incorrectFeedback": "First use the fact that diagonals bisecting each other is sufficient for a parallelogram. Then apply the extra perpendicular-diagonal property."
         },
         {
           "type": "lessonSummary",
           "eyebrow": "LESSON SUMMARY · 18 OF 18",
-          "title": "Geometry and Proportion: key points",
+          "title": "Angles, Polygons and Congruence: key points",
           "keyPoints": [
-            "Translate direct and inverse proportion into equations containing a constant k.",
-            "A length factor k produces area factor [[k^{2}]] and volume factor [[k^{3}]].",
-            "Combine angle, congruence, similarity, and transformation facts systematically.",
-            "Use Pythagoras in stages for three-dimensional distances.",
-            "Circle theorems and vector relationships turn diagrams into exact equations."
+            "Build deductions from angle facts at points, on lines, across parallel lines, and inside polygons.",
+            "Use definitions carefully: special quadrilaterals inherit the properties of the wider families they belong to.",
+            "A regular n-gon has exterior angle [[\\frac{360^\\circ}{n}]] and interior angle [[180^\\circ-\\frac{360^\\circ}{n}]].",
+            "The standard triangle congruence criteria are SSS, SAS, ASA and RHS; SSA is not generally sufficient.",
+            "A necessary claim must hold in every valid case, while a sufficient condition must force the conclusion."
           ],
           "reviewItems": [
-            "Decide whether a proportional model uses x, [[x^{2}]], or a reciprocal power.",
-            "Separate length, area, and volume scale factors.",
-            "Do not use SSA as a general congruence test.",
-            "Add helpful radii and chords to circle diagrams.",
-            "Return to Learn to choose the next topic."
+            "Do not trust the apparent scale or symmetry of a diagram.",
+            "Check that a calculated number of polygon sides is an integer of at least 3.",
+            "After proving triangles congruent, explicitly identify the corresponding sides or angles you need.",
+            "Use counterexamples to reject claims that are not necessarily true.",
+            "Next lesson: Transformations, Similarity and Scale."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
+    },
+    {
+      "id": "transformations-similarity-scale",
+      "topicId": "topic-8",
+      "title": "Transformations, Similarity and Scale",
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "GEOMETRIC TRANSFORMATIONS · 1 OF 18",
+          "title": "A transformation changes position while preserving specific features",
+          "body": "Translations, rotations and reflections preserve lengths, angles and area, so the image is congruent to the original shape.<br><br>An enlargement preserves angles and shape but changes lengths by a scale factor. A negative scale factor also places the image on the opposite side of the centre of enlargement.",
+          "keyPoint": "Always state a transformation completely: include the vector, mirror line, centre and angle, or centre and scale factor as appropriate.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "COORDINATE RULES · 2 OF 18",
+          "title": "Track points accurately on coordinate axes",
+          "steps": [
+            {
+              "title": "Translate by a vector",
+              "body": "A translation by [[\\begin{pmatrix}a\\\\b\\end{pmatrix}]] maps<br><br>[[(x,y)\\mapsto(x+a,y+b)]]."
+            },
+            {
+              "title": "Reflect in a coordinate axis",
+              "body": "Reflection in the x-axis maps [[(x,y)\\mapsto(x,-y)]], while reflection in the y-axis maps [[(x,y)\\mapsto(-x,y)]]."
+            },
+            {
+              "title": "Reflect in a diagonal line",
+              "body": "Reflection in [[y=x]] swaps the coordinates:<br><br>[[(x,y)\\mapsto(y,x)]]."
+            },
+            {
+              "title": "Rotate about the origin",
+              "body": "A [[90^\\circ]] anticlockwise rotation maps [[(x,y)\\mapsto(-y,x)]]. A [[90^\\circ]] clockwise rotation maps [[(x,y)\\mapsto(y,-x)]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COMBINED-TRANSFORMATION CHECK · 3 OF 18",
+          "question": "The point [[A=(-1,5)]] is translated by [[\\begin{pmatrix}4\\\\-3\\end{pmatrix}]] and then reflected in the line [[y=x]]. What are the coordinates of its final image?",
+          "options": [
+            "[[(2,3)]]",
+            "[[(3,2)]]",
+            "[[(-2,3)]]",
+            "[[(2,-3)]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The translation maps [[(-1,5)]] to [[(3,2)]]. Reflection in [[y=x]] then swaps the coordinates, giving [[(2,3)]].",
+          "incorrectFeedback": "Apply the transformations in the stated order. Translate first, then swap the two coordinates for reflection in [[y=x]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ENLARGEMENTS · 4 OF 18",
+          "title": "Measure every enlargement from its centre",
+          "body": "For an enlargement with centre C and scale factor k, the vector from C to each point is multiplied by k.<br><br>If [[0<k<1]], the image is smaller and lies between the centre and the original point. If [[k<0]], the image lies on the opposite side of the centre.",
+          "keyPoint": "Using position vectors, the image P′ satisfies [[\\overrightarrow{CP'}=k\\overrightarrow{CP}]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "NEGATIVE ENLARGEMENT · 5 OF 18",
+          "title": "Use vectors from the centre, not from the origin",
+          "question": "The point [[P=(6,3)]] is enlarged about [[C=(2,-1)]] with scale factor [[-\\frac32]]. Where is its image P′?",
+          "options": [
+            "[[(-4,-7)]]",
+            "[[(-6,-6)]]",
+            "[[(8,5)]]",
+            "[[(-2,-5)]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Find the vector from the centre",
+              "body": "[[\\overrightarrow{CP}=(6-2,3-(-1))=(4,4)]]."
+            },
+            {
+              "title": "Apply the scale factor",
+              "body": "[[\\overrightarrow{CP'}=-\\frac32(4,4)=(-6,-6)]]."
+            },
+            {
+              "title": "Return to position coordinates",
+              "body": "[[P'=C+\\overrightarrow{CP'}=(2,-1)+(-6,-6)]]."
+            },
+            {
+              "title": "State the image",
+              "body": "Therefore [[P'=(-4,-7)]]."
+            }
+          ],
+          "finalAnswer": "The image is [[(-4,-7)]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMPOSITIONS · 6 OF 18",
+          "title": "The order of transformations can change the result",
+          "body": "A composition applies one transformation after another. In general, reflecting and then translating is not the same as translating and then reflecting.<br><br>Any combination of translations and rotations preserves orientation, while a composition containing an odd number of reflections reverses orientation. All translations, rotations and reflections preserve distance and area.",
+          "keyPoint": "When working on coordinates, complete one transformation fully before beginning the next.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "ROTATION ABOUT A POINT · 7 OF 18",
+          "title": "Rotate a whole line using one point and its direction",
+          "question": "The line [[y=2x+1]] is rotated [[90^\\circ]] clockwise about [[P=(1,2)]]. What is the equation of its image?",
+          "options": [
+            "[[y=-\\frac12x+3]]",
+            "[[y=\\frac12x+3]]",
+            "[[y=-2x+3]]",
+            "[[y=-\\frac12x+1]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Rotate the direction",
+              "body": "A line of gradient 2 becomes perpendicular to itself after a [[90^\\circ]] rotation, so the image gradient is [[-\\frac12]]."
+            },
+            {
+              "title": "Choose a point on the original line",
+              "body": "The point [[A=(0,1)]] lies on [[y=2x+1]]. Relative to P, [[\\overrightarrow{PA}=(-1,-1)]]."
+            },
+            {
+              "title": "Rotate the point",
+              "body": "A clockwise quarter-turn maps [[(u,v)\\mapsto(v,-u)]], so [[(-1,-1)\\mapsto(-1,1)]]. Adding P gives [[A'=(0,3)]]."
+            },
+            {
+              "title": "Form the image line",
+              "body": "The line with gradient [[-\\frac12]] through [[(0,3)]] is [[y=-\\frac12x+3]]."
+            }
+          ],
+          "finalAnswer": "The image is [[y=-\\frac12x+3]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "TRANSFORMATIONS COMPLETE · 8 OF 18",
+          "title": "You can now describe and combine geometric transformations.",
+          "body": "You have used vectors, coordinate rules, arbitrary centres of rotation, and positive, fractional and negative enlargement factors.<br><br>Next, parallel lines will reveal similar figures and scale relationships.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SIMILAR FIGURES · 9 OF 18",
+          "title": "Similar shapes have equal angles and proportional lengths",
+          "diagram": {
+            "kind": "similarity-scale",
+            "caption": "Corresponding lengths share one scale factor, while areas use the square of that factor."
+          },
+          "body": "Two figures are similar when corresponding angles are equal and corresponding sides are in a constant ratio.<br><br>Parallel lines often create similar triangles through equal corresponding or alternate angles. Match corresponding vertices carefully before writing any ratios.",
+          "keyPoint": "A ratio is valid only when the lengths occupy corresponding positions in the two similar figures.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "TRAPEZIUM SIMILARITY · 10 OF 18",
+          "title": "Use the diagonal intersection to locate a parallel cross-section",
+          "question": "In trapezium PQRS, [[PQ\\parallel SR]], [[PQ=15]], and [[SR=5]]. The diagonals meet at X. A line through X parallel to the bases meets PS and QR at U and T. Find UT.",
+          "options": [
+            "[[6]]",
+            "[[7.5]]",
+            "[[8]]",
+            "[[10]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Use the diagonal ratio",
+              "body": "The parallel bases make the triangles around X similar, so X divides each diagonal in the ratio<br><br>[[PQ:SR=15:5=3:1]]."
+            },
+            {
+              "title": "Locate X vertically",
+              "body": "Moving from the lower base to the upper base, X is [[\\frac34]] of the way up the trapezium."
+            },
+            {
+              "title": "Interpolate the parallel width",
+              "body": "Parallel cross-sections change linearly from width 15 to width 5. At fraction [[\\frac34]], the width is<br><br>[[15+\\frac34(5-15)]]."
+            },
+            {
+              "title": "Calculate",
+              "body": "[[15-\\frac{30}{4}=15-7.5=7.5]]."
+            }
+          ],
+          "finalAnswer": "The length of UT is [[7.5]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "HIDDEN-SIMILARITY CHECK · 11 OF 18",
+          "question": "In triangle ABC, D lies on AB and E lies on AC, with [[DE\\parallel BC]]. It is given that [[AD:DB=3:2]] and the area of triangle ADE is 27. What is the area of quadrilateral DBCE?",
+          "options": [
+            "[[36]]",
+            "[[45]]",
+            "[[48]]",
+            "[[75]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. [[AD:AB=3:5]], so the area ratio [[\\triangle ADE:\\triangle ABC]] is [[9:25]]. Hence the whole triangle has area [[27\\times\\frac{25}{9}=75]], leaving [[75-27=48]].",
+          "incorrectFeedback": "The linear scale factor is [[\\frac35]], so the area scale factor is [[\\frac9{25}]]. Find the whole triangle before subtracting 27."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "LENGTH, AREA AND VOLUME · 12 OF 18",
+          "title": "Dimensions determine the power of the scale factor",
+          "body": "For similar figures with length scale factor k:<br><br>• corresponding lengths scale by k;<br>• areas scale by [[k^{2}]];<br>• volumes scale by [[k^{3}]].<br><br>To work backwards from an area ratio, take a square root. To work backwards from a volume ratio, take a cube root.",
+          "keyPoint": "Do not apply an area or volume ratio directly to a length.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "AREA TO VOLUME · 13 OF 18",
+          "title": "Recover the linear factor before scaling volume",
+          "question": "Two similar solids have corresponding surface areas in the ratio [[16:49]]. The smaller solid has volume 128. What is the volume of the larger solid?",
+          "options": [
+            "[[392]]",
+            "[[448]]",
+            "[[686]]",
+            "[[896]]"
+          ],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Find the length ratio",
+              "body": "Taking square roots of [[16:49]] gives the length ratio [[4:7]]."
+            },
+            {
+              "title": "Find the volume ratio",
+              "body": "Cube the length ratio:<br><br>[[4^{3}:7^{3}=64:343]]."
+            },
+            {
+              "title": "Scale the volume",
+              "body": "The larger volume is<br><br>[[128\\times\\frac{343}{64}]]."
+            },
+            {
+              "title": "Calculate",
+              "body": "[[128\\div64=2]], so the volume is [[2\\times343=686]]."
+            }
+          ],
+          "finalAnswer": "The larger volume is 686, so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "MAPS AND SCALE DRAWINGS · 14 OF 18",
+          "title": "A map is a scale drawing of a real region",
+          "body": "A scale such as [[1:25\\,000]] means 1 unit on the drawing represents [[25\\,000]] of the same units in reality.<br><br>Convert the real length into a convenient unit after applying the scale. For areas, either convert both real lengths first or square the length scale factor.",
+          "keyPoint": "A map is simply a plan view drawn to a fixed scale; it does not mean an online navigation map specifically.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "SCALE-DRAWING CHECK · 15 OF 18",
+          "question": "On a map with scale [[1:25\\,000]], a rectangular nature reserve measures [[6.4\\text{ cm}]] by [[3.5\\text{ cm}]]. What is its actual area?",
+          "options": [
+            "[[0.14\\text{ km}^{2}]]",
+            "[[1.4\\text{ km}^{2}]]",
+            "[[14\\text{ km}^{2}]]",
+            "[[140\\text{ km}^{2}]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. One centimetre represents 250 m. The actual dimensions are [[1600\\text{ m}]] and [[875\\text{ m}]], so the area is [[1\\,400\\,000\\text{ m}^{2}=1.4\\text{ km}^{2}]].",
+          "incorrectFeedback": "Convert each map length using 1 cm = 250 m, multiply the resulting real lengths, then convert square metres to square kilometres."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "IDENTIFY THE ENLARGEMENT · 16 OF 18",
+          "question": "A transformation maps every point [[(x,y)]] to<br><br>[[(-2x+6,-2y-4)]].<br><br>Which single transformation has the same effect?",
+          "options": [
+            "An enlargement with scale factor 2 and centre [[(3,-2)]].",
+            "An enlargement with scale factor -2 and centre [[(2,-\\frac43)]].",
+            "A rotation of [[180^\\circ]] about [[(3,-2)]].",
+            "An enlargement with scale factor [[-\\frac12]] and centre [[(2,-\\frac43)]]."
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The multiplier of both coordinates is -2, so the scale factor is -2. The centre is the fixed point: solving [[x=-2x+6]] and [[y=-2y-4]] gives [[(2,-\\frac43)]].",
+          "incorrectFeedback": "The common coordinate multiplier gives the scale factor. Find the centre by solving for the point that remains unchanged."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FINAL SCALE CHALLENGE · 17 OF 18",
+          "question": "Two similar polygons have perimeters in the ratio [[3:5]]. Their areas differ by 96 square units. What is the area of the smaller polygon?",
+          "options": [
+            "[[36]]",
+            "[[54]]",
+            "[[60]]",
+            "[[90]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The length ratio is [[3:5]], so the area ratio is [[9:25]]. The difference of 16 ratio-parts equals 96, so one part is 6. The smaller area is [[9\\times6=54]].",
+          "incorrectFeedback": "Square the perimeter ratio to obtain the area ratio. Use the difference between the two area-ratio parts to match the given difference of 96."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 18 OF 18",
+          "title": "Transformations, Similarity and Scale: key points",
+          "keyPoints": [
+            "Translations, rotations and reflections preserve lengths, angles and area.",
+            "Describe transformations fully using vectors, mirror lines, centres, angles and scale factors.",
+            "For an enlargement, multiply vectors from the centre by the scale factor; a negative factor places the image on the opposite side.",
+            "Similar figures have one length scale factor, with area factor [[k^{2}]] and volume factor [[k^{3}]].",
+            "Maps and scale drawings use a fixed length ratio between the drawing and reality."
+          ],
+          "reviewItems": [
+            "Apply combined transformations in the stated order.",
+            "Match corresponding sides before writing similarity ratios.",
+            "Use square roots and cube roots when recovering a length factor.",
+            "Keep units consistent when using a map scale.",
+            "Next lesson: Circle Geometry and Theorems."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
+    },
+    {
+      "id": "circle-geometry-theorems",
+      "topicId": "topic-8",
+      "title": "Circle Geometry and Theorems",
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "CIRCLE LANGUAGE · 1 OF 18",
+          "title": "Name the parts of a circle before choosing a theorem",
+          "diagram": {
+            "kind": "circle-theorems",
+            "caption": "Radii, chords, tangents and subtended angles create the standard circle-theorem configurations."
+          },
+          "body": "A chord joins two points on a circle. A diameter is a chord through the centre. A tangent meets the circle at exactly one point.<br><br>An arc is part of the circumference. A sector is bounded by two radii and an arc, while a segment is bounded by a chord and an arc. Minor parts are the smaller ones; major parts are the larger ones.",
+          "keyPoint": "An angle subtended by chord AB is an angle whose two arms pass through A and B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CENTRE AND CIRCUMFERENCE · 2 OF 18",
+          "title": "The angle at the centre is twice the angle at the circumference",
+          "diagram": {
+            "kind": "circle-theorems",
+            "caption": "Angles standing on the same arc are linked by a factor of 2."
+          },
+          "body": "If O is the centre and A, B and C lie on the circle, then angles subtended by the same arc AB satisfy<br><br>[[\\angle AOB=2\\angle ACB]].<br><br>You must identify which arc the circumference angle intercepts. A point on the minor arc sees the major arc, and a point on the major arc sees the minor arc.",
+          "keyPoint": "Do not automatically halve the smaller central angle. First decide whether the circumference angle subtends the minor or major arc.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "MAJOR-ARC CHECK · 3 OF 18",
+          "question": "O is the centre of a circle and [[\\angle AOC=136^\\circ]]. Point B lies on the minor arc AC. What is [[\\angle ABC]]?",
+          "options": [
+            "[[68^\\circ]]",
+            "[[112^\\circ]]",
+            "[[136^\\circ]]",
+            "[[224^\\circ]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Because B lies on the minor arc AC, [[\\angle ABC]] subtends the major arc AC. Its angle at the centre is [[360^\\circ-136^\\circ=224^\\circ]], so [[\\angle ABC=112^\\circ]].",
+          "incorrectFeedback": "The point B lies on the minor arc, so the angle at B intercepts the major arc. Subtract the given central angle from [[360^\\circ]] before halving."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SEMICIRCLES AND SEGMENTS · 4 OF 18",
+          "title": "A diameter creates a right angle, and one chord creates equal angles",
+          "body": "An angle subtended by a diameter at the circumference is [[90^\\circ]]. This is the angle-in-a-semicircle theorem.<br><br>Angles subtended by the same chord in the same segment are equal. The vertices of those angles must lie on the same side of the chord.",
+          "keyPoint": "When using the same-segment theorem, name the common chord. Matching the wrong pair of endpoints is a common error.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "ARC DEDUCTION · 5 OF 18",
+          "title": "Combine a diameter with two circumference angles",
+          "question": "AB is a diameter. Points C and D lie on the same semicircle in the order A, C, D, B. It is given that [[\\angle BAC=27^\\circ]] and [[\\angle CBD=18^\\circ]]. Find [[\\angle AOC]].",
+          "options": [
+            "[[90^\\circ]]",
+            "[[108^\\circ]]",
+            "[[126^\\circ]]",
+            "[[144^\\circ]]"
+          ],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Find the arc from B to C",
+              "body": "[[\\angle BAC=27^\\circ]] subtends arc BC, so that arc has central angle [[54^\\circ]]."
+            },
+            {
+              "title": "Find the arc from C to D",
+              "body": "[[\\angle CBD=18^\\circ]] subtends arc CD, so [[\\angle COD=36^\\circ]]."
+            },
+            {
+              "title": "Separate the two smaller arcs",
+              "body": "Arc BC consists of arcs BD and DC. Therefore arc BD has central angle [[54^\\circ-36^\\circ=18^\\circ]]."
+            },
+            {
+              "title": "Use the semicircle",
+              "body": "The arc from A to B through C and D totals [[180^\\circ]]. Hence [[\\angle AOC=180^\\circ-36^\\circ-18^\\circ=126^\\circ]]."
+            }
+          ],
+          "finalAnswer": "The angle is [[126^\\circ]], so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CYCLIC QUADRILATERALS · 6 OF 18",
+          "title": "Opposite angles in a cyclic quadrilateral are supplementary",
+          "body": "If all four vertices of a quadrilateral lie on one circle, the quadrilateral is cyclic. Its opposite angles total [[180^\\circ]].<br><br>An exterior angle of a cyclic quadrilateral equals the interior angle at the opposite vertex.",
+          "keyPoint": "The converse is also useful: if a pair of opposite angles total [[180^\\circ]], the four vertices lie on a common circle.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "CYCLIC-ANGLE CHECK · 7 OF 18",
+          "question": "ABCD is cyclic. The exterior angle at A is [[(5x-7)^\\circ]], the interior angle at C is [[(3x+21)^\\circ]], and [[\\angle ABC=(2x+37)^\\circ]]. Find [[\\angle ADC]].",
+          "options": [
+            "[[63^\\circ]]",
+            "[[65^\\circ]]",
+            "[[115^\\circ]]",
+            "[[117^\\circ]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The exterior angle at A equals the opposite interior angle at C, so [[5x-7=3x+21]], giving [[x=14]]. Then [[\\angle ABC=65^\\circ]]. Opposite angles in a cyclic quadrilateral total [[180^\\circ]], so [[\\angle ADC=115^\\circ]].",
+          "incorrectFeedback": "First equate the exterior angle at A with the opposite interior angle at C. Then use the supplementary opposite angles B and D."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "CHORD ANGLES COMPLETE · 8 OF 18",
+          "title": "You can now relate arcs, centre angles and cyclic angles.",
+          "body": "You have used major and minor arcs, diameters, same-segment angles and cyclic quadrilaterals.<br><br>Next, tangents and radii will create right angles and new equal-angle relationships.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "RADII AND TANGENTS · 9 OF 18",
+          "title": "A radius is perpendicular to the tangent at the point of contact",
+          "diagram": {
+            "kind": "circle-theorems",
+            "caption": "Joining the centre to a tangent point creates a right angle."
+          },
+          "body": "If a tangent touches a circle at A and O is the centre, then [[OA\\perp]] the tangent.<br><br>If PA and PB are tangents from the same external point P, then [[PA=PB]]. The quadrilateral OAPB contains two right angles, so<br><br>[[\\angle AOB+\\angle APB=180^\\circ]].",
+          "keyPoint": "Whenever you see a tangent, consider joining the point of contact to the centre.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "TWO-TANGENT CHALLENGE · 10 OF 18",
+          "title": "Move from an external angle to an angle at the circumference",
+          "question": "PA and PB are tangents to a circle with centre O. It is given that [[\\angle APB=52^\\circ]]. Point C lies on the major arc AB. Find [[\\angle ACB]].",
+          "options": [
+            "[[52^\\circ]]",
+            "[[64^\\circ]]",
+            "[[76^\\circ]]",
+            "[[128^\\circ]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Add the radii",
+              "body": "The radii OA and OB are perpendicular to the tangents, so quadrilateral OAPB has two right angles."
+            },
+            {
+              "title": "Find the central angle",
+              "body": "[[\\angle AOB=180^\\circ-52^\\circ=128^\\circ]]."
+            },
+            {
+              "title": "Identify the intercepted arc",
+              "body": "C lies on the major arc AB, so [[\\angle ACB]] subtends the minor arc AB represented by [[\\angle AOB]]."
+            },
+            {
+              "title": "Apply the factor-of-2 theorem",
+              "body": "[[\\angle ACB=\\frac12(128^\\circ)=64^\\circ]]."
+            }
+          ],
+          "finalAnswer": "The angle is [[64^\\circ]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "ALTERNATE SEGMENT THEOREM · 11 OF 18",
+          "title": "A tangent–chord angle equals the angle in the opposite segment",
+          "diagram": {
+            "kind": "mixed-circle-theorem",
+            "caption": "The angle between a tangent and a chord equals the circumference angle standing on that chord."
+          },
+          "body": "The angle between a tangent at A and chord AB equals the angle subtended by chord AB at any point on the opposite arc.<br><br>This theorem often links a tangent angle to an angle inside a triangle or cyclic quadrilateral.",
+          "keyPoint": "The chord used in the tangent angle must be the same chord subtending the circumference angle.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "MIXED-ANGLE CHALLENGE · 12 OF 18",
+          "question": "A, B, C and D lie on a circle in that order. The tangent at A makes an angle of [[42^\\circ]] with chord AB. Also [[\\angle ABC=67^\\circ]] and [[\\angle CBD=31^\\circ]]. Find [[\\angle BAD]].",
+          "options": [
+            "[[71^\\circ]]",
+            "[[91^\\circ]]",
+            "[[102^\\circ]]",
+            "[[109^\\circ]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. By the alternate segment theorem, [[\\angle ACB=42^\\circ]]. Hence [[\\angle BAC=180^\\circ-67^\\circ-42^\\circ=71^\\circ]]. Angles [[\\angle CAD]] and [[\\angle CBD]] stand on chord CD, so [[\\angle CAD=31^\\circ]]. Therefore [[\\angle BAD=71^\\circ+31^\\circ=102^\\circ]].",
+          "incorrectFeedback": "Use the tangent–chord angle to find [[\\angle ACB]], complete triangle ABC, then use the same-segment theorem on chord CD."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "CENTRES AND CHORDS · 13 OF 18",
+          "title": "A perpendicular from the centre bisects a chord",
+          "body": "If OM is perpendicular to chord AB, then M is the midpoint of AB. Conversely, the line from the centre to the midpoint of a chord is perpendicular to that chord.<br><br>Equal chords are the same distance from the centre and subtend equal angles at the centre.",
+          "keyPoint": "A radius to the midpoint of a chord creates two congruent right-angled triangles.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "CHORD-LENGTH CHALLENGE · 14 OF 18",
+          "title": "Convert a chord problem into a right triangle",
+          "question": "A circle has radius 17. A chord CD is 8 units from the centre. What is the length of CD?",
+          "options": [
+            "[[15]]",
+            "[[24]]",
+            "[[30]]",
+            "[[34]]"
+          ],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Bisect the chord",
+              "body": "Let M be the foot of the perpendicular from the centre O to CD. Then M is the midpoint of CD."
+            },
+            {
+              "title": "Form a right triangle",
+              "body": "In right triangle OMC, [[OC=17]] and [[OM=8]]."
+            },
+            {
+              "title": "Find half the chord",
+              "body": "[[MC=\\sqrt{17^{2}-8^{2}}=\\sqrt{289-64}=15]]."
+            },
+            {
+              "title": "Double the result",
+              "body": "Since M is the midpoint, [[CD=2(15)=30]]."
+            }
+          ],
+          "finalAnswer": "The chord length is 30, so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "TANGENT-LENGTH PROOF · 15 OF 18",
+          "title": "Prove that tangents from one external point are equal",
+          "steps": [
+            {
+              "title": "Add the radii",
+              "body": "Let PA and PB be tangents from P to a circle with centre O. Join OA, OB and OP."
+            },
+            {
+              "title": "Identify right angles",
+              "body": "Because radii are perpendicular to tangents, [[\\angle OAP=\\angle OBP=90^\\circ]]."
+            },
+            {
+              "title": "Compare the triangles",
+              "body": "Triangles OAP and OBP have equal hypotenuse OP and equal radii [[OA=OB]]. They are congruent by RHS."
+            },
+            {
+              "title": "Use corresponding sides",
+              "body": "Therefore the corresponding tangent lengths are equal: [[PA=PB]]. The same congruence also shows that OP bisects [[\\angle APB]] and [[\\angle AOB]]."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "NECESSARY-TRUTH CHECK · 16 OF 18",
+          "question": "PA and PB are tangents from P to a circle with centre O. Consider:<br><br>I. [[PA=PB]]<br>II. OP is the perpendicular bisector of AB<br>III. [[\\angle AOB=\\angle APB]]<br><br>Which statements are necessarily true?",
+          "options": [
+            "I only",
+            "I and II only",
+            "II and III only",
+            "I, II and III"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Tangents from P have equal length, and congruent triangles OAP and OBP show that OP bisects AB at right angles. However, [[\\angle AOB]] and [[\\angle APB]] are supplementary, not generally equal.",
+          "incorrectFeedback": "Use the RHS congruence of triangles OAP and OBP. Then remember that quadrilateral OAPB contains two right angles."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "FINAL MIXED CHALLENGE · 17 OF 18",
+          "question": "PA and PB are tangents to a circle at A and B, and [[\\angle APB=48^\\circ]]. Point C lies on the major arc AB. The tangent at A makes an acute angle of [[39^\\circ]] with chord AC. Find [[\\angle BAC]].",
+          "options": [
+            "[[66^\\circ]]",
+            "[[75^\\circ]]",
+            "[[87^\\circ]]",
+            "[[93^\\circ]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. The tangent angle gives [[\\angle ABC=39^\\circ]] by the alternate segment theorem. Also [[\\angle AOB=180^\\circ-48^\\circ=132^\\circ]], so [[\\angle ACB=66^\\circ]]. Therefore [[\\angle BAC=180^\\circ-39^\\circ-66^\\circ=75^\\circ]].",
+          "incorrectFeedback": "Use the alternate segment theorem for [[\\angle ABC]]. Then use the two tangents to find the central angle AOB and hence the circumference angle ACB."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 18 OF 18",
+          "title": "Circle Geometry and Theorems: key points",
+          "keyPoints": [
+            "The angle at the centre is twice the angle at the circumference standing on the same arc.",
+            "An angle in a semicircle is [[90^\\circ]], and angles in the same segment are equal.",
+            "Opposite angles in a cyclic quadrilateral total [[180^\\circ]].",
+            "A radius is perpendicular to a tangent, and tangents from the same external point are equal.",
+            "The alternate segment theorem links a tangent–chord angle to an angle at the circumference.",
+            "A perpendicular from the centre bisects a chord."
+          ],
+          "reviewItems": [
+            "Identify the exact chord or arc before applying a theorem.",
+            "Check whether a circumference point lies on the minor or major arc.",
+            "Add radii to tangent points and chord midpoints when helpful.",
+            "Use several theorems in sequence rather than expecting one theorem to finish a hard problem.",
+            "Next lesson: Measures, Pythagoras and 3D Geometry."
           ],
           "buttonText": "Finish lesson"
         }
