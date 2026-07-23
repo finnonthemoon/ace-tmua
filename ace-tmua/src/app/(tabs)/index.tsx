@@ -32,6 +32,13 @@ function getInitials(name: string) {
     .slice(0, 2)
     .toUpperCase();
 }
+function getFirstName(name: string) {
+  const firstName = name.trim().split(/\s+/)[0];
+
+  if (!firstName) return "Student";
+
+  return firstName.charAt(0).toUpperCase() + firstName.slice(1);
+}
 
 function getGreeting() {
   const hour = new Date().getHours();
@@ -156,7 +163,7 @@ export default function HomeScreen() {
           <View style={styles.headerText}>
             <Text style={styles.eyebrow}>ACE TMUA</Text>
             <Text style={styles.greeting}>
-              {getGreeting()}, {profile.name.split(" ")[0] || "Student"}
+              {getGreeting()}, {getFirstName(profile.name)}
             </Text>
             <Text style={styles.headerSubtext}>
               {dashboard.primarySession
@@ -370,17 +377,17 @@ function PrimaryActionCard({
     ? Math.min(100, Math.round((answered / Math.max(1, totalQuestions)) * 100))
     : dashboard.nextLessonTopic
       ? Math.round(
-          ((dashboard.topicProgress.find(
-            (topic) => topic.id === dashboard.nextLessonTopic?.id,
-          )?.completed ?? 0) /
-            Math.max(
-              1,
-              dashboard.topicProgress.find(
-                (topic) => topic.id === dashboard.nextLessonTopic?.id,
-              )?.total ?? 1,
-            )) *
-            100,
-        )
+        ((dashboard.topicProgress.find(
+          (topic) => topic.id === dashboard.nextLessonTopic?.id,
+        )?.completed ?? 0) /
+          Math.max(
+            1,
+            dashboard.topicProgress.find(
+              (topic) => topic.id === dashboard.nextLessonTopic?.id,
+            )?.total ?? 1,
+          )) *
+        100,
+      )
       : 0;
 
   return (
@@ -428,7 +435,7 @@ function PrimaryActionCard({
         {session
           ? `Question ${session.currentIndex + 1} · Your answers are saved`
           : dashboard.nextLessonTopic?.title ??
-            "Use a timed or untimed set to keep improving"}
+          "Use a timed or untimed set to keep improving"}
       </Text>
 
       <View style={styles.primaryProgressTrack}>

@@ -13,6 +13,7 @@ export type LessonDiagramKind =
   | "signed-area"
   | "trapezium-rule"
   | "common-polynomial-graphs"
+  | "parent-cubic-graph"
   | "root-modulus-graphs"
   | "reciprocal-graph"
   | "exponential-log-graphs"

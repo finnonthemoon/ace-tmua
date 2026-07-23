@@ -695,6 +695,135 @@ function CommonPolynomialGraphsDiagram() {
     </>
   );
 }
+function ParentCubicGraphDiagram() {
+  const left = 34;
+  const top = 15;
+  const width = 252;
+  const height = 145;
+
+  const xMin = -2.2;
+  const xMax = 2.2;
+  const yMin = -8;
+  const yMax = 8;
+
+  const cubicPath = buildGraphPath({
+    fn: (x) => x ** 3,
+    xMin,
+    xMax,
+    yMin,
+    yMax,
+    left,
+    top,
+    width,
+    height,
+    samples: 180,
+  });
+
+  const xToSvg = (x: number) =>
+    left + ((x - xMin) / (xMax - xMin)) * width;
+
+  const yToSvg = (y: number) =>
+    top + ((yMax - y) / (yMax - yMin)) * height;
+
+  const xAxisY = yToSvg(0);
+  const yAxisX = xToSvg(0);
+
+  return (
+    <>
+      {/* Coordinate axes */}
+      <Line
+        x1={left}
+        y1={xAxisY}
+        x2={left + width}
+        y2={xAxisY}
+        stroke="#B4A79D"
+        strokeWidth={1.4}
+      />
+
+      <Line
+        x1={yAxisX}
+        y1={top}
+        x2={yAxisX}
+        y2={top + height}
+        stroke="#B4A79D"
+        strokeWidth={1.4}
+      />
+
+      {/* Axis labels */}
+      <SvgText
+        x={left + width - 2}
+        y={xAxisY - 8}
+        textAnchor="end"
+        fontSize={11}
+        fontWeight="800"
+        fill={C.muted}
+      >
+        x
+      </SvgText>
+
+      <SvgText
+        x={yAxisX + 8}
+        y={top + 11}
+        fontSize={11}
+        fontWeight="800"
+        fill={C.muted}
+      >
+        y
+      </SvgText>
+
+      {/* Parent cubic y = x³ */}
+      <Path
+        d={cubicPath}
+        fill="none"
+        stroke={C.primary}
+        strokeWidth={4.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* The cubic passes through the origin */}
+      <Circle
+        cx={yAxisX}
+        cy={xAxisY}
+        r={5}
+        fill={C.primary}
+        stroke="#FFFFFF"
+        strokeWidth={2}
+      />
+
+      <SvgText
+        x={yAxisX + 10}
+        y={xAxisY + 18}
+        fontSize={10}
+        fontWeight="800"
+        fill={C.ink}
+      >
+        (0, 0)
+      </SvgText>
+
+      <SvgText
+        x={58}
+        y={34}
+        fontSize={13}
+        fontWeight="900"
+        fill={C.primary}
+      >
+        y = x³
+      </SvgText>
+
+      <SvgText
+        x={160}
+        y={181}
+        textAnchor="middle"
+        fontSize={10}
+        fontWeight="800"
+        fill={C.muted}
+      >
+        increasing for every real value of x
+      </SvgText>
+    </>
+  );
+}
 
 function RootModulusGraphsDiagram() {
   const squareRootPath = buildGraphPath({
@@ -1022,16 +1151,36 @@ function GraphHorizontalTransformationsDiagram() {
       />
       <Polygon points="126,116 137,110 137,122" fill={C.ink} />
 
-      <SvgText x={55} y={58} fontSize={10.5} fontWeight="900" fill={C.primary}>
+      <SvgText
+        x={110}
+        y={90}
+        fontSize={11}
+        fontWeight="800"
+        fill={C.primary}
+      >
         f(x + a)
       </SvgText>
-      <SvgText x={221} y={75} fontSize={10.5} fontWeight="800" fill="#8E8178">
-        f(x)
-      </SvgText>
-      <SvgText x={204} y={33} fontSize={10.5} fontWeight="900" fill="#54749F">
+
+      <SvgText
+        x={187}
+        y={90}
+        fontSize={11}
+        fontWeight="800"
+        fill="#4F6FA9"
+      >
         f(2x)
       </SvgText>
-      <SvgText x={103} y={108} fontSize={10} fontWeight="800" fill={C.ink}>
+
+      <SvgText
+        x={249}
+        y={120}
+        fontSize={11}
+        fontWeight="800"
+        fill="#9B8F84"
+      >
+        f(x)
+      </SvgText>
+      <SvgText x={120} y={108} fontSize={10} fontWeight="800" fill={C.ink}>
         left
       </SvgText>
     </>
@@ -2086,6 +2235,9 @@ export default function LessonDiagramView({ diagram }: Props) {
         {diagram.kind === "signed-area" && <SignedAreaDiagram />}
         {diagram.kind === "trapezium-rule" && <TrapeziumRuleDiagram />}
         {diagram.kind === "common-polynomial-graphs" && <CommonPolynomialGraphsDiagram />}
+        {diagram.kind === "parent-cubic-graph" && (
+          <ParentCubicGraphDiagram />
+        )}
         {diagram.kind === "root-modulus-graphs" && <RootModulusGraphsDiagram />}
         {diagram.kind === "reciprocal-graph" && <ReciprocalGraphDiagram />}
         {diagram.kind === "exponential-log-graphs" && <ExponentialLogGraphsDiagram />}

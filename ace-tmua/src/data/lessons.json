@@ -6378,7 +6378,7 @@
           "eyebrow": "CUBICS · 6 OF 18",
           "title": "A positive cubic runs from bottom-left to top-right",
           "diagram": {
-            "kind": "common-polynomial-graphs",
+            "kind": "parent-cubic-graph",
             "caption": "The parent cubic y = x³ has rotational symmetry about the origin and passes through it."
           },
           "body": "For the parent graph [[y=x^{3}]], the domain and range are both all real numbers. It is increasing throughout and has rotational symmetry about the origin.<br><br>A general cubic can bend to create a local maximum and minimum. With real coefficients it has at least one real root, and it may have three distinct real roots.",
@@ -6865,7 +6865,296 @@
       "id": "graph-parameters-composite-functions",
       "topicId": "topic-7",
       "title": "Graph Parameters and Composite Functions",
-      "screens": []
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "GRAPH PARAMETERS · 1 OF 18",
+          "title": "A parameter chooses one graph from a family",
+          "body": "In an equation such as [[y=mx+c]], x and y vary along one graph, while m and c stay fixed.<br><br>Changing a parameter creates a different member of the same family. The graphs keep a shared structure, but features such as gradient, intercept, position, or width change.",
+          "keyPoint": "Treat the variable as the moving input and the parameter as a fixed setting for that particular graph.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "STRAIGHT-LINE PARAMETERS · 2 OF 18",
+          "title": "In [[y=mx+c]], m controls slope and c controls height",
+          "body": "The gradient m tells you how much y changes when x increases by 1. Positive m gives a rising line, negative m a falling line, and larger [[\\lvert m\\rvert]] makes the line steeper.<br><br>The value c is the y-intercept. Changing c moves the line vertically without changing its gradient.",
+          "keyPoint": "Lines with the same m are parallel. Lines with the same c pass through the same point on the y-axis.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "LINE-PARAMETER CHECK · 3 OF 18",
+          "question": "The line [[y=(k+2)x-3k]] passes through [[(4,11)]]. What is the gradient of the line?",
+          "options": [
+            "[[3]]",
+            "[[5]]",
+            "[[8]]",
+            "[[11]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. Substituting [[(4,11)]] gives [[11=4(k+2)-3k=k+8]], so [[k=3]]. The gradient is [[k+2=5]].",
+          "incorrectFeedback": "First substitute the known point to find k. The gradient is the coefficient of x, which is [[k+2]], not k alone."
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "STRAIGHT-LINE REASONING · 4 OF 18",
+          "title": "Use two parameter-dependent points",
+          "question": "The line [[y=mx+7]] passes through [[(1,p)]] and [[(p,-3)]], where [[p>0]]. What are the possible values of p?",
+          "options": [
+            "[[p=1]] or [[p=6]]",
+            "[[p=2]] or [[p=5]]",
+            "[[p=2]] only",
+            "[[p=5]] only"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Use the first point",
+              "body": "Substituting [[(1,p)]] gives [[p=m+7]], so [[m=p-7]]."
+            },
+            {
+              "title": "Use the second point",
+              "body": "Substituting [[(p,-3)]] gives [[-3=mp+7]], so [[mp=-10]]."
+            },
+            {
+              "title": "Eliminate m",
+              "body": "Replace m by [[p-7]]: [[p(p-7)=-10]]. Hence [[p^{2}-7p+10=0]]."
+            },
+            {
+              "title": "Factorise",
+              "body": "[[p^{2}-7p+10=(p-2)(p-5)]], so [[p=2]] or [[p=5]]. Both satisfy [[p>0]]."
+            }
+          ],
+          "finalAnswer": "The possible values are [[p=2]] and [[p=5]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "QUADRATIC PARAMETERS · 5 OF 18",
+          "title": "Completed-square form reveals the whole parabola",
+          "body": "For [[y=a(x+b)^{2}+c]], the turning point is [[(-b,c)]] and the axis of symmetry is [[x=-b]].<br><br>If [[a>0]], the turning point is a minimum; if [[a<0]], it is a maximum. A larger [[\\lvert a\\rvert]] makes the graph narrower, while a smaller non-zero [[\\lvert a\\rvert]] makes it wider.",
+          "keyPoint": "The sign inside the bracket is reversed when reading the turning-point x-coordinate.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "QUADRATIC MODELLING · 6 OF 18",
+          "title": "Build a quadratic from its turning point and one point",
+          "question": "A quadratic function has turning point [[(2,-5)]] and its graph passes through [[(0,3)]]. Which expression represents the function?",
+          "options": [
+            "[[2(x-2)^{2}-5]]",
+            "[[2(x+2)^{2}-5]]",
+            "[[(x-2)^{2}+3]]",
+            "[[-2(x-2)^{2}-5]]"
+          ],
+          "answerIndex": 0,
+          "steps": [
+            {
+              "title": "Use the turning point",
+              "body": "Write the function as [[f(x)=a(x-2)^{2}-5]]."
+            },
+            {
+              "title": "Substitute the known point",
+              "body": "Because [[(0,3)]] lies on the graph, [[3=a(0-2)^{2}-5=4a-5]]."
+            },
+            {
+              "title": "Find a",
+              "body": "[[4a=8]], so [[a=2]]."
+            },
+            {
+              "title": "Write the function",
+              "body": "Therefore [[f(x)=2(x-2)^{2}-5]]."
+            }
+          ],
+          "finalAnswer": "The function is [[f(x)=2(x-2)^{2}-5]], so the correct option is A.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "QUADRATIC-PARAMETER CHECK · 7 OF 18",
+          "question": "The curve [[y=px^{2}-8x+q]] has axis of symmetry [[x=2]] and touches the x-axis at exactly one point. Find [[p+q]].",
+          "options": [
+            "[[6]]",
+            "[[8]]",
+            "[[10]]",
+            "[[12]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. The axis is [[x=\\frac{8}{2p}=\\frac4p]], so [[\\frac4p=2]] and [[p=2]]. Touching the x-axis means the turning-point y-value is 0. At [[x=2]], [[y=8-16+q=q-8]], so [[q=8]]. Hence [[p+q=10]].",
+          "incorrectFeedback": "Use the axis of symmetry to find p first. Then touching the x-axis means the value at the turning point must be zero."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "TRANSFORMED PARAMETERS · 8 OF 18",
+          "question": "Let [[f(x)=x^{2}-8x+7]]. The graphs [[y=f(kx)]] and [[y=f(x-c)]] have the same minimum point, where [[k>0]] and [[c>0]]. Which expression gives k in terms of c?",
+          "options": [
+            "[[\\frac{4}{c+4}]]",
+            "[[\\frac{4}{c-4}]]",
+            "[[\\frac{c+4}{4}]]",
+            "[[\\frac{c-4}{4}]]"
+          ],
+          "answerIndex": 0,
+          "correctFeedback": "Correct. The minimum of f occurs when its input is 4. For [[f(kx)]], this gives [[kx=4]], so the minimum has x-coordinate [[\\frac4k]]. For [[f(x-c)]], it gives [[x-c=4]], so the minimum has x-coordinate [[c+4]]. Equating them gives [[\\frac4k=c+4]], hence [[k=\\frac4{c+4}]].",
+          "incorrectFeedback": "Find where the input to f equals 4 in each graph. Equal minimum points require their x-coordinates to match."
+        },
+        {
+          "type": "milestone",
+          "eyebrow": "PARAMETERS COMPLETE · 9 OF 18",
+          "title": "You can now read and determine the settings of a graph.",
+          "body": "You have used m and c to analyse straight lines, and a, b, and c to analyse completed-square quadratics.<br><br>Next, you will connect functions in sequence and work accurately with [[f(g(x))]].",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMPOSITE FUNCTIONS · 10 OF 18",
+          "title": "In [[f(g(x))]], the inside function acts first",
+          "body": "A composite function connects the output of one function to the input of another. In [[f(g(x))]], first apply g, then apply f to the result.<br><br>The order matters: [[f(g(x))]] and [[g(f(x))]] usually produce different expressions and different graphs.",
+          "keyPoint": "Read nested functions from the inside out, but write the final expression carefully from the outside in.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "COMPOSITE FORMULAE · 11 OF 18",
+          "title": "Substitute the whole inside expression",
+          "steps": [
+            {
+              "title": "Define the functions",
+              "body": "Let [[f(x)=x^{2}-2x]] and [[g(x)=x+3]]."
+            },
+            {
+              "title": "Find [[f(g(x))]]",
+              "body": "Replace every x in f by [[x+3]]: [[f(g(x))=(x+3)^{2}-2(x+3)=x^{2}+4x+3]]."
+            },
+            {
+              "title": "Find [[g(f(x))]]",
+              "body": "The rule g adds 3 to its input, so [[g(f(x))=(x^{2}-2x)+3=x^{2}-2x+3]]."
+            },
+            {
+              "title": "Compare the results",
+              "body": "The two compositions differ because the functions were applied in opposite orders."
+            }
+          ],
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COMPOSITION CHECK · 12 OF 18",
+          "question": "Let [[f(x)=2x^{2}-1]] and [[g(x)=1-x]]. Find [[f(g(-2))]].",
+          "options": [
+            "[[7]]",
+            "[[9]]",
+            "[[17]]",
+            "[[19]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. First [[g(-2)=1-(-2)=3]]. Then [[f(3)=2(3^{2})-1=17]].",
+          "incorrectFeedback": "Work from the inside out: calculate [[g(-2)]] first, then use that value as the input to f."
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ORDER CHECK · 13 OF 18",
+          "question": "Let [[f(x)=x^{2}+1]] and [[g(x)=3x-2]]. Which expression equals [[g(f(x))]]?",
+          "options": [
+            "[[(3x-2)^{2}+1]]",
+            "[[3x^{2}-1]]",
+            "[[3x^{2}+1]]",
+            "[[x^{2}+3x-1]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Apply f first, then put its output into g: [[g(f(x))=3(x^{2}+1)-2=3x^{2}+1]].",
+          "incorrectFeedback": "Because g is the outside function, apply its rule [[3(\\text{input})-2]] to the complete expression [[f(x)=x^{2}+1]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMPOSITE DOMAINS · 14 OF 18",
+          "title": "The inside output must be allowed into the outside function",
+          "body": "A formula for a composite is not enough: its inputs must also be valid.<br><br>If [[f(x)=\\sqrt{x-1}]] and [[g(x)=5-2x]], then [[f(g(x))=\\sqrt{4-2x}]]. For real outputs, [[4-2x\\geq0]], so the composite has domain [[x\\leq2]].",
+          "keyPoint": "After composing, recheck square roots, denominators, and any original domain restrictions.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "DOMAIN CHECK · 15 OF 18",
+          "question": "Let [[f(x)=\\frac{1}{x-4}]] and [[g(x)=x^{2}+1]]. Which values must be excluded from the domain of [[f(g(x))]]?",
+          "options": [
+            "[[x=\\pm2]]",
+            "[[x=\\pm\\sqrt{3}]]",
+            "[[x=\\pm\\sqrt{5}]]",
+            "[[x=4]] only"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f(g(x))=\\frac1{x^{2}+1-4}=\\frac1{x^{2}-3}]], so the denominator is zero when [[x=\\pm\\sqrt3]].",
+          "incorrectFeedback": "Compose first, then set the resulting denominator equal to zero to find the excluded inputs."
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "COMPOSITE EQUATIONS · 16 OF 18",
+          "title": "Form the composite before solving",
+          "question": "Let [[f(x)=x^{2}+2x]] and [[g(x)=2x-1]]. Solve [[f(g(x))=3]].",
+          "options": [
+            "[[x=-1]] only",
+            "[[x=1]] only",
+            "[[x=-1]] or [[x=1]]",
+            "[[x=-\\frac12]] or [[x=\\frac12]]"
+          ],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Substitute g into f",
+              "body": "[[f(g(x))=(2x-1)^{2}+2(2x-1)]]."
+            },
+            {
+              "title": "Simplify before solving",
+              "body": "[[(2x-1)^{2}+2(2x-1)=4x^{2}-1]]."
+            },
+            {
+              "title": "Use the given equation",
+              "body": "[[4x^{2}-1=3]], so [[4x^{2}=4]] and [[x^{2}=1]]."
+            },
+            {
+              "title": "Take both roots",
+              "body": "Therefore [[x=-1]] or [[x=1]]."
+            }
+          ],
+          "finalAnswer": "The solutions are [[x=-1]] and [[x=1]], so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "MIXED CHALLENGE · 17 OF 18",
+          "question": "Let [[f(x)=a(x+b)^{2}+c]] and [[g(x)=x-2]]. It is known that [[f(g(x))=3(x+1)^{2}-4]] for every real x. Find [[a+b+c]].",
+          "options": [
+            "[[0]]",
+            "[[2]]",
+            "[[4]]",
+            "[[6]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[f(g(x))=a(x-2+b)^{2}+c]]. Comparing with [[3(x+1)^{2}-4]] gives [[a=3]], [[b-2=1]], so [[b=3]], and [[c=-4]]. Hence [[a+b+c=2]].",
+          "incorrectFeedback": "Substitute [[g(x)=x-2]] into f, then compare the outside coefficient, the expression inside the square, and the constant term separately."
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 18 OF 18",
+          "title": "Graph Parameters and Composite Functions: key points",
+          "keyPoints": [
+            "In [[y=mx+c]], m controls gradient and c controls the y-intercept.",
+            "In [[y=a(x+b)^{2}+c]], the turning point is [[(-b,c)]] and a controls direction and width.",
+            "Known points, symmetry, and touching conditions can determine unknown parameters.",
+            "In [[f(g(x))]], evaluate or substitute g first; reversing the order usually changes the result.",
+            "After composing functions, check domain restrictions before solving or sketching."
+          ],
+          "reviewItems": [
+            "Practise finding line parameters from points and intercept information.",
+            "Read quadratic turning points directly from completed-square form.",
+            "Substitute the entire inside expression when forming a composite.",
+            "Check square-root and denominator restrictions after composing.",
+            "Next lesson: Graph Shape, Roots and Intersections."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
     },
     {
       "id": "sketching-roots-intersections",
