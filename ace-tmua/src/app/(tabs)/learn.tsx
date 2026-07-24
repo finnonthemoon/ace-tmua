@@ -306,7 +306,8 @@ export default function LearnScreen() {
                   ]}
                 >
                   <View style={styles.nodeColumn}>
-                    {!isLast && <View style={styles.roadmapLine} />}
+                    {!isFirst && <View style={styles.roadmapLineTop} />}
+                    {!isLast && <View style={styles.roadmapLineBottom} />}
 
                     <View
                       style={[
@@ -563,16 +564,35 @@ const styles = StyleSheet.create({
   },
   roadmap: { marginTop: 28 },
   roadmapItem: {
-    minHeight: 144,
     flexDirection: "row",
+    alignItems: "stretch",
     gap: 14,
+    paddingBottom: 24,
   },
-  lockedItem: { opacity: 0.72 },
-  nodeColumn: { width: 58, alignItems: "center" },
-  roadmapLine: {
+
+  lockedItem: {
+    opacity: 0.72,
+  },
+
+  nodeColumn: {
+    width: 58,
+    position: "relative",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  roadmapLineTop: {
     position: "absolute",
-    top: 52,
-    bottom: -4,
+    top: 0,
+    bottom: "50%",
+    width: 3,
+    backgroundColor: "#F1DFBD",
+  },
+
+  roadmapLineBottom: {
+    position: "absolute",
+    top: "50%",
+    bottom: -24,
     width: 3,
     backgroundColor: "#F1DFBD",
   },
@@ -593,7 +613,7 @@ const styles = StyleSheet.create({
   roadmapCard: {
     flex: 1,
     minHeight: 112,
-    marginBottom: 24,
+
     paddingVertical: 17,
     paddingHorizontal: 18,
     backgroundColor: "#FFFDF9",
