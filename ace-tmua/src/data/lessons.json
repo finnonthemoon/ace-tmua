@@ -1503,7 +1503,7 @@
       "screens": [
         {
           "type": "concept",
-          "eyebrow": "FACTORIALS · 1 OF 13",
+          "eyebrow": "FACTORIALS · 1 OF 15",
           "title": "Factorials package repeated multiplication",
           "body": "For a positive integer n, n! means n × (n - 1) × (n - 2) × ... × 2 × 1.<br><br>For example, 5! = 5 × 4 × 3 × 2 × 1 = 120.<br><br>We also define 0! = 1.",
           "keyPoint": "Factorials often cancel. For example, [[\\frac{8!}{6!}]] = 8 × 7 = 56, because the factors from 6! downwards cancel.",
@@ -1511,7 +1511,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "FACTORIAL CHECK · 2 OF 13",
+          "eyebrow": "FACTORIAL CHECK · 2 OF 15",
           "question": "What is [[\\frac{9!}{7!}]]?",
           "prompt": "Cancel the common factorial before multiplying.",
           "options": [
@@ -1526,7 +1526,7 @@
         },
         {
           "type": "concept",
-          "eyebrow": "BINOMIAL COEFFICIENTS · 3 OF 13",
+          "eyebrow": "BINOMIAL COEFFICIENTS · 3 OF 15",
           "title": "[[\\binom{n}{r}]] counts the ways to choose r objects",
           "body": "The notation [[\\binom{n}{r}]], read 'n choose r', is a binomial coefficient.<br><br>[[\\binom{n}{r}]] = [[\\frac{n!}{(n - r)!r!}]], where 0 [[\\le]] r [[\\le]] n.<br><br>These numbers become the coefficients in a binomial expansion.",
           "keyPoint": "The coefficients are symmetric: [[\\binom{n}{r}]] = [[\\binom{n}{n-r}]]. For example, [[\\binom{7}{2}]] = [[\\binom{7}{5}]].",
@@ -1534,7 +1534,7 @@
         },
         {
           "type": "reveal",
-          "eyebrow": "BINOMIAL COEFFICIENTS · 4 OF 13",
+          "eyebrow": "BINOMIAL COEFFICIENTS · 4 OF 15",
           "title": "Calculate a binomial coefficient",
           "steps": [
             {
@@ -1558,7 +1558,7 @@
         },
         {
           "type": "concept",
-          "eyebrow": "BINOMIAL THEOREM · 5 OF 13",
+          "eyebrow": "BINOMIAL THEOREM · 5 OF 15",
           "title": "Each term has a predictable structure",
           "body": "For a positive integer n, the expansion of [[(a + b)^{n}]] contains n + 1 terms.<br><br>The general term is:<br><br>[[T_{r+1}]] = [[\\binom{n}{r}]][[a^{n-r}]][[b^{r}]], for r = 0, 1, 2, ..., n.",
           "keyPoint": "As r increases, the power of a decreases while the power of b increases. In every term, the two powers add to n.",
@@ -1566,7 +1566,7 @@
         },
         {
           "type": "reveal",
-          "eyebrow": "BINOMIAL EXPANSION · 6 OF 13",
+          "eyebrow": "BINOMIAL EXPANSION · 6 OF 15",
           "title": "Expand [[(1 + 2x)^{4}]]",
           "steps": [
             {
@@ -1590,7 +1590,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "COEFFICIENT CHECK · 7 OF 13",
+          "eyebrow": "COEFFICIENT CHECK · 7 OF 15",
           "question": "What is the coefficient of [[x^{3}]] in the expansion of [[(2 - x)^{5}]]?",
           "prompt": "Use the term with r = 3 and include the negative sign.",
           "options": [
@@ -1605,14 +1605,14 @@
         },
         {
           "type": "milestone",
-          "eyebrow": "NICE WORK · 8 OF 13",
+          "eyebrow": "NICE WORK · 8 OF 15",
           "title": "Core binomial expansion complete.",
           "body": "You can now use factorials, calculate [[\\binom{n}{r}]] and select a particular term from an expansion.<br><br>Next, we will apply the same method when the second term is a function such as [[3x^{2}]].",
           "buttonText": "Continue"
         },
         {
           "type": "concept",
-          "eyebrow": "FUNCTIONS INSIDE BINOMIALS · 9 OF 13",
+          "eyebrow": "FUNCTIONS INSIDE BINOMIALS · 9 OF 15",
           "title": "Track the power created by f(x)",
           "body": "The same theorem applies to [[(a + f(x))^{n}]].<br><br>The general term is [[\\binom{n}{r}]][[a^{n-r}]][[(f(x))^{r}]].<br><br>If f(x) = [[3x^{2}]], then [[(f(x))^{r}]] = [[3^{r}]][[x^{2r}]].",
           "keyPoint": "In an expansion involving [[x^{2}]], only even powers of x appear. To find the [[x^{6}]] term, solve 2r = 6, giving r = 3.",
@@ -1620,7 +1620,7 @@
         },
         {
           "type": "reveal",
-          "eyebrow": "FUNCTION EXAMPLE · 10 OF 13",
+          "eyebrow": "FUNCTION EXAMPLE · 10 OF 15",
           "title": "Find the coefficient of [[x^{6}]]",
           "steps": [
             {
@@ -1643,8 +1643,49 @@
           "buttonText": "Continue"
         },
         {
+          "type": "concept",
+          "eyebrow": "TRINOMIAL EXPANSION · 11 OF 15",
+          "title": "Use the multinomial coefficient",
+          "body": "For the expansion of [[(a+b+c)^n]], a term of the form [[a^i b^j c^k]] can appear only when:<br><br>[[i+j+k=n]].<br><br>The coefficient of that term is:<br><br>[[\\frac{n!}{i!j!k!}]].<br><br>This counts the different ways the [[n]] brackets can contribute [[a]], [[b]] and [[c]].",
+          "keyPoint": "The powers must add to n. When the terms contain numerical coefficients, include those numerical powers after calculating the multinomial coefficient.",
+          "buttonText": "Try the method"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "TRINOMIAL EXAMPLE · 12 OF 15",
+          "title": "Include the numerical coefficients",
+          "question": "What is the coefficient of [[x^2y]] in the expansion of [[(2+x-3y)^5]]?",
+          "options": [
+            "[[-120]]",
+            "[[-240]]",
+            "[[-360]]",
+            "[[-720]]"
+          ],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Match the required powers",
+              "body": "To create [[x^2y]], two brackets must contribute [[x]], one bracket must contribute [[-3y]], and the remaining two brackets must contribute [[2]].<br><br>The corresponding powers are [[2]], [[1]] and [[2]], which add to [[5]]."
+            },
+            {
+              "title": "Count the arrangements",
+              "body": "The number of possible arrangements is:<br><br>[[\\frac{5!}{2!1!2!}=30]]."
+            },
+            {
+              "title": "Include the numerical parts",
+              "body": "Each arrangement contributes:<br><br>[[2^2\\times1^2\\times(-3)^1=-12]]."
+            },
+            {
+              "title": "Calculate the coefficient",
+              "body": "Therefore the coefficient is:<br><br>[[30\\times(-12)=-360]]."
+            }
+          ],
+          "finalAnswer": "The coefficient of [[x^2y]] is [[-360]], so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
           "type": "multipleChoice",
-          "eyebrow": "POWER CHECK · 11 OF 13",
+          "eyebrow": "POWER CHECK · 13 OF 15",
           "question": "Which power of x does not appear in the expansion of [[(1 + 2x^{3})^{6}]]?",
           "prompt": "The powers of x are multiples of 3.",
           "options": [
@@ -1660,7 +1701,7 @@
         },
         {
           "type": "multipleChoice",
-          "eyebrow": "TMUA-STYLE CHECK · 12 OF 13",
+          "eyebrow": "TMUA-STYLE CHECK · 14 OF 15",
           "question": "In the expansion of [[(a + bx^{2})^{7}]], the coefficient of [[x^{10}]] is 15 times the coefficient of [[x^{6}]].<br><br>Given that a and b are non-zero positive integers, what is the smallest possible value of a + b?",
           "prompt": "Match [[x^{10}]] with r = 5 and [[x^{6}]] with r = 3.",
           "options": [
@@ -1676,7 +1717,7 @@
         },
         {
           "type": "lessonSummary",
-          "eyebrow": "LESSON SUMMARY · 13 OF 13",
+          "eyebrow": "LESSON SUMMARY · 15 OF 15",
           "title": "Binomial Expansion and Factorials: key points",
           "keyPoints": [
             "n! means n × (n - 1) × ... × 2 × 1, and 0! = 1.",
@@ -1685,6 +1726,7 @@
             "The general term is [[T_{r+1}]] = [[\\binom{n}{r}]][[a^{n-r}]][[b^{r}]].",
             "To find a coefficient, first identify the value of r that produces the required power.",
             "For [[(a + f(x))^{n}]], remember to raise the whole function f(x) to the power r.",
+            "For [[(a+b+c)^n]], the coefficient of [[a^i b^j c^k]] is [[\\frac{n!}{i!j!k!}]], where [[i+j+k=n]].",
             "The sign of a term matters when the binomial contains subtraction."
           ],
           "reviewItems": [
@@ -1692,6 +1734,7 @@
             "Practise calculating [[\\binom{n}{r}]] using the factorial formula.",
             "Practise selecting one coefficient without expanding every term.",
             "Practise matching powers when f(x) contains [[x^{2}]] or [[x^{3}]].",
+            "Practise using multinomial coefficients for selected terms in trinomial expansions.",
             "Next lesson: Advanced Series Logic."
           ],
           "buttonText": "Finish lesson"
@@ -7764,7 +7807,7 @@
           "type": "concept",
           "eyebrow": "GEOMETRIC LANGUAGE · 1 OF 18",
           "title": "Precise language tells you which facts may be used",
-          "body": "A line extends indefinitely, while a line segment has two endpoints. A vertex is a point where sides or edges meet, and a plane is a flat two-dimensional surface.<br><br>Parallel lines never meet, perpendicular lines meet at a right angle, and an angle is subtended by the points or lines that form it. A regular polygon has equal sides and equal interior angles.",
+          "body": "A transversal is a line that crosses two or more other lines. When a transversal crosses parallel lines, it creates several useful angle relationships.<br><br>Corresponding angles are equal, alternate angles are equal, and co-interior angles sum to 180°.",
           "keyPoint": "Do not assume a diagram is drawn to scale. Use only marked facts, stated properties, and conclusions you can justify.",
           "buttonText": "Continue"
         },
@@ -7838,35 +7881,35 @@
         },
         {
           "type": "workedExample",
-          "eyebrow": "POLYGON INTEGER CHALLENGE · 7 OF 18",
-          "title": "Count the polygon pairs allowed by an angle relationship",
-          "question": "The interior angle of a regular n-gon is [[\\frac45]] of the interior angle of a regular m-gon. How many ordered pairs of integers [[(n,m)]] are possible?",
+          "eyebrow": "POLYGON REASONING",
+          "title": "Connect side numbers and diagonals",
+          "question": "A regular polygon has 90 more diagonals than it has sides. What is the size of each interior angle?",
           "options": [
-            "[[2]]",
-            "[[3]]",
-            "[[4]]",
-            "[[5]]"
+            "[[150^\\circ]]",
+            "[[154^\\circ]]",
+            "[[156^\\circ]]",
+            "[[162^\\circ]]"
           ],
           "answerIndex": 2,
           "steps": [
             {
-              "title": "Write both interior angles",
-              "body": "[[180-\\frac{360}{n}=\\frac45\\left(180-\\frac{360}{m}\\right)]]."
+              "title": "Represent the number of sides",
+              "body": "Let the polygon have [[n]] sides. The number of diagonals in an [[n]]-sided polygon is [[\\frac{n(n-3)}{2}]]."
             },
             {
-              "title": "Rearrange the equation",
-              "body": "Simplifying gives<br><br>[[1=\\frac{10}{n}-\\frac{8}{m}]],<br><br>so [[(10-n)(m+8)=80]]."
+              "title": "Use the information given",
+              "body": "There are 90 more diagonals than sides, so<br><br>[[\\frac{n(n-3)}{2}=n+90]].<br><br>Multiplying by 2 gives<br><br>[[n^2-3n=2n+180]]."
             },
             {
-              "title": "Use the polygon restrictions",
-              "body": "Because [[n\\geq3]] and the left interior angle is smaller, [[3\\leq n<10]]. Thus [[10-n]] is one of the positive divisors of 80 from 1 to 7."
+              "title": "Find the valid number of sides",
+              "body": "Rearranging and factorising gives<br><br>[[n^2-5n-180=0]]<br><br>[[ (n-15)(n+12)=0]].<br><br>A polygon cannot have a negative number of sides, so [[n=15]]."
             },
             {
-              "title": "List the valid pairs",
-              "body": "The valid values give<br><br>[[(n,m)=(9,72),(8,32),(6,12),(5,8)]].<br><br>There are 4 ordered pairs."
+              "title": "Calculate the interior angle",
+              "body": "Each interior angle of a regular [[15]]-gon is<br><br>[[180^\\circ-\\frac{360^\\circ}{15}=180^\\circ-24^\\circ=156^\\circ]]."
             }
           ],
-          "finalAnswer": "There are 4 possible ordered pairs, so the correct option is C.",
+          "finalAnswer": "The polygon has 15 sides, so each interior angle is [[156^\\circ]].",
           "buttonText": "Continue"
         },
         {
@@ -7908,35 +7951,35 @@
         },
         {
           "type": "workedExample",
-          "eyebrow": "SUFFICIENT INFORMATION · 12 OF 18",
-          "title": "Use equal area alongside extra conditions",
-          "question": "Triangles ABC and PQR have the same area. Consider these conditions independently:<br><br>I. [[AB=PQ]] and [[AC=PR]]<br>II. [[AB=PQ]] and [[\\angle BAC=\\angle QPR]]<br>III. [[\\angle A=\\angle P]] and [[\\angle B=\\angle Q]]<br><br>Which conditions are sufficient to imply that the triangles are congruent?",
+          "eyebrow": "CONGRUENCE REASONING",
+          "title": "Combine parallelogram facts with congruence",
+          "question": "ABCD is a parallelogram, and P lies on the diagonal AC. Consider these conditions independently:<br><br>I. [[AP=PC]]<br><br>II. [[BP=DP]]<br><br>III. [[\\angle ABP=\\angle CDP]]<br><br>Which conditions are sufficient to imply that triangles ABP and CDP are congruent?",
           "options": [
             "I only",
-            "II only",
-            "II and III only",
+            "III only",
+            "I and III only",
             "I, II and III"
           ],
           "answerIndex": 2,
           "steps": [
             {
+              "title": "Start with the parallelogram facts",
+              "body": "Opposite sides of a parallelogram are equal, so [[AB=CD]]. Also, because [[AB\\parallel CD]] and AC is a transversal, [[\\angle BAP=\\angle DCP]]."
+            },
+            {
               "title": "Test condition I",
-              "body": "Equal pairs of sides and equal area give equal values of the sine of the included angle. Supplementary included angles have the same sine, so two non-congruent triangles may still be possible. I is not sufficient."
+              "body": "Condition I gives [[AP=PC]]. We now have [[AB=CD]], [[AP=PC]], and the included angles [[\\angle BAP=\\angle DCP]]. Therefore the triangles are congruent by SAS."
             },
             {
               "title": "Test condition II",
-              "body": "Using [[\\text{area}=\\frac12ab\\sin C]], equal area, one equal side and the equal included angle force the other side beside that angle to be equal. SAS then gives congruence."
+              "body": "Condition II gives [[BP=DP]]. Together with [[AB=CD]] and one equal angle, this has the form SSA, which is not a valid congruence rule.<br><br>For example, in a rhombus BP and DP can be equal even when P is not the midpoint of AC, so [[AP\\ne PC]] and the triangles need not be congruent."
             },
             {
               "title": "Test condition III",
-              "body": "Two equal angles make the triangles similar. Equal areas mean the square of the scale factor is 1, so the positive scale factor is 1. The triangles are congruent."
-            },
-            {
-              "title": "Combine the results",
-              "body": "Conditions II and III are sufficient, but condition I is not."
+              "body": "Condition III gives [[\\angle ABP=\\angle CDP]]. We already know [[\\angle BAP=\\angle DCP]] and [[AB=CD]]. The equal side lies between the two equal angles, so the triangles are congruent by ASA."
             }
           ],
-          "finalAnswer": "The correct option is C: II and III only.",
+          "finalAnswer": "Conditions I and III are sufficient, but condition II is not. The answer is I and III only.",
           "buttonText": "Continue"
         },
         {
@@ -8646,6 +8689,310 @@
           "buttonText": "Finish lesson"
         }
       ]
+    },
+    {
+      "id": "measures-pythagoras-3d",
+      "topicId": "topic-8",
+      "title": "Measures, Pythagoras and 3D Geometry",
+      "screens": [
+        {
+          "type": "concept",
+          "eyebrow": "UNITS AND MEASURES · 1 OF 17",
+          "title": "Convert the dimensions before using a formula",
+          "body": "Lengths, areas and volumes scale differently when units change.<br><br>1 m = 100 cm<br>1 m² = 10,000 cm²<br>1 m³ = 1,000,000 cm³<br><br>Compound units must be converted in both the numerator and denominator.",
+          "keyPoint": "Do not attach the same conversion factor to length, area and volume: square it for area and cube it for volume.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "COMPOUND UNITS · 2 OF 17",
+          "question": "A solid has mass 3 kg and volume 1500 cm³. What is its density in g/cm³?",
+          "options": [
+            "0.002",
+            "0.5",
+            "2",
+            "2000"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. First convert 3 kg to 3000 g. Then density = 3000 ÷ 1500 = 2 g/cm³.",
+          "incorrectFeedback": "First convert the mass into grams: 3 kg = 3000 g. Then divide the mass by the volume."
+        },
+        {
+          "type": "reveal",
+          "eyebrow": "AREA FORMULAE · 3 OF 17",
+          "title": "Recognise the useful dimension",
+          "steps": [
+            {
+              "title": "Triangles and parallelograms use perpendicular height",
+              "body": "For a triangle, [[A=\\frac12 bh]]. For a parallelogram, [[A=bh]]. The height must be perpendicular to the chosen base."
+            },
+            {
+              "title": "A trapezium averages its parallel sides",
+              "body": "If the parallel sides are [[a]] and [[b]] and the perpendicular height is [[h]], then [[A=\\frac12(a+b)h]]."
+            },
+            {
+              "title": "Circles depend on the radius",
+              "body": "The circumference is [[2\\pi r]] and the area is [[\\pi r^{2}]]. Check whether a stated measurement is a radius or a diameter."
+            }
+          ],
+          "buttonText": "Try an algebraic area"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "AREA AND ALGEBRA · 4 OF 17",
+          "question": "A trapezium has parallel sides [[x]] and [[x+4]], perpendicular height [[x-2]], and area [[60]]. Given [[x>2]], what is the length of its shorter parallel side?",
+          "options": [
+            "[[6]]",
+            "[[8]]",
+            "[[10]]",
+            "[[12]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. [[\\frac12(2x+4)(x-2)=60]], so [[(x+2)(x-2)=60]]. Hence [[x^{2}=64]] and, since [[x>2]], [[x=8]].",
+          "incorrectFeedback": "Use [[A=\\frac12(a+b)h]]. After simplifying, reject the negative square root because [[x>2]]."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SURFACE AREA AND VOLUME · 5 OF 17",
+          "title": "Prisms repeat one cross-section",
+          "body": "For any right prism:<br><br>[[V=A\\ell]]<br><br>where A is the cross-sectional area and ℓ is the length of the prism.<br><br>A cylinder is a prism with circular cross-section, so:<br><br>[[V=\\pi r^{2}h]]<br><br>Surface area counts every exposed face. For a closed cylinder:<br><br>[[S=2\\pi r^{2}+2\\pi rh]].",
+          "keyPoint": "Volume measures three-dimensional space; surface area measures exposed two-dimensional material.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "VOLUME-SURFACE LINK · 6 OF 17",
+          "title": "Turn a geometric condition into an equation",
+          "question": "A closed cylinder has height [[6\\text{ cm}]] and radius [[r\\text{ cm}]]. The numerical value of its volume exceeds the numerical value of its total surface area by [[16\\pi]]. Find [[r]].",
+          "options": [
+            "[[2]]",
+            "[[3]]",
+            "[[4]]",
+            "[[6]]"
+          ],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Write the volume",
+              "body": "[[V=\\pi r^{2}h=6\\pi r^{2}]]."
+            },
+            {
+              "title": "Write the total surface area",
+              "body": "The two circular ends contribute [[2\\pi r^{2}]], and the curved surface contributes [[2\\pi rh=12\\pi r]]. Therefore [[S=2\\pi r^{2}+12\\pi r]]."
+            },
+            {
+              "title": "Use the difference",
+              "body": "[[V-S=16\\pi]] gives [[6\\pi r^{2}-(2\\pi r^{2}+12\\pi r)=16\\pi]]. Dividing by [[4\\pi]] gives [[r^{2}-3r-4=0]]."
+            },
+            {
+              "title": "Choose the geometric solution",
+              "body": "[[(r-4)(r+1)=0]], so [[r=4]] or [[r=-1]]. A radius must be positive, so [[r=4]]."
+            }
+          ],
+          "finalAnswer": "The radius is [[4\\text{ cm}]], so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "PYTHAGORAS · 7 OF 17",
+          "title": "Build three-dimensional distances in stages",
+          "body": "Pythagoras applies whenever the relevant triangle is right-angled, including inside a solid.<br><br>For a cuboid with side lengths [[a]], [[b]] and [[c]], first find a face diagonal, then combine it with the remaining perpendicular edge. This gives [[d^{2}=a^{2}+b^{2}+c^{2}]].",
+          "keyPoint": "Do not use three lengths at once until you have identified two perpendicular right triangles.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "HIDDEN DIAGONAL · 8 OF 17",
+          "question": "The rectangular base of a cuboid has area [[48]] and perimeter [[28]]. The cuboid has height [[12]]. What is the distance between a pair of opposite vertices?",
+          "options": [
+            "[[\\sqrt{61}]]",
+            "[[2\\sqrt{61}]]",
+            "[[10\\sqrt{2}]]",
+            "[[2\\sqrt{73}]]"
+          ],
+          "answerIndex": 1,
+          "correctFeedback": "Correct. If the base sides are [[a]] and [[b]], then [[a+b=14]] and [[ab=48]]. Thus [[a^{2}+b^{2}=14^{2}-2(48)=100]]. The space diagonal satisfies [[d^{2}=100+12^{2}=244]], so [[d=2\\sqrt{61}]].",
+          "incorrectFeedback": "Use the perimeter and area to find [[a^{2}+b^{2}=(a+b)^{2}-2ab]], then include the squared height."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SHORTEST SURFACE ROUTES · 9 OF 17",
+          "title": "Unfold the faces before measuring",
+          "body": "A shortest route constrained to the surface of a solid becomes a straight line when the crossed faces are unfolded into one plane.<br><br>Different choices of adjacent faces can create different rectangles, so compare every genuinely distinct unfolding rather than trusting the first net you draw.",
+          "keyPoint": "Straight in the net means shortest on that particular collection of faces.",
+          "buttonText": "Compare three unfoldings"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "SURFACE PATH · 10 OF 17",
+          "title": "Compare every distinct cuboid net",
+          "question": "A cuboid has dimensions [[4]], [[6]] and [[9]]. Find the shortest distance along its surface between two opposite vertices.",
+          "options": [
+            "[[\\sqrt{157}]]",
+            "[[\\sqrt{181}]]",
+            "[[\\sqrt{205}]]",
+            "[[\\sqrt{241}]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Join the 4 and 6 faces",
+              "body": "One unfolding forms a rectangle with side lengths [[4+6=10]] and [[9]]. Its diagonal is [[\\sqrt{10^{2}+9^{2}}=\\sqrt{181}]]."
+            },
+            {
+              "title": "Join the 4 and 9 faces",
+              "body": "A second unfolding gives [[\\sqrt{(4+9)^{2}+6^{2}}=\\sqrt{205}]]."
+            },
+            {
+              "title": "Join the 6 and 9 faces",
+              "body": "The final distinct unfolding gives [[\\sqrt{(6+9)^{2}+4^{2}}=\\sqrt{241}]]."
+            },
+            {
+              "title": "Compare, do not approximate",
+              "body": "Because [[181<205<241]], the shortest route has length [[\\sqrt{181}]]."
+            }
+          ],
+          "finalAnswer": "The shortest surface distance is [[\\sqrt{181}]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "SOLIDS AND ELEVATIONS · 11 OF 17",
+          "title": "A view records the greatest visible height",
+          "body": "A plan is the view from above. A front elevation and a side elevation show the outline seen from horizontal directions.<br><br>For cube stacks, each column in an elevation records the greatest stack height along that line of sight. Hidden stacks may exist behind the visible outline.",
+          "keyPoint": "Two elevations usually do not determine a unique solid, so questions may ask for the least or greatest possible number of cubes.",
+          "buttonText": "Try a minimum-cubes problem"
+        },
+        {
+          "type": "multipleChoice",
+          "eyebrow": "ELEVATION REASONING · 12 OF 17",
+          "question": "A solid occupies every square of a [[2\\times3]] rectangular plan, with at least one cube on each square. Its front elevation has column heights [[3,2,1]], and its side elevation has row heights [[3,2]]. What is the least possible number of cubes?",
+          "options": [
+            "[[7]]",
+            "[[8]]",
+            "[[9]]",
+            "[[10]]"
+          ],
+          "answerIndex": 2,
+          "correctFeedback": "Correct. Six cubes are needed to occupy the six plan squares. One stack must be raised from 1 to 3, adding 2 cubes, and a stack in the other row and the height-2 front column must be raised from 1 to 2, adding 1 more. The minimum is [[6+2+1=9]].",
+          "incorrectFeedback": "Begin with one cube on each of the six plan squares. Then add only the cubes forced by the height-3 and height-2 requirements, placing them to satisfy both elevations simultaneously."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "MAPS AND BEARINGS · 13 OF 17",
+          "title": "Bearings are measured clockwise from north",
+          "body": "A three-figure bearing always uses three digits, such as [[045^{\\circ}]] or [[210^{\\circ}]]. Draw a north line at every relevant point because the north lines are parallel.<br><br>On a scale drawing, convert the measured map length using the stated scale before interpreting the real distance.",
+          "keyPoint": "Mark north first, then rotate clockwise. This prevents the common error of measuring from east or using an anticlockwise angle.",
+          "buttonText": "Follow an exact route"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "BEARING ROUTE · 14 OF 17",
+          "title": "Resolve two exact journeys",
+          "question": "Point B is [[4\\sqrt2\\text{ km}]] from A on a bearing of [[045^{\\circ}]]. Point C is [[6\\sqrt2\\text{ km}]] from B on a bearing of [[135^{\\circ}]]. Find [[AC]].",
+          "options": [
+            "[[2\\sqrt{13}\\text{ km}]]",
+            "[[2\\sqrt{26}\\text{ km}]]",
+            "[[4\\sqrt7\\text{ km}]]",
+            "[[10\\text{ km}]]"
+          ],
+          "answerIndex": 1,
+          "steps": [
+            {
+              "title": "Resolve the first journey",
+              "body": "A bearing of [[045^{\\circ}]] points north-east. The east and north components are both [[4\\sqrt2\\times\\frac{\\sqrt2}{2}=4]]."
+            },
+            {
+              "title": "Resolve the second journey",
+              "body": "A bearing of [[135^{\\circ}]] points south-east. Its east component is [[6]], while its north component is [[-6]]."
+            },
+            {
+              "title": "Combine the displacements",
+              "body": "From A to C, the total eastward displacement is [[4+6=10]], and the total northward displacement is [[4-6=-2]]."
+            },
+            {
+              "title": "Use Pythagoras",
+              "body": "[[AC=\\sqrt{10^{2}+(-2)^{2}}=\\sqrt{104}=2\\sqrt{26}]]."
+            }
+          ],
+          "finalAnswer": "[[AC=2\\sqrt{26}\\text{ km}]], so the correct option is B.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "concept",
+          "eyebrow": "COMPOSITE SOLIDS · 15 OF 17",
+          "title": "Count only the surfaces that remain exposed",
+          "body": "When solids are joined, the touching faces become internal and are not part of the external surface area. When a hole is drilled or a section removed, subtract the missing outer regions but add any newly exposed inner surfaces.<br><br>Formulae for spheres, cones and pyramids may be supplied, but deciding which surfaces and volumes are present is still part of the problem.",
+          "keyPoint": "For every face, ask: is it still present, and can it be touched from outside the solid?",
+          "buttonText": "Apply the exposed-surface rule"
+        },
+        {
+          "type": "workedExample",
+          "eyebrow": "EXPOSED AREA · 16 OF 17",
+          "title": "A drilled hole removes and creates surfaces",
+          "question": "A cylindrical hole of radius [[1]] is drilled straight through the centres of two opposite faces of a cube of side length [[6]]. What is the total surface area of the resulting solid?",
+          "options": [
+            "[[216-2\\pi]]",
+            "[[216+8\\pi]]",
+            "[[216+10\\pi]]",
+            "[[216+12\\pi]]"
+          ],
+          "answerIndex": 2,
+          "steps": [
+            {
+              "title": "Start with the cube",
+              "body": "The original surface area is [[6\\times6^{2}=216]]."
+            },
+            {
+              "title": "Remove the two circular openings",
+              "body": "The drilling removes two circles of area [[\\pi(1)^{2}]], so subtract [[2\\pi]]."
+            },
+            {
+              "title": "Add the inside of the hole",
+              "body": "The new inner curved surface is a cylinder of radius [[1]] and length [[6]], with area [[2\\pi rh=2\\pi(1)(6)=12\\pi]]."
+            },
+            {
+              "title": "Combine the changes",
+              "body": "[[216-2\\pi+12\\pi=216+10\\pi]]."
+            }
+          ],
+          "finalAnswer": "The total surface area is [[216+10\\pi]], so the correct option is C.",
+          "buttonText": "Continue"
+        },
+        {
+          "type": "lessonSummary",
+          "eyebrow": "LESSON SUMMARY · 17 OF 17",
+          "title": "Measures and 3D Geometry: key points",
+          "keyPoints": [
+            "Square or cube unit-conversion factors when converting areas or volumes.",
+            "Use cross-sectional area times length for every right prism.",
+            "Build three-dimensional Pythagoras from perpendicular two-dimensional triangles.",
+            "Unfold surfaces and compare all distinct nets when finding a shortest surface route.",
+            "Plans and elevations record maximum visible stack heights, not every hidden cube.",
+            "For composite surface area, remove hidden or missing regions and add newly exposed ones."
+          ],
+          "reviewItems": [
+            "Practise changing between cubic centimetres and cubic metres.",
+            "Learn the standard area, circumference, prism-volume and cylinder-volume formulae.",
+            "Separate straight-through distances from routes constrained to a surface.",
+            "Draw north lines before interpreting bearings.",
+            "Next lesson: Vectors and Geometric Proof."
+          ],
+          "buttonText": "Finish lesson"
+        }
+      ]
+    },
+    {
+      "id": "vectors-geometric-proof",
+      "topicId": "topic-8",
+      "title": "Vectors and Geometric Proof",
+      "screens": []
+    },
+    {
+      "id": "geometry-measures-vectors-exam-style-questions",
+      "topicId": "topic-8",
+      "title": "Geometry Exam-Style Questions",
+      "screens": []
     },
     {
       "id": "statistics-data",

@@ -181,11 +181,18 @@ const LESSON_SUBTITLES: Record<string, string> = {
     "Roots, intersections and curve behaviour",
   "graphs-transformations-exam-style-questions":
     "Bring the whole topic together",
-  "geometry-proportion": "Scale, shape, circles and vectors",
+  "angles-polygons-congruence":
+    "Angle facts, polygon reasoning and congruent shapes",
   "transformations-similarity-scale":
     "Geometric transformations, similar figures and scale factors",
   "circle-geometry-theorems":
     "Circle theorems, tangents, chords and multi-stage deductions",
+  "measures-pythagoras-3d":
+    "Units, areas, volumes, bearings and spatial reasoning",
+  "vectors-geometric-proof":
+    "Vector routes, ratios, parallelism and proof",
+  "geometry-measures-vectors-exam-style-questions":
+    "Bring the whole topic together",
   "statistics-data": "Charts, grouped data and comparisons",
   "probability": "Expected frequencies, trees and conditional probability",
   "logic-of-arguments": "Implication, converse and necessary conditions",
@@ -293,9 +300,7 @@ export default function LearnScreen() {
               const isCurrent = !isLocked && !isCompleted;
               const subtitle =
                 LESSON_SUBTITLES[lesson.id] ??
-                (isLast
-                  ? "Bring the whole topic together"
-                  : "Lesson coming soon");
+                (isLast ? "Bring the whole topic together" : "");
 
               return (
                 <View
@@ -373,9 +378,11 @@ export default function LearnScreen() {
                       {lesson.title}
                     </Text>
 
-                    <Text style={styles.roadmapSubtitle}>
-                      {subtitle}
-                    </Text>
+                    {subtitle ? (
+                      <Text style={styles.roadmapSubtitle}>
+                        {subtitle}
+                      </Text>
+                    ) : null}
 
                     {!isLocked && (
                       <View style={styles.startRow}>
